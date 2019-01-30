@@ -1,0 +1,11 @@
+﻿function papers(id,ids,count,size){(function(){var obj=[],imgs=[];var i=0;for(i=0;i<ids.length;i++){obj[i]=document.getElementById(ids[i]);}
+for(i=0;i<ids.length;i++){imgs[i]=[obj[i],size+Math.random()*3,size+Math.random()*4];}
+var COUNT=count;var masthead=document.querySelector(id);var canvas=document.createElement('canvas');var ctx=canvas.getContext('2d');var width=$(id).width();var height=$(id).height();var active=true;function onResize(){width=$(id).width();height=$(id).height();canvas.width=width;canvas.height=height;ctx.fillStyle='#FFF';var wasActive=active=true;requestAnimFrame(update);}
+var Snowflake=function(){this.x=0;this.y=Math.random()* -height;this.vy=0;this.vx=0;this.r=0;this.reset();}
+Snowflake.prototype.reset=function(){this.x=Math.random()*width;this.y=Math.random()* -height;this.vy=1+Math.random()*1;this.vx=0.5-Math.random();this.r=1+Math.random()*2;this.o=0.5+Math.random()*0.5;var index=parseInt(100*Math.random());if(index<=5){index=1}else if(index>5&&index<=30){index=0}else if(index>20&&index<=50){index=2}else if(index>50&&index<=80){index=3}else if(index>80&&index<=90){index=4}else if(index>90&&index<=95){index=5}else{index=0;};this.scale=1;this.width=imgs[index][1]*this.scale;this.height=imgs[index][2]*this.scale;this.img=imgs[index][0];this.rotate=0;}
+canvas.style.position='absolute';canvas.style.left=canvas.style.top='0';var snowflakes=[],snowflake;for(i=0;i<COUNT;i++){snowflake=new Snowflake();snowflakes.push(snowflake);}
+function update(){ctx.clearRect(0,0,width,height);if(!active)
+return;for(i=0;i<COUNT;i++){snowflake.vy+=0.01
+snowflake=snowflakes[i];snowflake.y+=snowflake.vy;snowflake.x+=snowflake.vx;ctx.save();ctx.translate(snowflake.x+snowflake.width/2,snowflake.y+snowflake.height/2);ctx.rotate(snowflake.rotate+=(Math.PI/180)*5*Math.random());ctx.translate(-snowflake.x-snowflake.width/2,-snowflake.y-snowflake.height/2);ctx.drawImage(snowflake.img,snowflake.x,snowflake.y,snowflake.width,snowflake.height);ctx.restore();if(snowflake.y>height){snowflake.reset();}}
+requestAnimFrame(update);}
+window.requestAnimFrame=(function(){return window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||function(callback){window.setTimeout(callback,1000/60);};})();onResize();masthead.appendChild(canvas);})();};

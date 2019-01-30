@@ -1,0 +1,132 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main cover">
+    <div class="content">
+        <!--第一部分-->
+        <div class="videoBtn">
+            <a target="_blank" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/play.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{$cover_video[0].url}"></a>
+        </div>
+        <div class="download_wrap">
+            <a class="ios js_down_ios" href="" class="" target="_blank"></a>
+            <a class="android js_down_andriod" href="" target="_blank"></a>
+            <a class="tap" href="https://www.taptap.com/app/23420" target="_blank"></a>
+            <a class="btn" href="/site"></a>
+        </div>
+        <div class="down"></div>
+        <!--第二部分-->
+        <div class="slider">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide slide1">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}6.0/images/si01.png?{$smarty.const.VERSION}" alt=""></a>
+                    </div>
+                    <div class="swiper-slide slide2">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}6.0/images/si02.png?{$smarty.const.VERSION}" alt=""></a>
+                    </div>
+                    <div class="swiper-slide slide3">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}6.0/images/si03.png?{$smarty.const.VERSION}" alt=""></a>
+                    </div>
+                    <div class="swiper-slide slide4">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}6.0/images/si04.png?{$smarty.const.VERSION}" alt=""></a>
+                    </div>
+                    <div class="swiper-slide slide5">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}6.0/images/si05.png?{$smarty.const.VERSION}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="detail_btn"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/btn.png?{$smarty.const.VERSION}" alt=""/></div>
+        </div>
+        <!--第三部分-->
+        <div class="slider2">
+            <ul class="section3-feature-ul">
+                <li class="feature1">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}6.0/images/img01.jpg?{$smarty.const.VERSION}" alt="img">
+                </li>
+                <li class="feature2">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}6.0/images/img02.jpg?{$smarty.const.VERSION}" alt="img">
+                </li>
+                <li class="feature3">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}6.0/images/img03.jpg?{$smarty.const.VERSION}" alt="img">
+                </li>
+                <li class="feature4">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}6.0/images/img04.jpg?{$smarty.const.VERSION}" alt="img">
+                </li>
+                <li class="feature5 active">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}6.0/images/img05.jpg?{$smarty.const.VERSION}" alt="img">
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="hh"></p>
+</div>
+<!--弹框-->
+<div class="tips hidden">
+    <div class="con small">
+        <img src="{$smarty.const.STATIC_DOMAIN}6.0/images/close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div>
+            <img class="hidden" src="{$smarty.const.STATIC_DOMAIN}6.0/images/de03.png?{$smarty.const.VERSION}" alt=""/>
+            <img class="hidden" src="{$smarty.const.STATIC_DOMAIN}6.0/images/de04.png?{$smarty.const.VERSION}" alt=""/>
+            <img class="hidden" src="{$smarty.const.STATIC_DOMAIN}6.0/images/de05.png?{$smarty.const.VERSION}" alt=""/>
+            <img class="hidden" src="{$smarty.const.STATIC_DOMAIN}6.0/images/de01.png?{$smarty.const.VERSION}" alt=""/>
+            <img class="hidden" src="{$smarty.const.STATIC_DOMAIN}6.0/images/de02.png?{$smarty.const.VERSION}" alt=""/>
+        </div>
+    </div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        loop:true,
+        pagination: '.swiper-pagination',
+        effect : 'coverflow',
+        slidesPerView: 5,
+        centeredSlides: false,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        coverflow: {
+            rotate: 20,
+            stretch:-100,
+            depth:300,
+            modifier:1,
+            slideShadows : true
+        },
+        onClick:function(mySwiper, event){
+            var index=mySwiper.clickedIndex-2;
+            mySwiper.slideTo(index);
+            if(index<0){
+                mySwiper.fixLoop();
+                setTimeout(function(){
+                    mySwiper.slideTo(mySwiper.activeIndex + index);
+                },30);
+            }else if(index>10){
+                mySwiper.fixLoop();
+                setTimeout(function(){
+                    mySwiper.slideTo(mySwiper.activeIndex + index -10);
+                },30);
+            }
+        },
+        onDoubleTap: function(mySwiper, event){
+            var index=mySwiper.clickedIndex-2;
+            mySwiper.slideTo(index);
+            if(index<0){
+                mySwiper.fixLoop();
+                setTimeout(function(){
+                    mySwiper.slideTo(mySwiper.activeIndex + index);
+                },30);
+            }else if(index>10){
+                mySwiper.fixLoop();
+                setTimeout(function(){
+                    mySwiper.slideTo(mySwiper.activeIndex + index -10);
+                },30);
+            }
+        }
+    });
+</script>
+</html>

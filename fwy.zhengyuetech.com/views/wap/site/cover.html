@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="//cdnstatic.zhengyuetech.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/n_index.css?{$smarty.const.VERSION}" />
+		<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<!--header-->
+		<header class="header">
+			<a href="javascript:;" class="logo" target="_blank">
+				<img src="{$global.logo_img}" alt="">
+			</a>
+			<div class="h_text">
+				<p class="h_p01">{$global.title}</p>
+				<p class="h_p02">{$global.sub_title}</p>
+			</div>
+			<a href="/index.html" class="enter"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/l_order.png?{$smarty.const.VERSION}" alt="" /></a>
+			<div class="header_a">
+				<a href="javascript:" class="order"></a>
+			</div>
+			<!--<a href="javascript:;" class="c_download2"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/yxz.png?{$smarty.const.VERSION}" alt="" /></a>-->
+			<div class="l_download" style="right:0;">
+				<a href="javascript:;" class="gf"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/gf.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="https://www.taptap.com/app/52292" target="_blank" class="stat_cover_tap"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<!--  <div class="l_download">
+		<a href="http://cdn.daw.so/mrjs/mrjs-wapgw-P80033A-0913.apk"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gf.png?{$smarty.const.VERSION}" alt="" /></a>
+		<a href="https://www.taptap.com/app/52292"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>  -->
+		</header>
+		<section>
+			<div class="loading">
+				<i class="ic_mouse"></i>
+			</div>
+		</section>
+		<!--内容-->
+		<section class="section01" data-src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/">
+			<div class="zhezhao2"></div>
+			<div class="canvasbox">
+				<canvas id="child" width="640" height="946"></canvas>
+			</div>
+			<div class="isLogin">
+				<aside class="login-box active before_denglu">欢迎您，请
+					<a href="javascript:" class="denglu">登录</a>
+				</aside>
+				<aside class="login-box after_denglu">欢迎您，<span class="t_phone"></span><span class="control_count">账户操作</span></aside>
+				<ul class="isLogin_ul">
+					<li>
+						<a href="javascript:;" class="qq_denglu">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/l_qq.png?{$smarty.const.VERSION}" alt="" />
+							<p>关联QQ</p>
+						</a>
+					</li>
+					<!--<li>
+						<a href="javascript:;" class="weixin_denglu">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/l_wx.png?{$smarty.const.VERSION}" alt="" />
+							<p>关联微信</p>
+						</a>
+					</li>-->
+					<li class="gaibang">
+						<a href="javascript:;">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/l_phone.png?{$smarty.const.VERSION}" alt="" />
+							<p>改绑手机</p>
+						</a>
+					</li>
+					<li class="zhuxiao">
+						<a href="javascript:;">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/l_back.png?{$smarty.const.VERSION}" alt="" />
+							<p>安全退出</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<aside class="clear"></aside>
+			<aside class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/slogan.png?{$smarty.const.VERSION}"></aside>
+			{fragment var=video code=video size=1}
+			<aside class="play-box js_video_play" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/play.png?{$smarty.const.VERSION}"></aside>
+			<aside class="yuyue-wrapper">
+				<!--<p>当前预约人数:<span class="renshu"></span></p>-->
+				<a href="javascript:;" class="down_btn22"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/yuyue2.png?{$smarty.const.VERSION}" class="p_yuyue2"></a>
+				<!--<p>9月14日 全渠道公测</p>-->
+			</aside>
+			<aside class="next-wrapp">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/down01.png?{$smarty.const.VERSION}">
+			</aside>
+		</section>
+		<section class="section02">
+			<aside class="title01"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/title01.png?{$smarty.const.VERSION}"></aside>
+			<b>绑定手机获得198元礼包</b>
+			<aside class="list-img"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/list_img.png?{$smarty.const.VERSION}"></aside>
+			<aside class="gift-btn">
+				<div class="active p_yy p_yuyue"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift.png?{$smarty.const.VERSION}"></div>
+				<div class="gift_code">
+					<p id="tc13_copyTextz"></p>
+					<i class="fuzhi" id="tc13_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc13_copyTextz">复制</i>
+				</div>
+			</aside>
+			<div class="p_yuyue c_yy"></div>
+			<a href="javascript:;" class="look_gift">
+				查看我的礼包>
+			</a>
+			<b class="mar">累计绑定手机达到指定人数，送豪礼</b>
+			<!--<p class="new_tip">9月14日游戏内创角后，官网领取奖励</p>-->
+			<p class="new_tip">当前绑定人数：<span class="renshu">21545</span></p>
+			<article class="progress-wrapp">
+				<div class="s_zhezhao"></div>
+				<div class="progress-box">
+					<div class="progress-pro jdt">
+						<i></i>
+					</div>
+					<article class="progress-gift li_one">
+						<aside class="numTxt progress-giftAct">5000绑定礼包</aside>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_icon01.png?{$smarty.const.VERSION}">
+						<p>
+							<b>已完成</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_one.png?{$smarty.const.VERSION}"></aside>
+					</article>
+					<article class="progress-gift li_two">
+						<aside class="numTxt progress-giftAct">10000绑定礼包</aside>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_icon02.png?{$smarty.const.VERSION}">
+						<p>
+							<b>已完成</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_two.png?{$smarty.const.VERSION}"></aside>
+					</article>
+					<article class="progress-gift li_three">
+						<aside class="numTxt progress-giftAct">50000绑定礼包</aside>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_icon03.png?{$smarty.const.VERSION}">
+						<p>
+							<b>已完成</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_three.png?{$smarty.const.VERSION}"></aside>
+					</article>
+					<article class="progress-gift li_four">
+						<aside class="numTxt progress-giftAct">100000绑定礼包</aside>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_icon04.png?{$smarty.const.VERSION}">
+						<p>
+							<b>已完成</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_four.png?{$smarty.const.VERSION}"></aside>
+					</article>
+					<article class="progress-gift li_five">
+						<aside class="numTxt progress-giftAct">500000绑定礼包</aside>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_icon05.png?{$smarty.const.VERSION}">
+						<p>
+							<b>已完成</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/gift_five.png?{$smarty.const.VERSION}"></aside>
+					</article>
+				</div>
+			</article>
+			<!--<p class="c_renshu">当前预约人数：<span class="renshu"></span></p>-->
+			<div class="zhezhao"></div>
+			<aside class="next-wrapp">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/down02.png?{$smarty.const.VERSION}">
+			</aside>
+		</section>
+		<section class="section03">
+			<aside class="title02"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/title02.png?{$smarty.const.VERSION}"></aside>
+			<aside class="star-wrapp">
+				{fragment var=c_video_3 code=cover_video_4 size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/star01.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{if $c_video_3}{$c_video_3[0].url}{/if}"> {fragment var=c_video_5 code=cover_video_1 size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/star02.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{if $c_video_5}{$c_video_5[0].url}{/if}"> {fragment var=c_video_4 code=cover_video_3 size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/star03.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{if $c_video_4}{$c_video_4[0].url}{/if}"> {fragment var=c_video_6 code=cover_video_6 size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/star04.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{if $c_video_6}{$c_video_6[0].url}{/if}"> {fragment var=c_video_2 code=cover_video_2 size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/star05.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{if $c_video_2}{$c_video_2[0].url}{/if}"> {fragment var=c_video_1 code=cover_video_5 size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/star06.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{if $c_video_1}{$c_video_1[0].url}{/if}">
+			</aside>
+			<article class="server-wrapp">
+				<aside class="server-box">
+					<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/wx.png?{$smarty.const.VERSION}">
+					</a>
+					<a href="{if isset($global.wb_url)}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/wb.png?{$smarty.const.VERSION}">
+					</a>
+					<a href="{if isset($global.group_url_one)}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/qq.png?{$smarty.const.VERSION}">
+					</a>
+					<a href="{if isset($global.tb_url)}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/tb.png?{$smarty.const.VERSION}">
+					</a>
+				</aside>
+			</article>
+		</section>
+
+		<section class="my_gift_tips">
+			<div class="my_gift">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/my_gift.png?{$smarty.const.VERSION}" alt="" class="title">
+				<p class="user_info">您绑定的手机号码为：<span></span></p>
+				<ul>
+					<li></li>
+					<li class="li">
+						<p class="active info1">礼包码为：</p>
+						<p class="active info2">
+						</p>
+					</li>
+					<li class="li1">
+						<p class="status1">已领取</p>
+						<p class="status3">未达成</p>
+						<p class="status4">待领取</p>
+					</li>
+					<li class="li2">
+						<p class="status1">已领取</p>
+						<p class="status3">未达成</p>
+						<p class="status4">待领取</p>
+					</li>
+					<li class="li3">
+						<p class="status1">已领取</p>
+
+						<p class="status3">未达成</p>
+						<p class="status4">待领取</p>
+					</li>
+					<li class="li4">
+						<p class="status1">已领取</p>
+
+						<p class="status3">未达成</p>
+						<p class="status4">待领取</p>
+					</li>
+					<li class="li5">
+						<p class="status1">已领取</p>
+
+						<p class="status3">未达成</p>
+						<p class="status4">待领取</p>
+					</li>
+				</ul>
+				<a href="javascript:;" class="to_game"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/to_game.png?{$smarty.const.VERSION}" alt=""></a>
+				<a href="javascript:;" class="close"></a>
+				<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="" class="ewm">
+			</div>
+		</section>
+		<section class="TKMask z_mask hidden">
+			<article class="login-wrapper">
+				<!-- 登录预约 -->
+				<article class="hidden login">
+					<aside class="title03">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/title03.png?{$smarty.const.VERSION}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/title04.png?{$smarty.const.VERSION}">
+					</aside>
+					<aside class="login-inp">
+						<aside class="login-list">
+							<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/user.png?{$smarty.const.VERSION}"><input type="tel" name="" placeholder="请输入手机号" class="phone"></p>
+							<span class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/error.png?{$smarty.const.VERSION}">手机号有误</span>
+						</aside>
+						<aside class="login-list yzm-box yuyue_captcha">
+							<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/suo.png?{$smarty.const.VERSION}"><input type="text" name="" placeholder="请输入验证码" class="t_yzm"><label class="captcha">点击刷新</label></p>
+							<span class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/error.png?{$smarty.const.VERSION}">验证码有误</span>
+						</aside>
+						<aside class="login-list yzm-box">
+							<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/suo.png?{$smarty.const.VERSION}"><input type="text" name="" placeholder="请输入验证码" class="yzm"><label class="g_code">获取验证码</label></p>
+							<span class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/error.png?{$smarty.const.VERSION}">验证码有误</span>
+						</aside>
+						<aside class="login-btn">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/yuyue_btn.png?{$smarty.const.VERSION}">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/login_btn.png?{$smarty.const.VERSION}">
+						</aside>
+						<aside class="system-tips">
+							<p>出于对您账户安全性考虑，绑定手机号后，<br/>您将无法再使用同一手机号进行其他方式的预约。</p>
+						</aside>
+						<aside class="wx-follow">
+							<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}">
+							<p>关注《明日决胜！》微信公众号，<br/>赢取<span>iPhoneX</span></p>
+						</aside>
+					</aside>
+				</article>
+				<!-- 预约成功 -->
+				<article class="reservations hidden">
+					<aside class="title05"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/title05.png?{$smarty.const.VERSION}"></aside>
+					<aside class="code-wrapp s_code">预约礼包码：<span></span></aside>
+					<aside class="reminder-tips">
+						<p>温馨提示：</p>
+						<p>· 游戏上线后，您可以直接用预约账户登录游戏，无需再次注册。</p>
+						<p>· 您可以再次登录《明日决胜！》官网，查看礼包码，改绑手机。</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/sure_btn.png?{$smarty.const.VERSION}" class="p_sure">
+					</aside>
+					<aside class="wx-follow">
+						<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}">
+						<p>关注《明日决胜！》微信公众号，<br/>赢取<span>iPhoneX</span></p>
+					</aside>
+				</article>
+				<aside class="close">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}">
+				</aside>
+			</article>
+		</section>
+		<!-- 选择ios还是安卓 -->
+		<section class="TKMask hidden select">
+			<article class="choose-models">
+				<div class="select_ul">
+					<p>请选择您的预约平台</p>
+					<span class="curr1 curr" attr-type="android"></span>
+					<span class="curr2" attr-type="ios"></span>
+				</div>
+				<aside class="sure_btn stat_cover_yy"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/sure_btn.png?{$smarty.const.VERSION}"></aside>
+				<aside class="close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}"></aside>
+			</article>
+		</section>
+		<!-- error提示框 -->
+		<section class="TKMask2 TKMask2_1">
+			<article class="choose-models2">
+				<span class="title">请勿重复领取！
+       </span>
+				<p class="err_text">当前符合领取条件的奖励，已全部发放至游戏中，请查看角色邮箱
+					<br><br> 如无法解决，请加入官方Q群，联系群管理员。（Q群：689772061）
+				</p>
+				<aside class="sure_btn2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/sure_btn.png?{$smarty.const.VERSION}"></aside>
+				<aside class="close2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}"></aside>
+			</article>
+		</section>
+		<section class="TKMask2 TKMask2_2">
+			<article class="choose-models2">
+				<span class="title">领取失败！
+       </span>
+				<p class="err_text">可能原因如下：<br> 1、您未使用预约手机号进行注册。（奖励仅发放至预约手机号对应账号中）
+					<br> 2、您未创建游戏账号。
+					<br> （奖励默认发放至绑定手机号创建的第一个游戏账号中）
+					<br> 3、其他未知错误请加入官方Q群，联系群管理员。（Q群：689772061）
+				</p>
+				<aside class="sure_btn2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/sure_btn.png?{$smarty.const.VERSION}"></aside>
+				<aside class="close2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}"></aside>
+			</article>
+		</section>
+		<section class="TKMask2 TKMask2_3">
+			<article class="choose-models2">
+				<span class="title">领取成功！
+       </span>
+				<p class="err_text">奖励已发送成功，<br> 请至游戏内，查看邮箱领取奖励</p>
+				<aside class="sure_btn2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/sure_btn.png?{$smarty.const.VERSION}"></aside>
+				<aside class="close2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}"></aside>
+			</article>
+		</section>
+		<section class="TKMask2 TKMask2_4">
+			<article class="choose-models2">
+				<span class="title">活动未开始
+       </span>
+				<p class="err_text">请于9月14日游戏开服后领取！<br><br> 温馨提示：
+					<br> 1、“累计预约”礼包，仅限在《明日决胜！》官网下载游戏的用户使用。
+					<br> 2、9月14日游戏开服后，请使用预约时绑定的手机号进行注册。
+					<br> 3、“累计预约”礼包会默认发放至绑定手机号创建的第一个游戏角色中
+				</p>
+				<aside class="sure_btn2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/sure_btn.png?{$smarty.const.VERSION}"></aside>
+				<aside class="close2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}"></aside>
+			</article>
+		</section>
+		<!--选择登录方式-->
+		<section>
+			<div class="login_select">
+				<div class="c_login_select">
+					<div class="chengg"></div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_title01.png?{$smarty.const.VERSION}" alt="" class="n_title" id="n_title" />
+					<p class="select_p">选择登录方式</p>
+					<ul class="login_ul">
+						<li>
+							<a href="javascript:;" class="qq_denglu">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_qq.png?{$smarty.const.VERSION}" alt="" />
+								<p>QQ</p>
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascript:;" class="weixin_denglu">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_wx.png?{$smarty.const.VERSION}" alt="" />
+								<p>微信</p>
+							</a>
+						</li>-->
+						<li id="x_phone">
+							<a href="javascript:;">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_phone.png?{$smarty.const.VERSION}" alt="" />
+								<p>手机</p>
+							</a>
+						</li>
+					</ul>
+					<div class="login_bottom">
+						<img src="{$global.wx_img}" alt="" />
+						<div class="login_txt">
+							<p>关注《明日决胜！》微信公众号，</p>
+							<p>赢取<span>iPhoneX</span></p>
+						</div>
+					</div>
+					<div class="o_close">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--更改绑定-->
+		<section>
+			<div class="change_bind">
+				<div class="c_change_bind">
+					<div class="chengg"></div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_title02.png?{$smarty.const.VERSION}" alt="" class="n_title" />
+					<p class="change_title">您绑定的手机号码为 <span class="t_phone"></span></p>
+					<p class="change_phone">绑定新的手机号码：</p>
+					<div class="m_input">
+						<div class="s_put">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/user.png?{$smarty.const.VERSION}" alt="" class="l_tip" />
+							<input type="tel" placeholder="请输入手机号" class="g_phone" />
+							<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><span>手机号有误</span></i>
+						</div>
+						<div class="s_put yuyue_captcha">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/suo.png?{$smarty.const.VERSION}" alt="" class="l_tip" />
+							<input type="text" placeholder="输入验证码" class="g_t_yzm" />
+							<div class="captcha">
+								<p>点击刷新</p>
+								<!--<img src="images/kv.jpg" alt="" />-->
+							</div>
+							<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><span>验证码有误</span></i>
+						</div>
+						<div class="s_put">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/suo.png?{$smarty.const.VERSION}" alt="" class="l_tip" />
+							<input type="tel" placeholder="输入验证码" class="g_yzm" />
+							<input type="button" value="获取验证码" class="gg_code" />
+							<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><span>验证码有误</span></i>
+						</div>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/bangding.png?{$smarty.const.VERSION}" alt="" class="bangding" />
+					<div class="o_close">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--账号关联-->
+		<section>
+			<div class="account">
+				<div class="c_account">
+					<div class="chengg"></div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_title03.png?{$smarty.const.VERSION}" alt="" class="n_title" />
+					<p class="kuaijie">关联微信/QQ快捷登录</p>
+					<ul class="login_ul">
+						<li>
+							<a href="javascript:;" class="qq_denglu">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_qq.png?{$smarty.const.VERSION}" alt="" />
+								<p>QQ关联</p>
+							</a>
+						</li>
+						<!--<li>
+							<a href="javascript:;" class="weixin_denglu">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_wx.png?{$smarty.const.VERSION}" alt="" />
+								<p>微信关联</p>
+							</a>
+						</li>-->
+					</ul>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/no.png?{$smarty.const.VERSION}" alt="" class="no" />
+					<div class="login_bottom">
+						<img src="{$global.wx_img}" alt="" />
+						<div class="login_txt">
+							<p>关注《明日决胜！》微信公众号，</p>
+							<p>赢取<span>iPhoneX</span></p>
+						</div>
+					</div>
+					<div class="o_close">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--绑定手机-->
+		<section>
+			<div class="bind_phone">
+				<div class="c_account">
+					<div class="chengg"></div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/n_title04.png?{$smarty.const.VERSION}" alt="" class="n_title" />
+					<p class="first_bd">首次登录请绑定手机号</p>
+					<div class="m_input">
+						<div class="s_put">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/user.png?{$smarty.const.VERSION}" alt="" class="l_tip" />
+							<input type="tel" placeholder="请输入手机号" class="d_phone" />
+							<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><span>手机号有误</span></i>
+						</div>
+						<div class="s_put yuyue_captcha">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/suo.png?{$smarty.const.VERSION}" alt="" class="l_tip" />
+							<input type="text" placeholder="输入验证码" class="d_t_yzm" />
+							<div class="captcha">
+								<p>点击刷新</p>
+								<!--<img src="images/kv.jpg" alt="" />-->
+							</div>
+							<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><span>验证码有误</span></i>
+						</div>
+						<div class="s_put">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/suo.png?{$smarty.const.VERSION}" alt="" class="l_tip" />
+							<input type="tel" placeholder="输入验证码" class="d_yzm" />
+							<input type="button" value="获取验证码" class="dg_code" />
+							<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><span>验证码有误</span></i>
+						</div>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/lgbd.png?{$smarty.const.VERSION}" alt="" class="lgbd" />
+					<div class="login_bottom">
+						<img src="{$global.wx_img}" alt="" />
+						<div class="login_txt">
+							<p>关注《明日决胜！》微信公众号，</p>
+							<p>赢取<span>iPhoneX</span></p>
+						</div>
+					</div>
+					<div class="o_close">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/image1/close.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="bigImg">
+			<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="" />
+			<p>长按保存至手机</p>
+			<p>发送至微信内识别</p>
+			<p>关注《明日决胜！》官方微信</p>
+		</div>
+		<footer id="Hero-bar">
+			<div class="f_t">
+				<label></label>
+				<ul>
+					<li>
+						<a href="http://zhengyuetech.com/category/58.html" target="_blank">关于我们</a>
+					</li>
+					<li>
+						<a href="http://zhengyuetech.com/category/61.html" target="_blank">企业文化</a>
+					</li>
+					<li>
+						<a href="http://zhengyuetech.com/category/42.html" target="_blank">人才招聘</a>
+					</li>
+					<li>
+						<a href="http://zhengyuetech.com/category/50.html" target="_blank">商务合作</a>
+					</li>
+					<li>
+						<a href="http://zhengyuetech.com/category/57.html" target="_blank">客服中心</a>
+					</li>
+				</ul>
+			</div>
+			<p class="f_link">Copyright©2015 成都正越科技有限公司 版权所有 </p>
+			<p>蜀ICP备18011081号-1</p>
+			<p>公司地址：成都高新区肖家河环三巷2号9幢1层</p>
+			<p class="f_txt">此游戏适合18岁以上，抵制不良游戏，拒绝盗版游戏，<br>注意自我保护，谨防受骗上当，适度游戏，<br>合理安排时间，享受健康生活</p>
+		</footer>
+	</body>
+	{video_play} {download}
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/canvas.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}1.0/m/";
+	</script>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/n_cover.js?{$smarty.const.VERSION}"></script>
+	<script>
+		$(function() {
+			wap_cover();
+			var fgw_wap_down = '';
+			var fgw_wap_tap = '';
+			var fgw_wap_hy = '';
+			var fgw_wap_down1 = '';
+			var fgw_wap_tap1 = '';
+			var fgw_wap_hy1 = '';
+			var wap_xz = $(".stat_down").length;
+			var wap_tap_xz = $(".stat_tap").length;
+			var wap_hy_xz = $(".stat_hy").length;
+			var wap_cover_xz = $(".stat_cover_down").length;
+			var wap_cover_tap_xz = $(".stat_cover_tap").length;
+			var wap_cover_hy_xz = $(".stat_cover_hy").length;
+			if(wap_xz > 0) {
+				$('.stat_down').click(function() {
+					HLog.event('stat_down')
+				});
+			}
+			if(wap_tap_xz > 0) {
+				$('.stat_tap').click(function() {
+					HLog.event('stat_tap')
+				});
+			}
+			if(wap_hy_xz > 0) {
+				$('.stat_hy').click(function() {
+					HLog.event('stat_hy')
+				});
+			}
+			if(wap_cover_xz > 0) {
+				$('.stat_cover_down').click(function() {
+					HLog.event('stat_cover_down')
+				});
+			}
+			if(wap_cover_tap_xz > 0) {
+				$('.stat_cover_tap').click(function() {
+					HLog.event('stat_cover_tap')
+				});
+			}
+			if(wap_cover_hy_xz > 0) {
+				$('.stat_cover_hy').click(function() {
+					HLog.event('stat_cover_hy')
+				});
+			}
+		})
+	</script>
+
+</html>

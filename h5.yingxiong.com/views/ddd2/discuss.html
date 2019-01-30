@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>弹弹岛</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="{$smarty.const.STATIC_DOMAIN}ddd/css/animate.min.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}ddd/css/swiper.min.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}ddd/css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+        <div class="h5_data" style="display: none;">{$h5data}</div>
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page1">
+                <div class="info_box">
+                    <div class="path1 ani animated fadeInRight" swiper-animate-effect="fadeInRight"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path1.png" alt="" /></div>
+                    <div class="path2 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="0.5s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path2.png" alt=""/></div>
+                    <div class="path3 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="3.5s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path3.png" alt=""/></div>
+                    <div class="path4 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="2s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path4.png" alt=""/></div>
+                    <div class="path5 animated fadeInRight" swiper-animate-delay="2s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path5.png" alt=""/></div>
+                    <div class="path6 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="3.5s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path6.png" alt=""/></div>
+                    <div class="path6-1 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="4s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path6-1.png" alt=""/></div>
+                    <div class="path7 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path7.png" alt=""/></div>
+                    <div class="path7-1 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="2.5s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path7-1.png" alt=""/></div>
+                    <div class="path8 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="1s"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/path8.png" alt=""/></div>
+                </div>
+                <button class="login_btn"></button>
+            </section>
+            <section class="swiper-slide page4 hidden">
+                <div class="page2_con">
+                <p class="page2_tl">你想用那首歌形容<span>XXX</span>?</p>
+                <div class="no_comment_box hidden">
+                    <a href="javascript:;" class="share_btn"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}ddd/images/no_info.png" alt="">
+                </div>
+                <div class="comment_box">
+                    <div class="list">
+                    <div class="list_img">
+						<i></i>
+					</div>
+                    <ul>
+                    </ul>
+                    </div>
+                </div>
+                <p class="com_input"><i></i><input type="text" placeholder="请输入歌名" class="m_name">
+               	 	<a href="javascript:;" class="tijiao"></a>
+                	<a href="javascript:;" class="no_name"></a>
+                </p>
+                <div class="look_btn"><a href="javascript:;" class="look_f"></a></div>
+                <div class="hj_box">
+                    <div class="hj_img"></div>
+                    <div class="hj_info">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ddd/images/info1.png" alt="">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ddd/images/info2.png" alt="">
+                    </div>
+                    <a href="http://downurl.yingxiong.com/web/ddd2_znh5.html" class="tz_btn"></a>
+                </div>
+                </div>
+            </section>
+            <section class="swiper-slide page2 hidden">
+                <div class="page2_con">
+                <p class="page2_tl">你想用那首歌形容<span>XXX</span>?</p>
+                <div class="no_comment_box hidden">
+                    <a href="javascript:;" class="share_btn"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}ddd/images/no_info.png" alt="">
+                </div>
+                <div class="comment_box">
+                    <div class="list">
+                    <div class="list_img">
+						<i></i>
+					</div>
+                    <ul>
+                    </ul>
+                    </div>
+                </div>
+                <div class="look_btn"><a href="javascript:;" class="look_f"></a></div>
+                <div class="hj_box">
+                    <div class="hj_img"></div>
+                    <div class="hj_info">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ddd/images/info1.png" alt="">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ddd/images/info2.png" alt="">
+                    </div>
+                    <a href="http://downurl.yingxiong.com/web/ddd2_znh5.html" class="tz_btn"></a>
+                </div>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="{$smarty.const.STATIC_DOMAIN}ddd/images/share_bg.png" alt=""/></div>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd/js/swiper.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd/js/swiper.animate.min.js"></script>
+<script type="text/javascript">
+	// var from_info = "{if isset($smarty.get.invite_code)}{$smarty.get.invite_code}{else}{$wx_info.openid}{/if}";
+	var h5_id = "{$id}";
+	var alt = "{$smarty.const.STATIC_DOMAIN}ddd/";
+	// var invite_code = "{if isset($smarty.get.invite_code)}{$smarty.get.invite_code}{else}{$wx_info.openid}{/if}";
+</script>
+{include '../h5-common/h5_data.html'}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd/js/js.js"></script>
+<script type="text/javascript">
+    var is_me_=1;
+    var share_url = "";
+    var  h5_wx=$(".h5_wx").html();
+    var  h5_data=$(".h5_data").html();
+	function isLogin() {
+		$.post("/ddd/discuss/ajax-auto-data.html"+h5_jk_url, {
+			"invite_code": invite_code,
+			"info": wxinfo,
+			"h5_id": h5_id,
+			"cms_csrf": srf
+		}, function(data) {
+			if(data.status == 0) {
+				if(data.is_me == 0){
+                    is_me_=0;
+					base.isLogin = false;
+				} else {
+					base.isLogin = true;
+				}
+				$(".page2_tl span").html(data.username);
+				if(data.msg.length > 0){
+					var str = "";
+					for(var i = 0; i < data.msg.length; i++){
+						str += 	'<li>'+
+								'<div><img src='+data.msg[i].headimgurl+' />'+
+								'<span class="user">'+data.msg[i].nickname+'</span></div>'+
+								'<div><p>'+data.msg[i].content+'</p></div>'+
+								'</li>';
+					}
+					$(".list ul").html(null).append(str);
+					setInterval('autoScroll(".list")', 1500);
+				} else {
+					$(".list_img").show();
+				}
+			} else if(data.status == 1){
+				window.location.href = "http://h5.yingxiong.com/index/ddd2/discuss.html?info=" + wxinfo;
+			} else {
+				console.log(data.msg);
+			}
+		}, "json");
+	}
+	//点击跳转评论页面
+	$(".login_btn").click(function() {
+		if(base.isLogin){
+			$(".page1").hide();
+			$(".page2").show();
+		} else {
+			$(".page1").hide();
+			$(".page4").show();
+		}
+	});
+	//实名提交
+	$(".no_name").click(function (){
+		var content = $(".m_name").val();
+		if(content == "" || content == undefined){
+			alert("请输入歌名哦~");
+			return;
+		}
+		$.post("/ddd/discuss/ajax-discuss.html"+h5_jk_url,{
+			"info": wxinfo,
+			"invite_code": invite_code,
+			"content":content,
+			"is_anory":0
+		},function (data){
+			if(data.status == 0){
+				var html = "";
+				html += '<li>'+
+						'<div><img src='+wx_img+' />'+
+						'<span class="user">'+wx_name+'</span></div>'+
+						'<div><p>'+content+'</p></div>'+
+						'</li>';
+				$(".list_img").hide();
+				$(".list ul").append(html);
+				$(".m_name").val("");
+				alert("评论成功~");
+				setInterval('autoScroll(".list")', 1500);
+			}
+		},"json");
+	});
+	//匿名提交
+	$(".tijiao").click(function (){
+		var content = $(".m_name").val();
+		if(content == "" || content == undefined){
+			alert("请输入歌名哦~");
+			return;
+		}
+		$.post("/ddd/discuss/ajax-discuss.html"+h5_jk_url,{
+			"info": wxinfo,
+			"invite_code": invite_code,
+			"content":content,
+			"is_anory":0
+		},function (data){
+			if(data.status == 0){
+				var html = "";
+				html += '<li>'+
+						'<div><img src='+alt+'images/phone.png />'+
+						'<span class="user">弹弹岛2</span></div>'+
+						'<div><p>'+content+'</p></div>'+
+						'</li>';
+				$(".list_img").hide();
+				$(".list ul").append(html);
+				$(".m_name").val("");
+				alert("评论成功~");
+				setInterval('autoScroll(".list")', 1500);
+			}
+		},"json");
+	});
+</script>
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+    var openid=""; 
+    var user_name="";
+    var invite_code="";
+    var wx_name = "";
+    var wx_img = "";
+     //判断邀请码
+    function in_code(){
+        if(invite_code=="" || invite_code==undefined){
+            invite_code=openid;
+        }else{
+            invite_code=getQueryString('invite_code');
+        }
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 匹配目标参数
+        var result = window.location.search.substr(1).match(reg); // 对querystring匹配目标参数
+        if(result != null) {
+            return decodeURIComponent(result[2]);
+        } else {
+            return null;
+        }
+    }
+    function wx_info(){
+         $.ajax({
+            'url':"/h5-common/get-wx-info.html"+h5_jk_url,
+            'data':{},
+            'type':'POST',
+            'dataType':'Json',
+            success:function(data){
+                if(data.status==0){ 
+                     openid=data.msg.openid;
+                     wx_name=data.msg.nickname;
+                     wx_img=data.msg.headimgurl;
+                     invite_code=getQueryString('invite_code');
+                     in_code();
+                     console.log(invite_code);
+                     isLogin();
+                        if(is_me_ == 1){
+                            share_url='http://h5.yingxiong.com/index/ddd2/discuss.html?invite_code='+openid;
+                        }else{
+                            share_url='http://h5.yingxiong.com/index/ddd2/discuss.html?invite_code='+invite_code;
+                        }
+                        wxShare();
+                }else{
+                    alert("网络请求失败，请重新刷新页面");
+                }
+            }
+            ,error:function(){
+                alert("网络请求失败，请重新刷新页面");
+            }
+        });
+    }
+    $(function(){
+        wx_info();
+    });
+
+    function wxShare()
+    {
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        // initForm();
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : share_url
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    }
+</script>
+</body>
+</html>

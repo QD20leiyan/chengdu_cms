@@ -1,0 +1,43 @@
+ {if $language eq zh_cn} {config_load file="../layouts/pc/cc_zh.conf"}
+ {else} 
+ {config_load file="../layouts/pc/cc_en.conf"} {/if}
+ {include '../layouts/pc/top.html'}
+{include '../layouts/pc/header.html'}
+<link href="{$smarty.const.STATIC_DOMAIN}2.0/css/new_inf.css?{$smarty.const.VERSION}" rel="stylesheet">
+
+<body>
+	{include '../layouts/pc/nav.html'}
+	<div class="n_i_banner"></div>
+	<div class="n_i_content">
+		<div class="c_title">
+			<h1>{$data.title}</h1>
+			<p>{#sendTime#} {$data.created_at_formate}</p>
+			<div>
+				<a href='{myurl name="site/index"}'>{#index#}</a>
+				<span> > </span>
+				{if $style eq "xinwen"}
+				<a href='{myurl name="article/index,type=>xinwen,page=>1"}'>{#navName3#}</a>
+				{else if $style eq "faq"}
+				<a href='{myurl name="article/index,type=>faq,page=>1"}'>FAQ</a>
+				{else if $style eq "zhanzheng"}
+				<a href='{myurl name="article/index,type=>zhanzheng,page=>1"}'>{#war#}</a>
+				{else if $style eq "gonglue"}
+				<a href='{myurl name="article/index,type=>gonglue,page=>1"}'></a>
+				{/if}	
+				<span> > </span>
+				<span>{#detail#}</span>
+			</div>
+		</div>
+		<div class="c_text">
+		{if $data.body}
+			{$data.body}
+		{else}
+		    <h1 class="c_nodata">暂无数据</h1>
+		{/if}	
+		</div>
+	</div>
+    <!--这是回到顶部icon-->
+	{include '../layouts/pc/goTop.html'}
+</body>
+{include '../layouts/pc/public_js.html'} 
+{include '../layouts/pc/foot.html'}

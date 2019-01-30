@@ -1,0 +1,200 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+<div class="kv">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+		<div class="k_bg">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+			{fragment var=video code=index_video size=1}
+			<div class="play">
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="b_play {if $video}js_video_play{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt="" /></a>
+				<img class="s_play" src="{$smarty.const.STATIC_DOMAIN}1.0/images/s_play.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="download">
+				<div class="ewm">
+					<img src="" alt="" class="js_jump_img" />
+				</div>
+				<div class="d_list">
+					<a href="javascript:;" class="js_down_ios stat_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="javascript:;" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="https://www.taptap.com/app/136003" target="_blank" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="news">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="news_con">
+			<div class="left_banner">
+				{fragment var=index_banner code=new_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="right_news">
+				<ul class="top_tab">
+					<li class="active">最新</li>
+					<li>资讯</li>
+					<li>公告</li>
+					<li>活动</li>
+					<!--<li>攻略</li>-->
+					<a href="{myurl name='article/list, id=>608'}" class="more" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/more.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/s_more.png?{$smarty.const.VERSION}" alt="" /></a>
+				</ul>
+				<div class="news_div">
+					<ul class="active">
+						{article id="608" size=4 var=zx}
+						{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+										</a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="609" size=4 var=xw}
+						{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+										</a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="610" size=4 var=gg}
+						{if $gg neq ''}
+							{foreach $gg as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+										</a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="611" size=4 var=hd}
+						{if $hd neq ''}
+							{foreach $hd as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+										</a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<!--<ul class="">
+						{article id="612" size=4 var=gl}
+						{if $gl neq ''}
+							{foreach $gl as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+										</a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="last">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/laba.png?{$smarty.const.VERSION}" alt="" class="laba" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ball.png?{$smarty.const.VERSION}" alt="" class="ball" />
+		<div class="last_banner">
+			{fragment var=actor_banner code=banner_ts size=5}
+			<ul class="swiper-wrapper">
+				{if $actor_banner neq ''}
+					{foreach $actor_banner as $v}
+						<li class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+								<img src="{$v.thumb}" alt="" />
+								<i></i>
+							</a>
+						</li>
+					{/foreach}
+				{/if}
+			</ul>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".left_banner", {
+			pagination: '.swiper-pagination',
+		});
+		var mySwiper = new Swiper('.last_banner', {
+			loop: true,
+			effect: 'coverflow',
+			slidesPerView: 3,
+			centeredSlides: true,
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			coverflow: {
+				rotate: 0,
+				stretch: -75,
+				depth: 200,
+				modifier: 1,
+				slideShadows: false
+			},
+			observer: true,
+			observeParents: true,
+		});
+		$(".top_tab li").on("click" , function (){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".news_div ul").eq(index).addClass("active").siblings().removeClass("active");
+		});
+	});
+</script>
+
+</html>

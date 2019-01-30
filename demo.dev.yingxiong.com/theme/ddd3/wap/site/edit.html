@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/colpick.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/tc_public.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/jquery-1.11.2.min.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				background-color: #eeeeee;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="module_top" data-attr="{$global.public_top_js}">
+			<div class="wrap">
+				<div class="tab_module tab_mb">
+					<p>切换模板</p><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="mu_ul" id="mu_ul">
+						<!--<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>预约模板</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>官网模板</p>
+							</a>
+						</li>-->
+					</ul>
+				</div>
+				<div class="tab_pc tab_module">
+					<p id="lo_wap">手机端</p><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="pc_ul" id="pc_ul">
+						<li>
+							<a href="/m/site/edit.html?diy=yes">
+								<p>手机端</p>
+							</a>
+						</li>
+						<li>
+							<a href="/?diy=yes">
+								<p>电脑端</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<p class="module_name">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/user.png?{$smarty.const.VERSION}" alt="" />
+					<span class="before_denglu active">请登录</span>
+					<span class="after_denglu"></span>
+				</p>
+				<a class="baocun" href="javascript:;">发布上线</a>
+				<a class="yulan" href="javascript:;" target="_blank">预览</a>
+			</div>
+		</div>
+		<div class="l_tabe">
+			<p class="wp_title">页面选择</p>
+			<ul class="wp_ul">
+				<li>
+					<a href="javascript:;">首页</a>
+				</li>
+			</ul>
+		</div>
+		<div class="i_frame">
+			<iframe src="index.html?diy=yes" id="iframe"></iframe>
+		</div>
+		<!--页面公共设置-->
+		<div class="page_set">
+			<div id="page_set_one">页面设置</div>
+			<div id="page_set_two">公共组件</div>
+		</div>
+		<!--导航弹窗-->
+		<div class="nav_tc">
+			<div class="tc_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">站点信息</li>
+							<li>导航</li>
+							<li>预约按钮</li>
+						</ul>
+					</div>
+					<div class="r_con">
+						<div class="r_con_div active">
+							<div class="s_put s_none">
+								<p id="website_name">游戏名</p>
+								<input type="text" class="form_put" placeholder="请输入游戏名" id="game_title" />
+							</div>
+							<div class="set-control" id="title_control">
+								<div class="set-color">
+									<button type="text" id="game_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="s_put ">
+								<p id="website_title">游戏定位</p>
+								<input type="text" class="form_put" placeholder="请输入游戏定位，8个字符最佳" id="game_sub_title" />
+							</div>
+							<div class="set-control" id="stitle_control">
+								<div class="set-color">
+									<button type="text" id="wgame_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="s_put ">
+								<p>游戏icon</p>
+								<div class="put_file">
+									<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="file">
+									<a href="javascript:;" class="put_link">点击上传游戏icon，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="img_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="t_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>导航背景:</p>
+								<div class="put_file">
+									<input id="put_dh" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 1920px*120px</a>
+								</div>
+								<div class="choose_color fr" id="choose1">选择颜色</div>
+								<input type="hidden" name="nav_background_color" value="" />
+								<div class="xs_color"></div>
+							</div>
+							<p class="tip_dh">上传背景图后背景颜色将会被替换</p>
+							<ul class="img_ul" id="dimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="d_sure" style="margin-top:220px;">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮颜色</p>
+								<div class="choose_color_wap fr" id="choose_color_wap">选择颜色</div>
+								<input type="hidden" name="nav_background_color_wap" value="" />
+								<div class="clear"></div>
+								<div class="xs_color_wap xs_color_wap01"></div>
+							</div>
+							<div class="t_put" style="margin-top:70px;">
+								<p>按钮文字</p>
+								<input type="text" class="form_put p_txt" placeholder="请输入按钮文字" id="btt_txt"/>
+							</div>
+							<div class="set-control" id="btn_color">
+								<div class="set-color">
+									<button type="text" id="btn_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<ul class="img_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" style="margin-top:220px;" id="wap_yy">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑KV弹窗-->
+		<div class="kv_tc">
+			<div class="dh_wrap active w900">
+				<p class="tc_title"><span>编辑KV</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">KV背景图</li>
+							<li>视频按钮</li>
+							<li>预约模块</li>
+							<li>预约弹窗</li>
+						</ul>
+					</div>
+					<div class="r_kv r_auto">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="kv_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 640px*1120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="qimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="kv_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮图</p>
+								<div class="put_file">
+									<input id="video_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，138px*146px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wimg_ul"></ul>
+							<div class="t_put">
+								<p>播放链接</p>
+								<input id="video_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" class="a_link" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="video_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>预约按钮</p>
+								<div class="put_file">
+									<input id="yy_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，391px*174px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="oimg_ul"></ul>
+							<div class="t_put">
+								<p>参数设置</p>
+							</div>
+							<div class="t_put">
+								<p>人数基数</p>
+								<input type="text" placeholder="" class="p_num" id="yy_count" />
+							</div>
+							<div class="t_put">
+								<p>随机范围</p>
+								<input type="text" placeholder="" class="s_num" id="yy_min" />
+								<p class="zhi">至</p>
+								<input type="text" placeholder="" class="s_num" id="yy_max" />
+								<p class="zhi">人，每分钟自动递增；</p>
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="yy_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，517px*586px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="pimg_ul"></ul>
+							<div class="t_put">
+								<p>提交按钮</p>
+								<div class="put_file">
+									<input id="tj_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，397px*97px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="kimg_ul"></ul>
+							<div class="t_put w760">
+								<div class="n_put fl h_div">
+									<p>平台选中icon</p>
+									<div class="put_file h_bottom">
+										<input id="x_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+										<a href="javascript:;" class="put_link">35px*35px最佳</a>
+									</div>
+									<ul class="img_ul" id="h_icon"></ul>
+								</div>
+								<div class="n_put fl l45 h_div">
+									<p>平台未选中icon</p>
+									<div class="put_file h_bottom">
+										<input id="w_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+										<a href="javascript:;" class="put_link">35px*35px最佳</a>
+									</div>
+									<ul class="img_ul" id="y_icon"></ul>
+								</div>
+							</div>
+							<div class="t_put w760">
+								<div class="n_put fl">
+									<p>平台文案1</p>
+									<input type="text" placeholder="ios" class="n_num ios_text text" id="ios_text" />
+								</div>
+								<div class="n_put fl l45">
+									<p>平台文案2</p>
+									<input type="text" placeholder="ios" class="n_num and_text" id="and_text" />
+								</div>
+							</div>
+							<div class="set-control" id="ios_control">
+								<div class="set-color">
+									<button type="text" id="picker"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="set-control" id="and_control">
+								<div class="set-color">
+									<button type="text" id="picker01"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<a href="javascript:;" class="put_sure b25" id="y_sure" style="margin-top:88px;">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑进度条弹窗-->
+		<div class="jd_tc">
+			<div class="jd_wrap">
+				<p class="tc_title"><span>编辑进度</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>预约按钮</li>
+							<li>进度条</li>
+							<li>节点设置</li>
+						</ul>
+					</div>
+					<div class="r_kv r_auto">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="i_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，640px*1984px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul simg_ul" id="nimg_ul"></ul>
+							<div class="set-control" id="jd_control">
+								<div class="set-color">
+									<button type="text" id="jd_down"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="t_put h_auto" style="margin-top:63px;">
+								<p>介绍文案</p>
+								<textarea class="conduct" id="conduct"></textarea>
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="jd_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮图</p>
+								<div class="put_file">
+									<input id="m_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，424px*190px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="rimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="bt_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="j_bg" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传游戏icon，113px*1141px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul small_img" id="zimg_ul"></ul>
+							<div class="t_put">
+								<p>填充图</p>
+								<div class="put_file">
+									<input id="j_tc" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传填充图，任意宽*56px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul small_img" id="ximg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ti_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<p class="title_p">节点1</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="fr_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="fi_ul"></ul>
+								<div class="set-control" id="control_node1">
+									<div class="set-color">
+										<button type="text" id="node1"></button>
+										<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+									</div>
+									<div class="bold common">B</div>
+									<div class="lean common">I</div>
+									<div class="underline common">U</div>
+									<div class="font-style font_family" id="font-style">
+										<div class="title">
+											<p>微软雅黑</p>
+											<i></i>
+										</div>
+										<ul class="font-list" id="font-style-list">
+											<li font-family="Microsoft YaHei">微软雅黑</li>
+											<li font-family="Microsoft JhengHei">黑体</li>
+											<li font-family="Verdana">华文细黑</li>
+											<li font-family="Arial">Arial</li>
+										</ul>
+									</div>
+								</div>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="fr_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="fr_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点2</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="se_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="si_ul"></ul>
+								<div class="set-control" id="control_node2">
+									<div class="set-color">
+										<button type="text" id="node2"></button>
+										<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+									</div>
+									<div class="bold common">B</div>
+									<div class="lean common">I</div>
+									<div class="underline common">U</div>
+									<div class="font-style font_family" id="font-style">
+										<div class="title">
+											<p>微软雅黑</p>
+											<i></i>
+										</div>
+										<ul class="font-list" id="font-style-list">
+											<li font-family="Microsoft YaHei">微软雅黑</li>
+											<li font-family="Microsoft JhengHei">黑体</li>
+											<li font-family="Verdana">华文细黑</li>
+											<li font-family="Arial">Arial</li>
+										</ul>
+									</div>
+								</div>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="se_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="se_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点3</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="th_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="th_ul"></ul>
+								<div class="set-control" id="control_node3">
+									<div class="set-color">
+										<button type="text" id="node3"></button>
+										<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+									</div>
+									<div class="bold common">B</div>
+									<div class="lean common">I</div>
+									<div class="underline common">U</div>
+									<div class="font-style font_family" id="font-style">
+										<div class="title">
+											<p>微软雅黑</p>
+											<i></i>
+										</div>
+										<ul class="font-list" id="font-style-list">
+											<li font-family="Microsoft YaHei">微软雅黑</li>
+											<li font-family="Microsoft JhengHei">黑体</li>
+											<li font-family="Verdana">华文细黑</li>
+											<li font-family="Arial">Arial</li>
+										</ul>
+									</div>
+								</div>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="th_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="th_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点4</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="fo_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="fo_ul"></ul>
+								<div class="set-control" id="control_node4">
+									<div class="set-color">
+										<button type="text" id="node4"></button>
+										<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+									</div>
+									<div class="bold common">B</div>
+									<div class="lean common">I</div>
+									<div class="underline common">U</div>
+									<div class="font-style font_family" id="font-style">
+										<div class="title">
+											<p>微软雅黑</p>
+											<i></i>
+										</div>
+										<ul class="font-list" id="font-style-list">
+											<li font-family="Microsoft YaHei">微软雅黑</li>
+											<li font-family="Microsoft JhengHei">黑体</li>
+											<li font-family="Verdana">华文细黑</li>
+											<li font-family="Arial">Arial</li>
+										</ul>
+									</div>
+								</div>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="fo_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="fo_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点5</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="fi_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="ve_ul"></ul>
+								<div class="set-control" id="control_node5">
+									<div class="set-color">
+										<button type="text" id="node5"></button>
+										<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+									</div>
+									<div class="bold common">B</div>
+									<div class="lean common">I</div>
+									<div class="underline common">U</div>
+									<div class="font-style font_family" id="font-style">
+										<div class="title">
+											<p>微软雅黑</p>
+											<i></i>
+										</div>
+										<ul class="font-list" id="font-style-list">
+											<li font-family="Microsoft YaHei">微软雅黑</li>
+											<li font-family="Microsoft JhengHei">黑体</li>
+											<li font-family="Verdana">华文细黑</li>
+											<li font-family="Arial">Arial</li>
+										</ul>
+									</div>
+								</div>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="ve_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="fi_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="jie_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑游戏特色-->
+		<div class="ts_tc">
+			<div class="ts_wrap">
+				<p class="tc_title"><span>编辑游戏特色</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>轮播图</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="te_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，640px*802px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="te_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ts_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>添加图片</p>
+								<div class="put_file">
+									<input id="ad_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，371px*599px最佳</a>
+								</div>
+							</div>
+							<ul id="lb_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="lb_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部自媒体-->
+		<div class="me_tc">
+			<div class="me_wrap">
+				<p class="tc_title"><span>编辑底部自媒体</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>微信</li>
+							<li>QQ群1</li>
+							<li>QQ群2</li>
+							<li>官方微博</li>
+							<li>官方贴吧</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="d_bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，640px*954px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="d_bg_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="off_bg">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put over">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="w_bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，236px*292px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wx_ul"></ul>
+							<div class="t_put over">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="we_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，165px*165px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ew_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="dw_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="q1_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="q1_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="q1_url"/>
+							</div>
+							<a href="javascript:;" class="put_sure" id="fi_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="q2_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="q2_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="q2_url"/>
+							</div>
+							<a href="javascript:;" class="put_sure" id="ew_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="sn_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="sn_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="sn_url"/>
+							</div>
+							<a href="javascript:;" class="put_sure" id="sn_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="ba_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ba_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="ba_url"/>
+							</div>
+							<a href="javascript:;" class="put_sure" id="ba_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				<!--编辑模块登录-->
+		<div class="tc_login">
+			<div class="tc_body">
+				<div class="chengg"></div>
+				<p>用户登录</p>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/use.png" alt="" />
+					<input type="text" placeholder="请输入账号" id="u_count" />
+				</div>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/mi.png" alt="" />
+					<input type="password" placeholder="请输入密码" id="u_password" />
+				</div>
+				<div class="tc_dl">登录</div>
+			</div>
+		</div>
+		<!--编辑页面公共属性-->
+		<div class="tc_property">
+			<div class="ty_body">
+				<p class="tc_title"><span>编辑属性</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="add_ul">
+					<ul id="add_ul">
+						<li class="active">页面设置</li>
+						<li>公共组件</li>
+					</ul>
+				</div>
+				<div class="pr_con" id="pr_con">
+					<div class="pr_con_div">
+						<div class="pr_put">
+							<p>浏览器标题</p>
+							<input type="text" placeholder="标题建议十个字符以内" id="web_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面关键词</p>
+							<input type="text" placeholder="标点符号建议用半角" id="key_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面简介</p>
+							<textarea placeholder="标点符号建议用半角" id="des_name" style="height:135px;"></textarea>
+						</div>
+						<div class="pr_put">
+							<p>浏览器icon</p>
+							<div class="put_file">
+								<input id="li_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+								<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+							</div>
+						</div>
+						<ul class="img_ul" id="pa_ul"></ul>
+						<a href="javascript:;" class="put_sure m38 b25" id="p_sure">确定</a>
+					</div>
+					<div class="pr_con_div active">
+						<div class="pr_put">
+							<!--<div class="se_pub" data-type="0">
+								<span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共头部</em>
+								<a href="javascript:;" target="_blank" id="yl_tb">预览</a>
+							</div>-->
+							<div class="se_pub pb" data-type="0">
+								<span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共底部</em>
+								<a href="javascript:;" target="_blank" id="yl_db">预览</a>
+							</div>
+						</div>
+						<div class="pr_put mar">
+							<p>统计代码</p>
+							<textarea placeholder="标点符号建议用半角" id="pub_dm"></textarea>
+						</div>
+						<a href="javascript:;" class="put_sure m38 b25" id="g_sure">确定</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="big_img">
+			<div class="small_img">
+				<p style="font-size:24px;text-align: center;color:#fff;margin-bottom:54px;display: none;">请使用手机扫描二维码预览</p>
+				<img src="" alt="" />
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<script type="text/javascript">
+		var alt = "{module_api_domain}/";
+		var alt01 = "{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/";
+		var alt02 = "{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/";
+	</script>
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/colpick.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/m/js/tc_public.js"></script>
+	<script type="text/javascript">
+		var E = window.wangEditor;
+		var editor = new E('.article-content');
+		$(function (){
+			window.onload = function (){
+				if(isCan){
+					getIsLogin();
+					getIcon();
+					getKv();
+					getSecond();
+					getTese();
+					getFmedia();
+					getVmenu();
+					getVlist();
+					getVbg();
+				}
+			};
+		});
+	</script>
+
+</html>

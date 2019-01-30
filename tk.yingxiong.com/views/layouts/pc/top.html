@@ -1,0 +1,53 @@
+<div class="nav">
+	<div class="wrap">
+		<img src="{$global.logo_img}" alt="" class="icon" />
+		<div class="n_txt">
+			<p>{$global.title}</p>
+			<p>{$global.sub_title}</p>
+		</div>
+		<ul class="nav_ul">
+			<li class='{if isset($smarty.get.id)} {else}active{/if}'>
+				<a href="{myurl name='site/index'}" target="_blank">首页</a>
+			</li>
+			<li class='{if isset($smarty.get.id)}{if $smarty.get.id gte 637 && $smarty.get.id lte 641}active{else}{/if}{/if}'>
+				<a href="{myurl name='article/list, id=>637'}" target="_blank">新闻中心</a>
+			</li>
+			<li>
+				<a href="http://dftk.game100.wiki/" target="_blank">攻略Wiki</a>
+			</li>
+			<li>
+				<a href="javascript:yx_showTips('敬请期待');" target="_blank">赛事专区</a>
+			</li>
+
+			<!--<li>-->
+			<!--<a href="{myurl name='/p/collect'}" target="_blank" class="yj_coll"></a>-->
+			<!--</li>-->
+			<li class='{if isset($smarty.get.id)}{if $smarty.get.id gte 632 && $smarty.get.id lte 636}active{else}{/if}{/if}'>
+				<a href="{myurl name='video/list, id=>632'}" target="_blank">视频中心</a>
+			</li>
+			<li>
+				<a href="/care/index.html" target="_blank">英雄公益</a>
+			</li>
+			<li>
+				<a href="https://yxhy.ysd.com/" target="_blank" class="zb_city"></a>
+			</li>
+			<!--<li>-->
+			<!--<a href="javascript:yx_showTips('敬请期待');" target="_blank">玩家论坛</a>-->
+			<!--</li>-->
+			<!--<li>-->
+			<!--<a href="javascript:yx_showTips('敬请期待');" target="_blank">客服中心</a>-->
+			<!--</li>-->
+		</ul>
+
+		<ul class="s_ul">
+			<li></li>
+			<li>
+				<a href="{$global.wb_url}" target="_blank"></a>
+			</li>
+			<li>
+				<a href="{$global.tb_url}" target="_blank"></a>
+			</li>
+			<img src="{$global.wx_img}" alt="" class="fl_wx" />
+		</ul>
+	</div>
+</div>

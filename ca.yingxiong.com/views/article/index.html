@@ -1,0 +1,201 @@
+ {include file="../layouts/pc/pageHead.html"}
+<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}7.0/css/newsList.css?{$smarty.const.VERSION}">
+<div class="q_container">
+	<div class="n_bg"></div>
+	<div class="q_item1">
+		<div class="q1_title">
+			{if $category_id>=319 and $category_id<=323}
+			<h1>新闻资讯</h1>
+			{else if $category_id>=324 and $category_id<=328}
+			<h1>攻略中心</h1>
+			{/if}
+			<p>
+				{if $category_id>=319 and $category_id<=323}
+				<span>NEWS</span>
+				<span>CENTER</span>
+				{else if $category_id>=324 and $category_id<=328}
+				<span>STRATEGY</span>
+				<span>CENTER</span>
+				{/if}
+			</p>
+			<label class="q_search" for="">
+			    <input id="searchVal" type="text" name="search" id="search" value="" />
+			    <a id="searchBtn" href="javascript:"></a>
+			</label>
+		</div>
+		<div class="q1_nav">
+			<ul class="nav_style2 nav">
+				    {if $category_id>=319 and $category_id<=323} 
+					<li {if $category_id==319}class="active" {/if}>
+					    <a href="{myurl name='article/list, id=>319'}">最新</a>
+					</li>
+					<li {if $category_id==320}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>320'}">新闻</a>
+					</li>
+					<li {if $category_id==321}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>321'}">公告</a>
+					</li>
+					<li {if $category_id==322}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>322'}">活动</a>
+					</li>
+					<li {if $category_id==323}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>323'}">攻略</a>
+					</li>
+
+					{else}
+
+					<li {if $category_id==324}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>324'}">最新</a>
+					</li>
+					<li {if $category_id==325}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>325'}">武器</a>
+					</li>
+					<li {if $category_id==326}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>326'}">PVP</a>
+					</li>
+					<li {if $category_id==327}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>327'}">PVE</a>
+					</li>
+					<li {if $category_id==328}class="active" {/if}>
+						<a href="{myurl name='article/list, id=>328'}">新手</a>
+					</li>
+
+					{/if}
+			</ul>
+		</div>
+	</div>
+
+	<div class="n_item2">
+		<div class="n2_list active">
+			<ul>
+				{if $data and $data['data']} 
+				{foreach $data['data'] as $index => $item}
+				<li onclick="location.href='{$item.linkUrl}'">
+					<a href="{$item.linkUrl}">
+						<div class="imgBox">
+							{if $item['thumb']}
+							<img src="{$item.thumb}" /> 
+							{else}
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_mr.png?{$smarty.const.VERSION}"/>
+							{/if}
+						</div>
+						
+						<div class="textBox">
+							<h1>
+								<p>{$item.title}</p><span>{$item.created_at|date_format:'m-d'}</span>
+							</h1>
+							<p>
+								{$item.contentMessage}
+							</p>
+						</div>
+					</a>
+				</li>
+				{/foreach} 
+				{else if}
+				<li class="no_data">暂无数据</li>
+				{/if}
+			</ul>
+			<div class="q_page">
+				{$data.page}
+			</div>
+		</div>
+	</div>
+	{include file="../layouts/pc/get_gift.html"}
+	{include file="../layouts/pc/pageFoot.html"}
+</div>
+
+<script type="text/javascript">
+	$(function() {
+
+		//全局
+		var ajaxUrl = '{myurl name="article/list, id=>$category_id"}';
+
+		//事件
+		$("#searchBtn").click(function() {
+			var theThis = $(this);
+			searchData(theThis, function(data) {
+				add_data_to_page(data);
+				$(".q_page").hide();
+				theThis.attr("click", "");
+			});
+		});
+
+		$(document).keypress(function(e) {
+			//console.log(e.which);
+			if(e.which != 13) {
+				return;
+			}
+			//判断搜索框是否获取焦点
+			if($("#searchVal").is(":focus")) {
+				var theThis = $("#searchBtn");
+				searchData(theThis, function(data) {
+					add_data_to_page(data);
+					$(".q_page").hide();
+					theThis.attr("click", "");
+				});
+			};
+		});
+
+		//方法
+		page_nav_active(1);
+
+		function searchData(theThis, callback) {
+			var title = $("#searchVal").val();
+			if(theThis.attr("click")) {
+				return;
+			}
+			if(title=="" || title==null){
+				return;
+			}
+			
+			theThis.attr("click", "true");
+
+			$.ajax({
+				type: "get",
+				url: ajaxUrl,
+				data: {
+					title: title
+				},
+				success: function(data) {
+					var data = JSON.parse(data).data.data;
+					//console.log(data);
+					if(data.length == 0) {
+						alert("没有查到你所需要的内容，请重新搜索喔~");
+						theThis.attr("click", "");
+						return;
+					}
+					if(callback) {
+						callback(data);
+					}
+				},
+				error: function(err) {
+					alert("网络异常~");
+					theThis.attr("click", "");
+				}
+			});
+		}
+
+		function add_data_to_page(data) {
+			var html = "";
+			for(var i = 0, len = data.length; i < len; i++) {
+				html = html + '<li>' +
+					'<a href="' + data[i].linkUrl + '">' +
+					'<div class="imgBox">' +
+					'<img src="' + data[i].thumb + '" />' +
+					'</div>' +
+					'<div class="textBox">' +
+					'<h1>' +
+					'<p>' + data[i].title + '</p><span>' + data[i].created_at_formate + '</span>' +
+					'</h1>' +
+					'<p></p>' +
+					'</div>' +
+					'</a>' +
+					'</li>';
+			}
+			$(".n2_list > ul").html(null).append(html);
+		}
+
+	});
+</script>
+
+</html>

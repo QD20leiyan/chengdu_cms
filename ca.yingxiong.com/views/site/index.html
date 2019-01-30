@@ -1,0 +1,748 @@
+ {include file="../layouts/pc/pageHead.html"}
+{assign var="version" value="1"} 
+<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}7.0/css/index.css?{$version}">
+<div class="q_content">
+	<div class="q_play"><img class="q_img js_video_play " src="{$smarty.const.STATIC_DOMAIN}7.0/images/index_video.png?{$version}" alt="" data-url="{$kv_video.url}"/></div>
+	<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/logo2.png?{$smarty.const.VERSION}" alt="" class="logo_img">
+	<div class="kv1"></div>
+	<div class="kv2"></div>
+	<div class="q_item q_item1">
+		<label class="i1_preve"></label>
+		<label class="i1_next"></label>
+		<div>
+			<ul class="i1_list">
+				{foreach $activity as $index => $item }
+				{if $index == 0}
+				<li class="i1_list_1">
+					<a href="{$item.url}" target="_blank">
+					<img src="{$item.thumb}">
+					</a>
+				</li>
+				{else if}
+				<li>
+					<a href="{$item.url}" target="_blank">
+					<img src="{$item.thumb}">
+					</a>
+				</li>
+				{/if} 
+				{/foreach}
+			</ul>
+		</div>
+
+	</div>
+	<div class="q_item q_item2">
+		<div class="i2_left">
+			<div class="mo-container mo1">
+				<div class="mo-swipe">
+					{foreach $banner as $item}
+					<div class="mo-item">
+						<a href="{$item.url}" target="_blank">
+							<img src="{$item.thumb}">
+						</a>
+					</div>
+					{/foreach}
+
+				</div>
+				<div class="mo-icon"></div>
+			</div>
+		</div>
+		<div class="i2_right">
+			<ul class="i2_r_nav">
+				<li class="active" data-index="0">最新</li>
+				<li data-index="1">新闻</li>
+				<li data-index="2">公告</li>
+				<li data-index="3">活动</li>
+				<li data-index="4">攻略</li>
+			</ul>
+			<ul class="i2_r_content">
+				<li class="active">
+					<label class="i2_line"></label>
+					<a href="{$zx[0].linkUrl}" title="{$zx[0].title}"><span>[{$zx[0].categoryName}]</span>{$zx[0].title}</a>
+					<label class="i2_line"></label>
+					<ul>
+						{foreach $zx as $index => $item} 
+						{if $index > 0 and $index<=5 } 
+						<li>
+							<a href="{$item.linkUrl}" title="{$item.title}" target="_blank">
+								<span>[{$item.categoryName}]</span>
+								<p>{$item.title}</p>
+								<label>{$item.created_at|date_format:'m-d'}</label>
+							</a>
+	                    </li>
+				        {/if}
+				        {/foreach}
+				    </ul>
+				<a class="i2_more" href="{myurl name='article/list, id=>319'}" target="_blank">查看更多</a>
+				</li>
+				<li>
+					<label class="i2_line"></label>
+					<a href="{$xw[0].linkUrl}" title="{$xw[0].title}"><span>[{$xw[0].categoryName}]</span>{$xw[0].title}</a>
+					<label class="i2_line"></label>
+					<ul>
+						{foreach $xw as $index => $item} {if $index > 0 and $index
+						<=5 } <li>
+							<a href="{$item.linkUrl}" title="{$item.title}" target="_blank">
+								<span>[{$item.categoryName}]</span>
+								<p>{$item.title}</p>
+								<label>{$item.created_at|date_format:'m-d'}</label>
+							</a>
+				</li>
+				{/if} {/foreach}
+				</ul>
+				<a class="i2_more" href="{myurl name='article/list, id=>320'}" target="_blank">查看更多</a>
+				</li>
+				<li>
+					<label class="i2_line"></label>
+					<a href="{$gg[0].linkUrl}" title="{$gg[0].title}"><span>[{$gg[0].categoryName}]</span>{$gg[0].title}</a>
+					<label class="i2_line"></label>
+					<ul>
+						{foreach $gg as $index => $item} {if $index > 0 and $index
+						<=5 } <li>
+							<a href="{$item.linkUrl}" title="{$item.title}" target="_blank">
+								<span>[{$item.categoryName}]</span>
+								<p>{$item.title}</p>
+								<label>{$item.created_at|date_format:'m-d'}</label>
+							</a>
+				</li>
+				{/if} {/foreach}
+				</ul>
+				<a class="i2_more" href="{myurl name='article/list, id=>321'}" target="_blank">查看更多</a>
+				</li>
+				<li>
+					{if $hd}
+					<label class="i2_line"></label>
+					<a href="{$hd[0].linkUrl}" title="{$hd[0].title}"><span>[{$hd[0].categoryName}]</span>{$hd[0].title}</a>
+					<label class="i2_line"></label>
+					<ul>
+						{foreach $hd as $index => $item} {if $index > 0 and $index
+						<=5 } <li>
+							<a href="{$item.linkUrl}" title="{$item.title}" target="_blank">
+								<span>[{$item.categoryName}]</span>
+								<p>{$item.title}</p>
+								<label>{$item.created_at|date_format:'m-d'}</label>
+							</a>
+				</li>
+				{/if} {/foreach}
+				</ul>
+				<a class="i2_more" href="{myurl name='article/list, id=>322'}" target="_blank">查看更多</a>
+				{/if}
+				</li>
+				<li>
+					<label class="i2_line"></label>
+					<a href="{$gl[0].linkUrl}" title="{$gl[0].title}"><span>[{$gl[0].categoryName}]</span>{$gl[0].title}</a>
+					<label class="i2_line"></label>
+					<ul>
+						{foreach $hd as $index => $item} {if $index > 0 and $index
+						<=5 } <li>
+							<a href="{$item.linkUrl}" title="{$item.title}" target="_blank">
+								<span>[{$item.categoryName}]</span>
+								<p>{$item.title}</p>
+								<label>{$item.created_at|date_format:'m-d'}</label>
+							</a>
+				</li>
+				{/if} {/foreach}
+				</ul>
+				<a class="i2_more" href="{myurl name='article/list, id=>323'}" target="_blank">查看更多</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="q_item q_item3">
+		<a class="i3_js" href="{$role[0]['url']}" target="_blank">
+			<img src="{$role[0]['thumb']}" />
+		</a>
+		<a class="i3_mq" href="{$gun[0]['url']}" target="_blank">
+			<img src="{$gun[0]['thumb']}" />
+		</a>
+		<a class="i3_map" href="{$map[0]['url']}" target="_blank">
+			<img src="{$map[0]['thumb']}" />
+		</a>
+	</div>
+	<div class="q_item q_item4">
+		<div class="i4_left">
+			<div class="i4_video">
+				<div class="i4_title">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_title1.png?{$smarty.const.VERSION}" />
+					{fragment var=index code=tougao size=1}
+					{if $index neq ''}
+					{foreach $index as $v}
+					<a class="a1" href="{$v.url}" target="_blank"></a>
+					{/foreach}
+					{/if}
+					<a class="a2" href="{myurl name='video/list, id=>329'}" target="_blank"></a>
+				</div>
+				<div class="i4_content">
+					<ul class="nav_style2 i4_l_nav">
+						<li class="active" data-index="0">最新</li>
+						<li data-index="1">官方视频</li>
+						<li data-index="2">直播</li>
+						<li data-index="3">赛事</li>
+						<li data-index="4">武器</li>
+						<li data-index="5">新手</li>
+					</ul>
+					<ul class="video_list active">
+						{foreach $video_zx as $index => $item}
+
+						<li staId="{$item.id}">
+							<div>
+								<div>
+									<img {if $item.thumb}src="{$item.thumb}" {/if} />
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								<p>{$item.title}</p>
+							</div>
+						</li>
+
+						{/foreach}
+					</ul>
+					<ul class="video_list">
+						{foreach $video_gf as $index => $item}
+
+						<li staId="{$item.id}">
+							<div>
+								<div>
+									<img {if $item.thumb}src="{$item.thumb}" {/if} />
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								<p>{$item.title}</p>
+							</div>
+						</li>
+
+						{/foreach}
+					</ul>
+					<ul class="video_list">
+						{foreach $video_zb as $index => $item}
+
+						<li staId="{$item.id}">
+							<div>
+								<div>
+									<img {if $item.thumb}src="{$item.thumb}" {/if} />
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								<p>{$item.title}</p>
+							</div>
+						</li>
+
+						{/foreach}
+					</ul>
+					<ul class="video_list">
+						{foreach $video_ss as $index => $item}
+
+						<li staId="{$item.id}">
+							<div>
+								<div>
+									<img {if $item.thumb}src="{$item.thumb}" {/if} />
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								<p>{$item.title}</p>
+							</div>
+						</li>
+
+						{/foreach}
+					</ul>
+					<ul class="video_list">
+						{foreach $video_wq as $index => $item}
+
+						<li staId="{$item.id}">
+							<div>
+								<div>
+									<img {if $item.thumb}src="{$item.thumb}" {/if} />
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								<p>{$item.title}</p>
+							</div>
+						</li>
+
+						{/foreach}
+					</ul>
+					<ul class="video_list">
+						{foreach $video_xs as $index => $item}
+
+						<li staId="{$item.id}">
+							<div>
+								<div>
+									<img {if $item.thumb}src="{$item.thumb}" {/if} />
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								<p>{$item.title}</p>
+							</div>
+						</li>
+
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+			<div class="i4_gl">
+				<div class="i4_title">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_title2.png?{$smarty.const.VERSION}" />
+					{fragment var=index code=tougao size=1}
+					{if $index neq ''}
+					{foreach $index as $v}
+					<a class="a1" href="{$v.url}" target="_blank"></a>
+					{/foreach}
+					{/if}
+					<a class="a2" href="{myurl name='article/list, id=>324'}" target="_blank"></a>
+				</div>
+				<div class="i4_content">
+					<ul class="nav_style2 i4_l_nav">
+						<li class="active" data-index="0">最新</li>
+						<li data-index="1">武器</li>
+						<li data-index="2">PVP</li>
+						<li data-index="3">PVE</li>
+						<li data-index="4">新手</li>
+					</ul>
+					<div class="i4_news active">
+						<div class="i4_news_img">
+							<a href="{$gl_zx[0].linkUrl}" target="_blank">
+								{if $gl_zx[0].thumb}
+							    <img src="{$gl_zx[0].thumb}" />
+							    {/if}  
+							    <p class="over_style">{$gl_zx[0].title}</p>
+							</a>
+						</div>
+						<ul class="text_list1">
+							{if $gl_zx}
+							{foreach $gl_zx as $index => $item}
+							{if $index <=6}
+							<li>
+								<a href="{$item.linkUrl}" target="_blank">
+									<span>[{$item.categoryName}]</span>
+									<p>{$item.title}</p>
+									<label>{$item.created_at|date_format:'m-d'}</label>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{/if}
+														
+						</ul>
+					</div>
+					<div class="i4_news">
+						<div class="i4_news_img">
+							<a href="{$gl_wq[0].linkUrl}" target="_blank">
+								{if $gl_wq[0].thumb}
+							    <img src="{$gl_wq[0].thumb}" />
+							    {/if}  
+							    <p class="over_style">{$gl_wq[0].title}</p>
+							</a>
+						</div>
+						<ul class="text_list1">
+							{if $gl_wq}
+							{foreach $gl_wq as $index => $item}
+							{if $index <=6}
+							<li>
+								<a href="{$item.linkUrl}" target="_blank">
+									<span>[{$item.categoryName}]</span>
+									<p>{$item.title}</p>
+									<label>{$item.created_at|date_format:'m-d'}</label>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{/if}
+						</ul>
+					</div>
+					<div class="i4_news">
+						<div class="i4_news_img">
+							<a href="{$gl_pvp[0].linkUrl}" target="_blank">
+								{if $gl_pvp[0].thumb}
+							    <img src="{$gl_pvp[0].thumb}" />
+							    {/if}  
+							    <p class="over_style">{$gl_pvp[0].title}</p>
+							</a>
+						</div>
+						<ul class="text_list1">
+							{if $gl_pvp}
+							{foreach $gl_pvp as $index => $item}
+							{if $index <=6}
+							<li>
+								<a href="{$item.linkUrl}" target="_blank">
+									<span>[{$item.categoryName}]</span>
+									<p>{$item.title}</p>
+									<label>{$item.created_at|date_format:'m-d'}</label>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{/if}
+						</ul>
+					</div>
+					<div class="i4_news">
+						<div class="i4_news_img">
+							<a href="{$gl_pve[0].linkUrl}" target="_blank">
+								{if $gl_pve[0].thumb}
+							    <img src="{$gl_pve[0].thumb}" />
+							    {/if}  
+							    <p class="over_style">{$gl_pve[0].title}</p>
+							</a>
+						</div>
+						<ul class="text_list1">
+							{if $gl_pve}
+							{foreach $gl_pve as $index => $item}
+							{if $index <=6}
+							<li>
+								<a href="{$item.linkUrl}" target="_blank">
+									<span>[{$item.categoryName}]</span>
+									<p>{$item.title}</p>
+									<label>{$item.created_at|date_format:'m-d'}</label>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{/if}
+						</ul>
+					</div>
+					<div class="i4_news">
+						<div class="i4_news_img">
+							<a href="{$gl_xs[0].linkUrl}" target="_blank">
+								{if $gl_xs[0].thumb}
+							    <img src="{$gl_xs[0].thumb}" />
+							    {/if}  
+							    <p class="over_style">{$gl_xs[0].title}</p>
+							</a>
+						</div>
+						<ul class="text_list1">
+							{if $gl_xs}
+							{foreach $gl_xs as $index => $item}
+							{if $index <=6}
+							<li>
+								<a href="{$item.linkUrl}" target="_blank">
+									<span>[{$item.categoryName}]</span>
+									<p>{$item.title}</p>
+									<label>{$item.created_at|date_format:'m-d'}</label>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{/if}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="i4_gl_video">
+				<div class="i4_title">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_title3.png?{$smarty.const.VERSION}" />
+					{fragment var=index code=tougao size=1}
+					{if $index neq ''}
+					{foreach $index as $v}
+					<a class="a1" href="{$v.url}" target="_blank"></a>
+					{/foreach}
+					{/if}
+					<a class="a2" href="{myurl name='video/list, id=>335'}" target="_blank"></a>
+				</div>
+				<div class="i4_content">
+					<ul class="nav_style2 i4_l_nav">
+						<li class="active" data-index="0">最新</li>
+						<li data-index="1">武器</li>
+						<li data-index="2">PVP</li>
+						<li data-index="3">PVE</li>
+						<li data-index="4">新手</li>
+					</ul>
+					<ul class="video_list active">
+						
+						{foreach $video_gl_zx as $index => $item}
+						{if $index<=5}
+						<li>
+							<div>
+								<div>
+									{if $item.thumb}
+									<img src="{$item.thumb}">
+									{/if}
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								{if $item.title}
+								<p>{$item.title}</p>
+								{/if}
+							</div>
+						</li>
+						{/if}
+						{/foreach}
+					
+					</ul>
+					<ul class="video_list">
+						{foreach $video_gl_wq as $index => $item}
+						{if $index<=5}
+						<li>
+							<div>
+								<div>
+									{if $item.thumb}
+									<img src="{$item.thumb}">
+									{/if}
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								{if $item.title}
+								<p>{$item.title}</p>
+								{/if}
+							</div>
+						</li>
+						{/if}
+						{/foreach}
+					</ul>
+					<ul class="video_list">
+						{foreach $video_gl_pvp as $index => $item}
+						{if $index<=5}
+						<li>
+							<div>
+								<div>
+									{if $item.thumb}
+									<img src="{$item.thumb}">
+									{/if}
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								{if $item.title}
+								<p>{$item.title}</p>
+								{/if}
+							</div>
+						</li>
+						{/if}
+						{/foreach}
+
+					</ul>
+					<ul class="video_list">
+						{foreach $video_gl_pve as $index => $item}
+						{if $index<=5}
+						<li>
+							<div>
+								<div>
+									{if $item.thumb}
+									<img src="{$item.thumb}">
+									{/if}
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								{if $item.title}
+								<p>{$item.title}</p>
+								{/if}
+							</div>
+						</li>
+						{/if}
+						{/foreach}
+
+					</ul>
+					<ul class="video_list">
+						{foreach $video_gl_xs as $index => $item}
+						{if $index<=5}
+						<li>
+							<div>
+								<div>
+									{if $item.thumb}
+									<img src="{$item.thumb}">
+									{/if}
+									<label class="js_video_play" data-url="{$item.content_message}"></label>
+								</div>
+								{if $item.title}
+								<p>{$item.title}</p>
+								{/if}
+							</div>
+						</li>
+						{/if}
+						{/foreach}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="i4_right">
+			<div class="i4_r_action">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_title5.png?{$smarty.const.VERSION}" />
+				<div>
+					<div>
+						<div class="mo-container mo2">
+							<div class="mo-swipe">
+
+								{foreach $match_act as $index => $item}
+								<div class="mo-item">
+									<a href="{$item.url}" target="_blank">
+										<img src="{$item.thumb}">
+									</a>
+								</div>
+								{/foreach}
+
+							</div>
+							<div class="mo-icon"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="i4_r_user">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_title6.png?{$smarty.const.VERSION}" />
+				<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/star.png?{$smarty.const.VERSION}" alt="" /></a>
+				<!--<div>
+					<ul class="nav_style2">
+						<li class="active" data-index="0">职业选手</li>
+						<li data-index="1">明星玩家</li>
+					</ul>
+					<ul class="text_list2 active">
+						<li class="list_title">
+							<label>头像</label>
+							<h1>角色名</h1>
+							<p>区服</p>
+							<span>人气</span>
+						</li>
+
+						{foreach $player_xs as $index => $item}
+						<li class="list_{$index+1}">
+							<label>
+                    			<img src="{$item.thumb}"/>
+                    		</label>
+							<h1>{$item.title}</h1>
+							<p>{$item.sub_title}</p>
+							<span>{$item.sort}</span>
+						</li>
+						{/foreach}
+
+					</ul>
+					<ul class="text_list2">
+						<li class="list_title">
+							<label>头像</label>
+							<h1>角色名</h1>
+							<p>区服</p>
+							<span>人气</span>
+						</li>
+						{foreach $player_mx as $index => $item}
+						<li class="list_{$index+1}">
+							<label>
+                    			<img src="{$item.thumb}"/>
+                    		</label>
+							<h1>{$item.title}</h1>
+							<p>{$item.sub_title}</p>
+							<span>{$item.sort}</span>
+						</li>
+						{/foreach}
+					</ul>
+				</div>-->
+			</div>
+			<div class="i4_r_ph">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/q_title7.png?{$smarty.const.VERSION}" />
+				<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/pht.jpg?{$smarty.const.VERSION}" alt="" /></a>
+				<!--<div>
+					<ul class="nav_style2">
+						<li class="active" data-index="0">积分排行</li>
+						<li data-index="1">人气排行</li>
+					</ul>
+					<ul class="text_list2 active">
+
+						<li class="list_title">
+							<label>头像</label>
+							<h1>角色名</h1>
+							<p>区服</p>
+							<span>积分</span>
+						</li>
+
+						{foreach $jj_jf as $index => $item}
+						<li class="list_{$index+1}">
+							<label>
+                    			<img src="{$item.thumb}"/>
+                    		</label>
+							<h1>{$item.title}</h1>
+							<p>{$item.sub_title}</p>
+							<span>{$item.sort}</span>
+						</li>
+						{/foreach}
+
+					</ul>
+					
+				</div>-->
+			</div>
+		</div>
+	</div>
+    {include file="../layouts/pc/get_gift.html"}
+	{include file="../layouts/pc/pageFoot.html"}
+
+<script type="text/javascript">
+	$(function() {
+
+		function init() {
+			page_nav_active(0);
+			add_move_icon($(".mo1"));
+			add_move_icon($(".mo2"));
+			click_i1_list();
+			//添加视频点击统计
+			addCountVideoClick($(".video_list > li"));
+		}
+
+		//点击新闻列表切换
+		$(".i2_r_nav li").click(function() {
+			var index = $(this).attr("data-index");
+			changeShowContent($(".i2_r_nav li"), $(".i2_r_content > li"), index);
+		});
+
+		$(".i4_video .i4_l_nav li").click(function() {
+			var index = $(this).attr("data-index");
+			changeShowContent($(".i4_video .i4_l_nav li"), $(".i4_video .video_list"), index);
+		});
+
+		$(".i4_gl .i4_l_nav li").click(function() {
+			var index = $(this).attr("data-index");
+			changeShowContent($(".i4_gl .i4_l_nav li"), $(".i4_gl .i4_news"), index);
+		});
+
+		$(".i4_gl_video .i4_l_nav li").click(function() {
+			var index = $(this).attr("data-index");
+			changeShowContent($(".i4_gl_video .i4_l_nav li"), $(".i4_gl_video .video_list"), index);
+		});
+
+		$(".i4_r_user .nav_style2 li").click(function() {
+			var index = $(this).attr("data-index");
+			changeShowContent($(".i4_r_user .nav_style2 li"), $(".i4_r_user .text_list2"), index);
+		});
+
+		$(".i4_r_ph .nav_style2 li").click(function() {
+			var index = $(this).attr("data-index");
+			changeShowContent($(".i4_r_ph .nav_style2 li"), $(".i4_r_ph .text_list2"), index);
+		});
+        
+		//点击切换精彩活动列表
+		function click_i1_list() {
+			var i1_list = $(".i1_list");
+			var i1_list_index = 0;
+			var i1_list_group = get_i1_list_group();
+
+			$(".i1_preve").click(function() {
+
+				if(i1_list_index == 0) {
+					return;
+				}
+				i1_list_index--;
+				change_i1_list(i1_list, i1_list_index);
+			});
+
+			$(".i1_next").click(function() {
+
+				if(i1_list_group == 0) {
+					return;
+				}
+
+				if(i1_list_index == (i1_list_group - 1)) {
+					return;
+				}
+				i1_list_index++;
+				change_i1_list(i1_list, i1_list_index);
+			});
+		}
+		//彩活动列表切换
+		function change_i1_list(ele, index) {
+			ele.animate({
+				"margin-left": -index * 1080
+			}, 400)
+		}
+		//得到彩活动列表的组数
+		function get_i1_list_group() {
+			var i1_list_len = $(".i1_list li").length;
+			if(i1_list_len <= 6) {
+				return 0;
+			} else {
+				if(i1_list_len % 6 != 0) {
+					return parseInt(i1_list_len / 6) + 1;
+				} else {
+					return parseInt(i1_list_len / 6);
+				}
+			}
+		}
+
+		init();
+
+	});
+</script>
+{video_play}
+
+</html>

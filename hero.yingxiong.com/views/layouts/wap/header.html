@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?eebc1f5b92693afa2314f69b4ddf610d";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		{csrf}
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+	    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?1.0.8">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/common.min.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/percircle.css?{$smarty.const.VERSION}"/>
+		 <!--<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/index.css?{$smarty.const.VERSION}">--> 
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/index.css?a=23">
+	</head>
+
+	<body>
+		<!-- 这是领取金币弹窗 -->
+		<div class="l_tc">
+			<div class="tc1 tc_show">
+				<div>
+					<div class="tc1_type">
+						<p class="active" type="ios">
+							<label><i></i></label>
+							<span>IOS</span>
+						</p>
+						<p type="android">
+							<label><i></i></label>
+							<span>安卓</span>
+						</p>
+					</div>
+					<input class="userPhone" type="text" placeholder="请输入手机号">
+					<label class="tc1_err">请输入手机号</label>
+					<div class="userMark2Box">
+						<input type="text" class="userMark2" placeholder="右侧验证码">
+						<div class="tc1_img_mark_box">
+							<img class="tc1_img_mark" src="">
+						</div>
+					</div>
+					<label class="tc1_err">请输入图形验证码</label>
+					<div class="userMark1Box">
+						<input type="text" class="userMark1" placeholder="请输入手机验证码">
+						<button>获取验证码</button>
+					</div>
+					<label class="tc1_err">请输入验证码</label>
+					<button class="tc1_sign"></button>
+				</div>
+				<button class="tc_close"></button>
+			</div>
+			<div class="tc2 ">
+				<div>
+					<h1>礼包兑换码 长按复制</h1>
+					<h2 class="page_gold_code">F43TRTGTREG45</h2>
+					<p>礼包内容：<span>金币 X 1000</span></p>
+					<p>领取方式：
+						<label>进入游戏-点击活动按钮-点击礼包码-输入礼包码兑换礼包</label>
+					</p>
+					<p>礼包说明：
+						<label>每个账号只可兑换一次</label>
+					</p>
+					<div class="tc2_wxh">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_mark.png?{$smarty.const.VERSION}">
+						<div>
+							<h2>扫码关注微信公众号</h2>
+							<p>微信扫码吃鸡，独享更多游戏独家资讯及超值福利</p>
+						</div>
+					</div>
+				</div>
+				<button class="tc_close"></button>
+			</div>
+		</div>
+		<header>
+			<div class="header">
+				<a href="/m/index" class="icon"><img src="{$global.logo_img}" alt="" /></a>
+				<div class="header_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<!--<section class="header_gold_icon"></section>-->
+				<div class="header_a" data-url="{$smarty.const.STATIC_DOMAIN}3.0/m/" data-version="?{$smarty.const.VERSION}">
+					<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_select.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+				<div class="nav-content">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a href="/m/index" class="item-anchor">首页</a>
+						</li>
+						<li class="nav-item">
+							<a href="{myurl name='wap/article/list, id=>419'}" class="item-anchor">新闻中心</a>
+						</li>
+						<li class="nav-item">
+							<a href="http://bbs.yingxiong.com/T/pc/24/" class="item-anchor">社区论坛</a>
+						</li>
+						<li class="nav-item">
+							<a href="http://kf.yingxiong.com/Mobile/checkOption?Gid=157" class="item-anchor">玩家支持</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>

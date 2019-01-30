@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta name="keywords" content="{$seo_key}">
+        <meta name="description" content="{$seo_desc}">
+        <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/common.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/swiper.min.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/n_common01.css?{$smarty.const.VERSION}">
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="hengping">
+			<p>请竖屏浏览</p>
+		</div>
+		<div class="d_top">
+			<div class="d_t_cover" style="background-color:{$global.nav_background_color}"></div>
+			<div class="d_t_con">
+				<div>
+					<img src="{$global.website_logo_img}" alt="" />
+				</div>
+				<div>
+					<p>{$global.website_title}</p>
+					<p>{$global.website_sub_title}</p>
+				</div>
+				<div>
+					<div class="d_t_con_loadBtn">
+						立即下载
+					</div>
+				</div>
+				<div>
+					<div class="d_t_con_drop" data="0">
+						<span class="d_t_t"></span>
+						<span class="d_t_m"></span>
+						<span class="d_t_b"></span>
+					</div>
+				</div>
+			</div>
+			<ul class="down_ul">
+				<li>
+					<a href="{if isset($global.bottommedia_download_url)}{$global.bottommedia_download_url}{/if}"><img src="{if isset($global.download_img_wap)}{$global.download_img_wap}{/if}" alt="" /></a>
+				</li>
+				<li>
+					<a href="{if isset($global.download_tap_url)}{$global.download_tap_url}{/if}"><img src="{if isset($global.download_tap_background_img_wap)}{$global.download_tap_background_img_wap}{/if}" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+		<div class="d_top_cover"></div>
+		<div class="d_top_nav">
+			<ul>
+				<li class="shouye"><a href="{myurl name='/wap/site/index'}">首页</a></li>
+				<li class="gonglue"><a href="{myurl name='article/list, alias=>zonghe'}">新闻资讯</a></li>
+				<li><a href="javascript:yx_showTips('敬请期待！');">官方社区</a></li>
+			</ul>
+		</div>

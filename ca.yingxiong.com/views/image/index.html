@@ -1,0 +1,156 @@
+ {include file="../layouts/pc/pageHead.html"}
+<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}7.0/css/version.css?{$smarty.const.VERSION}">
+<div class="q_container">
+	<div class="n_bg"></div>
+	<div class="q_item1" style="margin-top:438px;">
+		<div class="q1_title">
+			<h1>版本纪念馆</h1>
+			<p>
+				<span>VERSION</span>
+				<span>DISPLAY</span>
+			</p>
+		</div>
+	</div>
+
+	<div class="v_listBox">
+		<ul class="v_nav">
+			<li {if $category_id==354} class="active" {/if}>
+				<a href='{myurl name="image/list,id=>354"}'>
+					<h1>2017</h1>
+					<p>{$count_2017}张</p>
+				</a>
+			</li>
+			<li {if $category_id==353} class="active" {/if}>
+				<a href='{myurl name="image/list,id=>353"}'>
+					<h1>2016</h1>
+					<p>{$count_2016}张</p>
+				</a>
+			</li>
+			<li {if $category_id==352} class="active" {/if}>
+				<a href='{myurl name="image/list,id=>352"}'>
+					<h1>2015</h1>
+					<p>{$count_2015}张</p>
+				</a>
+			</li>
+			<li {if $category_id==351} class="active" {/if}>
+				<a href='{myurl name="image/list,id=>351"}'>
+					<h1>2014</h1>
+					<p>{$count_2014}张</p>
+				</a>
+			</li>
+		</ul>
+		<ul class="v_list_ul">
+			{foreach $data.data as $index => $item}
+			<li>
+				<img src="{$item.thumb}" />
+				<div class="v_cover">
+					<label>{$item.created_at_formate}</label>
+					<a href="javascript:;"></a>
+					<p>查看版本KV</p>
+				</div>
+				<div class="public_img">
+					<div class="li_mask"></div>
+					<div class="tc_img">
+						<img src="{$item.contentMessage}" alt="" />
+						<img class="c_close" src="{$smarty.const.STATIC_DOMAIN}7.0/images/c.png?{$smarty.const.VERSION}" alt="" />
+					</div>				
+				</div>
+			</li>
+			{/foreach}
+		</ul>
+		<!--<p class="v_list_btn" index="4">
+			<span class="la_jz active">点击加载</span>
+			<span class="la_jz_ing"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/v_jz.png?{$smarty.const.VERSION}"/>加载中...</span>
+			<span class="la_jz_end">亲，已经没有更多的数据了~</span>
+		</p>-->
+	</div>
+    {include file="../layouts/pc/get_gift.html"}
+	{include file="../layouts/pc/pageFoot.html"}
+<script type="text/javascript">
+	$(function() {
+		//全局
+		var jz_state = false;
+		var jz_page_code = 1;
+		var category_id = {$category_id};
+		var cms_csrf = $("meta[name='csrf-token']").attr('content');
+		$(".v_cover").on("click" , function(){
+			$(this).siblings(".public_img").addClass("active");
+			$(this).parent().siblings().children(".public_img").removeClass("active");
+		});
+		$(".c_close").on("click" , function (){
+			$(this).parent().parent(".public_img").removeClass("active");
+		})
+		//事件
+//		$(".v_list_btn").click(function() {
+//			if(jz_state) {
+//				return;
+//			}
+//			jz_state = true;
+//			jz_init(1);
+//			jz_page_code++;
+//			ajax_more_data(function(data) {
+//				if(data.status != 0) {
+//					jz_state = false;
+//					jz_init(0);
+//					alert("请求错误~");
+//					return;
+//				}
+//				if(data.msg.data.length == 0){
+//					jz_init(2);
+//				}else{
+//					add_data_to_page(data.msg.data);
+//					jz_state = false;
+//					jz_init(0);
+//				}								
+//			});
+//		});
+
+		//方法
+		//判断是否可以继续加载数据
+//		function is_get_more_data() {
+//			var v_list_ul = $(".v_list_ul");
+//			var len = v_list_ul.children().length;
+//
+//		}
+		//ajax拉取数据
+//		function ajax_more_data(callBack) {
+//			$.ajax({
+//				type: "get",
+//				url: '/image/index.html',
+//				data: {
+//					"page": jz_page_code,
+//					"id": category_id				
+//				},
+//				success: function(data) {
+//					var data = JSON.parse(data);
+//					console.log(data);
+//					if(callBack) {
+//						callBack(data);
+//					}
+//				},
+//				error: function(err) {
+//					alert("网络错误，请检查您的网络状态喔~");
+//					jz_state = false;
+//					jz_init(0);
+//				}
+//			});
+//		}
+		//将拉取数据填充到页面
+//		function add_data_to_page(data) {
+//			var html = "";
+//			for(var i = 0, len = data.length; i < len; i++) {
+//				html = html + '<li><img src="' + data[i].thumb + '" /><div class="v_cover">' +
+//					'<label>' + data[i].created_at_formate + '</label><a href="' + data[i].linkUrl + '"></a><p>查看版本KV</p>' +
+//					'</div></li>';
+//			}
+//			$(".v_list_ul").append(html);
+//		}
+		//改变获取数据的按钮状态
+//		function jz_init(index) {
+//			$(".v_list_btn span").removeClass("active").eq(index).addClass("active");
+//		}
+
+	});
+</script>
+
+	</html>

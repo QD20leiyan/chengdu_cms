@@ -1,0 +1,420 @@
+{include '../layouts/pc/header.html'}
+{include '../layouts/pc/header_bar.html'}
+<!--内容-->
+<div class="i_main">
+    <div class="content">
+        <!--kv_video-->
+        <div class="videoBtn">
+            <a target="_blank" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/play2.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{$cover_video[0].url}"></a>
+        </div>
+        <!--第二部分-->
+        <div class="banner_news">
+            <div class="qrcode">
+                <div class="qrcode_list">
+                    <a><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_qrcode.png?{$smarty.const.VERSION}" class="code_img js_jump_img"/></a>
+                    <!--<div class="channel_tap_name" style="display: none">-->
+                    <!--<a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/jws_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--</div>-->
+                    <!--<div class="channel_name" style="display: none">-->
+                    <!--</div>-->
+                    <!--<div class="no_channel">-->
+                    <!--<a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--<a href="" class="js_down_andriod stat_android " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--<a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--&lt;!&ndash;<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>&ndash;&gt;-->
+                    <!--</div>-->
+
+
+                    {if $channel_name=='t'}
+                    <a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/jws_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                    {else}
+                    <a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="" class="js_down_andriod stat_android " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="https://www.taptap.com/app/23420" target="_blank" class=" stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    {/if}
+                </div>
+            </div>
+            <div class="banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {foreach key=cid item=v from=$banner}
+                        <div class="swiper-slide">
+                            <a href="{$v.url}" target="_blank"><img class="images" src="{$v.thumb}" alt=""></a>
+                        </div>
+                        {/foreach}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="news_box">
+                <div class="hd">
+                    <ul>
+                        <li class="on">
+                            <a target="_blank" href="{myurl name='article/list, type=>zx,page=>1'}">综合</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="{myurl name='article/list, type=>xw,page=>1'}">新闻</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="{myurl name='article/list, type=>gg,page=>1'}">公告</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="{myurl name='article/list, type=>hd,page=>1'}">活动</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="{myurl name='article/list, type=>gl,page=>1'}">攻略</a>
+                        </li>
+                    </ul>
+                    <a href="{myurl name='article/list, type=>zx,page=>1'}" class="more" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_more.png?{$smarty.const.VERSION}" alt=""></a>
+                </div>
+                <div class="bd">
+                    <ul class="news_info">
+                        {foreach key=cid item=v from=$zx}
+                        {if $cid eq 0}
+                        <div class="title">
+                            <a target="_blank" href="{$v.linkUrl}">{$v.title}</a>
+                        </div>
+                        {/if}
+                        {if $cid neq 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                    <ul class="news_info">
+                        {foreach key=cid item=v from=$xw}
+                        {if $cid eq 0}
+                        <div class="title">
+                            <a target="_blank" href="{$v.linkUrl}">{$v.title}</a>
+                        </div>
+                        {/if}
+                        {if $cid neq 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                    <ul class="news_info">
+                        {foreach key=cid item=v from=$gg}
+                        {if $cid eq 0}
+                        <div class="title">
+                            <a target="_blank" href="{$v.linkUrl}">{$v.title}</a>
+                        </div>
+                        {/if}
+                        {if $cid neq 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                    <ul class="news_info">
+                        {foreach key=cid item=v from=$hd}
+                        {if $cid eq 0}
+                        <div class="title">
+                            <a target="_blank" href="{$v.linkUrl}">{$v.title}</a>
+                        </div>
+                        {/if}
+                        {if $cid neq 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                    <ul class="news_info">
+                        {foreach key=cid item=v from=$gl}
+                        {if $cid eq 0}
+                        <div class="title">
+                            <a target="_blank" href="{$v.linkUrl}">{$v.title}</a>
+                        </div>
+                        {/if}
+                        {if $cid neq 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--第三部分-->
+        <div class="s3_bottom">
+            <div class="s3_peo_head">
+                <p class="left_title"><i></i><a href="{myurl name='article/role'}" class="more" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_more.png?{$smarty.const.VERSION}" alt=""></a></p>
+                {foreach key=cid item=v from=$roles}
+                {if $v.info|@count < 2}
+                {if $cid eq 0}
+                <span  class="s_wid118 s_p_h{$cid+1} on no_jx" data-id='"l":{$v.info[0]["value"][0]},"t":{$v.info[0]["value"][1]},"r":{$v.info[0]["value"][2]},"b":{$v.info[0]["value"][3]}'><img src="{$v.redirect_url}" alt="img"></span>
+                {else}
+                <span class="s_wid118 s_p_h{$cid+1} no_jx" data-id='"l":{$v.info[0]["value"][0]},"t":{$v.info[0]["value"][1]},"r":{$v.info[0]["value"][2]},"b":{$v.info[0]["value"][3]}'><img src="{$v.redirect_url}" alt="img"></span>
+                {/if}
+                {else}
+                {if $cid eq 0}
+                <span  class="s_wid118 s_p_h{$cid+1} on" data-id='"l":{$v.info[1]["value"][0]},"t":{$v.info[1]["value"][1]},"r":{$v.info[1]["value"][2]},"b":{$v.info[1]["value"][3]}'><img src="{$v.redirect_url}" alt="img"></span>
+                {else}
+                <span class="s_wid118 s_p_h{$cid+1}" data-id='"l":{$v.info[1]["value"][0]},"t":{$v.info[1]["value"][1]},"r":{$v.info[1]["value"][2]},"b":{$v.info[1]["value"][3]}'><img src="{$v.redirect_url}" alt="img"></span>
+                {/if}
+                {/if}
+
+                {/foreach}
+            </div>
+            <div class="p_con">
+                {foreach key=cid item=v from=$roles}
+                <div class="p{$cid+1} p">
+                    {if $v.info|@count >= 2}
+                    <div class="state">
+                        <span class="is_jx" data-id='"l":{$v.info[1]["value"][0]},"t":{$v.info[1]["value"][1]},"r":{$v.info[1]["value"][2]},"b":{$v.info[1]["value"][3]}'></span>
+                        <span class="no_jx" data-id='"l":{$v.info[0]["value"][0]},"t":{$v.info[0]["value"][1]},"r":{$v.info[0]["value"][2]},"b":{$v.info[0]["value"][3]}'></span>
+                    </div>
+                    {/if}
+                    <div class="p_name">
+                        {if $v.info|@count < 2}
+                        <div class="name_1">
+                            {if $v.info!=null}<p class="rw_name"><img src='{$v.info[0].title_img}' alt=""/></p>{/if}
+                            <div class="bottom_jineng">
+                                <div class="jineng">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k lt 5}
+                                    {if $k eq 0}
+                                    <span class="c{$k+1} btm"><img  src="{$s.img}" ></span>
+                                    {else}
+                                    <span class="c{$k+1} gray"><img src="{$s.img}" ></span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                                <div class="jineng_des">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k lt 5}
+                                    {if $k eq 0}
+                                    <span class="o{$k+1} o" style="display:block;"><i>{$s.title}</i>{$s.info}</span>
+                                    {else}
+                                    <span class="o{$k+1} o"><i>{$s.title}</i>{$s.info}</span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        {else}
+                        <div class="name_1">
+                            {if $v.info!=null}<p class="rw_name"><img src='{$v.info[1].title_img}' alt=""/></p>{/if}
+                            <div class="top_jineng">
+                                <div class="jineng_des">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k gt 4 && $k lt 10}
+                                    {if $k eq 5}
+                                    <span class="o{$k+1} o" style="display:block;"><i>{$s.title}</i>{$s.info}</span>
+                                    {else}
+                                    <span class="o{$k+1} o"><i>{$s.title}</i>{$s.info}</span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                                <div class="jineng">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k gt 4 && $k lt 10}
+                                    {if $k eq 5}
+                                    <span class="c{$k+1} btm"><img  src="{$s.img}" ></span>
+                                    {else}
+                                    <span class="c{$k+1} gray"><img src="{$s.img}" ></span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                            </div>
+                            <div class="jineng_jj"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_jj.png?{$smarty.const.VERSION}" alt=""/></div>
+                            <div class="bottom_jineng">
+                                <div class="jineng">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k gt 9 && $k lt 15}
+                                    {if $k eq 10}
+                                    <span class="c{$k+1} btm"><img  src="{$s.img}" ></span>
+                                    {else}
+                                    <span class="c{$k+1} gray"><img src="{$s.img}" ></span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                                <div class="jineng_des">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k gt 9 && $k lt 15}
+                                    {if $k eq 10}
+                                    <span class="o{$k+1} o" style="display:block;"><i>{$s.title}</i>{$s.info}</span>
+                                    {else}
+                                    <span class="o{$k+1} o"><i>{$s.title}</i>{$s.info}</span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="name_1 hidden">
+                            {if $v.info!=null}<p class="rw_name"><img src='{$v.info[0].title_img}' alt=""/></p>{/if}
+                            <div class="bottom_jineng">
+                                <div class="jineng">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k lt 5}
+                                    {if $k eq 0}
+                                    <span class="c{$k+1} btm"><img  src="{$s.img}" ></span>
+                                    {else}
+                                    <span class="c{$k+1} gray"><img src="{$s.img}" ></span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                                <div class="jineng_des">
+                                    {foreach key=k item=s from=$v.skill}
+                                    {if $s!=null}
+                                    {if $k lt 5}
+                                    {if $k eq 0}
+                                    <span class="o{$k+1} o" style="display:block;"><i>{$s.title}</i>{$s.info}</span>
+                                    {else}
+                                    <span class="o{$k+1} o"><i>{$s.title}</i>{$s.info}</span>
+                                    {/if}{/if}{/if}{/foreach}
+                                </div>
+                            </div>
+                        </div>
+                        {/if}
+                    </div>
+                    <div class="p_peo">
+                        {if $v.info|@count < 2}
+                        <div class="s3_peo">
+                            {if $v.info!=null}<img src="{$v.info[0].img}" class="s3_img1" alt="s_i1">{/if}
+                            {if $v.info!=null}<p class="rw_des"><i>{$v.info[0].info}<a href="{myurl name='article/role'}?wjid={$v.id}" target="_blank">【查看详情】</a></i></p>{/if}
+                        </div>
+                        {else}
+                        <div class="s3_peo">
+                            {if $v.info!=null}<img src="{$v.info[1].img}" class="s3_img1" alt="s_i1">{/if}
+                            {if $v.info!=null}<p class="rw_des"><i>{$v.info[1].info}<a href="{myurl name='article/role'}?wjid={$v.id}" target="_blank">【查看详情】</a></i></p>{/if}
+                        </div>
+                        <div class="s3_peo hidden">
+                            {if $v.info!=null}<img src="{$v.info[0].img}" class="s3_img1" alt="s_i1">{/if}
+                            {if $v.info!=null}<p class="rw_des"><i>{$v.info[0].info}<a href="{myurl name='article/role'}?wjid={$v.id}" target="_blank">【查看详情】</a></i></p>{/if}
+                        </div>
+                        {/if}
+
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+            <div class="canvas_box">
+                <canvas id="myCanvas" width="95" height="95"></canvas>
+                <span>攻击</span>
+                <span>生存</span>
+                <span>技能</span>
+                <span>上手</span>
+            </div>
+        </div>
+        <!--第四部分-->
+        <div class="video">
+            <ul>
+                <li class="vi_ti"><i></i><a href="{myurl name='video/index'}" class="more" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_more.png?{$smarty.const.VERSION}" alt=""></a></li>
+                {foreach key=cid item=v from=$video}
+                <li class="vi_img js_video_play" data-url="{$v.content_message}"><img src="{$v.thumb}"/><i></i></li>
+                {/foreach}
+            </ul>
+        </div>
+        <!--第五部分-->
+        <div class="index_slider">
+            <ul class="index_slider-ul">
+                <li class="feature1">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_img1.jpg" alt="img">
+                </li>
+                <li class="feature2 active">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_img2.jpg" alt="img">
+                </li>
+                <li class="feature3">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_img3.jpg" alt="img">
+                </li>
+                <li class="feature4">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_img4.jpg" alt="img">
+                </li>
+                <li class="feature5">
+                    <a href="javascript:void(0);"></a>
+                    <img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_img5.jpg" alt="img">
+                </li>
+            </ul>
+        </div>
+        <a href="/site/mrt.html" class="mrt_url" target="_blank"></a>
+    </div>
+</div>
+<!--浮窗-->
+<div class="float">
+    <img class="fl_close" src="{$smarty.const.STATIC_DOMAIN}8.0/images/fl_close.png" alt="">
+    <p>扫一扫,下载游戏</p>
+    <div class="qrcode">
+        <p>
+            <a><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_qrcode.png?{$smarty.const.VERSION}" class="code_img js_jump_img"/></a>
+        <div class="channel_tap_name" style="display: none">
+            <a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/jws_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+        </div>
+        <div class="channel_name" style="display: none">
+        </div>
+        <div class="no_channel">
+            <a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+            <a href="" class="js_down_andriod stat_android " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>
+            <a href="https://www.taptap.com/app/23420" target="_blank" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+            <!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        </div>
+
+
+        <!--{if $channel_name=='t'}-->
+        <!--<a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        <!--{else}-->
+        <!--<a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_ios1.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        <!--<a href="" class="js_down_andriod stat_android " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_android1.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        <!--<a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap1.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        <!--{/if}-->
+        <!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}8.0/images/in_tap1.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        </p>
+    </div>
+</div>
+<!-- <div class="float2">
+    <div class="fl_txt">
+        <a href="{myurl name='p/active'}" target="_blank"></a>
+    </div>
+    <label class="q_f_icon show" show=""></label>
+ </div> -->
+</body>
+{include '../layouts/pc/foot.html'}
+<script>
+    var swiper01 = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 1,
+        paginationClickable: true,
+        autoplayDisableOnInteraction : false,
+        autoplay:2000,
+        loop:true
+    });
+    //点击隐藏和显示下载悬浮框
+        function show_hide_down() {
+            $(".q_f_icon").click(function() {
+                var state = $(this).attr("show");
+                if(state) {
+                    $(".float2").animate({
+                        "right": "10px"
+                    }, 200);
+                    $(this).attr({
+                        "show": "",
+                        "class": "show"
+                    });
+                } else {
+                    $(".float2").animate({
+                        "right": "-320px"
+                    }, 200);
+                    $(this).attr({
+                        "show": "true",
+                        "class": "hide_float"
+                    });
+                }
+            })
+        }
+    $(function () {
+        $('body').addClass('bodyBg');
+        show_hide_down();
+    })
+</script>
+</html>

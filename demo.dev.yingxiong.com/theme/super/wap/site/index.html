@@ -1,0 +1,144 @@
+{include file="../../layouts/wap/header.html"} {fragment var=kv_img code=index_kv_img_wap size=1}
+<div class="cont1 fade" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;background-size:100% 100%;">
+	{fragment var=video code=index_video size=1}
+	<a href="javascript:;" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"><img src="{if $video}{$video[0].thumb}{/if}" alt=""></a>
+	<a class="lj_yyue lj_yyue2" href="{if isset($global.bottommedia_download_url)}{$global.bottommedia_download_url}{/if}"><img src="{if isset($global.download_img_wap)}{$global.download_img_wap}{/if}" alt="" /></a>
+</div>
+<div class="cont2 fade" style="{if $global.news_background_img_wap}background:url({$global.news_background_img_wap}) no-repeat center;{elseif $global.news_background_color}background-color:{$global.news_background_color}{/if}background-size:100% 100%;">
+	<div class="banner_box">
+		<div class="swiper1">
+			{fragment var=index_banner code=banner size=5}
+			<div class="swiper-wrapper">
+				{if $index_banner neq ''} {foreach $index_banner as $v}
+				<div class="swiper-slide">
+					<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+						<img src="{$v.thumb}">
+					</a>
+				</div>
+				{/foreach} {/if}
+			</div>
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="news">
+			<ul class="news-list">
+				<li class="active">综合</li>
+				<li>新闻</li>
+				<li>公告</li>
+				<li>活动</li>
+				<li>攻略</li>
+				<a href="{myurl name='wap/list, alias=>zonghe'}"></a>
+			</ul>
+			<ul class="news-info">
+				<li class="info active">
+					{article alias="zonghe" size=4 var=zh} {if isset($zh) && $zh neq ""}
+					<ul class="news-info-list">
+						{foreach $zh as $key=>$v} {if $key >= 0}
+						<li>
+							<a href=""><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if}
+				</li>
+
+				<li class="info">
+					{article alias="xinwen" size=4 var=xw} {if isset($xw) && $xw neq ""}
+					<ul class="news-info-list">
+						{foreach $xw as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if}
+				</li>
+				
+				<li class="info">
+					{article alias="gonggao" size=4 var=gg}  {if isset($gg) && $gg neq ""}
+					<ul class="news-info-list">
+						{foreach $gg as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if}
+				</li>
+				
+				<li class="info">
+					{article alias="huodong" size=4 var=hd}  {if isset($hd) && $hd neq ""}
+					<ul class="news-info-list">
+						{foreach $hd as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if}
+				</li>
+				
+				<li class="info">
+					{article alias="gonglue" size=4 var=gl}  {if isset($gl) && $gl neq ""}
+					<ul class="news-info-list">
+						{foreach $gl as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="cont3 fade" style="{if $global.tese_background_img_wap}background:url({$global.tese_background_img_wap}) no-repeat center;{elseif $global.tese_background_color}background-color:{$global.tese_background_color}{/if}background-size:100% 100%;">
+	<div class="bottom_con">
+		<div class="bottom_banner">
+			{fragment var=ts_img code=banner_ts size=5}
+			<ul class="swiper-wrapper">
+				{if $ts_img neq ''}
+					{foreach $ts_img as $v}
+						<li class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+						</li>
+					{/foreach}
+				{/if}
+			</ul>
+		</div>
+		<div class="swiper-pagination1"></div>
+	</div>
+</div>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script>
+	var mySwiper1 = new Swiper(".swiper1", {
+		loop: true,
+		autoplay: 3000,
+		pagination: '.swiper-pagination',
+	});
+	var mySwiper2 = new Swiper('.bottom_banner', {
+		loop: true,
+		autoplay: 3000,
+		slideToClickedSlide: true,
+		autoplayDisableOnInteraction: false,
+		pagination: '.swiper-pagination1',
+		effect: 'coverflow',
+		slidesPerView: 3,
+		centeredSlides: true,
+		prevButton: '.swiper-button-prev',
+		nextButton: '.swiper-button-next',
+		coverflow: {
+			rotate: 0,
+			stretch: -150,
+			depth: 300,
+			modifier: 1,
+			slideShadows: true
+		},
+		 observer: true,
+		 observeParents: true,
+	});
+</script>
+
+</html>

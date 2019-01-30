@@ -1,0 +1,25 @@
+{include file="../../layouts/wap/header.html"}
+<section>
+	<div class="detail_kv">
+		{fragment var=kv_img code=index_kv_img_wap size=1}
+		<img src="{if $kv_img}{$kv_img[0].thumb}{/if}" alt="" class="kv_img" />
+		<a href="{myurl name='/wap/site/index'}" class="back"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/back.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+</section>
+<section>
+	<div class="detail_body">
+		<div class="detail_title">
+			{$content.title}
+		</div>
+		<div class="detail_des">
+			<p>来源：<span class="sp">英雄互娱</span>时间：<span>{$content.created_at|date_format:"%m-%d"}</span></p>
+		</div>
+		<div class="detail_nei">
+			{$content.body}
+		</div>
+	</div>
+</section>
+{include file="../../layouts/wap/footer.html"}
+</body>
+
+</html>

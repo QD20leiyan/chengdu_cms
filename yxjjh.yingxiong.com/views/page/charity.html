@@ -1,0 +1,33 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list list1">
+		<div class="top_img"></div>
+		<div class="charity">
+			<div class="wrap">
+				<h3 class="h3">慈善项目</h3>
+				<div class="charity_con">
+					{fragment var=index_banner code=charity_list size=100}
+					{if $index_banner neq ''}
+					{foreach $index_banner as $v}
+					<div class="charity_box">
+						<div class="ch_left">
+							<img src="{$v.thumb}" alt=""/>
+						</div>
+						<div class="ch_right">
+							<h4>{$v.title}</h4>
+							<p class="info">{$v.summary}</p>
+						</div>
+					</div>
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+		</div>
+
+		<!--footer-->
+		{include '../layouts/pc/bottom.html'}
+	</div>
+</div>
+{include '../layouts/pc/footer.html'}

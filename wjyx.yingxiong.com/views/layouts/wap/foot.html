@@ -1,0 +1,111 @@
+<div class="mask">
+    <div class="dialog">
+        <div class="close"></div>
+        <div class="from">
+            <input class="email" type="email" name="email">
+            <p>请留下您的常用邮箱，方便给您发送激活邮件</p>
+            <div>
+                <span class="from-upload"></span>
+                <a href="http://wjyx.yingxiong.com/m/info/2018/0926/5108.html" class="from-download"></a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{video_play}
+{download}
+</body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+ var clickNumber2 = 0;
+    $('.top-btn').click(function () {
+        $(this).toggleClass('close');
+       $('.top-list').toggle(500);
+        $('.down_list').slideUp(500);
+        clickNumber2=0;
+    })
+    $('.top-list li').click(function(){
+        // $('.mask').slideUp(500);
+        $('.top-list').hide(500);
+        $('.top-btn').removeClass('close');
+    })
+    $(".fade").click(function(){
+        // $('.mask').slideUp(500);
+        $('.top-list').slideUp(500);
+        $('.down_list').slideUp(500);
+        if($(".top-btn").hasClass('close')){
+            $(".top-btn").removeClass('close');
+        }
+        clickNumber2=0;
+    })
+    $('.top-down').click(function () {
+        if(clickNumber2 % 2 == 0) {
+        $('.down_list').slideDown(500);
+        $('.top-list').slideUp(500);
+    } else {
+        $('.down_list').slideUp(500);
+    }
+    clickNumber2++;
+    })
+    $('.dialog').find('.close').click(function () {
+        $('.mask').slideUp(500);
+        $('.top-list').slideUp(500);
+        $('.down_list').slideUp(500);
+        clickNumber2=0;
+    })
+    function isEmail(email) {
+        var reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        var temp = reg.test(email);
+        return temp;
+    }
+    $('.from-upload').click(function () {
+        var email = $('.email').val();
+        if(isEmail(email)){
+            var url = '{myurl name="commonMethod/ajax-yuyue-email"}';
+            var params = {
+                "type":'ios',
+                "email":email,
+                "cms_csrf": $("meta[name='csrf-token']").attr("content")
+            }
+            $.post(url, params,
+                function(data){
+                    console.error(data);
+                    if(data.status == 0){
+                        $('.mask').slideUp(500);
+                        alert('预约成功');
+                    }
+                    else{
+                        alert(data.msg);
+                        $('.mask').slideUp(500);
+                    }
+                },'json');
+        }else{
+            alert('邮箱格式错误');
+        }
+
+    })
+</script>
+<script>
+    $(function () {
+//      if (/iphone|ipad/i.test(navigator.userAgent.toLowerCase())) {
+//          $('#download').removeClass();
+//          $('#download').addClass('ios-down');
+//          $('.down_gfbtn').removeClass('js_wap_down');
+//          $('.down_gf').removeClass('js_wap_down');
+//          $('.down_gfbtn').click(function () {
+//              $('.mask').slideDown(500);
+//          });
+//          $('.down_gf').click(function () {
+//              $('.mask').slideDown(500);
+//          });
+//      }else{
+//          $('.down_gfbtn').addClass('js_wap_down');
+//          $('.down_gf').addClass('js_wap_down');
+//          $('#download').addClass('js_down_andriod');
+//      }
+        $('.ios-down').click(function () {
+            $('.mask').slideDown(500);
+        })
+    })
+</script>
+</html>

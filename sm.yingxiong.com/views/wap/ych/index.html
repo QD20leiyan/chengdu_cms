@@ -1,0 +1,706 @@
+{include '../../layouts/wap/ych_header.html'}
+<div class="i_main">
+	<!--top-part-->
+	<div class="top_menu">
+		<a href="/m/ych/list_658_1.html" class="active">首页</a>
+		<a href="/m/ych/activity.html">活动</a>
+	</div>
+	<div class="index_bord">
+		<div class="main_content1">
+			<img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/tit_bord.png?{$smarty.const.VERSION}" alt="" class="title">
+			<div class="swiper-container swiper-container1">
+				<div class="swiper-wrapper">
+					{foreach key=cid item=v from=$tj}
+						<div class="swiper-slide">
+								<div class="slidebox  {if $v|@count < 2}one{/if}">
+									<ul>
+										{foreach key=sid item=s from=$v}
+										<li data-code="{$s.code}" data-id="{$s.id}" data-type="fragment">
+											<div class="list_img {if $s.type eq zp}hd_img{/if}">
+												<img src="{$s.thumb}" class="pic">
+												<i></i>
+												<a href="javascript:;" class="video_p"></a>
+											</div>
+											<div class="list_info">
+												<div class="info_tl">
+													<p>{$s.name}</p>
+													<p><i></i><span>{$s.sub_title}</span></p>
+												</div>
+												<div class="info_hot">
+													<i></i>
+													<span>{$s.praise}</span>
+												</div>
+											</div>
+										</li>
+										{/foreach}
+									</ul>
+									<div class="text_box">
+										<h3>{$tjDesc[$cid].title}</h3>
+										<div class="line"></div>
+										<p>{$tjDesc[$cid].desc} </p>
+										{if isset($tjDesc[$cid].jump_url)}<a href='{$tjDesc[$cid].jump_url}' class='detail_btn {if $tjDesc[$cid].jump_url ==""}hidden{/if}'></a>{/if}
+									</div>
+								</div>
+						</div>
+					{/foreach}
+				</div>
+			</div>
+			<div class="swiper-pagination swiper-pagination1"></div>
+		</div>
+	</div>
+	<!--ych-part-->
+	<div class="ch_display">
+		<div class="disp_search">
+			<p class="s_iup">
+				<input type="text" placeholder="搜索你喜欢的">
+				<i></i>
+				<a href="http://forumsm.yingxiong.com/forum.php?mod=forumdisplay&fid=66" class="tougao"></a>
+			</p>
+		</div>
+		<div class="disp_list">
+			<div class="list_sel">
+				<ul>
+					<li data-id="658" data-page="1" {if $category_id==658}class="active" {/if}>
+						<a>视频<i></i></a>
+					</li>
+					<li data-id="656" data-page="1" {if $category_id==656}class="active" {/if}>
+						<a>同人绘<i></i></a>
+					</li>
+					<li data-id="657" data-page="1" {if $category_id==657}class="active" {/if}>
+						<a>建筑图<i></i></a>
+					</li>
+				</ul>
+			</div>
+			<div class="list_sort">
+				<ul>
+					<li data-order=" " >
+						<a href="javascript:;">最新<i></i></a>
+					</li>
+					<li data-order="praise">
+						<a href="javascript:;">最热<i></i></a>
+					</li>
+				</ul>
+			</div>
+			<div class="sel_box">
+				<div class="sel_box1 {if $category_id!=658} hidden {/if}">
+					<ul></ul>
+				</div>
+				<div class="sel_box2 {if $category_id!=656} hidden {/if}">
+					<ul id="p_ul1"></ul>
+				</div>
+				<div class="sel_box3 {if $category_id!=657} hidden {/if}">
+					<ul id="p_ul2"></ul>
+				</div>
+				<div class="dropload-down">
+					<div class="dropload-noData">上滑加载更多</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="go_top"></div>
+</div>
+</body>
+<!--tips-->
+<div class="co_tips detail_tips hidden">
+	<div class="scroll">
+		<div class="w_imgbox">
+			<img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/close.png?{$smarty.const.VERSION}" class="close"/>
+			<div class="big_img">
+				<div>
+					<img class="images" src="" alt="">
+				</div>
+			</div>
+			<div class="w_swiper_box">
+				<div class="swiper-container" id="swiper3">
+					<div class="swiper-wrapper"></div>
+				</div>
+				<div class="swiper-button-prev3"></div>
+				<div class="swiper-button-next3"></div>
+			</div>
+			<div class="txt_info">
+				<div class="list_info">
+					<div class="top">
+						<div class="info_tl">
+							<p>作品名称:<span class="zp_name"></span></p>
+							<p>作者:<span class="zp_zz"></span></p>
+						</div>
+						<div class="info_hot">
+							<i></i>
+							<span></span>
+						</div>
+						<div class="good" data-id="" data-type=""></div>
+					</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<a href="javascript:;" class="detail_btn hidden">查看详情</a>
+		</div>
+	</div>
+</div>
+<div class="co_tips video_tips hidden">
+	<div class="scroll">
+		<div class="w_imgbox">
+			<img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/close.png?{$smarty.const.VERSION}" class="close"/>
+			<div class="tips_video">
+				<div class="" data-url="">
+					<img src="" alt=""/>
+					<i></i>
+					<a href="javascript:;" class="video_p"></a>
+				</div>
+			</div>
+			<div class="txt_info">
+				<div class="list_info">
+					<div class="top">
+						<div class="info_tl">
+							<p>作品名称:<span class="zp_name"></span></p>
+							<p>作者:<span class="zp_zz"></span></p>
+						</div>
+						<div class="info_hot">
+							<i></i>
+							<span></span>
+						</div>
+						<div class="good" data-id="" data-type=""></div>
+					</div>
+					<div class="desc"></div>
+				</div>
+			</div>
+			<a href="javascript:;" class="detail_btn hidden">查看详情</a>
+		</div>
+	</div>
+</div>
+{include '../../layouts/wap/ych_footer.html'}
+<script type="text/javascript">
+	//轮播初始化
+	var swiper3=null;
+	//作品点赞
+	function good(){
+		$(".info_hot").unbind();
+		$(".info_hot").click(function(e){
+			e.stopPropagation();
+			var this_good=$(this);
+			var praise_id=this_good.parent().parent().attr("data-id");
+			var praise_type=this_good.parent().parent().attr("data-type");
+			var praise_url='/common/praise.html';
+			$.ajax({
+				type:"POST",
+				url:praise_url,
+				data:{
+					limit_type:"ip",
+					id:praise_id,
+					praise_type:praise_type,
+					count:1
+				},
+				success:function(data){
+					var data = JSON.parse(data);
+					if(data.status == 0){
+						this_good.parent().find(".info_hot>span").text(data.msg);
+						$(".slidebox>ul>li[data-id='"+praise_id+"'] .info_hot>span").text(data.msg);
+						$(".sel_box ul>li[data-id='"+praise_id+"'] .info_hot>span").text(data.msg);
+						yx_showTips("点赞成功");
+					}else{
+						yx_showTips(data.msg);
+					}
+				},
+				error:function(data){
+					console.log(data);
+				}
+			});
+		});
+	}
+	//作品赞数获取
+	function get_praise(){
+		var ids=[];
+		$(".swiper-container1 li[data-id]").each(function(i,n){
+			var id=$(n).data("id");
+			if(ids.indexOf(id)>-1) return;
+			ids.push(id);
+		});
+		var get_url='/common/get-praise.html';
+		$.ajax({
+			type:"POST",
+			url:get_url,
+			data:{
+				ids:ids,
+				praise_type:"fragment"
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0){
+					for(var i in data.msg){
+						$(".swiper-container1 li[data-id='"+i+"']").find(".info_hot span").text(data.msg[i]||"0")
+					}
+				}else{}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+	$(function() {
+		var mySwiper1= new Swiper('.swiper-container1',{
+			loop:true,
+			pagination: '.swiper-pagination1',
+			paginationClickable: true,
+//			effect: 'fade',
+//			fade: {
+//				crossFade: true,
+//			},
+			slidesPerView:1,
+//			autoplay:5000,
+			autoplayDisableOnInteraction : false,
+			observer: true,
+			observeParents: true,
+			autoHeight: true
+		});
+		swiper3 = new Swiper('#swiper3', {
+			prevButton:'.swiper-button-prev3',
+			nextButton:'.swiper-button-next3',
+			slidesPerView: 3,
+			spaceBetween : 10,
+			onClick: function(swiper){
+				$(swiper.slides).removeClass("active");
+				var slide=$(swiper.slides[swiper.clickedIndex]);
+				slide.addClass("active");
+				var src=slide.find(".w_sm_gun img").attr("src");
+				$(".w_imgbox .big_img img").attr("src",src);
+			}
+		});
+		$('.swiper-button-prev3').click(function(){
+			var index=$("#swiper3 .swiper-slide.active").prev(".swiper-slide").index();
+			if(index==-1){
+				index=swiper3.slides.length-1;
+			}
+			var slide=$(swiper3.slides[index]);
+			$(swiper3.slides).removeClass("active");
+			slide.addClass("active");
+			swiper3.slideTo(index);
+			var src=slide.find(".w_sm_gun img").attr("src");
+			$(".w_imgbox .big_img img").attr("src",src);
+		});
+		$('.swiper-button-next3').click(function(){
+			var index=$("#swiper3 .swiper-slide.active").next(".swiper-slide").index();
+			var slide=$(swiper3.slides[index]||swiper3.slides[0]);
+			$(swiper3.slides).removeClass("active");
+			slide.addClass("active");
+			swiper3.slideTo(index);
+			var src=slide.find(".w_sm_gun img").attr("src");
+			$(".w_imgbox .big_img img").attr("src",src);
+		});
+		//作品点赞
+		good();
+		//作品赞数获取
+		get_praise();
+		//作品弹窗显示
+		$(".co_tips .close").click(function(){
+			$(".co_tips").addClass("hidden");
+		});
+		$(".main_content1 .slidebox ul li").click(function(){
+			$(".co_tips .zp_name,.co_tips .zp_zz,.co_tips .info_hot span,.co_tips .desc").text("");
+			$(".video_tips .tips_video>div img").attr("src","");
+			$(".video_tips .tips_video>div").attr("data-url","");
+			$(".video_tips .tips_video>div").removeClass("js_video_play").unbind();
+			$(".video_tips .video_p").attr("href", "javascript:;");
+			$('.detail_tips .w_imgbox .big_img img').attr("src","");
+			$('.detail_tips .swiper-wrapper').empty();
+			$('.b_img .b_cimg').empty();
+			var type=$(this).find(".list_img ");
+			var tipsUrl = '/ych/get-fragment.html';
+			var code=$(this).attr("data-code");
+			var id=$(this).attr("data-id");
+			var detail_url=$(this).closest(".slidebox").find(".text_box .detail_btn ").attr("href");
+			if(type.hasClass("hd_img")){
+				//活动弹窗
+				$(".detail_tips .good").attr("data-id",id);
+				$(".detail_tips .good").attr("data-type","fragment");
+				if(detail_url){
+					$(".detail_tips .detail_btn").removeClass("hidden");
+					$(".detail_tips .detail_btn").attr("href",detail_url);
+				}else{
+					$(".detail_tips .detail_btn").addClass("hidden");
+					$(".detail_tips .detail_btn").attr("href","javascript:;");
+				}
+				$.ajax({
+					type:"POST",
+					url:tipsUrl,
+					data:{
+						code:code,
+					},
+					success:function(data){
+						var data = JSON.parse(data);
+						if(data.status == 0&& data.msg){
+							var zp_name=data.msg.fragment.name;
+							var zp_zz=data.msg.fragment.sub_title;
+							var zp_praise=data.msg.fragment.praise;
+							var zp_desc=data.msg.fragment.desc;
+							$(".detail_tips .zp_name").text(zp_name);
+							$(".detail_tips .zp_zz").text(zp_zz);
+							$(".detail_tips .info_hot span").text(zp_praise);
+							$(".detail_tips .desc").text(zp_desc);
+							$(".detail_tips .big_img img").attr("src",type.find(".pic").attr("src"));
+							if(data.msg.list.length>0){
+								var big_img=data.msg.list[0].thumb;
+								$(".detail_tips .big_img img").attr("src",big_img);
+								var result = '';
+								var result_big = '';
+								for(var i = 0; i < data.msg.list.length; i++) {
+									result += "<div class='swiper-slide "+(i==0?"active":"")+"'><div class='w_sm_gun'><img src=" + data.msg.list[i].thumb+"></div></div>";
+									result_big += "<div class='swiper-slide'><img src=" + data.msg.list[i].thumb+" class='z_img'></div>";
+								}
+								$('.detail_tips .w_swiper_box').removeClass("hidden");
+								$('.detail_tips .swiper-wrapper').append(result);
+								$('.b_img .b_cimg').append(result_big);
+							}else{
+								$('.detail_tips .w_swiper_box').addClass("hidden");
+							}
+//							$(".detail_tips").removeClass("hidden");
+							$(".w_imgbox .big_img img").trigger("click");
+							swiper3.update();
+						}else{
+
+						}
+					},
+					error:function(data){
+						console.log(data);
+					}
+				});
+			}else{
+				//视频弹窗
+				$(".video_tips .good").attr("data-id",id);
+				$(".video_tips .good").attr("data-type","fragment");
+				if(detail_url){
+					$(".video_tips .detail_btn").removeClass("hidden");
+					$(".video_tips .detail_btn").attr("href",detail_url);
+				}else{
+					$(".video_tips .detail_btn").addClass("hidden");
+					$(".video_tips .detail_btn").attr("href","javascript:;");
+				}
+				$.ajax({
+					type:"POST",
+					url:tipsUrl,
+					data:{
+						code:code,
+					},
+					success:function(data){
+						var data = JSON.parse(data);
+						if(data.status == 0&& data.msg){
+							var zp_name=data.msg.fragment.name;
+							var zp_zz=data.msg.fragment.sub_title;
+							var zp_praise=data.msg.fragment.praise;
+							var zp_desc=data.msg.fragment.desc;
+							$(".video_tips .zp_name").text(zp_name);
+							$(".video_tips .zp_zz").text(zp_zz);
+							$(".video_tips .info_hot span").text(zp_praise);
+							$(".video_tips .desc").text(zp_desc);
+							if(data.msg.list.length>0){
+								var video_img=data.msg.list[0].thumb;
+								var video_url=data.msg.list[0].url;
+								$(".video_tips .tips_video>div img").attr("src",video_img);
+								$(".video_tips .tips_video>div").attr("data-url",video_url);
+								$(".video_tips .tips_video>div").addClass("js_video_play");
+								$(".video_tips .video_p").attr("href", "javascript:;");
+
+								$(".js_video_play").unbind();
+								videoInit();
+								$(".video_tips .js_video_play").click(function(){
+									$(".video_tips").addClass("hidden");
+								});
+							}else{
+								$(".video_tips .video_p").attr("href", "javascript:yx_showTips('敬请期待');");
+							}
+//							$(".video_tips").removeClass("hidden");
+							$(".w_imgbox .tips_video>div").trigger("click");
+						}else{
+
+						}
+					},
+					error:function(data){
+						console.log(data);
+					}
+				});
+			}
+		});
+
+		//搜索
+		$(".disp_search i").click(function () {
+			var k=$(".disp_search p input").val();
+			if($.trim(k)){
+			    var base=btoa(encodeURIComponent(k));
+				location.href="search.html?"+base;
+			}else {
+			    alert("请输入关键词");
+			    $(".disp_search p input").val("").focus();
+			}
+        });
+	});
+</script>
+<!--视频同人绘建筑图切换-->
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	var ajaxUrl = '/ych/ajax-get-list.html';
+	getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...");
+			getListFu();
+		}
+	}
+
+	$('#p_ul1,#p_ul2').imagesLoaded(function() {
+		$('#p_ul1,#p_ul2').masonry({
+			itemSelector: '.box',
+			gutter: 10,
+			isAnimated: true
+		});
+	});
+	var imagesLoaded=function(dom,func){
+		var load=true;
+		$(dom).find("img").each(function(i,n){
+			if(!n.complete){
+				load=false;
+				return false;
+			}
+		});
+		if(load){
+			func.call();
+		}else{
+			setTimeout(function(){
+				imagesLoaded(dom,func)
+			},100);
+		}
+	}
+
+	function getListFu(){
+        var page = $(".list_sel ul li.active").attr("data-page");; //页数
+        var id = $(".list_sel ul li.active").attr("data-id");//类型
+        var order = $(".list_sort ul li.active").attr("data-order")||"rand";//排序
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{
+				page_size:20,
+				page:($(".list_sel ul li.active").attr("data-page",++page),page-1),
+				id:id,
+                order:order
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg.length>0){
+					if(id==658){  //视频
+                        $(".list_sel ul li:eq(0)").attr("data-page")==2&&$('.sel_box1>ul').empty();//第一页清空内容,page请求前已经加1,请求后判断为2才是第一页
+						var result = '';
+						for(var i = 0; i < data.msg.length; i++) {
+							result += "<li data-id='" + data.msg[i].id +"' data-type='content' data-desc='" + data.msg[i].summary +"' data-url='" + data.msg[i].redirect_url +"'><div class='list_img' data-url=" + data.msg[i].contentMessage+"><img src=" + data.msg[i].thumb+"><i></i><a href='javascript:;' class='video_p'></a></div>"+
+									"<div class='list_info'><div class='info_tl'><p>"+data.msg[i].title+"</p><p><i></i><span>"+data.msg[i].sub_title+"</span></p></div>"+
+									"<div class='info_hot'><i></i><span>"+data.msg[i].praise+"</span></div></div></li>";
+						}
+							$('.sel_box1>ul').append(result);
+							$(".sel_box1>ul li").unbind("click");
+							$(".sel_box1>ul li").click(function(){
+								$(".video_tips .tips_video>div").removeClass("js_video_play").unbind();
+								$('.detail_tips .swiper-wrapper').empty();
+								var id=$(this).attr("data-id");
+								var detail_url=$(this).attr("data-url");
+								if(detail_url){
+									$(".video_tips .detail_btn").removeClass("hidden");
+									$(".video_tips .detail_btn").attr("href",detail_url);
+								}else{
+									$(".video_tips .detail_btn").addClass("hidden");
+									$(".video_tips .detail_btn").attr("href","javascript:;");
+								}
+								//视频弹窗
+								$(".video_tips .good").attr("data-id",id);
+								$(".video_tips .good").attr("data-type","content");
+								$(".video_tips .zp_name").text($(this).find(".info_tl p:eq(0)").text());
+								$(".video_tips .zp_zz").text($(this).find(".info_tl p span").text());
+								$(".video_tips .info_hot span").text($(this).find(".info_hot span").text());
+								$(".video_tips .desc").text($(this).attr("data-desc"));
+								$(".video_tips .desc").text($(this).attr("data-desc"));
+
+								$(".video_tips .tips_video>div img").attr("src",$(this).find(".list_img img").attr("src"));
+								$(".video_tips .tips_video>div").attr("data-url",$(this).find(".list_img").attr("data-url"));
+								$(".video_tips .tips_video>div").addClass("js_video_play");
+								$(".video_tips .video_p").attr("href", "javascript:;");
+
+								videoInit();
+
+								$(".video_tips .js_video_play").click(function(){
+									$(".video_tips").addClass("hidden");
+								});
+
+//								$(".video_tips").removeClass("hidden");
+								$(".w_imgbox .tips_video>div").trigger("click");
+                        });
+							good();
+						// $(".js_video_play").unbind();
+						// videoInit();
+					}else if(id==656){  //同人绘
+                        if($(".list_sel ul li:eq(1)").attr("data-page")==2){
+                            $('.sel_box2>ul').empty();
+						}
+						$('#p_ul1').masonry("destroy");
+                        // $(".list_sel ul li:eq(1)").attr("data-page")==2&&$('.sel_box2>ul').empty();//第一页清空内容,page请求前已经加1,请求后判断为2才是第一页
+						var result = '';
+						for(var i = 0; i < data.msg.length; i++) {
+//							console.log(data.msg[i])
+							result += "<li class='box' data-id='" + data.msg[i].id +"' data-type='content' data-desc='" + data.msg[i].summary +"' data-imgs='" + data.msg[i].images.join(",") +"' data-url='" + data.msg[i].redirect_url +"'><i class='photo_num'>"+data.msg[i].images.length+"</i><img class='pic' src='"+data.msg[i].thumb+"'>"+
+									"<div class='list_info'><div class='info_tl'><p>"+data.msg[i].title+"</p><p><i></i><span>"+data.msg[i].sub_title+"</span></p></div>"+
+									"<div class='info_hot'><i></i><span>"+data.msg[i].praise+"</span></div></div></li>";
+						}
+						$('.sel_box2>ul').append(result);
+						imagesLoaded($('#p_ul1'),function() {
+							$('#p_ul1').masonry({
+								itemSelector: '.box',
+								gutter: 10,
+								isAnimated: true
+							});
+						});
+                        $(".sel_box2>ul li").unbind("click");
+                        $(".sel_box2>ul li").click(function(){
+                            $(".video_tips .tips_video>div").removeClass("js_video_play").unbind();
+                            $(".video_tips .video_p").attr("href", "javascript:;");
+                            $('.detail_tips .swiper-wrapper').empty();
+							$('.b_img .b_cimg').empty();
+                            var id=$(this).attr("data-id");
+							var detail_url=$(this).attr("data-url");
+							if(detail_url){
+								$(".detail_tips .detail_btn").removeClass("hidden");
+								$(".detail_tips .detail_btn").attr("href",detail_url);
+							}else{
+								$(".detail_tips .detail_btn").addClass("hidden");
+								$(".detail_tips .detail_btn").attr("href","javascript:;");
+							}
+                            //活动弹窗
+                            $(".detail_tips .good").attr("data-id",id);
+							$(".detail_tips .good").attr("data-type","content");
+                            $(".detail_tips .zp_name").text($(this).find(".info_tl p:eq(0)").text());
+                            $(".detail_tips .zp_zz").text($(this).find(".info_tl p span").text());
+                            $(".detail_tips .info_hot span").text($(this).find(".info_hot span").text());
+                            $(".detail_tips .desc").text($(this).attr("data-desc"));
+
+							$(".detail_tips .big_img img").attr("src",$(this).find(".pic").attr("src"));
+							var result = '';
+							var result_big = '';
+							var imgs=$(this).attr("data-imgs").split(",");
+							if(imgs!=""){
+								$(".detail_tips .big_img img").attr("src",imgs[0]);
+								$('.detail_tips .w_swiper_box').removeClass("hidden");
+								for(var i = 0; i < imgs.length; i++) {
+									result += "<div class='swiper-slide "+(i==0?"active":"")+"'><div class='w_sm_gun'><img src=" + imgs[i]+"></div></div>";
+									result_big += "<div class='swiper-slide'><img src=" + imgs[i]+" class='z_img'></div>";
+								}
+								$('.detail_tips .swiper-wrapper').append(result);
+								$('.b_img .b_cimg').append(result_big);
+
+							}else{
+								$('.detail_tips .w_swiper_box').addClass("hidden");
+							}
+//                            $(".detail_tips").removeClass("hidden");
+							$(".w_imgbox .big_img img").trigger("click");
+                            swiper3.update();
+
+                        });
+						good();
+					}else if(id==657){   //建筑图
+                        if($(".list_sel ul li:eq(2)").attr("data-page")==2){
+                            $('.sel_box3>ul').empty();
+                        }
+						$('#p_ul2').masonry("destroy");
+                        // $(".list_sel ul li:eq(2)").attr("data-page")==2&&$('.sel_box3>ul').empty();//第一页清空内容,page请求前已经加1,请求后判断为2才是第一页
+						var result = '';
+						for(var i = 0; i < data.msg.length; i++) {
+							result += "<li class='box' data-id='" + data.msg[i].id +"' data-type='content' data-desc='" + data.msg[i].summary +"' data-imgs='" + data.msg[i].images.join(",") +"' data-url='" + data.msg[i].redirect_url +"'><i class='photo_num'>"+data.msg[i].images.length+"</i><img class='pic' src='"+data.msg[i].thumb+"'>"+
+									"<div class='list_info'><div class='info_tl'><p>"+data.msg[i].title+"</p><p><i></i><span>"+data.msg[i].sub_title+"</span></p></div>"+
+									"<div class='info_hot'><i></i><span>"+data.msg[i].praise+"</span></div></div></li>";
+						}
+						$('.sel_box3>ul').append(result);
+
+						imagesLoaded($('#p_ul2'),function() {
+							$('#p_ul2').masonry({
+								itemSelector: '.box',
+								gutter: 10,
+								isAnimated: true
+							});
+						});
+
+                        $(".sel_box3>ul li").unbind("click");
+                        $(".sel_box3>ul li").click(function(){
+                            $(".video_tips .tips_video>div").removeClass("js_video_play").unbind();
+                            $(".video_tips .video_p").attr("href", "javascript:;");
+                            $('.detail_tips .swiper-wrapper').empty();
+							$('.b_img .b_cimg').empty();
+                            var id=$(this).attr("data-id");
+							var detail_url=$(this).attr("data-url");
+							if(detail_url){
+								$(".detail_tips .detail_btn").removeClass("hidden");
+								$(".detail_tips .detail_btn").attr("href",detail_url);
+							}else{
+								$(".detail_tips .detail_btn").addClass("hidden");
+								$(".detail_tips .detail_btn").attr("href","javascript:;");
+							}
+                            //活动弹窗
+                            $(".detail_tips .good").attr("data-id",id);
+							$(".detail_tips .good").attr("data-type","content");
+                            $(".detail_tips .zp_name").text($(this).find(".info_tl p:eq(0)").text());
+                            $(".detail_tips .zp_zz").text($(this).find(".info_tl p span").text());
+                            $(".detail_tips .info_hot span").text($(this).find(".info_hot span").text());
+                            $(".detail_tips .desc").text($(this).attr("data-desc"));
+
+                            $(".detail_tips .big_img img").attr("src",$(this).find(".pic").attr("src"));
+                            var result = '';
+							var result_big = '';
+                            var imgs=$(this).attr("data-imgs").split(",");
+							if(imgs!=""){
+								$(".detail_tips .big_img img").attr("src",imgs[0]);
+								$('.detail_tips .w_swiper_box').removeClass("hidden");
+								for(var i = 0; i < imgs.length; i++) {
+									result += "<div class='swiper-slide "+(i==0?"active":"")+"'><div class='w_sm_gun'><img src=" + imgs[i]+"></div></div>";
+									result_big += "<div class='swiper-slide'><img src=" + imgs[i]+" class='z_img'></div>";
+								}
+								$('.detail_tips .swiper-wrapper').append(result);
+								$('.b_img .b_cimg').append(result_big);
+							}else{
+								$('.detail_tips .w_swiper_box').addClass("hidden");
+							}
+//                            $(".detail_tips").removeClass("hidden");
+							$(".w_imgbox .big_img img").trigger("click");
+                            swiper3.update();
+
+                        });
+						good();
+					}
+					$(".dropload-noData").html("上滑加载更多<i></i>");
+					isScroll = 1;
+				} else{
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+    //切换点击事件
+    $(".list_sel ul li").click(function(){
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+        var index=$(this).index();
+        $(".sel_box>div:not(.dropload-down)").addClass("hidden");
+        $(".sel_box>div").eq(index).removeClass("hidden");
+        $(this).attr("data-page",1);
+        isScroll = 0;
+        getListFu();
+    });
+    //排序切换点击事件
+    $(".list_sort ul li").click(function(){
+        $(this).addClass("active");
+        $(this).siblings().removeClass("active");
+        $(".list_sel ul li.active").attr("data-page",1);
+        isScroll = 0;
+        getListFu();
+    });
+</script>

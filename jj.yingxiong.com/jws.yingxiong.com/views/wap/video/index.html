@@ -1,0 +1,24 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/video.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="v_main">
+		<div class="v_title"><img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/v_title.png?{$smarty.const.VERSION}" alt="" /></div>
+		<ul>
+			{foreach $data as $key=>$v}
+				<li>
+					<a href="javascript:;">
+						<img class="v_l_img" src="{$v.thumb}" alt="" />
+						<div class="v_l_play js_video_play" data-url="{$v.content_message}">
+							<img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/v_big.png" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/v_small.png" alt="" />
+						</div>
+					</a>
+				</li>
+			{/foreach}
+		</ul>
+	</div>
+</section>
+{include file="../../layouts/wap/footer.html"}
+{download}
+{video_play}
+</html>

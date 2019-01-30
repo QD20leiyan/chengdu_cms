@@ -1,0 +1,39 @@
+{include '../../layouts/wap/header.html'}
+
+<section class="video-detail">
+	<div class="video-img">
+	  <span class="js_video_play" data-url="{$content.media_url}">
+		<i></i>
+		<img src="{$content.thumb}" alt="">
+	  </span>
+	</div>
+
+	<div class="art_main">
+		<div class="art_til">
+			<h3>{$content.title}</h3>
+			<p class="info">
+				<span class="vi_num">{$content.view_count}</span>
+				<span class="vi_date">{$content.created_at_formate}发布</span>
+			</p>
+			<p class="author">作者 <span>{$content.user_name}</span>
+				{if $content.category_id>=329 and $content.category_id
+				<=334}
+				<a href="{myurl name='wap/video/list, id=>329'}" data-id="{$content.category_id}">查看更多作品</a>
+				{else}
+				<a href="{myurl name='wap/video/list, id=>335'}" data-id="{$content.category_id}">查看更多作品</a>
+				{/if}
+			</p>
+		</div>
+		<div class="art_m">
+			<p>{$content.summary}</p>
+		</div>
+	</div>
+	<div class="art_back">
+		<span class="num">{$content.praise}人已赞</span>
+		<span class="back_list video_good" data-id="{$content.content_id}">点赞<i></i></span>
+	</div>
+
+</section>
+
+</body>
+{include '../../layouts/wap/foot.html'}

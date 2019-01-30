@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>英雄互娱_2018_1024程序员节</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+		<link href="{$smarty.const.STATIC_DOMAIN}cxyj/css/animate.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}cxyj/css/swiper.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}cxyj/css/index.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+     <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    {csrf}
+	</head>
+
+	<body>
+      <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+      <div class="h5_data" style="display: none;">{$h5data}</div>
+		  <div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+
+			  <section class="swiper-container">
+				  <section class="swiper-wrapper">
+					  <section class="swiper-slide page1 swiper-no-swiping">
+              <div class="poster">
+                <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/bb.png?{$smarty.const.VERSION}" alt="" class="s1 ani animated fadeInRight" swiper-animate-delay="0.5s">
+                <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/yuan.png?{$smarty.const.VERSION}" alt="" class="s2 ani animated bounceInDown" swiper-animate-delay="1s">
+              </div>
+              <div class="biaobai">
+                  <img src="" alt="" class="user_phone">
+                  <div class="bb_txt">
+                      <i> </i>
+                      <p id="bb_wa">
+                          
+                      </p>
+                  </div>
+              </div>
+              <div class="bg_mc">
+                  <a href="javascript:;" class="test_go_btn"></a>
+              </div>
+					  </section>
+					  <section class="swiper-slide page2 swiper-no-swiping">
+              <p class="info_msg"> </p>
+					    <div class="not-find">
+                <div class="info">
+                  <p>中奖bug怎么能被你发现<br>骚年回去继续敲代码吧……</p>
+                </div>               
+              </div>
+					  </section>
+					<section class="swiper-slide page3 swiper-no-swiping">
+                        <div class="gift">
+                            <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/cd.png?{$smarty.const.VERSION}" alt="" class="lihua">
+                            <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/gift.png?{$smarty.const.VERSION}" alt="" class="box">
+                            <div class="gf_img">
+                                <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/gf1.png?{$smarty.const.VERSION}" alt="" class="gf1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/gf2.png?{$smarty.const.VERSION}" alt="" class="gf2">
+                                <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/gf3.png?{$smarty.const.VERSION}" alt="" class="gf3">
+                                <img src="{$smarty.const.STATIC_DOMAIN}cxyj/images/gf4.png?{$smarty.const.VERSION}" alt="" class="gf4">
+                            </div>
+                             <div class="info">
+                                <p>代码敲得够多才能发现中奖BUG！！！</p>
+                                <p>（快去<span>前台兑奖</span>吧！）</p>
+                             </div>               
+                        </div>
+                    </section>  
+                </section> 
+            </section>  
+		</div>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="{$smarty.const.STATIC_DOMAIN}cxyj/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}cxyj/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}cxyj/js/swiper.animate.min.js?{$smarty.const.VERSION}"></script>
+		</script>
+     <!--微信分享-->
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+        {include '../h5-common/h5_data.html'}
+		<script type="text/javascript">
+        // 分享接口
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/cg/twoyear1024.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        //打字
+        var i =0;
+        var cal="";
+        var gift_id="";
+        var user_id="";
+        var user_name="";
+        var user_img="";
+        var lt_num="";
+        var   i,len,code;  
+        function print(str){
+          if(str){
+              if(str.charAt()=="#"){
+                  $(".bb_txt").append("<p></p>");
+                  str=str.substr(1);
+              }
+              $(".bb_txt p:last").text($(".bb_txt p:last").text()+str.charAt());
+              setTimeout(function(){ print(str.substr(1)); },50);
+          }else{
+          }
+        };
+        function  getStringLen(Str){   
+            if(Str==null || Str == "")   return   0;   
+            len = Str.length;   
+            for(i = 0;i < Str.length;i++)     
+            {     
+            code = Str.charCodeAt(i);   
+            if(code > 255) {
+              len ++;
+             }   
+            }   
+            return   len;
+        } 
+        var strArr = ['如果上天让我许三个愿望，第一个是今生今世和你在一起，第二个是再生再世和你在一起，第三个是永生永世和你不分离。', '你如阳光般洒进了我的世界，英雄。', '幸福！只存在你我相聚时刻。', '爱你，藏在我心里，暖在你心里！', '英雄有你，才是真正的英雄。', '山有木兮木有枝，心悦君兮君不知！', '想你想你好想你，找个画家画下你，把你贴在杯子里，每天喝水亲亲你。','hello，world HERO！','感谢你，默默改变了这个世界！','敲击熟悉的键盘，点击快乐的鼠标，汇成开心的格式，出炉美妙的程序。','碰擦灵感的火花，放飞五彩的思绪，投入全部的身心，开启智慧的大门。','一条网线连接四面八方，敲打键盘帅气的模样，“蜗居”生活胸怀天下，编一套快乐的程序，让世界欢畅，愿程序员朋友好好休息，身体健康，“不着病毒”，祝福你们明天再次创造辉煌。','程序员节，愿你拥有大智慧，不断编写精彩，缔造辉煌！','你是我等了半世未拆的礼物！','衣带渐宽终不悔 为伊消得人憔悴！','天上只有一个月亮世间只有一个你！','我想把世界上最好的都给你，却发现世界上最好的就是你。','不是我喜欢的样子你都有，而是你所有的样子我都喜欢。','无私奉献不是天方夜谭，有时候，我们也可以做到。','想要住进你心里，却发现里面是个小区还有很多邻居。','今朝有酒今朝醉，今朝有求今朝码。','大家统统闪开，程序员来了。','多写代码少打瞌睡，钱财大把随便把妹！','程序员爱老婆，爱我爱家！','骚年，转角遇到爱！'];
+        var info_txt=strArr[Math.floor(strArr.length * Math.random())];
+        getStringLen(info_txt);
+              if(len>80){
+                console.log(11);
+                $(".biaobai").addClass("on");
+              }else{
+                $(".biaobai").removeClass("on");
+                console.log(22);
+              }
+        console.log(len);
+      // 初始化
+        function userinfo() {
+    $.ajax({
+        type: 'POST',
+        url: "/cg/twoyear1024/get-user-info.html"+h5_jk_url,
+        data: {},
+        'dataType':'Json',
+        success: function(data) {
+            if(data.code == 0) {
+                lt_num=data.data.num;
+                gift_id=data.data.giftId;
+                user_id=data.data.openid;
+                user_name=data.data.nickname;
+                user_img=data.data.headimgurl;
+                $(".user_phone").attr("src",user_img);
+                print(info_txt);
+                console.log(info_txt);
+            }else{
+                alert(data.msg);
+            }
+        },
+        error: function() {
+            alert("网络请求错误，请刷新页面");
+        }
+    });
+}
+    $(function() {
+        userinfo();
+        //滑动页面
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            // effect : 'fade',
+            fade: {
+                crossFade: true
+            },
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        $(".test_go_btn").click(function(){
+          if(lt_num > 0){
+            if(gift_id == 0 || gift_id == -1){
+               $.ajax({
+                    type: 'POST',
+                    url: "/cg/twoyear1024/lottery.html"+h5_jk_url,
+                    data: {},
+                    'dataType':'Json',
+                    success: function(data) {
+                        if(data.code == 0) {
+                           if(data.data.giftId == 389){
+                               $(".page3 .gf_img img").removeClass("active");
+                               $(".page3 .gf_img img.gf1").addClass("active");
+                               $(".page2").addClass("hidden");
+                               $(".page3").removeClass("hidden");
+                               mySwiper.slideNext();
+            
+                           }else if(data.data.giftId == 390){
+                               $(".page3 .gf_img img").removeClass("active");
+                               $(".page3 .gf_img img.gf2").addClass("active");
+                               $(".page2").addClass("hidden");
+                               $(".page3").removeClass("hidden");
+                               mySwiper.slideNext();
+            
+                           }else if(data.data.giftId == 391){
+                               $(".page3 .gf_img img").removeClass("active");
+                               $(".page3 .gf_img img.gf3").addClass("active");
+                               $(".page2").addClass("hidden");
+                               $(".page3").removeClass("hidden");
+                               mySwiper.slideNext();
+            
+                           }else if(data.data.giftId == 392){
+                               $(".page3 .gf_img img").removeClass("active");
+                               $(".page3 .gf_img img.gf4").addClass("active");
+                               $(".page2").addClass("hidden");
+                               $(".page3").removeClass("hidden");
+                               mySwiper.slideNext();
+            
+                           }else if(data.data.giftId == -1){
+                               $(".page3").addClass("hidden");
+                               $(".page2").removeClass("hidden");
+                               mySwiper.slideNext();
+            
+                           }else{
+                                alert(data.msg);
+                           }
+                        }else{
+                            alert(data.msg);
+                        }
+                    },
+                    error: function() {
+                        alert("网络请求错误，请刷新页面");
+                    }
+                });
+            }else{
+                $(".page3 .gf_img img").removeClass("active");
+                if(gift_id == 389){
+                  $(".page3 .gf_img img.gf1").addClass("active");
+                }else if(gift_id == 390){
+                  $(".page3 .gf_img img.gf2").addClass("active");
+                }else if(gift_id == 391){
+                  $(".page3 .gf_img img.gf3").addClass("active");
+                }else if(gift_id == 392){
+                  $(".page3 .gf_img img.gf4").addClass("active");
+                }
+                $(".page2").addClass("hidden");
+                $(".page3").removeClass("hidden");
+                mySwiper.slideNext();
+            }
+          }else{
+                $(".info_msg").html("您已经没有抽奖次数啦~");
+                $(".page3").addClass("hidden");
+                $(".page2").removeClass("hidden");
+                mySwiper.slideNext();
+          }
+        });
+        
+        });
+        </script>
+	</body>
+</html>

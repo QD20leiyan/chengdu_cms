@@ -1,0 +1,87 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/news.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv"></div>
+</section>
+<section>
+	<div class="content">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/n_content.jpg?{$smarty.const.VERSION}" alt="" class="n_content" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<ul class="c_ul" data-id="{$id}">
+			<li {if $id==539}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>539'}">综合</a>
+			</li>
+			<li {if $id==540}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>540'}">新闻</a>
+			</li>
+			<li {if $id==542}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>542'}">公告</a>
+			</li>
+			<li {if $id==543}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>543'}">活动</a>
+			</li>
+			<a href="{myurl name='/wap/site/index'}" class="back"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b.png?{$smarty.const.VERSION}" alt="" /></a>
+		</ul>
+		<div class="n_ul">
+			<ul>
+				<!--<li>
+					<a href="javascript:;">
+						<em>【新服】</em><span>《火器文明》10月9日新服开启公告</span><i>05/06</i>
+					</a>
+				</li>-->
+			</ul>
+			<div class="dropload-down">
+                <div class="dropload-noData">上拉加载更多信息...</div>
+            </div>
+		</div>
+	</div>
+</section>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	var page = 1; //页数
+	var id = $(".c_ul").attr("data-id");//类型
+	var ajaxUrl = '/commonMethod/ajax-get-list';
+	getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...")
+			getListFu();
+		}
+	}
+	function getListFu(){
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{
+				page:page++,
+				id:id,
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg.length>0){
+					var result = '';
+					for(var i = 0; i < data.msg.length; i++) {
+						result += "<li><a href=" + data.msg[i].wapLinkUrl+"><em>【" +data.msg[i].name+"】</em><span>"+data.msg[i].title+"</span><i>"+data.msg[i].created_at+"</i></a></li>";
+					}
+					$('.n_ul ul').html(null).append(result);
+					$(".dropload-noData").html("上滑加载更多<i></i>");
+					isScroll = 1;
+				} else{
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+</script>
+
+</html>

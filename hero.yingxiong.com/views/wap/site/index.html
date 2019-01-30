@@ -1,0 +1,601 @@
+{include '../../layouts/wap/header.html'}
+<section class="kv">
+	<div class="channel_tap_name" style="display: none;"></div>
+	<div class="channel_name" style="display: none"></div>
+	<!-- <div class="no_channel " >
+		<!--<a href="http://l.taptap.com/b1Hu3yQD" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_download1.png" alt="" /></a>-->
+		<!--<a href="http://l.taptap.com/b1Hu3yQD" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn1.png?{$smarty.const.VERSION}" alt="" /></a>-->
+		<!-- <a href="http://cdn.yingxiong.com/hero/hero-t-P33728A-0403.apk" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn1.png?{$smarty.const.VERSION}" alt="" /></a>
+		<a href="" class="download js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn2.png?{$smarty.const.VERSION}" alt="" /></a>
+
+	</div> -->
+	<!--<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/weixin.png?{$smarty.const.VERSION}" alt="" class="weixin"/>-->
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_video2.png?{$smarty.const.VERSION}" alt="" class="video js_video_play" data-url="{$kv_video}" />
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slogan2.png?{$smarty.const.VERSION}" alt="" class="im_slogan" />
+	<!-- <div class="channel_tap_name" style="display: none;">
+		<a href="" class="download js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn2.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+	<div class="channel_name" style="display: none">
+		<a href="" class="download js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn2.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div> -->
+	<div class="channel">
+		<!--<a href="https://www.taptap.com/app/68030" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_download1.png" alt="" /></a>-->
+		<!--<a href="https://www.taptap.com/app/68030" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn1.png?{$smarty.const.VERSION}" alt="" /></a>-->
+		<a href="" class="download js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gf_dl.png?{$smarty.const.VERSION}" alt="" /></a>
+		{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcwap','stwap','jpcwap','tycwap'])}
+		{else}
+		<a href="https://www.taptap.com/app/68030" class="tap stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+		<a href="http://www.3839.com/a/91790.htm" class="hy stat_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/hy2.png?{$smarty.const.VERSION}" alt="" /></a>
+		{/if}
+	</div>
+
+
+	<!--{if in_array($channel_name,['ppcwap','stwap','jpcwap','tycwap','t'])}
+	{else}
+	&lt;!&ndash;<a href="https://www.taptap.com/app/68030" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_download1.png" alt="" /></a>&ndash;&gt;
+	&lt;!&ndash;<a href="https://www.taptap.com/app/68030" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn1.png?{$smarty.const.VERSION}" alt="" /></a>&ndash;&gt;
+	<a href="javascript:alert('因TapTap站内整改，无法进行游戏下载。在此期间所有TapTap玩家请在官网内进行下载更新。所有用户用原有账号登陆即可，不会出现账号数据丢失等情况。谢谢大家的理解与支持！')" class="tap stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn1.png?{$smarty.const.VERSION}" alt="" /></a>
+	{/if}
+    <a href="" class="download js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn2.png?{$smarty.const.VERSION}" alt="" /></a>
+	{if in_array($channel_name,['ppcwap','stwap','jpcwap','tycwap','t'])}
+	{else}
+	<a href="http://www.3839.com/a/91790.htm" class="hy"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/l_w_btn3.png?{$smarty.const.VERSION}" alt="" /></a>
+	{/if}-->
+	<!--<div class="sl">-->
+	<!--<a href="/" class="yuyue"></a>-->
+	<!--</div>-->
+	<!--<div class="renshu">已预约人数<span></span></div>-->
+</section>
+<section class="news">
+	<div class="tab_box">
+		<p class="qm_title"></p>
+		<div class="tab_til">
+			<ul>
+				<li class="active" data-id="419">
+					<a href="javascript:">最新</a>
+				</li>
+				<li data-id="421">
+					<a href="javascript:">新闻</a>
+				</li>
+				<li data-id="422">
+					<a href="javascript:">公告</a>
+				</li>
+				<li data-id="420">
+					<a href="javascript:">活动</a>
+				</li>
+				<li data-id="423">
+					<a href="javascript:">攻略</a>
+				</li>
+			</ul>
+		</div>
+		<div class="tab_main">
+			<div class="news_infor show {if $zx!=null} {else} no_datas {/if}">
+				<div class="tab_tj">
+					{foreach key=cid item=v from=$zx} {if $cid lte 1}
+					<a href="{$v.wapLinkUrl}">
+						<span><img src="{$v.thumb}" alt=""/></span>
+						<span class="info"><i>[{$v.categoryName}]</i>{$v.title}</span>
+					</a>
+					{/if} {/foreach}
+				</div>
+				<ul>
+					{foreach key=cid item=v from=$zx} {if $cid gt 1}
+					<li>
+						<a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/if} {/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide {if $xw!=null} {else} no_datas {/if}">
+				<div class="tab_tj">
+					{foreach key=cid item=v from=$xw} {if $cid lte 1}
+					<a href="{$v.wapLinkUrl}">
+						<span><img src="{$v.thumb}" alt=""/></span>
+						<span class="info"><i>[{$v.categoryName}]</i>{$v.title}</span>
+					</a>
+					{/if} {/foreach}
+				</div>
+				<ul>
+					{foreach key=cid item=v from=$xw} {if $cid gt 1}
+					<li>
+						<a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/if} {/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide {if $gg!=null} {else} no_datas {/if}">
+				<div class="tab_tj">
+					{foreach key=cid item=v from=$gg} {if $cid lte 1}
+					<a href="{$v.wapLinkUrl}">
+						<span><img src="{$v.thumb}" alt=""/></span>
+						<span class="info"><i>[{$v.categoryName}]</i>{$v.title}</span>
+					</a>
+					{/if} {/foreach}
+				</div>
+				<ul>
+					{foreach key=cid item=v from=$gg} {if $cid gt 1}
+					<li>
+						<a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/if} {/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide {if $hd!=null} {else} no_datas {/if}">
+				<div class="tab_tj">
+					{foreach key=cid item=v from=$hd} {if $cid lte 1}
+					<a href="{$v.wapLinkUrl}">
+						<span><img src="{$v.thumb}" alt=""/></span>
+						<span class="info"><i>[{$v.categoryName}]</i>{$v.title}</span>
+					</a>
+					{/if} {/foreach}
+				</div>
+				<ul>
+					{foreach key=cid item=v from=$hd} {if $cid gt 1}
+					<li>
+						<a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/if} {/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide {if $gl!=null} {else} no_datas {/if}">
+				<div class="tab_tj">
+					{foreach key=cid item=v from=$gl} {if $cid lte 1}
+					<a href="{$v.wapLinkUrl}">
+						<span><img src="{$v.thumb}" alt=""/></span>
+						<span class="info"><i>[{$v.categoryName}]</i>{$v.title}</span>
+					</a>
+					{/if} {/foreach}
+				</div>
+				<ul>
+					{foreach key=cid item=v from=$gl} {if $cid gt 1}
+					<li>
+						<a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/if} {/foreach}
+				</ul>
+			</div>
+		</div>
+		<p class="more">
+			<a href="{myurl name='wap/article/list, id=>419'}" class="tz1" style="display:none;"></a>
+			<a href="{myurl name='wap/article/list, id=>421'}" class="tz3" style="display:none;"></a>
+			<a href="{myurl name='wap/article/list, id=>422'}" class="tz4" style="display:none;"></a>
+			<a href="{myurl name='wap/article/list, id=>420'}" class="tz2" style="display:none;"></a>
+			<a href="{myurl name='wap/article/list, id=>423'}" class="tz5" style="display:none;"></a>
+		</p>
+		<p class="no_data">暂无相关数据</p>
+	</div>
+</section>
+<section class="cont_wq">
+	<p class="w_title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/w_title.png?{$smarty.const.VERSION}" alt=""/></p>
+	<div class="w_label_box">
+		{foreach key=cid item=v from=$arms.type}{if $cid eq 0}
+		<span class="active" data-id="{$v.id}">{$v.title}</span>{else}
+		<span data-id="{$v.id}">{$v.title}</span>{/if}
+		{/foreach}
+	</div>
+	<div class="w_slide">
+		<div class="swiper-container swiper-container3">
+			<div class="swiper-wrapper">
+				{foreach key=cid item=v from=$arms.data}
+				<div class="swiper-slide">
+					<div class="w_imgbox"><img src="{$v.content.wap_img}" alt=""></div>
+					<div class="w_txtbox" data-attribute="{$v.content.attribute}">
+						<p class="w_bigtitle">{$v.title}</p>
+						{if $v.sub_title!=null}<p class="w_subtitle">{$v.sub_title}</p>{/if}
+						{if !empty($v.content.label)}
+						<div class="w_sign_box">
+						{foreach key=cid item=m from=$v.content.label}
+						<span>{$m}</span>
+						{/foreach}
+						</div>
+						{/if}
+						<p class="w_info">{$v.summary}</p>
+					</div>
+				</div>
+				{/foreach}
+			</div>
+			<div class="swiper-button-prev swiper-button-prev3"></div>
+			<div class="swiper-button-next swiper-button-next3"></div>
+		</div>
+		<div class="wq_bar">
+			<div class="w_blue"></div>
+			<div class="w_red"></div>
+			<div class="w_yellow"></div>
+		</div>
+	</div>
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/car_green2.png?{$smarty.const.VERSION}" alt="" class="car_img">
+</section>
+<section class="plays">
+	<div class="play">
+		<p class="qm_title"></p>
+
+		
+		<div class="swiper-container swiper-container1">
+		 {fragment var=index_banner code=pc_banner size=5}
+			<div class="swiper-wrapper">
+			 {if $index_banner neq ''}
+							{foreach $index_banner as $v}
+				<div class="swiper-slide">
+					<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+		</div>
+		<div class="swiper-button-prev swiper-button-prev1"></div>
+		<div class="swiper-button-next swiper-button-next1"></div>
+		<div class="swiper-pagination swiper-pagination1"></div>
+	</div>
+</section>
+<section class="maps">
+	<p class="qm_title"></p>
+	<p class="hd_ts"></p>
+	<div class="map_content">
+		<div class="map-box">
+			<div class="map-name"></div>
+			<div class="tips tips1">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip1" data-index="1" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip1.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map1">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map1.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="tips tips2">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip2" data-index="3" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip2.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map2">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map2.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="tips tips3">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip3" data-index="6" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip3.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map3">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map3.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="tips tips4">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip4" data-index="2" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip4.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map4">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map4.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="tips tips5">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip5" data-index="7" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip5.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map5">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map5.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="tips tips6">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip6" data-index="5" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip6.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map6">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map6.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="tips tips7">
+				<img class="small-tips" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tips.png?{$smarty.const.VERSION}">
+				<img class="hover-tips hover-tip7" data-index="4" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_tip7.png?{$smarty.const.VERSION}">
+			</div>
+			<div class="map map7">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_map7.png?{$smarty.const.VERSION}">
+			</div>
+		</div>
+	</div>
+	<p class="hd_ts1"></p>
+</section>
+<section class="hero">
+	<div>
+		<p class="qm_title"></p>
+		<p>这是一款全新的特种竞技生存游戏，迅速风靡全球，成为新世纪影响力最大的竞技体育项目。</p>
+		<p>玩家成功匹配后，将出现在风景宜人的小岛上等待角逐，乘坐飞机进入正式地图，通过跳伞的方式选择竞技场，你将会成为效力于七大联盟之一的强者，并体验到每个联盟战区风格迥异的建筑，战区中的武器多为中国制造，结实耐用也好看，战斗中需要不断拾取武器资源，强化自己，还要躲避敌人埋伏和安全区的变化。</p>
+		<p> 在竞技对抗中，英雄们学会了各种战术的巧妙运用，同时也意识到了团队竞技中，信任与理解的重要性，最终战胜其它小队的英雄获得整场胜利。</p>
+	</div>
+</section>
+<section class="share">
+<ul>
+	<li><img src="{$global.wx_img}" alt=""></li>
+	<li><img src="{$global.gfbl_img}" alt=""></li>
+</ul>
+<p>
+	<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><i></i>官方Q群1</a>
+	<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><i></i>官方微博</a>
+</p>
+<p>
+	<a href="{if $global.group_url_two}{$global.group_url_two}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><i></i>官方Q群2</a>
+</p>
+</section>
+<!--预约弹框-->
+<div class="c_login hide">
+	<div class="h_yuyue">
+		<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/yyxx.png?{$smarty.const.VERSION}" alt="" class="yyxx" />
+		<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/close.png?{$smarty.const.VERSION}" alt="" class="close" />
+		<!--<div class="xitong">-->
+		<!--<span class="xt_ra fl on">-->
+		<!--<div class="xt_img" data-id="1">-->
+		<!--<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/weixuanhzong.png?{$smarty.const.VERSION}" alt="" />-->
+		<!--<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/xuanzhong.png?{$smarty.const.VERSION}" alt="" />-->
+		<!--</div>-->
+		<!--<span>ios</span>-->
+		<!--</span>-->
+		<!--<span class="xt_ra fr" data-id="2">-->
+		<!--<div class="xt_img">-->
+		<!--<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/weixuanhzong.png?{$smarty.const.VERSION}" alt="" />-->
+		<!--<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/xuanzhong.png?{$smarty.const.VERSION}" alt="" />-->
+		<!--</div>-->
+		<!--<span>安卓</span>-->
+		<!--</span>-->
+		<!--</div>-->
+		<div class="c_entry">
+			<div class="c_input">
+				<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="请输入手机号" class="phone" />
+			</div>
+			<p class="err" id="phone-err">请输入手机号</p>
+			<div class="z_input">
+				<input type="text" placeholder="请输入图形验证码" class="captcha" />
+				<span class="g_captcha">{$captcha_img}</span>
+				<p class="co_imgtxt">点击图片刷新</p>
+			</div>
+			<p class="err" id="code-err1">请输入图形验证码</p>
+			<div class="z_input">
+				<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="请输入验证码" class="code" />
+				<span class="g_code">获取验证码</span>
+			</div>
+			<p class="err" id="code-err2">请输入手机验证码</p>
+			<a href="javascript:;" class="o_denglu"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/btn.png?{$smarty.const.VERSION}" alt="" /></a>
+		</div>
+	</div>
+</div>
+<!--map弹框-->
+<div class="user_tips hide">
+	<div class="content">
+		<div class="swiper-container swiper-container2">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide1.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype1.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">猛虎战区</p>
+							<p class="txt">占据了全息训练场北方的大部分土地，广阔的平原赋予猛虎同胞们坦荡的胸怀和无人能敌的勇气。</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide2.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype2.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">神雷战区</p>
+							<p class="txt">位于全息训练场的北部半岛。活跃在这里的人们信仰正义与荣耀，誓用高超的战斗技巧扫尽一切黑暗和阴霾。</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide3.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype3.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">列岛战区</p>
+							<p class="txt">训练场北部最重要的岛屿，列岛战区的同胞拥有不屈的品质，是最让其他战区头疼的对手。</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide4.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype4.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">远峰战区</p>
+							<p class="txt">最具特色的战区，分布着高山和峡谷。远峰同胞们拥有永不言弃的意志力，这是在训练场中获胜的根本。</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide5.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype5.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">影狼战区</p>
+							<p class="txt">拥有平缓的丘陵和清澈的河流。影狼同胞擅长以出人意料的战术给予敌人致命打击。</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide6.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype6.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">绿叶战区</p>
+							<p class="txt">训练场东部的明珠，山势平缓宜居。这里的人们坚信公平公正的比赛环境才能让人发挥最大实力。</p>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:void(0);"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_slide7.jpg?{$smarty.const.VERSION}" alt=""></a>
+					<div class="info">
+						<div class="type_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_maptype7.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="type_txt">
+							<p class="name">圣象战区</p>
+							<p class="txt">训练场南海中的岛屿，遍布河滩与树林。圣象战区的战士们勤奋团结，是最暖心的队友和最危险的对手。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-button-prev swiper-button-prev2"></div>
+			<div class="swiper-button-next swiper-button-next2"></div>
+		</div>
+
+		<div class="user_close"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_close.png" alt="" /></div>
+	</div>
+</div>
+<!--微信二维码弹框-->
+<div class="code_tips hide">
+	<div class="content">
+		<div class="info">
+			<img src="{$global.wx_img}" alt="" />
+			<p>官方微信二维码</p>
+		</div>
+		<div class="user_close"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/im_close1.png?{$smarty.const.VERSION}" alt="" /></div>
+	</div>
+</div>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script type="text/javascript">
+	var swiper01 = new Swiper('.swiper-container1', {
+		pagination: '.swiper-pagination1',
+		prevButton: '.swiper-button-prev1',
+		nextButton: '.swiper-button-next1',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		autoplay: 2000,
+		loop: true
+	});
+	var swiper02 = new Swiper('.swiper-container2', {
+		prevButton: '.swiper-button-prev2',
+		nextButton: '.swiper-button-next2',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		//		autoplay:2000,
+		loop: true
+	});
+	var swiper03 = new Swiper('.swiper-container3', {
+		prevButton: '.swiper-button-prev3',
+		nextButton: '.swiper-button-next3',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		effect : 'fade',
+		fade: {
+			crossFade: true,
+		},
+		loop: true,
+		onInit: function(swiper){
+			//拿值
+			var slide=swiper.slides[swiper.activeIndex];
+			var wq_barnumarr=($(slide).find(".w_txtbox").attr("data-attribute")||"").split(",");
+			$(".w_blue").percircle({
+				text:"射速",
+				percent:wq_barnumarr[0]||"0",
+				progressBarColor: "#3C6DEA"
+			});
+			$(".w_red").percircle({
+				text:"伤害",
+				percent: wq_barnumarr[1]||"0",
+				progressBarColor: "#E80303"
+			});
+			$(".w_yellow").percircle({
+				text:"弹夹",
+				percent: wq_barnumarr[2]||"0",
+				progressBarColor: "#F5A119"
+			});
+		},
+		onSlideChangeEnd: function(swiper){
+			//拿值
+			var slide=swiper.slides[swiper.activeIndex];
+			var wq_barnumarr=($(slide).find(".w_txtbox").attr("data-attribute")||"").split(",");
+			$(".w_blue").percircle({
+				text:"射速",
+				percent:wq_barnumarr[0]||"0",
+				progressBarColor: "#3C6DEA"
+			});
+			$(".w_red").percircle({
+				text:"伤害",
+				percent: wq_barnumarr[1]||"0",
+				progressBarColor: "#E80303"
+			});
+			$(".w_yellow").percircle({
+				text:"弹夹",
+				percent: wq_barnumarr[2]||"0",
+				progressBarColor: "#F5A119"
+			});
+		}
+	});
+	//获取url中的参数
+	function getUrlParam(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r != null) return unescape(r[2]);
+		return null;
+	}
+	var cms = getUrlParam("ewm");
+</script>
+
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	document.write('<script src="http://game.yingxiong.com/common/herowx/herojs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+</script>
+<script type="text/javascript">
+	$(function() {
+		if(cms == 1){
+			$.get("/site/ajax-ewm-log.html" , {} , function (data){
+				if(data.status == 0){
+					console.log("判断成功");
+				} else {
+					console.log("判断失败");
+				}
+			},"json");
+		}
+		var share = {
+			imgUrl: 'http://cdnstatic.yingxiong.com/hero/3.0/m/images/share_logo.png',
+			shareTitle: '代号英雄官方网站 英雄互娱首款生存竞技手游',
+			descContent: '预约即享海量金币，更有【全网独家恐龙服】！',
+			lineLink: 'http://hero.yingxiong.com/m/'
+		};
+		wx.config({
+			debug: false,
+			appId: wx_conf.appId,
+			timestamp: wx_conf.timestamp,
+			nonceStr: wx_conf.nonceStr,
+			signature: wx_conf.signature,
+			jsApiList: [
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage',
+				'chooseImage',
+				'previewImage',
+				'uploadImage',
+				'downloadImage'
+			]
+		});
+		wx.ready(function() {
+			wx.onMenuShareAppMessage({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				}
+			});
+			wx.onMenuShareTimeline({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				},
+			});
+
+			wx.onMenuShareQQ({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				},
+				cancel: function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+		})
+
+	});
+</script>

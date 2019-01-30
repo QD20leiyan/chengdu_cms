@@ -1,0 +1,51 @@
+{include file="../layouts/pc/news_header.html"}
+<div class="n_body">
+	<div class="top_ul">
+		<ul class="tab_ul">
+			<li class="{if $id eq 709}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>709'}">最新</a>
+			</li>
+			<li class="{if $id eq 710}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>710'}">资讯</a>
+			</li>
+			<li class="{if $id eq 711}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>711'}">公告</a>
+			</li>
+			<li class="{if $id eq 712}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>712'}">活动</a>
+			</li>
+			<li class="{if $id eq 713}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>713'}">攻略</a>
+			</li>
+			<p class="back"><a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+		</ul>
+	</div>
+	<div class="newslist">
+		{if !empty($data)}
+		<ul class="list_ul">
+			{foreach $data as $v}
+			<a href="{$v.linkUrl}" target="_blank">
+				<li>
+					<div class="newlist_left">
+						<span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+						<span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+					</div>
+					<div class="newlist_img"><img src="{$v.thumb}" alt="" /></div>
+					<div class="newlist_right">
+						<h3>{$v.title}</h3>
+						<p>{$v.contentMessage}</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_hover.png?{$smarty.const.VERSION}" alt="" class="l_hover" />
+				</li>
+			</a>
+			{/foreach}
+		</ul>
+		{$page}
+		{else}
+	    <p style="font-size:24px;color:#fff;text-align: center;line-height:50px;">暂无内容~</p>
+	    {/if}
+	</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+</html>

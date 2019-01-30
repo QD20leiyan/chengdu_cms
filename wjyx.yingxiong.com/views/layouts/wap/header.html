@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="keyword" content="{$seo_key}">
+    <meta name="description" content="{$seo_desc}"> {csrf}
+    <meta name="format-detection" content="telephone=no"/>
+    <title>{$seo_title}</title>
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/style.css?{$smarty.const.VERSION}">
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="top">
+    <div class="logo"></div>
+    <div class="top-btn"></div>
+    <ul class="top-list">
+        <li class="{if isset($smarty.get.id)} {else}active{/if}"><a href="{myurl name='site/index'}">首页</a></li>
+        <li class="{if isset($smarty.get.id)}active{/if}"><a href="{myurl name='wap/article/index, id=>464'}">新闻</a></li>
+        <li><a href="http://bbs.yingxiong.com/html/Pc3.0/27.html?share_path=%2F#/bth?_=0.04509192177307986">社区</a></li>
+        <li><a href="https://webim.yingxiong.com/chat/ting/159.html">客服</a></li>
+    </ul>
+    <div class="top-down">
+        {if $channel_name=='t'}
+            <a class="js_wap_down stat_down" data-url='{$channel_name}' style="display:block;width: 100%;height: 100%;">      </a>
+        {else}
+            <a style="display:block;width: 100%;height: 100%;" href="javascript:;"></a>
+        {/if}
+    </div>
+    <ul class="down_list">
+                <li><a href="javascript:;" class="down_gfbtn js_wap_down stat_down"></a></li>
+                <li><a href="https://www.taptap.com/app/78174" class="tap stat_tap" target="_blank"></a></li>
+            </ul>
+        <!--<a style="display:block;width: 100%;height: 100%;"></a>-->
+
+</div>

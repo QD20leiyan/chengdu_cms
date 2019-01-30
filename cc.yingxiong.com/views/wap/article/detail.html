@@ -1,0 +1,54 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+	<meta name="baidu-site-verification" content="4QTWrEt07K" />
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	{include '../../layouts/wap/header3.html'}
+</head>
+<body>
+		<div class="page-bg"></div>
+		{include '../../layouts/wap/header.html'}
+		<section class="details-box">
+			<div class="tit">
+				<h1>{$data['title']}</h1>
+				<p><span><!--时间：--><em>{#fby#} {$data['created_at']|date_format:"%Y/%m/%d" }</em></span></p>
+			</div>
+			<div class="details">
+				{$data['body']}
+			</div>
+			<div class="qrCode-box">
+				<ul>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/pic_38.png?{$smarty.const.VERSION}"/>
+						<p>更多福利、攻略、最新官方消息请扫描二维码，关注“战争艺术赤潮”官方公众号</p>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/pic_37.png?{$smarty.const.VERSION}"/>
+						<p>更多抢先爆料，请扫描二维码关注“战争艺术赤潮”官方微博</p>
+					</li>
+					<li>
+						<p>大神零距离面对面，请关注官方百度贴吧</p>
+						<span>战争艺术赤潮</span>
+						<p>反馈问题请加入官方交流群</p>
+						<span>365057262</span>
+					</li>
+				</ul>
+			</div>
+			<div class="btn-box">
+				<a href="javascript:history.back(-1)">返回列表</a>
+				<a href='{myurl name="m/site/index"}'>返回首页</a>
+			</div>
+		</section>
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		{download}
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/clipboard.min.js"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+</body>
+
+</html>

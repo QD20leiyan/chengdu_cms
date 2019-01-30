@@ -1,0 +1,88 @@
+
+{include file='../layouts/dt_head.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/css/index.css">
+</head>
+<body>
+    <section class="top-head">
+        <img class="top-logo" src="{$global.logo_img}">
+        <div class="top-title">
+            <h1>{$global.title}</h1>
+            <p>{$global.sub_title}</p>
+        </div>
+        <a class="top-down js_wap_down stat_down" href="javascript:">下载游戏</a>
+    </section>
+    <section class="in-container">
+        <a class="back-index" href="/"></a>
+        <div class="share_box">
+            <!-- <div class="jiathis_style_24x24">
+                <span>分享到：</span>
+                <a class="jiathis_button_weixin"></a>
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_cqq"></a>
+            </div> -->
+            <div class="bshare-custom">
+                <span>分享到：</span>
+                <a title="分享到微信" class="bshare-weixin"></a>
+                <a title="分享到微信" class="bshare-qzone"></a>
+                <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+                <a title="分享到qq" class="bshare-qqim"></a>
+            </div>
+        </div> 
+        <div class="in-item">
+            <h1 class="in-it-title">
+                <img src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/images/kj_icon.png" />
+                考卷说明
+            </h1>
+            <div class="in-list">
+                <ul>
+                    <li>
+                        <span>通过考试后，将有机会优先获得激活码，请大家留下您的手机号码，以便于接收到录取通知书——游戏激活码</span>
+                        <img src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/images/01.png" />
+                    </li>
+                    <li>
+                        <span>本份考试内容为娱乐向问题，将在欢乐的答题过程中，向您初步介绍贝雅大陆，请不用担心试卷难度</span>
+                        <img src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/images/02.png" />
+                    </li>
+
+                    <li>
+                        <span>本份考卷共10道选择题，需要全部答对才能通过考试</span>
+                        <img src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/images/03.png" />
+                    </li>       
+                    <li>
+                        <span>答题结束后，如有错误选项可选择【修改错题】，系统将自动跳转到错题页面，可以重新进行选择</span>
+                        <img src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/images/04.png" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- 这是答题按钮浮窗 -->
+    <section class="in-dt-box">
+        <a href="javascript:" class="start-btn"></a>
+    </section>
+    <!--这是弹窗-->
+    <section class="an-tc">
+        <div class="tc-content">
+            <i class="tc-close">
+                <img src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/images/tc_close.png">
+            </i>
+            <h1>登录</h1>
+            <p>手机号码用于接收奖励，仅可提交一次，且提交后无法修改，请正确填写！</p>
+            <label class="tc-error">请输入手机号码</label>
+            <input class="tc-phone" type="text" placeholder="输入手机号码">
+            <label class="tc-error">请输入验证码</label>
+            <section class="tc-mark-box">
+                <input class="tc-mark" type="text" placeholder="输入验证码">
+                <a class="tc-get-mark" href="javascript:" url='{myurl name="special/ajax-verify"}'>发送验证码</a>
+            </section>
+            <a class="tc-login" href="javascript:" url='{myurl name="special/ajax-dati-login"}' an_url = '{myurl name="wap/special/dati-page"}' sh_url='{myurl name="wap/special/dati-share"}'></a>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}/3.0/dati/m/js/index.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/dati/m/css/wap_jia_share.css">
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+</html>

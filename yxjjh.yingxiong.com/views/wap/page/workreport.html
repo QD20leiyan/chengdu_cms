@@ -1,0 +1,30 @@
+{include '../../layouts/wap/header.html'}
+{include '../../layouts/wap/top.html'}
+<!--内容-->
+<div class="i_main">
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="budget">
+			<div class="title">年度工作报告</div>
+			<div class="budget_box">
+				{fragment var=index_banner code=work_list size=100}
+				{if $index_banner neq ''}
+				{foreach $index_banner as $key=>$v}
+				<a href="{$v.url}" target="_blank">
+					<div class="down">
+						<span class="down_img"><img src="{$v.thumb}" alt=""/></span>
+						<div class="txt">
+							<span class="name1">{$v.title}</span>
+							<span class="name2">{$v.sub_title}</span>
+						</div>
+					</div>
+				</a>
+				{/foreach}
+				{/if}
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	{include '../../layouts/wap/bottom.html'}
+</div>
+{include '../../layouts/wap/footer.html'}

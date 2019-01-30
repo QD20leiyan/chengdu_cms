@@ -1,0 +1,129 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<meta name="baidu-site-verification" content="4QTWrEt07K" />
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/common.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/index.css?{$smarty.const.VERSION}">
+</head>
+<body>
+	{include '../../layouts/wap/header.html'}
+	
+	<div class="top_H"></div>
+	<div class="swiper-container swiper_03">
+	    <div class="swiper-wrapper">
+
+	    	{foreach $banner as $n}
+	    		<div class="swiper-slide"><img src="{$n['thumb']}"></div>
+	    	{/foreach}
+	        
+	        
+	    </div>
+	    <div class="swiper-pagination"></div>
+	</div>
+	<div class="ml_lists">
+		<div class="ml_title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_30.png?{$smarty.const.VERSION}" alt="">{#gfxc#}</div>
+		<div class="ml_ul">
+			{if $xuanchuan|@count neq 0}
+				{foreach $xuanchuan as $n}
+				<div class="ml_list js_video_play" data-url="{$n['content_message']}">
+					<div class="ml_list_img"><img src="{$n['thumb']}" alt=""></div>
+					<div class="ml_list_desc">{$n['title']}</div>
+				</div>
+				{/foreach}
+			{/if}
+		</div>
+	</div>
+
+	<div class="ml_lists" style="display:none;">
+		<div class="ml_title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_31.png" alt="">{#jcss#}</div>
+		<div class="ml_ul">
+		{if $jingcai|@count neq 0}
+			{foreach $jingcai as $n}
+				<div class="ml_list js_video_play" data-url="{$n['content_message']}">
+					<div class="ml_list_img"><img src="{$n['thumb']}" alt=""></div>
+					<div class="ml_list_desc">{$n['title']}</div>
+				</div>
+			{/foreach}
+		{/if}	
+
+		
+			
+		</div>
+	</div>
+
+	<div class="ml_lists" style="display:none;">
+		<div class="ml_title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_32.png?{$smarty.const.VERSION}" alt="">{#rmyx#}</div>
+		<div class="ml_ul">
+		{if $hot|@count neq 0}
+			{foreach $hot as $n}
+				<div class="ml_list js_video_play" data-url="{$n['content_message']}">
+					<div class="ml_list_img"><img src="{$n['thumb']}" alt=""></div>
+					<div class="ml_list_desc">{$n['title']}</div>
+				</div>
+			{/foreach}
+		{/if}	
+		</div>
+	</div>
+
+	<div class="ml_lists">
+		<div class="ml_title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_33.png?{$smarty.const.VERSION}" alt="">{#jssp#}</div>
+		<div class="ml_ul">
+		{if $hot|@count neq 0}
+			{foreach $jieshuo as $n}
+				<div class="ml_list js_video_play" data-url="{$n['content_message']}">
+					<div class="ml_list_img"><img src="{$n['thumb']}" alt=""></div>
+					<div class="ml_list_desc">{$n['title']}</div>
+				</div>
+			{/foreach}
+		{/if}
+		</div>
+	</div>
+
+	<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+	{download}
+	<script language="javascript"> 
+		var swiper_03 = new Swiper('.swiper_03',{
+			loop:true,
+			autoplay: 3000,
+			pagination : '.swiper-pagination',
+			autoplayDisableOnInteraction: false,
+			paginationClickable: true
+		});
+//		$(".ml_list").on("click",function(e){
+//			var movieSrc = $(this).attr("data");
+//			tankuang(movieSrc);
+//		});
+	</script>
+</body>
+</html>
+{video_play}

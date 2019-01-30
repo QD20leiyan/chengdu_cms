@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>{csrf}
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+		<div class="kv">
+		    <video autoplay="autoplay" loop="loop" muted>
+		    	<source src="{$smarty.const.STATIC_DOMAIN}1.0/video/video1.mp4?{$smarty.const.VERSION}" type="video/mp4" id="video1">
+                <source src="{$smarty.const.STATIC_DOMAIN}1.0/video/kv.Ogg?{$smarty.const.VERSION}" type="video/ogg"  id="video2">
+		    </video>
+		    <div class="logo  ani bounceInDown"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt=""></div>
+ 
+			<div class="wrap">
+				{fragment var=video code=cover_video size=1}
+            <a class="play {if $video}js_video_play play{else}play{/if}" href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" data-url="{if $video}{$video[0].url}{/if}">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/paly1.png?{$smarty.const.VERSION}" alt="" class="big_img" />
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play2.png?{$smarty.const.VERSION}" alt="" class="s_img" />
+			</a>
+				<div class="down_box">
+					<a href="javascript:;" class="down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" class="btn_bg"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios_am.png?{$smarty.const.VERSION}" alt="" class="ico"></a>
+					<a href="javascript:;" class="down_az stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/android.png?{$smarty.const.VERSION}" class="btn_bg"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and1.png?{$smarty.const.VERSION}" alt="" class="ico"></a>
+					<a href="https://www.taptap.com/app/143787" class="down_tap stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/taptap.png?{$smarty.const.VERSION}" class="btn_bg"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt="" class="ico"></a>
+				</div>
+			</div>
+				<div class="r_float">
+					<a href="javascript:;" class="c_wx"><img src="{$global.wx_img}" alt=""></a>
+					<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="c_wb"></a>
+					<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="c_bd"></a>
+					<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" class="c_qq"></a>
+				</div>
+		</div>
+		<div class="main">
+
+			<div class="wrap">
+				<p class="">宇宙深处，传来一束电波……</p>
+				<div class="bottom_con">
+					<div class="bottom_banner">
+						<ul class="swiper-wrapper">
+						{fragment var=banner code=cover_banner size=5}
+                    {if $banner neq ''}
+                    {foreach $banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+							{/foreach}
+                    {/if}
+						</ul>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+			<div class="ufo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ufo.png?{$smarty.const.VERSION}" alt=""></div>
+		</div>
+		<!-- 预约弹窗 -->
+		<div class="co_tips order-to hidden">
+			<div class="tips_center">
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/close.png?{$smarty.const.VERSION}"></i>
+				<div class="co_form">
+					<div class="inp-box">
+						<div class="inp">
+							<input type="tel" placeholder="手机号码" class="co_username">
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="inp inp1">
+							<input type="text" class="captcha" placeholder="验证码">
+							<div class="get-code co_captcha">点击刷新</div>
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="inp inp1">
+							<input type="number" placeholder="手机验证码" class="co_codenum1">
+							<div class="get-code co_codebtn1">获取验证码</div>
+							<p class="co_error">手机号码错误</p>
+						</div>
+					</div>
+				</div>
+				<div class="co_tipsbtn co_tips_loginbtn stat_yy">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ljyy.png?{$smarty.const.VERSION}">
+				</div>
+			</div>
+		</div>
+	    <!-- 提示弹窗 -->
+	    <div class="co_tips forecast-suc hidden">
+	        <div class="tips_center">
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/close.png?{$smarty.const.VERSION}"></i>
+				<div class="co_form">
+					<div class="inp-box">
+						<p class="tips_info"></p>
+					</div>
+				</div>
+				<div class="co_tipsbtn co_surebtn">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	</body>
+	{download}
+    {video_play}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/index.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper('.bottom_banner', {
+				loop: true,
+				autoplay:3000,
+                autoplayDisableOnInteraction : false,
+				effect: 'coverflow',
+				pagination: '.swiper-pagination',
+				 paginationClickable: true,
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 30,
+					stretch: -50,
+					depth: 600,
+					modifier: 1,
+					slideShadows: true,
+				},
+				observer: true,
+				observeParents: true,
+			});
+			$(window).scroll(function(){
+				var $t = $(this).scrollTop();
+				if($t > 350){
+					$(".main .wrap p").stop().fadeIn();
+					$(".main .wrap p").addClass("animated");
+					$(".main .wrap p").addClass("fadeInDown");
+				}
+			});
+			window.onload = function (){
+				var  myVid1=document.getElementById("video1");
+				var  myVid2=document.getElementById("video2");
+			};
+			// var  myVid1=document.getElementById("video1");
+			// myVid1.addEventListener('canplaythrough', function () {
+   //               myVid1.play();
+   //           });
+		})
+	</script>
+
+</html>

@@ -1,0 +1,49 @@
+{include file="../../layouts/wap/header.html"}
+<body>
+    <div class="main">  
+        <div class="content">
+            <div class="mid">
+                <p>{$content.title}</p>
+                <span>{$content.sub_title}</span>
+                <span class="time">{$content.created_at_formate}</span>
+                <div class="come">
+                    <div class="come-left">
+                        <img src="{$content.image_url}">
+                        <a href="{$content.redirect_url}" target="_blank">进入专题</a>
+                    </div>
+                </div>
+                <img src="{$content.thumb}" class="img1">
+                <div class="word">
+                    <p>{$content.body}</p>
+                </div>
+                <img src="{$content.thumb}" class="img2">
+            </div>
+            <div class="click_zan">
+                <a href="javascript:;" onclick="praiseFu({$content.id})"><img src="{$smarty.const.STATIC_DOMAIN}1.0/wap/img/zan.jpg?{$smarty.const.VERSION}" class="zan"></a>
+                <span class="praise">(<b>{$content.praise}</b>)</span>
+            </div>
+            <div class="close">
+                <a href="javascript:history.go(-1);">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/wap/img/del.jpg?{$smarty.const.VERSION}">
+                </a>                
+            </div>
+        </div>
+    </div>
+    {click}
+</body>
+    <script>
+	function praiseFu(id) {
+		getChangeData(id, 'praise', callBack);
+		function callBack(res) {
+			console.log(res);
+			if(res.status == '-1') {
+				alert(res.msg.msg);
+			} else{
+				var praise = $('.click_zan').find(".praise b");
+				praise.text(Number(praise.text())+1);
+			}
+		}
+	}
+</script>
+</body>
+</html>

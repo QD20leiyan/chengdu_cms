@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>一起世界杯</title>
+    <meta content="{$seo_key}" name="Keywords">
+    <meta content="{$seo_desc}" name="Description">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <!--设置qq发送图标-->
+    <meta name="description" itemprop="description" content="来为世界杯冠军助威吧！再也不用去天台了…">
+    <meta itemprop="name" content="一起助威世界杯！预测冠军赢A车">
+    <meta itemprop="image" content="http://cdnstatic.yingxiong.com/h5/fc/Wordcup/images/share_icon.jpg">
+    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+    <link href="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/css/index.css?{$smarty.const.VERSION}" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    {csrf}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrap" data-id="{$id}">
+<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+    <div class="h5_data" style="display: none;">{$h5data}</div>
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page1 swiper-no-swiping ">
+                <p class="logo1"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/logo1.png?{$smarty.const.VERSION}" alt=""/></p>
+                <div class="btn1 "><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/btn1.png?{$smarty.const.VERSION}" alt=""/></div>
+            </section>
+            <section class="swiper-slide page2 swiper-no-swiping ">
+                <div class="ward_list">
+                    <div class="one">
+                        <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/tit1.png?{$smarty.const.VERSION}" alt=""/>
+                        <div class="sm"><i class="num">1</i><p>7月6日-7月15日12:00</p></div>
+                    </div>
+                    <div class="one">
+                        <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/tit2.png?{$smarty.const.VERSION}" alt=""/>
+                        <div class="sm"><i class="num">1</i>
+                            <p>活动登录需输入<span class="yl">有效游戏信息</span>：平台、区服、角色ID（<span class="yl">游戏内头像旁数字ID，奖励最终通过游戏内直接打入账号，请务必填写正确）</span></p>
+                        </div>
+                        <div class="sm"><i class="num">2</i>
+                            <p>每个账号每天登录活动页面将有<span class="yl">5次</span>助威机会，可选择8强中任意队伍点击队伍图标进行助威；</p>
+                        </div>
+                        <div class="sm"><i class="num">3</i><p>奖励结算机制：根据最终世界杯冠军队成功所获助威次数进行结算；</p></div>
+                    </div>
+                    <div class="one">
+                        <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/tit3.png?{$smarty.const.VERSION}" alt=""/>
+                        <div class="sm"><i class="num">1</i>
+                            <p>-参与活动的所有赛车手<span class="yl">成功助威冠军队总次数达5W次</span>，将解锁“一起世界杯”全服奖励<span class="yl">128钻石；</span></p>
+                            <p>-单个账号成功助威冠军队</p>
+                        </div>
+                        <div class="sm"><i class="num">2</i>
+                            <p class="white">50-45次 获得 最神预测帝 奖励</p>
+                            <p class="blue">(4级芯片随机礼盒*1+A级钻石保养卡*1+最强之剑30天+赤兔30天)</p>
+                        </div>
+                        <div class="sm"><i class="num">3</i>
+                            <p class="white">44-35次 获得 最佳慧眼  奖励</p>
+                            <p class="blue">(4级芯片随机礼盒*1+A级钻石保养卡*1+最强之剑-30天)</p>
+                        </div>
+                        <div class="sm"><i class="num">4</i>
+                            <p class="white">34-25次 获得 实力球迷 奖励</p>
+                            <p class="blue">(3级芯片随机礼盒*1+A级高级保养卡*1+月色风华*1)</p>
+                        </div>
+                        <div class="sm"><i class="num">5</i>
+                            <p class="white">24-15次 获得 幸运球迷 奖励</p>
+                            <p class="blue">(3级芯片随机礼盒*1+A级普通保养卡*1)</p>
+                        </div>
+                        <div class="sm"><i class="num">6</i>
+                            <p class="white">15次以下 获得 一起参与 奖励</p>
+                            <p class="blue">(3级芯片随机礼盒*1)</p>
+                        </div>
+                    </div>
+                    <div class="one">
+                        <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/tit4.png?{$smarty.const.VERSION}" alt=""/>
+                        <div class="sm"><span class="num">1</span>
+                            <p>由于比赛结果需人为更新，队伍晋级状态将于：</p>
+                            <p>7月9日12：00更新4强名单；</p>
+                            <p>7月12日12：00更新冠军争夺名单；</p>
+                            <p> 7月16日12：00更新最终冠军队；</p>
+                            <p>（建议赛车手们在选择助威队伍时关注实时比赛结果）</p>
+                        </div>
+                        <div class="sm"><span class="num">2</span><p>每个账号信息及助威次数需人工核实，活动奖励将于活动结束后的10个工作日内通过游戏直接打入账号，请注意查收~感谢大家的理解与支持！</p></div>
+                    </div>
+                </div>
+                <div class="detail_btn">
+                    <p><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/btn2.png?{$smarty.const.VERSION}" alt=""/></p>
+                </div>
+            </section>
+            <section class="swiper-slide page3 swiper-no-swiping ">
+                <div class="wrad_race">
+                    <div class="wrad_race_box">
+                        <div class="top">
+                            <p class="logo1"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/logo1.png?{$smarty.const.VERSION}" alt=""/></p>
+                            <p class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/slogan.png?{$smarty.const.VERSION}" alt=""/></p>
+                        </div>
+                        <div class="gift_list">
+                            <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/gift.png?{$smarty.const.VERSION}" alt=""/>
+                        </div>
+                        <div class="country">
+                            <div class="c_list" data-name="法国">
+                                <p class="name">法国</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_1.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list out" data-name="巴西">
+                                <p class="name">巴西</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_2.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list" data-name="比利时">
+                                <p class="name">比利时</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_3.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list out" data-name="乌拉圭">
+                                <p class="name">乌拉圭</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_4.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list out" data-name="俄罗斯">
+                                <p class="name">俄罗斯</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_5.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list out" data-name="瑞典">
+                                <p class="name">瑞典</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_6.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list" data-name="克罗地亚">
+                                <p class="name">克罗地亚</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_7.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                            <div class="c_list" data-name="英格兰">
+                                <p class="name">英格兰</p>
+                                <p class="c_img"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/c_8.png?{$smarty.const.VERSION}" alt=""/></p>
+                                <p class="count">助威<span>0</span>次</p>
+                            </div>
+                        </div>
+                        <div class="race_btn">
+                            <div class="zw_btn zw_btn1">
+                                <p><span class="count_all">0</span>/5</p>
+                                <p>拥有助威能量</p>
+                            </div>
+                            <div class="zw_btn zw_btn2">
+                                <p>召唤赛车手</p>
+                                <p>为冠军队助威</p>
+                            </div>
+                            <div class="download"><a href="http://downurl.yingxiong.com/url/fc_world.html"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/download.png?{$smarty.const.VERSION}" alt=""/></a></div>
+                        </div>
+                        <div class="list_box">
+                        <p class="title"></p>
+                        <div class="list">
+                            <div class="price_con">
+                                <ul></ul>
+                                <p class="price_no hidden">暂无相关数据</p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="fixed_btn">
+                    <a href="javascript:;" class="first"></a>
+                    <a href="javascript:yx_showTips('敬请期待');" class="second"></a>
+                    <a href="javascript:;" class="third"></a>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+<!--登录弹框-->
+<div class="co_tips co_tips_login co_tips_login1 hidden">
+    <div class="co_con">
+        <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <div class="co_input">
+                <div class="rdo_box">
+                    <span class="rdo on" data-id="1">iOS平台</span>
+                    <span class="rdo" data-id="2">安卓平台</span>
+                </div>
+                <p class="co_error">手机号码错误</p>
+                <div class="qf qf_ios">
+                    <select class="js_serverId">
+                        <option data-id="40001">银石赛道</option>
+                        <option data-id="40002">雪邦赛道</option>
+                    </select>
+                    <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/down_1.png?{$smarty.const.VERSION}" class="down_1">
+                </div>
+                <div class="qf qf_and hidden">
+                    <select class="js_serverId">
+                        <option data-id="10001">秋名山</option>
+                        <option data-id="10002">盐湖城</option>
+                        <option data-id="10003">巴塞罗那</option>
+                        <option data-id="20001">亚特兰蒂斯</option>
+                        <option data-id="20002">法老遗迹</option>
+                        <option data-id="20003">日月潭</option>
+                        <option data-id="20004">卡拉火山</option>
+                        <option data-id="20005">浪漫之都</option>
+                        <option data-id="30001">九州岛</option>
+                    </select>
+                    <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/down_1.png?{$smarty.const.VERSION}" class="down_1">
+                </div>
+                <p class="co_error">手机号码错误</p>
+                <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="username" placeholder="请输入角色ID">
+                <p class="co_error">手机号码错误</p>
+            </div>
+        </div>
+        <p class="id_ts">*角色ID为游戏内头像旁数字ID</p>
+        <p class="co_tips_btn tipsbtn1"></p>
+    </div>
+</div>
+<!--提示弹框-->
+<div class="co_tips co_tips_no hidden">
+    <div class="co_con">
+        <img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <div class="ts_box fg hidden">
+                <p class="ts hidden">眼光不错！菲菲也很期待<span>法国队</span>夺冠！</p>
+                <p class="ts hidden">菲菲也觉得<span>法国队</span>是热门夺冠队，pick起来吧！~</p>
+            </div>
+            <div class="ts_box bx hidden">
+                <p class="ts hidden">美洲之光！恭喜你成功为<span>巴西</span>助威1次~</p>
+                <p class="ts hidden">菲菲也觉得<span>巴西</span>是热门夺冠队，pick起来吧！~</p>
+            </div>
+            <div class="ts_box bls hidden">
+                <p class="ts hidden">你成功为<span>比利时</span>助威1次！说不定就是这届的黑马</p>
+            </div>
+            <div class="ts_box wlg hidden">
+                <p class="ts hidden">美洲之光！恭喜你成功为<span>乌拉圭</span>助威1次~</p>
+            </div>
+            <div class="ts_box els hidden">
+                <p class="ts hidden">你pick了本次世界杯“黑马”<span>俄罗斯队</span>，来，安排一下！~</p>
+                <p class="ts hidden">你pick了东道主<span>俄罗斯队</span>，这届世界杯因你而精彩</p>
+            </div>
+            <div class="ts_box rd hidden">
+                <p class="ts hidden">你成功为<span>瑞典队</span>助威1次！说不定就是这届的黑马</p>
+            </div>
+            <div class="ts_box kldy hidden">
+                <p class="ts hidden">你成功为<span>克罗地亚队</span>助威1次！支持红白蓝</p>
+            </div>
+            <div class="ts_box ygl hidden">
+                <p class="ts hidden">你pick的是实力冠军候选，一起为<span>英格兰</span>助威吧！</p>
+                <p class="ts hidden">菲菲也觉得<span>英格兰</span>是热门夺冠队，pick起来吧！~</p>
+            </div>
+        </div>
+        <p class="co_tips_btn tipsbtn3"></p>
+    </div>
+</div>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/images/share_bg.png?{$smarty.const.VERSION}" alt=""/></div>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了您更好的浏览体验，请竖屏浏览</div>
+    </div>
+</div>
+<script src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}fc/Wordcup/js/index.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<!--微信分享-->
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script>
+    $(function(){
+        var share = {
+            imgUrl      : "http://cdnstatic.yingxiong.com/h5/fc/Wordcup/images/share_icon.jpg",
+//            shareTitle  : "",
+            descContent : "一起助威世界杯！预测冠军赢A车",
+            lineLink    : 'http://h5.yingxiong.com/index/fc/fuel.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        shareInit=function(){
+            wx.onMenuShareAppMessage({
+                title   : share_title,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share_title,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareQQ({
+                title: share_title,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        }
+        wx.ready(function(){
+            shareInit();
+        })
+    });
+</script>
+
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js"></script>
+<script type="text/javascript">
+    setShareInfo({
+        title:          '来为世界杯冠军助威吧！再也不用去天台了…',
+        summary:        '一起助威世界杯！预测冠军赢A车',
+        pic:            'http://cdnstatic.yingxiong.com/h5/fc/Wordcup/images/share_icon.jpg',
+        url:            'http://h5.yingxiong.com/index/fc/fuel.html',
+    });
+</script>
+</body>
+</html>

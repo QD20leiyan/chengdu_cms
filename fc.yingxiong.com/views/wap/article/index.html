@@ -1,0 +1,78 @@
+{include file="../../layouts/wap/header.html"}
+<section class="cont">
+  <section class="idx-news news-news">
+      <aside class="title clear">
+        <p>{if $id lt 200 and $id gt 193}新闻动态{/if}
+           {if $id lt 214 and $id gt 207}玩家专区{/if}</p>
+      </aside>
+      <ul class="menu clear">
+          {if $id lt 200 and $id gt 193}
+            <li class="{if $id eq 194}active{else} {/if}"><a href='{myurl name="wap/list, id=>194"}'>最新</a></li>
+            <li class="{if $id eq 195}active{else} {/if}"><a href="{myurl name='wap/list, id=>195'}">媒体</a></li>
+            <li class="{if $id eq 196}active{else} {/if}"><a href="{myurl name='wap/list, id=>196'}">攻略</a></li>
+            <li class="{if $id eq 197}active{else} {/if}"><a href="{myurl name='wap/list, id=>197'}">活动</a></li>
+            <li class="{if $id eq 198}active{else} {/if}"><a href="{myurl name='wap/list, id=>198'}">公告</a></li>
+            <li class="{if $id eq 199}active{else} {/if}"><a href="{myurl name='wap/list, id=>199'}">新闻</a></li>
+          {/if}
+          {if $id lt 214 and $id gt 207}
+            <li class="{if $id eq 208}active{else} {/if}"><a href='{myurl name="wap/list, id=>208"}'>最新</a></li>
+            <li class="{if $id eq 209}active{else} {/if}"><a href="{myurl name='wap/list, id=>209'}">新闻</a></li>
+            <li class="{if $id eq 210}active{else} {/if}"><a href="{myurl name='wap/list, id=>210'}">公告</a></li>
+            <li class="{if $id eq 211}active{else} {/if}"><a href="{myurl name='wap/list, id=>211'}">活动</a></li>
+            <li class="{if $id eq 212}active{else} {/if}"><a href="{myurl name='wap/list, id=>212'}">赛事</a></li>
+            <li class="{if $id eq 213}active{else} {/if}"><a href="{myurl name='wap/list, id=>213'}">攻略</a></li>
+          {/if}
+      </ul>
+      <ul class="news-list show">
+      </ul>
+  </section>
+</section>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery+fittext+touchslider.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/public.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+  var url = '{myurl name="wap/article/ajax-get-list"}';
+  var page=1;
+  var id = '{$id}';
+  $(function(){
+    getList();
+      $(".menu li").click(function(){
+          page = 1;
+          id = $(this).attr('data-id');
+          console.log(id);
+          getList();
+      })
+  });
+  function getList(){
+      $.get(url,{ 'id':id,'page':page },function(data){
+          var d = data.msg;
+          var html = '';
+          console.log(d);
+          if(data.status == 0){
+            for(var i = 0;i<d.length;i++){
+                var link = d[i].wapLinkUrl;
+                var name = d[i].name;
+                var title = d[i].title;
+                var url = d[i].linkUrl;
+                var time = d[i].created_at;
+                html+=' <li>'+
+                '<a href="'+link+'">'+
+                 '<p>'+
+                  '<span>['+name+']</span>'+
+                  ''+title+'</p>'+
+                  '<span>'+time+'</span>'+
+                  '</a>'+
+                '</li>'
+            }
+            $(".news-list").html(html);
+        }
+    },'json')
+  }
+</script>
+{download}
+</body>
+</html>

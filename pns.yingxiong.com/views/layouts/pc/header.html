@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/animate.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?132690f58976e65359f6cf26d85b0ba9";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调
+        //push 参数，name：页面名称，behavior 行为
+        //event 参数，event：事件名称，args 拓展参数
+        var HLog={
+            push:function(name,behavior){},setUser:function(){},event:function(event,args){},ready:function(){}
+        };
+        HLog.config={
+            "senseHash":0, //hash锚点是否进入url统计
+            "senseQuery":0, //url参数是否进入url统计
+            "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+        };
+        (function() {
+            var hl = document.createElement("script");
+            if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+                hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/100/client/2/filter/stat.js";
+            }else{
+                hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/100/client/1/filter/stat.js";
+            }
+            hl.async = "async";
+            var s = document.getElementsByTagName("script")[0];
+            HLog.ready = function(){
+                HLog.push('reflash')
+            };
+            s.parentNode.insertBefore(hl, s);
+        })();
+    </script>
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+</head>
+<body>
+<!--header-->
+<!--<script type="text/javascript" src="//static.dev.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>-->

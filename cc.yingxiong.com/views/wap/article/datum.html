@@ -1,0 +1,432 @@
+{include file="../../layouts/wap/new_header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/race.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="jn_tab">
+		<ul>
+			<li class="active">人族技能</li>
+			<li>神族技能</li>
+			<li>妖族技能</li>
+		</ul>
+	</div>
+</section>
+<section>
+	<div class="jn_main">
+		<div class="tab_jn active">
+			{if $data.rz}
+			<div class="jn_tf">
+				<p class="tf_tit">天赋技能</p>
+				<ul class="tfjn">
+					{if isset($data.rz.tfjn)} 
+						{foreach $data.rz.tfjn as $key=>$v}
+						<li class="{if $key eq 0}active{else}{/if}">
+							<div class="tf_img"><img src="{$v.thumb}" alt="" /></div>
+							<p>{$v.title}</p>
+						</li>
+						{/foreach} 
+					{/if}
+				</ul>
+				<p class="tf_tit">指挥官技能</p>
+				<ul class="zhgjn">
+					{if isset($data.rz.zhgjn)} 
+						{foreach $data.rz.zhgjn as $key=>$v}
+							<li attr-type="{$v.price}">
+								<div class="tf_img"><img src="{$v.thumb}" alt="" /></div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach} 
+					{/if}
+				</ul>
+			</div>
+			<div class="main_tfjn">
+				{if isset($data.rz.tfjn)}
+					{foreach $data.rz.tfjn as $key=>$v}
+					<div class="jn_zs {if $key eq 0}active{else}{/if}">
+						<div class="zs_tit">
+							{if isset($data.rz.tfjn)}
+							<img src="{$v.thumb}" alt="" />
+							<div class="zs_tit1">
+								<p>{$v.title}</p>
+								<em>Lv.1</em>
+							</div>
+							{/if}
+						</div>
+						<div class="jn_xq">
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn1.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>初始价格</p>
+									{if isset($data.rz.tfjn)}
+									<p>{$v.price}</p>
+									{/if}
+								</div>
+							</div>
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn2.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>冷却时间</p>
+									{if isset($data.rz.tfjn)}
+									<p>{$v.time}</p>
+									{/if}
+								</div>
+							</div>
+						</div>
+						<div class="zs_p">
+							{if isset($data.rz.tfjn)} {$v.info} {/if}
+						</div>
+						<div class="jn_video js_video_play" data-url="{$v.video}">
+							{if isset($data.rz.tfjn)}
+							<img class="j_bg" src="{$v.video_img}" alt="" />
+							<img class="jn_play" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn_play.png?{$smarty.const.VERSION}" alt="" /> {/if}
+						</div>
+					</div>			
+					{/foreach}
+				{/if}
+			</div>
+			<div class="main_zhgjn">
+				{if isset($data.rz.zhgjn)}
+				{foreach $data.rz.zhgjn as $key=>$v}
+				<div class="jn_zs">
+					<div class="zs_tit">
+						{if isset($data.rz.zhgjn)}
+						<img src="{$v.thumb}" alt="" />
+						<div class="zs_tit1">
+							<p>{$v.title}</p>
+							<em>Lv.1</em>
+						</div>
+						{/if}
+					</div>
+					<div class="jn_xq">
+						<div class="jn_xq1">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn1.png?{$smarty.const.VERSION}" alt="" />
+							<div class="xq1">
+								<p>初始价格</p>
+								{if isset($data.rz.zhgjn)}
+								<p>{$v.price}</p>
+								{/if}
+							</div>
+						</div>
+						<div class="jn_xq1">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn2.png?{$smarty.const.VERSION}" alt="" />
+							<div class="xq1">
+								<p>冷却时间</p>
+								{if isset($data.rz.zhgjn)}
+								<p>{$v.time}</p>
+								{/if}
+							</div>
+						</div>
+					</div>
+					<div class="zs_p">
+						{if isset($data.rz.zhgjn)} {$v.info} {/if}
+					</div>
+					<div class="jn_video js_video_play" data-url="{$v.video}">
+						{if isset($data.rz.zhgjn)}
+						<img class="j_bg" src="{$v.video_img}" alt="" />
+						<img class="jn_play" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn_play.png?{$smarty.const.VERSION}" alt="" /> {/if}
+					</div>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+			{/if}
+		</div>
+		<div class="tab_jn">
+			{if $data.sz}
+			<div class="jn_tf">
+				<p class="tf_tit">天赋技能</p>
+				<ul class="tfjn">
+					{if isset($data.sz.tfjn)} {foreach $data.sz.tfjn as $key=>$v}
+					<li class="{if $key eq 0}active{else}{/if}">
+						<div class="tf_img"><img src="{$v.thumb}" alt="" /></div>
+						<p>{$v.title}</p>
+					</li>
+					{/foreach} {/if}
+				</ul>
+				<p class="tf_tit">指挥官技能</p>
+				<ul class="zhgjn">
+					{if isset($data.sz.zhgjn)} 
+						{foreach $data.sz.zhgjn as $key=>$v}
+							<li attr-type="{$v.price}">
+								<div class="tf_img"><img src="{$v.thumb}" alt="" /></div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach} 
+					{/if}
+				</ul>
+			</div>
+			<div class="main_tfjn">
+				{if isset($data.sz.tfjn)}
+					{foreach $data.sz.tfjn as $key=>$v}
+						<div class="jn_zs {if $key eq 0}active{else}{/if}">
+							<div class="zs_tit">
+								{if isset($data.sz.tfjn)}
+								<img src="{$v.thumb}" alt="" />
+								<div class="zs_tit1">
+									<p>{$v.title}</p>
+									<em>Lv.1</em>
+								</div>
+								{/if}
+							</div>
+							<div class="jn_xq">
+								<div class="jn_xq1">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn1.png?{$smarty.const.VERSION}" alt="" />
+									<div class="xq1">
+										<p>初始价格</p>
+										{if isset($data.sz.tfjn)}
+										<p>{$v.price}</p>
+										{/if}
+									</div>
+								</div>
+								<div class="jn_xq1">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn2.png?{$smarty.const.VERSION}" alt="" />
+									<div class="xq1">
+										<p>冷却时间</p>
+										{if isset($data.sz.tfjn)}
+										<p>{$v.time}</p>
+										{/if}
+									</div>
+								</div>
+							</div>
+							<div class="zs_p">
+								{if isset($data.sz.tfjn)} {$v.info} {/if}
+							</div>
+							<div class="jn_video js_video_play" data-url="{$v.video}">
+								{if isset($data.sz.tfjn)}
+								<img class="j_bg" src="{$v.video_img}" alt="" />
+								<img class="jn_play" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn_play.png?{$smarty.const.VERSION}" alt="" /> {/if}
+							</div>
+						</div>
+					{/foreach}
+				{/if}
+			</div>
+			<div class="main_zhgjn">
+				{if isset($data.sz.zhgjn)}
+					{foreach $data.sz.zhgjn as $key=>$v}
+					<div class="jn_zs">
+						<div class="zs_tit">
+							{if isset($data.sz.zhgjn)}
+							<img src="{$v.thumb}" alt="" />
+							<div class="zs_tit1">
+								<p>{$v.title}</p>
+								<em>Lv.1</em>
+							</div>
+							{/if}
+						</div>
+						<div class="jn_xq">
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn1.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>初始价格</p>
+									{if isset($data.sz.zhgjn)}
+									<p>{$v.price}</p>
+									{/if}
+								</div>
+							</div>
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn2.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>冷却时间</p>
+									{if isset($data.sz.zhgjn)}
+									<p>{$v.time}</p>
+									{/if}
+								</div>
+							</div>
+						</div>
+						<div class="zs_p">
+							{if isset($data.sz.zhgjn)} {$v.info} {/if}
+						</div>
+						<div class="jn_video js_video_play" data-url="{$v.video}">
+							{if isset($data.sz.zhgjn)}
+							<img class="j_bg" src="{$v.video_img}" alt="" />
+							<img class="jn_play" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn_play.png?{$smarty.const.VERSION}" alt="" /> {/if}
+						</div>
+					</div>			
+					{/foreach}
+				{/if}
+			</div>
+			{/if}
+		</div>
+		<div class="tab_jn">
+			{if $data.yz}
+			<div class="jn_tf">
+				<p class="tf_tit">天赋技能</p>
+				<ul class="tfjn">
+					{if isset($data.yz.tfjn)} {foreach $data.yz.tfjn as $key=>$v}
+					<li class="{if $key eq 0}active{else}{/if}">
+						<div class="tf_img"><img src="{$v.thumb}" alt="" /></div>
+						<p>{$v.title}</p>
+					</li>
+					{/foreach} {/if}
+				</ul>
+				<p class="tf_tit">指挥官技能</p>
+				<ul class="zhgjn">
+					{if isset($data.yz.zhgjn)} {foreach $data.yz.zhgjn as $key=>$v}
+					<li attr-type="{$v.price}">
+						<div class="tf_img"><img src="{$v.thumb}" alt="" /></div>
+						<p>{$v.title}</p>
+					</li>
+					{/foreach} {/if}
+				</ul>
+			</div>
+			<div class="main_tfjn">
+				{if isset($data.yz.tfjn)}
+					{foreach $data.yz.tfjn as $key=>$v}
+					<div class="jn_zs {if $key eq 0}active{else}{/if}">
+						<div class="zs_tit">
+							{if isset($data.yz.tfjn)}
+							<img src="{$v.thumb}" alt="" />
+							<div class="zs_tit1">
+								<p>{$v.title}</p>
+								<em>Lv.1</em>
+							</div>
+							{/if}
+						</div>
+						<div class="jn_xq">
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn1.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>初始价格</p>
+									{if isset($data.yz.tfjn)}
+									<p>{$v.price}</p>
+									{/if}
+								</div>
+							</div>
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn2.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>冷却时间</p>
+									{if isset($data.yz.tfjn)}
+									<p>{$v.time}</p>
+									{/if}
+								</div>
+							</div>
+						</div>
+						<div class="zs_p">
+							{if isset($data.yz.tfjn)} {$v.info} {/if}
+						</div>
+						<div class="jn_video js_video_play" data-url="{$v.video}">
+							{if isset($data.yz.tfjn)}
+							<img class="j_bg" src="{$v.video_img}" alt="" />
+							<img class="jn_play" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn_play.png?{$smarty.const.VERSION}" alt="" /> {/if}
+						</div>
+					</div>
+					{/foreach}
+				{/if}
+			</div>
+			<div class="main_zhgjn">
+				{if isset($data.yz.zhgjn)}
+					{foreach $data.yz.zhgjn as $key=>$v}
+					<div class="jn_zs">
+						<div class="zs_tit">
+							{if isset($data.yz.zhgjn)}
+							<img src="{$v.thumb}" alt="" />
+							<div class="zs_tit1">
+								<p>{$v.title}</p>
+								<em>Lv.1</em>
+							</div>
+							{/if}
+						</div>
+						<div class="jn_xq">
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn1.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>初始价格</p>
+									{if isset($data.yz.zhgjn)}
+									<p>{$v.price}</p>
+									{/if}
+								</div>
+							</div>
+							<div class="jn_xq1">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn2.png?{$smarty.const.VERSION}" alt="" />
+								<div class="xq1">
+									<p>冷却时间</p>
+									{if isset($data.yz.zhgjn)}
+									<p>{$v.time}</p>
+									{/if}
+								</div>
+							</div>
+						</div>
+						<div class="zs_p">
+							{if isset($data.yz.zhgjn)} {$v.info} {/if}
+						</div>
+						<div class="jn_video js_video_play" data-url="{$v.video}">
+							{if isset($data.yz.zhgjn)}
+							<img class="j_bg" src="{$v.video_img}" alt="" />
+							<img class="jn_play" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jn_play.png?{$smarty.const.VERSION}" alt="" /> {/if}
+						</div>
+					</div>
+					{/foreach}
+				{/if}
+			</div>
+			{/if}
+		</div>
+	
+	</div>
+</section>
+<footer>
+	<ul class="c_footer">
+		<li class="">
+			<a href="{myurl name='wap/site/index'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f1.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f11.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>官网首页</p>
+			</a>
+		</li>
+		<li class="active">
+			<a href="{myurl name='wap/article/datum'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f2.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f22.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>种族技能</p>
+			</a>
+		</li>
+		<li>
+			<a href="{myurl name='wap/article/army'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f3.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f33.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>兵种介绍</p>
+			</a>
+		</li>
+		<li>
+			<a href="{myurl name='wap/article/rune'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f4.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f44.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>符文模拟器</p>
+			</a>
+		</li>
+	</ul>
+</footer>
+</body>
+<script type="text/javascript">
+	$(".c_footer li").on("click", function() {
+		$(this).addClass("active").siblings().removeClass("active");
+	});
+	$(".jn_tab li").on("click", function() {
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".jn_main .tab_jn").eq(index).addClass("active").siblings().removeClass("active");
+	});
+	$(".tfjn li").on("click" , function (){
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(this).parent().parent().siblings(".main_tfjn").children(".jn_zs").eq(index).addClass("active");
+		$(this).parent().parent().siblings(".main_tfjn").children(".jn_zs").eq(index).siblings().removeClass("active");
+		$(this).parent().parent().siblings(".main_zhg").children(".jn_zs").removeClass("active");
+	});
+	$(".zhgjn li").on("click" , function (){
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(this).parent().parent().siblings(".main_zhgjn").children(".jn_zs").eq(index).addClass("active");
+		$(this).parent().parent().siblings(".main_zhgjn").children(".jn_zs").eq(index).siblings().removeClass("active");
+		$(this).parent().parent().siblings(".main_tfjn").children(".jn_zs").removeClass("active");
+	});
+</script>
+{video_play} {include file="../../layouts/wap/footer.html"}
+
+</html>

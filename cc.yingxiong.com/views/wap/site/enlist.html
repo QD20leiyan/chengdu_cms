@@ -1,0 +1,128 @@
+<!--头部-->
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>赤潮主播挑战赛正式打响，争夺最强主播之位！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="baidu-site-verification" content="4QTWrEt07K" />
+    <meta name="keywords" content="战争艺术赤潮，赤潮，赤潮主播，赤潮直播，赤潮比赛" />
+    <meta name="description" content="《战争艺术：赤潮》主播挑战赛正式打响，多平台主播决一高下，谁才是赤潮最强主播？" />
+    <script>
+        //yxhy2017
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?063286b02e5eabecf763ba46a43621e4";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    {csrf}
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+    <link href="{$smarty.const.STATIC_DOMAIN}vote/images/favico.ico.ico" rel="SHORTCUT ICON">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}sign/m/css/common.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}sign/m/css/index.css?{$smarty.const.VERSION}">
+</head>
+<body>
+
+<!--顶部-->
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="scroll_box">
+    <div class="apply_contnet">
+        <div class="apply_banner">
+            <img src="{$smarty.const.STATIC_DOMAIN}sign/m/images/apply_img01.png" alt=""/>
+            <a href='{myurl name="m/site/index"}'></a>
+        </div>
+        <div class="apply_form">
+            <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}sign/m/images/apply_title01.png" alt=""/></p>
+            <ul class="form_box">
+                <li><input type="text" placeholder="主播昵称" class="form zbname"/><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="主播数字ID" class="form zbid"/></li>
+                <p class="err">请输入主播昵称</p>
+                <li><input type="text" placeholder="队员1昵称" class="form dyonename"/><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="队员1数字ID" class="form dyoneid"/></li>
+                <p class="err">请输入队员1昵称</p>
+                <li><input type="text" placeholder="队员2昵称" class="form dytwoname"/><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="队员2数字ID" class="form dytwoid"/></li>
+                <p class="err">请输入队员2昵称</p>
+                <li class="sign_line"></li>
+                <li>
+                    <div class="sign_list">
+                        <h1><input class="form other" placeholder="其他" type="text"/><span class="zbptname">选择直播平台</span><label></label></h1>
+                        <ul class="">
+                            <li><span>斗鱼</span><label></label></li>
+                            <li><span>触手</span><label></label></li>
+                            <li><span>熊猫</span><label></label></li>
+                            <li><span>虎牙</span><label></label></li>
+                            <li><span>战旗</span><label></label></li>
+                            <li><span>YY</span><label></label></li>
+                            <li><span>其他</span><label></label></li>
+                        </ul>
+                    </div>
+                    <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="输入直播房间号" class="form zbptid"/>
+                </li>
+                <p class="err">选择直播平台</p>
+                <li class="sign_line"></li>
+                <li><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="输入手机号码" class="form zbphone"/><span class="form send_code"/>获取手机验证码</span></li>
+                <p class="err">请输入手机号码</p>
+                <li><input type="text" placeholder="输入您验证码" class="form yzm"/></li>
+                <p class="err">请输入验证码</p>
+                <li><button class="order_btn">立即报名</button></li>
+            </ul>
+        </div>
+        <div class="apply_info">
+            <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}sign/m/images/apply_title02.png" alt=""/></p>
+            <p><i class="num">1</i><span>同一玩家不允许重复报名；</span></p>
+            <p><i class="num">2</i><span>比赛奖励中，每一份获胜队伍的资源位只能给一名主播，若同一队伍中有多个主播，请队员协商解决；</span> </p>
+            <p><i class="num">3</i><span>请勿使用非报名ID进行比赛，一经发现视为违规开除比赛资格；</span></p>
+            <p><i class="num">4</i><span>设备及网络问题请选手自行解决；</span></p>
+            <p><i class="num">5</i><span>超过原定比赛时间10分钟未到场选手视为弃权；</span></p>
+            <p><i class="num">6</i><span>官方直播的比赛场次需等待解说到场，赛事最终解释权归英雄互娱所有；</span></p>
+        </div>
+        <div class="apply_bottom">
+            <img src="{$smarty.const.STATIC_DOMAIN}sign/m/images/apply_img02.png" alt=""/>
+        </div>
+    </div>
+</div>
+
+<!--报名成功弹框-->
+<div class="apply_tips hidden">
+    <div class="content">
+        <img src="{$smarty.const.STATIC_DOMAIN}sign/m/images/apply_close.png" alt="" class="apply_close">
+        <div>
+            <p>恭喜您</p>
+            <h2>报名成功</h2>
+            <p>请加入QQ群 <span>132145384</span></p>
+            <p>查看具体赛程安排看群内消息</p>
+        </div>
+        <a href="//shang.qq.com/wpa/qunwpa?idkey=c93566d0c38eff071722af09116cdad6c21a5580b94b930cae688f64c5b50970" target="_blank" class="apply_join"></a>
+    </div>
+</div>
+<script src="{$smarty.const.STATIC_DOMAIN}sign/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}sign/m/js/common.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+</body>
+</html>

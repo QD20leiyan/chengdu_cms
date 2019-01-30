@@ -1,0 +1,39 @@
+{include '../layouts/pc/in_header.html'}
+<!--内容-->
+<div class="list">
+	<div class="top_img">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_topimg.jpg?{$smarty.const.VERSION}" class="list_img"/>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+		<div class="wrap1">
+			<ul class="nav_ul">
+				<li>
+					<a href="/index.html">
+						官网首页
+						<i>HOME</i>
+					</a>
+				</li>
+				<li class="active">
+					<a href="{myurl name='article/list, id=>643'}">
+						新闻资讯
+						<i>NEWS</i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="list_news">
+			{include '../layouts/pc/in_float.html'}
+			<div class="detailbox">
+				<div class="article_title">
+					<h3>{$content.title}</h3>
+					<span><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>作者：官方</span></span>
+				</div>
+				<div class="content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{include '../layouts/pc/in_footer.html'}

@@ -1,0 +1,153 @@
+{include file="../../layouts/wap/new_header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/soldiers.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="c_kv">
+		<img class="m_kv" src="{$data.images_[0].img}" alt="" />
+		<ul class="c_m_ul">
+			{foreach $data.images_ as $key=>$v}
+			<li class="{if $key eq 0}active{else}{/if}">
+				<img src="{$v.img}" alt="" />
+				<span>{$v.title}</span>
+			</li>
+			{/foreach}
+		</ul>
+		<p class="bz_txt">{$data.images_[0].title}</p>
+	</div>
+</section>
+<section class="zb_tab">
+	{foreach $data.images_ as $key=>$b}
+		<div class="z_tab {if $key eq 0}active{else}{/if}">
+			<div class="c_mtab">
+				<ul>
+					<li class="active">
+						<a href="javascript:;">技能介绍</a>
+					</li>
+					<li>
+						<a href="javascript:;">对阵技巧</a>
+					</li>
+					<li>
+						<a href="javascript:;">升级属性</a>
+					</li>
+					<li>
+						<a href="javascript:;">兵种故事</a>
+					</li>
+				</ul>
+			</div>
+			<div class="c_mcon active">
+				<ul class="active sp_ul">
+					{foreach $data.skill as $key=>$v}
+					<li attr-type="{$v.value}">
+						<p><em>{$v.title}</em><strong><span class="f_span">冷却时间<i class="f_i"></i></span><span>射程<i class="s_i"></i></span></strong></p>
+						<div class="clear"></div>
+						<div class="c_mt">{$v.info}</div>
+					</li>
+					{/foreach}
+				</ul>
+				<ul>
+					{foreach $data.way as $key=>$v}
+					<li>
+						<p><em>{$v[0]}</em></p>
+						<div class="clear"></div>
+						<div class="c_mt">{$v[1]}</div>
+					</li>
+					{/foreach}
+				</ul>
+				<ul>
+					{foreach $data.up_skill as $key=>$v}
+					<li>
+						<p><em>Lv.{$key+1}</em><strong><span class="f_span">消耗<b>{$v[1]}</b>科技</span></strong></p>
+						<div class="clear"></div>
+						<div class="c_mt">{$v[0]}</div>
+					</li>
+					{/foreach}
+				</ul>
+				<ul>
+					<li>
+						<p></p>
+						<div class="clear"></div>
+						<div class="c_mt">{$data.routine}</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	{/foreach}
+</section>
+<section>
+	<a class="b_list" href="{myurl name='wap/article/army'}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sj.png?{$smarty.const.VERSION}" alt="" /><span>返回</span></a>
+</section>
+<footer>
+	<ul class="c_footer">
+		<li>
+			<a href="{myurl name='wap/site/index'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f1.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f11.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>官网首页</p>
+			</a>
+		</li>
+		<li>
+			<a href="{myurl name='wap/article/datum'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f2.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m//c_f22.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>种族技能</p>
+			</a>
+		</li>
+		<li class="active">
+			<a href="{myurl name='wap/article/army'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f3.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f33.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>兵种介绍</p>
+			</a>
+		</li>
+		<li>
+			<a href="{myurl name='wap/article/rune'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f4.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f44.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>符文模拟器</p>
+			</a>
+		</li>
+	</ul>
+</footer>
+</body>
+<script type="text/javascript">
+	$(function() {
+		vTab();
+		$(".c_footer li").on("click", function() {
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+		$(".c_m_ul li").on("click", function() {
+			var index = $(this).index();
+			var aa = $(this).children("img").attr("src");
+			var txt = $(this).children("span").text();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".m_kv").attr("src", aa);
+			$(".bz_txt").text(txt);
+			$(".zb_tab .z_tab").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$(".c_mtab li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+//			$(".c_mcon ul").eq(index).addClass("active").siblings().removeClass("active");
+			$(this).parent().parent().siblings(".c_mcon").children("ul").eq(index).addClass("active");
+			$(this).parent().parent().siblings(".c_mcon").children("ul").eq(index).siblings().removeClass("active");
+		});
+
+		function vTab() {
+			$(".c_mcon .sp_ul li").each(function(i) {
+				var i = $(this).attr("attr-type");
+				var ss = i.split(",");
+				$(this).children("p").find(".f_i").text(ss[0]);
+				$(this).children("p").find(".s_i").text(ss[1]);
+			})
+		}
+	})
+</script>
+{include file="../../layouts/wap/footer.html"}
+</html>

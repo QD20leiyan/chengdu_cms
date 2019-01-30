@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全民枪战-王者争锋</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+        <meta name="format-detection" content="telephone=no">
+		<link href="{$smarty.const.STATIC_DOMAIN}ca/king/css/animate.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}ca/king/css/swiper.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}ca/king/css/index.css?{$smarty.const.VERSION}" rel="stylesheet" />
+        <link href="{$smarty.const.STATIC_DOMAIN}ca/king/css/active.css?{$smarty.const.VERSION}" rel="stylesheet" />
+        <script src="{$smarty.const.STATIC_DOMAIN}ca/king/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+        {csrf}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+	</head>
+	<body>
+        <!-- 轮播翻页 -->
+        <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+        <div class="h5_data" style="display: none;">{$h5data}</div>
+		<div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}" style="opacity:1">
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+
+                    <section class="swiper-slide page2 swiper-no-swiping">
+                        <div class="wrap">
+                            <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+                            <a href="javascript:;" class="head_img"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/head2.png?{$smarty.const.VERSION}" alt="" class="hand_move"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/light.png?{$smarty.const.VERSION}" alt=""></a>
+                            <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/slogan2.png?{$smarty.const.VERSION}" alt="" class="slogan">
+                            <div class="page0_v hidden">
+                                <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="{$smarty.const.STATIC_DOMAIN}ca/king/music/video.mp4?{$smarty.const.VERSION}"></video>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page3 swiper-no-swiping">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan2">
+                        <div class="sel_box">   
+                            <a href="javascript:;" class="part1"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt1.png?{$smarty.const.VERSION}" alt="" ><i></i></a>
+                            <a href="javascript:;" class="part2"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt2.png?{$smarty.const.VERSION}" alt="" ><i></i></a>
+                            <a href="javascript:;" class="part3"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt3.png?{$smarty.const.VERSION}" alt="" ><i></i></a>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page1 swiper-no-swiping">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+                        <div class="mm_box1">
+                            <div class="mm_box1_info"></div>
+                        </div>
+                        <div class="mm_box2 hidden">
+                            <div class="mm_box2_info">
+                                <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/1.png?{$smarty.const.VERSION}" alt="">
+                                <p class="mm_text">战术风暴火爆来袭，该模式下枪友们可通过连杀对手来获得能量点，能量点可用于召唤相应道具or技能为己方进行战斗，如果你击杀了足够多的对手，甚至能召唤出直升飞机这种高火力的道具哦！</p>
+                            </div>
+                            <p><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/mm_tl.png?{$smarty.const.VERSION}" alt="" >11</p>
+                        </div>
+                        <div class="mm_box3 hidden">
+                            <div class="mm_box3_info">
+                                <input type="text" maxlength="4" placeholder="请输入四位数密码..." class="mm_val">
+                                <div class="btn_box">
+                                    <a href="javascript:;" class="cancel"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt5.png?{$smarty.const.VERSION}" alt=""><i></i></a>
+                                    <a href="javascript:;" class="sure"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt6.png?{$smarty.const.VERSION}" alt=""><i></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mm_text3 hidden">
+                            <p>提示：密码藏于上两个模块之中~</p>
+                            <a href="javascript:;" class="return2">去查看</a>
+                        </div>
+                        <a href="javascript:;" class="return"><i></i><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt4.png?{$smarty.const.VERSION}" alt="" ></a>
+                    </section>
+                    
+				</section>
+			</section>
+		</div>
+        <!-- 好友助力页 -->
+        <div class="invite_page hidden">
+            <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/slogan4.png?{$smarty.const.VERSION}" alt="" class="slogan4">
+            <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/gift1.png?{$smarty.const.VERSION}" alt="" class="gift_send">
+            <a href="javascript:;" class="friend_help"><i></i><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt12.png?{$smarty.const.VERSION}" alt="" ></a>
+            <div class="friend_box">
+                <p class="info">目前共有<span class="info_num"></span>位好友<br>助力了<span class="info_name"></span></p>
+                <div class="friends_phone">
+                    <div class="phone_box">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="btn_box2">
+                    <a href="http://h5.yingxiong.com/index/ca/king.html" class="cy_lottery" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt11.png?{$smarty.const.VERSION}" alt=""><i></i></a>
+                    <a href="http://downurl.yingxiong.com/url/qmqz_11yue.html" class="cy_down"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt7.png?{$smarty.const.VERSION}" alt=""><i></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 抽奖页 -->
+        <section class="lottery hidden">
+            <section class="a-container">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/slogan3.png?{$smarty.const.VERSION}" alt="" class="slogan3">
+                <section class="a-item3">
+                    <div>
+                        <img id="rotate" src="{$smarty.const.STATIC_DOMAIN}ca/king/images/cj_pan.png?{$smarty.const.VERSION}" >
+                        <div class="p-all-center">
+                            <!-- <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/pointer.png?{$smarty.const.VERSION}" alt="" class="text"> -->
+                           <img id="cj_start_btn" src="{$smarty.const.STATIC_DOMAIN}ca/king/images/cj_zz1.png?{$smarty.const.VERSION}">
+                        </div>
+                    </div>
+                    <p class="sy_num">剩余<span></span>次抽奖机会</p>
+                    <a href="javascript:;" class="gift_look"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/gift_look.png?{$smarty.const.VERSION}" alt=""></a>
+                </section> 
+            </section>
+            <section class="b-container">
+        <section class="b-open_style">
+            <ul class="act_info">
+                <li class="rule">
+                    <i>i</i><b>活动规则</b>
+                </li>
+                <li>
+                    <i>1</i><p>活动时间：11月28日—12月15日；</p>
+                </li>
+                <li>
+                    <i>2</i><p>活动期间，每个微信账号共拥有3次抽奖机会；若有好友助力则可额外获取抽奖次数，每有3位好友助力即可获得额外1次抽奖机会；最多获取额外3次抽奖机会； </p>
+                </li>
+                <li>
+                    <i>3</i><p>奖励兑换说明：游戏礼包请打开《全民枪战2》游戏-任务-兑换礼品-进行兑换；</p>
+                </li>
+                <li>
+                    <i>4</i><p>CA温馨提示：同类型礼包仅可兑换一次，若有活动礼包问题，请与《全民枪战2》官方客服联系；</p>
+                </li>
+                <li>
+                    <i>5</i><p>在法律规定范围内《全民枪战2》运营团队拥有本活动最终解释权。</p>
+                </li>
+            </ul>
+        </section>
+            </section>
+            <section class="btn_box2">
+                    <a href="http://downurl.yingxiong.com/url/qmqz_11yue.html" class="down_url"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt7.png?{$smarty.const.VERSION}" alt=""><i></i></a>
+                    <a href="javascript:;" class="invite"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt8.png?{$smarty.const.VERSION}" alt="" ><i></i></a>
+            </section>
+        </section>    
+        <!--兑换码弹框-->
+        <div class="tips code_tips hidden">
+            <div class="content"> 
+                <a href="javascript:;" class="close_tips"></a>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/tl1.png?{$smarty.const.VERSION}" alt="" class="lable_tl">
+                <div class="co_form">
+                    <p class="info">恭喜你获得</p>
+                    <div class="gift_ico">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/icon1.png?{$smarty.const.VERSION}" alt="" class="img1">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/icon2.png?{$smarty.const.VERSION}" alt="" class="img2">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/icon3.png?{$smarty.const.VERSION}" alt="" class="img3">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/icon4.png?{$smarty.const.VERSION}" alt="" class="img4">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/icon5.png?{$smarty.const.VERSION}" alt="" class="img5">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/icon6.png?{$smarty.const.VERSION}" alt="" class="img6">
+                    </div>
+                    <p class="gift_name"></p>
+                    <div class="dhm_info">
+                        <p>兑换码：<span class="code" id="page_gold_code"></span></p>
+                    </div>
+                    <div class="copy_btn copy" id="tc1_copy_btn" data-clipboard-action="copy" data-clipboard-target="#page_gold_code"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt9.png?{$smarty.const.VERSION}" alt=""><i></i></div>
+                    <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+                </div>
+            </div>
+        </div>
+        <!--礼包弹框-->
+        <div class="tips f_login_tips hidden">
+            <div class="content"> 
+                <a href="javascript:;" class="close_tips"></a>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/tl2.png?{$smarty.const.VERSION}" alt="" class="lable_tl2">
+                <div class="g_price">
+                    <div class="price_div">
+                        <span>名称</span>
+                        <span>兑换码</span>
+                        <span>时间</span>
+                        <span></span>
+                    </div>
+                    <div class="g_price2">
+                    <ul class="price_ul">
+                    </ul>
+                    </div>
+                </div>
+                <div class="sure_btn"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/txt10.png?{$smarty.const.VERSION}" alt=""><i></i></div>
+                <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+            </div>
+        </div>
+        <!--微信分享提示-->
+        <div class="tips share_bg hidden"><img src="{$smarty.const.STATIC_DOMAIN}ca/king/images/share_bg.png?{$smarty.const.VERSION}" alt=""/></div>
+        <!-- 音乐 -->
+        <div class="music_play music_img hidden">
+          <audio id="music1" src="{$smarty.const.STATIC_DOMAIN}ca/king/music/music.mp3?{$smarty.const.VERSION}" loop="loop"></audio>
+          <i></i>
+        </div>
+        <audio id="music2" src="{$smarty.const.STATIC_DOMAIN}ca/king/music/music2.wav?{$smarty.const.VERSION}" preload="load"></audio>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+        {include '../h5-common/h5_data.html'}
+		<script src="{$smarty.const.STATIC_DOMAIN}ca/king/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}ca/king/js/swiper.animate.min.js?{$smarty.const.VERSION}"></script>
+        <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?{$smarty.const.VERSION}"></script> -->
+        <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ca/king/js/awardRotate.js?{$smarty.const.VERSION}"></script>
+        <script src="{$smarty.const.STATIC_DOMAIN}ca/king/js/clipboard.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+        <!--微信分享-->
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?{$smarty.const.VERSION}"></script>
+         <script src="{$smarty.const.STATIC_DOMAIN}ca/king/js/lottery.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+		<!--微信分享-->
+		<script>
+    	document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+		</script>
+	</body>
+</html>

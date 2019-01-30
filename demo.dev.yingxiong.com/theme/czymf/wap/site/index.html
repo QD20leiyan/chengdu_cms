@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title id="lo_title">{$global.web_name}</title>
+		<meta name="keywords" content="{$global.web_keywords}" />
+		<meta name="description" content="{$global.web_description}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/colpick.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/tc_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/common/css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/css/index.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/common/js/jquery-1.11.3.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body id="wap_body">
+		<header>
+			<div class="header" id="header" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{else}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+				<a href="javascript:;" class="back">
+					<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+				</a>
+				<div class="txt">
+					<p id="txt01" style="{if $global.website_title_style neq '暂无数据'}{$global.website_title_style}{/if}">{if isset($global.website_title)}{$global.website_title}{/if}</p>
+					<p id="txt02" style="{if $global.website_sub_title_style neq '暂无数据'}{$global.website_sub_title_style}{/if}">{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+				</div>
+
+				<div class="nav_top">
+					<span class="nav_top01"></span>
+					<span class="nav_top02"></span>
+					<span class="nav_top03"></span>
+				</div>
+				<ul class="tab_select">
+					<li>
+						<a href="javascript:;">官网首页</a>
+					</li>
+					<li>
+						<a href="javascript:;">新闻资讯</a>
+					</li>
+					<li>
+						<a href="javascript:;">官方论坛</a>
+					</li>
+				</ul>
+			</div>
+		</header>
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/play.png" alt="" class="play" />
+				<div class="tap">
+					<a href="http://l.taptap.com/k9bRaUI4">
+						<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/tap.png" alt="" />
+					</a>
+				</div>
+				<div class="download">
+					<a href="javascript:;" class="yxyy">
+						<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/download.png" alt="" />
+					</a>
+				</div>
+				<div class="haoyou">
+					<a href="http://www.3839.com/a/88284.htm">
+						<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/haoyou.png" alt="" />
+					</a>
+				</div>
+				<div class="order">
+					<a href="javascript:;" class="">
+						<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/order.png" alt="" />
+					</a>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="list">
+				<div class="main">
+					<div class="z_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<a href="javascript:;">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/k_m.jpg" alt="" />
+									<p>魔法主播</p>
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/k_m.jpg" alt="" />
+									<p>魔法主播</p>
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/k_m.jpg" alt="" />
+									<p>魔法主播</p>
+								</a>
+							</li>
+						</ul>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="news_list">
+						<ul class="title">
+							<li class="active">最新</li>
+							<li>资讯</li>
+							<li>公告</li>
+							<li>活动</li>
+						</ul>
+						<div class="m_news">
+							<ul class="active">
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+							</ul>
+							<ul class="">
+								<li>
+									<a href="javascript:;"><span>【资讯】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+							</ul>
+							<ul class="">
+								<li>
+									<a href="javascript:;"><span>【公告】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+							</ul>
+							<ul class="">
+								<li>
+									<a href="javascript:;"><span>【活动】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+								<li>
+									<a href="javascript:;"><span>【新闻】</span>想要活着你必须知道的3件事情创造与魔法想要知道的事情</a>
+									<i>12-12</i>
+								</li>
+							</ul>
+						</div>
+						<a href="javascript:;" class="more">查看更多<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/sz.png" alt="" /></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="ych">
+				<div class="top_tit">
+					<p>视频中心</p>
+				</div>
+				<div class="tab_con">
+					<div class="sel_box">
+						<ul class="sel_box1 ">
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+									<i></i>
+									<a href="javascript:;" class="video_p"></a>
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+									<i></i>
+									<a href="javascript:;" class="video_p"></a>
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+									<i></i>
+									<a href="javascript:;" class="video_p"></a>
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+									<i></i>
+									<a href="javascript:;" class="video_p"></a>
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<ul class="sel_box1 hidden">
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<ul class="sel_box1 hidden">
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="list_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/kun.jpg" alt="">
+								</div>
+								<div class="list_info">
+									<div class="info_tl">
+										<p>#这里是题目这里是#</p>
+										<p><i></i><span>这是名字</span></p>
+									</div>
+									<div class="info_hot">
+										<i></i>
+										<span>550</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="special">
+				<div class="top_tit">
+					<p>特色玩法</p>
+				</div>
+				<div class="s_banner">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/z_banner1.png" alt="" /></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/z_banner2.png" alt="" /></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/z_banner3.png" alt="" /></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/images/z_banner4.png" alt="" /></a>
+						</li>
+					</ul>
+					<div class="swiper-pagination2"></div>
+				</div>
+			</div>
+		</section>
+		<section>
+		<!--底部-->
+			<div class="official" style="background:url({if $global.media_background_img_wap neq '暂无数据'}{$global.media_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<div class="f_main">
+					<a href="{if $global.media_qq_1_url neq '暂无数据'}{$global.media_qq_1_url}{/if}" class="qq1" id="qq1">
+						<img src="{if $global.media_qq_1_icon_wap neq '暂无数据'}{$global.media_qq_1_icon_wap}{/if}" alt="" id="qq_img1"/>
+						<p>官方Q群1</p>
+					</a>
+					<a href="{if $global.media_qq_2_url neq '暂无数据'}{$global.media_qq_2_url}{/if}" class="qq2" id="qq2">
+						<img src="{if $global.media_qq_2_icon_wap neq '暂无数据'}{$global.media_qq_2_icon_wap}{/if}" alt="" id="qq_img2"/>
+						<p>官方Q群2</p>
+					</a>
+					<a href="{if $global.media_sina_url neq '暂无数据'}{$global.media_sina_url}{/if}" class="wb" id="wb">
+						<img src="{if $global.media_sina_icon_wap neq '暂无数据'}{$global.media_sina_icon_wap}{/if}" alt="" id="wb_img"/>
+						<p>官方微博</p>
+					</a>
+					<a href="{if $global.media_baidu_url}{$global.media_baidu_url}{/if}" class="lt" id="tb">
+						<img src="{if $global.media_baidu_icon_wap}{$global.media_baidu_icon_wap}{/if}" alt="" id="tb_img"/>
+						<p>官方贴吧</p>
+					</a>
+					<span class="gzh" style="background:url({if $global.media_wechat_background_img_wap neq '暂无数据'}{$global.media_wechat_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+               	 		<img src="{if $global.media_wechat_img neq '暂无数据'}{$global.media_wechat_img}{/if}" alt="" id="d_ewm"/>
+            		</span>
+				</div>
+				<div class="pb_footer" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			</div>
+		</section>
+		
+	</body>
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/colpick.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/common/js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/js/public.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/js/index.js"></script>
+	<script type="text/javascript">
+		var mySwiper09 = new Swiper(".tc_swiper", {
+			//			pagination: '.swiper-pagination1',
+			prevButton: '.swiper-button-prev05',
+			nextButton: '.swiper-button-next05',
+			observer: true,
+			observeParents: true,
+		});
+	</script>
+
+</html>

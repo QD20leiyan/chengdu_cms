@@ -1,0 +1,110 @@
+{include file="../../layouts/wap/header.html"}
+<section class="cont">
+  <section class="video-center news-news">
+      <aside class="title clear">
+        <p>视频中心</p>
+      </aside>
+      <ul class="video-menu clear">
+          <li class="active" data-id="202">推荐视频</li>
+          <li data-id="203">教学视频</li>
+          <li data-id="204">趣味视频</li>
+          <li data-id="205">官方视频</li>
+          <li data-id="206">热门直播</li>
+      </ul>
+      <ul class="video-list clear show">
+        <li>
+          <span>
+            <i class="js_video_play" data-url=""></i>
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/img4.jpg?{$smarty.const.VERSION}" alt="">
+          </span>
+          <p>法罗密欧开启浪漫之旅</p>
+        </li>
+        <li>
+          <span>
+            <i></i>
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/img4.jpg?{$smarty.const.VERSION}" alt="">
+          </span>
+          <p>法罗密欧开启浪漫之旅</p>
+        </li>
+        <li>
+          <span>
+            <i></i>
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/img4.jpg?{$smarty.const.VERSION}" alt="">
+          </span>
+          <p>法罗密欧开启浪漫之旅</p>
+        </li>
+        <li>
+          <span>
+            <i></i>
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/img4.jpg?{$smarty.const.VERSION}" alt="">
+          </span>
+          <p>法罗密欧开启浪漫之旅</p>
+        </li>
+        <li>
+          <span>
+            <i></i>
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/img4.jpg?{$smarty.const.VERSION}" alt="">
+          </span>
+          <p>法罗密欧开启浪漫之旅</p>
+        </li>
+        <li>
+          <span>
+            <i></i>
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/img4.jpg?{$smarty.const.VERSION}" alt="">
+          </span>
+          <p>法罗密欧开启浪漫之旅</p>
+        </li>
+      </ul>
+       <ul class="video-list clear hide">2</ul>
+       <ul class="video-list clear hide">3</ul>
+       <ul class="video-list clear hide">4</ul>
+    </section>
+</section>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery+fittext+touchslider.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+  var url = '{myurl name="wap/video/ajax-get-list"}';
+  var page=1;
+  var id = '{$id}';
+  $(function(){
+    getList();
+      $(".video-menu li").click(function(){
+          page=1;
+          id = $(this).attr('data-id');
+          console.log(id);
+          getList();
+      })
+  });
+  function getList(){
+      $.get(url,{ 'id':id,'page':page },function(data){
+          var d = data.msg;
+          var html = '';
+          console.log(d);
+          if(data.status == 0){
+            for(var i = 0;i<d.length;i++){
+                var thumb = d[i].thumb;
+                var contentMessage = d[i].contentMessage;
+                var title = d[i].title;
+                html+='<li>'+
+                        '<span>'+
+                          '<i class="js_video_play" data-url="'+contentMessage+'"></i>'+
+                          '<img src="'+thumb+'" alt="">'+
+                        '</span>'+
+                        '<p>'+title+'</p>'+
+                  '</li>'
+            }
+            $(".video-list").html(html);
+            videoInit();
+        }else{
+          alert(data.msg);
+        }
+    },'json')
+  }
+</script>
+{video_play}
+{download}
+</body>
+</html>

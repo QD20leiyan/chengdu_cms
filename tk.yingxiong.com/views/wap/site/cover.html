@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />{csrf}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/common.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/cover1212.css?{$smarty.const.VERSION}" />
+	    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header class="header stat_page_cover">
+			<a href="/m/index.html" class="logo" target="_blank">
+				<img src="{$global.logo_img}" alt="">
+		    </a>
+			<div class="h_text">
+				<p class="h_p01">{$global.title}</p>
+				<p class="h_p02">{$global.sub_title}</p>
+			</div>
+			<div class="header_a">
+				<!-- <a href="javascript:;" class="down_btn"></a> -->
+				<a href="javascript:;" class="order js_wap_down stat_event_cover_down active"></a>
+			</div>
+		</header>
+		<div class="top">
+			<div class="top_con">
+				<a href="/m/index.html" class="inter"></a>
+				<a href="/m/p/active.html" class="new_year"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/act_btnenter.png?{$smarty.const.VERSION}" alt=""></a>
+				<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_logo.png?{$smarty.const.VERSION}" alt=""></div>
+				{fragment var=video code=index_video size=1}
+				<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"><a href="javascript:;" class="" ><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_play4.png?{$smarty.const.VERSION}" alt="" class="yl_play1"></a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_play3.png?{$smarty.const.VERSION}" alt="" class="yl_play3">
+				</div>
+				<div class="slogan ani zoomIn animated"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_slogan.png?{$smarty.const.VERSION}" alt="" /></div>
+				<!-- <a href="javascript:;" class="down_btn2 "></a> -->
+				<a href="javascript:;" class="order2 stat_event_cover_down js_wap_down active"></a>
+				<!-- <p class="info" style="font-size:  0.725rem;text-align:  center;position:  relative;color: #fff;top: 24.5rem;">现在为预下载状态，12月26日10:00正式开服。</p> -->
+				<div class="hzf">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_hz.png?{$smarty.const.VERSION}" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="middle">
+			<div class="chengg"></div>
+			<div class="wq_box">
+				<div class="swiper-container swiper-container33">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide swiper1">
+							<a href="javascript:;" class="each">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_slider3.png?{$smarty.const.VERSION}"/>
+							</a>
+						</div>
+						<div class="swiper-slide swiper2">
+							<a href="javascript:;" class="each">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_slider.png?{$smarty.const.VERSION}"/>
+							</a>
+						</div>
+						<div class="swiper-slide swiper3">
+							<a href="javascript:;" class="each">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_slider2.png?{$smarty.const.VERSION}">
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="gift_box">
+		    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_fj.png?{$smarty.const.VERSION}" alt="" class="ariplane">
+			<div class="gift_img"></div>
+		</div>
+		<div class="gift_box2">
+			<div class="gift_img2"></div>
+		</div>
+		<div id="st_sy" class="st_sy">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_lb3.png?{$smarty.const.VERSION}" alt="" /></div>
+			<div class="st_audio">
+				<div class="swiper-container swiper-container3">
+					<div class="swiper-wrapper">
+					    {article id="642" size=50 var=audio}
+					{if $audio neq ''}
+					{foreach $audio as $key=>$v}
+					{if $key >= 0}
+						<div class="swiper-slide" data-url="{$v.sub_title}">
+							<div class="cdbox"><i></i><img class="images" src="{$v.thumb}" alt=""></div>
+							<div class="lightbox">
+								<div class="light"><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/light1.png?{$smarty.const.VERSION}" alt=""></div>
+							</div>
+							<div class="shaft"><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/shaft.png?{$smarty.const.VERSION}" alt=""></div>
+						</div>
+						{/if} {/foreach} {/if}
+					</div>
+				</div>
+				<div class="bigplaybtn"></div>
+				<div class="swiperbox">
+					<div class="swiper-container swiper-container4">
+						<div class="swiper-wrapper">
+						{article id="642" size=50 var=audio}
+						{if $audio neq ''}
+						{foreach $audio as $key=>$v}
+						{if $key >= 0}
+							<div class="swiper-slide {if $key == 0}active{/if}">
+								<div class="album">
+									<span class="audio_name">{$v.title}</span>
+									<span class="playbtn"><i class="audio_time">{$v.contentMessage}</i></span>
+									<img class="images" src="{$v.thumb}" alt="">
+								</div>
+							</div>
+							{/if}
+						{/foreach}
+						{/if}
+						</div>
+					</div>
+					<div class="swiper-button-prev swiper4_prev"></div>
+					<div class="swiper-button-next swiper4_next"></div>
+				</div>
+			</div>
+			<audio src="" id="music1"></audio>
+		</div>
+		<div class="f_main">
+			<div class="hg_img"></div>
+			<div class="main3_board">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_lb2.png?{$smarty.const.VERSION}" class="title2">
+				<ul class="act_info">
+					<li>
+						<i>1</i>
+						<p>新手好礼：在游戏内创建新角色的玩家均可在游戏内获取新手福利一份，每个帐号限领取一次；</p>
+					</li>
+					<li>
+						<i>2</i>
+						<p>成长好礼：玩家达到相应等级均可获得相应等级奖励一份（奖励将在角色升级时自动获得）。</p>
+					</li>
+					<li>
+						<i>3</i>
+						<p>七日登录礼：玩家累计登录1/2/3/4/5/6/7天均可获取相应登录奖励一份（奖励可在七日活动界面领取，玩家需领取完当前登录奖励才可领取下一天登录奖励），每个帐号限领取一次。</p>
+					</li>
+					<li>
+						<i>4</i>
+						<p>若因不可抗拒的因素，比如网络、作弊等非公司原因导致活动出现异常情况，英雄互娱有权暂停或调整规则，活动最终解释权归英雄互娱所有。</p>
+					</li>
+				</ul>
+				<div class="relate_us">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/focus.png?{$smarty.const.VERSION}" alt="" class="focus" />
+					<div class="relate_list">
+						<ul>
+							<li>
+								<img src="{if isset($global.group)}{$global.group}{/if}" alt="" />
+								<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/haha.png?{$smarty.const.VERSION}" />官方QQ群1</p>
+							</li>
+							<li>
+								<img src="{if isset($global.tb_img)}{$global.tb_img}{/if}" alt="" />
+								<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tieba.png?{$smarty.const.VERSION}" />百度贴吧</p>
+							</li>
+							<li>
+								<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="" />
+								<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/weixin.png?{$smarty.const.VERSION}" />官方公众号</p>
+							</li>
+						</ul>
+						<div class="qudao">
+							<a href="{if isset($global.wb_url)}{$global.wb_url}{/if}"></a>
+							<a href="javascript:yx_showTips('敬请期待');"></a>
+							<a href="http://bbs.yingxiong.com/t/pc/45/index"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 有奖征集入口 -->
+		<a href="{myurl name='/m/p/collect'}" target="_blank" class="yj_cl"></a>
+		<!-- 这是弹窗 -->
+		<div class="login">
+			<div class="c_login">
+				<a href="javascript:;" class="close">
+				</a>
+				<div class="login_form">
+					<input class="phone" type="text" name="phone" placeholder="请输入手机号" onkeyup="value=value.replace(/[^0-9_]/g,'')" maxlength="11">
+					<p class="err err1">*请输入手机号</p>
+					<div>
+						<input class="captcha" type="text" name="captcha" placeholder="请输入图形验证码" onkeyup="value=value.replace(/[^a-z0-9_]/g,'')">
+						<button id="getMarkBtn1"><img src="" alt=""/></button>
+						<p class="co_imgtxt">点击图片刷新</p>
+					</div>
+					<p class="err err2">*请输入图形验证码</p>
+					<div>
+						<input class="mark" type="text" name="mark" placeholder="请输入验证码" onkeyup="value=value.replace(/[^0-9_]/g,'')">
+						<input type="button" class="g_code" value="获取验证码" />
+					</div>
+					<p class="err err3">*请输入验证码</p>
+				</div>
+				<a href="javascript:;" class="yyue stat_cover_yy">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn2.png?{$smarty.const.VERSION}" alt="">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn3.png?{$smarty.const.VERSION}" alt="" />
+				</a>
+			</div>
+		</div>
+		<div class="share">
+			<div class="c_share">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="share_body">
+					<p class="share_title">分享你的专属链接,获得更多参与机会,千元游戏礼包等你领!</p>
+					<div class="share_con">
+						<p>点击复制链接按钮，复制个人专属链接,分享给你的好友预约，即可参加活动;<br />链接地址:</p>
+						<p class="share_url"></p>
+						<div id="tc13_copyTextz">《巅峰坦克：装甲战歌》发红包啦！戳链接预约游戏100%得现金红包，最高188元！</div>
+					</div>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/fuzhi.png?{$smarty.const.VERSION}" alt="" class="fuzhi" id="tc13_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc13_copyTextz" />
+			</div>
+		</div>
+		<div class="yuyue">
+			<div class="c_yuyue">
+				<i class="close"></i>
+				<div class="r_type">
+					<div class="r_ios lf" data-id="ios" style="display: none;">
+						<div class="r_img">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b1.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b_on.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>iOS</p>
+					</div>
+					<div class="r_android active" data-id="android">
+						<div class="r_img rt">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b1.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b_on.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>安卓</p>
+					</div>
+					<p style="font-size:0.75rem;color:#fff;text-align: center;margin-top:4.5rem;">注：iOS已首发可前往App Store下载体验哦~</p>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn2.png?{$smarty.const.VERSION}" alt="" class="l_yuyue" />
+			</div>
+		</div>
+		{* include file="../../layouts/wap/video_tips.html" *}
+	</body>
+	{video_play} {download}
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/statics.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}1.0/m/";
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	    var mySwiper = new Swiper('.swiper-container33', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		slideToClickedSlide: true,
+		effect: 'coverflow',
+		slidesPerView: "3",
+		centeredSlides: true,
+		loop: true,
+		autoplay:4000,
+		autoplayDisableOnInteraction: false,
+		coverflow: {
+			rotate: 70,
+			stretch:-50,
+			depth:300,
+			modifier: 1,
+			slideShadows: false
+		},
+	});
+
+
+		// 设备类型判断
+		function change() {
+			var u = navigator.userAgent,
+				app = navigator.appVersion;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+			var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			var url = window.location.href;
+			var url_id = window.location.href.split('cover')[1];
+			console.log(url_id);
+			if(isIOS) {
+				$(".order,.order2").addClass("active");
+			}
+			if(isAndroid) {
+				$(".down_btn,.down_btn2").addClass("active");
+			}
+		}
+		$(function() {
+			// change();
+			var url_fgw = window.location.href;
+            var url_id=window.location.href.split('/part/')[1];
+        if(url_id=="m/wappz.html"){
+            $(".top_con .inter").hide();
+        }
+			var swiper03 = new Swiper(".swiper-container3", {
+				observer: true,
+				observeParents: true,
+				slideToClickedSlide: true,
+				onTransitionEnd: function(swiper) {
+
+				},
+				onSlideChangeEnd: function(swiper) {
+					if(swiper.activeIndex != swiper04.activeIndex) {
+						swiper04.slideTo(swiper.activeIndex);
+					}
+					$(swiper04.slides).removeClass("active");
+					var slide = $(swiper04.slides[swiper.activeIndex]);
+					slide.addClass("active");
+					$(".playbtn").addClass("play1");
+					if(autopaly) {
+						//播放过 切换 自动播放
+						//大播放按钮播放
+						$(".bigplaybtn").addClass("bigplay");
+						var slide = $(swiper.slides[swiper.activeIndex]);
+						$(slide).find(".lightbox").addClass("fadeIn").removeClass("fadeOut");
+						clearInterval(audiotimer);
+						audiotimer = setInterval(function() {
+							var t = 20; //CD转一圈的时间（秒）
+							var cd = $(slide).find(".cdbox i");
+							var deg = eval('get' + cd.css('transform')) || 0;
+							deg += 36 / t;
+							if(deg > 360) deg -= 360;
+							cd.css('transform','rotate(' + deg + 'deg)');
+							//							var light=$(slide).find(".light");
+							//							var deg=eval('get'+light.css('transform'))||0;
+							//							deg+=36/t;
+							//							if(deg>358) deg=358;
+							//							light.css('transform','rotate('+deg+'deg)');
+						}, 100);
+						$(slide).find(".shaft").addClass("play1");
+						var audiourl = slide.data('url');
+						console.log(audiourl);
+						$("#music1").attr("src", audiourl);
+						$("#music1")[0].play();
+					} else {
+						$("#music1")[0].pause();
+						//大播放按钮暂停
+						$(".bigplaybtn").removeClass("bigplay");
+						$(slide).find(".playbtn").removeClass("play1");
+						clearInterval(audiotimer);
+						$(slide).find(".shaft").removeClass("play1");
+					}
+					$(swiper.slides).filter(":not(.swiper-slide-active)").find(".shaft").removeClass("play1");
+					$(swiper.slides).filter(":not(.swiper-slide-active)").find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+				}
+			});
+			var swiper04 = new Swiper(".swiper-container4", {
+				prevButton: '.swiper4_prev',
+				nextButton: '.swiper4_next',
+				slidesPerView: 1,
+				observer: true,
+				observeParents: true,
+				slideToClickedSlide: true,
+				onClick: function(swiper) {
+					autopaly = true;
+					$(swiper.slides).removeClass("active");
+					var slide = $(swiper.slides[swiper.clickedIndex]);
+					slide.addClass("active");
+					swiper03.slideTo(swiper.clickedIndex);
+				},
+				onSlideChangeEnd: function(swiper) {
+					$(swiper.slides).removeClass("active");
+					var slide = $(swiper.slides[swiper.activeIndex]);
+					slide.addClass("active");
+					swiper03.slideTo(swiper.activeIndex);
+				}
+			});
+			$('.swiper4_prev').click(function() {
+				var index = $(".swiper-container4 .swiper-slide.active").prev(".swiper-slide").index();
+				if(index == -1) {
+					index = swiper04.slides.length - 1;
+				}
+				var slide = $(swiper04.slides[index]);
+				$(swiper04.slides).removeClass("active");
+				slide.addClass("active");
+				swiper03.slideTo(index);
+				swiper04.slideTo(index);
+			});
+			$('.swiper4_next').click(function() {
+				var index = $(".swiper-container4 .swiper-slide.active").next(".swiper-slide").index();
+				var slide = $(swiper04.slides[index] || swiper04.slides[0]);
+				$(swiper04.slides).removeClass("active");
+				slide.addClass("active");
+				swiper03.slideTo(index);
+				swiper04.slideTo(index);
+			});
+			autopaly = false;
+			audiotimer = null;
+			//获取旋转角度
+			function getmatrix(a, b, c, d, e, f) {
+				var aa = Math.round(180 * Math.asin(a) / Math.PI);
+				var bb = Math.round(180 * Math.acos(b) / Math.PI);
+				var cc = Math.round(180 * Math.asin(c) / Math.PI);
+				var dd = Math.round(180 * Math.acos(d) / Math.PI);
+				var deg = 0;
+				if(aa == bb || -aa == bb) {
+					deg = dd;
+				} else if(-aa + bb == 180) {
+					deg = 180 + cc;
+				} else if(aa + bb == 180) {
+					deg = 360 - cc || 360 - dd;
+				}
+				return deg >= 360 ? 0 : deg;
+				//return (aa+','+bb+','+cc+','+dd);
+			}
+
+			//音乐播放
+			$(".playbtn").click(function() {
+				var slide = $(swiper03.slides[swiper03.activeIndex]);
+				var audio = document.getElementById('music1');
+				var audio_src = $(slide).attr("data-url");
+				if($("#music1").attr("src") != audio_src) {
+					$("#music1").attr("src", audio_src);
+				}
+				if($(this).hasClass("play1")) {
+					audio.pause();
+					//大播放按钮暂停
+					$(".bigplaybtn").removeClass("bigplay");
+					$(this).removeClass("play1");
+					clearInterval(audiotimer);
+					$(slide).find(".shaft").removeClass("play1");
+					$(slide).find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+				} else {
+					audio.play();
+					autopaly = true;
+					$(this).addClass("play1");
+					//大播放按钮播放
+					$(".bigplaybtn").addClass("bigplay");
+					$(slide).find(".lightbox").addClass("fadeIn").removeClass("fadeOut");
+					clearInterval(audiotimer);
+					audiotimer = setInterval(function() {
+						var t = 20; //CD转一圈的时间（秒）
+						var cd = $(slide).find(".cdbox i");
+						var deg = eval('get' + cd.css('transform')) || 0;
+						deg += 36 / t;
+						if(deg > 360) deg -= 360;
+						cd.css(
+							'transform','rotate(' + deg + 'deg)');
+						//						var light=$(slide).find(".light");
+						//						var deg=eval('get'+light.css('transform'))||0;
+						//						deg+=36/t;
+						//						if(deg<250&&deg>15) deg=15;
+						//						light.css('transform':,'rotate('+deg+'deg)');
+					}, 100);
+					$(slide).find(".shaft").addClass("play1");
+				}
+			});
+			//音乐播放完毕
+			$("#music1")[0] && $("#music1")[0].addEventListener('ended', function() {
+				var slide = $(swiper03.slides[swiper03.activeIndex]);
+				$(".playbtn").removeClass("play1");
+				//大播放按钮暂停
+				$(".bigplaybtn").removeClass("bigplay");
+				clearInterval(audiotimer);
+				$(slide).find(".shaft").removeClass("play1");
+				$(slide).find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+			});
+			//大按钮音乐播放
+			$(".bigplaybtn").click(function() {
+				var slide = $(swiper03.slides[swiper03.activeIndex]);
+				var audio = document.getElementById('music1');
+				var audio_src = $(slide).attr("data-url");
+				if($("#music1").attr("src") != audio_src) {
+					$("#music1").attr("src", audio_src);
+				}
+				if($(this).hasClass("bigplay")) {
+					audio.pause();
+					//小播放按钮暂停
+					$(".swiper-container4 .active .playbtn").removeClass("play1");
+					$(this).removeClass("bigplay");
+					clearInterval(audiotimer);
+					$(slide).find(".shaft").removeClass("play1");
+					$(slide).find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+					//					$(swiper03.slides).filter(":not(.swiper-slide-active)").css("opacity","0");
+				} else {
+					autopaly = true;
+					//小播放按钮播放
+					$(".swiper-container4 .playbtn").removeClass("play1");
+					$(".swiper-container4 .active .playbtn").addClass("play1");
+					$(this).addClass("bigplay");
+					$(slide).find(".lightbox").addClass("fadeIn").removeClass("fadeOut");
+					audio.play();
+					clearInterval(audiotimer);
+					audiotimer = setInterval(function() {
+						var t = 20; //CD转一圈的时间（秒）
+						var cd = $(slide).find(".cdbox i");
+						var deg = eval('get' + cd.css('transform')) || 0;
+						deg += 36 / t;
+						if(deg > 360) deg -= 360;
+						cd.css('transform','rotate(' + deg + 'deg)');
+					}, 100);
+					$(slide).find(".shaft").addClass("play1");
+				}
+			});
+		});
+	</script>
+</html>

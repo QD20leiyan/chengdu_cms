@@ -1,0 +1,164 @@
+{include file="../../layouts/wap/new_header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/soldiers.css?{$smarty.const.VERSION}" />
+<section>
+	<ul class="t_tb">
+		<li class="active" attr-type="">
+			<div class="b_h">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b_h.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<span>所有种族</span>
+		</li>
+		<li attr-type="rz">
+			<div class="b_h">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b_h.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<span>人族</span>
+		</li>
+		<li attr-type="sz">
+			<div class="b_h">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b_h.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<span>神族</span>
+		</li>
+		<li attr-type="yz">
+			<div class="b_h">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/b_h.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<span>妖族</span>
+		</li>
+	</ul>
+	<div class="c_bz">
+		<ul class="c_bzl">
+			<!--<li>
+						<a href="javascript:;">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_p.jpg" alt="" />
+						</a>
+						<span>白鲨</span>
+				</li>-->
+		</ul>
+		<div class="loading-box">点击加载更多信息</div>
+	</div>
+</section>
+<footer>
+	<ul class="c_footer">
+		<li>
+			<a href="{myurl name='wap/site/index'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f1.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f11.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>官网首页</p>
+			</a>
+		</li>
+		<li>
+			<a href="{myurl name='wap/article/datum'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f2.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f22.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>种族技能</p>
+			</a>
+		</li>
+		<li class="active">
+			<a href="{myurl name='wap/article/army'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f3.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f33.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>兵种介绍</p>
+			</a>
+		</li>
+		<li>
+			<a href="{myurl name='wap/article/rune'}">
+				<div class="b_img">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f4.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f44.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>符文模拟器</p>
+			</a>
+		</li>
+	</ul>
+</footer>
+</body>
+<script type="text/javascript">
+	var type = "";
+	var isScroll = false; //是否可以滚动
+	var page = 1; //页数
+	$(function() {
+		getListFu();
+		$(".t_tb li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			var type_new = $(this).attr("attr-type");
+			if(type == type_new) {
+				return false
+			} else {
+				type = type_new
+			}
+			$(".c_bzl").html('');
+			page = 1;
+			getListFu();
+		});
+
+		$(".c_footer li").on("click", function() {
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+
+		function addImg() {
+			$(".c_bzl li").each(function(i) {
+				var index = i;
+				if(index % 3 == 1) {
+					$(this).addClass("active")
+				}
+			})
+		};            
+		$(".loading-box").click(function() {
+			$(".loading-box").html("数据加载中...");
+			getListFu();
+		});
+
+		function getListFu() {
+			if(isScroll == true) {
+				return false;
+			}
+			$.ajax({
+				type: "get",
+				url: '{myurl name="wap/article/ajax-army"}',
+				data: {
+					page: page++,
+					type: type
+				},
+				success: function(res) {
+					var res = JSON.parse(res);
+					if(res.status == 0) {
+						if(res.data.length > 0) {
+							var dom = '';
+							for(var i = 0; i < res.data.length; i++) {
+								var _a = '<li attr-type="' + res.type + '"><a href="' + res.data[i].wapLinkUrl + '"><img src="' + res.data[i].thumb + '" /><span>' + res.data[i].title + '</span></a></li>';
+								dom += _a;
+							}
+							$(".c_bzl").append(dom);
+							$(".loading-box").text("点击加载更多信息");
+							addImg();
+							isScroll = false;
+						} 
+					} else if (res.status == 1){
+							$(".loading-box").text("暂无数据");
+//							isScroll = true;
+						}
+
+				},
+				error: function(res) {
+					console.log(res);
+					//							isScroll = 1;
+				}
+			});
+		}
+	})
+</script>
+{include file="../../layouts/wap/footer.html"}
+</html>

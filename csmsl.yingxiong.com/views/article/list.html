@@ -1,0 +1,77 @@
+{include file="../layouts/pc/header.html"}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/news.css?{$smarty.const.VERSION}" />
+		<div class="n_banner">
+			{include file="../layouts/pc/header_nav.html"}
+			<div class="z_banner">
+				<ul class="swiper-wrapper">
+					{foreach $top_thumb as $v}
+						<li class="swiper-slide"><a href="{$v.url}" target="_blank"><img src="{$v.thumb}" alt="" /></a></li>
+					{/foreach}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="top_tab">
+				<div class="wrap">
+					<div class="n_wrap">
+						<h3>新闻中心</h3>
+						<ul class="top_ul">
+							<li class="{if $type eq zx}active{/if}"><a href="{myurl name='article/list, id=>431'}">最新</a></li>
+							<li class="{if $type eq xw}active{/if}"><a href="{myurl name='article/list, id=>432'}">新闻</a></li>
+							<li class="{if $type eq gg}active{/if}"><a href="{myurl name='article/list, id=>433'}">公告</a></li>
+							<li class="{if $type eq gl}active{/if}"><a href="{myurl name='article/list, id=>434'}">攻略</a></li>
+							<li class="{if $type eq hd}active{/if}"><a href="{myurl name='article/list, id=>435'}">活动</a></li>
+						</ul>
+					</div>
+					<div class="right_con">
+						{include file="../layouts/pc/right.html"}
+						{if !empty($advert)}
+							<a href="{$advert.url}" target="_blank" class="tj"><img src="{$advert.thumb}" alt="" /></a>
+						{/if}
+					</div>
+				</div>
+			</div>
+			<div class="main_content">
+				<ul class="main_ul">
+							{if !empty($data.data)}
+								{foreach $data.data as $v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<div class="left_img"><img src="{$v.thumb}" alt="" /></div>
+											<div class="right_news">
+												<p class="right_fp"><span>{$v.title}</span><i>{$v.created_at_formate}</i></p>
+												<p class="right_des">{$v.seo_description}</p>
+											</div>
+										</a>
+									</li>
+								{/foreach}
+							{/if}
+						</ul>
+				{$data.page}
+			</div>
+		</div>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".z_banner",{
+				autoplay: 4000,
+				loop: true,
+				simulateTouch: false,
+				pagination: '.swiper-pagination',
+			});
+			$(".right_nav a:nth-child(1)").hover(function (){
+			 	$(".t_erweima").stop().fadeIn();
+			 },function (){
+			 	$(".t_erweima").stop().fadeOut(300);
+			 });
+			 $(".last_li").hover(function (){
+				$(".kf_phone").stop().fadeIn();
+			},function (){
+				$(".kf_phone").stop().fadeOut(300);
+			});
+		});
+	</script>
+</html>

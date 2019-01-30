@@ -1,0 +1,181 @@
+<!--头部-->
+<!DOCTYPE html>
+<html>
+<head>
+    <script data-fixed="true">
+        if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+            location.href = "/m/site/vote";
+        }
+    </script>
+    <title>赤潮主播挑战赛正式打响，争夺最强主播之位！</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="战争艺术赤潮，赤潮，赤潮主播，赤潮直播，赤潮比赛" />
+    <meta name="baidu-site-verification" content="4QTWrEt07K" />
+    <meta name="description" content="《战争艺术：赤潮》主播挑战赛正式打响，多平台主播决一高下，谁才是赤潮最强主播？" />
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?063286b02e5eabecf763ba46a43621e4";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <link href="{$global.icon_img}?{$smarty.const.VERSION}" rel="SHORTCUT ICON">
+    <link href="{$smarty.const.STATIC_DOMAIN}vote/css/reset.css?{$smarty.const.VERSION}" rel="stylesheet">
+    <link href="{$smarty.const.STATIC_DOMAIN}vote/css/public.css?{$smarty.const.VERSION}" rel="stylesheet"> {csrf}
+{if $language eq zh_cn} {config_load file="../layouts/pc/cc_zh.conf"}
+{else}
+{config_load file="../layouts/pc/cc_en.conf"} {/if}
+<link href="{$smarty.const.STATIC_DOMAIN}vote/css/c_index.css?{$smarty.const.VERSION}" rel="stylesheet">
+<body>
+<script src="{$smarty.const.STATIC_DOMAIN}vote/js/jquery-1.7.1.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+
+<!--内容-->
+{if $language eq zh_cn}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+{else}
+{include '../layouts/pc/header_bar.html'}
+{/if}
+<div class="anchor_contnet">
+    <div class="anchor_banner">
+        <img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_img01.jpg?{$smarty.const.VERSION}" alt=""/>
+        <a href="#">9-29 主播报名招募<i>查看活动进程</i></a>
+    </div>
+    <div class="anchor_activity">
+        <div class="activity_box">
+            <div class="anchor_left"><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_img02.png?{$smarty.const.VERSION}" alt=""/></div>
+            <div class="anchor_right">
+                <p><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_title01.png?{$smarty.const.VERSION}" alt=""/></p>
+                <p>星域战场持续扩大，在这又一大批新手指挥官涌入战场之时，我们认为，是时候部署更多的<i>明星指挥官</i>了。  </p>
+                <div>
+                    <h2>我们为什么需要<i>明星指挥官？</i></h2>
+                    <p>源源不断的新血液才是这个游戏生命得以不断延续的根源，而你，指挥部的门面，无疑会为我们带来更多的“小菜鸟”，并带领他们一步步长成足以独当一面的参天大树。</p>
+                </div>
+                <div>
+                    <h2>我们需要什么样的<i>明星指挥官？</i></h2>
+                    <p>“烈酒”娜塔丽的美貌无疑是战场上的一抹亮色，而对于指挥官而言，智慧的展现则更具有战略意义。无论如何，你就是你，具有高辨识度与某个方面的独特专精，能帮助你从人群中脱颖而出。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="anchor_top">
+        <p><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_title02.png?{$smarty.const.VERSION}" alt=""/></p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>名词</th>
+                <th>主播名字</th>
+                <th>平台</th>
+                <th>人气值</th>
+            </tr>
+            <tr></tr>
+            </thead>
+            <tbody>
+            {foreach key=cid item=v from=$rank}
+            <tr>
+                <th class="row row{$cid+1}"><span></span><i></i></th>
+                <td class="name">{$v.userName}</td>
+                <td class="comp">{$v.userTerrace}</td>
+                <td class="num">{$v.popValue}</td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+        <p class="bottom_img"><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_img03.png?{$smarty.const.VERSION}" alt=""/></p>
+    </div>
+    <div class="anchor_vote">
+        <p><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_title03.png?{$smarty.const.VERSION}" alt=""/></p>
+        <div class="vote_box">
+            {foreach key=cid item=v from=$vote}
+            <div class="vote_peo">
+                <div class="boxF">
+                    <div class="boxS">
+                        <div class="boxT">
+                            <div class="innerboxF">
+                                <div class="innerboxS">
+                                    <div class="innerboxT">
+                                        <img src="{$v.portrait}" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="vote_name">{$v.userName}</span>
+                <span class="vote_from">{$v.userTerrace}</span>
+                <span class="vote_num">{$v.popValue}</span>
+                {if isset($smarty.session.vote_phone)}
+                <span class="vote_act vote_click" data-id="{$v.id}"><i><b>投票</b></i></span>
+                {else}
+                <span class="vote_act vote_login" data-id="{$v.id}"><i><b>投票</b></i></span>
+                {/if}
+            </div>
+            {/foreach}
+        </div>
+        {if isset($smarty.session.vote_phone)}
+        <div class="vote_change" data-user="{$smarty.session.vote_phone}"><span class="change_btn">换一批主播</span></div>
+        {else}
+        <div class="vote_change"><span class="change_btn">换一批主播</span></div>
+        {/if}
+
+    </div>
+    <div class="anchor_info">
+        <p><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_title04.png?{$smarty.const.VERSION}" alt=""/></p>
+        <p><span>1</span>我们将从众多报名的主播中筛选前10名人气主播，前10名主播将获得官方渠道曝光资源。</p>
+        <p><span>2</span>连续2个月人气都在前10名的主播，将成为官方认证主播，将有机会成为“赤潮”赛事的官方解说。</p>
+        <p><span>3</span>玩家可以为自己喜欢的主播投票，如果你支持的主播是人气主播中的前3名，你将有机会参与官方活动，获得与官方主播一起玩游戏的机会。</p>
+    </div>
+    <div class="anchor_time">
+        <p><img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_title05.png?{$smarty.const.VERSION}" alt=""/></p>
+        <div class="time_box ">
+            <span>主播报名招募</span>
+            <span data-date="2017-10-23">10.23日</span>
+            <span class="time_line"></span>
+        </div>
+        <div class="time_box ">
+            <span>投票开启Round 1</span>
+            <span data-date="2017-10-24">10.24日</span>
+            <span class="time_line"></span>
+        </div>
+        <div class="time_box ">
+            <span>结果公布</span>
+            <span data-date="2017-10-25">10.25日</span>
+            <span class="time_line"></span>
+        </div>
+        <div class="time_box ">
+            <span>投票开启Round 2</span>
+            <span data-date="2017-10-26">10.26日</span>
+            <span class="time_line"></span>
+        </div>
+        <div class="time_box ">
+            <span>结果公布</span>
+            <span data-date="2017-10-27">10.27日</span>
+        </div>
+    </div>
+</div>
+
+<!--登录弹框-->
+<div class="anchorld_tips hidden">
+    <div class="content">
+        <img src="{$smarty.const.STATIC_DOMAIN}vote/images/anchor_close.png" alt="" class="anchor_close">
+        <div class="order_div">
+            <input type="text" placeholder="请输入正确的手机号码" class="anchor_tel">
+            <p class="error hidden">手机号码错误</p>
+            <div class="code">
+                <input type="text" placeholder="请输入验证码" class="anchor_code">
+                <button class="">获取验证码</button>
+            </div>
+            <p>输入手机号和验证码登录，立即投票</p>
+            <button class="anchor_btn">马上登陆</button>
+        </div>
+    </div>
+</div>
+
+<!--这是回到顶部icon-->
+{include '../layouts/pc/goTop.html'}
+</body>
+{include '../layouts/pc/public_js.html'}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}vote/js/index.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+{include '../layouts/pc/foot.html'}

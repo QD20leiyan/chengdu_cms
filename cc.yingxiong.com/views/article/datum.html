@@ -1,0 +1,411 @@
+{include file="../layouts/pc/new_top.html"}
+<body>
+{csrf}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news_list.css?{$smarty.const.VERSION}" />
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/data.css?{$smarty.const.VERSION}" />
+<div class="kv">
+    <div class="kv_bg">
+        <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_banner.jpg?{$smarty.const.VERSION}" />
+    </div>
+    <div class="nav">
+        <div class="wrap">
+            <ul class="nav_list">
+                <li>
+                    <a href="{myurl name="site/index"}">官网首页</a>
+                </li>
+                <li class="{if $style eq xinwen}active{else $style eq zlk}active{/if}">
+                    <a href="{myurl name='article/index,type=>remen,page=>1'}">新闻资讯</a>
+                </li>
+                <li>
+                    <a href="{myurl name='video/index,type=>zxsp,page=>1'}">视频中心</a>
+                </li>
+                <li class="nav_logo">
+                    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/nav_middle.png?{$smarty.const.VERSION}" alt="" /></a>
+                </li>
+                <li class="{if $style eq gonglue}active{else}{/if}">
+                    <a href="{myurl name='article/index,type=>xsgl,page=>1'}">游戏攻略</a>
+                </li>
+                <li>
+                    <a href="javascript:alert('敬请期待！')">生涯数据</a>
+                </li>
+                <li id="i_gfqd">
+                    <a href="javascript:;">官方渠道</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="topNav" class="i_h_ginf">
+        <div>
+            <ul>
+                <li class="no_margin_left">
+                    <a href="http://bbs.yingxiong.com/t/pc/15.html" target="_blank">
+                        <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_gflt.png?{$smarty.const.VERSION}">
+							<span>
+								官方论坛
+							</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.tb_url}" target="_blank">
+                        <img src="{$global.tb_img}">
+							<span>
+								百度贴吧
+							</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <div>
+                            <img src="{$global.wb_img}">
+                        </div>
+							<span>
+								官方微博
+							</span>
+                    </a>
+                </li>
+                <li class="no_margin_right no_border">
+                    <div>
+                        <img src="{$global.wx_img}">
+
+                    </div>
+						<span>
+							公众号
+						</span>
+                </li>
+                <li class="no_margin_right no_border c_qq">
+                    <div>
+                        <img src="{$global.group}">
+                    </div>
+						<span>
+							官方Q群
+						</span>
+                    <div class="i_h_qq">
+							<span>
+								官方Q群
+							</span>
+							<span>
+								{$global.group_num}
+							</span>
+							<span>
+								<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5wubniS">点击加入</a>
+							</span>
+                    </div>
+                </li>
+                <li class="no_margin_right no_border">
+                    <div class="bordern" style="border:none;">
+                        <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_kf.png?{$smarty.const.VERSION}">
+                    </div>
+						<span>
+							客服服务
+						</span>
+                    <div class="i_h_qq bordern" style="border:none;">
+							<span>
+								客服服务电话:
+							</span>
+							<span style="color:#fff;">
+								4009393333
+							</span>
+							<span>
+								BUG反馈，游戏问题
+							</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="data_box da_bg">
+    <div class="c_tet">
+        <div class="c_wrap">
+            <div class="c_news fl">
+                <div class="c_m_news">
+                    <div class="c_t_top"><span>您当前位置：<a href="{myurl name="site/index"}">首页</a> > <em>新闻资讯</em> > <em>资料库</em></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c_data">
+        <div class="data_bar skill">
+            <a href="{myurl name='article/datum'}"></a>
+            <a href="{myurl name='article/army'}"></a>
+            <a href="{myurl name='article/rune'}"></a>
+        </div>
+        <div class="slider2">
+            <ul class="section3-feature-ul">
+                <li class="feature1 active">
+                    <a href="javascript:void(0);"></a>
+                    <div class="info">
+                        <div class="left">
+                            <div class="s_list">
+                                <h2>天赋技能</h2>
+                                {if isset($data.rz.tfjn)}
+                                {foreach key=cid item=v from=$data.rz.tfjn}
+                                <span class="list_img" data-index="tf_{$cid}"><i></i><img src="{$v.thumb}" alt=""/></span>
+                                {/foreach}
+                                {/if}
+                            </div>
+                            <div class="s_list">
+                                <h2>指挥官技能</h2>
+                                {if isset($data.rz.zhgjn)}
+                                {foreach key=cid item=v from=$data.rz.zhgjn}
+                                <span class="list_img" data-index="zhg_{$cid}"><i></i><img src="{$v.thumb}" alt=""/></span>
+                                {/foreach}
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="right">
+                            {if isset($data.rz.tfjn)}
+                            {foreach key=cid item=v from=$data.rz.tfjn}
+                            <div data-index="tf_{$cid}" class="hide">
+                                <p class="title"><i></i>技能信息</p>
+                                <p class="name">
+                                    <span class="list_img"><i></i><img src="{$v.thumb}" alt=""></span>
+                                    <span class="names"><i>{$v.title}</i><i>Lv.1</i></span>
+                                </p>
+                                <p class="desc">
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico2.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>初始价格</i><i>{$v.price}</i></span>
+                                    </span>
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico3.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>冷却时间</i><i>{$v.time}</i></span>
+                                    </span>
+                                </p>
+                                <p class="sub">
+                                    <span>技能介绍</span>
+                                    <span>{$v.info}</span>
+                                </p>
+                                <p class="video">
+                                    <span class="vi_img js_video_play" data-url="{$v.video}">
+                                        <img src="{$v.video_img}">
+                                        <i></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {/foreach}
+                            {/if}
+
+                            {if isset($data.rz.zhgjn)}
+                            {foreach key=cid item=v from=$data.rz.zhgjn}
+                            <div data-index="zhg_{$cid}" class="hide">
+                                <p class="title"><i></i>技能信息</p>
+                                <p class="name">
+                                    <span class="list_img"><i></i><img src="{$v.thumb}" alt=""></span>
+                                    <span class="names"><i>{$v.title}</i><i>Lv.1</i></span>
+                                </p>
+                                <p class="desc">
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico2.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>初始价格</i><i>{$v.price}</i></span>
+                                    </span>
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico3.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>冷却时间</i><i>{$v.time}</i></span>
+                                    </span>
+                                </p>
+                                <p class="sub">
+                                    <span>技能介绍</span>
+                                    <span>{$v.info}</span>
+                                </p>
+                                <p class="video">
+                                    <span class="vi_img js_video_play" data-url="{$v.video}">
+                                        <img src="{$v.video_img}">
+                                        <i></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {/foreach}
+                            {/if}
+                        </div>
+                    </div>
+                </li>
+                <li class="feature2">
+                    <a href="javascript:void(0);"></a>
+                    <div class="info">
+                        <div class="left">
+                            <div class="s_list">
+                                <h2>天赋技能</h2>
+                                {if isset($data.sz.tfjn)}
+                                {foreach key=cid item=v from=$data.sz.tfjn}
+                                <span class="list_img" data-index="tf_{$cid}"><i></i><img src="{$v.thumb}" alt=""/></span>
+                                {/foreach}
+                                {/if}
+                            </div>
+                            <div class="s_list">
+                                <h2>指挥官技能</h2>
+                                {if isset($data.sz.zhgjn)}
+                                {foreach key=cid item=v from=$data.sz.zhgjn}
+                                <span class="list_img" data-index="zhg_{$cid}"><i></i><img src="{$v.thumb}" alt=""/></span>
+                                {/foreach}
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="right">
+                            {if isset($data.sz.tfjn)}
+                            {foreach key=cid item=v from=$data.sz.tfjn}
+                            <div data-index="tf_{$cid}" class="hide">
+                                <p class="title"><i></i>技能信息</p>
+                                <p class="name">
+                                    <span class="list_img"><i></i><img src="{$v.thumb}" alt=""></span>
+                                    <span class="names"><i>{$v.title}</i><i>Lv.1</i></span>
+                                </p>
+                                <p class="desc">
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico2.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>初始价格</i><i>{$v.price}</i></span>
+                                    </span>
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico3.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>冷却时间</i><i>{$v.time}</i></span>
+                                    </span>
+                                </p>
+                                <p class="sub">
+                                    <span>技能介绍</span>
+                                    <span>{$v.info}</span>
+                                </p>
+                                <p class="video">
+                                    <span class="vi_img js_video_play" data-url="{$v.video}">
+                                        <img src="{$v.video_img}">
+                                        <i></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {/foreach}
+                            {/if}
+
+                            {if isset($data.sz.zhgjn)}
+                            {foreach key=cid item=v from=$data.sz.zhgjn}
+                            <div data-index="zhg_{$cid}" class="hide">
+                                <p class="title"><i></i>技能信息</p>
+                                <p class="name">
+                                    <span class="list_img"><i></i><img src="{$v.thumb}" alt=""></span>
+                                    <span class="names"><i>{$v.title}</i><i>Lv.1</i></span>
+                                </p>
+                                <p class="desc">
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico2.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>初始价格</i><i>{$v.price}</i></span>
+                                    </span>
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico3.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>冷却时间</i><i>{$v.time}</i></span>
+                                    </span>
+                                </p>
+                                <p class="sub">
+                                    <span>技能介绍</span>
+                                    <span>{$v.info}</span>
+                                </p>
+                                <p class="video">
+                                    <span class="vi_img js_video_play" data-url="{$v.video}">
+                                        <img src="{$v.video_img}">
+                                        <i></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {/foreach}
+                            {/if}
+                        </div>
+                    </div>
+                </li>
+                <li class="feature3">
+                    <a href="javascript:void(0);"></a>
+                    <div class="info">
+                        <div class="left">
+                            <div class="s_list">
+                                <h2>天赋技能</h2>
+                                {if isset($data.yz.tfjn)}
+                                {foreach key=cid item=v from=$data.yz.tfjn}
+                                <span class="list_img" data-index="tf_{$cid}"><i></i><img src="{$v.thumb}" alt=""/></span>
+                                {/foreach}
+                                {/if}
+                            </div>
+                            <div class="s_list">
+                                <h2>指挥官技能</h2>
+                                {if isset($data.yz.zhgjn)}
+                                {foreach key=cid item=v from=$data.yz.zhgjn}
+                                <span class="list_img" data-index="zhg_{$cid}"><i></i><img src="{$v.thumb}" alt=""/></span>
+                                {/foreach}
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="right">
+                            {if isset($data.yz.tfjn)}
+                            {foreach key=cid item=v from=$data.yz.tfjn}
+                            <div data-index="tf_{$cid}" class="hide">
+                                <p class="title"><i></i>技能信息</p>
+                                <p class="name">
+                                    <span class="list_img"><i></i><img src="{$v.thumb}" alt=""></span>
+                                    <span class="names"><i>{$v.title}</i><i>Lv.1</i></span>
+                                </p>
+                                <p class="desc">
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico2.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>初始价格</i><i>{$v.price}</i></span>
+                                    </span>
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico3.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>冷却时间</i><i>{$v.time}</i></span>
+                                    </span>
+                                </p>
+                                <p class="sub">
+                                    <span>技能介绍</span>
+                                    <span>{$v.info}</span>
+                                </p>
+                                <p class="video">
+                                    <span class="vi_img js_video_play" data-url="{$v.video}">
+                                        <img src="{$v.video_img}">
+                                        <i></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {/foreach}
+                            {/if}
+
+                            {if isset($data.yz.zhgjn)}
+                            {foreach key=cid item=v from=$data.yz.zhgjn}
+                            <div data-index="zhg_{$cid}" class="hide">
+                                <p class="title"><i></i>技能信息</p>
+                                <p class="name">
+                                    <span class="list_img"><i></i><img src="{$v.thumb}" alt=""></span>
+                                    <span class="names"><i>{$v.title}</i><i>Lv.1</i></span>
+                                </p>
+                                <p class="desc">
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico2.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>初始价格</i><i>{$v.price}</i></span>
+                                    </span>
+                                    <span>
+                                        <span class="desc_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_ico3.png?{$smarty.const.VERSION}" alt=""></span>
+                                        <span class="descs"><i>冷却时间</i><i>{$v.time}</i></span>
+                                    </span>
+                                </p>
+                                <p class="sub">
+                                    <span>技能介绍</span>
+                                    <span>{$v.info}</span>
+                                </p>
+                                <p class="video">
+                                    <span class="vi_img js_video_play" data-url="{$v.video}">
+                                        <img src="{$v.video_img}">
+                                        <i></i>
+                                    </span>
+                                </p>
+                            </div>
+                            {/foreach}
+                            {/if}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+{video_play}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery.mCustomScrollbar.concat.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/data.js?{$smarty.const.VERSION}"></script>

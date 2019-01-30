@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="keyword" content="{$seo_key}">
+    <meta name="description" content="{$seo_desc}"> {csrf}
+    <meta name="format-detection" content="telephone=no"/>
+    <title>{$seo_title}</title>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/l_style.css?{$smarty.const.VERSION}" />
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+    <!--<script>
+        $(window).scroll(function() {
+            var $t = $(this).scrollTop();
+            if ($t > 0) {
+                $("header").css({
+                    top: "0",
+                    width: '100%',
+                    position: 'fixed',
+                    zIndex: "999999"
+                });
+            } else {
+                $("header").css({
+                    position: 'relative',
+                    zIndex: "9"
+                });
+            }
+        })
+    </script>-->
+    <script>
+        var isyx_showTips=false;
+        function yx_showTips(text){
+            if(!isyx_showTips){
+                isyx_showTips=true;
+                $('body').append('<div class="yx_shade"><div class="yx_tips_txt">'+text+'</div></div>');
+                setTimeout(function(){
+                    $('.yx_shade .yx_tips_txt').addClass("show");
+                },20);
+                setTimeout(function(){
+                    isyx_showTips=false;
+                    $('.yx_shade').animate({
+                        'opacity':'0'
+                    },function(){
+                        $('.yx_shade').remove();
+                    });
+                },1000);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<header>
+    <div class="header">
+        <a href="{myurl name='wap/site/index'}" class="icon"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/icon.png?{$smarty.const.VERSION}" alt="" /></a>
+        <div class="i_txt">
+            <p>明日决胜！</p>
+            <p>开放世界为爱冒险不变</p>
+        </div>
+        <div class="c_download c_download2">
+            	游戏下载
+        </div>
+        <div class="l_download" style="right:0;">
+			<a href="javascript:;" class="gw_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/gf.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="https://www.taptap.com/app/52292"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+		</div>
+    </div>
+</header>

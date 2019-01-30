@@ -1,0 +1,67 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/list.css?{$smarty.const.VERSION}" />
+<div class="n_kv">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/n_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+	</div>
+</div>
+<div class="eff1"></div>
+<div class="d_body n_body">
+	<div class="top_ul">
+		<div class="tab_ul">
+			<a href="{myurl name='site/index'}" class="d_back"> < 返回列表</a>
+			<div class="d_title">
+				<h3>{$content.title}</h3>
+				<p class="d_date">{$content.created_at_formate} 官方录入</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="detail_body">
+	<div class="wrap">
+		<div class="float">
+			<div class="d_float">
+				<div class="c_code">
+					<div class="chengg"></div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/erweima.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<div class="wx"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/wx.png?{$smarty.const.VERSION}" alt="" />
+					<p>官方二维码</p>
+				</div>
+				<ul class="left_ul">
+					<li>
+						<a href="https://weibo.com/u/6540814978" target="_blank">
+							<i></i>
+							<p>官方微博</p>
+						</a>
+					</li>
+					<li>
+						<a href="https://tieba.baidu.com/%E8%9C%80%E5%B1%B1%E6%88%98%E7%BA%AA2%E8%B8%8F%E7%81%AB%E8%A1%8C%E6%AD%8C%E6%89%8B%E6%B8%B8" target="_blank">
+							<i></i>
+							<p>官方贴吧</p>
+						</a>
+					</li>
+					<li>
+						<a href="https://qm.qq.com/cgi-bin/qm/qr?k=L-SdQjsZ6UTYjd4wpx81OXOCnHL5Zc3h&auth=178f820f892842751ec67f0ade1ed5897b4caa73362f2c4ee8954cc4d6d985e8d253f36cf33825ae" target="_blank">
+							<i></i>
+							<p>官方Q群</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="d_content">
+			{$content.body}
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+</body>
+<script type="text/javascript">
+	$(".s_ul li:nth-child(1)").hover(function (){
+		$(".fl_wx").stop().fadeIn();
+	},function (){
+		$(".fl_wx").stop().fadeOut();
+	});
+</script>
+</html>

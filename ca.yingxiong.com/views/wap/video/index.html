@@ -1,0 +1,183 @@
+{include '../../layouts/wap/header.html'}
+<section class="qz-search">
+	<input id="searchVal" type="text" placeholder="搜索"/>
+	<button id="searchBtn"></button>
+</section>
+<section class="video video-li">
+	<div class="tab_box">
+		<p class="qm_title">
+			{if $id>=329 and $id<=334}
+			<a href="{myurl name='wap/site/index'}" class="go_back"></a>视频中心
+			{else}
+			<a href="{myurl name='wap/site/glzx'}" class="go_back"></a>攻略视频
+			{/if}
+		</p>
+		<div class="tab_til">
+			<ul data-id="{$id}">
+				{if $id>=329 and $id
+				<=334} <li {if $id==329}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>329'}">最新</a>
+				</li>
+				<li {if $id==330}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>330'}">官方视频</a>
+				</li>
+				<li {if $id==331}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>331'}">直播</a>
+				</li>
+				<li {if $id==332}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>332'}">赛事</a>
+				</li>
+				<li {if $id==333}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>333'}">武器</a>
+				</li>
+				<li {if $id==334}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>334'}">新手</a>
+				</li>
+				{else}
+
+				<li {if $id==335}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>335'}">最新</a>
+				</li>
+				<li {if $id==336}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>336'}">武器</a>
+				</li>
+				<li {if $id==337}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>337'}">PVP</a>
+				</li>
+				<li {if $id==338}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>338'}">PVE</a>
+				</li>
+				<li {if $id==339}class="active" {/if}>
+				<a href="{myurl name='wap/video/list, id=>339'}">新手</a>
+				</li>
+				{/if}
+			</ul>
+		</div>
+
+		<div class="tab_main">
+			<div class="video_infor show">
+				<div class="loading_enter"></div>
+				<ul class="video-list">
+
+				</ul>
+			</div>
+
+		</div>
+		<!--<div class="slide_more">-->
+			<!--<span>上滑刷新...</span>-->
+		<!--</div>-->
+	</div>
+</section>
+
+</body>
+{include '../../layouts/wap/foot.html'}
+<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/dropload.min.js?{$smarty.const.VERSION}"></script>
+<script>
+	$(function() {
+		//全局
+		var ajaxUrl = '/wap/video/ajax-get-list.html';
+		var page = 1;
+		var id = $(".tab_til ul").attr("data-id");
+		var isfirst = true;
+		var obj = '';
+		$(".tab_til li").on("click", function() {
+			page = 1;
+			$(".dropload-noData").text("");
+			$(".video-list").html("");
+//			newAjax(obj);
+		});
+		ajaxList();
+		function newAjax(me) {
+			var title = $("#searchVal").val();
+			$.ajax({
+				type: 'GET',
+				url: ajaxUrl,
+				data: {
+					page: page,
+					id:id,
+					title:title||""
+				},
+				dataType: 'json',
+				success: function(data) {
+					if(data.status === 0) {
+						me.noData(false);
+						me.unlock();
+						if(data.msg.length) {
+							isfirst = false;
+							if(page===1){
+								$('.video-list').empty();
+							}
+							page++;
+//							var result = [];
+							for(var i = 0; i < data.msg.length; i++) {
+								var str= "<li><span class='js_video_play' data-url='"+ data.msg[i].contentMessage+"' data-id='"+ data.msg[i].id+"'><i></i><img src="+ data.msg[i].thumb +"></span>"+
+										"<p class='summary'><a href="+data.msg[i].wapLinkUrl+">"+ data.msg[i].title+"</a></p>"+
+							"<p><span class='vi_num'>"+ data.msg[i].view_count+"</span><span class='vi_date'>"+ data.msg[i].created_at+"发布</span></p></li>";
+								$(".js_video_play").unbind("click");
+								$('.video-list').append($(str));
+								videoInit();
+								//视频点击量
+								$('.js_video_play').on('click',function(e){
+									var id = $(this).attr("data-id");
+									$.get('/commonMethod/ajax-stat-click-content.html',{ "id":id},function(data){
+										if(data.status == 0){
+
+										}else{
+
+										}
+									}, 'json');
+								});
+//								result.push($(str));
+							}
+							// 为了测试，延迟1秒加载
+							setTimeout(function() {
+								// 每次数据加载完，必须重置
+								me.resetload();
+							}, 0);
+						} else {
+							// 锁定
+							me.lock();
+//								// 无数据
+							me.noData(true);
+							me.resetload();
+							if(!isfirst) {
+								$(".dropload-noData").text("数据加载完毕");
+							} else {
+								$(".dropload-noData").text("数据加载中");
+							}
+							return 0;
+						}
+					}
+				},
+				error: function(xhr, type) {
+
+				}
+			});
+		}
+		function ajaxList() {
+			$('.video_infor').dropload({
+				scrollArea: window,
+				loadDownFn: function(me) {
+					obj = me
+					newAjax(me);
+				}
+			});
+		}
+
+		//列表搜索
+		$("#searchBtn").click(function() {
+			var title = $("#searchVal").val();
+			if(title=="" || title==null){
+				return;
+			}
+			page=1;
+			newAjax(obj);
+		});
+		$("#searchVal").on("input",function(e){
+			if(!this.value){
+				page=1;
+				newAjax(obj);
+			}
+		});
+	});
+</script>

@@ -1,0 +1,58 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list list1">
+		<div class="top_img"></div>
+		<div class="nav_bar">
+			<div class="wrap">
+				<ul>
+					<a href="/p/information.html"><li><i></i><span>基本信息</span></li></a>
+					<a href="/p/budget.html"><li><i></i><span>善款收支</span></li></a>
+					<a href="/p/workreport.html"><li><i></i><span>年度工作报告</span></li></a>
+					<a href="/p/auditreport.html"><li class="active"><i></i><span>审计报告</span></li></a>
+				</ul>
+			</div>
+		</div>
+		<div class="budget">
+			<div class="wrap">
+				<h3 class="h3">审计报告</h3>
+				<div class="budget_box">
+					{fragment var=index_banner code=audit_list size=100}
+					{if $index_banner neq ''}
+					{foreach $index_banner as $key=>$v}
+					<a href="{$v.url}" target="_blank">
+						<div class="down">
+							<span class="down_img"><img src="{$v.thumb}" alt=""/></span>
+							<div class="txt">
+								<span class="name1">{$v.title}</span>
+								<span class="name2">{$v.sub_title}</span>
+							</div>
+							<div class="big">
+								<span class="time">{$v.created_at|date_format:"%y"}<i>{$v.created_at|date_format:"%m/%d"}</i></span>
+								<span class="down_icon"></span>
+							</div>
+						</div>
+					</a>
+					{/foreach}
+					{/if}
+					<p class="noData hidden" style="line-height: 200px;color: #CBB487;text-align: center;font-size: 24px;">暂无数据...</p>
+				</div>
+
+			</div>
+		</div>
+
+		<!--footer-->
+		{include '../layouts/pc/bottom.html'}
+	</div>
+</div>
+{include '../layouts/pc/footer.html'}
+<script>
+	$(function(){
+		if($(".budget_box a").length<=0){
+			$(".noData").removeClass("hidden");
+		}else{
+			$(".noData").addClass("hidden");
+		}
+	});
+</script>

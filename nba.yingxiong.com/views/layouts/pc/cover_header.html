@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<title>{$seo_title}</title>
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/common.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+	        if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+	            location.href = "/wap"+window.location.pathname+window.location.search;
+	        }
+	    </script>
+	    {csrf}
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="nav">
+			<div class="wrap">
+				<img src="{$global.logo_img}" alt="" class="icon" />
+				<div class="n_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<ul class="nav_ul">
+		            <li class='{if isset($smarty.get.id)} {else}active{/if}'>
+		                <a href="{myurl name='site/index'}" target="_blank">首页<i>HOME</i></a>
+		            </li>
+		            <li class="{if isset($smarty.get.id)}active{/if}">
+		                <a href="{myurl name='article/list, id=>705'}" target="_blank">新闻中心<i>NEWS</i></a>
+		            </li>
+		            <li>
+               		 	<a href="http://bbs.yingxiong.com/t/Pc/21/index" target="_blank">社区论坛<i>FORUM</i></a>
+		            </li>
+		            <li>
+		                <a href="http://kf.yingxiong.com/Index/selfService?gid=92" target="_blank">玩家支持<i>SUPPORT</i></a>
+		            </li>
+		        </ul>
+				<a href="{myurl name='site/index'}" class="enter"  target="_blank">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/enter.png?{$smarty.const.VERSION}" alt="" />
+				</a>
+			</div>
+		</div>
+		<div class="kv">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				{fragment var=video code=index_video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+					<div class="yuan">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/s_yuan.png?{$smarty.const.VERSION}" alt="" class="" />
+					</div>
+				</a>
+				<a href="javascript:;" class="newseason"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/newseason.png?{$smarty.const.VERSION}" alt="" /></a>
+				<div class="kv_nav">
+					<div class="isLogin">
+						<p class="before_denglu active">欢迎您：<span>请登录</span></p>
+						<p class="after_denglu">欢迎您：<span class="c_phone"></span><i class="zhuxiao">注销</i></p>
+					</div>
+					<ul class="s_ul">
+						<li></li>
+						<li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.wb_url}target="_blank"{/if}></a></li>
+            			<li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.tb_url}target="_blank"{/if}></a></li>
+						<div class="fl_wx">
+							<img src="{$global.wx_img}" alt="" />
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>

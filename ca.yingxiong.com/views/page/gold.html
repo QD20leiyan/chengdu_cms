@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="shortcut icon" href="{$global.icon_img}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/newyear.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/js/jquery-1.7.1.min.js"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+		{assign var="version" value="1"}
+	</head>
+	
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$version}"></script>
+		<div class="kv">
+			<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_logo.png?{$version}" alt="" class="logo" />
+			<a href="/index.html" class="enter" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_enter.png?{$version}" alt="" /></a>
+		</div>
+		<div class="second">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_label1.png?{$version}" alt="" class="label" />
+				<div class="tab_con">
+					<ul class="tab_ul">
+						<li class="active"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab1.png?{$version}" alt=""  /><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab1_h.png?{$version}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab2.png?{$version}" alt=""  /><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab2_h.png?{$version}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab3.png?{$version}" alt=""  /><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab3_h.png?{$version}" alt="" /></li>
+					</ul>
+					<div class="tab_gun">
+						<div class="active">
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_gun1.png?{$version}" alt="" class="gun" />
+							<div class="img_play">
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/s_play.png?{$version}" alt="" class="js_video_play" data-url="http://video.yingxiong.com/hd/d514f5f16c634e71bd24b2a00eedd21f.mp4"/>
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/s_txt.png?{$version}" alt="" />
+							</div>
+						</div>
+						<div class="">
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_gun2.png?{$version}" alt="" class="gun" />
+							<div class="img_play">
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/s_play.png?{$version}" alt="" class="js_video_play" data-url="http://video.yingxiong.com/hd/6edc55e440a944fd8ef8b2053bc64839.mp4"/>
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/s_txt.png?{$version}" alt="" />
+							</div>
+						</div>
+						<div class="">
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_gun3.png?{$version}" alt="" class="gun" />
+							<div class="img_play">
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/s_play.png?{$version}" alt="" class="js_video_play" data-url="http://video.yingxiong.com/hd/4a8d1059f4ad45e6a6002e04906399d0.mp4"/>
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/s_txt.png?{$version}" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="last">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_label2.png?{$version}" alt="" class="label" />
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/person.png?{$version}" alt="" class="person" />
+				<div class="txt_bg">
+					<p>枪友可在指定活动时间，进入庆生主播所在的直播间，与主播进行游戏互动，主播将创建无密码的房间，进行枪王爆破模式6v6，除主播外，每位参与的玩家将根据成绩，获得超值福利</p>
+				</div>
+				<div class="right_txt">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/rule.png?{$version}" alt=""  />
+					<p><i>01</i><span>活动时间9月8日-9月12日</span></p>
+					<p><i>02</i><span>活动将在每个整点开始</span></p>
+					<p><i>03</i><span>庆生主播名单请关注<em>【全民枪战公众号】</em></span></p>
+				</div>
+			</div>
+		</div>
+	</body>
+	{video_play}
+	{download}
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$version}"></script>
+	<script type="text/javascript">
+		$(function (){
+			$(".tab_ul li").click(function (){
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_gun>div").eq(index).addClass("active").siblings().removeClass("active");
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,72 @@
+</body>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}care/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/public.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+{video_play} {download}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<!--<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}care/m/js/care.js?{$smarty.const.VERSION}"></script>-->
+<!--微信分享-->
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  document.write('<script src="http://game.yingxiong.com/common/tk/tkwxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+  $(function(){
+    wap_cover();
+    var share = {
+      imgUrl      : 'http://cdnstatic.yingxiong.com/zjzg/1.0/m/images/share_icon.png',
+      shareTitle  :'《巅峰坦克》公益专题页：致力公益，我们在行动',
+      descContent :'《巅峰坦克》携手龙越慈善基金开启“关爱老兵”慈善活动',
+      lineLink    : 'http://tk.yingxiong.com/m/care/index.html'
+    };
+    wx.config({
+      debug     : false,
+      appId     : wx_conf.appId,
+      timestamp : wx_conf.timestamp,
+      nonceStr  : wx_conf.nonceStr,
+      signature : wx_conf.signature,
+      jsApiList : [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage'
+      ]
+    });
+    wx.ready(function(){
+      wx.onMenuShareAppMessage({
+        title   : share.shareTitle,
+        desc    : share.descContent,
+        link    : share.lineLink,
+        imgUrl  : share.imgUrl,
+        success : function() {
+
+        }
+      });
+      wx.onMenuShareTimeline({
+        title   : share.shareTitle,
+        desc    : share.descContent,
+        link    : share.lineLink,
+        imgUrl  : share.imgUrl,
+        success : function() {
+
+        },
+      });
+
+      wx.onMenuShareQQ({
+        title: share.shareTitle,
+        desc: share.descContent,
+        link: share.lineLink,
+        imgUrl: share.imgUrl,
+        success: function () {
+
+        },
+        cancel: function () {
+          // 用户取消分享后执行的回调函数
+        }
+      });
+    })
+
+  });
+</script>

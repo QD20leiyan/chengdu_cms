@@ -1,0 +1,89 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/n_news.css?{$smarty.const.VERSION}" />
+<div class="nav public_nav" style="background-color:{$global.nav_background_color}" data-right="{jumpbackend name='nav_font_color'}">
+	<div class="wrap">
+		<img src="{$global.website_logo_img}" alt="" class="icon" />
+		<div class="n_txt">
+			<p>{$global.website_title}</p>
+			<p>{$global.website_sub_title}</p>
+		</div>
+		<ul class="nav_ul public_ul" data-color="{$global.nav_font_color}" data-hover="{$global.nav_font_hover_color}" data-bg="{$global.nav_background_color}" data-img="{$global.nav_background_img}">
+			<li class='{if $alias eq ' '}active {/if}'>
+				<a href="{myurl name='site/index'}" target="_blank">首页</a>
+			</li>
+			<li class='{if $alias}active {/if}'>
+				<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank">新闻中心</a>
+			</li>
+			<li>
+				<a href="javascript:yx_showTips('敬请期待');" target="_blank">社区论坛</a>
+			</li>
+		</ul>
+		<ul class="s_ul">
+			<li></li>
+			<li>
+				<a href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a>
+			</li>
+			<li>
+				<a href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a>
+			</li>
+			<img src="{$global.bottommedia_wechat_ewm}" alt="" class="fl_wx" />
+		</ul>
+	</div>
+</div>
+{fragment var=kv_img code=index_kv_img size=1}
+<div class="kv public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}"></div>
+<div class="n_body d_body">
+	<div class="top_ul">
+		<div class="tab_ul">
+			<a href="{myurl name='article/list, alias=>zonghe'}" class="d_back">< 返回列表</a>
+				<div class="d_title">
+				<h3>{$content.title}</h3>
+				<p class="d_date">{$content.created_at_formate} 作者：官网</p>
+			</div>
+		</div>
+	</div>
+	<div class="detail_body">
+		<div class="wrap">
+			<div class="d_content">
+				{$content.body}
+			</div>
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/footer.html"}
+	<script type="text/javascript">
+	var fontColor = $(".public_ul").attr("data-color");
+		var hoverColor = $(".public_ul").attr("data-hover");
+		var bgColor = $(".public_ul").attr("data-bg");
+	$(".public_ul li a").css("color", fontColor);
+		$(".public_ul li a").hover(function() {
+			$(this).css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		}, function() {
+			$(this).css({
+				"color": fontColor,
+				"border-bottom-color": "transparent",
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+			$(".public_ul li:nth-child(2) a").css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		});
+		$(".public_ul li:nth-child(2) a").css({
+			"color": hoverColor,
+			"border-bottom-color": hoverColor,
+			"border-bottom-width": "3px",
+			"border-bottom-style": "solid"
+		});
+</script>
+</body>
+
+</html>

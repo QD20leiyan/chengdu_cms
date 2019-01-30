@@ -1,0 +1,205 @@
+{include file="../layouts/pc/ca_header.html"}
+<div class="i_main">
+		<!--top-->
+		<div class="kv">
+			<div class="wrap">
+				<div class="logo animated zoomIn"><img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_logo.png?{$smarty.const.VERSION}" alt=""/></div>
+			</div>
+		</div>
+		<!--介绍-->
+		<div class="info_box">
+			<div class="wrap">
+				<div class="info">
+					<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_tit1.png?{$smarty.const.VERSION}" alt=""/></div>
+					<div class="txt">
+						<h3>老兵不死</br>只是慢慢凋零</h3>
+						<div class="part">
+							<p class="color">一寸山河一寸血！</p>
+							<p>是他们当年的挺身而出</p>
+							<p>才换来今日的繁荣昌盛</p>
+						</div>
+						<div class="part">
+							<p>时光荏苒 硝烟尽散</p>
+							<p>多少铁骨也已化作忠魂</p>
+							<p class="color">他们不怕死亡 但是怕被遗忘</p>
+						</div>
+						<div class="part">
+							<p>关注本身就是改变的开始！</p>
+							<p>让我们致敬老兵</p>
+							<p class="color">勿忘那段不朽的峥嵘岁月！</p>
+						</div>
+					</div>
+					<div class="slider">
+						<div class="swiper-container swiper-container1">
+							<div class="swiper-wrapper">
+								{fragment var=index_banner code=care_banner size=20}
+								{if $index_banner neq ''}
+								{foreach $index_banner as $v}
+								<div class="swiper-slide">
+									<a href='{if strpos($v.url,".html")}{$v.url}{else}javascript:;{/if}' {if strpos($v.url,".html")}target='_blank'{else}{/if} class='{if strpos($v.url,".mp4")}js_video_play{else}{/if}' data-url='{if strpos($v.url,".mp4")}{$v.url}{else}{/if}'><img src="{$v.thumb}"></a>
+								</div>
+								{/foreach}
+								{/if}
+							</div>
+						</div>
+						<div class="swiper-pagination swiper-pagination1"></div>
+						<div class="swiper-button-prev swiper-button-prev1"></div>
+						<div class="swiper-button-next swiper-button-next1"></div>
+					</div>
+				</div>
+				<div class="sale">
+					<div class="title1"><img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_tit2.png?{$smarty.const.VERSION}" alt=""/></div>
+					<p class="sale_info1">游戏内将上架</p>
+					<p class="sale_info2">《巅峰坦克》公益慈善包</p>
+					<div class="dj_box">
+						{fragment var=index_banner code=care_gift size=4}
+						{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+						<div class="dj_img">
+							<span><img src="{$v.thumb}" alt=""/></span>
+							<p>{$v.sub_title}</p>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+					<p class="sale_info3"></p>
+					<p class="sale_info4">将义卖盈利的10%用于致敬坦克老兵，</br>及关爱烈士家属等其他慈善公益活动中。</p>
+					<div class="sale_download">
+						<a href="javascript:;" class="ca_ios js_down_ios stat_event_down stat_event_ios" target="_blank"></a>
+						<a href="javascript:;" class="ca_and js_down_andriod stat_event_down stat_event_android" target="_blank"></a>
+						<div class="clearfix"></div>
+						<p>选择设备下载游戏，进入游戏购买礼包！</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--新闻视频-->
+		<div class="news_vi_box">
+			<div class="wrap">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_tit3.png?{$smarty.const.VERSION}" alt=""/></div>
+				<section class="news">
+					<div class="tab_box">
+						<p class="qm_title">新闻资讯 <a href="/care_news/list_1959_1.html" class="more" target="_blank"></a></p>
+						<div class="tab_main">
+							<div class="news_infor">
+								<ul>
+									{article id="1959" size=3 var=care_news}
+									{if $care_news neq ''}
+									{foreach $care_news as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<span class="img"><img src="{$v.thumb}" alt=""></span>
+											<div class="fl_info">
+												<b class="fl_tit">{$v.title}</b>
+												<b class="fl_subtit">{$v.sub_title}</b>
+											</div>
+										</a>
+									</li>
+									{/if}
+									{/foreach}
+									{else}
+									<p class="noData" style="line-height: 200px;color: #4b3819;text-align: center;font-size: 20px;">暂无数据...</p>
+									{/if}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="video">
+					<div class="tab_box">
+						<p class="qm_title">视频中心 <a href="/care_video/list_1960_1.html" class="more" target="_blank"></a></p>
+						<div class="tab_main">
+							<div class="video_infor">
+								<ul class="video-list">
+									{article id="1960" size=4 var=care_video}
+									{if $care_video neq ''}
+									{foreach $care_video as $key=>$v}
+									{if $key >= 0}
+									<li>
+										 <span class="js_video_play" data-url="{$v.video.media_url}">
+											<i></i>
+											<img src="{$v.thumb}">
+										</span>
+									</li>
+									{/if}
+									{/foreach}
+									{else}
+									<p class="noData" style="line-height: 200px;color: #4b3819;text-align: center;font-size: 20px;">暂无数据...</p>
+									{/if}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!--关于我们-->
+		<div class="about">
+			<div class="wrap">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_tit4.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="ab_txt">
+					<p><span>英雄互娱旗下的高人气明星产品《巅峰坦克》</span>与深圳市龙越慈善基金会正式达成战略合作，双方将立足自身相互依托，联手推进社会公益事业，共同进行公益慈善活动，身体力行的通过游戏产业践行公益使命和社会责任感！在未来双方还将再其他更深层领域展开关爱烈士家属、助力老兵回家等更多公益慈善活动。</p>
+					<img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_logo1.png?{$smarty.const.VERSION}" alt="">
+					<p><span>深圳市龙越慈善基金会</span>成立于2011年11月11日，是目前国内规模最大的战争与军人服务慈善基金会，致力于为战争背景下的个体士兵提供人性关怀。自成立以来在2015年2月获社会组织3A评估等级，2018年9月获2018中国慈善信用榜TOP30及其他多项荣誉。迄今为止基金会已全面服务包括11858位抗战老兵，4000名烈士父母，总善款支出超过1亿元，对社会公益尤其是军人慈善事业的贡献有目共睹！</p>
+				</div>
+				<div class="code">
+					<div class="code_img">
+						<img src="{$global.wx_img}" alt=""/>
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_code1.png?{$smarty.const.VERSION}" alt="">-->
+						<p class="co_info1">巅&nbsp;&nbsp;&nbsp;峰&nbsp;&nbsp;&nbsp;坦&nbsp;&nbsp;&nbsp;克</p>
+						<p class="co_info2">官方微信公众号</p>
+					</div>
+					<div class="code_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_code2.png?{$smarty.const.VERSION}" alt="">
+						<p class="co_info1 co_info3">龙越慈善基金会</p>
+						<p class="co_info2 co_info3">官方微信公众号</p>
+					</div>
+				</div>
+				<div class="slider1">
+					<div class="swiper-container swiper-container2">
+						<div class="swiper-wrapper">
+							{fragment var=index_banner code=care_about size=20}
+							{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+							<div class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+							</div>
+							{/foreach}
+							{/if}
+						</div>
+					</div>
+					<div class="swiper-button-prev swiper-button-prev2"></div>
+					<div class="swiper-button-next swiper-button-next2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+{include file="../layouts/pc/ca_footer.html"}
+<script>
+	$(function () {
+		var swiper01 = new Swiper('.swiper-container1', {
+			pagination: '.swiper-pagination1',
+			paginationType : 'fraction',
+			paginationClickable: true,
+			slidesPerView: 1,
+			autoplayDisableOnInteraction : false,
+//			autoplay:3000,
+			loop:true,
+			autoplayDisableOnInteraction: false,
+			prevButton:'.swiper-button-prev1',
+			nextButton:'.swiper-button-next1',
+		});
+		var swiper02 = new Swiper('.swiper-container2', {
+			paginationClickable: true,
+			slidesPerView: 5,
+			autoplayDisableOnInteraction : false,
+//			autoplay:3000,
+			loop:true,
+			autoplayDisableOnInteraction: false,
+			prevButton:'.swiper-button-prev2',
+			nextButton:'.swiper-button-next2',
+		});
+	});
+</script>
+</html>

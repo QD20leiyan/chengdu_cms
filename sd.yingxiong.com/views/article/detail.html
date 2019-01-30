@@ -1,0 +1,26 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/news.css?{$smarty.const.VERSION}" />
+<div class="main_detail">
+	<div class="news_bg"></div>
+	<div class="detail_news">
+		<div class="c_wrap">
+			<div class="top_sel">您的位置：
+				<a href="{myurl name='site/index'}">首页</a>>
+				<a href="{myurl name='article/list, id=>442'}">新闻中心</a>>
+				<a href="javascript:;">新闻详情</a>
+			</div>
+			<a href="{myurl name='article/list, id=>442'}" class="back"><img src="{$smarty.const.STATIC_DOMAIN}images/back.png?{$smarty.const.VERSION}" alt="" /></a>
+			<div class="d_news">
+				<div class="p_news">
+					<h3>{$content.title}</h3>
+					<p class="int_news"><em>{$content.created_at_formate}</em><span>作者：<i>英雄互娱官方</i></span></p>
+				</div>
+				<div class="m_body">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}

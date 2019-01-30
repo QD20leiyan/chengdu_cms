@@ -1,0 +1,66 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/list.css?{$smarty.const.VERSION}" />
+<div class="detail_kv">
+	<div class="wrap">
+		<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo1.png?{$smarty.const.VERSION}" alt="" /></div>
+		<div class="bussinessman"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/hzf.png?{$smarty.const.VERSION}" alt=""></div>
+		<!--<div class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" alt="" /></div>-->
+	</div>
+	<!--<div class="plane"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/plane.png?{$smarty.const.VERSION}" alt="" /></div>-->
+</div>
+<div class="video_con">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label5.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<ul class="video_ul">
+			<li class="{if $id eq 632}active{else} {/if}">
+				<a href="{myurl name='video/list, id=>632'}">最新视频</a>
+			</li>
+			<li class="{if $id eq 633}active{else} {/if}">
+				<a href="{myurl name='video/list, id=>633'}">教学视频</a>
+			</li>
+			<li class="{if $id eq 634}active{else} {/if}">
+				<a href="{myurl name='video/list, id=>634'}">大神推荐</a>
+			</li>
+			<li class="{if $id eq 635}active{else} {/if}">
+				<a href="{myurl name='video/list, id=>635'}">趣味集锦</a>
+			</li>
+			<li class="{if $id eq 636}active{else} {/if}">
+				<a href="{myurl name='video/list, id=>636'}">精彩赛事</a>
+			</li>
+		</ul>
+		<div class="v_list">
+			{if !empty($data)}
+			<ul class="videoul">
+				{foreach $data as $v}
+					<li>
+						<div class="v_img">
+							<img src="{$v.thumb}" alt="" />
+							<i></i>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.video.media_url}" />
+						</div>
+						<p>{$v.title}</p>
+					</li>
+				{/foreach}
+			</ul>
+			<div class="clear"></div>
+				{$page}
+				{else}
+				<p style="font-size:24px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+			{/if}
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		$(".v_list li").each(function(i, n) {
+			var o = i + 1;
+			if(o % 3 == 2) {
+				$(n).addClass("active");
+			}
+		});
+	})
+</script>
+
+</html>

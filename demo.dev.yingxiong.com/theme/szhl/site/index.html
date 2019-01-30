@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="shortcut icon" href="{$global.website_icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/n_index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		
+		<div class="menu public_nav" style="background-color:{$global.nav_background_color}" data-right="{jumpbackend name='nav_font_color'}">
+			<div class="meau_c">
+				<div class="menu-con">
+					<div class="logo public_icon" data-icon="{jumpbackend name='website_title'}">
+						<img src="{$global.website_logo_img}" alt="logo">
+						<div class="lo_font">
+							<h3>{$global.website_title}</h3>
+							<p>{$global.website_sub_title}</p>
+						</div>
+					</div>
+					<div class="meau_ico fr">
+						<a class="ico_wx" href="javascript:"><img src="{$global.nav_wechat_icon}" /></a>
+						<a class="ico_wb" target="_blank" href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$global.nav_wb_icon}" /></a>
+						<a class="ico_tb" target="_blank" href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$global.nav_baidu_icon}" alt="" /></a>
+						<div class="ewm_wx">
+							<img src="{$global.nav_wechat_ewm}" alt="" />
+						</div>
+					</div>
+				</div>
+				{if $diy}
+					<div class="main_nav" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑导航</i></div>
+				{/if}
+			</div>
+		</div>
+		<!--内容-->
+		<div class="i_main">
+			<!--第一部分-->
+			{fragment var=kv_img code=index_kv_img size=1}
+			<div class="top public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}">
+				<!--kv_video-->
+				{fragment var=video code=index_video size=1}
+				<div class="videoBtn">
+					<img src="{if $video}{$video[0].thumb}{/if}" class="{if $video}js_video_play{else}{/if} public_video" data-url="{if $video}{$video[0].url}{/if}" data-video="{if $video}{$video[0].jumpbackend}{/if}" />
+					<div class="main_play" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑视频</i></div>
+				</div>
+				<!--download-->
+				<div class="download public_nav_two">
+					<div class="wx_img public_footer" style="background:url({$global.download_ewm_background_img}) no-repeat center;" data-footer="{jumpbackend name='download_ewm_background_img'}"><img src="{$global.bottommedia_wechat_ewm}" alt=""></div>
+					<div class="down_box public_nav_one" data-one="{jumpbackend name='download_ios_url'}">
+						<a href="{if $global.download_ios_url}{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="ios yy_btn" target="_blank"><img src="{$global.download_ios_background_img}" alt="" /></a>
+						<a href="{if $global.download_android_url}{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="and yy_btn" target="_blank"><img src="{$global.download_android_background_img}" alt="" /></a>
+					</div>
+					{if $diy}
+						<div class="main_nav_one" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:-30px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+					{/if}
+				</div>
+				{if $diy}
+					<div class="main_kv" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:100px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑KV</i></div>
+				{/if}
+			</div>
+			<!--第二部分-->
+			<div class="middle public_second" style="{if $global.news_background_img neq ''}background:url({$global.news_background_img}) no-repeat center;{elseif $global.news_background_color neq ''}background-color:{$global.news_background_color}{/if}" data-second="{jumpbackend name='news_background_img'}">
+				<p class="title"></p>
+				{fragment var=ts_img code=banner_ts size=5} 
+				{if $ts_img neq ''}
+				<div class="content">
+					<div class="one">
+						<p>{$ts_img[0].summary}</p>
+					</div>
+					<div class="banner banner_ng">
+						<div class="swiper-container public_ts" data-ts="{$ts_img[0].jumpbackend}">
+							<div class="swiper-wrapper">
+								{foreach $ts_img as $v}
+									<div class="swiper-slide">
+										<img class="images" src="{$v.thumb}" alt="">
+									</div>
+								{/foreach}
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+						{if $diy}
+							<div class="main_banner" style="z-index:10;width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+						{/if}
+					</div>
+				</div>
+				{/if}
+				{if $diy}
+					<div class="main_second" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+				{/if}
+			</div>
+		</div>
+		<div class="public_rule" style="z-index:99999999;">
+			{if $diy}
+			{include file="../../layouts/public.html"}
+			<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{else}
+			<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{/if}
+		</div>
+	</body>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script>
+			var swiper01 = new Swiper('.swiper-container', {
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				autoplayDisableOnInteraction: false,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				autoplay: 4000,
+				loop: true
+			});
+
+	</script>
+
+</html>

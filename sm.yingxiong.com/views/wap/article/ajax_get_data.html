@@ -1,0 +1,101 @@
+
+<section>
+    <div class="main_content">
+        <div id="top_menu" class="top_menu" name="{$category_id}">
+            <ul>
+                <li {if $category_id eq 117} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>117"}'>生存与制造</a>
+                </li>
+                <li {if $category_id eq 118} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>118"}'>烹饪体系</a>
+                </li>
+                <li {if $category_id eq 119} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>119"}'>魔法体系</a>
+                </li>
+                <li {if $category_id eq 120} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>120"}'>生物体系</a>
+                </li>
+                <li {if $category_id eq 121} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>121"}'>益趣玩法</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {if $data}
+    <div id="middle_menu" class="middle_menu">
+        <div id="imgTab" class="tab right_xq active">
+            {if $category_id eq "119" or $category_id eq "120"}
+            <div id="tab_ul" class="tab_ul" name="{$category_id}">
+                <div class="tab_ul_title">
+                    <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/tx.png" title="" alt="">
+                    {if $category_id eq 119}
+                    魔法体系
+                    {else if $category_id eq 120}
+                    生物体系
+                    {/if}
+                </div>
+                <div id="dl_scroll" class="dl_scroll">
+                    {foreach $data as $k=>$v}
+                    <dl url="{$v.linkUrl}" class="data-img">
+                        <dt><a href="{$v.linkUrl}">{if $v.thumb}<img src="{$v.thumb}" title="" alt="">{/if}</a></dt>
+                        <dd>{$v.title}</dd>
+                    </dl>
+                    {/foreach}
+                </div>
+                <a id="getMoreData" pageIndex="1" category_id="{$category_id}" href="javascript:">加载更多</a>
+            </div>
+            {else}
+            <div id="title_bg" class="title_bg">
+                <ul>
+                    {foreach $data as $k1 => $v1}
+                    <li name="the{$v1.id}"  {if $k1 eq 0}class="active"{/if}>
+                    {if $v1.name}<a href="javascript:;">{$v1.name}</a>{/if}
+                    </li>
+                    {/foreach}
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div id="title_txt" class="title_txt">
+                <div id="page01">
+                    {foreach $data as $k1 => $v1}
+                    <div id="the{$v1.id}" class="title_txt01">
+                        {if $v1.thumb}<img src="{$v1.thumb}" title="" alt="" />{/if}
+                        {$v1.name}
+                    </div>
+                    <div class="tab_qh">
+                        {if $v1['sub_cat']}
+                        {foreach $v1['sub_cat'] as $k2 => $v2}
+                        <p>{$v2.name}</p>
+                        {if $v2['sub_content']}
+                        <ul>
+                            {foreach $v2['sub_content'] as $k3=> $v3}
+                            <li detail="{$v3.linkUrl}">
+                                <a href='{$v3.linkUrl}'>{$v3.title}</a>
+                            </li>
+                            {/foreach}
+                        </ul>
+                        {/if}
+                        <div class="clear"></div>
+                        {/foreach}
+                        {else}
+                        {if $v1['sub_content']}
+                        <ul>
+                            {foreach $v1['sub_content'] as $k3=> $v3}
+                            <li detail="{$v3.linkUrl}">
+                                <a href='{$v3.linkUrl}'>{$v3.title}</a>
+                            </li>
+                            {/foreach}
+                        </ul>
+                        {/if}
+                        <div class="clear"></div>
+                        {/if}
+                    </div>
+                    {/foreach}
+                </div>
+            </div>
+            {/if}
+        </div>
+    </div>
+    {/if}
+
+</section>

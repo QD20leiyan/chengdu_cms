@@ -1,0 +1,42 @@
+{include '../../layouts/wap/head.html'}
+    <div class="listBg">
+        <div class="back"><a href="{myurl name='wap/site/index'}" target="_blank"></a></div>
+    </div>
+    <div class="list-info">
+        <ul class="list-article-title" data-id="{$id}">
+            <li {if $id==473}class="active" {/if}><a href="{myurl name='wap/article/index, id=>473'}">最新</a></li>
+            <li {if $id==474}class="active" {/if}><a href="{myurl name='wap/article/index, id=>474'}">新闻</a></li>
+            <li {if $id==475}class="active" {/if}><a href="{myurl name='wap/article/index, id=>475'}">公告</a></li>
+            <li {if $id==476}class="active" {/if}><a href="{myurl name='wap/article/index, id=>476'}">活动</a></li>
+            <li {if $id==478}class="active" {/if}><a href="{myurl name='wap/article/index, id=>478'}">攻略</a></li>
+        </ul>
+        <ul class="list-article">
+        </ul>
+        
+    <a href="javascript:;" class="more"></a>
+    </div>
+     <div class="bottom_bg">
+        <div class="server-wrapp">
+                <div class="server-box">
+                    <a href="javascript:;">
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wx.png">
+                    </a>
+                    <a  href="{if isset($global.wb_url)}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.wb_url)}target="_blank"{/if}>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wb.png">
+                    </a>
+                    <a href="{if isset($global.group_url_one)}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.tb_url)}target="_blank"{/if}>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/qq.png">
+                    </a>
+                    <a href="{if isset($global.tb_url)}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.tb_url)}target="_blank"{/if}>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tb.png">
+                    </a>
+            </div>
+        </div>     
+    </div>
+    <div class="bigImg">
+    <img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="">
+    <p>长按保存至手机</p>
+    <p>发送至微信内识别</p>
+    <p>关注《明日决胜！》官方微信</p>
+</div>
+{include '../../layouts/wap/foot.html'}

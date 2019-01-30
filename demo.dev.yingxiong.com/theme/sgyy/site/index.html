@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_key}" />
+		<link rel="shortcut icon" href="{$global.website_icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/n_index.css?{$smarty.const.VERSION}">
+		<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		{fragment var=kv_img code=index_kv_img size=1}
+		<div class="kv public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}">
+			<div class="container">
+				<div class="group">
+					<div class="download">
+						<div class="android public_footer" data-footer="{jumpbackend name='download_android_url'}">
+							<a href="{if $global.download_android_url}{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="js_down_andriod" target="_blank"><img src="{$global.download_android_background_img}" /></a>
+							{if $diy}
+								<div class="main_footer" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:-25px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+							{/if}
+						</div>
+						{fragment var=video code=index_video size=1}
+						<a href="javascript:;" class="play {if $video}js_video_play{else}{/if} public_video" data-url="{if $video}{$video[0].url}{/if}" data-video="{if $video}{$video[0].jumpbackend}{/if}"><img src="{if $video}{$video[0].thumb}{/if}" alt="" /><div class="main_play" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div></a>
+						<div class="ios public_footer" data-footer="{jumpbackend name='download_android_url'}">
+							<a href="{if $global.download_ios_url}{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="js_down_ios" target="_blank"><img src="{$global.download_ios_background_img}" /></a>
+							{if $diy}
+								<div class="main_footer01" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:-25px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑视频</i></div>
+							{/if}
+						</div>
+					</div>
+				</div>
+				{if $diy}
+					<div class="main_kv" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑KV</i></div>
+				{/if}
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<div class="public_rule" style="z-index:99999999;">
+		{if $diy}
+		{include file="../../layouts/public.html"}
+		<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+		{else}
+		<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+		{/if}
+	</div>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+</html>

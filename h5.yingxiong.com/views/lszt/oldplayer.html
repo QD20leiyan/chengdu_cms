@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>《绿色征途》手游重铸经典，等你来战！</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no">
+        <meta name="full-screen" content="yes">
+        <meta name="x5-fullscreen" content="true">
+        {csrf}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}lszt/year_new/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}lszt/year_new/css/index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 25 * (clientWidth / 375) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+		<style type="text/css">
+			@font-face {
+				font-family: "webFont";
+				src: url(/font/webfont.ttf) format('truetype');
+				font-style: normal;
+				font-weight: normal;
+			}
+			.second{
+				width:100%;
+				height:100%;
+				position:relative;
+				display: none;
+			}
+			.second .content{
+				width:100%;
+				height: 100%;
+				background:url(/img/lszt/third.jpg) no-repeat center;
+				background-size:100% 100%;
+				position:relative;
+			}
+			.second .content .code{
+				display: block;
+				width:2.34rem;
+				height:2.82rem;
+				position:absolute;
+				right:3.5rem;
+				bottom:25%;
+			}
+			.second .logo{
+				display: block;
+				width:3.04rem;
+				height:2.92rem;
+				position:absolute;
+				right:1rem;
+				top:0.7rem;
+			}
+			.second .second_con{
+				width:100%;
+				margin-top:37%;
+				position:relative;
+			}
+			.second .baocun{
+				width:0.6rem;
+				font-size:0.6rem;
+				color:#bc1b13;
+				position:absolute;
+				right:1.3rem;
+				top:5.5rem;
+				font-family: "微软雅黑";
+				line-height:0.6rem;
+				z-index:6;
+			}
+			.second .second_con .t_img{
+				display: block;
+				width:2.72rem;
+				height:6.76rem;
+				position:absolute;
+				right:2.84rem;
+				top:2.24rem;
+			}
+			.second .second_con .second_txt{
+				width:10.1rem;
+				position:absolute;
+				left:0;
+				top:1.4rem;
+			}
+			.second .second_con .second_txt .jia_txt{
+				width:1rem;
+				font-size:1rem;
+				color:#18170e;
+				margin-left:1rem;
+				float:left;
+			}
+			.second .second_con .second_txt .first_p{
+				font-size:0..8rem;
+				color:#18170e;
+				width:1rem;
+				margin-left:2.7rem;
+				margin-top:4.9rem;
+				float:left;
+			}
+			.second .second_con .second_txt .first_p span{
+				display: block;
+				text-align: center;
+			}
+			.second .second_con .second_txt .first_p img{
+				display: block;
+				width:0.8rem;
+				height:0.8rem;
+			}
+			.second .second_con .second_txt .second_p{
+				width:1rem;
+				font-size:1rem;
+				color:#18170e;
+				margin-left:1rem;
+				float:left;
+			}
+			.second .second_con .second_txt .third_p{
+				width:1rem;
+				font-size:1rem;
+				color:#18170e;
+				margin-left:.5rem;
+				float:left;
+			}
+			#z_img{
+				display: block;
+				width:100%;
+				height:100%;
+				position:absolute;
+				z-index:5;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+        <div class="h5_data" style="display: none;">{$h5data}</div>
+		<div class="loading">
+			<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+			<i class="ic_mouse"></i>
+		</div>
+		<div class="kv" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+			<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+			<div class="play active">
+				<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/play.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/pause.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="video">
+				<div class="danmu"></div>
+				<!--canvas视频-->
+				<div class="canvasbox">
+					<canvas id="child" data-src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/canvas2.png?{$smarty.const.VERSION}" width="640" height="360"></canvas>
+				</div>
+				<i class="v_play"></i>
+				<video src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/video.mp4?{$smarty.const.VERSION}" id="k_video" ></video>
+			</div>
+			<div class="s_put p_put">
+				<input type="text" placeholder="输入您曾经的《征途》昵称" class="name" maxlength="6"/>
+			</div>
+			<div class="s_put">
+				<input type="text" placeholder="选择您的《征途》年龄" class="age l_put" readonly="readonly" data-num="" data-id=""/>
+				<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/sanjiao.png?{$smarty.const.VERSION}" alt="" class="sanjiao" />
+				<div class="t_ul t_ul1" id="#age_ul">
+					<ul>
+						<li data-num="2006" data-id="十三">2006年</li>
+						<li data-num="2007" data-id="十二">2007年</li>
+						<li data-num="2008" data-id="十一">2008年</li>
+						<li data-num="2009" data-id="十">2009年</li>
+						<li data-num="2010" data-id="九">2010年</li>
+						<li data-num="2011" data-id="八">2011年</li>
+						<li data-num="2012" data-id="七">2012年</li>
+						<li data-num="2013" data-id="六">2013年</li>
+						<li data-num="2014" data-id="五">2014年</li>
+						<li data-num="2015" data-id="四">2015年</li>
+						<li data-num="2016" data-id="三">2016年</li>
+						<li data-num="2017" data-id="二">2017年</li>
+						<li data-num="2018" data-id="一">2018年</li>
+					</ul>
+				</div>
+			</div>
+			<div class="s_put">
+				<input type="text" placeholder="请选择您的签到语" class="word l_put" readonly="readonly" />
+				<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/sanjiao.png?{$smarty.const.VERSION}" alt="" class="sanjiao" />
+				<div class="t_ul t_ul2" id="#word_ul">
+					<ul>
+						<li>绿色征途 一统天下</li>
+						<li>我又回来了</li>
+						<li>前来签到</li>
+						<li>山河铁蹄下 再战沙场</li>
+						<li>再临绿色征途手游</li>
+						<li>预祝游戏大卖</li>
+					</ul>
+				</div>
+			</div>
+			<a href="javascript:;" class="qiandao sure"><img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/qiandao.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://lszt.yingxiong.com/m/" class="enter"><img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/enter.png?{$smarty.const.VERSION}" alt="" /></a>
+			<audio src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/bg.mp3?{$smarty.const.VERSION}" loop="loop" id="audio"></audio>
+		</div>
+		<div class="second">
+			<p class="baocun">长按保存图片</p>
+			<div class="content" id="jp_img">
+				<img src="" id="z_img" />
+				<img src="/img/lszt/logo.png" alt="" class="logo" />
+				<div class="chengg"></div>
+				<div class="second_con">
+					<img src="/img/lszt/t_img.png" alt="" class="t_img" />
+					<div class="second_txt">
+						<p class="first_p"><span class="g_name"></span><img src="/img/lszt/yao.png" alt="" /></p>
+						<p class="jia_txt">兄弟们 皇城脚下再聚首</p>
+						<p class="second_p qdy"></p>
+						<p class="third_p"><span class="g_num"></span></p>
+					</div>
+				</div>
+				<img src="/img/lszt/code.png" alt="" class="code" />
+			</div>
+			<div class="bottom">
+				<img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/txt.png?{$smarty.const.VERSION}" alt="" class="b_txt" />
+				<div class="code_bg">
+					<p></p>
+				</div>
+				<a href="http://lszt.yingxiong.com/m/" class="b_enter"><img src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/images/enter.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</div>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		 <!--遮罩层-->
+	<div id='loading10' style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+	    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+	        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+	        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+	    </div>
+	</div>      
+	</body>
+	{include '../h5-common/h5_data.html'}
+	<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/js/canvas2image.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/js/canvas.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}lszt/year_new/js/index.js?{$smarty.const.VERSION}"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+        <script type="text/javascript">
+        	
+    $(function() {
+        // 分享接口
+        var share_icon=$(".kv").attr("data-icon");
+        var share_title=$(".kv").attr("data-title");
+        var share_desc=$(".kv").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/lszt/oldplayer.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            if(isIOS){
+            	$("#k_video").show();
+            	document.getElementById('k_video').play();
+            }
+            if(isAndroid) {
+				document.getElementById('audio').pause();
+			}
+            document.getElementById('audio').play();
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        });
+        });
+        </script>
+</html>

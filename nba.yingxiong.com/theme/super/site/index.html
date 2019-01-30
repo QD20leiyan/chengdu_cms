@@ -1,0 +1,176 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/index.css?{$smarty.const.VERSION}" />
+		<div class="kv">
+			{if $diy}
+			<p style="font-size:50px;color:#000;font-weight:bold;text-align: center;">推荐位：kv=视频中的缩略图(尺寸1920*883px)</p>
+			{else}
+				{fragment var=video code=index_video size=1}
+				<img src="{if $video}{$video[0].thumb}{/if}" alt="" class="s_img" />
+				{/if}
+			<div class="wrap">
+		        {fragment var=video code=video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+					{if $diy}
+					<p style="font-size:50px;color:#000;font-weight:bold;">推荐位视频：code=index_video</p>
+					{else}
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/b_play.png?{$smarty.const.VERSION}" alt="" />
+					{/if}
+				</a>
+				<div class="download_box">
+					<div class="down_ewm">
+						<img src="http://cdnimg02.yingxiong.com/M00/0B/B9/ChpCl1s8vGmEciTPAAAAAMPwhyY778.png" alt="" class="js_jump_img">
+						<i>	</i>
+					</div>
+					<div class="down_btn">
+						<a href="http://downurl.zhuoyuechenxing.com/android/super_pcgw.html?callback=http://super.zhuoyuechenxing.com/" target="_blank" class=""><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/and.png?{$smarty.const.VERSION}" alt=""></a>
+						<a href="http://downurl.zhuoyuechenxing.com/ios/super_pcgw.html?callback=http://super.zhuoyuechenxing.com/" target="_blank" class=""><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/ios.png?{$smarty.const.VERSION}" alt=""></a>
+						<a href="http://l.taptap.com/eTJC9YYy" target="_blank" class=""><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tap.png?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg">
+			<div class="wrap">
+			    <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/label1.png?{$smarty.const.VERSION}" alt="" class="title">
+				<div class="content">
+					<div class="left_banner">
+					{if $diy}
+					<p style="font-size:50px;color:#000;font-weight:bold;text-align: center;">推荐位：code=banner</p>
+					{else}
+						{fragment var=index_banner code=banner size=5}
+						<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+					       	{foreach $index_banner as $v}
+								<li class="swiper-slide"><a href="{if $v.url}{$v.url}{else}javascript:;{/if}" target="_blank"><img src="{$v.thumb}" alt="" /></a></li>
+							{/foreach}
+					    {/if}
+						</ul>
+					{/if}
+					</div>
+					<div class="right_news">
+						<ul class="top_ul">
+							<li class="active">{if $diy eq 'yes'}[zonghe]{else}综合{/if}</li>
+							<li>{if $diy eq 'yes'}[xinwen]{else}新闻{/if}</li>
+							<li>{if $diy eq 'yes'}[gonggao]{else}公告{/if}</li>
+							<li>{if $diy eq 'yes'}[huodong]{else}活动{/if}</li>
+							<li>{if $diy eq 'yes'}[gonglve]{else}攻略{/if}</li>
+							<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/shizi.png?{$smarty.const.VERSION}" alt="" /></a>
+						</ul>
+						<div class="right_con">
+							{if isset($smarty.get.diy)}
+							<p style="font-size:20px;color:#000;font-weight:bold;"></p>
+							{else}
+							<ul class="active">
+							{article alias="zonghe" size=4 var=zh}
+						    {if isset($zh) && $zh neq ""}
+							{foreach $zh as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{if isset($v.url)}{$v.url}{/if}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article alias="xinwen" size=4 var=xw}
+						    {if isset($xw) && $xw neq ""}
+							{foreach $xw as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{if isset($v.url)}{$v.url}{/if}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article alias="gonggao" size=4 var=gg}
+						    {if isset($gg) && $gg neq ""}
+							{foreach $gg as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{if isset($v.url)}{$v.url}{/if}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article alias="huodong" size=4 var=hd}
+						    {if isset($hd) && $hd neq ""}
+							{foreach $hd as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{if isset($v.url)}{$v.url}{/if}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article alias="gonglve" size=4 var=gl}
+						    {if isset($gl) && $gl neq ""}
+							{foreach $gl as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{if isset($v.url)}{$v.url}{/if}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							{/if}
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="bg2">
+			<div class="wrap">
+			    <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/label2.png?{$smarty.const.VERSION}" alt="" class="title">
+			    <div class="bottom_con">
+					<div class="bottom_banner">
+					{if $diy}
+					<p style="font-size:50px;color:#000;font-weight:bold;text-align: center;">推荐位：code=banner_ts</p>
+					{else}
+						{fragment var=ts_img code=banner_ts size=5}
+						<ul class="swiper-wrapper">
+						{if $ts_img neq ''}
+					    {foreach $ts_img as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}" target="_blank">
+								<img src="{$v.thumb}">
+						    </a>
+							</li>
+					    {/foreach}
+					    {/if}
+						</ul>
+					{/if}
+					
+					</div>
+			    </div>
+		    </div>
+	    </div>
+	    {include file="../layouts/pc/footer.html"}

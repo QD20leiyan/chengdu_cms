@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}">
+		<meta name="description" content="{$seo_desc}">
+		<link rel="shortcut icon" href="{$global.website_icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/n_index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/common/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		{fragment var=kv_img code=index_kv_img size=1}
+		<div class="wrap public_kv" id="wrap" style="background:url({if count($kv_img) > 0 && $kv_img neq ''}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{if count($kv_img) > 0 && $kv_img[0].jumpbackend}{$kv_img[0].jumpbackend}{/if}">
+			<div class="main">
+				<div class="main_content public_nav" data-right="{jumpbackend name='nav_wb_url'}" style="z-index:2;">
+					<a class="wx" href="javascript:;"><img src="{if isset($global.nav_wechat_icon)}{$global.nav_wechat_icon}{/if}" /></a>
+					<a class="weibo" target="_blank" href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{if isset($global.nav_wb_icon)}{$global.nav_wb_icon}{/if}" /></a>
+					<a class="tieba" target="_blank" href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{if isset($global.nav_baidu_icon)}{$global.nav_baidu_icon}{/if}" /></a>
+					<a class="ewm" href="javascript:;">
+						<img src="{$global.nav_wechat_ewm}" title="" alt="" />
+					</a>
+					{if $diy}
+						<div class="main_nav" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑模块</i></div>
+					{/if}
+				</div>
+				{fragment var=video code=index_video size=1}
+				<div class="video public_video" data-video="{$video[0].jumpbackend}" style="z-index:2;">
+					<a href="{if count($video) > 0 && $video neq ''}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="video_icon{if count($video) > 0 && $video neq ''}js_video_play{else}{/if}" data-url="{if count($video) > 0 && $video neq ''}{$video[0].url}{/if}"><img src="{if $video}{$video[0].thumb}{/if}" alt="" /></a>
+					<div class="main_play" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑视频</i></div>
+				</div>
+				{if $diy}
+				<div class="main_kv" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:32px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑KV</i></div>
+				{/if}
+			</div>
+		</div>
+		<div class="public_rule" style="z-index:99999999;">
+			{if $diy}
+			{include file="../../layouts/public.html"}
+			<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{else}
+			<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{/if}
+		</div>
+	</body>
+	{video_play}
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(".wx").hover(function (){
+			$(".ewm").stop().fadeIn();
+		},function (){
+			$(".ewm").stop().fadeOut();
+		});
+		$(".ewm").hover(function (){
+			$(this).stop().fadeIn();
+		},function (){
+			$(this).stop().fadeOut();
+		});
+	</script>
+</html>

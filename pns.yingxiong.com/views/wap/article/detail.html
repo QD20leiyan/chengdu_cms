@@ -1,0 +1,29 @@
+{include '../../layouts/wap/header_new.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/news.css?{$smarty.const.VERSION}" />
+</head>
+<body>
+	<!--内容-->
+<div  class="i_main i_main1">
+    <div class="list list1">
+        <div class="wrap">
+            <a class="return" href="{myurl name='wap/article/list, id=>1908'}">< 返回</a>
+            <div class="list_news">
+                <div class="detailbox">
+                    <div class="article_title">
+                        <h3>{$content.title}</h3>
+                        <span><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>来源：官方</span></span>
+                    </div>
+                    <div class="content">
+                        {$content.body}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include '../../layouts/wap/footer_new.html'}
+<script>
+	$(function() {
+		$(".header").removeClass("hidden");
+	});
+</script>

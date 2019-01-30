@@ -1,0 +1,472 @@
+{include '../../layouts/wap/head.html'}
+		<header class="index1_header">
+			<a href="/m/index.html" class="index1_logo"><img src="{$global.logo_img}" alt=""></a>
+			<div class="header_txt">
+				<p class="h_p_01">{$global.title}</p>
+				<p class="h_p_02">{$global.sub_title}</p>
+			</div>
+			<!--<a href="javascript:yx_showTips('敬请期待');" class="ent_yy">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/down_btn.png?{$smarty.const.VERSION}" alt="">
+			</a>-->
+			<a href="javascript:;" class="top_down p_yuyue" target="_blank">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/top_down.png?{$smarty.const.VERSION}" alt="">
+			</a>
+			<!-- 
+            <ul class="down_list">
+                <li><a href="javascript:yx_showTips('敬请期待');" class="down_gfbtn" target="_blank"></a></li>
+                <li><a href="https://www.taptap.com/app/56543" class="tap" target="_blank"></a></li>
+            </ul> -->
+		</header>
+		<section>
+			<div class="loading">
+				<i class="ic_mouse"></i>
+			</div>
+		</section>
+		<section class="main1" data-src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/">
+			<!--canvas视频-->
+			<div class="canvasbox">
+				<canvas id="child" width="640" height="1132"></canvas>
+				<canvas id="child3" width="640" height="1132"></canvas>
+			</div>
+			<div class="top">
+				<!-- <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/peo.png?{$smarty.const.VERSION}" alt="" class="peo zoomIn  animated"> -->
+				<!-- <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/slogan.png?{$smarty.const.VERSION}" alt="" class="logo zoomIn animated"> -->
+				{fragment var=video code=video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $video}js_video_play play{else}play{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/video.png?{$smarty.const.VERSION}" alt=""></a>
+				<!--<a href="javascript:yx_showTips('敬请期待');" class="down_btn" target="_blank">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/down_load.png?{$smarty.const.VERSION}" alt="">
+				</a>-->
+				<a href="javascript:;" class="yuyue p_yuyue" target="_blank">
+					<!-- <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/yuyue.png?{$smarty.const.VERSION}" alt=""> -->
+					<canvas id="child2" width="1000" height="563"></canvas>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/yy_btnbg.png?{$smarty.const.VERSION}" alt="">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/box.png?{$smarty.const.VERSION}" alt="" class="box_img">
+				</a>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sj_logo.png?{$smarty.const.VERSION}" alt="" class="sj_logo">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/down.png?{$smarty.const.VERSION}" alt="" class="to_down">
+			</div>
+		</section>
+		<section class="main2">
+			<div class="banner_news ani">
+                <p class="title ani-item"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/new.png?{$smarty.const.VERSION}" alt=""/></p>
+                <a href="{myurl name='wap/list, id=>480'}" class="news_list ani-item"></a>
+                <div class="banner ani-item">
+                    <div class="swiper-container z_banner">
+                        <div class="swiper-wrapper">
+                        {article id="480" size=6 var=zx}
+						{if $zx neq ''}
+						{foreach $zx as $key=>$v}
+						{if $key >= 0}
+                            <div class="swiper-slide">
+                                <a href="{if $v.wapLinkUrl neq ''}{$v.wapLinkUrl} {else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                                <p><span>{$v.title}</span></p>
+                            </div>
+                            {/if}
+						{/foreach}
+						{/if}
+                        </div>
+                        <div class="swiper-pagination swiper-pagination1"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="banner_shebei ani">
+                <div class="banner ani-item">
+                    <div class="swiper-container sb_banner">
+                        <div class="swiper-wrapper">
+                        {fragment var=zj_banner code=zj_banner size=10}
+						{if $zj_banner neq ''}
+						{foreach $zj_banner as $v}
+                            <div class="swiper-slide">
+                                <a  href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                                <p>
+                                	<i>{$v.title}</i>
+                                	<span>{$v.sub_title}</span>
+                                </p>
+                            </div>
+                            {/foreach}
+						{/if}
+                        </div>
+                    </div>
+                </div>
+                {fragment var=zj_video code=zj_video size=1}
+                <p class="title ani-item">
+                    <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/video2.png?{$smarty.const.VERSION}" alt=""/>
+                    <a href="{if $zj_video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $zj_video}js_video_play video2{else}video2{/if}" data-url="{if $zj_video}{$zj_video[0].url}{/if}"></a>
+                </p>
+                <div class="swiper-pagination swiper-pagination2"></div>
+            </div>
+            <div class="banner_juese ani">
+                <div class="banner ani-item">
+                    <div class="swiper-container js_banner ani-item">
+                        <div class="swiper-wrapper">
+                        {fragment var=jg_banner code=jg_banner size=7}
+					    {if $jg_banner neq ''}
+					    {foreach $jg_banner as $v}
+                            <div class="slide">
+                                <a href="javascript:;"><img class="images" src="{$v.thumb}" alt=""></a>
+                            </div>
+                        {/foreach}
+					    {/if}
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="list_js ani-item">
+                <p class="title"></p>	
+                <ul class="index_slider-ul">
+                {fragment var=jg_banner code=jg_banner size=7}
+					{if $jg_banner neq ''}
+					{foreach key=cid item=v from=$jg_banner name=jg_banner}
+                <li class="feature">
+                    <a href="javascript:void(0);"><span>{$v.title}</span></a>
+                    <p>{$v.sub_title}</p>
+                </li>
+                {/foreach}
+					{/if}
+                </ul>
+                </div>
+                {fragment var=jg_video code=jg_video size=1}
+                <p class="title ani-item">
+                    <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/video3.png?{$smarty.const.VERSION}" alt=""/>
+                    <a href="{if $jg_video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $jg_video}js_video_play video2{else}video2{/if}" data-url="{if $jg_video}{$jg_video[0].url}{/if}"></a>
+                </p>
+            </div>
+		</section>
+		<section class="main3">
+             <div class="banner_tese ani">
+                <div class="banner ani-item">
+                    <div class="swiper-container ts_banner">
+                        <div class="swiper-wrapper">
+                        {fragment var=ts_banner code=ts_banner size=10}
+						{if $ts_banner neq ''}
+						{foreach $ts_banner as $v}
+                            <div class="swiper-slide">
+                                <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                            </div>
+                           {/foreach}
+						{/if}
+                        </div>
+                    </div>
+                </div>
+                <p class="title ani-item"></p>
+                <div class="swiper-pagination swiper-pagination3"></div>
+            </div>
+		</section>
+		<section>
+			<div class="sec_04">
+				<ul>
+					<li><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/weixin.png?{$smarty.const.VERSION}" alt="" class="weixin_btn"></a>
+					<p class="wechat"><img src="{$global.wx_img}"></p></li>
+					<li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/weibo.png?{$smarty.const.VERSION}" alt=""></a></li>
+					<li><a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qq.png?{$smarty.const.VERSION}" alt=""></a></li>
+					<li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/luntan.png?{$smarty.const.VERSION}" alt=""></a></li>
+				</ul>
+			</div>
+		</section>
+		<section class="detail_tc hidden">
+			<div class="de_banner"> 
+                        <div class="peo_box"> 
+                            <img class="de_images peo3 hidden" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/de3.png?{$smarty.const.VERSION}" alt=""onclick="return false">
+                            <img class="de_images peo2 hidden" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/de2.png?{$smarty.const.VERSION}" alt=""onclick="return false">
+                            <img class="de_images peo1" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/de1.png?{$smarty.const.VERSION}" alt=""onclick="return false">
+                            <img class="de_images peo3 hidden" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/de3.png?{$smarty.const.VERSION}" alt=""onclick="return false">
+                            <img class="de_images peo2 hidden" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/de2.png?{$smarty.const.VERSION}" alt=""onclick="return false">
+                            <img class="de_images peo1" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/de1.png?{$smarty.const.VERSION}" alt=""onclick="return false">
+                        </div>
+				<div class="swiper-container detail_box">
+					<div class="swiper-wrapper">
+					{article id="480" size=6 var=zx}
+					{if $zx neq ''}
+					{foreach $zx as $key=>$v}
+					{if $key >= 0}
+                        <div class="swiper-slide">
+                            <div class="detail">
+                                <div class="detail_box_s">
+                                <div class="detail_title">
+                                    <h3>{$v.title}</h3>
+                                    <p><span>发布时间：{$v.created_at|date_format:"%m/%d"}</span>
+                                    <span>来源：本网站</span></p>
+                                </div>
+                                <div class="content scroll">
+                                    <div class="content_info">
+                                    {$v.body_ggtd}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/if}
+					{/foreach}
+					{/if}
+                    </div>
+				</div>
+			</div>
+            <a href="javascript:;" class="close"></a>
+		</section>
+        <section>
+        	<div class="junbei_tc">
+        		<div class="tc_body">
+        			<div class="chengg"></div>
+        			<div class="swiper-container j_banner">
+        				<ul class="swiper-wrapper">
+        					{fragment var=zj_tips_banner code=zj_tips_banner_m size=10}
+							{if $zj_tips_banner neq ''}
+								{foreach $zj_tips_banner as $v}
+		        					<li class="swiper-slide">
+		        						<img src="{$v.thumb}" alt="" />
+		        						<div class="li_txt">
+		        							<div class="li_title">
+		        								<i class="tiao"></i>
+		        								<p>{$v.title}</p>
+		        							</div>
+		        							<div class="li_content">
+		        								<div class="content_info">
+		        									{$v.sub_title}
+		        								</div>
+		        							</div>
+		        						</div>
+		        					</li>
+	        					{/foreach}
+							{/if}
+        				</ul>
+        			</div>
+        			<i class="n_close"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/close.png?{$smarty.const.VERSION}" alt="" /></i>
+        		</div>
+        	</div>
+        </section>
+        <section>
+        	<div class="r_tc">
+        		<div class="r_body">
+        			<div class="chengg"></div>
+        			<div class="swiper-container r_banner">
+        				<ul class="swiper-wrapper">
+        					{fragment var=jg_tips_banner code=jg_tips_banner_m size=10}
+							{if $jg_tips_banner neq ''}
+								{foreach $jg_tips_banner as $v}
+		        					<li class="swiper-slide">
+		        						<img src="{$v.thumb}" alt="" />
+		        						<div class="r_txt">
+		        							<div class="r_title">
+		        								<i class="r_tiao"></i>
+		        								<p>{$v.title}</p>
+		        							</div>
+		        							<div class="li_content">
+		        								<div class="content_info">
+		        									{$v.sub_title}
+		        								</div>
+		        							</div>
+		        						</div>
+		        					</li>
+	        					{/foreach}
+							{/if}
+        				</ul>
+        			</div>
+        			<i class="n_close"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/close.png?{$smarty.const.VERSION}" alt="" /></i>
+        		</div>
+        	</div>
+        </section>
+        <section>
+        	<div class="show_img">
+        		<div class="show_body">
+        			<div class="m_banner swiper-container">
+        				<ul class="swiper-wrapper">
+        					{fragment var=ts_banner code=ts_banner size=10}
+							{if $ts_banner neq ''}
+								{foreach $ts_banner as $v}
+		                            <li class="swiper-slide">
+		                                <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""></a>
+		                            </li>
+		                        {/foreach}
+							{/if}
+	        			</ul>
+        			</div>
+        			<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/close.png?{$smarty.const.VERSION}" alt="" class="c_close" />
+        		</div>
+        	</div>
+        </section>
+        <!--弹窗-->
+		<section>
+			<div class="tc">
+				<div class="tc_pub">
+					<div class="chengg"></div>
+					<div class="pub_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ewm.jpg?{$smarty.const.VERSION}" alt="" class="ewm" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/txt.png?{$smarty.const.VERSION}" alt="" class="txt" />
+					</div>
+					<!--预约-->
+					<div class="login">
+						<div class="login_title">
+							<p>游戏预约</p>
+						</div>
+						<ul class="select_ul">
+							<li class="active" data-type="android">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/and.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/and_h.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>Android</p>
+							</li>
+							<li data-type="ios">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ios.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ios_h.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>iOS</p>
+							</li>
+						</ul>
+						<div class="s_put">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/small.png?{$smarty.const.VERSION}" alt="" class="small" />
+							<input type="tel" placeholder="请输入手机号" class="phone" />
+						</div>
+						<div class="s_put tupian" style="display: none;">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/suo.png?{$smarty.const.VERSION}" alt="" class="suo" />
+							<input type="text" placeholder="输入验证码" class="t_yzm" />
+							<div class="captcha">
+								<img src="" alt="" />
+								<p>点击刷新</p>
+							</div>
+						</div>
+						<div class="s_put">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/suo.png?{$smarty.const.VERSION}" alt="" class="suo" />
+							<input type="text" placeholder="输入验证码" class="yzm" />
+							<span class="g_code">获取验证码</span>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/t_yuyue.png?{$smarty.const.VERSION}" alt="" class="btn_yuyue stat_yy" />
+					</div>
+					<!--预约成功-->
+					<div class="login_success">
+						<div class="login_title">
+							<p>预约成功！</p>
+						</div>
+						<!-- <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" /> -->
+						<p class="login_tip login_tip1">恭喜您，成功预约《战争与征服》先锋测试</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/yy_bg.png?{$smarty.const.VERSION}" alt="" class="yy_img">
+						<p class="login_tip login_tip2">前往官方Q群(144616927)集结备战,豪华补给将在组织内发放。</p>
+						<a href="https://jq.qq.com/?_wv=1027&k=5w6QZwn" target="_blank"  class="sure_qq"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qq_btn.png?{$smarty.const.VERSION}" alt=""/></a>
+						<!-- <p class="login_tip">恭喜你，预约成功</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sure.png?{$smarty.const.VERSION}" alt="" class="sure" /> -->
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/n_close.png?{$smarty.const.VERSION}" class="c_close k_close" />
+				</div>
+			</div>
+		</section>
+	</body>
+	{video_play}
+    {download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/canvas.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/canvas2.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/canvas3.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+    <script>    
+    //     var clickNumber2 = 0;
+    // $('.ent_yy').click(function () {
+    //     if(clickNumber2 % 2 == 0) {
+    //     $('.down_list').slideDown(500);
+    //     $('.top-list').slideUp(500);
+    // } else {
+    //     $('.down_list').slideUp(500);
+    // }
+    // clickNumber2++;
+    // })
+    var mySwiper = new Swiper('.z_banner', {
+		loop: true,
+		simulateTouch: false,
+		autoplay: 4500,
+		pagination: '.swiper-pagination1',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		onClick: function(swiper) {
+			// //显示弹框
+			// $(".detail_tc").removeClass("hidden");
+			// mySwiper4.update();
+			// //			stop();
+			// mySwiper4.slideTo(swiper.realIndex);
+		},
+		observer: true,
+		observeParents: true,
+	});
+	var mySwiper1 = new Swiper('.sb_banner', {
+		loop: true,
+		simulateTouch: false,
+		autoplay: 3000,
+		pagination: '.swiper-pagination2',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		onClick: function(swiper) {
+			//显示弹框
+			$(".junbei_tc").show();
+			mySwiper5.update();
+			//			stop();
+			mySwiper5.slideTo(swiper.realIndex);
+		},
+		observer: true,
+		observeParents: true,
+	});
+
+	var mySwiper3 = new Swiper('.ts_banner', {
+		loop: true,
+		simulateTouch: false,
+		autoplay: 3000,
+		pagination: '.swiper-pagination3',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		onClick: function(swiper) {
+			//显示弹框
+			$(".show_img").show();
+			mySwiper7.update();
+			//			stop();
+			mySwiper7.slideTo(swiper.realIndex);
+		},
+		observer: true,
+		observeParents: true,
+	});
+	var mySwiper4 = new Swiper('.detail_box', {
+		slidesPerView: 1,
+		effect: 'fade',
+		fade: {
+			crossFade: true,
+		},
+		onTransitionEnd: function(swiper) {
+			var index_img = swiper.activeIndex;
+			$(".peo_box img").addClass('hidden');
+			$(".peo_box img").eq(index_img).removeClass('hidden');
+		},
+		observer: true,
+		observeParents: true,
+	});
+	var mySwiper5 = new Swiper('.j_banner', {
+		//		loop: true,
+		//		simulateTouch: false,
+		//		autoplay: 3000,
+		//		pagination: '.swiper-pagination2',
+		//		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		observer: true,
+		observeParents: true,
+	});
+	var mySwiper6 = new Swiper('.r_banner', {
+		//		loop: true,
+		//		simulateTouch: false,
+		//		autoplay: 3000,
+		//		pagination: '.swiper-pagination2',
+		//		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		observer: true,
+		observeParents: true,
+	});
+	var mySwiper7 = new Swiper('.m_banner', {
+		//		loop: true,
+		//		simulateTouch: false,
+		//		autoplay: 3000,
+		//		pagination: '.swiper-pagination2',
+		//		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		observer: true,
+		observeParents: true,
+	});
+    </script>
+</html>

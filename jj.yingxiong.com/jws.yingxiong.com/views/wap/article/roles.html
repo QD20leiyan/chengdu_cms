@@ -1,0 +1,182 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/list_wj.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="wj_main">
+		<div class="wj_big">
+			<div class="wj_content">
+				<div class="canvas_box">
+					<canvas id="myCanvas" class="myCanvas" width="65" height="65"></canvas>
+					<span>攻击</span>
+					<span>生存</span>
+					<span>技能</span>
+					<span>上手</span>
+				</div>
+				<div class="swiper-wrapper">
+					{foreach key=cid item=v from=$data}
+						<div class="swiper-slide">
+							{if $v.info!=null}<img class="wj_per" src="{$v.info.img}" alt="" data-l='{$v.info.value[0]}' data-t='{$v.info.value[1]}' data-r='{$v.info.value[2]}' data-b='{$v.info.value[3]}' />{/if}
+							<img class="xn_pic" src="{$v.redirect_url}" alt="" />
+							<div class="wj_des">
+								{if $v.info!=null}<p><img src="{$v.info.title_img}" alt="" />{$v.info.info}</p>{/if}
+								<div class="wj_jn">
+									<ul class="wj_jn_ul">
+										{foreach key=k item=s from=$v.skill}
+											{if $s!=null}
+												<li class="{if $k eq 0}active{/if}">
+													<img class="b_img" src="{$s.img}" alt="" />
+													<img class="b_nav" src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/j_nav.png?{$smarty.const.VERSION}" alt="" />
+												</li>
+											{/if}
+										{/foreach}
+									</ul>
+								</div>
+							</div>
+							<ul class="wj_txt_ul">
+								{foreach key=k item=s from=$v.skill}
+									{if $s!=null}
+										<li class="{if $k eq 0}active{/if}">
+											<span>{$s.title}</span>
+											<span>{$s.info}</span>
+										</li>
+									{/if}
+								{/foreach}
+							</ul>
+						</div>
+					{/foreach}
+				</div>
+			</div>
+		</div>
+		<div class="wj_page">
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+</section>
+{include file="../../layouts/wap/footer.html"} {download}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}6.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var data = {};
+	$(function (){
+		initF();
+	})
+	function d(id,param){
+		var canvas=document.getElementById(id);
+		var w=canvas.width;
+		var h=canvas.height;
+		var p=0.7;//设置内菱形的大小比例，1与外菱形一样大
+		var ctx=canvas.getContext('2d');
+		ctx.clearRect(0,0,w,h);
+		//绘制整个菱形区域
+		//开始一个新的绘制路径
+		ctx.beginPath();
+		ctx.moveTo(w/2,0);
+		//绘制直线线段到坐标点(20, 100)
+		ctx.lineTo(w,h/2);
+		//绘制直线线段到坐标点(70, 100)
+		ctx.lineTo(w/2,h);
+		//绘制直线线段到坐标点(20,100)
+		ctx.lineTo(0,h/2);
+		//先关闭绘制路径。
+		ctx.closePath();
+		//设置要填充的颜色
+		ctx.fillStyle='#4E231D';
+		//最后，填充颜色
+		ctx.fill();
+	
+		//绘制十字线及菱形线
+		//开始一个新的绘制路径
+		ctx.beginPath();
+		ctx.moveTo(0,h/2);
+		ctx.lineTo(w,h/2);
+		ctx.moveTo(w/2,0);
+		ctx.lineTo(w/2,h);
+		ctx.moveTo(w/2,h/2*(1-p));
+		ctx.lineTo(w/2*(1+p),h/2);
+		ctx.lineTo(w/2,h/2*(1+p));
+		ctx.lineTo(w/2*(1-p),h/2);
+		ctx.closePath();
+		ctx.lineWidth=1;
+		ctx.strokeStyle='#81362F';
+		ctx.stroke();
+	
+		//绘制中间要显示的菱形区域
+		ctx.beginPath();
+		ctx.moveTo(w/2,h/2*(1-param.t));
+		ctx.lineTo(w/2*(1+param.r),h/2);
+		ctx.lineTo(w/2,h/2*(1+param.b));
+		ctx.lineTo(w/2*(1-param.l),h/2);
+		ctx.closePath();
+		ctx.fillStyle='rgba(232, 165, 63, .4)';
+		ctx.fill();
+	};
+	var Swiper1 = new Swiper(".wj_content", {
+		prevButton: '.swiper-button-prev',
+		nextButton: '.swiper-button-next',
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		observer: true,
+		observeParents: true,
+		paginationBulletRender: function(swiper, index, className) {
+			var font = new Array();
+			$(".xn_pic").each(function() {
+				font.push($(this).attr("src"));
+			});
+			return '<span class="' + className + '">' +
+				'<img src="' + font[index] + '" />' +
+				'</span>';
+		},
+		slideToClickedSlide: true,
+		onTransitionEnd: function(swiper) {
+				$(".wj_per").each(function(){
+					if ($(this).parent('div').hasClass('swiper-slide-active')) {
+						data.l = parseFloat($(this).attr("data-l"));
+						console.log(data.l);
+						data.t =parseFloat( $(this).attr("data-t"));
+						console.log(data.t);
+						data.r = parseFloat($(this).attr("data-r"));
+						console.log(data.r);
+						data.b =parseFloat( $(this).attr('data-b'));
+						console.log(data.b);
+						d('myCanvas', data);
+						console.log(data)
+					}
+				});
+			// l为左边的百分比
+			// t为上边的百分比
+			// r为右边的百分比
+			// b为下边的百分比
+
+		},
+		onSlideChangeStart: function() {
+			var e = $(".swiper-pagination .swiper-pagination-bullet-active").index() + 1;
+			g = e - 4;
+			var c = $(".swiper-pagination span").width(),
+				i = parseFloat($(".swiper-pagination span").css("margin-right")),
+				r = c + i;
+			g > -1 && (
+				m = 0 == g ? "0px" : -1 * parseInt(g * r - 1) + "px", $(".swiper-pagination").css("margin-left", m)
+
+			);
+		}
+	});
+	function initF() {
+		$(".wj_per").each(function() {
+			if($(this).parent('div').hasClass('swiper-slide-active')) {
+				data.l = parseFloat($(this).attr("data-l"));
+				data.t = parseFloat($(this).attr("data-t"));
+				data.r = parseFloat($(this).attr("data-r"));
+				data.b = parseFloat($(this).attr('data-b'));
+				d('myCanvas', data);
+			}
+		});
+	}
+	$(".wj_jn_ul li").on("click", function() {
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(this).parent().parent().parent().next().children().eq(index).addClass("active");
+		$(this).parent().parent().parent().next().children().eq(index).siblings().removeClass("active");
+	});
+</script>
+
+</html>

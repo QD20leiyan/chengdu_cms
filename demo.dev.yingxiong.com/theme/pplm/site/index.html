@@ -1,0 +1,2332 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$global.web_title}</title>
+		<meta name="keywords" content="{$global.web_key}" />
+		<meta name="description" content="{$global.web_desc}" />
+		<link rel="shortcut icon" id="link_href" href="{$global.web_icon}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/colpick.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/tc_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/css/index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+		<script type="text/javascript">
+			var websiteId = "{$global.website_id}";
+			var FooterConFig = {
+				switch: 1,
+				icp: '',
+				aurl: "javascript:;",
+            	burl: "http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4028c08b4ef125d5014f168559ad49a8.html"
+			}
+		</script>
+	</head>
+
+	<body>
+		{if $global.public_top_js eq 1}
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		{/if}
+		<div class="module_top" data-attr="{$global.public_top_js}">
+			<div class="wrap">
+				<div class="tab_module tab_mb">
+					<p>切换模板</p><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="mu_ul" id="mu_ul">
+						<!--<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>预约模板</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>官网模板</p>
+							</a>
+						</li>-->
+					</ul>
+				</div>
+				<div class="tab_pc tab_module">
+					<p id="lo_wap">电脑端</p><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="pc_ul" id="pc_ul">
+						<li>
+							<a href="/m/site/edit.html?diy=yes">
+								<p>手机端</p>
+							</a>
+						</li>
+						<li>
+							<a href="/?diy=yes">
+								<p>电脑端</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<p class="module_name">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/user.png?{$smarty.const.VERSION}" alt="" />
+					<span class="before_denglu active">请登录</span>
+					<span class="after_denglu"></span>
+				</p>
+				<a class="baocun" href="javascript:;">发布上线</a>
+				<a class="yulan" href="/" target="_blank">预览</a>
+			</div>
+		</div>
+		<div class="to_top to_top1">
+            <p>关注我们</p>
+            <div class="top_box">
+                <div class="img_code">
+                  <img src="//cdnimg02.yingxiong.com/M00/0D/8E/ChpCl1wEomeESa2dAAAAAK8eaac026.jpg" alt="">
+                  <i></i>
+                </div>
+                <a href="javascript:;"><i></i></a>
+            </div>
+            <label class="q_f_icon show" show=""></label>
+        </div>
+		<div class="top" id="bg_top" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{/if}{if $global.nav_background_img neq '暂无数据'}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+			<div class="wrap">
+				<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+				<div class="header_txt">
+					<p style="{if $global.website_title_style neq '暂无数据'}{$global.website_title_style}{/if}">{if isset($global.website_title)}{$global.website_title}{/if}</p>
+					<p style="{if $global.website_sub_title_style neq '暂无数据'}{$global.website_sub_title_style}{/if}">{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+				</div>
+				{nav var=nav}
+				<ul class="top_ul">
+					{foreach $nav as $key=>$v}
+					<li data-id="{$v.id}" data-href="{$v.target}" class="{if $v.alias eq 'index'}active{/if}">
+						<a style="{$v.style}" href="{if $v.alias eq 'xw'}{myurl name='article/list, alias=>zonghe'}{else}{$v.url}{/if}" target="{if $v.target eq 1}_blank{else}_self{/if}" style="{if $key eq 0}color:{$global.nav_background_hover_color}{/if}">{$v.name}</a>
+					</li>
+					{/foreach}
+				</ul>
+				<div class="r_wx">
+					<a id="media_weixin" href="javascript:;" style="{if $global.media_wechat_icon neq '暂无数据'}background:url({$global.media_wechat_icon}) no-repeat top;{/if}"></a>
+					<a id="media_sina" {if $global.media_sina_target eq 1}target="_blank" {else}target="_self" {/if} href="{if $global.media_sina_url neq '暂无数据' }{$global.media_sina_url}{/if}" style="{if $global.media_sina_icon neq '暂无数据'}background:url({$global.media_sina_icon}) no-repeat top;{/if}"></a>
+					<a id="media_baidu" {if $global.media_baidu_target eq 1}target="_blank" {else}target="_self" {/if} href="{if $global.media_baidu_url neq '暂无数据'}{$global.media_baidu_url}{/if}" style="{if $global.media_baidu_icon neq '暂无数据'}background:url({$global.media_baidu_icon}) no-repeat top;{/if}"></a>
+				</div>
+				<div class="fl_wx">
+					<img src="{if $global.media_wechat_img neq ''}{$global.media_wechat_img}{/if}" alt="">
+				</div>
+			</div>
+			{if $diy}
+				<div class="pb_tc" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div class="kv" id="bg_kv" style="background:url({if $global.kv_background_img neq '暂无数据'}{$global.kv_background_img}{/if}) no-repeat center;">
+			<div class="wrap">
+				<img id="kv_video" src="{if isset($global.kv_video_button_img)}{$global.kv_video_button_img}{/if}" alt="" class="play {if isset($global.kv_video_button_img)}js_video_play{/if}" data-url="{if isset($global.kv_video_url)}{$global.kv_video_url}{/if}"/>
+				<div class="download_box" id="d_code" style="background:url({if $global.download_background_img neq '暂无数据'}{$global.download_background_img}{/if}) no-repeat center;background-size:100% 100%;">
+					<div class="down_ewm">
+						<img src="{if $global.download_ewm_img neq '暂无数据'}{$global.download_ewm_img}{/if}" alt="" class="js_jump_img" id="g_ewm" />
+						<i><img src="{$smarty.const.STATIC_MODULE_DOMAIN}pp/images/guangbiao.png" alt=""></i>
+					</div>
+					<div class="down_btn">
+						<a id="nios_url" href="{if $global.download_ios_url neq '暂无数据' }{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+							<img src="{if $global.download_ios_img neq '暂无数据'}{$global.download_ios_img}{/if}" alt="" id="ios_img">
+						</a>
+						<a href="{if $global.download_android_url neq '暂无数据' }{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank" id="nand_url">
+							<img src="{if $global.download_android_img neq '暂无数据'}{$global.download_android_img}{/if}" alt="" id="and_img">
+						</a>
+					</div>
+				</div>
+			</div>
+			{if $diy}
+				<div class="pb_kv" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div id="second" class="second" style="background:url({if $global.news_background_img neq '暂无数据'}{$global.news_background_img}{/if}) no-repeat center;">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<div class="m_content">
+					{fragment var=index_banner code=lunbo size=5}
+					<div class="left_banner">
+						{if $index_banner neq ''}
+						<ul class="swiper-wrapper">
+							{foreach $index_banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}" {if $v.target eq 1}target="_blank" {else}target="_self" {/if}>
+									<img src="{$v.thumb}" alt="" />
+								</a>
+							</li>
+							{/foreach}
+						</ul>
+						{/if}
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="right_news">
+						<div class="right_main">
+							<ul class="news_ul">
+								<li class="active" data-align="zonghe">综合</li>
+								<li data-align="xinwen">新闻</li>
+								<li data-align="gonggao">公告</li>
+								<li data-align="gonglve">攻略</li>
+								<li data-align="huodong">活动</li>
+								<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}pp/images/more.png" alt="" /></a>
+							</ul>
+							<div class="news_list">
+								{article alias="zonghe" size=4 var=zh}
+								<ul class="active">
+									{if isset($zh) && $zh neq ""} {foreach $zh as $key=>$v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/foreach}{/if}
+								</ul>
+								
+								{article alias="xinwen" size=4 var=xw}
+								<ul class="">
+									{if isset($xw) && $xw neq ""} {foreach $xw as $key=>$v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/foreach}{/if}
+								</ul>
+								
+								{article alias="gonggao" size=4 var=gg}
+								<ul class="">
+									{if isset($gg) && $gg neq ""} {foreach $gg as $key=>$v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/foreach}{/if}
+								</ul>
+								
+								{article alias="gonglve" size=4 var=gl}
+								<ul class="">
+									{if isset($gl) && $gl neq ""} {foreach $gl as $key=>$v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/foreach}{/if}
+								</ul>
+								
+								{article alias="huodong" size=4 var=hd}
+								<ul class="">
+									{if isset($hd) && $hd neq ""} {foreach $hd as $key=>$v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/foreach}{/if}
+								</ul>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{if $diy}
+				<div class="pb_news" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div class="last" style="background:url({if count($global.tese_background_img) > 0 && $global.tese_background_img neq ''}{$global.tese_background_img}{/if}) no-repeat center;">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<div class="m_play">
+					<div class="bottom_banner">
+						{fragment var=ts_img code=tese size=5} {if $ts_img neq ''}
+						<ul class="swiper-wrapper">
+							{foreach $ts_img as $v}
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+							{/foreach}
+						</ul>
+						{/if}
+					</div>
+					<div class="swiper-pagination1"></div>
+					<div class="swiper-button-prev1"></div>
+					<div class="swiper-button-next1"></div>
+				</div>
+			</div>
+			{if $diy}
+				<div class="pb_ts" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div class="zj_footer">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<ul>
+					<li>
+						<img src="{if isset($global.bottommedia_download_ewm)}{$global.bottommedia_download_ewm}{/if}" alt="" id="down_ewm" />
+						<div class="zj_txt">
+							<p class="zj_txt1">下载游戏</p>
+							<p class="zj_txt2" id="d_title01" style="{if $global.bottommedia_download_title_style neq '暂无数据'}{$global.bottommedia_download_title_style}{/if}">{if isset($global.bottommedia_download_title)}{$global.bottommedia_download_title}{/if}</p>
+							<p class="zj_txt3" id="d_title02" style="{if $global.bottommedia_download_sub_title_style neq '暂无数据'}{$global.bottommedia_download_sub_title_style}{/if}">{if isset($global.bottommedia_download_sub_title)}{$global.bottommedia_download_sub_title}{/if}</p>
+						</div>
+					</li>
+					<li>
+						<img src="{if isset($global.bottommedia_wechat_ewm)}{$global.bottommedia_wechat_ewm}{/if}" alt="" id="w_ewm" />
+						<div class="zj_txt">
+							<p class="zj_txt1">微信公众号</p>
+							<p class="zj_txt2" id="w_title01" style="{if $global.bottommedia_wechat_title_style neq '暂无数据'}{$global.bottommedia_wechat_title_style}{/if}">{if isset($global.bottommedia_wechat_title)}{$global.bottommedia_wechat_title}{/if}</p>
+							<p class="zj_txt3" id="w_title02" style="{if $global.bottommedia_wechat_sub_title_style neq '暂无数据'}{$global.bottommedia_wechat_sub_title_style}{/if}">{if isset($global.bottommedia_wechat_sub_title)}{$global.bottommedia_wechat_sub_title}{/if}</p>
+						</div>
+					</li>
+					<li>
+						<img src="{if isset($global.bottommedia_qq_ewm)}{$global.bottommedia_qq_ewm}{/if}" alt="" id="q_ewm" />
+						<div class="zj_txt">
+							<p class="zj_txt1">官方QQ</p>
+							<p class="zj_txt2" id="q_title01" style="{if $global.bottommedia_qq_title_style neq '暂无数据'}{$global.bottommedia_qq_title_style}{/if}">{if isset($global.bottommedia_qq_title)}{$global.bottommedia_qq_title}{/if}</p>
+							<p class="zj_txt3" id="q_title02" style="{if $global.bottommedia_qq_sub_title_style neq '暂无数据'}{$global.bottommedia_qq_sub_title_style}{/if}">{if isset($global.bottommedia_qq_sub_title)}{$global.bottommedia_qq_sub_title}{/if}</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			{if $diy}
+				<div class="pb_footer" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		{if $global.public_button_js eq 1}
+			<script type="text/javascript" src="http://static.dev.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+		{/if}
+		<!--页面公共设置-->
+		<div class="page_set">
+			<div id="page_set_one">页面设置</div>
+			<div id="page_set_two">公共组件</div>
+		</div>
+		<!--导航弹窗-->
+		<div class="nav_tc">
+			<div class="tc_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">站点信息</li>
+							<li>导航</li>
+							<li>自媒体</li>
+						</ul>
+					</div>
+					<div class="r_con">
+						<div class="r_con_div active">
+							<div class="s_put s_none">
+								<p id="website_name">游戏名</p>
+								<input type="text" class="form_put" placeholder="请输入游戏名" id="game_title" />
+							</div>
+							<div class="set-control" id="title_control">
+								<div class="set-color">
+									<button type="text" id="game_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<div class="s_put ">
+								<p id="website_title">游戏定位</p>
+								<input type="text" class="form_put" placeholder="请输入游戏定位，8个字符最佳" id="game_sub_title" />
+							</div>
+							<div class="set-control" id="stitle_control">
+								<div class="set-color">
+									<button type="text" id="wgame_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<div class="s_put ">
+								<p>游戏icon</p>
+								<div class="put_file">
+									<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="file">
+									<a href="javascript:;" class="put_link">点击上传游戏icon，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="img_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="t_sure">确定</a>
+						</div>
+						<div class="r_con_div gw">
+							<ul class="nav_box">
+								<li><span>名称</span><i>操作</i></li>
+								<div class="nav_div">
+									<li data-dh="bj"><span>首页</span><em class="bj">编辑</em></li>
+									<li data-dh="bj"><span>新闻</span><em class="bj">编辑</em></li>
+									<li data-dh="bj"><span>论坛</span><em class="bj">编辑</em></li>
+								</div>
+							</ul>
+							<div class="t_put">
+								<p>导航背景:</p>
+								<div class="put_file">
+									<input id="put_dh" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 1920px*120px</a>
+								</div>
+								<div class="choose_color fr" id="choose1">选择颜色</div>
+								<input type="hidden" name="nav_background_color" value="" />
+								<div class="xs_color"></div>
+							</div>
+							<ul class="img_ul" id="dimg_ul"></ul>
+							<div class="t_put" style="margin-top:15px;">
+								<p>hover颜色:</p>
+								<div class="choose_color fl" id="choose2">选择颜色</div>
+								<input type="hidden" name="nav_background_hover_color" value="" />
+								<div class="xs_color01"></div>
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="d_sure" style="margin-top:220px;">确定</a>
+						</div>
+						<div class="r_con_div">
+							<ul class="b_table">
+								<li><span>名称</span><span>图片</span><span>链接</span><span>操作</span></li>
+								<li id="wx_tc" data-type="bj"><span>微信</span><span><img id="wx_ex" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/nav_c.png" alt="" /><p>查看图片实例</p></span><span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/erweima.png" alt="" id="w_icon" /></span><span class="bj">编辑</span></li>
+								<li data-type="bj"><span>新浪</span><span><img id="xl_ex" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/nav_c.png" alt="" /><p>查看图片实例</p></span><span><a href="javascript:;" id="xl_url">www.baidu.com</a></span><span class="bj">编辑</span></li>
+								<li data-type="bj"><span>百度</span><span><img id="bd_ex" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/nav_c.png" alt="" /><p>查看图片实例</p></span><span><a href="javascript:;" id="baidu_url">www.baidu.com</a></span><span class="bj">编辑</span></li>
+							</ul>
+							<a href="javascript:;" class="put_sure m175" id="cl_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--导航编辑弹窗-->
+		<div class="dh_tc" id="dh_tc">
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑自媒体信息</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="wx_body">
+					<div class="s_put">
+						<p>微信icon:</p>
+						<div class="put_file">
+							<input id="wx_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="cimg_ul"></ul>
+					<div class="s_put">
+						<p>二维码图片:</p>
+						<div class="put_file">
+							<input id="ewm_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="aimg_ul"></ul>
+					<a href="javascript:;" class="put_sure m38" id="wx_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑自媒体信息</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="wx_body xn_body">
+					<div class="s_put">
+						<p>新浪icon</p>
+						<div class="put_file">
+							<input id="xn_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="eimg_ul"></ul>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input id="xn_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" />
+					</div>
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul id="se_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m38" id="xn_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑自媒体信息</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="wx_body xn_body">
+					<div class="s_put">
+						<p>贴吧icon</p>
+						<div class="put_file">
+							<input id="bd_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="fimg_ul"></ul>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input id="bd_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" />
+					</div>
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul id="bd_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m38" id="bd_sure">确定</a>
+				</div>
+			</div>
+		</div>
+		<!--导航菜单编辑-->
+		<div class="dh_tc" id="dh_bj">
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="dh_body">
+					<div class="s_put">
+						<p>栏目名称1</p>
+						<input type="text" placeholder="请输入栏目名称" id="menu1" />
+					</div>
+					<div class="set-control" id="link_one">
+						<div class="set-color">
+							<button type="text" id="l_one"></button>
+							<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+						</div>
+						<div class="bold common">B</div>
+						<div class="lean common">I</div>
+						<div class="underline common">U</div>
+						<div class="font-style font_family" id="font-style">
+							<div class="title">
+								<p>微软雅黑</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-style-list">
+								<li font-family="Microsoft YaHei">微软雅黑</li>
+								<li font-family="Microsoft JhengHei">黑体</li>
+								<li font-family="Verdana">华文细黑</li>
+								<li font-family="Arial">Arial</li>
+							</ul>
+						</div>
+						<div class="font-style font-size" id="font-size">
+							<div class="title">
+								<p>12px</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-size-list">
+								<li font-size="12">12px</li>
+								<li font-size="14">14px</li>
+								<li font-size="16">16px</li>
+								<li font-size="20">20px</li>
+								<li font-size="24">24px</li>
+							</ul>
+						</div>
+					</div>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" id="url1" />
+					</div>
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul class="dh_ul" id="dh1_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m100" id="menu1_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="dh_body">
+					<div class="s_put">
+						<p>栏目名称2</p>
+						<input type="text" placeholder="请输入栏目名称" id="menu2" />
+					</div>
+					<div class="set-control" id="link_two">
+						<div class="set-color">
+							<button type="text" id="l_two"></button>
+							<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+						</div>
+						<div class="bold common">B</div>
+						<div class="lean common">I</div>
+						<div class="underline common">U</div>
+						<div class="font-style font_family" id="font-style">
+							<div class="title">
+								<p>微软雅黑</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-style-list">
+								<li font-family="Microsoft YaHei">微软雅黑</li>
+								<li font-family="Microsoft JhengHei">黑体</li>
+								<li font-family="Verdana">华文细黑</li>
+								<li font-family="Arial">Arial</li>
+							</ul>
+						</div>
+					</div>
+					<!--<div class="s_put">
+						<p>跳转链接</p>
+						<input type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" />
+					</div>-->
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul class="dh_ul" id="dh2_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m100" id="menu2_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="dh_body">
+					<div class="s_put">
+						<p>栏目名称3</p>
+						<input type="text" placeholder="请输入栏目名称" id="menu3" />
+					</div>
+					<div class="set-control" id="link_two">
+						<div class="set-color">
+							<button type="text" id="l_two"></button>
+							<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+						</div>
+						<div class="bold common">B</div>
+						<div class="lean common">I</div>
+						<div class="underline common">U</div>
+						<div class="font-style font_family" id="font-style">
+							<div class="title">
+								<p>微软雅黑</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-style-list">
+								<li font-family="Microsoft YaHei">微软雅黑</li>
+								<li font-family="Microsoft JhengHei">黑体</li>
+								<li font-family="Verdana">华文细黑</li>
+								<li font-family="Arial">Arial</li>
+							</ul>
+						</div>
+					</div>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" id="url3" />
+					</div>
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul class="dh_ul" id="dh3_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m100" id="menu3_sure">确定</a>
+				</div>
+			</div>
+		</div>
+		<!--编辑KV弹窗-->
+		<div class="kv_tc">
+			<div class="dh_wrap active w900">
+				<p class="tc_title"><span>编辑KV</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">KV背景图</li>
+							<li>视频按钮</li>
+							<li>下载背景图</li>
+							<li>下载二维码</li>
+							<li>iOS下载</li>
+							<li>安卓下载</li>
+							<li>新闻KV</li>
+						</ul>
+					</div>
+					<div class="r_kv r_auto">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="kv_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 1920px*800px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="qimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="kv_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮图</p>
+								<div class="put_file">
+									<input id="video_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，92px*98px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wimg_ul"></ul>
+							<div class="t_put">
+								<p>播放链接</p>
+								<input id="video_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" class="a_link" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="video_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="dg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，400*206px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="gimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="bg_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="ew_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传二维码，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="aaimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="ewm_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>下载按钮</p>
+								<div class="put_file">
+									<input id="ios_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，150*51px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="iosimg_ul"></ul>
+							<div class="t_put">
+								<p>下载地址</p>
+								<input type="text" class="down_put" id="ios_url" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="xz_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>下载按钮</p>
+								<div class="put_file">
+									<input id="and_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，150*51px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="andimg_ul"></ul>
+							<div class="t_put">
+								<p>下载地址</p>
+								<input type="text" class="down_put" id="and_url" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="xz1_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="news_bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，150*51px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="newsimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="news_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑游戏特色-->
+		<div class="ts_tc" id="ts_tc01">
+			<div class="ts_wrap">
+				<p class="tc_title"><span>编辑游戏特色</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>轮播图</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="te_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，1920px*593px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="te_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ts_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>添加图片</p>
+								<div class="put_file">
+									<input id="ad_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，1200px*446px最佳</a>
+								</div>
+							</div>
+							<ul id="lb_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="lb_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部自媒体-->
+		<div class="me_tc">
+			<div class="me_wrap">
+				<p class="tc_title"><span>编辑底部自媒体</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">下载游戏</li>
+							<li>微信公众号</li>
+							<li>官方Q群</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="tit_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="d_ul"></ul>
+							<div class="t_put">
+								<p>标题</p>
+								<input type="text" class="price_put" id="f_title01" />
+							</div>
+							<div class="set-control" id="control_down">
+								<div class="set-color">
+									<button type="text" id="down1"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<div class="t_put">
+								<p>副标题</p>
+								<input type="text" class="text_con" id="f_title02" />
+							</div>
+							<div class="set-control" id="control_down1">
+								<div class="set-color">
+									<button type="text" id="down2"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure" id="d1_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="tit1_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="s_ul"></ul>
+							<div class="t_put">
+								<p>标题</p>
+								<input type="text" class="price_put" id="s_title01" />
+							</div>
+							<div class="set-control" id="control_wdown">
+								<div class="set-color">
+									<button type="text" id="wdown"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<div class="t_put">
+								<p>副标题</p>
+								<input type="text" class="text_con" id="s_title02" />
+							</div>
+							<div class="set-control" id="control_wdown1">
+								<div class="set-color">
+									<button type="text" id="wdown1"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure" id="d2_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="tit2_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="t_ul"></ul>
+							<div class="t_put">
+								<p>标题</p>
+								<input type="text" class="price_put" id="l_title01" />
+							</div>
+							<div class="set-control" id="control_qdown">
+								<div class="set-color">
+									<button type="text" id="qdown"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<div class="t_put">
+								<p>副标题</p>
+								<input type="text" class="text_con" id="l_title02" />
+							</div>
+							<div class="set-control" id="control_qdown1">
+								<div class="set-color">
+									<button type="text" id="qdown1"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+								<div class="font-style font-size" id="font-size">
+									<div class="title">
+										<p>12px</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-size-list">
+										<li font-size="12">12px</li>
+										<li font-size="14">14px</li>
+										<li font-size="16">16px</li>
+										<li font-size="20">20px</li>
+										<li font-size="24">24px</li>
+									</ul>
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure" id="d3_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑新闻轮播图-->
+		<div class="ts_tc" id="ts_tc02">
+			<div class="ts_wrap">
+				<p class="tc_title"><span>编辑模块</span><img src="http://static.dev.yingxiong.com/module/ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>轮播图</li>
+							<li>新闻</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="ne_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，1920px*593px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ne_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ne_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>轮播图</p>
+								<div class="put_file">
+									<input class="selectbtn news-add-lb-tap" type="text" style="opacity: 0;">
+									<a href="javascript:;" class="put_link news_put_link">点击上传图片，513px*300px最佳</a>
+								</div>
+							</div>
+							<ul id="news-img-list" class="img_ul news_lb_ul"></ul>
+						</div>
+						<div class="r_con_div ">
+							<div class="t_put">
+								<input type="text" class="search search-article" placeholder="搜索文章" />
+								<div class="add_tail" id="add_tail">添加文章</div>
+							</div>
+							<ul class="tail_ul" id="tail_ul"></ul>
+							<div class="btn_list tail_btn">
+								<a href="javascript:yx_showTips('保存成功');">确定</a>
+								<!-- <a href="javascript:;">取消</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑新闻轮播图-->
+		<div class="ts_tc news-add-lb-mask" style="display: none;">
+			<div class="news-add-lb-main m_wrap">
+				<a href="javascript:;" class="close"></a>
+				<p class="tc_title"><span>新增轮播图</span></p>
+				<div class="t_put upload-img">
+					<p>上传图片</p>
+					<div class="put_file">
+						<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="news_lb_file">
+						<a href="javascript:;" class="put_link news_put_link">点击上传图片，513px*300px最佳</a>
+					</div>
+				</div>
+				<div class="edit-img">
+					<div class="swiper-container edit_banner">
+						<ul class="swiper-wrapper">
+
+						</ul>
+					</div>
+
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<ul id="news_lb_ul" class="img_ul news_lb_ul"></ul>
+				<div class="t_put">
+					<p>跳转链接</p>
+					<div class="put_file put_file_add">
+						<input class="selectbtn url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com;内网地址需录入：/aaa.html;">
+					</div>
+				</div>
+				<div class="t_put open-type">
+					<p>打开方式</p>
+					<div class="open-type-con">
+						<div class="self-window" data-type="0">
+							<p><span class="active"></span></p>
+							<i>当前窗口</i>
+						</div>
+						<div class="new-window" data-type="1">
+							<p><span></span></p>
+							<i>新窗口</i>
+						</div>
+					</div>
+				</div>
+				<div class="t_put">
+					<p>排序</p>
+					<div class="put_file sort_file">
+						<input class="selectbtn sort" type="number" placeholder="输入数字，数字大的在前面">
+					</div>
+					<div class="show-or-no">
+						<p>是否显示</p>
+						<div class="show-no-icon">
+							<!-- <span class="switch-on" data-switch="1"></span> -->
+							<span class="switch-off active" data-switch="1"></span>
+						</div>
+					</div>
+				</div>
+				<div class="news-add-lb-btn">确定</div>
+			</div>
+		</div>
+		<!--添加文章弹窗-->
+		<div class="add_tc article_tc" style="display: none;">
+			<div class="add_wrap">
+				<p class="tc_title"><span class="article-tc-title">添加文章</span><img src="http://static.dev.yingxiong.com/module/ddd_yy/images/close.png" alt="" class="t_close article-close" /></p>
+				<div class="add_ul">
+					<ul>
+						<li class="active">基本属性</li>
+						<li class="">文章内容</li>
+					</ul>
+				</div>
+				<div class="add_con">
+					<div class="add_div active">
+						<div class="add_put">
+							<p>文章分类</p>
+							<div class="dropdown">
+								<input type="text" value="" readonly="readonly" class="new_input_select" />
+								<img src="http://static.dev.yingxiong.com/module/ddd_yy/images/dao.png" alt="" class="dao" />
+								<ul id="dropdown-ul"></ul>
+							</div>
+							<p class="add_p">文章标题</p>
+							<input type="text" class="add_title article-title" />
+						</div>
+						<div class="add_put">
+							<!--<p>录入时间</p>-->
+							<!--<input type="text" class="add_date" placeholder="" />-->
+							<p class="add_b">来源</p>
+							<input type="text" class="add_from article-from" placeholder="官方" />
+							<p style="margin-left:126px;">文章排序</p>
+							<input type="number" class="add_num article-num" placeholder="数字大的在前面" />
+						</div>
+						<div class="add_put">
+							<p>缩略图</p>
+							<div class="put_file">
+								<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="article-pic-file">
+								<a href="javascript:;" class="put_link">点击上传缩略图，158px*93px最佳</a>
+							</div>
+							<ul class="article-pic" id="article-pic"></ul>
+						</div>
+						<div class="btn_list">
+							<a href="javascript:;" class="add-article-sure">确定</a>
+							<!-- <a href="javascript:;" class="add-article-cancel">取消</a> -->
+						</div>
+					</div>
+					<div class="add_div">
+						<div class="add_put">
+							<p class="title">简介</p>
+							<input type="text" class="add_jj article-desc" />
+							<div class="article-content"></div>
+							<div class="btn_list editor-btn">
+								<a href="javascript:;" class="add-article-sure">确定</a>
+								<!-- <a href="javascript:;" class="add-article-cancel">取消</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑模块登录-->
+		<div class="tc_login">
+			<div class="tc_body">
+				<div class="chengg"></div>
+				<p>用户登录</p>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/use.png" alt="" />
+					<input type="text" placeholder="请输入账号" id="u_count" />
+				</div>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/mi.png" alt="" />
+					<input type="password" placeholder="请输入密码" id="u_password" />
+				</div>
+				<div class="tc_dl">登录</div>
+			</div>
+		</div>
+		<!--编辑页面公共属性-->
+		<div class="tc_property">
+			<div class="ty_body">
+				<p class="tc_title"><span>编辑属性</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="add_ul">
+					<ul id="add_ul">
+						<li class="active">页面设置</li>
+						<li>公共组件</li>
+					</ul>
+				</div>
+				<div class="pr_con" id="pr_con">
+					<div class="pr_con_div">
+						<div class="pr_put">
+							<p>浏览器标题</p>
+							<input type="text" placeholder="标题建议十个字符以内" id="web_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面关键词</p>
+							<input type="text" placeholder="标点符号建议用半角" id="key_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面简介</p>
+							<textarea placeholder="标点符号建议用半角" id="des_name" style="height:135px;"></textarea>
+						</div>
+						<div class="pr_put">
+							<p>浏览器icon</p>
+							<div class="put_file">
+								<input id="li_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+								<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+							</div>
+						</div>
+						<ul class="img_ul" id="pa_ul"></ul>
+						<a href="javascript:;" class="put_sure m38 b25" id="p_sure">确定</a>
+					</div>
+					<div class="pr_con_div active">
+						<div class="pr_put">
+							<div class="se_pub" data-type="0">
+								<span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共头部</em>
+								<a href="javascript:;" target="_blank" id="yl_tb">预览</a>
+							</div>
+							<div class="se_pub pb" data-type="0">
+								<span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共底部</em>
+								<a href="javascript:;" target="_blank" id="yl_db">预览</a>
+							</div>
+						</div>
+						<div class="pr_put mar">
+							<p>统计代码</p>
+							<textarea placeholder="标点符号建议用半角" id="pub_dm"></textarea>
+						</div>
+						<a href="javascript:;" class="put_sure m38 b25" id="g_sure">确定</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 预览弹窗 -->
+		<div class="add_tc show-img-tc">
+			<div class="add_wrap">
+				<img src="" alt="" class="show-img">
+			</div>
+		</div>
+		<div class="big_img">
+			<div class="small_img">
+				<p style="font-size:24px;text-align: center;color:#fff;margin-bottom:54px;display: none;">请使用手机扫描二维码预览</p>
+				<img src="" alt="" />
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var alt = "{module_api_domain}/";
+		var alt01 = "{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/";
+		var alt02 = "{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/";
+		$(function() {
+			var mySwiper = new Swiper(".left_banner", {
+				pagination: '.swiper-pagination',
+				simulateTouch: false,
+				loop: true,
+				autoplay: 2500,
+				paginationClickable: true,
+				autoplayDisableOnInteraction: false,
+				observer: true,
+				observeParents: true,
+			});
+			var mySwiper = new Swiper('.bottom_banner', {
+			    loop: true,
+				autoplay:3000,
+				speed:1000,
+                autoplayDisableOnInteraction : false,
+				effect: 'coverflow',
+				pagination: '.swiper-pagination1',
+				 paginationClickable: true,
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev1',
+				nextButton: '.swiper-button-next1',
+				coverflow: {
+					rotate: 0,
+					stretch: -50,
+					depth: 560,
+					modifier: 1,
+					slideShadows: false,
+				},
+				observer: true,
+				observeParents: true,
+			});
+			$(".right_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_rule>div").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			$(".news_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+			$(".s_put input").focus(function() {
+				$(this).addClass("active");
+			});
+			$(".s_put input").blur(function() {
+				$(this).removeClass("active");
+			});
+			$(".close").click(function() {
+				$(this).parent().parent().hide();
+			});
+			$(".c_yuyue ul li").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".r_wx a:nth-child(1)").hover(function (){
+				$(".fl_wx").stop().fadeIn();
+			},function (){
+				$(".fl_wx").stop().fadeOut();
+			});
+		})
+	</script>
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/colpick.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/tc_public.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		//		$(function() {
+		var img_url = "";
+		var img_list = [];
+		var article_id = null; //文章id
+		var E = window.wangEditor;
+		var editor = new E('.article-content');
+
+		function init(index) { //初始化数据
+			$(".put_file_add input").val(img_list[index].url);
+			$(".sort_file input").val(img_list[index].sort);
+			if(img_list[index].target == 1) { //新窗口
+				$(".open-type-con span").removeClass("active");
+				$(".open-type-con .new-window span").addClass("active");
+			} else {
+				$(".open-type-con span").removeClass("active");
+				$(".open-type-con .self-window span").addClass("active");
+			}
+			if(img_list[index].status == 1) { //显示
+				$(".show-no-icon .switch-off").addClass("active");
+				$(".show-no-icon .switch-off").attr("data-switch", '1');
+			} else {
+				$(".show-no-icon .switch-off").removeClass("active");
+				$(".show-no-icon .switch-off").attr("data-switch", '0')
+			}
+		}
+		$(".r_wx a:nth-child(1)").hover(function() {
+			$(".fl_wx").stop().fadeIn();
+		}, function() {
+			$(".fl_wx").stop().fadeOut();
+		});
+		var mySwiper = new Swiper(".edit_banner", {
+			pagination: '.swiper-pagination',
+			loop: false,
+			autoplay: 0,
+			observer: true,
+			// initialSlide:$(obj).index(),
+			observeParents: true,
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			onSlideChangeEnd: function() {
+				init(mySwiper.activeIndex);
+			}
+		});
+		var _date = new Date();
+		var year = _date.getFullYear();
+		var month = (_date.getMonth() + 1) >= 10 ? (_date.getMonth() + 1) : ('0' + (_date.getMonth() + 1));
+		var day = _date.getDate() >= 10 ? _date.getDate() : '0' + _date.getDate();
+		var hour = _date.getHours() >= 10 ? _date.getHours() : '0' + _date.getHours();
+		var minute = _date.getMinutes() >= 10 ? _date.getMinutes() : '0' + _date.getMinutes();
+		var time = year + '/' + month + '/' + day + '    ' + hour + ':' + minute;
+		$(".add_date").val(time);
+
+		function $ajax(url, params, callback) {
+			$.ajax({
+				url: alt + url,
+				type: 'POST',
+				async: true,
+				xhrFields: {
+					withCredentials: true
+				},
+				data: params,
+				success: function(data) {
+					if(data.status == 0) {
+						callback(data);
+					}
+				},
+				error: function() {}
+			});
+		}
+		//拉取用户信息
+//		if(isCan) {
+//			$.ajax({
+//				url: alt + "moduleapi/login/get-user-info",
+//				type: 'POST',
+//				async: true,
+//				xhrFields: {
+//					withCredentials: true
+//				},
+//				data: {
+//
+//				},
+//				success: function(respon) {
+//					var data = eval(respon);
+//					img_url = data.data.imgapi;
+//					// 富文本编辑器
+//					// 关闭粘贴内容中的样式
+//					editor.customConfig.pasteFilterStyle = false;
+//					editor.customConfig.uploadImgServer = img_url;
+//					editor.customConfig.uploadFileName = 'file';
+//					// editor.customConfig.uploadImgShowBase64 = true;
+//					// editor.customConfig.debug = true;
+//					editor.customConfig.menus = [
+//						'head', // 标题
+//						'bold', // 粗体
+//						'fontSize', // 字号
+//						'fontName', // 字体
+//						'italic', // 斜体
+//						'underline', // 下划线
+//						'strikeThrough', // 删除线
+//						'foreColor', // 文字颜色
+//						'backColor', // 背景颜色
+//						'link', // 插入链接
+//						'list', // 列表
+//						'justify', // 对齐方式
+//						'quote', // 引用
+//						'emoticon', // 表情
+//						'image', // 插入图片
+//						'table', // 表格
+//						// 'video',  // 插入视频
+//						'code', // 插入代码
+//						'undo', // 撤销
+//						'redo' // 重复
+//					];
+//					editor.customConfig.showLinkImg = false; // 隐藏“网络图片”tab
+//					editor.customConfig.uploadImgTimeout = 50000;
+//					editor.customConfig.uploadImgHooks = {
+//						before: function(xhr, editor, files) {
+//
+//						},
+//						success: function(xhr, editor, result) {
+//
+//						},
+//						fail: function(xhr, editor, result) {
+//
+//						},
+//						error: function(xhr, editor) {
+//
+//						},
+//						timeout: function(xhr, editor) {
+//
+//						},
+//						customInsert: function(insertImg, result, editor) {
+//							var url = result.cdn_url
+//							insertImg(url);
+//						}
+//					}
+//					editor.create();
+//
+//				},
+//				error: function() {}
+//			});
+//		}
+
+		//添加edit蒙层
+		function hover_shadow(obj, parent) {
+			$(obj).find(".gou").hide();
+			var ele = '<div class="hover-shadow"><i class="del"></i><i class="edit"></i><i class="forbid"></i></div>';
+			if($(obj).find(".hover-shadow").length == 0) {
+				$(obj).append(ele);
+			}
+			$(".hover-shadow .edit").off("click").on("click", function() { //编辑轮播图
+				var index = $(obj).index();
+				$(".news-add-lb-mask").show();
+				$(".news-add-lb-main .tc_title span").html("编辑图片");
+				$(".news-add-lb-main .upload-img").hide();
+				$(".news-add-lb-main .edit-img").show();
+				$(".news-add-lb-main #news_lb_ul").hide();
+
+				init(index);
+				mySwiper.slideTo($(obj).index(), 1, false); //切换到第一个slide，速度为1秒
+				// function swiper_btn(){
+
+				// }
+			})
+			var index = $(obj).index();
+			var status = null; //禁止不显示
+			var url = img_list[index].url;
+			var sort = img_list[index].sort;
+			var target = img_list[index].target;
+			var id = img_list[index].id;
+			var img = img_list[index].thumb;
+			$(obj).off("click").on("click", function() { //选中轮播图
+				status = 1; //显示
+				$ajax("moduleapi/fragment/update-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_url,
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						if($(obj).find(".gou").length == 0) {
+							$(obj).append('<i class="gou"></i>');
+						} else {
+							$(obj).find(".gou").show();
+						}
+						getLb();
+					}
+				})
+			})
+			$(".hover-shadow .del").off("click").on("click", function() { //删除轮播图
+				var index = $(obj).index();
+				var id = $(obj).attr("data-id");
+				$ajax("moduleapi/fragment/delete-lunbo", {
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						$("#news-img-list li").eq(index).remove();
+						getLb();
+					}
+				})
+			})
+			$(".hover-shadow .forbid").off("click").on("click", function(e) { //禁止轮播图
+				e.stopPropagation();
+				status = 0; //禁止不显示
+				$ajax("moduleapi/fragment/update-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_url,
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						$(obj).find(".gou").remove();
+						getLb();
+					}
+				})
+			})
+		}
+		//获取新闻轮播图
+		function getLb() {
+			$("#news-img-list").empty();
+			$(".left_banner ul").empty();
+			$(".news-add-lb-main .edit-img ul").empty();
+			$ajax("moduleapi/fragment/get-lunbo-list", {}, function(data) {
+				var data = eval(data);
+				img_list = data.data.data;
+				var html = "";
+				var _slide = "";
+				var _html = "";
+				for(var i in data.data.data) {
+					html += '<li data-id=' + data.data.data[i].id + '><img src=' + data.data.data[i].thumb + ' /><i class="gou"></i><span class="show">预览</span></li>';
+					_slide += '<li class="swiper-slide" data-id=' + data.data.data[i].id + '><img src="' + data.data.data[i].thumb + '" alt="" /></li>';
+					_html += '<li class="swiper-slide" data-id=' + data.data.data[i].id + '><a href=' + data.data.data[i].url + ' target=' + (data.data.data[i].target == 0 ? '_self' : '_bank') + '><img src="' + data.data.data[i].thumb + '" alt="" /></a></li>'
+				};
+				$(".news-add-lb-main .edit-img ul").append(_slide);
+				$("#news-img-list").append(html);
+				$(".left_banner ul").html(null).append(_html);
+				var mySwiper = new Swiper(".left_banner", {
+					pagination: '.swiper-pagination',
+					simulateTouch: false,
+					loop: true,
+					autoplay: 2500,
+					paginationClickable: true,
+					autoplayDisableOnInteraction: false,
+					observer: true,
+					observeParents: true,
+				});
+				img_list.map(function(val, i) {
+					if(val.status == 1) {
+						$("#news-img-list li").eq(i).find(".gou").show();
+					} else {
+						$("#news-img-list li").eq(i).find(".gou").hide();
+					}
+				})
+				$("#news-img-list li").mouseenter(function() {
+					hover_shadow($(this), $("#news-img-list"));
+				}).mouseleave(function() {
+					if(img_list[$(this).index()].status == 1) {
+						$(this).find(".gou").show();
+					}
+					$(this).find(".hover-shadow").remove();
+				})
+				$(".show").click(function() { //预览
+					$(".show-img-tc").show();
+					$(".show-img").attr("src", $(this).parent().find("img").attr("src"));
+				})
+			});
+		};
+		// 新增轮播图
+		var target = $(".open-type-con span.active").parent().parent().attr("data-type"); //窗口打开方式
+		var url = ""; //跳转链接
+		var sort = null; //排序
+		var status = $(".show-no-icon span").attr("data-switch"); //是否显示
+		var img_src = ""; //上传图片地址
+		var id = null; //修改轮播图时候的id
+		$(".news-add-lb-main .open-type-con div").click(function() {
+			target = $(this).attr("data-type");
+			$(".news-add-lb-main .open-type-con span").removeClass("active");
+			$(this).find("span").addClass("active");
+		})
+		$(".show-no-icon span").click(function() {
+			if($(this).hasClass("active")) { //开启
+				$(this).removeClass("active");
+				$(this).attr("data-switch", 0);
+			} else {
+				$(this).addClass("active");
+				$(this).attr("data-switch", 1);
+			}
+			status = $(this).attr("data-switch");
+		})
+		// 编辑轮播和添加
+		$(".news-add-lb-btn").click(function() {
+			url = $(".news-add-lb-main .url").val();
+			sort = $(".news-add-lb-main .sort").val();
+			if($(".edit-img").is(":visible")) { //编辑图片
+				id = $(".edit-img li").eq(mySwiper.activeIndex).attr("data-id");
+				img_src = $(".edit-img li.swiper-slide-active img").attr("src");
+				$ajax("moduleapi/fragment/update-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_src,
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						$(".news-add-lb-mask").hide();
+						getLb();
+					}
+				})
+			} else { //新增图片
+				img_src = $("#news_lb_ul img").attr("src");
+				$ajax("moduleapi/fragment/create-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_src
+				}, function(data) {
+					if(data.status == 0) {
+						$(".news-add-lb-mask").hide();
+						getLb();
+					}
+				})
+			}
+
+		})
+		// 新增轮播图
+		$(".news-add-lb-tap").click(function() {
+			$('#news_lb_ul').empty();
+			$(".put_file_add input").val("");
+			$(".open-type-con span").removeClass("active");
+			$(".open-type-con .self-window span").addClass("active");
+			$(".sort_file input").val("");
+			// $(".show-no-icon span").removeClass("active");
+			$(".news-add-lb-mask").show();
+			$(".news-add-lb-main .tc_title span").html("新增轮播图");
+			$(".news-add-lb-main .upload-img").show();
+			$(".news-add-lb-main .edit-img").hide();
+			$(".news-add-lb-main #news_lb_ul").show();
+		})
+		$(".news-add-lb-main .close").click(function() {
+			$(".news-add-lb-mask").hide();
+		})
+
+		// 上传轮播图
+		function upload_img(e, img_url, obj, type) { // type : 是显示一张图片还是多张图片
+			var result = e.currentTarget.files[0];
+			var oData = new FormData();
+			oData.append("file", result);
+			$.ajax({
+				url: img_url,
+				type: 'POST',
+				cache: false, //不设置缓存
+				processData: false, // 不处理数据
+				contentType: false, // 不设置内容类型
+				data: oData,
+				dataType: 'json',
+				success: function(data) {
+					var html = "";
+					if(type == 'single') { // 轮播上传
+						html += '<li data-id=' + data.id + '><img src=' + data.cdn_url + ' /><i class="gou"></i><span class="show">预览</span></li>';
+						$(obj).html(html);
+						$(".show").click(function() {
+							$(".show-img-tc").show();
+							$(".show-img").attr("src", data.cdn_url);
+						})
+					} else { //新闻上传
+						var _each = {
+							"src": null,
+							"name": null
+						}
+						// data-name 为上传图片的name
+						html += '<li data-id=' + data.id + ' data-select="1" data-name="' + result.name + '"><img src=' + data.cdn_url + ' /></li>';
+						$(obj).prepend(html);
+						$(obj).find("li:first").append("<i class='gou'></i>").siblings().find('i.gou').remove();
+						$(obj).find("li").mouseenter(function() {
+							var _this = this;
+							if($(_this).find("i.del").length == 0 && $(_this).attr("data-select") == 0) {
+								$(_this).append("<i class='del'></i>");
+							}
+							$(_this).find("i.del").click(function() {
+								$(_this).remove();
+							})
+						}).mouseleave(function() {
+							$(this).find('i.del').remove();
+						})
+						$(obj).find("li").click(function() {
+							var _this = this;
+							$(_this).find('i.del').remove();
+							$(_this).append("<i class='gou'></i>");
+							$(_this).attr("data-select", "1");
+							$(_this).siblings().find('i.gou').remove();
+							$(_this).siblings().attr("data-select", "0");
+						})
+					}
+				},
+				error: function() {
+					console.log("Error！");
+				}
+			});
+		}
+		$("#news_lb_file").on('change', function(e) {
+			upload_img(e, img_url, $("#news_lb_ul"), 'single');
+		});
+		$("#article-pic-file").on('change', function(e) {
+			upload_img(e, img_url, $("#article-pic"), 'more');
+		})
+
+		//-------------------------------- 新闻相关---------------------------------------
+		var article_type = []; //文章分类
+		$(".add_ul li").click(function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".add_con .add_div ").eq(index).addClass("active").siblings().removeClass("active");
+		})
+		$(".article-close").click(function() {
+			$(".article_tc").hide();
+			$(".add_ul li").eq(0).addClass("active").siblings().removeClass("active");
+			$(".add_con .add_div").eq(0).addClass("active").siblings().removeClass("active");
+		})
+		$("#add_tail").click(function() {
+			$(".dropdown input").val(article_type[0]);
+			$(".dropdown input").attr("data-id", Object.keys(article_type)[0]);
+			$(".article-title").val("");
+			$(".article-from").val("");
+			$(".article-num").val("");
+			$("#article-pic").empty();
+			$(".article-desc").val("");
+			editor.txt.html("");
+			$(".article-tc-title").html("添加文章");
+			$(".article_tc").show();
+			$(".add-article-cancel").click(function() {
+				$(".article_tc").hide();
+				$(".add_ul li").eq(0).addClass("active").siblings().removeClass("active");
+				$(".add_con .add_div").eq(0).addClass("active").siblings().removeClass("active");
+			})
+		})
+		//--------------- 添加文章---------------
+		$('body').click(function(e) {
+			if($(e.target).find('#add_video_put').length !== 0) {
+				// 如果 你点击的这个元素 里面包含 select_box （也就是查找出来的dom 数量不是0）
+				// 就执行你需要隐藏的方法  当你点击的元素是select_box 或者他里面的元素 时候，
+				// 里面肯定不会 包含 select_box  也就不会执行 隐藏的方法
+				if($("#bj_video_ul").css('display') == 'block') {
+					$("#bj_video_ul").stop().slideUp();
+				}
+			}
+
+		});
+		$('body').click(function(e) {
+			if($(e.target).find('#drop_detail').length !== 0) {
+				// 如果 你点击的这个元素 里面包含 select_box （也就是查找出来的dom 数量不是0）
+				// 就执行你需要隐藏的方法  当你点击的元素是select_box 或者他里面的元素 时候，
+				// 里面肯定不会 包含 select_box  也就不会执行 隐藏的方法
+				if($("#dropdown-ul").css('display') == 'block') {
+					$("#dropdown-ul").stop().slideUp();
+				}
+			}
+
+		});
+		$(".dropdown input").click(function() {
+			if($(this).siblings("ul").css("display") == "none") {
+				$(this).siblings("ul").stop().slideDown();
+			} else {
+				$(this).siblings("ul").stop().slideUp();
+			}
+			$("#dropdown-ul li").click(function(e) {
+				$(".article_tc .dropdown ul").stop().slideUp();
+				e.stopPropagation();
+				$(".article_tc .dropdown input").val($(this).html());
+				$(".article_tc .dropdown input").attr("data-id", $(this).attr("data-id"));
+			})
+			$("#video_menu_ul li").click(function(e) {
+				$(".new_vd .dropdown ul").stop().slideUp();
+				e.stopPropagation();
+				$(".new_vd .dropdown input").val($(this).html());
+				$(".new_vd .dropdown input").attr("data-id", $(this).attr("data-id"));
+			});
+			$("#bj_video_ul li").click(function(e) {
+				$(".add_video .dropdown ul").stop().slideUp();
+				e.stopPropagation();
+				$(".add_video .dropdown input").val($(this).html());
+				$(".add_video .dropdown input").attr("data-id", $(this).attr("data-id"));
+			})
+		})
+		// 新增文章 或者编辑文章
+		$(".add-article-sure").click(function() {
+			var category_id = $(".article_tc .dropdown input").attr("data-id"); //文章分类
+			var title = $(".article-title").val();
+			var sub_title = $(".article-from").val();
+			var sort = $(".article-num").val();
+			var thumb = "";
+			var formData = new FormData();
+			$("#article-pic li").map(function(i, val) {
+				if($(val).attr("data-select") == 1) {
+					thumb = $(val).find("img").attr("src");
+					formData.append('article_log[1][name]', $(val).attr("data-name"));
+					formData.append('article_log[1][img]', $(val).find("img").attr("src"));
+				}
+			})
+			var summary = $(".article-desc").val(); //简介
+			var content = editor.txt.html(); //内容
+			var id = article_id;
+			formData.append('category_id', category_id);
+			formData.append('title', title);
+			formData.append('sub_title', sub_title);
+			formData.append('sort', sort);
+			formData.append('thumb', thumb);
+			formData.append('summary', summary); //简介
+			formData.append('content', content);
+			formData.append('id', id);
+			if(category_id == 0) {
+				alert("请选择分类");
+				return false;
+			} else if(title == '') {
+				alert("请填写文章标题");
+				return false;
+			} else if(summary == '') {
+				alert("请填写简介");
+				return false;
+			} else if(thumb == '') {
+				alert("请上传缩略图");
+				return false;
+			} else if(sub_title.length > 10) {
+				alert("来源字数过长");
+				return false;
+			}
+
+			function article_operation(url) {
+				$.ajax({
+					url: alt + url,
+					type: 'POST',
+					dataType: "json",
+					xhrFields: {
+						withCredentials: true
+					},
+					traditional: true,
+					processData: false,
+					contentType: false,
+					data: formData,
+					success: function(data) {
+						page = 1;
+						add_article(page, '', "zonghe");
+						$(".article_tc").hide();
+						$(".add_ul li").eq(0).addClass("active").siblings().removeClass("active");
+						$(".add_con .add_div").eq(0).addClass("active").siblings().removeClass("active");
+						editor.txt.html("");
+					}
+				})
+			}
+			if($(".article-tc-title").html() == '添加文章') {
+				article_operation('/moduleapi/content/create-article');
+			} else if($(".article-tc-title").html() == '编辑文章') {
+				article_operation('/moduleapi/content/update-article');
+			}
+
+		})
+
+		// 搜索文章
+		$(".search-article").keyup(function() {
+			if($(".search-article").val() != '') {
+				page = 1;
+				add_article(page, $(".search-article").val(), "zonghe");
+			} else {
+				page = 1;
+				add_article(page, "", "zonghe");
+			}
+		})
+
+		// 获取文章列表
+		var page = 1;
+		var scroll_list = [];
+
+		function add_article(page, arc_keywords, alias) {
+			$ajax('/moduleapi/content/get-article-list', {
+				page: page,
+				keywords: arc_keywords,
+				alias: alias
+			}, function(data) {
+				var html = "";
+				var bhtml = "";
+				if(alias == "zonghe") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><p><i>【' + data.data[i].categoryName + '】</i>' + data.data[i].title + '</p><span>' + data.data[i].formate_created_at + '</span></a>' +
+							'</li>'
+						}
+						bhtml += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><em>【' + data.data[i].categoryName + '】</em><span>' + data.data[i].title + ' </span><i>' + data.data[i].formate_created_at + '</i></a>'+
+							'</li>'
+					}
+					$(".m_c ul:nth-child(1)").html(null).append(html);
+					$(".news_list ul:nth-child(1)").html(null).append(bhtml);
+				} else if(alias == "xinwen") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><p><i>【' + data.data[i].categoryName + '】</i>' + data.data[i].title + '</p><span>' + data.data[i].formate_created_at + '</span></a>' +
+							'</li>'
+						}
+						bhtml += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><em>【' + data.data[i].categoryName + '】</em><span>' + data.data[i].title + ' </span><i>' + data.data[i].formate_created_at + '</i></a>'+
+							'</li>'
+					}
+					$(".m_c ul:nth-child(2)").html(null).append(html);
+					$(".news_list ul:nth-child(2)").html(null).append(bhtml);
+				} else if(alias == "gonggao") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><p><i>【' + data.data[i].categoryName + '】</i>' + data.data[i].title + '</p><span>' + data.data[i].formate_created_at + '</span></a>' +
+							'</li>'
+						}
+						bhtml += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><em>【' + data.data[i].categoryName + '】</em><span>' + data.data[i].title + ' </span><i>' + data.data[i].formate_created_at + '</i></a>'+
+							'</li>'
+					}
+					$(".m_c ul:nth-child(3)").html(null).append(html);
+					$(".news_list ul:nth-child(3)").html(null).append(bhtml);
+				} else if(alias == "huodong") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><p><i>【' + data.data[i].categoryName + '】</i>' + data.data[i].title + '</p><span>' + data.data[i].formate_created_at + '</span></a>' +
+							'</li>'
+						}
+						bhtml += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><em>【' + data.data[i].categoryName + '】</em><span>' + data.data[i].title + ' </span><i>' + data.data[i].formate_created_at + '</i></a>'+
+							'</li>'
+					}
+					$(".m_c ul:nth-child(4)").html(null).append(html);
+					$(".news_list ul:nth-child(4)").html(null).append(bhtml);
+				} else if(alias == "gonglve"){
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><p><i>【' + data.data[i].categoryName + '】</i>' + data.data[i].title + '</p><span>' + data.data[i].formate_created_at + '</span></a>' +
+							'</li>'
+						}
+						bhtml += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><em>【' + data.data[i].categoryName + '】</em><span>' + data.data[i].title + ' </span><i>' + data.data[i].formate_created_at + '</i></a>'+
+							'</li>'
+					}
+					$(".news_list ul:nth-child(5)").html(null).append(bhtml);
+				}
+				$("#tail_ul").empty();
+				scroll_list = data.data;
+				if(scroll_list.length == 0) {
+					return false;
+				}
+				$("#article-pic").empty();
+				var list = data.data;
+				var ele = '';
+				list.map(function(val, i) {
+					ele += '<li data-id="' + list[i].id + '"><span>' + list[i].title + '</span><img src="http://static.dev.yingxiong.com/module/ddd_yy/images/h_close.png" alt="" class="del-article"></li>'
+				})
+				$("#tail_ul").append(ele);
+				$("#tail_ul .del-article").click(function() {
+					var _this = this;
+					$ajax('/moduleapi/content/delete-content', {
+						id: $(_this).parent().attr("data-id")
+					}, function(data) {
+						$("#tail_ul li").eq($(_this).parent().index()).remove();
+					})
+				})
+				$("#tail_ul li span").click(function() { //编辑文章
+					article_id = $(this).parent().attr("data-id");
+					$("#article-pic").empty();
+					$(".article_tc").show();
+					$(".article-tc-title").html("编辑文章");
+					$ajax('/moduleapi/content/get-article-info', {
+						id: article_id
+					}, function(data) {
+						var _data = data.data.data;
+						var categoryList = data.data.categoryList;
+						var img_log = data.data.img_log;
+						for(var key in categoryList) {
+							if(_data.category_id == key) {
+								$(".article_tc .dropdown input").val(categoryList[key]);
+							}
+						}
+						$(".article_tc .dropdown input").attr("data-id", _data.category_id); //文章分类
+						$(".article-title").val(_data.title);
+						$(".article-from").val(_data.sub_title);
+						$(".article-num").val(_data.sort);
+						var ele = '';
+						if(typeof img_log !== "undefined") {
+							img_log.map(function(val, i) {
+								ele += '<li data-select="0" data-id="' + val.id + '"><img src=' + val.img + ' /></li>';
+							})
+						} else {
+							ele = '<li data-select="0" data-id="' + _data.id + '"><img src=' + _data.thumb + ' /></li>';
+						}
+						$("#article-pic").append(ele);
+						$("#article-pic li:first").attr("data-select", 1);
+						$("#article-pic li:first").append("<i class='gou'></i>");
+						$(".article-desc").val(_data.summary);
+						editor.txt.html(_data.body);
+						$("#article-pic").find("li").mouseenter(function() {
+							var _this = this;
+							if($(_this).find("i.del").length == 0 && $(_this).attr("data-select") == 0) {
+								$(_this).append("<i class='del'></i>");
+							}
+							$(_this).find("i.del").click(function() {
+								$ajax('/moduleapi/common/delete-img-log', {
+									id: $(_this).attr("data-id")
+								}, function(data) {
+									$(_this).remove();
+								})
+							})
+						}).mouseleave(function() {
+							$(this).find('i.del').remove();
+						})
+						$("#article-pic").find("li").click(function() {
+							var _this = this;
+							$(_this).find('i.del').remove();
+							$(_this).append("<i class='gou'></i>");
+							$(_this).attr("data-select", "1");
+							$(_this).siblings().find('i.gou').remove();
+							$(_this).siblings().attr("data-select", "0");
+						})
+					})
+				})
+
+			})
+		}
+		$(".t_title li").click(function() {
+			var alias = $(this).attr("data-align");
+			$(this).addClass("active").siblings().removeClass("active");
+			add_article(1, "", alias);
+			$(".m_c>div").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$("#tail_ul").scroll(function() {
+			var scrollTop = $(this).scrollTop(); //滚动条距离顶部的高度
+			var scrollHeight = $("#tail_ul li").height() * $("#tail_ul li").length; //当前页面的总高度
+			var clientHeight = $(this).height(); //当前可视的页面高度
+			if(scrollTop + clientHeight >= scrollHeight) {
+				if(scroll_list.length != 0) {
+					page++;
+					add_article(page, "", "zonghe");
+				}
+			} else if(scrollTop <= 0) {
+
+			}
+		});
+		//		});
+		$(function() {
+			if(isCan) {
+				getIsLogin();
+			}
+			if(isCan) {
+				if($(".module_top").attr("data-attr") == 1) {
+					$("#bg_top").css("margin-top", "49px");
+					$("#Hero-bar").css("margin-top", '49px');
+				} else {
+					$("#bg_top").css("margin-top", "48px");
+				}
+				$(".page_set").show();
+				$(".module_top").show();
+			} else {
+				$(".page_set").hide();
+				$(".module_top").hide();
+				$("#Hero-bar").css("margin-top", '0');
+			}
+			$(".module_name").click(function() {
+				if(isLogin) {
+					return;
+				} else {
+					$(".tc_login").show();
+				}
+			});
+			$(".pb_tc").click(function() {
+				if(isLogin) {
+					getIcon();
+					getDh();
+					getMedia();
+					getWicon();
+					getWeibo();
+					getTieba();
+					getMenu();
+					$(".baocun").addClass("active");
+					$(".nav_tc").show();
+					$("#mu_ul").stop().slideUp();
+					$("#pc_ul").stop().slideUp();
+					$(".tab_module").removeClass("active");
+				} else {
+					$(".tc_login").show();
+				}
+			});
+			$(".pb_kv").click(function() {
+				if(isLogin) {
+					getKv();
+					getVideo();
+					getTc();
+					getYy();
+					getDownload();
+					getEwm();
+					getIos();
+					getAnd();
+					getTap();
+					getNews();
+					add_article(1, "", "zonghe");
+					$(".baocun").addClass("active");
+					$(".kv_tc").show();
+					$("#mu_ul").stop().slideUp();
+					$("#pc_ul").stop().slideUp();
+					$(".tab_module").removeClass("active");
+				} else {
+					$(".tc_login").show();
+				}
+			});
+			$(".pb_con").click(function() {
+				if(isLogin) {
+					getVmenu();
+					getVlist();
+					getVbg();
+					$(".baocun").addClass("active");
+					$(".jd_tc").show();
+					$("#mu_ul").stop().slideUp();
+					$("#pc_ul").stop().slideUp();
+					$(".tab_module").removeClass("active");
+					$(".vd_tc").show();
+				} else {
+					$(".tc_login").show();
+				}
+			});
+			$(".pb_footer").click(function() {
+				if(isLogin) {
+					getQdown();
+					getWdown();
+					getDown();
+					$(".baocun").addClass("active");
+					$(".me_tc").show();
+					$("#mu_ul").stop().slideUp();
+					$("#pc_ul").stop().slideUp();
+					$(".tab_module").removeClass("active");
+				} else {
+					$(".tc_login").show();
+				}
+			});
+			$(".pb_ts").click(function() {
+				if(isLogin) {
+					getTeseLb();
+					getTese();
+					$(".baocun").addClass("active");
+					$("#ts_tc01").show();
+					$("#mu_ul").stop().slideUp();
+					$("#pc_ul").stop().slideUp();
+					$(".tab_module").removeClass("active");
+				} else {
+					$(".tc_login").show();
+				}
+			});
+			$(".pb_news").click(function() {
+				getNewsBg();
+				getLb();
+				$(".baocun").addClass("active");
+				$("#ts_tc02").show();
+			});
+			$(".news_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".news_list>ul").eq(index).addClass("active").siblings().removeClass("active");
+			})
+			$(window).scroll(function() {
+            	var $t = $(this).scrollTop();
+	            if($t > 42) {
+	                $(".top").css({
+	                    top: "0",
+	                    position: 'fixed',
+	                    zIndex: "10"
+	                });
+	            } else {
+
+	                $(".top").css({
+	                    top: "42px",
+	                    position: 'absolute',
+	                    zIndex: "9"
+	                });
+	            }
+	            var scroll = $(this).scrollTop();
+	            if (scroll < 600) {
+	                $('.to_top2').fadeOut(800);
+	                $('.to_top1').fadeOut(800);
+	            }else{
+	                $('.to_top1').fadeIn(800);
+	                $('.to_top2').fadeIn(800);
+	            }
+	        });
+	        			//返回顶部
+			$(".to_top a").click(function() {
+			    $("html,body").animate({
+			        scrollTop: 0
+			    }, 700);
+			});
+		})
+	</script>
+
+</html>

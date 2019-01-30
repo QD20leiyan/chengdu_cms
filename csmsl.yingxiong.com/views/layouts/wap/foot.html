@@ -1,0 +1,29 @@
+<script src="{$smarty.const.STATIC_DOMAIN}/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+{download}
+{video_play}
+<script src="{$smarty.const.STATIC_DOMAIN}/m/js/js.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+    //µØ¥∞Ã· æ
+    var isyx_showTips=false;
+    function yx_showTips(text){
+        if(!isyx_showTips){
+            isyx_showTips=true;
+            $('body').append('<div class="yx_shade"><div class="yx_tips_txt">'+text+'</div></div>');
+            setTimeout(function(){
+                $('.yx_shade .yx_tips_txt').addClass("show");
+            },20);
+            setTimeout(function(){
+                isyx_showTips=false;
+                $('.yx_shade').animate({
+                    'opacity':'0'
+                },function(){
+                    $('.yx_shade').remove();
+                });
+            },1000);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,75 @@
+{include '../../layouts/wap/ych_header.html'}
+<div class="i_main">
+	<!--top-part-->
+	<div class="top_menu">
+		<a href="/m/ych/list_658_1.html">首页</a>
+		<a href="/m/ych/activity.html" class="active">活动</a>
+	</div>
+	<div class="activity_bord">
+		<ul data-time="{$server_time}">
+			{foreach key=cid item=v from=$data}
+			<li class="{if isset($v.tg_started_time)&&($v.tg_started_time<=$server_time&&$server_time<=$v.px_end_time)}hd_ing{else if isset($v.tg_started_time)&&($server_time&&$server_time>$v.px_end_time)}hd_ing1{/if}">
+				<a href="{$v.wapLinkUrl}">
+					<div class='list_img'><img src="{$v.thumb}"></div>
+				<div class='list_info'>
+					<h4>{$v.title}</h4>
+					{if isset($v.tg_started_time)}<p>投稿:{$v.tg_started_time}-{$v.tg_end_time}</p>{/if}
+					{if isset($v.px_started_time)}<p>评选:{$v.px_started_time}-{$v.px_end_time}</p>{/if}
+				</div>
+				</a>
+			</li>
+			{/foreach}
+		</ul>
+		<div class="dropload-down">
+			<div class="dropload-noData">上滑加载更多</div>
+		</div>
+	</div>
+	<!--go_top-->
+	<div class="go_top"></div>
+</div>
+</body>
+{include '../../layouts/wap/ych_footer.html'}
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	var page = 2; //页数
+	var ajaxUrl = '/ych/get-activity.html';
+    // getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...")
+			getListFu();
+		}
+	}
+	function getListFu(){
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{
+				page:page++,
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg.length>0){
+					var result = '';
+					for(var i = 0; i < data.msg.length; i++) {
+						result += "<li class='"+(data.msg[i].tg_started_time<=data.server_time&&data.server_time<=data.msg[i].px_end_time?"hd_ing":"")+"'><a href="+ data.msg[i].wapLinkUrl+"><div class='list_img'><img src="+ data.msg[i].thumb+"></div>"+
+								"<div class='list_info'><h4>"+ data.msg[i].title+"</h4><p>投稿:"+ data.msg[i].tg_started_time+"-"+ data.msg[i].tg_end_time+"</p><p>评选:"+ data.msg[i].px_started_time+"-"+ data.msg[i].px_end_time+"</p></div></a></li>";
+					}
+					$('.activity_bord>ul').append(result);
+					$(".dropload-noData").html("上滑加载更多<i></i>");
+					isScroll = 1;
+				} else{
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+</script>

@@ -1,0 +1,27 @@
+{video_play}
+{download}
+<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	$(function(){
+		var and_xz = $(".stat_android").length; 
+                var ios_xz = $(".stat_ios").length; 
+                var tap_xz = $(".stat_tap").length; 
+                var hy_xz = $(".stat_hy").length; 
+                if(and_xz > 0) {
+                $('.stat_android').click(function(){ HLog.event('stat_android')
+            });
+                }
+                if(ios_xz>0){
+                    $('.stat_ios').click(function(){ HLog.event('stat_ios')
+                });
+                }
+                if(tap_xz>0){
+                    $('.stat_tap').click(function(){ HLog.event('stat_tap')
+                });
+                }
+                if(hy_xz>0){
+                    $('.stat_hy').click(function(){ HLog.event('stat_hy')
+                });
+                } 
+	})
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<title>{$seo_title}</title>
+<meta name="keywords" content="{$seo_key}" />
+<meta name="description" content="{$seo_desc}" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+<meta name="format-detection" content="telephone=no">
+<link href="{$smarty.const.STATIC_DOMAIN}1.0/wap/css/style.css?{$smarty.const.VERSION}" rel="stylesheet">
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5500f185d92045686e58c0c3926d88af";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+        // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                };
+        recalc();
+        //判断是否支持监听事件 ，不支持则停止
+        if (!doc.addEventListener) return;
+        //注册翻转事件
+        win.addEventListener(resizeEvt, recalc, false);
+    })(document, window);
+    </script>
+</head>
+<body>
+    <div id="menu">
+        <div class="navbar">
+            <a class="navbar-brand fl" href="index.html"><img src="{$smarty.const.STATIC_DOMAIN}1.0/wap/img/logo222.png?{$smarty.const.VERSION}" alt=""></a>
+            <a href="javascript:;" class="navlist"></a>
+            <div class="clear"></div>
+        </div>
+        <div class="collapse hidden">
+            <ul class="navbar-nav">
+                <li class="ind"><a class="sscroll" href="{myurl name='wap/site/index'}">H5</a></li>
+                <li class="act"><a class="sscroll" href="{myurl name='wap/article/index'}">活动专题</a></li>
+                <li><a class="sscroll" href="##" onclick='alert("敬请期待！")'>WEB开发</a> </li>
+                <li class="we"><a class="sscroll" href="{myurl name='wap/site/about'}">关于我们</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/wap/commen/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/wap/commen/jquery.fittext.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/wap/js/qj.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript">
+        $("html").fitText(2); 
+        $(function(){
+        var url = window.location.href;
+        var index =(url.match(/index/i) + "").toLowerCase() == 'index';
+        var article =(url.match(/article/i) + "").toLowerCase() == 'article';
+        var info=(url.match(/info/i) + "").toLowerCase() == 'info';
+        var about=(url.match(/about/i) + "").toLowerCase() == 'about';      
+        if(article){
+            $(".act").addClass("active");
+        }else if(info){
+            $(".act").addClass("active");
+        }else if(about){
+            $(".we").addClass("active");
+        }else{
+            $(".ind").addClass("active");
+        }
+    });
+    </script>
+</body>
+</html>

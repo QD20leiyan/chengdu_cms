@@ -1,0 +1,148 @@
+{include file="../../layouts/wap/header_top.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+<section class="i_banner">
+	<img class="p_ab" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/i_banner.png?{$smarty.const.VERSION}" alt="" />
+	<img class="p_logo" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" />
+	<img class="maox" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/mx.png?{$smarty.const.VERSION}" title="" alt="" />
+	<img class="cs" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/cs.png?{$smarty.const.VERSION}" title="" alt="" />
+	<!-- 这里是点击弹出播放页面的按钮 -->
+	<section class="i_b_play p_ab js_video_play" data-url="{$index_video.url}">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}">
+	</section>
+	<a class="o_btn js_wap_down stat_down" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn.png?{$smarty.const.VERSION}" alt="" /></a>
+</section>
+<section>
+	<div class="login">
+		<div class="login_m">
+			<div class="chengg"></div>
+			<div class="l_input">
+				<input type="tel" placeholder="请输入手机号" class="h_phone" />
+				<img class="l_close" src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_close.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="f_code">
+				<input class="s_code" type="text" placeholder="请输入验证码" />
+				<input type="button" class="e_code" value="发送验证码" />
+			</div>
+			<a class="s_tj" href="javascript:;">确认提交</a>
+			<p class="c_t">预约成功后我们会在第一时间通知您，更多精彩游戏与奖励等着您！</p>
+			<span class="lo_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/lo_close.png?{$smarty.const.VERSION}" alt="" /></span>
+		</div>
+	</div>
+	<div class="login_tc">
+		<div class="login_n">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/lo_close.png?{$smarty.const.VERSION}" alt="" class="tc_close t_close" />
+			<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/smile.png?{$smarty.const.VERSION}" alt="" /><span>恭喜您预约成功!</span></p>
+			<div class="tc_txt">我们将在游戏开启前通过手机给您传递时间信息及专属礼包!</div>
+			<div class="make_sure t_close">确定</div>
+		</div>
+	</div>
+</section>
+<section class="i_zx p_re">
+	<img class="p_ab p_x_center" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/i_title1.png?{$smarty.const.VERSION}" alt="" />
+	<section class="i_z_lb p_re">
+		<div id="i_z_lb" class="swiper-container">
+			<div class="swiper-wrapper">
+				{foreach $index_banner as $b}
+				<div class="swiper-slide">
+					<a href="{$b.url}"><img src="{$b.thumb}"></a>
+				</div>
+				{/foreach}
+			</div>
+		</div>
+		<section class="i_l_icon p_ab p_x_center"></section>
+	</section>
+	<section class="i_z_inf p_re">
+		<section class="i_z_nav p_ab">
+			<ul>
+				<li>
+					<span class="active">最新</span>
+				</li>
+				<li>
+					<span>新闻</span>
+				</li>
+				<li>
+					<span>公告</span>
+				</li>
+				<li>
+					<span>活动</span>
+				</li>
+				<li>
+					<span>攻略</span>
+				</li>
+			</ul>
+			<a class="p_ab p_y_center" href="{myurl name='wap/article/index'}"><img class="p_ab p_y_center" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/i_more_icon.png?{$smarty.const.VERSION}"></a>
+		</section>
+		<section class="i_z_list p_ab">
+			<div id="i_z_list" class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<ul>
+							{foreach $zuixin as $b}
+							<li>
+								<a href="{$b.wapLinkUrl}">[最新] {$b.title}</a><span>{$zuixin[0].created_at|date_format:"%Y-%m-%d"}</span>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="swiper-slide">
+						<ul>
+							{foreach $xinwen as $b}
+							<li>
+								<a href="{$b.wapLinkUrl}">[新闻] {$b.title}</a><span>{$xinwen[0].created_at|date_format:"%Y-%m-%d"}</span>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="swiper-slide">
+						<ul>
+							{foreach $gonggao as $b}
+							<li>
+								<a href="{$b.wapLinkUrl}">[公告] {$b.title}</a><span>{$gonggao[0].created_at|date_format:"%Y-%m-%d"}</span>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="swiper-slide">
+						<ul>
+							{foreach $huodong as $b}
+							<li>
+								<a href="{$b.wapLinkUrl}">[活动] {$b.title}</a><span>{$huodong[0].created_at|date_format:"%Y-%m-%d"}</span>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="swiper-slide">
+						<ul>
+							{foreach $gonglue as $b}
+							<li>
+								<a href="{$b.wapLinkUrl}">[攻略] {$b.title}</a><span>{$gonglue[0].created_at|date_format:"%Y-%m-%d"}</span>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+</section>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function() {
+		//页面事件
+		//点击弹出播放弹窗
+		//	$(".i_b_play").on("click", function() {
+		//		var rel = $(this).attr("rel");
+		//		if(rel) {
+		//			$("#v_iframe").attr("src", "/videoMobile/video-source.html?" + rel);
+		//		}
+		//		$(".v_cover").show();
+		//	});
+		//点击关闭播放弹窗
+		$(".v_close").on("touchend", function() {
+			$(".v_cover").hide();
+			$("#v_iframe").attr("src", "");
+		});
+	})
+</script>
+{download}

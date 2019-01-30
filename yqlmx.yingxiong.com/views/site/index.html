@@ -1,0 +1,527 @@
+{include file="../layouts/pc/header_top.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+<div class="con">
+	<div class="wrap">
+		<div class="logo_nav"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo_nav.png?{$smarty.const.VERSION}" title="" alt="" /></div>
+		<div class="txt"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mx.png?{$smarty.const.VERSION}" title="" alt="" /></div>
+		<div class="zm"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/cs.png?{$smarty.const.VERSION}" title="" alt="" /></div>
+		<div class="video js_video_play" data-url="{$index_video.url}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/video.png?{$smarty.const.VERSION}" alt="" /><</div>
+		<div class="download">
+			<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/d.png?{$smarty.const.VERSION}" title="" alt="" />扫一扫下载游戏</p>
+			<div class="code">
+				<img class="js_jump_img" src="{$smarty.const.STATIC_DOMAIN}1.0/images/code.jpg?{$smarty.const.VERSION}" title="" alt="" />
+			</div>
+			<div class="channel_tap_name" style="display: none;">
+				<div class="app">
+					<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+					<a target="_blank" class="andriod js_down_andriod stat_android" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+				</div>
+			</div>
+			<div class="channel_name" style="display: none">
+				<div class="app">
+					<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+					<a target="_blank" class="andriod js_down_andriod stat_android" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+				</div>
+			</div>
+			<div class="no_channel">
+				<div class="app">
+					<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+					<a target="_blank" class="andriod js_down_andriod stat_android" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+				</div>
+				<div class="app1">
+					<!--<a target="_blank" href="http://l.taptap.com/HK3g9xdu" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+					{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcpc','stpc','jpcpc','sycpc'])}
+					<a href="http://l.taptap.com/HK3g9xdu" class="stat_tap" style="display: none;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+					{else}
+					<a href="http://l.taptap.com/HK3g9xdu" class="stat_tap" style="display: block;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+					{/if}
+					<a target="_blank" class="haoyou stat_hy" href="http://www.3839.com/a/87547.htm"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/haoyou.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+				</div>
+			</div>
+			<!--<div class="app">-->
+				<!--<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+				<!--<a target="_blank" class="andriod js_down_andriod stat_android" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+			<!--</div>-->
+			<!--{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['stpc','ppcpc','jpcpc','tycpc'])}-->
+			<!--{else}-->
+			<!--<div class="app1">-->
+				<!--&lt;!&ndash;<a target="_blank" href="http://l.taptap.com/HK3g9xdu" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>&ndash;&gt;-->
+				<!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+				<!--<a target="_blank" class="haoyou" href="http://www.3839.com/a/87547.htm"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/haoyou.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+			<!--</div>-->
+			<!--{/if}-->
+			<!--<div class="video js_video_play" data-url="{$index_video.url}">
+				<img class="big" src="{$smarty.const.STATIC_DOMAIN}1.0/images/big_video.png" title="" alt="" />
+				<img class="small" src="{$smarty.const.STATIC_DOMAIN}1.0/images/small_video.png" title="" alt="" />
+			</div>-->
+		</div>
+		<!--<div class="boat"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fish.png" /></div>-->
+	</div>
+</div>
+<div class="snow"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/snow.png?{$smarty.const.VERSION}" alt="" /></div>
+<div class="con_1">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img class="yxzx" src="{$smarty.const.STATIC_DOMAIN}1.0/images/yxzx.png?{$smarty.const.VERSION}" title="" alt="" />
+		<div class="s_banner">
+			<div class="left_banner">
+				<div class="swiper-wrapper">
+					{foreach $index_banner as $v}
+					<div class="swiper-slide">
+						<a target="_blank" href="{$v.url}"><img src="{$v.thumb}" title="" alt="" /></a>
+					</div>
+					{/foreach}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="right_news">
+				<div class="right_nav">
+					<ul>
+						<li>
+							<a class="on" href="javascript:;">最新</a>
+						</li>
+						<li>
+							<a href="javascript:;">新闻</a>
+						</li>
+						<li>
+							<a href="javascript:;">公告</a>
+						</li>
+						<li>
+							<a href="javascript:;">活动</a>
+						</li>
+						<li>
+							<a href="javascript:;">攻略</a>
+						</li>
+					</ul>
+					<a class="more" href="{myurl name="article/list,id=>75"}"><img class="more_l" src="{$smarty.const.STATIC_DOMAIN}1.0/images/more_l.png" title="" alt="" /></a>
+				</div>
+				<div class="news_list">
+					<div class="infor" style="display:block;">
+						<ul>
+							{foreach $zuixin as $b}
+							<li>
+								<a target="_blank" href="{$b.linkUrl}">{$b.title}</a>
+								<em>{$b.created_at|date_format:"%Y-%m-%d"}</em>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="infor">
+						<ul>
+							{foreach $xinwen as $b}
+							<li>
+								<a target="_blank" href="{$b.linkUrl}">{$b.title}</a>
+								<em>{$b.created_at|date_format:"%Y-%m-%d"}</em>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="infor">
+						<ul>
+							{foreach $gonggao as $b}
+							<li>
+								<a target="_blank" href="{$b.linkUrl}">{$b.title}</a>
+								<em>{$b.created_at|date_format:"%Y-%m-%d"}</em>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="infor">
+						<ul>
+							{foreach $huodong as $b}
+							<li>
+								<a target="_blank" href="{$b.linkUrl}">{$b.title}</a>
+								<em>{$b.created_at|date_format:"%Y-%m-%d"}</em>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="infor">
+						<ul>
+							{foreach $gonglue as $b}
+							<li>
+								<a target="_blank" href="{$b.linkUrl}">{$b.title}</a>
+								<em>{$b.created_at|date_format:"%Y-%m-%d"}</em>
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="con_2">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img class="yxzl" src="{$smarty.const.STATIC_DOMAIN}1.0/images/yxzl.png?{$smarty.const.VERSION}" title="" alt="" />
+		<div class="main_data">
+			<div class="left_data">
+				<div class="middle_data">
+					<ul>
+						<li class="on">
+							<a href="javascript:;">勇者</a>
+						</li>
+						<li>
+							<a href="javascript:;">建筑</a>
+						</li>
+						<li>
+							<a href="javascript:;">道具</a>
+						</li>
+						<li>
+							<a href="javascript:;">未知</a>
+						</li>
+					</ul>
+					{*
+					<a class="c_more" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_more.png?{$smarty.const.VERSION}" title="" alt="" /></a>*}
+				</div>
+				<div class="list_pic" style="display: block;">
+					<div class="swiper-wrapper">
+						{foreach $wujiang as $k=>$b} {if $k%4 == 0 }
+						<ul class="swiper-slide">
+							{/if}
+							<li>
+								<a target="_blank" href="javascript:;">
+									<img src="{$b.thumb}" title="" alt="" />
+									<p>{$b.title}</p>
+								</a>
+							</li>
+							{if $k%4 == 3 || $k == (count($wujiang)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="list_pic" style="display: block;">
+					<div class="swiper-wrapper">
+						{foreach $yongbing as $k=>$b} {if $k%4 == 0}
+						<ul class="swiper-slide">
+							{/if}
+							<li>
+								<a target="_blank" href="javascript:;">
+									<img src="{$b.thumb}" title="" alt="" />
+									<p>{$b.title}</p>
+								</a>
+							</li>
+							{if $k%4 == 3 || $k == (count($yongbing)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="list_pic" style="display: block;">
+					<div class="swiper-wrapper">
+						{foreach $daoju as $k=>$b} {if $k%4 == 0}
+						<ul class="swiper-slide">
+							{/if}
+							<li>
+								<a target="_blank" href="javascript:;">
+									<img src="{$b.thumb}" title="" alt="" />
+									<p>{$b.title}</p>
+								</a>
+							</li>
+							{if $k%4 == 3 || $k == (count($daoju)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="list_pic" style="display: block;">
+					<div class="swiper-wrapper">
+						{foreach $fenlei as $k=>$b} {if $k%4 == 0}
+						<ul class="swiper-slide">
+							{/if}
+							<li>
+								<a target="_blank" href="javascript:;">
+									<img src="{$b.thumb}" title="" alt="" />
+									<p>{$b.title}</p>
+								</a>
+							</li>
+							{if $k%4 == 3 || $k == (count($fenlei)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+			<div class="right_data">
+				<div class="middle_data">
+					<ul>
+						<li class="on">
+							<a href="javascript:;">地图</a>
+						</li>
+						<li>
+							<a href="javascript:;">截图</a>
+						</li>
+						<li>
+							<a href="javascript:;">视频</a>
+						</li>
+					</ul>
+					{*
+					<a class="c_more" href="{myurl name=" article/index "}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_more.png" title="" alt="" /></a>*}
+				</div>
+				<div class="list_video js_tupian">
+					<div class="swiper-wrapper">
+						{foreach $ditu as $k=>$b} {if $k%3 == 0}
+						<ul class="swiper-slide">
+							{/if}
+							<li data-img="{$b.content_message}">
+								<a href="javascript:;"><img src="{$b.thumb}" title="" alt="" /></a>
+							</li>
+							{if $k%3 == 2 || $k == (count($ditu)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="list_video js_tupian">
+					<div class="swiper-wrapper">
+						{foreach $jietu as $k=>$b} {if $k%3 == 0}
+						<ul class="swiper-slide">
+							{/if}
+							<li data-img="{$b.content_message}">
+								<a href="javascript:;"><img src="{$b.thumb}" title="" alt="" /></a>
+							</li>
+							{if $k%3 == 2 || $k == (count($jietu)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<div class="list_video js_video">
+					<div class="swiper-wrapper">
+						{foreach $video as $k=>$b} {if $k%3 == 0}
+						<ul class="swiper-slide">
+							{/if}
+							<li class="js_video_play" data-url="{$b.content_message}">
+								<a href="javascript:;"><img src="{$b.thumb}" title="" alt="" /></a>
+							</li>
+							{if $k%3 == 2 || $k == (count($video)-1)}
+						</ul>
+						{/if} {/foreach}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="con_3">
+	<div class="wrap">
+		<div class="big_box">
+			<div class="prev_btn"></div>
+			<div class="next_btn"></div>
+			<div class="img_gun" id="img_gun">
+				<ul>
+					{foreach $partner as $b}
+					<li>
+						<a href="javascript:;"><img src="{$b.thumb}" title="" alt="" /></a>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+		<div class="contact">
+			<ul>
+				<li>
+					<img src="{$global.wb_img}" title="" alt="" />
+					<h3>官方微博</h3>
+					<p>关注官方微博，获取最新游戏动态，与神秘新关卡</p>
+				</li>
+				<li>
+					<img src="{$global.wx_img}" title="" alt="" />
+					<h3>官方微信</h3>
+					<p>关注官方微信，获取最新游戏动态，与神秘新关卡</p>
+				</li>
+				<li>
+					<img src="{$global.tb_img}" title="" alt="" />
+					<h3>贴吧速报</h3>
+					<p>加入《一起来冒险》贴吧，获取最新关卡玩法和攻略</p>
+				</li>
+			</ul>
+			<div class="qq">
+				<a href="http://kf.yingxiong.com/Chat/jump/game/142.html" target="_blank">
+					<h3>在线客服</h3>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/qq02.png?{$smarty.const.VERSION}" title="" alt="" />
+				</a>			
+			</div>
+		</div>
+	</div>
+	<div class="bord"></div>
+</div>
+{*右侧悬浮框*}
+<div class="float_r">
+	<form action="">
+		<div class="btn andriod">
+			<span>点击预约</span>
+		</div>
+	</form>
+	<p class="xz"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/d.png?{$smarty.const.VERSION}" title="" alt="" />扫一扫关注我们</p>
+	<div class="emw"><img src="{$global.wx_img}" title="" alt="" /></div>
+
+	<div class="channel_tap_name" style="display: none;">
+		<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+		<a target="_blank" href="javascript:;" class="andriod js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+
+	</div>
+	<div class="channel_name" style="display: none">
+		<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+		<a target="_blank" href="javascript:;" class="andriod js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+
+	</div>
+	<div class="no_channel" >
+		<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+		<a target="_blank" href="javascript:;" class="andriod js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>
+		<!--<a target="_blank" href="http://l.taptap.com/HK3g9xdu" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" alt="" /></a>-->
+		{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcpc','stpc','jpcpc','sycpc'])}
+		<a href="http://l.taptap.com/HK3g9xdu" class="stat_tap" target="_blank" style="display: none;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" alt="" /></a>
+		{else}
+		<a href="http://l.taptap.com/HK3g9xdu" class="stat_tap" target="_blank" style="display: block;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" alt="" /></a>
+		{/if}
+		<a target="_blank" href="http://www.3839.com/a/87547.htm" class="stat_hy"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/haoyou.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+	<!--<a target="_blank" href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/app_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+	<!--<a target="_blank" href="javascript:;" class="andriod js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod_f.png?{$smarty.const.VERSION}" title="" alt="" /></a>-->
+	<!--{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['stpc','ppcpc','jpcpc','tycpc'])}-->
+	<!--{else}-->
+	<!--&lt;!&ndash;<a target="_blank" href="http://l.taptap.com/HK3g9xdu" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" alt="" /></a>&ndash;&gt;-->
+	<!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tab_f.png?{$smarty.const.VERSION}" alt="" /></a>-->
+	<!--<a target="_blank" href="http://www.3839.com/a/87547.htm"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/haoyou.png?{$smarty.const.VERSION}" alt="" /></a>-->
+	<!--{/if}-->
+</div>
+<div class="login">
+	<div class="login_m">
+		<div class="chengg"></div>
+		<div class="io_h active">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_h.png?{$smarty.const.VERSION}" alt="" />
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_w.png?{$smarty.const.VERSION}" alt="" />
+			<div class="z_tab">
+				<a class="an" href="javascript:;"></a>
+				<a class="io" href="javascript:;"></a>
+			</div>
+		</div>
+		<div class="m_tab">
+			<div class="m_tab1 active">
+				<div class="sj_num">
+					<input type="text" placeholder="请输入手机号" class="h_phone" />
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_close.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<div class="i_code">
+					<div class="l_code">
+						<input type="text" placeholder="请输入验证码" class="h_code" />
+					</div>
+					<input type="button" value="发送验证码" class="r_code" />
+				</div>
+				<button class="f_code" href="javascript:;">确认提交</button>
+				<p class="b_tit">预约成功后我们会在第一时间通知您，更多精彩游戏与奖励等着您！</p>
+			</div>
+			<div class="m_tab1">
+				<img class="code_1" src="{$smarty.const.STATIC_DOMAIN}1.0/images/code.jpg?{$smarty.const.VERSION}" alt="" />
+			</div>
+		</div>
+		<img class="lo_close" src="{$smarty.const.STATIC_DOMAIN}1.0/images/lo_close.png?{$smarty.const.VERSION}" alt="" />
+	</div>
+</div>
+<div class="login_tc">
+	<div class="login_n">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/lo_close.png?{$smarty.const.VERSION}" alt="" class="tc_close t_close" />
+		<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/smile.png?{$smarty.const.VERSION}" alt="" /><span>恭喜您预约成功!</span></p>
+		<div class="tc_txt">我们将在游戏开启前通过手机给您传递时间信息及专属礼包!</div>
+		<div class="make_sure t_close">确定</div>
+	</div>
+</div>
+<!--<div id="video_mask" class="video_mask" style="display: none;">-->
+<!--<div class="w man10 both OF none"></div>-->
+<!--<div id="player5">-->
+<!--<div id="close"></div>-->
+<!--<div class="videos">-->
+<!--<embed src="http://yuntv.letv.com/bcloud.swf" allowfullscreen="true" quality="high" width="800" height="462" align="middle" allowscriptaccess="always" flashvars="uu=&amp;vu=&amp;auto_play=1&amp;gpcflag=1&amp;width=570&amp;height=300" type="application/x-shockwave-flash">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="tptc">
+	<img src="" title="" alt="" />
+	<div id="close_pic"></div>
+</div>
+<div class="mask"></div>
+{include file="../layouts/pc/footer.html"} {download}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/common/js/jquery_extend.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var countdown = 60;
+	var mySwiper01 = new Swiper('.left_banner', {
+		simulateTouch: false,
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+	});
+	var mySwiper02 = new Swiper('.list_pic', {
+		height: 122,
+		direction: 'vertical',
+		prevButton: '.list_pic .swiper-button-prev',
+		nextButton: '.list_pic .swiper-button-next',
+		simulateTouch: false,
+		observer: true,
+		observeParents: true,
+		onSlideChangeEnd: function(swiper) {
+			swiper.update(); //swiper更新
+		}
+	});
+	var mySwiper03 = new Swiper('.list_video', {
+		height: 122,
+		direction: 'vertical',
+		prevButton: '.list_video .swiper-button-prev',
+		nextButton: '.list_video .swiper-button-next',
+		observer: true,
+		observeParents: true,
+		simulateTouch: false,
+	});
+
+	function img_gun(sEv) {
+		var oDiv = document.getElementById(sEv);
+		var oUl = oDiv.getElementsByTagName("ul")[0];
+		var aLi = oUl.getElementsByTagName("li");
+		var timer = null;
+		if(aLi.length >= 8) {
+			oUl.innerHTML = oUl.innerHTML + oUl.innerHTML;
+			oUl.style.width = aLi[0].offsetWidth * aLi.length + "px";
+			timer = setInterval(move, 30);
+		} else if(aLi.length < 8) {
+			clearInterval(timer)
+		}
+
+		function move() {
+			if(oUl.offsetLeft < -oUl.offsetWidth / 2) {
+				oUl.style.left = '0';
+			}
+			oUl.style.left = oUl.offsetLeft - 2 + "px";
+		}
+	};
+	img_gun('img_gun');
+
+	$(".js_tupian li").on("click", function() {
+		var img = $(this).attr('data-img');
+		$(".tptc img").attr("src", img);
+		$('.tptc').show();
+		$('.mask').show();
+	});
+
+	$("#close_pic").click(function() {
+		$(".tptc").hide();
+		$(".mask").hide();
+	})
+
+	$("#close").click(function() {
+		$(".mask").hide();
+		$(".video_mask").hide();
+	});
+
+	$(".close_bg").click(function() {
+		$(".mask").hide();
+	});
+</script>

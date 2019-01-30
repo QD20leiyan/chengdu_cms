@@ -1,0 +1,32 @@
+{include '../../layouts/wap/header.html'}
+    <div class="listBg fade">
+       {if $diy}
+		<p style="font-size:20px;color:#000;font-weight:bold;text-align: center;margin-top:100px;">推荐位：code=detail_w_kv(尺寸640*845)</p>
+		{else}
+		{fragment var=detail code=detail_w_kv size=1}
+		<img src="{if $detail}{$detail[0].thumb}{/if}" alt="" />
+		{/if}
+    </div>
+    <div class="news-info fade">
+        <div class="news-info-box">
+            <div class="back back2">
+                {if $content.alias==zonghe}
+                <a href="{myurl name='wap/article/alias, alias=>zonghe'}"></a>
+                {else if $content.alias==xinwen}
+                <a href="{myurl name='wap/article/alias, alias=>xinwen'}"></a>
+                {else if $content.alias==gonggao}
+                <a href="{myurl name='wap/article/alias, alias=>gonggao'}"></a>
+                {else if $content.alias==huodong}
+                <a href="{myurl name='wap/article/alias, alias=>huodong'}"></a>
+                {/if}
+            </div>
+            <div class="art_til">
+                <h3>{$content.title}</h3>
+                <p>发布时间：<span class="detail-time">{$content.created_at|date_format:"%m/%d"}</span><span>作者：官方</span></p>
+            </div>
+            <div class="art_m">
+                {$content.body}
+            </div>
+        </div>
+    </div>
+{include '../../layouts/wap/footer.html'}

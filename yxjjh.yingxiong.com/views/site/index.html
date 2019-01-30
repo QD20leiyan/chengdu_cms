@@ -1,0 +1,254 @@
+{include '../layouts/pc/header.html'}
+<div class="i_main">
+    {include '../layouts/pc/top.html'}
+    <!--kv-->
+    <div class="top">
+        <!--<div class="wrap">-->
+        <div class="banner">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                    {fragment var=index_banner code=index_banner size=20}
+                    {if $index_banner neq ''}
+                    {foreach $index_banner as $v}
+                    <div class="swiper-slide">
+                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+        </div>
+        <!--</div>-->
+    </div>
+    <!--新闻-->
+    <div class="banner_news">
+        <!--<div class="wrap">-->
+        <div class="banner">
+            <p class="title">图片新闻</p>
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    {fragment var=index_banner code=news_banner size=20}
+                    {if $index_banner neq ''}
+                    {foreach $index_banner as $v}
+                    <div class="swiper-slide">
+                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                        <p class="info"><span>{$v.sub_title}</span></p>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination2"></div>
+            <div class="swiper-button-next swiper-button-prev2"></div>
+            <div class="swiper-button-next swiper-button-next2"></div>
+        </div>
+        <div class="news_box">
+            <div class="bd">
+                <ul class="news_info">
+                    {article id="1975" size=3 var=zx}
+                    {if $zx neq ''}
+                    {foreach $zx as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.linkUrl}">
+                            <span class="title">{$v.title}</span>
+                            <i class="sub_title">{$v.sub_title}</i>
+                            <span class="time"><em>{$v.created_at|date_format:"%d"}</em><b>{$v.created_at|date_format:"%y/%m"}</b></span>
+                        </a>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 350px;color: #CBB487;text-align: center;font-size: 24px;">暂无数据...</p>
+                    {/if}
+                </ul>
+            </div>
+            <a href="{myurl name='article/list, id=>1975'}" class="more" target="_blank"></a>
+        </div>
+        <!--</div>-->
+    </div>
+    <!--公益图集-->
+    <div class="img_box">
+        <div class="img_list">
+            <div class="img_more">
+                <a href="{myurl name='image/list, id=>1976'}" target="_blank">
+                    <span class="title">公益图集 <i>Public interest Atlas</i></span>
+                    <span class="more">MORE</span>
+                </a>
+            </div>
+            <ul>
+                {article id="1976" size=3 var=gytj}
+                {if $gytj neq ''}
+                {foreach $gytj as $key=>$v}
+                {if $key >= 0}
+                <li class="group" data-id="{$v.id}">
+                    <div class="gallery thumb">
+                        <a href="javascript:;">
+                            <img src="{$v.thumb}">
+                            <div class="gallery-ico"><i class="fa fa-link"></i></div>
+                            <div class="gallery-mask"></div>
+                        </a>
+                    </div>
+                    <div class="meta">
+                        <div class="title">
+                            <a href="javascript:;">{$v.title}</a>
+                        </div>
+                    </div>
+                </li>
+                {/if}
+                {/foreach}
+                {else}
+                <p class="noData" style="line-height: 350px;color: #CBB487;text-align: center;font-size: 24px;width: 50%;">暂无数据...</p>
+                {/if}
+            </ul>
+        </div>
+        <div class="img_tj">
+            {fragment var=index_banner code=index_tj size=1}
+            {if $index_banner neq ''}
+            {foreach $index_banner as $v}
+            <img class="images" src="{$v.thumb}" alt="">
+            {/foreach}
+            {/if}
+        </div>
+    </div>
+    <!--公益信息与视频-->
+    <div class="video_box">
+        <div class="info">
+            <div class="webturn">
+                <div class="gn_info">
+                    <a href="/p/about.html">
+                        <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/icon6.png?{$smarty.const.VERSION}" alt=""/></span>
+                        <h3>关于我们</h3>
+                    </a>
+                </div>
+                <div class="gn_info">
+                    <a href="/p/information.html">
+                        <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/icon7.png?{$smarty.const.VERSION}" alt=""/></span>
+                        <h3>信息公开</h3>
+                    </a>
+                </div>
+                <div class="gn_info">
+                    <a href="/p/charity.html">
+                        <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/icon8.png?{$smarty.const.VERSION}" alt=""/></span>
+                        <h3>慈善项目</h3>
+                    </a>
+                </div>
+                <div class="gn_info">
+                    <a href="/p/time.html">
+                        <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/icon9.png?{$smarty.const.VERSION}" alt=""/></span>
+                        <h3>社会影响</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="addr">
+                <div class="link-li-box link-li-box1">
+                    <span class="link-li-box-img"><i></i></span>
+                    <div class="link-li-info">
+                        <h3 class="link-li-h3">基金会地址</h3>
+                        <p class="link-li-p">深圳市罗湖区文锦南路森威大厦</p>
+                        <p class="link-li-p">雍景园19楼1911</p>
+                    </div>
+                </div>
+                <div class="link-li-box link-li-box2">
+                    <span class="link-li-box-img"><i></i></span>
+                    <div class="link-li-info">
+                        <h3 class="link-li-h3">联系电话</h3>
+                        <p class="link-li-p">0755-86952478</p>
+
+                    </div>
+                </div>
+                <div class="link-li-box link-li-box3">
+                    <span class="link-li-box-img"><i></i></span>
+                    <div class="link-li-info">
+                        <h3 class="link-li-h3">联系邮箱</h3>
+                        <p class="link-li-p">2892325207@qq.com</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video_list">
+            <div class="img_more">
+                <a href="{myurl name='video/list, id=>1978'}" target="_blank">
+                    <span class="title">公益视频 <i>Public welfare videoS</i></span>
+                    <span class="more">MORE</span>
+                </a>
+            </div>
+            <ul>
+                {article id="1978" size=3 var=gysp}
+                {if $gysp neq ''}
+                {foreach $gysp as $key=>$v}
+                {if $key >= 0}
+                <li class="group" data-url="{$v.video.media_url}">
+                    <div class="gallery thumb">
+                        <a href="javascript:;">
+                            <img src="{$v.thumb}">
+                            <div class="gallery-ico"><i class="fa fa-link"></i></div>
+                            <div class="gallery-mask"></div>
+                        </a>
+                    </div>
+                    <div class="meta">
+                        <div class="title">
+                            <a href="javascript:;">{$v.title}</a>
+                        </div>
+                    </div>
+                </li>
+                {/if}
+                {/foreach}
+                {else}
+                <p class="noData" style="line-height: 350px;color: #CBB487;text-align: center;font-size: 24px;width: 50%;float: right;">暂无数据...</p>
+                {/if}
+            </ul>
+        </div>
+    </div>
+    <!--footer-->
+    {include '../layouts/pc/bottom.html'}
+</div>
+{include '../layouts/pc/footer.html'}
+<script>
+    $(function(){
+        //kv大图初始化
+        var swiper01 = new Swiper('.swiper-container1', {
+            effect : 'fade',
+            autoHeight: true,
+            fadeEffect: {
+                crossFade: true,
+            },
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            //			autoplay:2000,
+            loop:true
+        });
+        //新闻banner初始化
+        var swiper02 = new Swiper('.swiper-container2', {
+            pagination: '.swiper-pagination2',
+            paginationType : 'fraction',
+            paginationClickable: true,
+            slidesPerView: 1,
+            autoHeight: true,
+            autoplayDisableOnInteraction : false,
+            //			autoplay:3000,
+            loop:true,
+            autoplayDisableOnInteraction: false,
+            prevButton:'.swiper-button-prev2',
+            nextButton:'.swiper-button-next2',
+            onInit: function(swiper){
+                $(".news_box").height(swiper.height);
+            },
+            onAfterResize: function(swiper){
+                $(".news_box").height(swiper.height);
+            }
+        });
+
+        $(window).resize(function (e) {
+            $(".group,.img_more").height($(".group").width()*270/480);
+            $(".img_tj,.video_box").height($(".group").width()*2*270/480);
+        });
+        $(".group,.img_more").height($(".group").width()*270/480);
+        $(".img_tj,.video_box").height($(".group").width()*2*270/480);
+
+    });
+</script>

@@ -1,0 +1,186 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" /><div class="kv">
+			<div class="wrap">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo1.png?{$smarty.const.VERSION}" alt="" class="logo"/>-->
+		        {fragment var=video code=video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/b_play.png?{$smarty.const.VERSION}" alt="" />
+				</a>
+				<div class="download_box">
+					<div class="down_ewm">
+						<img src="" alt="" class="js_jump_img">
+						<i>	</i>
+					</div>
+					<div class="channel_name" style="display:none">
+						<div class="down_btn">
+							<a href="" target="_blank" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt=""></a>
+							<a href="" target="_blank" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt=""></a>
+							<a style="display: none;" href="http://l.taptap.com/eTJC9YYy" target="_blank" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt=""></a>
+						</div>
+					</div>
+					<div class="no_channel " >
+						<div class="down_btn">
+							<a href="" target="_blank" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt=""></a>
+							<a href="" target="_blank" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt=""></a>
+							<a href="http://l.taptap.com/eTJC9YYy" target="_blank" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt=""></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg">
+			<div class="wrap">
+			    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label1.png?{$smarty.const.VERSION}" alt="" class="title">
+				<div class="content">
+					<div class="left_banner">
+					{fragment var=index_banner code=banner size=5}
+						<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+					       {foreach $index_banner as $v}
+							<li class="swiper-slide"><a href="{if $v.url}{$v.url}{else}javascript:;{/if}" target="_blank"><img src="{$v.thumb}" alt="" /></a></li>
+							{/foreach}
+					        {/if}
+						</ul>
+					</div>
+					<div class="right_news">
+						<ul class="top_ul">
+							<li class="active">综合</li>
+							<li>新闻</li>
+							<li>公告</li>
+							<li>活动</li>
+							<li>攻略</li>
+							<a href="{myurl name='article/list, id=>565'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/shizi.png?{$smarty.const.VERSION}" alt="" /></a>
+						</ul>
+						<div class="right_con">
+							<ul class="active">
+							{article id="565" size=4 var=zh}
+						    {if $zh neq ''}
+							{foreach $zh as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article id="566" size=4 var=xw}
+						    {if $xw neq ''}
+							{foreach $xw as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article id="568" size=4 var=gg}
+						    {if $gg neq ''}
+							{foreach $gg as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article id="567" size=4 var=hd}
+						    {if $hd neq ''}
+							{foreach $hd as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+							<ul class="">
+							{article id="569" size=4 var=gl}
+						    {if $gl neq ''}
+							{foreach $gl as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+									</a>
+								</li>
+										{/if}
+									{/foreach}
+								{else}
+								<p class="noData">暂无数据...</p>
+								{/if}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="peo">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/peo.png?{$smarty.const.VERSION}" alt="" class="people">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/light.png?{$smarty.const.VERSION}" alt="" class="light">
+			</div>
+		</div>
+		<div class="bg2">
+			<div class="chengg"></div>
+			<div class="wrap">
+			    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label2.png?{$smarty.const.VERSION}" alt="" class="title">
+			    <div class="bottom_con">
+					<div class="bottom_banner">
+					{fragment var=ts_img code=banner_ts size=5}
+						<ul class="swiper-wrapper">
+						{if $ts_img neq ''}
+					    {foreach $ts_img as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}" target="_blank">
+								<img src="{$v.thumb}">
+						    </a>
+							</li>
+					    {/foreach}
+					    {/if}
+						</ul>
+					</div>
+			    </div>
+
+		    </div>
+	    </div>
+	    <div class="bg3">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/h_tit.png" alt="" class="h_tit" />
+				<div class="h_banner">
+					{fragment var=hero code=s_hero size=10}
+					<ul class="swiper-wrapper">
+						{if $hero neq ''}
+						    {foreach $hero as $v}
+								<li class="swiper-slide"><a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a></li>
+							{/foreach}
+					    {/if}
+					</ul>
+					<div class="swiper-pagination2"></div>
+				</div>
+				<a target="_blank" href="http://super.zhuoyuechenxing.com/protect.html" class="protect" style="border-radius:30px;position:absolute;left:50%;margin-left:-80px;bottom:22px;width:160px;height:40px;text-align:center;background-color: #4A1700;color: #fff;text-align: center;display:block;font-size: 20px;color: #fff;line-height:40px;">游戏服务协议</a>
+			</div>
+		</div>
+	    {include file="../layouts/pc/footer.html"}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title id="lo_title">{$global.web_title}</title>
+		<meta name="keywords" content="{$global.web_key}" />
+		<meta name="description" content="{$global.web_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/common/css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/css/news.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/common/js/jquery-1.11.3.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body id="wap_body">
+		<!--header-->
+		<header>
+			<div class="header" id="header" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{/if}{if $global.nav_background_img neq '暂无数据'}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+				<a href="/" class="back">
+					<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+				</a>
+				<div class="txt">
+					<p id="txt01" style="{if $global.website_title_style neq '暂无数据'}{$global.website_title_style}{/if}">{if isset($global.website_title)}{$global.website_title}{/if}</p>
+					<p id="txt02" style="{if $global.website_sub_title_style neq '暂无数据'}{$global.website_sub_title_style}{/if}">{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+				</div>
+				<div class="nav_top" style="background-color:{if $global.nav_more_button_background_color_wap neq '暂无数据'}{$global.nav_more_button_background_color_wap}{/if};">
+					<span class="nav_top01 nav_span" style="background-color:{if $global.nav_more_button_middel_color_wap neq '暂无数据'}{$global.nav_more_button_middel_color_wap}{/if};"></span>
+					<span class="nav_top02 nav_span" style="background-color:{if $global.nav_more_button_middel_color_wap neq '暂无数据'}{$global.nav_more_button_middel_color_wap}{/if};"></span>
+					<span class="nav_top03 nav_span" style="background-color:{if $global.nav_more_button_middel_color_wap neq '暂无数据'}{$global.nav_more_button_middel_color_wap}{/if};"></span>
+				</div>
+				<div class="header_a">
+					<a href="{if $global.download_website_url_wap neq '暂无数据'}{$global.download_website_url_wap}{/if}" class="down_btn" style="background-color:{if $global.nav_button_color_wap neq ''}{$global.nav_button_color_wap}{/if};{if $global.nav_button_title_style_wap neq ''}{$global.nav_button_title_style_wap}{/if}">{if $global.nav_button_title_wap neq ''}{$global.nav_button_title_wap}{/if}</a>
+				</div>
+				{nav var=nav}
+				<ul class="tab_select">
+					{foreach $nav as $key=>$v}
+					<li data-id="{$v.id}" data-href="{$v.target}">
+						<a style="{$v.style}" href="{if $v.alias eq 'xw'}{myurl name='article/list, alias=>zonghe'}{else}{$v.url}{/if}" target="{if $v.target eq 1}_blank{else}_self{/if}" style="{if $key eq 0}color:{$global.nav_background_hover_color}{/if}">{$v.name}</a>
+					</li>
+					{/foreach}
+				</ul>
+				{if $diy}
+					<div class="pb_tc" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+		</header>
+		<!--内容-->
+		<div class="list">
+			<div class="banner">
+				<div class="swiper-container swiper-container1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img class="images" src="{if $global.subpagekv_background_img_wap neq '敬请期待'}{$global.subpagekv_background_img_wap}{/if}" alt="">
+						</div>
+					</div>
+					<div class="swiper-pagination swiper-pagination1"></div>
+				</div>
+			</div>
+			<div class="detailbox">
+				<div class="article_title">
+					<h3>{$content.title}</h3>
+					<span><span>发布时间：{$content.created_at|date_format:"%y-%m-%d"}</span><span>来源：{$content.sub_title}</span></span>
+				</div>
+				<div class="content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}czymf_gw/m/js/public.js"></script>
+
+</html>

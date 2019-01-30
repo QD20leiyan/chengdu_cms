@@ -1,0 +1,61 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/list.css?{$smarty.const.VERSION}" />
+		<div class="n_kv">
+			{if $diy}
+			<p style="font-size:50px;color:#000;font-weight:bold;text-align: center;">推荐位：详情页code=detail_kv(尺寸：1920*688)</p>
+			{else}
+				{fragment var=kv code=detail_kv size=1}
+				{if $kv}
+				<img src="{$kv[0].thumb}" alt="" />
+				{/if}
+			{/if}
+		</div>
+		<div class="n_body">
+			<div class="top_ul">
+				<ul class="tab_ul">
+					<li class="{if $alias eq zonghe}active{else} {/if}">
+						<a href="{myurl name='article/list, alias=>zonghe'}">综合</a>
+					</li>
+					<li class="{if $alias eq xinwen}active{else} {/if}">
+						<a href="{myurl name='article/list, alias=>xinwen'}">新闻</a>
+					</li>
+					<li class="{if $alias eq gonggao}active{else} {/if}">
+						<a href="{myurl name='article/list, alias=>gonggao'}">公告</a>
+					</li>
+					<li class="{if $alias eq huodong}active{else} {/if}">
+						<a href="{myurl name='article/list, alias=>huodong'}">活动</a>
+					</li>
+					<li class="{if $alias eq gonglve}active{else} {/if}">
+						<a href="{myurl name='article/list, alias=>gonglve'}">攻略</a>
+					</li>
+					<p class="back">
+						<a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+				</ul>
+			</div>
+			<div class="newslist">
+		        {if !empty($data)}
+				<ul>
+					{foreach $data as $v}
+					<a href="{$v.linkUrl}" target="_blank">
+					<li>
+						<div class="newlist_left">
+							<span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+							<span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+						</div>
+						<div class="newlist_img"><img src="{$v.thumb}" alt="" /></div>
+						<div class="newlist_right">
+							<h3>{$v.title}</h3>
+							<p>{$v.contentMessage}</p>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/l_hover.png" alt="" class="l_hover" />
+					</li>
+				    </a>
+					{/foreach}
+				</ul>
+				{$page}
+				{else}
+				<p style="text-align: center;padding-top: 35px;">暂无数据</p>
+				{/if}
+			</div>
+		</div>
+{include file="../layouts/pc/footer.html"}

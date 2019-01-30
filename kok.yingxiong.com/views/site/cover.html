@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}"/>
+		<meta name="description" content="{$seo_desc}"/>
+	<meta name="baidu-site-verification" content="4QTWrEt07K" />
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/common/css/common.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/common/css/animate.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/cover.css?{$smarty.const.VERSION}" />
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/common/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/cover";
+			}
+		</script>
+</head>
+<body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+<!--header-->
+	<div class="kv">
+		<div class="wrap_con">
+		{fragment var=video code=cover_video size=1}
+		        <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" data-url="{if $video}{$video[0].url}{/if}" class="{if $video}js_video_play play{else}play{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt=""></a>
+			<div class="light"></div>
+		</div>
+		<div class="logo1  animated zoomIn">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo1.png?{$smarty.const.VERSION}" alt=""/>
+		</div>
+		<div class="slogan1 animated bounceInDown">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan1.png?{$smarty.const.VERSION}" alt=""/>
+		</div>
+	</div>
+	<div class="bottom_box">
+		<div class="wrap">
+			<ul>
+				<li>
+				     <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+					<img src="{$global.wb_img}" alt="" class="">
+					<div class="bottom_box_txt">
+						<p>官方微博</p>
+						<p>扫描二维码进入微博</p>
+						<p>一款正经的实时互怼游戏</p>
+					</div>
+					</a>
+				</li>
+				<li>
+				    <a href="javascript:;" target="_blank">
+					<img src="{$global.wx_img}" alt="">
+					<div class="bottom_box_txt">
+						<p>官方微信</p>
+						<p>扫描二维码进入微信</p>
+						<p>微信：<span>两座城池</span></p>
+					</div>
+					</a>
+				</li>
+				<li>
+				    <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}"  target="_blank">
+					<img src="{$global.group}" alt="">
+					<div class="bottom_box_txt">
+						<p>官方Q群</p>
+						<p>扫描加群</p>
+						<p>官方Q群：<span>{$global.group_num}</span></p>
+					</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="down_box">
+	<a href="javascript:;" class="down_az stat_cover_android js_down_andriod" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and1.png?{$smarty.const.VERSION}" class="btn_bg"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ico_az.png?{$smarty.const.VERSION}" alt="" class="ico"></a>
+	<a href="javascript:;" class="down_ios stat_cover_ios js_down_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios1.png?{$smarty.const.VERSION}" class="btn_bg"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ico_ios.png?{$smarty.const.VERSION}" alt="" class="ico"></a>
+	<img src="" alt="" class="ewm js_jump_img">
+</div>
+</body>
+{download}
+{video_play}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function() {
+        pc_cover();
+    });
+	</script>
+</html>

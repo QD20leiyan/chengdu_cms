@@ -1,0 +1,25 @@
+{include '../../layouts/wap/header.html'}
+    <div class="listBg fade">
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+    </div>
+    <div class="news-info fade">
+        <div class="news-info-box">
+            <div class="back back2">
+                {if $content.category_id==529}
+                <a href="{myurl name='wap/article/list, id=>529'}"></a>
+                {else if $content.category_id==530}
+                <a href="{myurl name='wap/article/list, id=>530'}"></a>
+                {else if $content.category_id==531}
+                <a href="{myurl name='wap/article/list, id=>531'}"></a>
+                {/if}
+            </div>
+            <div class="art_til">
+                <h3>{$content.title}</h3>
+                <p>发布时间：<span class="detail-time">{$content.created_at|date_format:"%m/%d"}</span><span>来源：本网站</span></p>
+            </div>
+            <div class="art_m">
+                {$content.body}
+            </div>
+        </div>
+    </div>
+{include '../../layouts/wap/footer.html'}

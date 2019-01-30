@@ -1,0 +1,63 @@
+{include '../layouts/pc/header.html'}
+<div class="wrap">
+	{include '../layouts/pc/header_bar.html'}
+	<!--news-list-->
+	<div class="new-list-wrap">
+		<div>
+			<h2>{if isset($content.title)}{$content.title}{/if}</h2>
+			<p class="tit">{if isset($content.created_at)}{$content.created_at|date_format:"%m/%d"}{/if}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{if isset($content.sub_title)&&$content.sub_title neq ""}{$content.sub_title}{else}pr{/if}</p>
+			<div class="artText" data-url="{$content.nextLink}">
+				{if isset($content.body)}{$content.body}{/if}
+			</div>
+			<div class="loading hidden"></div>
+		</div>
+	</div>
+	<!--fixed-->
+	<div class="li-fixed">
+		<span class="label same_title">
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/ab-border.png?{$smarty.const.VERSION}" alt=""/>
+			<span class="c_name">公司动态</span>
+			<span class="e_name">NEWS</span>
+		</span>
+		<div class="li-back"><a href="{myurl name='article/list, id=>242'}">返回列表</a></div>
+	</div>
+</div>
+{include '../layouts/pc/foot.html'}
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".loading").removeClass("hidden");
+			getListFu();
+		}
+	}
+	function getListFu(){
+		var ajaxUrl =$(".artText:last").attr("data-url");
+		if(!ajaxUrl){
+			$(".loading").addClass("hidden");
+			return;
+		}
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{},
+			success:function(data){
+				$(".loading").addClass("hidden");
+				isScroll = 1;
+				$(".new-list-wrap").append($(data).find(".new-list-wrap>div"));
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+
+</script>
+</html>
+

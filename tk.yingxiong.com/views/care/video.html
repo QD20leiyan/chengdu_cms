@@ -1,0 +1,36 @@
+{include file="../layouts/pc/ca_header.html"}
+<div class="i_main">
+	<div class="list">
+		<p class="top_img">
+			<img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_logo2.png?{$smarty.const.VERSION}" class="logo1">
+		</p>
+		<div class="news_vi_box">
+			<section class="video">
+				<div class="tab_box">
+					<p class="qm_title">视频中心</p>
+					<div class="tab_main">
+						<div class="news_infor">
+							{if !empty($data)}
+							<ul class="video-list">
+								{foreach $data as $v}
+								<li>
+									 <span class="js_video_play" data-url="{$v.video.media_url}">
+										<i></i>
+										<img src="{$v.thumb}">
+									</span>
+								</li>
+								{/foreach}
+							</ul>
+							{$page}
+							{else}
+							<p style="text-align: center">暂无数据</p>
+							{/if}
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/ca_footer.html"}
+</html>

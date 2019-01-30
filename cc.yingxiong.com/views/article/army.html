@@ -1,0 +1,236 @@
+{include file="../layouts/pc/new_top.html"}
+<body>
+{csrf}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news_list.css?{$smarty.const.VERSION}" />
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/data.css?{$smarty.const.VERSION}" />
+<div class="kv">
+    <div class="kv_bg">
+        <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/da_images/da_banner.jpg?{$smarty.const.VERSION}" />
+    </div>
+    <div class="nav">
+        <div class="wrap">
+            <ul class="nav_list">
+                <li>
+                    <a href="{myurl name="site/index"}">官网首页</a>
+                </li>
+                <li class="{if $style eq xinwen}active{else $style eq zlk}active{/if}">
+                    <a href="{myurl name='article/index,type=>remen,page=>1'}">新闻资讯</a>
+                </li>
+                <li>
+                    <a href="{myurl name='video/index,type=>zxsp,page=>1'}">视频中心</a>
+                </li>
+                <li class="nav_logo">
+                    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/nav_middle.png?{$smarty.const.VERSION}" alt="" /></a>
+                </li>
+                <li class="{if $style eq gonglue}active{else}{/if}">
+                    <a href="{myurl name='article/index,type=>xsgl,page=>1'}">游戏攻略</a>
+                </li>
+                <li>
+                    <a href="javascript:alert('敬请期待！')">生涯数据</a>
+                </li>
+                <li id="i_gfqd">
+                    <a href="javascript:;">官方渠道</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="topNav" class="i_h_ginf">
+        <div>
+            <ul>
+                <li class="no_margin_left">
+                    <a href="http://bbs.yingxiong.com/t/pc/15.html" target="_blank">
+                        <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_gflt.png?{$smarty.const.VERSION}">
+							<span>
+								官方论坛
+							</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.tb_url}" target="_blank">
+                        <img src="{$global.tb_img}">
+							<span>
+								百度贴吧
+							</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <div>
+                            <img src="{$global.wb_img}">
+                        </div>
+							<span>
+								官方微博
+							</span>
+                    </a>
+                </li>
+                <li class="no_margin_right no_border">
+                    <div>
+                        <img src="{$global.wx_img}">
+
+                    </div>
+						<span>
+							公众号
+						</span>
+                </li>
+                <li class="no_margin_right no_border c_qq">
+                    <div>
+                        <img src="{$global.group}">
+                    </div>
+						<span>
+							官方Q群
+						</span>
+                    <div class="i_h_qq">
+							<span>
+								官方Q群
+							</span>
+							<span>
+								{$global.group_num}
+							</span>
+							<span>
+								<a target="_blank" href="https://jq.qq.com/?_wv=1027&k=5wubniS">点击加入</a>
+							</span>
+                    </div>
+                </li>
+                <li class="no_margin_right no_border">
+                    <div class="bordern" style="border:none;">
+                        <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_kf.png?{$smarty.const.VERSION}">
+                    </div>
+						<span>
+							客服服务
+						</span>
+                    <div class="i_h_qq bordern" style="border:none;">
+							<span>
+								客服服务电话:
+							</span>
+							<span style="color:#fff;">
+								4009393333
+							</span>
+							<span>
+								BUG反馈，游戏问题
+							</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="data_box da_bg">
+    <div class="c_tet">
+        <div class="c_wrap">
+            <div class="c_news fl">
+                <div class="c_m_news">
+                    <div class="c_t_top"><span>您当前位置：<a href="{myurl name="site/index"}">首页</a> > <em>新闻资讯</em> > <em>资料库</em></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="c_data">
+        <div class="data_bar arm">
+            <a href="{myurl name='article/datum'}"></a>
+            <a href="{myurl name='article/army'}"></a>
+            <a href="{myurl name='article/rune'}"></a>
+        </div>
+        <div class="data_peo">
+            <div class="da_sel">
+                <div class="sign_list">
+                    <div>
+                        <label>种族选择</label>
+                        <span class="type_name" data-value="1">全部</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li data-value="1"><span>全部</span></li>
+                        <li data-value="2"><span>人族</span></li>
+                        <li data-value="3"><span>神族</span></li>
+                        <li data-value="4"><span>妖族</span></li>
+                    </ul>
+                </div>
+                <div class="sign_list">
+                    <div>
+                        <label>兵种类型</label>
+                        <span class="type_name" data-value="1">全部</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li data-value="1"><span>全部</span></li>
+                        <li data-value="2"><span>前排</span></li>
+                        <li data-value="3"><span>辅助</span></li>
+                        <li data-value="4"><span>输出</span></li>
+                    </ul>
+                </div>
+                <div class="sign_list">
+                    <div>
+                        <label>攻击类型</label>
+                        <span class="type_name" data-value="1">全部</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li data-value="1"><span>全部</span></li>
+                        <li data-value="2"><span>近战</span></li>
+                        <li data-value="3"><span>远程</span></li>
+                    </ul>
+                </div>
+                <div class="sign_list">
+                    <div>
+                        <label>兵种特性</label>
+                        <span class="type_name" data-value="1">全部</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li data-value="1"><span>全部</span></li>
+                        <li data-value="2"><span>机械</span></li>
+                        <li data-value="3"><span>生物</span></li>
+                    </ul>
+                </div>
+                <div class="sign_list">
+                    <div>
+                        <label>特殊效果</label>
+                        <span class="type_name" data-value="1">全部</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li data-value="1"><span>全部</span></li>
+                        <li data-value="2"><span>隐身</span></li>
+                        <li data-value="3"><span>反隐</span></li>
+                        <li data-value="4"><span>隐身、反隐</span></li>
+                    </ul>
+                </div>
+                <div class="sign_list">
+                    <div>
+                        <label>攻击范围</label>
+                        <span class="type_name" data-value="1">全部</span>
+                        <i></i>
+                    </div>
+                    <ul>
+                        <li data-value="1"><span>全部</span></li>
+                        <li data-value="2"><span>对空</span></li>
+                        <li data-value="3"><span>对地</span></li>
+                        <li data-value="4"><span>地空兼顾</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="da_list">
+                {foreach key=cid item=v from=$data}
+                <div class="list_box">
+                    <a href="{$v.linkUrl}" data-id="{$v.id}" target="_blank"><p class="list_img"><span><img src="{$v.thumb}" alt=""/></span></p></a>
+                    <p class="list_name">{$v.title}</p>
+                </div>
+                {/foreach}
+                <div class="da_no hide">该选项暂时没有兵种哦~</div>
+                <div class="da_pages">
+                    {$page}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+{video_play}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery.mCustomScrollbar.concat.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/data.js?{$smarty.const.VERSION}"></script>

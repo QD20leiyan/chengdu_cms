@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="google" value="notranslate"/>
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>开门舰礼</title>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}dfzj/ext/css/style.css?{$smarty.const.VERSION}">
+	<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+	<div class="index-wrap">
+		<section class="section1">
+			<a href="javascript:;" class="logo">
+				<img src="{$smarty.const.STATIC_DOMAIN}dfzj/ext/images/logo.png" alt="">
+			</a>
+			<a href="http://downurl.yingxiong.com/url/dfzj_mogu.html" class="load-btn"></a>
+		</section>
+		<section class="section2"></section>
+		<section class="section3"></section>
+	</div>
+</body>
+</html>

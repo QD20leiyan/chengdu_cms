@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="description" content="如果四年前有人告诉你，电子竞技这个行业在中国可以达到300亿元的产值和1.7亿人的用户规模，你一定觉得这是痴人说梦。">
+  <meta name="keywords" content="量子体育,VSPN,电竞,移动,移动电竞,手游,王者荣耀,赛事,直播,">
+  <link rel="shortcut icon" href="{$global.icon_img}">
+  <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/bootstrap/css/bootstrap.css?{$smarty.const.VERSION}">
+  <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/css/reset.css?{$smarty.const.VERSION}">
+  <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/css/news_detail.css?{$smarty.const.VERSION}">
+  <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/css/common.css?{$smarty.const.VERSION}">
+  <title>{$content.title}</title>
+</head>
+<body>
+  <div id="main" style="background-color:#272728">
+    {include '../layouts/pc/header.html'}
+    <div class="con_wrap">
+      <!-- 标题 -->
+      <div class="title_wrap">
+        <p id="news_title">{$content.title}</p>
+        <p id="news_time"><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span></p>
+      </div>
+
+      <!-- 内容 -->
+      <div class="content">
+        {$content.body}
+      </div>
+
+    </div>
+    {include '../layouts/pc/footer.html'}
+  </div>
+</body>
+
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/bootstrap/js/bootstrap.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/bootstrap-hover-dropdown.min.js?{$smarty.const.VERSION}"></script>
+<!--<script type="text/javascript">-->
+  <!--$('#news_title').css('font-size', 38 / 1920 * screenW);-->
+  <!--$('#news_time,.content p,h4').css('font-size', 20 / 1920 * screenW);-->
+  <!--$('.content p').css('margin-top', 60 / 1920 * screenW + 'px');-->
+  <!--$('h4').css('padding-top', 60 / 1920 * screenW + 'px');-->
+<!--</script>-->
+
+</html>

@@ -1,0 +1,27 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/news.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv"></div>
+</section>
+<section>
+	<div class="n_con">
+		<div class="chengg"></div>
+		<div class="news_body">
+			<div class="detail_title">
+				<a href="{myurl name='wap/site/index'}" class="d_back"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sanjiao.png?{$smarty.const.VERSION}" alt="" /></a>
+				<div class="detail_tit">
+					<h3>{if isset($content.title)}{$content.title}{/if}</h3>
+					<p>发布时间：<span>{if isset($content.created_at)}{$content.created_at|date_format:"%m/%d"}{/if}</span>来源：本网站</p>
+				</div>
+			</div>
+			<div class="d_body">
+				<div class="detail_con">
+					{if isset($content.body)}{$content.body}{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+{include '../../layouts/wap/footer.html'}
+</html>

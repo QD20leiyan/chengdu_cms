@@ -1,0 +1,153 @@
+ {include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news_raiders.css" />
+<div class="main_content">
+	<div class="news_data">
+		<div class="left_data">
+			<ul>
+				<li data="0" class="{if $cid eq 132}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>132,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu01.png" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu01_1.png" alt="" />
+					</a>
+				</li>
+				<li data="1" class="{if $cid eq 135}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>135,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu02.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu02_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="2" class="{if $cid eq 138}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>138,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu03.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu03_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="3" class="{if $cid eq 139}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>139,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu04.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu04_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="4" class="{if $cid eq 140}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>140,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu05.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu05_1.png" title="" alt="" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="right_data">
+			<div class="right_txt">
+				<div class="tab active">
+					<div class="title_txt">
+						<div class="tab_qh01">
+							<ul>
+								{if $data}
+								{foreach $data as $k=>$b}
+									<li>
+										<a target="_blank" href="{$b.linkUrl}">{$b.title}</a><span>{$b.created_at_formate}</span>
+									</li>
+								{/foreach}									
+								{/if}								
+							</ul>
+						</div>							
+					</div>
+				</div>
+			</div>
+			{$page}
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+</body>
+<script type="text/javascript">
+	var test = window.location.href;
+	var bb = test.indexOf("article/");
+	var cc = test.substring(parseInt(bb) + 8);
+	console.log(test.substring(parseInt(bb) + 8))
+	if(cc.indexOf("raiders") != -1) {
+		$(".link li").eq(3).addClass("active");
+	}
+	clickOff();
+	click();
+	$(".left_data li").on("click", function() {
+		$(this).addClass("active").siblings().removeClass("active");
+	});
+	$(".link li").hover(function() {
+		$(this).addClass("active");
+		$(this).siblings().removeClass("active");
+	}, function() {
+
+	});
+
+	function click() {
+		$(".title_bg li").on("click", function() {
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+
+		$(".tab_qh01 li").on("click", function() {
+			$(".tab_qh01 li").removeClass("active");
+			$(this).addClass("active");
+			detail($(this).find("a").attr("data"));
+		});
+
+		$(".dl_scroll dt").on("click", function() {
+			detail($(this).find("a").attr("data"));
+		});
+
+		$(".tab_qh .tab01").on("click", function() {
+			var index = $(this).index();
+
+			$(this).addClass("active").siblings().removeClass("active");
+			var tt = $(this).parent().next().children();
+			$(tt).eq(index).addClass("active");
+			$(tt).eq(index).siblings().removeClass("active");
+		});
+	};
+
+	function clickOff() {
+		$(".title_bg li").off();
+		$(".tab_qh01 li").off();
+		$(".tab_qh .tab01").off()
+	}
+	//		function detail(data){		
+	//			$.ajax({
+	//				type:"GET",
+	//				url:data,
+	//				success:function(response){
+	//					$(".right_data").hide();
+	//					$(".right_detail").empty();
+	//					$(".right_detail").show().append(response);
+	//					clickOff();
+	//					click();
+	//				},
+	//				error:function(response){
+	//					console.log(response);
+	//				}
+	//			});
+	//		}
+
+	//		function init(curId) {
+	//			$.ajax({
+	//				type: "GET",
+	//				url: '{myurl name="/article/ajax-get-raiders"}',
+	//				data: {
+	//					id: curId
+	//				},
+	//				success: function(data) {
+	//					$(".right_detail").hide();
+	//					$(".right_data").empty();
+	//					$(".right_data").show().append(data);
+	//					clickOff();
+	//					click()
+	//				},
+	//				error: function(data) {
+	//					console.log("失败");
+	//				}
+	//
+	//			})
+	//		};
+</script>
+
+</html>

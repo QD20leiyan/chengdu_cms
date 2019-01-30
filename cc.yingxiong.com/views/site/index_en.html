@@ -1,0 +1,930 @@
+
+{if $language eq zh_cn} {config_load file="../layouts/pc/cc_zh.conf"}
+{else}
+{config_load file="../layouts/pc/cc_en.conf"} {/if}
+{include '../layouts/pc/header.html'}
+<link href="{$smarty.const.STATIC_DOMAIN}2.0/css/c_index.css?{$smarty.const.VERSION}" rel="stylesheet">
+{csrf}
+<body>
+{if $language eq zh_cn}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+{else}
+{include '../layouts/pc/header_bar.html'}
+{/if}
+{include '../layouts/pc/top.html'}
+<div class="i_head">
+	<!--[if IE 8]>
+	<div class="i_banner"></div>
+	<![endif]-->
+	<video autoplay="" class="i_video" data-setup="{}" id="i_video" loop="" preload="none">
+		<source src="{$smarty.const.STATIC_DOMAIN}2.0/video_box/cc_index_video.mp4" type="video/mp4">
+	</video>
+	<div class="i_h_content">
+		<ul {if $language eq zh_cn}class="i_h_nav"{else}class="i_h_nav_en"{/if}>
+		<li class="active">
+			<a target="_blank" href="javascript:location.reload()">
+				{#navName1#}
+				{if $language eq zh_cn}
+						<span>
+                            HOME
+                        </span>
+				{/if}
+			</a>
+		</li>
+		<li>
+			<a target="_blank" href="{myurl name="article/index,type=>xinwen,page=>1"}" >
+			{#navName3#}
+			{if $language eq zh_cn}
+						<span>
+                            NEWS
+                        </span>
+			{/if}
+			</a>
+		</li>
+		<li>
+			<a target="_blank" href="{myurl name='video/index'}">
+				{#navName2#}
+				{if $language eq zh_cn}
+						<span>
+                            MEDIA
+                        </span>
+				{/if}
+			</a>
+		</li>
+		<li class="i_logo"></li>
+		<li>
+			<a target="_blank" href="{myurl name="article/index,type=>gonglue,page=>1"}">
+			{#navName4#}
+			{if $language eq zh_cn}
+
+						<span>
+                            GAME GUIDE
+                        </span>
+			{/if}
+			</a>
+		</li>
+		<li {if $language eq zh_cn}{else}class="theData hidden"{/if}>
+		<a href="javascript:alert('{#jqqd#}')">
+			{#navName5#}
+			{if $language eq zh_cn}
+						<span>
+                            MY STATISTICS
+                        </span>
+			{/if}
+		</a>
+		</li>
+		<li class="no_margin" id="i_gfqd">
+			<a href="javascript:">
+				{#navName6#}
+				{if $language eq zh_cn}
+						<span>
+                            COMMUNITY
+                        </span>
+				{/if}
+			</a>
+		</li>
+		</ul>
+
+		<div id="topNav" class="i_h_ginf">
+			<div>
+				<ul {if $language eq zh_cn}{else}class="sj_en"{/if}>
+				<li class="no_margin_left">
+					{if $language eq zh_cn}
+					<a href="http://bbs.yingxiong.com/t/pc/15.html" target="_blank">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_gflt.png?{$smarty.const.VERSION}">
+								<span>
+                                {#lt#}
+                            </span>
+					</a>
+					{else}
+					<a href="https://www.facebook.com/redtides.mobile/?tsid=0.7278705859292902&source=result" target="_blank">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/facebook_en.png?{$smarty.const.VERSION}">
+								<span>
+                                {#lt#}
+                            </span>
+					</a>
+					{/if}
+				</li>
+				<li>
+					{if $language eq zh_cn}
+					<a href="{$global.tb_url}" target="_blank">
+						<img src="{$global.tb_img}">
+							<span>
+							{#tb#}
+							</span>
+					</a>
+					{else}
+					<a href="https://www.youtube.com/channel/UC-maiOYUEXdHJoRgEyCss8w" target="_blank">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tube_en.png?{$smarty.const.VERSION}">
+							<span>
+							{#tb#}
+							</span>
+					</a>
+					{/if}
+				</li>
+				<li>
+					{if $language eq zh_cn}
+					<a href="{$global.wb_url}" target="_blank">
+						<div>
+							<img src="{$global.wb_img}">
+						</div>
+							<span>
+							{#wb#}
+							</span>
+					</a>
+					{else}
+					<a href="https://www.facebook.com/groups/1943608089188419/?ref=pages_groups_card&source_id=1896331897282413" target="_blank">
+						<div style="border:none;">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/facebook_en.png?{$smarty.const.VERSION}">
+						</div>
+							<span>
+							{#wb#}
+							</span>
+					</a>
+					{/if}
+				</li>
+				<li class="no_margin_right no_border">
+					{if $language eq zh_cn}
+					<div>
+						<img src="{$global.wx_img}">
+
+					</div>
+						<span>
+						{#weixin#}
+						</span>
+					{else}
+					<a href="https://forum.gamer.com.tw/A.php?bsn=32971" target="_blank">
+						<div style="border:none;">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bhmt_en.png?{$smarty.const.VERSION}">
+						</div>
+							<span>
+							{#weixin#}
+							</span>
+					</a>
+					{/if}
+				</li>
+				{if $language eq zh_cn}
+				<li class="no_margin_right no_border c_qq">
+					<div>
+						<img src="{$global.group_num}">
+					</div>
+							<span>
+                            {#qqGroup#}
+                            </span>
+					<div class="i_h_qq">
+							<span>
+								365057262(iOS{#Group1#})
+							</span>
+							<span>
+								479578417(iOS{#Group2#})
+							</span>
+							<span>
+								413576671(iOS{#Group3#})
+							</span>
+					</div>
+				</li>
+				{/if}
+				{if $language eq zh_cn}
+				<li class="no_margin_right no_border">
+					<div class="bordern" style="border:none;">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_kf.png?{$smarty.const.VERSION}">
+					</div>
+								<span>
+								{#qf#}
+								</span>
+					<div class="i_h_qq bordern" style="border:none;">
+								<span>
+									客服服务电话:
+								</span>
+								<span style="color:#A74241;">
+									4009393333
+								</span>
+								<span>
+									BUG反馈，游戏问题
+								</span>
+					</div>
+				</li>
+				{/if}
+				</ul>
+				<img {if $language eq zh_cn}class="sj_icon"{else}class="sj_icon_en"{/if} src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_icon2.png?{$smarty.const.VERSION}">
+			</div>
+		</div>
+
+		<div class="i_h_btn">
+			<!--<a class="i_h_xz js_down_andriod stat_android" href="javascript:alert('{#jqqd#}')">-->
+			<!--{#xz#}-->
+			<!--</a>-->
+			<a class="i_h_xz">
+				{#xz#}
+			</a>
+			<!--<div>-->
+			<!--<div class="i_login_ing">-->
+			<!--{#dearUser#}-->
+			<!--<a id="i_login_btn" href="javascript:">-->
+			<!--{#loginText#}-->
+			<!--</a>-->
+			<!--{#or#}-->
+			<!--<a id="i_zc_btn" href="http://i.yingxiong.com/pass/login" target="_blank">-->
+			<!--{#signText#}-->
+			<!--</a>-->
+			<!--</div>-->
+			<!--<div class="i_login_end dn">-->
+			<!--<span>{#dear#}<label id="myUserName">哈哈哈哈哈哈哈哈哈</label>, {#welcome#}</span>-->
+			<!--<a id="i_login_out" href="javascript:" url='{myurl name="/site/ajax-logout"}'>{#logOut#}</a>-->
+			<!--</div>-->
+			<!--</div>-->
+		</div>
+		<div id="i_h_jt" class="i_h_jt">
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_jt_down.png?{$smarty.const.VERSION}">
+		</div>
+	</div>
+</div>
+<div id="c_content" class="c_content">
+	<div class="i-news">
+		<div class="i-n-title">
+			{if $language eq zh_cn}
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_new_title.png?{$smarty.const.VERSION}" alt="" />
+			{else}
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_new_title_en.png?{$smarty.const.VERSION}" alt="" />
+			{/if}
+			<a href='{myurl name="article/index,type=>xinwen,page=>1"}' target="_blank">MORE></a>
+		</div>
+		{if $gonggao|@count neq 0 }
+		{if $language eq zh_cn}
+		<div class="i-gg-zh">
+			<h1>{#latestAnnouncements#}</h1>
+			<p class="slh"><a href="{$gonggao[0].linkUrl}">{$gonggao[0].title}</a></p>
+		</div>
+		{else}
+		<div class="i-gg-en">
+			<h1>{#latestAnnouncements#}</h1>
+			<p class="slh"><a href="{$gonggao[0].linkUrl}">{$gonggao[0].title}</a></p>
+		</div>
+		{/if}
+		{/if}
+		<ul class="i-n-banner">
+			{foreach $xinwen as $key=> $v}
+			<li {if $key eq 0}class="fl i-b1"{else}class="fl"{/if}>
+			<a  href="{$v.linkUrl}"  target="_blank">
+				<img src="{$v.thumb}">
+				<p class="slh">{$v.title}</p>
+			</a>
+			</li>
+			{/foreach}
+		</ul>
+	</div>
+	<div class="i_js">
+		<div class="list-container">
+			<ul class="list-item">
+				<li class="list-item-img">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/ren1.png?{$smarty.const.VERSION}">
+				</li>
+				<li class="list-item-text ">
+					{if $language eq zh_cn}
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/ren1_title.png?{$smarty.const.VERSION}">
+					<p>{#youlin#}</p>
+					{else}
+					<img class="title-img-en" src="{$smarty.const.STATIC_DOMAIN}2.0/images/ren1_title_en.png?{$smarty.const.VERSION}">
+					<p class="inf-en">{#youlin#}</p>
+					{/if}
+					<a href="javascript:alert('{#jqqd#}')">MORE></a>
+				</li>
+				<li class="list-item-img">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/shen2.png?{$smarty.const.VERSION}">
+				</li>
+				<li class="list-item-text ">
+					{if $language eq zh_cn}
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/shen2_title.png?{$smarty.const.VERSION}">
+					<p>{#hlts#}</p>
+					{else}
+					<img class="title-img-en" src="{$smarty.const.STATIC_DOMAIN}2.0/images/shen2_title_en.png?{$smarty.const.VERSION}">
+					<p class="inf-en">{#hlts#}</p>
+					{/if}
+					<a href="javascript:alert('{#jqqd#}')">MORE></a>
+				</li>
+				<li class="list-item-img">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/shen1.png?{$smarty.const.VERSION}">
+				</li>
+				<li class="list-item-text ">
+					{if $language eq zh_cn}
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/shen1_title.png?{$smarty.const.VERSION}">
+					<p>{#sfws#}</p>
+					{else}
+					<img class="title-img-en" src="{$smarty.const.STATIC_DOMAIN}2.0/images/shen1_title_en.png?{$smarty.const.VERSION}">
+					<p class="inf-en">{#sfws#}</p>
+					{/if}
+					<a href="javascript:alert('{#jqqd#}')">MORE></a>
+				</li>
+				<li class="list-item-img">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yao2.png?{$smarty.const.VERSION}">
+				</li>
+				<li class="list-item-text ">
+					{if $language eq zh_cn}
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yao2_title.png?{$smarty.const.VERSION}">
+					<p>{#csl#}</p>
+					{else}
+					<img class="title-img-en" src="{$smarty.const.STATIC_DOMAIN}2.0/images/yao2_title_en.png?{$smarty.const.VERSION}">
+					<p class="inf-en">{#csl#}</p>
+					{/if}
+					<a href="javascript:alert('{#jqqd#}')">MORE></a>
+				</li>
+				<li class="list-item-img">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yao1.png?{$smarty.const.VERSION}">
+				</li>
+				<li class="list-item-text ">
+					{if $language eq zh_cn}
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yao1_title.png?{$smarty.const.VERSION}">
+					<p>{#csxm#}</p>
+					{else}
+					<img class="title-img-en" src="{$smarty.const.STATIC_DOMAIN}2.0/images/yao1_title_en.png?{$smarty.const.VERSION}">
+					<p class="inf-en">{#csxm#}</p>
+					{/if}
+					<a href="javascript:alert('{#jqqd#}')">MORE></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="i-videoBox">
+	<div>
+		<img class="i-v-bImg" src="{$smarty.const.STATIC_DOMAIN}2.0/images/video_bimg.png?{$smarty.const.VERSION}">
+		{if $language eq zh_cn}
+		<div>
+			<a target="_blank" href="{myurl name='video/index'}">
+				<img class="show" src="{$smarty.const.STATIC_DOMAIN}2.0/images/more_video1.png?{$smarty.const.VERSION}">
+				<img class="hover" src="{$smarty.const.STATIC_DOMAIN}2.0/images/more_video.png?{$smarty.const.VERSION}">
+			</a>
+		</div>
+		{else}
+		<div class="game_en">
+			<a target="_blank" href="{myurl name='video/index'}" >
+				<img class="show" src="{$smarty.const.STATIC_DOMAIN}2.0/images/more_video1_en.png?{$smarty.const.VERSION}">
+				<img class="hover" src="{$smarty.const.STATIC_DOMAIN}2.0/images/more_video_en.png?{$smarty.const.VERSION}">
+			</a>
+		</div>
+		{/if}
+	</div>
+	<ul class="i-v-list">
+		{foreach $video as $v}
+		<li class="js_video_play" data-url="{$v.content_message}">
+			<img src="{$v.thumb}" alt="" />
+			<label></label>
+		</li>
+		{/foreach}
+	</ul>
+</div>
+<div class="i-faq">
+	<ul>
+		<li class="i-f-title">
+			{if $language eq zh_cn}
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/FAQ_title.png?{$smarty.const.VERSION}">
+			{else}
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/FAQ_title_en.png?{$smarty.const.VERSION}">
+			{/if}
+			<a href='{myurl name="article/index,type=>faq,page=>1"}' target="_blank">MORE></a>
+		</li>
+		{foreach $FAQ as $v}
+		<li>
+			<a href="{$v.linkUrl}" target="_blank">{$v.title}</a>
+		</li>
+		{/foreach}
+	</ul>
+	<ul class="i-f-war">
+		<li class="i-f-title">
+			{if $language eq zh_cn}
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/war_title.png?{$smarty.const.VERSION}">
+			{else}
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/war_title_en.png?{$smarty.const.VERSION}">
+			{/if}
+			<a href='{myurl name="article/index,type=>zhanzheng,page=>1"}' target="_blank">MORE></a>
+		</li>
+		{foreach $zhanzheng as $v}
+		<li>
+			<a href="{$v.linkUrl}" target="_blank">{$v.title}</a>
+		</li>
+		{/foreach}
+	</ul>
+</div>
+<div class="i_h_ginf i-inf">
+	<div>
+		<ul {if $language eq zh_cn}{else}class="sj_en"{/if}>
+			<li class="no_margin_left">
+				{if $language eq zh_cn}
+				<a href="http://bbs.yingxiong.com/t/pc/15.html" target="_blank">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_gflt.png?{$smarty.const.VERSION}">
+							<span>
+                                {#lt#}
+                            </span>
+				</a>
+				{else}
+				<a href="https://www.facebook.com/redtides.mobile/?tsid=0.7278705859292902&source=result" target="_blank">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/facebook_en.png?{$smarty.const.VERSION}">
+								<span>
+                                {#lt#}
+                            </span>
+				</a>
+				{/if}
+			</li>
+			<li>
+				{if $language eq zh_cn}
+				<a href="https://tieba.baidu.com/f?kw=%D5%BD%D5%F9%D2%D5%CA%F5%B3%E0%B3%B1&fr=ala0&tpl=5" target="_blank">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_tb.png?{$smarty.const.VERSION}">
+								<span>
+                                {#tb#}
+                            </span>
+				</a>
+				{else}
+				<a href="https://www.youtube.com/channel/UC-maiOYUEXdHJoRgEyCss8w" target="_blank">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tube_en.png?{$smarty.const.VERSION}">
+							<span>
+							{#tb#}
+							</span>
+				</a>
+				{/if}
+			</li>
+			<li>
+				{if $language eq zh_cn}
+				<a href="http://weibo.com/u/6077032310?refer_flag=1001030103_&is_hot=1" target="_blank">
+					<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_wb_ewm.jpg?{$smarty.const.VERSION}">
+					</div>
+								<span>
+                                {#wb#}
+                            </span>
+				</a>
+				{else}
+				<a href="https://www.facebook.com/groups/1943608089188419/?ref=pages_groups_card&source_id=1896331897282413" target="_blank">
+					<div style="border:none;">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/facebook_en.png?{$smarty.const.VERSION}">
+					</div>
+							<span>
+							{#wb#}
+							</span>
+				</a>
+				{/if}
+			</li>
+			<li class="no_margin_right no_border">
+				{if $language eq zh_cn}
+				<div>
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_wx_ewm.jpg?{$smarty.const.VERSION}">
+				</div>
+				<span>
+				{#weixin#}
+				</span>
+				{else}
+				<a href="https://forum.gamer.com.tw/A.php?bsn=32971" target="_blank">
+					<div style="border:none;">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bhmt_en.png?{$smarty.const.VERSION}">
+					</div>
+							<span>
+							{#weixin#}
+							</span>
+				</a>
+				{/if}
+			</li>
+			{if $language eq zh_cn}
+			<li class="no_margin_right no_border c_qq">
+				<div>
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_qq.png?{$smarty.const.VERSION}">
+				</div>
+				<span>
+				{#qqGroup#}
+				</span>
+				<div class="i_h_qq">
+							<span>
+								365057262(iOS{#Group1#})
+							</span>
+							<span>
+								479578417(iOS{#Group2#})
+							</span>
+							<span>
+								413576671(iOS{#Group3#})
+							</span>
+				</div>
+			</li>
+			{/if}
+			{if $language eq zh_cn}
+			<li class="no_margin_right no_border">
+				<div class="bordern" style="border:none;">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_kf.png?{$smarty.const.VERSION}">
+				</div>
+									<span>
+									{#qf#}
+									</span>
+				<div class="i_h_qq bordern" style="border:none;">
+									<span>
+										客服服务电话:
+									</span>
+									<span style="color:#A74241;">
+										4009393333
+									</span>
+									<span>
+										BUG反馈，游戏问题
+									</span>
+				</div>
+			</li>
+			{/if}
+		</ul>
+		<!--<img {if $language eq zh_cn}class="sj_icon"{else}class="sj_icon_en"{/if} src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_icon2.png?{$smarty.const.VERSION}">-->
+		<div class="clear"></div>
+		{if $language eq zh_cn}
+		<a target="_blank" class="cc_user" href="/site/protocol.html">点击查看用户协议 ></a>
+		{else}
+		<a target="_blank" class="cc_user" href="/site/protocol.html">Terms of Service ></a>
+		{/if}
+	</div>
+</div>
+<!--这是登录弹框-->
+<div id="myLogin" class="i_lg_zc i_lg_zc_hide">
+	<div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/i_img1.png?{$smarty.const.VERSION}" alt="登录log">
+		<label class="i_lg_close"></label>
+		<div>
+			<div class="i_login_form">
+				<form class="i_yx_login" onsubmit="return false">
+					<ul>
+						<li class="i_l1">
+							<a class="a1 active" href="javascript:">{#yxLogin#}</a>
+							<!--<a class="a2" href="javascript:">短信验证登陆</a>-->
+						</li>
+						<li class="i_l2">
+							<label></label>
+							<input type="text" name="user">
+							<p>{#userName#}</p>
+						</li>
+						<li class="i_erro"></li>
+						<li class="i_l3">
+							<label></label>
+							<input type="password" name="pwd">
+							<p>{#password#}</p>
+						</li>
+						<li class="i_erro"></li>
+						<li class="i_l4">
+							<button id="yx_login_btn" type="button" la = '{$language}' url='{myurl name="/site/ajax-login"}'>{#signIn#}</button>
+						</li>
+						<li class="i_l5">
+							<a href="http://i.yingxiong.com/pass/login" target="_blank">{#fastSignup#}</a>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<!--下载预约弹框-->
+<div class="load_tips hidden">
+	<div class="content">
+		{if $language eq zh_cn}
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tipsbg01.png?{$smarty.const.VERSION}" alt="">
+		{else}
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tipsbg01_en.png?{$smarty.const.VERSION}" alt="">
+		{/if}
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/loadtips_close.png?{$smarty.const.VERSION}" alt="" class="loadtips_close">
+		<div>
+			{if $language eq zh_cn}
+			<div class="btn">
+				<span class="ios"></span>
+				<span class="ad"></span>
+			</div>
+			{else}
+			<div class="btn_en">
+				<div class="btn">
+					<span class="ios"></span>
+					<span class="ad"></span>
+				</div>
+			</div>
+			{/if}
+			<div class="load_div ">
+				{if $language eq zh_cn}
+				<p><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/load_qrcode_ch.png?{$smarty.const.VERSION}" class="js_jump_img"></p>
+				{else}
+				<p><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/load_qrcode.png?{$smarty.const.VERSION}"></p>
+				{/if}
+				<!--<h4>{#orderinfo#}</h4>-->
+			</div>
+			<div class="order_div hidden">
+				{if $language eq zh_cn}
+				<input type="text" placeholder="{#loadtel#}" class="load_tel">
+				<div class="code">
+					<input type="text" placeholder="{#codenum#}" class="codenum">
+					<button class="sendcode">{#sendcode#}</button>
+				</div>
+				<button class="orderbtn">{#submit#}</button>
+				<h4>{#orderinfo#}</h4>
+				{else}
+				<p class="soon">{#sooninfo#}</p>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+<!--下载浮窗-->
+<div class="down_bg">
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/boult_in.png?{$smarty.const.VERSION}" class="float_btn">
+	<p class="info">{#load_game#}</p>
+	{if $language eq zh_cn}
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/load_qrcode_ch.png?{$smarty.const.VERSION}" class="ercode js_jump_img">
+	{else}
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/load_qrcode.png?{$smarty.const.VERSION}" class="ercode">
+	{/if}
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/dash_line.png?{$smarty.const.VERSION}" class="dashed_img">
+	{if $language eq zh_cn}
+	<a href="#" class="ios_dl ios_ch js_down_ios stat_ios" target="_blank"></a>
+	<a href="#" class="and_dl and_ch js_down_andriod stat_android"></a>
+	{else}
+	<a href="https://itunes.apple.com/us/app/art-of-war-red-tides/id1216114260?ls=1&mt=8" class="ios_dl ios_en" target="_blank"></a>
+	<a href="#" class="and_dl and_en"></a>
+	{/if}
+</div>
+<!--这是回到顶部icon-->
+{include '../layouts/pc/goTop.html'}
+<!-- 这是弹窗播放器 -->
+<!--<div class="page_video_box">-->
+<!--<div id="my_video" class="my_video">-->
+<!--<label class="v_close"></label>-->
+<!--</div>-->
+<!--</div>-->
+</body>
+{include '../layouts/pc/public_js.html'}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/js/list.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/js/index.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var djs_timer = "";
+		var i_erro = $(".i_erro");
+		var myLogin = $("#myLogin");
+		var v_embed = '<embed id="myEmbed" src="http://yuntv.letv.com/bcloud.swf" allowfullscreen="true" quality="high" width="640" height="360" align="middle" allowscriptaccess="always" flashvars="uu=58546ec681&vu=d36a4ff707&auto_play=1&gpcflag=1&width=640&height=360" type="application/x-shockwave-flash">';
+
+		function init() {
+			page_input_init();
+			init_banner_video();
+			list.init($(".list-item"));
+		}
+		//初始化banner播放器
+		function init_banner_video() {
+			var i_head = $(".i_head");
+			var i_video = $(".i_video");
+			var video_height = i_video.width() * 0.5;
+			i_head.height(video_height + "px");
+			i_video.height(video_height + "px");
+		}
+
+		//弹出登录框
+		function show_login_page() {
+			myLogin.css({
+				display: "block"
+			})
+			setTimeout(function() {
+				myLogin.removeClass("i_lg_zc_hide");
+			}, 10);
+		}
+		//退出登录框
+		function out_login_page() {
+			myLogin.addClass("i_lg_zc_hide");
+			setTimeout(function() {
+				myLogin.css({
+					display: "none"
+				})
+			}, 210);
+		}
+		//初始化登录输入框显示
+		function page_input_init() {
+			$(".i_login_form input").val(null).blur();
+		}
+		//英雄用户帐号登录和手机短信登录切换
+		function change_login(left) {
+			$(".i_login_form").animate({
+				"margin-left": left + "px"
+			}, 200);
+		}
+		//前端验证手机登录的手机号码是否正确
+		function is_ok_phone() {
+			var my_input = $(".i_dx_login").find("input");
+			var my_phone = my_input.eq(0).val();
+			if(my_phone == "" || my_phone == undefined) {
+				login_err(2, "手机号不能为空");
+				return;
+			}
+
+			if(!(/^1[345789]\d{9}$/.test(my_phone))) {
+				login_err(2, "请输入正确的手机号码");
+				return false;
+			}
+			return true;
+		}
+		//登录错误提示
+		//index : 错误显示的标签下标
+		//text ： 错误提示内容
+		function login_err(index, text) {
+			i_erro.eq(index).html(text);
+		}
+		//登录成功，显示欢迎用户
+		function login_success(user) {
+			$("#myUserName").html(user);
+			$(".i_login_ing").css({
+				display: "none"
+			});
+			$(".i_login_end").css({
+				display: "block"
+			})
+		}
+		//退出登录，显示登录界面
+		function login_quit() {
+			$(".i_login_ing").css({
+				display: "block"
+			});
+			$(".i_login_end").css({
+				display: "none"
+			})
+		}
+		//页面事件
+		//点击向下箭头滚动
+		$("#i_h_jt>img").click(function() {
+			var scroll_offset = $("#c_content").offset();
+			$("body,html").animate({
+				scrollTop: scroll_offset.top
+			}, 400);
+		});
+		//弹出登录框
+		$("#i_login_btn").click(function() {
+			change_login(0);
+			setTimeout(function() {
+				show_login_page();
+			}, 210);
+		});
+		//登录输入框
+		$(".i_login_form p").click(function() {
+			$(this).css({
+				display: "none"
+			}).parent().children("input").focus();
+		});
+		$(".i_login_form input").focus(function() {
+			$(this).parent().children("p").css({
+				display: "none"
+			});
+		});
+		$(".i_login_form input").keyup(function() {
+			$(this).val($(this).val().replace(/(^\s+)|(\s+$)/g, ""));
+		});
+		$(".i_login_form input").blur(function() {
+			var val = $(this).val();
+			if(val == "") {
+				$(this).parent().children("p").css({
+					display: "block"
+				});
+			}
+		});
+
+		//点击登录提交按钮
+		$("#yx_login_btn").click(function() {
+			//根据name值判断用户是否可以点击登录
+			var name = $(this).attr("name");
+			if(name){
+				return;
+			}
+			var my_btn = $(this);
+			var la = my_btn.attr("la");
+			var my_input = $(".i_yx_login").find("input");
+			var my_user = my_input.eq(0).val();
+
+			if(my_user == "" || my_user == undefined) {
+				if(la == "en"){
+					login_err(0, "Please Enter UserName");
+				}else{
+					login_err(0, "用户名不能为空");
+				}
+				return;
+			}
+			login_err(0, "");
+
+			var my_pwd = my_input.eq(1).val();
+			if(my_pwd == "" || my_pwd == undefined) {
+				if(la == "en"){
+					login_err(1, "Please Enter PassWord");
+				}else{
+					login_err(1, "密码不能为空");
+				}
+
+				return;
+			}
+			login_err(1, "");
+			if(la == "en"){
+				my_btn.attr("name","logining").html("Sign in...");
+			}else{
+				my_btn.attr("name","logining").html("登录中...");
+			}
+
+			//这是发起登录验证
+			var my_url = my_btn.attr("url");
+			var my_takon = $("meta[name='csrf-token']").attr("content");
+			$.ajax({
+				url: my_url,
+				type: "POST",
+				data: {
+					"username": my_user,
+					"password": my_pwd,
+					"cms_csrf": my_takon
+				},
+				success: function(data) {
+					var data = JSON.parse(data);
+					var status = data.status;
+					if(la == "en"){
+						my_btn.attr("name","").html("Sign in");
+					}else{
+						my_btn.attr("name","").html("登录");
+					}
+					switch(status) {
+						case 0: {
+							out_login_page();
+							login_success(data.msg.username);
+						}
+							break;
+						case -1: {
+							login_err(0,data.msg);
+						}
+							break;
+						case false: {
+							login_err(1,data.msg);
+						}
+							break;
+						default: {
+							login_err(0,data.msg);
+						}
+					}
+				},
+				error: function(){
+					if(la == "en"){
+						my_btn.attr("name","").html("Sign in");
+						login_err(0, "Login failed");
+					}else{
+						my_btn.attr("name","").html("登录");
+						login_err(0, "");
+					}
+				}
+			});
+		});
+		//关闭登录框
+		$(".i_lg_close").click(function() {
+			out_login_page();
+		});
+		//退出登录
+		$("#i_login_out").click(function(){
+			var url = $(this).attr("url");
+			$.ajax({
+				type:"GET",
+				url:url,
+				success: function(data){
+					var data = JSON.parse(data);
+					var status = data.status;
+					if(status == 0){
+						login_quit();
+					}else{
+						alert(data.msg);
+					}
+				},
+				error: function(err){
+
+				}
+			});
+		});
+		//点击出现弹窗播放器
+		$(".i-v-list li").on("click", function() {
+			var v_src = $(this).attr("video-src");
+			v_src = v_src + "&amp;auto_play=1&amp;gpcflag=1&amp;width=640&amp;height=360";
+			$("#my_video").append(v_embed);
+			$(".page_video_box").css({
+				"display": "block",
+				"opacity": "1",
+				"transform": "scale(1,1)"
+			});
+			$("#myEmbed").attr("flashvars", v_src);
+		});
+		//点击取消弹窗视频
+		$(".v_close").click(function() {
+			var page_video_box = $(".page_video_box");
+			page_video_box.css({
+				"opacity": "0",
+				"transform": "scale(0,0)"
+			});
+			setTimeout(function() {
+				page_video_box.css({
+					"display": "none"
+				});
+				$("#myEmbed").remove();
+			}, 210);
+		});
+
+		window.onresize = function(){
+			init_banner_video();
+		};
+
+		init();
+	});
+	var send_url ='/commonMethod/get-verify';
+	var order_url = '/commonMethod/yuyue';
+	var device_type="ios";
+	var type=1;
+</script>
+{include '../layouts/pc/foot.html'}

@@ -1,0 +1,37 @@
+{include '../layouts/pc/header.html'}
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="new_main">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/zzc2.png?{$smarty.const.VERSION}" alt="" class="zz_ceng">
+		<div class="main_content">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/news_board.png?{$smarty.const.VERSION}" alt="" class="news_images">
+			<div class="news-bg">
+				<div class="news-list clearfix">
+					{if $content.category_id==450}
+					<a href="{myurl name='article/list, id=>450'}" class="return_list"></a>
+					{else if $content.category_id==451}
+					<a href="{myurl name='article/list, id=>451'}" class="return_list"></a>
+					{else if $content.category_id==452}
+					<a href="{myurl name='article/list, id=>452'}" class="return_list"></a>
+					{else if $content.category_id==453}
+					<a href="{myurl name='article/list, id=>453'}" class="return_list"></a>
+					{else if $content.category_id==1919}
+					<a href="{myurl name='article/list, id=>1919'}" class="return_list"></a>
+					{/if}
+					<p class="min-menu">当前位置: <a href="{myurl name='site/index'}">首页</a><a href="{myurl name='article/list, id=>450'}">> 新闻中心</a> > 新闻详情</p>
+					<div class="lis2">
+						<div class="new_detail">
+							<h4>{$content.title}</h4>
+							<p class="creat_info"><span class="date">{$content.created_at|date_format:"%m/%d"}</span>        作者：<span class="author">官方</span></p>
+							<div class="news_content">
+								{$content.body}
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/zzc2_03.png?{$smarty.const.VERSION}" alt="" class="zzc2">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include '../layouts/pc/bottom.html'}
+</div>

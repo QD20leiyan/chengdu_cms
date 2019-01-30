@@ -1,0 +1,54 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="top">
+	<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+	<ul class="top_ul">
+		<li class="">
+			<a href="{myurl name='site/index'}" target="_blank"><span>官网首页</span><i></i></a>
+		</li>
+		<li class="active">
+			<a href="javascript:;"><span>游戏新闻</span><i></i></a>
+		</li>
+		<li>
+			<a href="/index.html?id=zhenying" target="_blank"><span>阵营介绍</span><i></i></a>
+		</li>
+	</ul>
+</div>
+<div class="n_kv"></div>
+<div class="news_body detail_body">
+	<div class="newslist">
+		<div class="detail_title">
+			<h3>{if isset($content.title)}{$content.title}{/if}</h3>
+			<p>{if isset($content.created_at_formate)}{$content.created_at_formate}{/if}</p>
+		</div>
+		<div class="detail_con">
+			<div class="wrap">
+				{if isset($content.body)}{$content.body}{/if}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="float">
+	<div class="ewm">
+		<div class="chengg"></div>
+		<img src="" alt="" class="js_jump_img" />
+		<i></i>
+	</div>
+	<p>扫一扫下载游戏</p>
+	<a href="javascript:;" class=" stat_ios show_iostips"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="javascript:;" target="_blank" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="https://www.taptap.com/app/151830" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="javascript:;" class="fanhui"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fanhui.png?{$smarty.const.VERSION}" alt="" /></a>
+</div>
+<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/back.png?{$smarty.const.VERSION}" alt="" class="back" />
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(".back").click(function (){
+		$("html,body").animate({
+				scrollTop: 0
+			}, 500);
+	});
+</script>
+</body>
+
+</html>

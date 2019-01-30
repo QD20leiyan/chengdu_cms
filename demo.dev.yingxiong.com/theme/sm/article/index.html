@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$global.web_title}</title>
+		<meta name="keywords" content="{$global.web_key}" />
+		<meta name="description" content="{$global.web_desc}" />
+		<link rel="shortcut icon" id="link_href" href="{$global.web_icon}?{$smarty.const.VERSION}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/css/common.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/css/news.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		{if $global.public_top_js eq 1}
+		<script type="text/javascript" src="http://static.dev.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		{/if}
+		<div class="n_banner">
+			<div id="bg_top" class="top" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{/if}{if $global.nav_background_img neq '暂无数据'}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+				<div class="wrap">
+					<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+					<div class="header_txt">
+						<p>{if isset($global.website_title)}{$global.website_title}{/if}</p>
+						<p>{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+					</div>
+					{nav var=nav}
+					<ul class="top_ul">
+						{foreach $nav as $key=>$v}
+						<li data-id="{$v.id}" data-href="{$v.target}">
+							<a style="{$v.style}" href="{if $v.alias eq 'xw'}{myurl name='article/list, alias=>zonghe'}{else}{$v.url}{/if}" target="{if $v.target eq 1}_blank{else}_self{/if}" style="{if $key eq 0}color:{$global.nav_background_hover_color}{/if}">{$v.name}</a>
+						</li>
+						{/foreach}
+					</ul>
+					<div class="r_wx">
+						<a id="media_weixin" href="javascript:;" style="{if $global.media_wechat_icon neq '暂无数据'}background:url({$global.media_wechat_icon}) no-repeat top;{/if}"></a>
+						<a id="media_sina" {if $global.media_sina_target eq 1}target="_blank" {else}target="_self" {/if} href="{if $global.media_sina_url neq '暂无数据' }{$global.media_sina_url}{/if}" style="{if $global.media_sina_icon neq '暂无数据'}background:url({$global.media_sina_icon}) no-repeat top;{/if}"></a>
+						<a id="media_baidu" {if $global.media_baidu_target eq 1}target="_blank" {else}target="_self" {/if} href="{if $global.media_baidu_url neq '暂无数据'}{$global.media_baidu_url}{/if}" style="{if $global.media_baidu_icon neq '暂无数据'}background:url({$global.media_baidu_icon}) no-repeat top;{/if}"></a>
+					</div>
+					<div class="fl_wx">
+						<img src="{if $global.media_wechat_img neq ''}{$global.media_wechat_img}{/if}" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="z_banner">
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide">
+						<a href="javascript:;" target="_blank"><img src="{if $global.subpagekv_background_img neq '暂无数据'}{$global.subpagekv_background_img}{/if}" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="main">
+			<div class="top_tab">
+				<div class="wrap">
+					<div class="n_wrap">
+						<h3>新闻中心</h3>
+						<ul class="btop_ul">
+							<li class="{if $alias eq zonghe}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>zonghe'}">最新</a>
+							</li>
+							<li class="{if $alias eq xinwen}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>xinwen'}">新闻</a>
+							</li>
+							<li class="{if $alias eq gonggao}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>gonggao'}">公告</a>
+							</li>
+							<li class="{if $alias eq huodong}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>huodong'}">活动</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="main_content">
+				{if !empty($data)}
+				<ul class="main_ul">
+					{foreach $data as $v}
+					<li>
+						<a href="{$v.linkUrl}" target="_blank">
+							<div class="left_img"><img src="{$v.thumb}" alt="" /></div>
+							<div class="right_news">
+								<p class="right_fp"><span>{$v.title}</span><i>{$v.created_at_formate}</i></p>
+								<p class="right_des">{$v.summary}</p>
+							</div>
+						</a>
+					</li>
+					{/foreach}
+				</ul>
+				{$page}
+				{else}
+				<p style="text-align: center;padding-top: 35px;">暂无数据</p>
+				{/if}
+			</div>
+		</div>
+		{if $global.public_button_js eq 1}
+		<script type="text/javascript" src="http://static.dev.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+		{/if}
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$(".r_wx a:nth-child(1)").hover(function (){
+			 	$(".fl_wx").stop().fadeIn();
+			 },function (){
+			 	$(".fl_wx").stop().fadeOut(300);
+			 });
+		});
+	</script>
+
+</html>

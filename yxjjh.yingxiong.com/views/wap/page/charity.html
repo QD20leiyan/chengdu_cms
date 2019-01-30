@@ -1,0 +1,30 @@
+{include '../../layouts/wap/header.html'}
+{include '../../layouts/wap/top.html'}
+<!--内容-->
+<div class="i_main">
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="charity">
+			<div class="title">慈善项目</div>
+			<div class="charity_con">
+				{fragment var=index_banner code=charity_list size=100}
+				{if $index_banner neq ''}
+				{foreach $index_banner as $v}
+				<div class="charity_box">
+					<div class="ch_left">
+						<img src="{$v.thumb}" alt=""/>
+					</div>
+					<div class="ch_right">
+						<h4>{$v.title}</h4>
+						<p class="info">{$v.summary}</p>
+					</div>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	{include '../../layouts/wap/bottom.html'}
+</div>
+{include '../../layouts/wap/footer.html'}

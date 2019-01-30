@@ -1,0 +1,39 @@
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper(".left_banner", {
+				pagination: '.swiper-pagination',
+				loop: true,
+				simulateTouch: false,
+				autoplay: 2500,
+				paginationClickable: true
+			});
+			var mySwiper = new Swiper('.bottom_banner', {
+				loop: true,
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 0,
+					stretch: -90,
+					depth: 300,
+					modifier: 1,
+					slideShadows: true
+				},
+				observer: true,
+				observeParents: true,
+			});
+			$(".top_ul li").on("click", function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".con_news ul").eq(index).addClass("active").siblings().removeClass("active");
+			});
+		});
+	</script>
+	{download}
+    {video_play}
+</html>

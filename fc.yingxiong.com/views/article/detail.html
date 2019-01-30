@@ -1,0 +1,101 @@
+{include file="../layouts/pc/header.html"}
+<div class="news-nav detail-nav">
+
+</div>
+    <div class="body detail-body">
+        <div class="container ccont clearfix">
+            <div  class="return">
+                <a href='{myurl name="/site/index"}' target="_blank">
+                    <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/jian.png?{$smarty.const.VERSION}" />
+                    <span>返回首页</span>
+                </a>
+            </div>
+        </div>
+        <div class="container clearfix conta" style="border-right: 1px solid #EBDCE1;">
+            <div class="news-box clearfix">
+            <div class="news-left clearfix">
+                <div class="s-right">
+                    <div class="min-title clearfix"><p>自助服务</p><a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/add.png?{$smarty.const.VERSION}"></a></div>
+                    <input type="text" placeholder="输入您的问题" class="inp">
+                    <ul class="server clearfix">
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=1">
+                                <i></i>
+                                账号问题
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=6">
+                                <i></i>
+                                充值问题
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=8">
+                                <i></i>
+                                账号查询
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=4">
+                                <i></i>
+                                我要举报
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="imgs imgs-box">
+                    {foreach $activity as $k => $v}
+                        <a href="{$v.url}" class="imgs"><img src="{$v.thumb}"></a>
+                    {/foreach}
+                </div>
+            </div>
+            <div class="news-right txt-p">
+                {if $content}
+                <h3>{$content['title']}</h3>
+                <div class="news-ti">
+                    <span>发布时间:{$content['created_at']|date_format:"%Y/%m/%d"} 来源：本网站</span>
+                </div>
+                <p>{$content['body']}</p>
+                {if (isset($content['image_url']) && $content['image_url'])}
+                 <img src="{$content['image_url']}" />
+                {/if}
+                {/if}
+                <!-- JiaThis Button BEGIN -->
+                <!--<div class="news_share">-->
+                    <!--<a href="/info/list_194_1.html" class="back-list"><i>返回列表</i></a>-->
+                    <!--<div class="jiathis_style_32x32 share">-->
+                        <!--<a>分享</a>-->
+                        <!--<a class="jiathis_button_weixin"></a>-->
+                        <!--<a class="jiathis_button_qzone"></a>-->
+                        <!--<a class="jiathis_button_tsina"></a>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>-->
+                <!-- JiaThis Button END -->
+
+                <!-- bshare -->
+                <div class="news_share">
+                    <a href="/info/list_194_1.html" class="back-list"><i>返回列表</i></a>
+                    <div class="bshare-custom icon-medium share">
+                        <a>分享</a>
+                        <a title="分享到微信" class="bshare-weixin"><span class="bshare-weixin"></span></a>
+                        <a title="分享到QQ空间" class="bshare-qzone"><span class="bshare-qzone"></span></a>
+                        <a title="分享到新浪微博" class="bshare-sinaminiblog"><span class="bshare-sinaminiblog"></span></a>
+                    </div>
+                </div>
+                <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+                <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+                <!-- bshare END -->
+            </div>
+        </div>
+        </div>
+        {include file="../layouts/pc/footer_nav.html"}
+    </div>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+{download}
+</body>
+</html>

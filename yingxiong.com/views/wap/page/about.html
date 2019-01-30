@@ -1,0 +1,570 @@
+{include '../../layouts/wap/header.html'}
+<div class="wrap">
+	<!--about-con-->
+	<div class="about-con">
+		<div class="page1 fade" id="intro">
+		    <div>
+		    	<div class="about_title same_title">
+					<span class="c_name">公司简介</span>
+					<span class="e_name">COMPANY PROFILE</span>
+				</div>
+				<div class="swiper-container swiper-container1">
+				    <div class="swiper-wrapper swiper-wrapper1">
+				        {article id="264" size=4 var=gsjj}
+						{if $gsjj neq ''}
+						{foreach key=cid item=v from=$gsjj}
+						{if $cid eq 0}
+						<div class="swiper-slide row">
+							<span>01</span>
+							<p>{$v.body}</p>
+						</div>{else if $cid eq 1}
+						<div class="swiper-slide row">
+							<span>02</span>
+							<p>{$v.body}</p>
+						</div>{else if $cid eq 2}
+						<div class="swiper-slide row">
+							<span>03</span>
+							<p>{$v.body}</p>
+						</div>{/if}{/foreach}{/if}
+					</div>
+					<div class="swiper-pagination swiper-pagination1"></div>
+				</div>
+			</div>
+		</div>
+		<div class="page2 fade" id="course">
+			<div>
+		    	<div class="course_title same_title">
+						<span class="c_name">发展历程</span>
+						<span class="e_name">COMPANY DEVELOPMENT</span>
+				</div>
+				<div class="course_content">
+					<div class="years swiper-container swiper-container3">
+					    <div class="swiper-wrapper">
+							<span class="year align swiper-slide">2018</span>
+							<span class="year align swiper-slide">2017</span>
+							<span class="year align swiper-slide">2016</span>
+							<span class="year align swiper-slide">2015</span>
+					    </div>
+					</div>
+					<div class="course_list">
+					    {article id="243" size=4 var=course}
+						{if $course neq ''}
+						{foreach key=cid item=v from=$course}
+						<div class="info">
+							<div class="info_content">
+							    {$v.body_ggtd}
+							</div>
+							<a href="javascript:;" class="more_btn" id="viewAward1">
+						    	MORE<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}" alt="">
+						        </a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page3 fade" id="honor">
+			<div>
+				<div class="honor_title same_title">
+					<span class="c_name">公司荣誉</span>
+					<span class="e_name">COMPANY HONOR</span>
+				</div>
+				<div class="honor_content">
+					<div class="years swiper-container swiper-container3">
+					    <div class="swiper-wrapper">
+							<span class="year align swiper-slide active" option-year="2018">2018</span>
+							<span class="year align swiper-slide" option-year="2017">2017</span>
+							<span class="year align swiper-slide" option-year="2016">2016</span>
+							<span class="year align swiper-slide" option-year="2015">2015</span>
+					    </div>
+					</div>
+					<div class="honor_list">
+					    {article id="263" size=10000 var=honor}
+						{if $honor neq ''}
+						{foreach $honor as $v}
+                        <div class='{date("Y",$v.created_at)} info'>
+                            <h3>{$v.sub_title}<i>-</i><span>{$v.redirect_url}</span></h3>
+                            <p>{$v.body}</p>
+                        </div>
+                        {/foreach}
+						{/if}
+                    </div>
+					<a href="javascript:void(0);" class="more_btn" id="viewAward2">
+						    	MORE<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}" alt="" class="icon_arrow"> 
+						</a>
+				</div>
+			</div>
+		</div>
+		<div class="page4 fade" id="team">
+			<div>
+				<div class="team_title same_title">
+					<span class="c_name">高管团队</span>
+					<span class="e_name">MANAGEMENT TEAM</span>
+				</div>
+				<div class="team_content swiper-container swiper-container4">
+				    <div class="team_list swiper-wrapper">
+						{article id="266" size=10 var=ggtd}
+						{if $ggtd neq ''}
+						{foreach key=cid item=v from=$ggtd}
+						<div class="swiper-slide bottom_to_top">
+						    <div class="info">
+						    	<div class="img">
+									<img src="{$v.thumb}" alt=""/>
+									<div class="ab-peoinfo">
+										<h3>{$v.title}</h3>
+										<p>{$v.sub_title}</p>
+									</div>
+								</div>
+								<div class="person_intro">
+									<h2 class="name">{$v.title}</h2>
+									<span>{$v.summary}</span>
+									<div class="line"></div>
+									{if isset($v.body_ggtd)}<p>{$v.body_ggtd}</p>{/if}
+								</div>
+						    </div>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+					<div class="swiper-pagination swiper-pagination4"></div>
+				</div>
+			</div>
+		</div>
+		<div class="page5 fade" id="cult">
+			<div>
+				<div class="cult_title same_title">
+					<span class="c_name">工作环境</span>
+					<span class="e_name">WORK ENVIRONMENT</span>
+				</div>
+				<div class="cult_content">
+					<div class="slider">
+                    	<div class="swiper-container swiper-container2">
+                    	    <div class="swiper-wrapper">
+                    	        {article id="240" size=10 var=gzhj}
+								{if $gzhj neq ''}
+								{foreach key=cid item=v from=$gzhj}
+                    	        <div class="swiper-slide">
+                    	            <a><img class="" src="{$v.thumb}" alt=""></a>
+                    	        </div>
+                    	        {/foreach}
+								{/if}
+                    	    </div>
+                    	</div>
+                    	<div class="swiper-pagination swiper-pagination2"></div>
+                    	<div class="swiper-button-prev"></div>
+                    	<div class="swiper-button-next"></div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="page6 fade" id="cult">
+			<div>
+				<div class="cult_title same_title">
+					<span class="c_name">公司文化</span>
+					<span class="e_name">COMPANY CULTURE</span>
+				</div>
+				<div class="cult_keywords">
+					<ul class="key_txt key_txt1">
+						<li><img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/tl2.png?{$smarty.const.VERSION}" alt=""><p>正直</p></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/tl4.png?{$smarty.const.VERSION}" alt=""><p>开放</p></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/tl1.png?{$smarty.const.VERSION}" alt=""><p>合作</p></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/tl5.png?{$smarty.const.VERSION}" alt=""><p>用心</p></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/tl6.png?{$smarty.const.VERSION}" alt=""><p>极致</p></li>
+						<!--<li><img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/tl3.png?{$smarty.const.VERSION}" alt=""><p>责任</p></li>-->
+					</ul>
+				</div>
+				<div class="cult_content">
+					<div class="cult_list">
+						<div>
+							<span>公司愿景</span>
+							<p>成为领先的移动电竞领导者</p>
+						</div>
+						<div>
+							<span>公司使命</span>
+							<p>让竞技与快乐无处不在</p>
+						</div>
+						<div>
+							<span>经营理念</span>
+							<p>一切以玩家乐趣为依归</p>
+						</div>
+						<div>
+							<span>管理理念</span>
+							<p>快速学习、快速修正、拥抱变化</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="page7 fade" id="contact">
+			<div>
+				<div class="contact_title same_title">
+					<span class="c_name">联系我们</span>
+					<span class="e_name">CONTACT US</span>
+				</div>
+				<div class="contact_addr">
+					<div class="addrs">
+						<div class="addr align active fl" data-py="bj">
+							<h4>北京</h4>
+							<span>Beijing</span>
+						</div>
+						<div class="addr align fl" data-py="sh">
+							<h4>上海</h4>
+							<span>Shanghai</span>
+						</div>
+						<div class="addr align fl" data-py="cd">
+							<h4>成都</h4>
+							<span>Chengdu</span>
+						</div>
+						<div class="addr align fl" data-py="sz">
+							<h4>深圳</h4>
+							<span>ShenZhen</span>
+						</div>
+						<div class="addr align fl" data-py="tw">
+							<h4>台湾</h4>
+							<span>Taiwan</span>
+						</div>
+					</div>
+					<div class="addr_detail">
+						<div class="addr_detail_info">
+							<a class="tel" href="tel:010-5094-8585">010-5094-8585</a>
+							<span>北京市朝阳区酒仙桥路宏源大厦3层</span>
+						</div>
+						<div class="addr_detail_info hidden">
+							<a class="tel" href="tel:021-5168-8333">021-5168-8333</a>
+							<span>上海市徐汇区漕东支路85号漕河泾实业大厦8层</span>
+						</div>
+						<div class="addr_detail_info hidden">
+						    <a class="tel" href="tel:028-6317-7951">028-6317-7951</a>成都市高新区天府五街200号菁蓉国际广场A1-10楼</span>
+						</div>
+						<div class="addr_detail_info hidden">
+							<a class="tel"></a>
+							<span>深圳市南山区比克科技大厦</span>
+						</div>
+						<div class="addr_detail_info hidden">
+							<a class="tel"></a>
+							<span>新北市新店区民权路108号10楼之1</span>
+						</div>
+					</div>
+					<div class="map" id="map">
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/ab-map.png?{$smarty.const.VERSION}" alt=""/>
+					</div>
+				</div>
+				<div class="contact_content">
+					<div class="contact_list">
+						<div>
+						    <img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>商务合作</span>
+							<a>bd@yingxiong.com</a>
+						</div>
+						<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>人员招聘</span>
+							<a>hr@yingxiong.com</a>
+						</div>
+						<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>媒体合作</span>
+							<a>media@yingxiong.com</a>
+						</div>
+						<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>投资关系</span>
+							<a>investment@yingxiong.com</a>
+						</div>
+						<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>市场异业</span>
+							<a>key_account@yingxiong.com</a>
+						</div>
+						<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>产品合作</span>
+							<a>product@yingxiong.com</a>
+						</div>
+						<div>
+						<img src="{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/relation.png?{$smarty.const.VERSION}" alt="">
+							<span>VR销售</span>
+							<a>vrsales@yingxiong.com</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{include '../../layouts/wap/footer.html'}
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OOtxWKM6q7NyWVce3H4Nug3vlcPIj0cL"></script>
+<script type="text/javascript">
+	var map = new BMap.Map('map');
+	//	创建点
+	var pointObj={};
+	pointObj.bj =new BMap.Point(116.497146,39.991211);
+	pointObj.sh =new BMap.Point(121.449717,31.289868);
+	pointObj.cd =new BMap.Point(104.068336,30.54457);
+	pointObj.sz =new BMap.Point(113.933293,22.538642);
+	pointObj.tw =new BMap.Point(121.47747,25.008028);
+
+	// 居中放大
+	map.centerAndZoom(pointObj.bj, 16);
+
+	// 启用滚轮放大缩小
+	map.enableScrollWheelZoom(true);
+
+	var  mapStyle ={
+		features: ["road", "building","water","land"],//隐藏地图上的poi
+		style : "dark"  //设置地图风格为高端黑
+	}
+	map.setMapStyle(mapStyle);
+
+	map.addOverlay(new BMap.Marker(pointObj.bj));
+	map.addOverlay(new BMap.Marker(pointObj.sh));
+	map.addOverlay(new BMap.Marker(pointObj.cd));
+	map.addOverlay(new BMap.Marker(pointObj.sz));
+	map.addOverlay(new BMap.Marker(pointObj.tw));
+</script>
+<script>
+    $(function(){
+        //page2的内容展示
+        // $(".page2 .year").click(function(){
+        //     var index=$(this).index();
+        //     $(this).addClass("active").siblings().removeClass("active");
+        //     $(".page2 .info").eq(index).addClass("active").siblings(".page2 .info").removeClass("active")
+        // });
+        // $(".page2 .years .year:eq(0)").trigger("click");
+        //hover划出内容
+		$(".addrs .addr").click(function(){
+			var index=$(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".addr_detail_info").eq(index).removeClass("hidden").siblings(".addr_detail_info").addClass("hidden");
+			var point=pointObj[$(this).data("py")];
+			map.centerAndZoom(point, 16);
+		});
+        //刷新荣誉nav
+		function refreshhnav(){
+			$(".page3 .years .year").each(function(i,n){
+				var value=$(this).attr("option-year");
+				if($("."+value).length===0){
+					$(this).addClass("grey").removeClass("active");
+				}else{
+					$(this).removeClass("grey");
+				}
+			});
+			if($(".page3 .years .year.active").length===0){
+				$(".page3 .years .year:first").addClass("active");
+			}
+		}
+		//page2的内容展示
+		var p_lenth=parseInt($(".page2 .info.active .info_content p").length);
+		var p_site1 = '';//商数
+		var p_site2 = '';//余数
+		var site = 6;
+		var more_h = '';
+        var click=true;
+		var list=$(".about-con .page2 .info .info_content");
+        var self_hth =parseInt(list.css("maxHeight"));
+		$(".page2 .year").click(function(){
+			var index=$(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".page2 .info").eq(index).addClass("active").siblings(".page2 .info").removeClass("active");
+
+            p_lenth=parseInt($(".page2 .info.active p").length);
+            p_site1=parseInt(p_lenth/site);
+            p_site2=parseInt(p_lenth%site);
+            $(".page2 .info.active p").length>8?$(".page2 .info a").show():$(".page2 .info a").hide();
+            $(".page2 .info.active p").length>8?list.css("maxHeight",'19.5rem'):list3.css("maxHeight",'none');
+             $(".page2 .info a").html("MORE<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}' alt='' class='icon_arrow'>");
+		});
+		 //点击显示更多荣誉
+        // console.log(self_hth);
+		$(".page2 .info a").on("click", function () {
+            self_hth =parseInt(list.css("maxHeight")) ;
+			p_site1--;
+			if(p_site1>0){
+				if(p_site1>1){
+                   $(this).html("MORE<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}' alt='' class='icon_arrow'>");
+                    more_h= self_hth + 373+'px';
+				}else{
+				   more_h= 'none';
+                   $(this).html("收起<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn1.png?{$smarty.const.VERSION}' alt='' class='icon_arrow' style='top:0.3rem;right:0.5rem'>");
+				}
+                click=true;
+				list.css("maxHeight",more_h);
+            }else{
+            	click=false;
+            	p_site1=parseInt(p_lenth/site);
+               $(this).html("MORE<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}' alt='' class='icon_arrow'>");
+				navscroll("#course");
+				list.css("maxHeight",'19.5rem');
+            }
+		});
+		$(".page2 .years .year:eq(0)").trigger("click");
+		function navscroll(idstr){
+			var $a=$(idstr),
+				$c=$a.offset().top-$("#i_nav").height();
+			$("html,body").stop().animate({ scrollTop:$c+"rem" },300);
+		}
+		//page3的内容展示
+		// page3年份显示判断
+		function year_change(){
+			// if($(".page3 .honor_list .info").hasClass("isotope-hidden")){
+			// 	$(this).removeClass("on");
+			// }else{
+			// 	$(".page3 .honor_list .info").addClass("on");
+			// }
+			$(".page3 .honor_list .info").each(function (i,n){
+				if($(n).hasClass("isotope-hidden") || $(n).hasClass("2017") || $(n).hasClass("2016") || $(n).hasClass("2015")){
+					$(this).removeClass("on");
+				} else {
+					$(this).addClass("on");
+				}
+			});
+		}
+		// function year_change2(){
+		// 	// if($(".page3 .honor_list .info").hasClass("isotope-hidden")){
+		// 	// 	$(this).removeClass("on");
+		// 	// }else{
+		// 	// 	$(".page3 .honor_list .info").addClass("on");
+		// 	// }
+		// 	$(".page3 .honor_list .info").each(function (i,n){
+		// 		if($(n).hasClass("isotope-hidden")){
+		// 			$(this).removeClass("on");
+		// 		} else {
+		// 			$(this).addClass("on");
+		// 		}
+		// 	});
+		// }
+		year_change();
+        var p3_lenth = parseInt($(".page3 .honor_list .info.on").length);
+		var p3_site1 = '';//商数
+		var p3_site2 = '';//余数
+		var site3 = 7;
+		var more_h3 = '';
+        var click3='';
+        console.log(p3_lenth);
+            p3_lenth=parseInt($(".page3 .honor_list .info.on").length);
+            p3_site1=parseInt(p3_lenth/site3);
+            p3_site2=parseInt(p3_lenth%site3);
+            console.log(p3_site1);
+            console.log(p3_site2);
+		 //点击显示更多荣誉
+		var list3=$(".about-con .page3>div .honor_list");
+        var self_hth3 ='';
+        //公司荣誉年份的筛选
+		 refreshhnav();
+		var param={};
+		param.filter = "."+$(".page3 .years .year.active").attr("option-year");
+		// $(param.filter).length>5?$(".page3>div .more_btn").show():$(".page3>div .more_btn").hide();
+		$('.page3 .honor_list').isotope(param);
+		$('.page3 .years .year').click(function(){
+			// don't proceed if already selected
+            $(this).addClass("active").siblings().removeClass("active");
+			refreshhnav();
+			var options = {};
+			options.filter =  "."+$(".page3 .years .year.active").attr("option-year");
+			// changes in layout modes need extra logic
+			$(options.filter).length>7?$(".page3>div .more_btn").show():$(".page3>div .more_btn").hide();
+			$(options.filter).length>7?list3.css("maxHeight",'23.6rem'):list3.css("maxHeight",'none');
+			$('.page3 .honor_list').isotope(options);
+			$(".page3 .honor_list .info").each(function (i,n){
+				if($(n).hasClass("isotope-hidden")){
+					$(this).removeClass("on");
+				} else {
+					$(this).addClass("on");
+				}
+			});
+			p3_lenth= parseInt($(".page3 .honor_list .info.on").length);
+            p3_site1=parseInt(p3_lenth/site3);
+            p3_site2=parseInt(p3_lenth%site3);
+		});
+		$("#viewAward2").on("click", function () {
+            self_hth3 =parseInt(list3.css("maxHeight"));
+			p3_site1--;
+			console.log(p3_site1);
+			if(p3_site1>0){
+				if(p3_site1>1){
+                   $(this).html("MORE<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}' alt='' class='icon_arrow'>");
+                   more_h3= self_hth3 + 554+'px';
+				}else{
+                   $(this).html("收起<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn1.png?{$smarty.const.VERSION}' alt='' class='icon_arrow' style='top:0.3rem;right:0.5rem'>");
+                   more_h3= 'none';
+				}
+                click3=true;
+				list3.css("maxHeight",more_h3);
+            }else{
+            	click3=false;
+            	p3_site1=parseInt(p3_lenth/site3);
+               $(this).html("MORE<img src='{$smarty.const.STATIC_DOMAIN}wap1.0/about/images/more_btn.png?{$smarty.const.VERSION}' alt='' class='icon_arrow'>");
+				navscroll("#honor");
+				list3.css("maxHeight",'23.6rem');
+            }
+		});
+		window.onload=function(){
+			location.hash&&navscroll(location.hash);
+		}
+		$(".about-con .page4>div .team_list>div").click(function(){
+			    $(this).toggleClass("active");
+			    $(this).siblings().removeClass("active");
+			    event.stopPropagation();
+		})
+		$(".fade").click(function(){
+			$(".about-con .page4>div .team_list>div").removeClass("active");
+		})
+        var Swiper1 = new Swiper('.swiper-container1', {
+            // loop:true,
+            slidesPerView: 'auto',
+            pagination: '.swiper-pagination1',
+            paginationClickable: true,
+            // observeParents:true,
+            slideToClickedSlide: true,
+            slidesPerView: 1.2,
+
+        });
+        var Swiper4 = new Swiper('.swiper-container4', {
+            // loop:true,
+            slidesPerView: 'auto',
+            pagination: '.swiper-pagination4',
+            paginationClickable: true,
+            // observeParents:true,
+            slideToClickedSlide: true,
+            slidesPerView: 2.16,
+        });
+        var swiper3 = new Swiper('.swiper-container3', {
+          slidesPerView:4,
+          // spaceBetween: 30,
+          centeredSlides: true,
+          slideToClickedSlide: true,
+        });
+        var swiper2= new Swiper('.swiper-container2',{
+            loop:true,
+            paginationType : 'fraction',
+            pagination: '.swiper-pagination2',
+            paginationClickable: true,
+            slidesPerView:1,
+            // autoplay:2000,
+            effect : 'fade',
+            fade: {
+                crossFade: true,
+            },
+            slideToClickedSlide: true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+        });
+        $(".nav_icon").click(function(){
+            $("#page_nav").show();
+            $("#page_nav").addClass("bounceInRight");
+            $("#page_nav").removeClass("bounceOutRight");
+            $(".nav_icon").hide();
+            $(".close").show();
+        });
+        $(".close").click(function(){
+            $("#page_nav").removeClass("bounceInRight");
+            $("#page_nav").addClass("bounceOutRight");
+         	$("#page_nav").hide(1000);
+            $(".close").hide();
+            $(".nav_icon").show();
+        })
+    });
+</script>
+</html>
+

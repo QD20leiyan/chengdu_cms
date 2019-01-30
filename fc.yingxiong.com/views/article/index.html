@@ -1,0 +1,109 @@
+{include file="../layouts/pc/header.html"}
+<div class="news-nav list-nav">
+
+</div>
+    <div class="body news-body">
+        <div class="container ccont clearfix">
+            <div  class="return">
+                <a target="_blank" href='{myurl name="/site/index"}'>
+                    <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/jian.png?{$smarty.const.VERSION}" />
+                    <span>返回首页</span>
+                </a>
+            </div>
+            <div class="news-ti">
+                <a target="_blank" href='{myurl name="/site/index"}' target="_blank">首页&nbsp;>&nbsp;</a><a target="_blank">
+                {if $data.id lt 200 and $data.id gt 193}新闻动态{/if}
+                {if $data.id lt 214 and $data.id gt 207}玩家专区{/if}
+            </a>
+                <span>news center</span>
+            </div>
+        </div>
+        <div class="container clearfix conta" style="border-right: 1px solid #EBDCE1;">
+            <div class="news-box clearfix">
+            <div class="news-left clearfix">
+                <div class="s-right">
+                    <div class="min-title clearfix"><p>自助服务</p><a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/add.png?{$smarty.const.VERSION}"></a></div>
+                    <input type="text" placeholder="输入您的问题" class="inp">
+                    <ul class="server clearfix">
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=1">
+                                <i></i>
+                                账号问题
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=6">
+                                <i></i>
+                                充值问题
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=8">
+                                <i></i>
+                                账号查询
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=4">
+                                <i></i>
+                                我要举报
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="imgs imgs-box">
+                {foreach $activity as $k => $v}
+                    <a target="_blank" href="{$v.url}" class="imgs"><img src="{$v.thumb}"></a>
+                {/foreach}
+                </div>
+            </div>
+            <div class="news-right">
+                <ul class="news-tabs video-tabs clearfix">
+                    {if $data.id lt 200 and $data.id gt 193}
+                    <li class="{if $data.id eq 194}active{else} {/if}"><a href='{myurl name="article/list, id=>194"}'>最新</a></li>
+                    <li class="{if $data.id eq 195}active{else} {/if}"><a href="{myurl name='article/list, id=>195'}">媒体</a></li>
+                    <li class="{if $data.id eq 196}active{else} {/if}"><a href="{myurl name='article/list, id=>196'}">攻略</a></li>
+                    <li class="{if $data.id eq 197}active{else} {/if}"><a href="{myurl name='article/list, id=>197'}">活动</a></li>
+                    <li class="{if $data.id eq 198}active{else} {/if}"><a href="{myurl name='article/list, id=>198'}">公告</a></li>
+                    <li class="{if $data.id eq 199}active{else} {/if}"><a href="{myurl name='article/list, id=>199'}">新闻</a></li>
+                    {/if}
+                    {if $data.id lt 214 and $data.id gt 207}
+                    <li class="{if $data.id eq 208}active{else} {/if}"><a href='{myurl name="article/list, id=>208"}'>最新</a></li>
+                    <li class="{if $data.id eq 209}active{else} {/if}"><a href="{myurl name='article/list, id=>209'}">新闻</a></li>
+                    <li class="{if $data.id eq 210}active{else} {/if}"><a href="{myurl name='article/list, id=>210'}">公告</a></li>
+                    <li class="{if $data.id eq 211}active{else} {/if}"><a href="{myurl name='article/list, id=>211'}">活动</a></li>
+                    <li class="{if $data.id eq 212}active{else} {/if}"><a href="{myurl name='article/list, id=>212'}">赛事</a></li>
+                    <li class="{if $data.id eq 213}active{else} {/if}"><a href="{myurl name='article/list, id=>213'}">攻略</a></li>
+                    {/if}
+                </ul>
+               
+                 <div class="tab-cont show">
+                     {if $data['data'] neq ''}
+                        <ul>
+                         {foreach $data['data'] as $k => $v}
+                            <li><i>[{$v.name}]</i><a target="_blank" href="{$v.link_url}" target="_blank">{$v.title}</a><span>[{$v.created_at|date_format:"%m/%d"}]</span></li>
+                        {/foreach}
+                        </ul>
+                     {else}
+
+                     {/if}
+                </div>
+                
+                <hr />
+                {$data.page}
+                <div class="trun_page">
+                    <span><a href="{$preLink}"></a></span>
+                    <span><a href="{$nextLink}"></a></span>
+                </div>
+            </div>
+        </div>
+        </div>
+        {include file="../layouts/pc/footer_nav.html"}
+    </div>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+{download}
+</body>
+</html>

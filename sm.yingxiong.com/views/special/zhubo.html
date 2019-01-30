@@ -1,0 +1,296 @@
+	{include file="../layouts/pc/header.html"}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/vote.css?{$smarty.const.VERSION}" />
+		<div class="v_kv">
+			<img class="v_img" src="{$lunbo[0].content_message}" alt="" />
+			<div class="img_mask"></div>
+			<div class="wrap">
+				<p class="v_t">明星主播</p>
+				<div class="v_m">
+					<div class="v_m_l">
+						<ul class="v_ul">
+							{if $lunbo neq ''}
+								{foreach $lunbo as $k=>$b}
+									<li class="{if $k == 0}active{else} {/if}">
+										<a target="_blank" href="{$b.redirect_url}"><img src="{$b.content_message}" alt="" /></a>
+									</li>
+								{/foreach}
+							{/if}
+						</ul>
+					</div>
+					<div class="v_m_r">
+						<ul class="v_r_ul">
+							{if $lunbo neq ''}
+								{foreach $lunbo as $k=>$b}
+									<li class="{if $k == 0}active{else} {/if}">
+										<a href="javascript:;"><img src="{$b.thumb}" alt="" /></a>
+									</li>
+								{/foreach}
+							{/if}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="v_main">
+			<div class="wrap">
+				<p class="vm_title">精彩活动</p>
+				<ul class="vm_ul">
+					{if $act neq ''}
+						{foreach $act as $v}
+							<li>
+								<a target="_blank" href="{$v.linkUrl}">
+									<img src="{$v.thumb}" alt="" />
+									<div class="li_mask">
+										<div class="mask"></div>
+										<p>活动详情</p>
+									</div>
+								</a>
+								<div class="li_bottom">
+									<h3>{$v.title}</h3>
+									<p>活动时间：{$v.summary}</p>
+									<p class="b_p">{$v.sub_title}</p>
+								</div>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="v_list">
+					<div class="v_list_t">
+						<p class="v_list_p">魔法主播</p>
+						<img class="tit_nav" src="{$smarty.const.STATIC_DOMAIN}3.0/images/tit_nav.png" alt="" />
+						<ul class="v_l_u">
+							<li class="active"><span>触手</span></li>
+							<li><span>虎牙</span></li>
+							<li><span>企鹅电竞</span></li>
+							<li><span>游拍</span></li>
+							<li><span>其他</span></li>
+						</ul>
+					</div>
+					<div class="big_bo">
+						<div class="v_banner active">
+							<div class="v_b_l swiper-wrapper">
+								{if $cs neq ''}
+									{foreach $cs as $k=>$v}
+										{if $k%15 == 0}
+											<ul class="v_b_ul swiper-slide">
+										{/if}		
+												<li>
+													<a target="_blank" href="{$v.content_message}">
+														<img src="{$v.thumb}" alt="" />
+														<div class="li_mask">
+															<div class="mask"></div>
+															<p>进入直播间</p>
+														</div>
+													</a>
+													<div class="list_bottom">
+														<p>{$v.title}</p>
+														<p>{$v.sub_title}</p>
+													</div>
+												</li>
+										{if $k%15 == 14 || $k == (count($cs)-1)}
+											</ul>
+										{/if}
+									{/foreach}
+								{/if}
+							</div>
+							<div class="pagination01"></div>
+							<div class="page_prev"></div>
+							<div class="page_next"></div>
+						</div>
+						<div class="v_banner">
+							<div class="v_b_l swiper-wrapper">
+								{if $hy neq ''}
+									{foreach $hy as $k=>$v}
+										{if $k%15 == 0}
+											<ul class="v_b_ul swiper-slide">
+										{/if}		
+												<li>
+													<a target="_blank" href="{$v.content_message}">
+														<img src="{$v.thumb}" alt="" />
+														<div class="li_mask">
+															<div class="mask"></div>
+															<p>进入直播间</p>
+														</div>
+													</a>
+													<div class="list_bottom">
+														<p>{$v.title}</p>
+														<p>{$v.sub_title}</p>
+													</div>
+												</li>
+										{if $k%15 == 14 || $k == (count($hy)-1)}
+											</ul>
+										{/if}
+									{/foreach}
+								{/if}
+							</div>
+							<div class="pagination01"></div>
+							<div class="page_prev"></div>
+							<div class="page_next"></div>
+						</div>
+						<div class="v_banner">
+							<div class="v_b_l swiper-wrapper">
+								{if $dj neq ''}
+									{foreach $dj as $k=>$v}
+										{if $k%15 == 0}
+											<ul class="v_b_ul swiper-slide">
+										{/if}		
+												<li>
+													<a target="_blank" href="{$v.content_message}">
+														<img src="{$v.thumb}" alt="" />
+														<div class="li_mask">
+															<div class="mask"></div>
+															<p>进入直播间</p>
+														</div>
+													</a>
+													<div class="list_bottom">
+														<p>{$v.title}</p>
+														<p>{$v.sub_title}</p>
+													</div>
+												</li>
+										{if $k%15 == 14 || $k == (count($dj)-1)}
+											</ul>
+										{/if}
+									{/foreach}
+								{/if}
+							</div>
+							<div class="pagination01"></div>
+							<div class="page_prev"></div>
+							<div class="page_next"></div>
+						</div>
+						<div class="v_banner">
+							<div class="v_b_l swiper-wrapper">
+								{if $yp neq ''}
+									{foreach $yp as $k=>$v}
+									{if $k%15 == 0}
+									<ul class="v_b_ul swiper-slide">
+										{/if}
+										<li>
+											<a target="_blank" href="{$v.content_message}">
+												<img src="{$v.thumb}" alt="" />
+												<div class="li_mask">
+													<div class="mask"></div>
+													<p>进入直播间</p>
+												</div>
+											</a>
+											<div class="list_bottom">
+												<p>{$v.title}</p>
+												<p>{$v.sub_title}</p>
+											</div>
+										</li>
+										{if $k%15 == 14 || $k == (count($qt)-1)}
+									</ul>
+									{/if}
+									{/foreach}
+								{/if}
+							</div>
+							<div class="pagination01"></div>
+							<div class="page_prev"></div>
+							<div class="page_next"></div>
+						</div>
+						<div class="v_banner">
+							<div class="v_b_l swiper-wrapper">
+								{if $qt neq ''}
+								{foreach $qt as $k=>$v}
+									{if $k%15 == 0}
+										<ul class="v_b_ul swiper-slide">
+									{/if}		
+											<li>
+												<a target="_blank" href="{$v.content_message}">
+													<img src="{$v.thumb}" alt="" />
+													<div class="li_mask">
+														<div class="mask"></div>
+														<p>进入直播间</p>
+													</div>
+												</a>
+												<div class="list_bottom">
+													<p>{$v.title}</p>
+													<p>{$v.sub_title}</p>
+												</div>
+											</li>
+									{if $k%15 == 14 || $k == (count($qt)-1)}
+										</ul>
+									{/if}
+								{/foreach}
+								{/if}
+							</div>
+							<div class="pagination01"></div>
+							<div class="page_prev"></div>
+							<div class="page_next"></div>
+						</div>
+					</div>
+				</div>
+				<div class="sm_zb">
+					<p class="sm_title">成为魔法主播吧！</p>
+					<a class="commend" href="http://sm.yingxiong.com/info/2017/0919/1160.html" target="_blank">
+						<img class="b_img" src="{$smarty.const.STATIC_DOMAIN}3.0/images/bo.jpg" alt="" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(".v_r_ul li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".v_m_l li").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$(".v_l_u li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".big_bo .v_banner").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		var mySwiper = new Swiper('.v_banner', {
+			//			slidesPerView : 5,
+			//			slidesPerColumn : 3,
+			//			slidesPerColumnFill : 'row',
+			//			spaceBetween : 20,
+			simulateTouch : false,
+			prevButton: '.page_prev',
+			nextButton: '.page_next',
+			pagination: '.pagination01',
+			paginationClickable: true,
+			observer: true,
+			observeParents: true,
+		});
+		getLi();
+		var len = $(".v_ul li").length,
+			index = 0;
+		function interVal() {
+			if(index < len) {
+				$(".v_ul li").eq(index).addClass("active").siblings().removeClass("active");
+				$(".v_r_ul li").eq(index).addClass("active").siblings().removeClass("active");
+				var img = $('.v_ul li').eq(index).find('img').attr('src');
+				$(".v_img").attr("src" , img);
+				index++
+			} else {
+				index = 0;
+			}
+		};
+		var timer = setInterval(interVal,1500);
+		$(".v_r_ul li").on("click", function() {
+			clearInterval(timer);
+			var abc = $(this).index();
+			index = abc;
+			var img = $('.v_ul li').eq(abc).find('img').attr('src');
+			$(".v_img").attr("src" , img);
+			abc++;
+		});
+		$(".v_r_ul").mouseout(function (){
+			clearInterval(timer);
+			timer = setInterval(interVal,1500);
+		});
+		function getLi() {
+			$(".v_b_ul li").each(function(index, con) {
+				if(($(this).index() + 1) % 5 == 0 && $(this).index() > 0) {
+					$(this).addClass("active");
+				}
+			})
+		}
+	</script>
+
+</html>

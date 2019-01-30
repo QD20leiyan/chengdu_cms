@@ -1,0 +1,54 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/list.css?{$smarty.const.VERSION}" />
+		<div class="n_kv">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/n_logo.png?{$smarty.const.VERSION}" alt="" class="logo"/>
+			</div>
+		</div>
+		<div class="n_body">
+			<div class="top_ul">
+				<ul class="tab_ul">
+					<li class="{if $id eq 545}active{else} {/if}"><a href="{myurl name='article/list, id=>545'}">综合</a></li>
+					<li class="{if $id eq 546}active{else} {/if}">
+						<a href="{myurl name='article/list, id=>546'}">新闻</a>
+					</li>
+					<li class="{if $id eq 547}active{else} {/if}">
+						<a href="{myurl name='article/list, id=>547'}">公告</a>
+					</li>
+					<li class="{if $id eq 548}active{else} {/if}">
+						<a href="{myurl name='article/list, id=>548'}">活动</a>
+					</li>
+					<li class="{if $id eq 556}active{else} {/if}">
+						<a href="{myurl name='article/list, id=>556'}">攻略</a>
+					</li>
+					<p class="back">
+						<a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+				</ul>
+			</div>
+			<div class="newslist">
+		        {if !empty($data)}
+				<ul>
+					{foreach $data as $v}
+					<a href="{$v.linkUrl}" target="_blank">
+					<li>
+						<div class="newlist_left">
+							<span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+							<span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+						</div>
+						<div class="newlist_img"><img src="{$v.thumb}" alt="" /></div>
+						<div class="newlist_right">
+							<h3>{$v.title}</h3>
+							<p>{$v.contentMessage}</p>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_hover.png" alt="" class="l_hover" />
+					</li>
+				    </a>
+					{/foreach}
+				</ul>
+				{$page}
+				{else}
+				<p style="text-align: center;padding-top: 35px;">暂无数据</p>
+				{/if}
+			</div>
+		</div>
+{include file="../layouts/pc/footer.html"}

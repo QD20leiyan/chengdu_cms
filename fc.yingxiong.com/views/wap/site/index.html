@@ -1,0 +1,345 @@
+{include file="../../layouts/wap/header.html"}
+<section class="kv">
+    <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/kv_play.png?{$smarty.const.VERSION}" class="js_video_play" data-url="http://video.yingxiong.com/hd/46245828.mp4" />
+</section>
+<section class="gift">
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift.png" alt="" />
+</section>
+<section class="gift_float">
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/float_pic.png" alt="" />
+	<img class="gift_code" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/float_code.jpg" alt="" />
+	<img class="gift_close" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/float_close.png" />
+</section>
+<div class="gift_mask"></div>
+<section class="cont">
+  <section class="idx-news">
+      <aside class="title clear">
+        <p>新闻动态</p>
+        <a href="{myurl name='wap/list, id=>194'}"></a>
+      </aside>
+      <ul class="menu clear">
+          <li class="active">最新</li>
+          <li>新闻</li>
+          <li>公告</li>
+          <li>活动</li>
+          <li>攻略</li>
+      </ul>
+      <ul class="news-list show">
+        {foreach $zx as $k => $v}
+             <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+        {/foreach}
+      </ul>
+       <ul class="news-list hide">
+         {foreach $xw as $k => $v}
+             <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+        {/foreach}
+       </ul>
+       <ul class="news-list hide">
+          {foreach $gg as $k => $v}
+             <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+        {/foreach}
+       </ul>
+         <ul class="news-list hide">
+          {foreach $hd as $k => $v}
+             <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+        {/foreach}
+       </ul>
+       <ul class="news-list hide">
+         {foreach $gl as $k => $v}
+             <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+        {/foreach}
+       </ul>
+  </section>
+    <section class="banner">
+      <div class="swiper-container swiper_01">
+          <div class="swiper-wrapper">
+          {foreach $banner as $k => $v}
+               <div class="swiper-slide">
+                   <a target="_blank" href="{$v.url}"><img src="{$v.thumb}" /></a>
+              </div>
+          {/foreach}
+          </div>
+          <!-- 如果需要分页器 -->
+          <div class="swiper-pagination"></div>
+      </div>
+    </section>
+    <section class="car-banner">
+      <!--<aside class="car-title">赛车介绍</aside>-->
+      <div class="swiper-container swiper_02">
+          <div class="swiper-wrapper">
+          {foreach $sc as $k => $v}
+              <div class="swiper-slide">
+                  <img src="{$v.content_message}" />
+                  <!--<p>{$v.title}<span>{$k+1}/{$sc|@count}</span></p>-->
+              </div>
+          {/foreach}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+      </div>
+    </section>
+    <section class="anchor">
+    {foreach $activity as $k => $v}
+         <a href="{$v.url}"><img src="{$v.thumb}" /></a>
+    {/foreach}
+    </section>
+    <section class="video-center">
+      <aside class="title clear">
+        <p>视频中心</p>
+        <a href="{myurl name='wap/list, id=>202, cat_dir=>video'}"></a>
+      </aside>
+      <ul class="video-menu clear">
+          <li class="active">最新视频</li>
+          <li>推荐视频</li>
+          <li>教学视频</li>
+          <li>趣味视频</li>
+          <li>官方视频</li>
+          <li>直播视频</li>
+      </ul>
+      <ul class="video-list clear show">
+      {foreach $zxVideo as $k => $v}
+        <li>
+          <span>
+            <i class="js_video_play" data-url="{$v.content_message}"></i>
+            <img src="{$v.thumb}" alt="">
+          </span>
+          <p>{$v.title}</p>
+       </li>
+      {/foreach}
+      </ul>
+       <ul class="video-list clear hide">
+        {foreach $tjVideo as $k => $v}
+          <li>
+            <span>
+              <i class="js_video_play" data-url="{$v.content_message}"></i>
+              <img src="{$v.thumb}" alt="">
+            </span>
+            <p>{$v.title}</p>
+         </li>
+      {/foreach}
+       </ul>
+       <ul class="video-list clear hide">
+         {foreach $jxVideo as $k => $v}
+          <li>
+            <span>
+              <i class="js_video_play" data-url="{$v.content_message}"></i>
+              <img src="{$v.thumb}" alt="">
+            </span>
+            <p>{$v.title}</p>
+         </li>
+      {/foreach}
+       </ul>
+       <ul class="video-list clear hide">
+         {foreach $qwVideo as $k => $v}
+          <li>
+            <span>
+              <i class="js_video_play" data-url="{$v.content_message}"></i>
+              <img src="{$v.thumb}" alt="">
+            </span>
+            <p>{$v.title}</p>
+         </li>
+      {/foreach}
+       </ul>
+       <ul class="video-list clear hide">
+         {foreach $gfVideo as $k => $v}
+          <li>
+            <span>
+              <i class="js_video_play" data-url="{$v.content_message}"></i>
+              <img src="{$v.thumb}" alt="">
+            </span>
+            <p>{$v.title}</p>
+         </li>
+      {/foreach}
+       </ul>
+       <ul class="video-list clear hide">
+         {foreach $zbVideo as $k => $v}
+          <li>
+            <span>
+              <i class="js_video_play" data-url="{$v.content_message}"></i>
+              <img src="{$v.thumb}" alt="">
+            </span>
+            <p>{$v.title}</p>
+         </li>
+      {/foreach}
+       </ul>
+    </section>
+    <section class="map-box">
+      <aside class="title clear">
+        <p>地图展示</p>
+       <!--  <a href="#"></a> -->
+      </aside>
+        <div class="swiper-container swiper_03">
+            <div class="swiper-wrapper">
+            {foreach $dt as $k => $v}
+                <div class="swiper-slide">
+                    <img src="{$v.content_message}" />
+                    <p class="map-p">{$v.title}<span>{$k+1}/{$dt|@count}</span></p>
+                </div>
+            {/foreach}
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+    <section class="cheshen">
+      <aside class="title clear">
+        <p>巅峰车神TOP3</p>
+       <!--  <a href="#"></a> -->
+      </aside>
+      <ul class="cheshen-list clear">
+        {foreach $top3 as $k => $v}
+          <li>
+           <img src="{$v.thumb}">
+           <span>NO.{$k+1}</span>
+           <p>{$v.title}</p>
+           <span>{$v.summary}</span>
+         </li>
+        {/foreach}
+      </ul>
+    </section>
+    <section class="car-level">
+        <aside class="title clear">
+          <p>车队排行TOP3</p>
+         <!--  <a href="#"></a> -->
+        </aside>
+        <ul class="car-leve-ul">
+        {foreach $top10 as $k => $v}
+            <li class="clear"><p><i>{$k+1}</i>{$v.title}</p><span>{$v.summary}</span></li>
+        {/foreach}
+        </ul>
+    </section>
+    <section class="zhibo">
+      <h3>赛事直播预告</h3>
+      {foreach $yugao as $k => $v}
+        <aside class="zhibo-list clear">
+          <div class="zhibo-left">
+              <p>{$v.title}</p>
+              <p>{$v.sub_title}</p>
+              <p>{$v.summary}</p>
+          </div>
+          <div class="zhibo-right">
+            <p>{$v.created_at|date_format:"%m月%d日"}</p>
+            <a href="{$v.url}">观看</a>
+          </div>
+        </aside>
+      {/foreach}
+    </section>
+    <section class="idx-news gamer">
+      <aside class="title clear">
+        <p>玩家专区</p>
+        <a href="{myurl name='wap/list, id=>208'}"></a>
+      </aside>
+      <ul class="gamer-ul clear">
+          <li class="active">飞车原创</li>
+          <li>社区女神</li>
+          <li>明星车队</li>
+          <li>社交广场</li>
+          <li>看攻略</li>
+      </ul>
+      <ul class="gamer-list show">
+      {foreach $zxZq as $k => $v}
+         <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m%d"}</span></a></li>
+      {/foreach}
+      </ul>
+       <ul class="gamer-list hide">
+         {foreach $xwZq as $k => $v}
+         <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m%d"}</span></a></li>
+      {/foreach}
+       </ul>
+       <ul class="gamer-list hide">
+         {foreach $ggZq as $k => $v}
+         <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m%d"}</span></a></li>
+      {/foreach}
+       </ul>
+       <ul class="gamer-list hide">
+         {foreach $hdZq as $k => $v}
+         <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m%d"}</span></a></li>
+      {/foreach}
+       </ul>
+       <ul class="gamer-list hide">
+         {foreach $ssZq as $k => $v}
+         <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m%d"}</span></a></li>
+      {/foreach}
+       </ul>
+       <ul class="gamer-list hide">
+         {foreach $glZq as $k => $v}
+         <li><a href="{$v.wapLinkUrl}"><p><span>[{$v.categoryName}]</span>{$v.title}</p><span>{$v.created_at|date_format:"%m%d"}</span></a></li>
+      {/foreach}
+       </ul>
+  </section>
+  <section class="girl">
+        <aside class="title clear">
+            <p>飞车girl</p>
+           <!--  <a href="#"></a> -->
+        </aside>
+        <div class="swiper-container swiper_04">
+                <div class="swiper-wrapper">
+              {foreach $girl as $k => $v}
+              {if $k%4 == 0}
+                  <div class="swiper-slide">
+                        <ul class="girl-list clear">
+              {/if}
+                            <li>
+                              <img src="{$v.thumb}" alt="">
+                              <p>ID {$v.title}</p>
+                            </li>
+              {if $k%4 == 3 || $k == (count($girl)-1)}
+                        </ul>
+                    </div>
+                {/if}
+                {/foreach}   
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+          </div>
+  </section>
+</section>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery+fittext+touchslider.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+
+<script>        
+      var mySwiper_01 = new Swiper('.swiper_01',{
+            autoplay: 5000,
+            paginationClickable :true,
+            pagination : '.swiper-pagination',
+            autoplayDisableOnInteraction:false
+        });
+      var mySwiper_02 = new Swiper('.swiper_02',{
+      		loop:true,
+            autoplay: 5000,
+            paginationClickable :true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            autoplayDisableOnInteraction:false
+        });
+      var mySwiper_03 = new Swiper('.swiper_03',{
+          autoplay: 5000,
+          paginationClickable :true,
+          prevButton:'.swiper-button-prev',
+          nextButton:'.swiper-button-next',
+          autoplayDisableOnInteraction:false
+      });
+      var mySwiper_04 = new Swiper('.swiper_04',{
+          autoplay: 5000,
+          paginationClickable :true,
+          pagination : '.swiper-pagination',
+          autoplayDisableOnInteraction:false
+      });
+       $(".gift").click(function (){
+        	$(".gift_mask").show();
+        	$(".gift_float").show();
+        })
+        $(".gift_close").click(function (){
+        	$(".gift_mask").hide();
+        	$(".gift_float").hide();
+        })
+  </script>
+  {video_play}
+{download}
+
+</body>
+</html>

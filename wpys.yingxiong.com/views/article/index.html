@@ -1,0 +1,36 @@
+{include '../layouts/pc/header.html'}
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="new_main">
+		<!-- <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/zzc2.png?{$smarty.const.VERSION}" alt="" class="zz_ceng"> -->
+		<div class="main_content">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/news_board.png?{$smarty.const.VERSION}" alt="" class="news_images">
+			<div class="news-bg">
+				<div class="news-list clearfix">
+					<p class="min-menu">当前位置:  <a href="{myurl name='site/index'}">首页</a>>新闻中心</p>
+					<ul class="news-nav news-menu clearfix"  data-id="{$id}">
+						<li class="{if $id eq 450}curr{else} {/if}"><a href="{myurl name='article/list, id=>450'}">全部</a></li>
+						<li class="{if $id eq 451}curr{else} {/if}"><a href="{myurl name='article/list, id=>451'}">新闻</a></li>
+						<li class="{if $id eq 452}curr{else} {/if}"><a href="{myurl name='article/list, id=>452'}">公告</a></li>
+						<li class="{if $id eq 453}curr{else} {/if}"><a href="{myurl name='article/list, id=>453'}">活动</a></li>
+						<li class="{if $id eq 1919}curr{else} {/if}"><a href="{myurl name='article/list, id=>1919'}">玩家作品</a></li>
+					</ul>
+					<div class="lis">
+						{if !empty($data)}
+						<ul class="news-li-1 show">
+							{foreach $data as $v}
+							<li><a href="{$v.linkUrl}"><i>[{$v.name}]</i>{$v.title}</a><span>{$v.created_at_formate}</span>
+							</li>
+							{/foreach}
+						</ul>
+						{$page}
+						{else}
+						<p style="text-align: center">暂无数据</p>
+						{/if}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include '../layouts/pc/bottom.html'}
+</div>

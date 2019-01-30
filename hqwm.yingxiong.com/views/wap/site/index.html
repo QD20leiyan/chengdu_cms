@@ -1,0 +1,174 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv">
+		{fragment var=video code=index_video size=1}
+		<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $video}js_video_play{else}{/if} play" data-url="{if $video}{$video[0].url}{/if}">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png" alt="" />
+		</a>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tuijian.png?{$smarty.const.VERSION}" alt="" class="tuijian" />
+		<a href="javascript:;" class="and js_down_andriod stat_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+		<a href="http://l.taptap.com/zZexzR9z" class="tap1 no_channel stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tap1.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+</section>
+<section>
+	<div class="content">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="c_bg">
+			<div class="top_banner">
+				{fragment var=index_banner code=index_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="news_list">
+				<div class="news_ul">
+					<ul>
+						<li class="active">综合</li>
+						<li>新闻</li>
+						<li>公告</li>
+						<li>活动</li>
+						<a href="{myurl name='wap/article/list, id=>539'}" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+					</ul>
+				</div>
+				<div class="tab_div">
+					<ul class="active">
+						{article id="539" size=4 var=zx}
+						{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{else}
+							<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="540" size=4 var=xw}
+						{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{else}
+							<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="542" size=4 var=gg}
+						{if $gg neq ''}
+							{foreach $gg as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{else}
+							<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="543" size=4 var=hd}
+						{if $hd neq ''}
+							{foreach $hd as $key=>$v}
+								{if $key >= 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{else}
+							<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="last">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label2.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="bottom_icon">
+			<ul>
+				<li>
+					<a href="{$global.wb_url}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_wb.png?{$smarty.const.VERSION}" alt="" />
+						<p>官方微博</p>
+					</a>
+				</li>
+				<li>
+					<a href="{$global.tb_url}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_bd.png?{$smarty.const.VERSION}" alt="" />
+						<p>官方贴吧</p>
+					</a>
+				</li>
+			</ul>
+			<div class="l_code">
+				<div class="g_code">
+					<img src="{$global.wx_img}" alt="" />
+				</div>
+				<p>官方公众号</p>
+			</div>
+			<ul>
+				<li>
+					<a href="https://jq.qq.com/?_wv=1027&k=5md1zsm">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_qq.png?{$smarty.const.VERSION}" alt="" />
+						<p>官方Q群1</p>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:yx_showTips('敬请期待');">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_qq.png?{$smarty.const.VERSION}" alt="" />
+						<p>官方Q群2</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".top_banner", {
+			autoplayDisableOnInteraction: false,
+			loop: true,
+			pagination: '.swiper-pagination',
+			autoplay: 2500,
+		});
+		$(".news_ul ul li").click(function (){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".tab_div ul").eq(index).addClass("active").siblings().removeClass("active");
+		});
+	})
+</script>
+
+</html>

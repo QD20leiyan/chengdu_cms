@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>战争与征服-真正的实时操控手游</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content=""  />
+		<meta name="description" content="" />
+		 <meta name="format-detection" content="telephone=no">
+        <meta name="full-screen" content="yes">
+        <meta name="x5-fullscreen" content="true">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zzyzf/tf/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zzyzf/tf/css/index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}zzyzf/tf/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        {csrf}
+	</head>
+	
+	<body>
+		<header>
+		    <a href="http://zzyzf.yingxiong.com/m/index.html" class="tz" target="_blank">
+		    <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+   			<div class="h5_data" style="display: none;">{$h5data}</div>
+			<div class="header" data-id="{$id}" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+				<a href="http://zzyzf.yingxiong.com/m/" class="icon" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}zzyzf/tf/images/icon.png" alt="" /></a>
+				<div class="header_txt">
+					<p>战争与征服</p>
+					<p>原汁原味还原战争时刻</p>
+				</div>
+				<a href="http://zzyzf.yingxiong.com/m/" class="yy_btn" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}zzyzf/tf/images/btn1.png?{$smarty.const.VERSION}" alt=""></a>
+			</div>
+			</a>
+		</header>
+		<section>
+		    <a href="http://zzyzf.yingxiong.com/m/index.html" class="tz">
+			<div class="kv">
+				<a href="http://zzyzf.yingxiong.com/m/" class="btn" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}zzyzf/tf/images/btn.png?{$smarty.const.VERSION}" alt="" /></a>
+				<p>版权所有：广州数远网络科技有限公司</p>
+			</div>
+			</a>
+		</section>
+	</body>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?{$smarty.const.VERSION}"></script>
+	<script>
+		document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+	</script>
+	<script type="text/javascript">
+		$(function() {
+       $(".tz").click(function(){
+       	  HLog.event("zzyzf_tf_index");
+       })
+			// 分享接口
+			var share_icon = $(".header").attr("data-icon");
+			var share_title = $(".header").attr("data-title");
+			var share_desc = $(".header").attr("data-desc");
+			var share = {
+				imgUrl: "http:" + share_icon,
+				shareTitle: share_title,
+				descContent: share_desc,
+				lineLink: 'http://h5.yingxiong.com/index/zzyzf/tf/tf.html'
+			};
+			wx.config({
+				debug: false,
+				appId: wx_conf.appId,
+				timestamp: wx_conf.timestamp,
+				nonceStr: wx_conf.nonceStr,
+				signature: wx_conf.signature,
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'chooseImage',
+					'previewImage',
+					'uploadImage',
+					'downloadImage'
+				]
+			});
+			wx.ready(function() {
+				wx.onMenuShareAppMessage({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					}
+				});
+				wx.onMenuShareTimeline({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					}
+				});
+
+				wx.onMenuShareQQ({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+			});
+		});
+	</script>
+</html>

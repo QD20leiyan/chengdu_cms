@@ -1,0 +1,42 @@
+{include '../layouts/pc/header.html'}
+{include '../layouts/pc/header_bar.html'}
+<!--内容-->
+<div class="i_main list">
+    <div class="top_banner"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/li_banner1.png?{$smarty.const.VERSION}" alt=""/></div>
+    <div class="content">
+        <!--第一部分-->
+        <div class="list_news">
+            <div class="qrcode">
+                <p>
+                    <a><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_qrcode.png?{$smarty.const.VERSION}" class="code_img"/></a>
+                    <a href="" class="js_down_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="" class="js_down_andriod" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="https://www.taptap.com/app/23420" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                </p>
+            </div>
+            <div class="listbox">
+                <ul>
+                    <li {if $type=='zx'}class="active" {/if}><a href="{myurl name='article/list, type=>zx,page=>1'}">综合</a></li>
+                    <li {if $type=='xw'}class="active" {/if}><a href="{myurl name='article/list, type=>xw,page=>1'}">新闻</a></li>
+                    <li {if $type=='gg'}class="active" {/if}><a href="{myurl name='article/list, type=>gg,page=>1'}">公告</a></li>
+                    <li {if $type=='hd'}class="active" {/if}><a href="{myurl name='article/list, type=>hd,page=>1'}">活动</a></li>
+                    <li {if $type=='gl'}class="active" {/if}><a href="{myurl name='article/list, type=>gl,page=>1'}">攻略</a></li>
+                    <span class="bn">您的位置: <a href="/site">首页</a>><span>新闻资讯</span></span>
+                </ul>
+                <div class="newslist">
+                    {foreach key=cid item=v from=$data}
+                    <a href="{$v.linkUrl}" target="_blank"><span class="type">【{$v.name}】</span><span>{$v.title}</span><span class="time">{$v.created_at|date_format:"%m/%d"}</span></a>
+                    {/foreach}
+                </div>
+                <div class="pages">
+                    {$page}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+
+</html>

@@ -1,0 +1,171 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+<div class="kv">
+	<div class="wrap">
+		<div class="download">
+			<div class="h_code">
+				<img src="" alt="" class="js_jump_img"/>
+			</div>
+			<a href="javascript:;" class="and js_down_andriod stat_android " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="javascript:yx_showTips('iOS暂时还未上架');" class="ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+		</div>
+		{fragment var=video code=index_video size=1}
+		<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" data-url="{if $video}{$video[0].url}{/if}" class="{if $video}js_video_play{else}{/if} play">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt="" />
+		</a>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tuijian.png?{$smarty.const.VERSION}" alt="" class="tuijian" />
+	</div>
+</div>
+<div class="content">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="c_list">
+			<div class="left_banner">
+				{fragment var=index_banner code=index_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $index_banner neq ''} {foreach $index_banner as $v}
+					<li class="swiper-slide">
+						<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+					</li>
+					{/foreach} {/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="right_news">
+				<ul class="top_ul">
+					<li class="active">最新</li>
+					<li>资讯</li>
+					<li>公告</li>
+					<li>活动</li>
+					<li>攻略</li>
+					<a href="{myurl name='article/list, id=>539'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+				</ul>
+				<div class="news_list">
+					<ul class="active">
+						{article id="539" size=4 var=zx} {if $zx neq ''} {foreach $zx as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.linkUrl}" target="_blank">
+								<em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i>
+							</a>
+						</li>
+						{/if} {/foreach} {else}
+						<p class="noData" style="line-height: 50px;color: #ad886d;">暂无数据...</p>
+						{/if}
+					</ul>
+
+					<ul class="">
+						{article id="540" size=4 var=xw} {if $xw neq ''} {foreach $xw as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.linkUrl}" target="_blank">
+								<em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i>
+							</a>
+						</li>
+						{/if} {/foreach} {else}
+						<p class="noData" style="line-height: 50px;color: #ad886d;">暂无数据...</p>
+						{/if}
+					</ul>
+
+					<ul class="">
+						{article id="542" size=4 var=gg} {if $gg neq ''} {foreach $gg as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.linkUrl}" target="_blank">
+								<em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i>
+							</a>
+						</li>
+						{/if} {/foreach} {else}
+						<p class="noData" style="line-height: 50px;color: #ad886d;">暂无数据...</p>
+						{/if}
+					</ul>
+
+					<ul class="">
+						{article id="543" size=4 var=hd} {if $hd neq ''} {foreach $hd as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.linkUrl}" target="_blank">
+								<em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i>
+							</a>
+						</li>
+						{/if} {/foreach} {else}
+						<p class="noData" style="line-height: 50px;color: #ad886d;">暂无数据...</p>
+						{/if}
+					</ul>
+
+					<ul class="">
+						{article id="544" size=4 var=gl} {if $gl neq ''} {foreach $gl as $key=>$v} {if $key >= 0}
+						<li>
+							<a href="{$v.linkUrl}" target="_blank">
+								<em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i>
+							</a>
+						</li>
+						{/if} {/foreach} {else}
+						<p class="noData" style="line-height: 50px;color: #ad886d;">暂无数据...</p>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label2.png?{$smarty.const.VERSION}" alt="" class="label2" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/gun.png?{$smarty.const.VERSION}" alt="" class="gun" />
+		<div class="h_bottom">
+			<div class="chengg"></div>
+			<ul>
+				<li>
+					<div class="code_bg">
+						<div class="chengg"></div>
+						<img src="{$global.wx_img}" alt="" />
+					</div>
+					<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/wx.png?{$smarty.const.VERSION}" alt="" /><span>官方公众号</span></p>
+				</li>
+				<li>
+					<div class="code_bg">
+						<div class="chengg"></div>
+						<img src="{$global.wb_img}" alt="" />
+					</div>
+					<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/wb.png?{$smarty.const.VERSION}" alt="" /><span>官方微博</span></p>
+				</li>
+				<li>
+					<div class="code_bg">
+						<div class="chengg"></div>
+						<img src="{$global.group}" alt="" />
+					</div>
+					<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/qq.png?{$smarty.const.VERSION}" alt="" /><span>官方Q群</span></p>
+				</li>
+				<li>
+					<a href="{$global.tb_url}" target="_blank">
+						<div class="code_bg"></div>
+						<p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tieba.png?{$smarty.const.VERSION}" alt="" /><span>官方贴吧</span></p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	function topHeight() {
+		var height = document.documentElement.clientHeight || document.body.clientHeight;
+		$(".download").css({
+			"top": height - 350 + "px"
+		});
+	};
+	$(function() {
+		topHeight();
+		var mySwiper = new Swiper(".left_banner", {
+			pagination: '.swiper-pagination',
+			//				simulateTouch: false,
+			loop: true,
+			autoplay: 2500,
+			paginationClickable: true,
+			autoplayDisableOnInteraction: false,
+			observer: true,
+			observeParents: true,
+		});
+		$(".top_ul li").click(function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".news_list ul").eq(index).addClass("active").siblings().removeClass("active");
+		});
+	});
+</script>
+{include file="../layouts/pc/footer.html"}
+</html>

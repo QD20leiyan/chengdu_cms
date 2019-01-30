@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_key}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/n_new.css?{$smarty.const.VERSION}">
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		{fragment var=kv_img code=index_kv_img_wap size=1}
+		<div class="kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;background-size:100% 100%;">
+			<div class="container">
+				<div class="group">
+					{fragment var=video code=index_video size=1}
+					<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}" style="background:url({if $video}{$video[0].thumb}{/if}) no-repeat center;background-size:100% 100%;"></div>
+				</div>
+				<p class="download_box">
+					<a href="{if isset($global.bottommedia_download_url)}{$global.bottommedia_download_url}{/if}" class="download"><img src="{if isset($global.download_img_wap)}{$global.download_img_wap}{/if}" alt="" /></a>
+					<a href="{if isset($global.download_tap_url)}{$global.download_tap_url}{/if}" class="tap"><img src="{if isset($global.download_tap_background_img_wap)}{$global.download_tap_background_img_wap}{/if}" alt="" /></a>
+				</p>
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+</html>

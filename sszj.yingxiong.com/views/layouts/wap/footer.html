@@ -1,0 +1,141 @@
+<div class="co_tips">
+    		<div class="co_con">
+        	<div class="co_tips_close"></div>
+        	<div class="co_form">
+        		<div class="co_form2">
+        	    	<p class="rdo_type rdo_type1">	
+            			<span class="rdo on rdo_sheb" data-id="1">苹果 iOS</span>
+            			<span class="rdo " data-id="2"> 安卓</span>
+            		</p>
+            		<p class="rdo_type rdo_type2">	
+            			<span class="rdo on rdo_sart" data-id="3">蜀山派</span>
+            			<span class="rdo " data-id="4"> 苍墟派</span>
+            		</p>
+        			<div class="co_input input_email">
+                		<p class="focus" class="display:block;">选择门派可获<span>	98元礼包</span>！加入弟子最多的门派，还可额外获得<span>198元王者礼包。</span></p>
+            		</div>
+            		<div class="co_input">
+                		<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+                		<p class="co_error">手机错误</p>
+            		</div>
+            		<div class="co_input">
+                		<input type="text"  class="captcha" placeholder="请输入验证码"/>
+                		<span class="co_captcha"><img src="" alt="" /></span>
+                		<p class="co_error">图片验证码错误</p>
+                		<p class="co_imgtxt">点击图片刷新</p>
+            		</div>
+            		<div class="co_input">
+                		<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">发送验证码</span>
+                		<p class="co_error">手机验证码错误</p>
+            		</div>
+
+        			<a class="co_tips_btn co_tips_yybtn stat_yy" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yy33.png?{$smarty.const.VERSION}" alt=""></a>
+        		</div>
+        	</div>
+    		</div>
+		</div>
+		<div class="co_tips2">
+    		<div class="co_con">
+        		<div class="co_tips_close"></div>
+        		<div class="text_info">
+        			<p>恭喜你<span>预约成功！</span></p>
+        			<p>我们会在游戏上线第一时间联系您</p>
+        		</div>
+    		</div>
+		</div>
+        <div class="co_tips3">
+            <div class="co_con">
+                <div class="co_tips_close"></div>
+                <div class="text_info">
+                    <p>我们会在游戏上线第一时间联系您</p>
+                </div>
+            </div>
+        </div>
+{video_play}
+{download}
+</body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var num_url = "{myurl name='commonMethod/ajax-get-new-subscribes'}";
+</script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+
+<script>
+    var mySwiper = new Swiper(".swiper1", {
+        autoplay: 3500,
+        pagination : '.swiper-pagination',
+		loop: true
+    });
+    var mySwiper = new Swiper(".swiper2", {
+        autoplay: 3500,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+		loop: true
+    });
+    $('.fade,.top-list li').click(function(){
+        $('.mask').slideUp(500);
+        $('.top-list').toggle(500);
+    })
+    $(".news-list").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+		}
+		var index = parseInt($(this).attr('data-index'));
+        $('.news-list').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news-info').find('li').removeClass('active');
+        $('.news-info').find('li.info').eq(index).addClass('active');
+    });
+    // $(".header_nav li").on("click", function() {
+    //     $(this).addClass("active").siblings().removeClass("active");
+    // });
+    var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var id = $(".list-article-title").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                if(data.status == 0&& data.msg.length>0){
+                 // if(page===1){
+                 //     $('.news_list').empty();
+                 // }
+                    var result = '';
+                    for(var i = 0; i < data.msg.length; i++) {
+                       result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i>[" +data.msg[i].name+"]</i><span>"+data.msg[i].title+"</span><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    $('.list-article').append(result);
+                    $(".dropload-noData").html("上拉加载更多...<i></i>");
+                    isScroll = 1;
+                } else{
+                    $(".dropload-noData").html("没有更多信息了...");
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+</script>
+</html>

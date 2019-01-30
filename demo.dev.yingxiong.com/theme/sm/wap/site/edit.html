@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/colpick.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/tc_public.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/jquery-1.11.2.min.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				background-color: #eeeeee;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="module_top" data-attr="{$global.public_top_js}">
+			<div class="wrap">
+				<div class="tab_module tab_mb">
+					<p>切换模板</p><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="mu_ul" id="mu_ul">
+						<!--<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>预约模板</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>官网模板</p>
+							</a>
+						</li>-->
+					</ul>
+				</div>
+				<div class="tab_pc tab_module">
+					<p id="lo_wap">手机端</p><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="pc_ul" id="pc_ul">
+						<li>
+							<a href="/m/site/edit.html?diy=yes">
+								<p>手机端</p>
+							</a>
+						</li>
+						<li>
+							<a href="/?diy=yes">
+								<p>电脑端</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<p class="module_name">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/user.png?{$smarty.const.VERSION}" alt="" />
+					<span class="before_denglu active">请登录</span>
+					<span class="after_denglu"></span>
+				</p>
+				<a class="baocun" href="javascript:;">发布上线</a>
+				<a class="yulan" href="javascript:;" target="_blank">预览</a>
+			</div>
+		</div>
+		<div class="l_tabe">
+			<p class="wp_title">页面选择</p>
+			<ul class="wp_ul">
+				<li>
+					<a href="javascript:;">首页</a>
+				</li>
+			</ul>
+		</div>
+		<div class="i_frame">
+			<iframe src="index.html?diy=yes" id="iframe"></iframe>
+		</div>
+		<!--页面公共设置-->
+		<div class="page_set">
+			<div id="page_set_one">页面设置</div>
+			<div id="page_set_two">公共组件</div>
+		</div>
+		<!--导航弹窗-->
+		<div class="nav_tc">
+			<div class="tc_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">站点信息</li>
+							<li>导航</li>
+							<li>下载按钮</li>
+							<li>更多按钮</li>
+						</ul>
+					</div>
+					<div class="r_con">
+						<div class="r_con_div active">
+							<div class="s_put s_none">
+								<p id="website_name">游戏名</p>
+								<input type="text" class="form_put" placeholder="请输入游戏名" id="game_title" />
+							</div>
+							<div class="set-control" id="title_control">
+								<div class="set-color">
+									<button type="text" id="game_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="s_put ">
+								<p id="website_title">游戏定位</p>
+								<input type="text" class="form_put" placeholder="请输入游戏定位，8个字符最佳" id="game_sub_title" />
+							</div>
+							<div class="set-control" id="stitle_control">
+								<div class="set-color">
+									<button type="text" id="wgame_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<div class="s_put ">
+								<p>游戏icon</p>
+								<div class="put_file">
+									<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="file">
+									<a href="javascript:;" class="put_link">点击上传游戏icon，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="img_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="t_sure">确定</a>
+						</div>
+						<div class="r_con_div gw">
+							<ul class="nav_box">
+								<li><span>名称</span><i>操作</i></li>
+								<div class="nav_div">
+									<li data-dh="bj"><span>首页</span><em class="bj">编辑</em></li>
+									<li data-dh="bj"><span>新闻</span><em class="bj">编辑</em></li>
+									<li data-dh="bj"><span>论坛</span><em class="bj">编辑</em></li>
+								</div>
+							</ul>
+							<div class="t_put">
+								<p>导航背景:</p>
+								<div class="put_file">
+									<input id="put_dh" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 1920px*120px</a>
+								</div>
+								<div class="choose_color fr" id="choose1">选择颜色</div>
+								<input type="hidden" name="nav_background_color" value="" />
+								<div class="xs_color"></div>
+							</div>
+							<ul class="img_ul" id="dimg_ul"></ul>
+							<div class="t_put" style="margin-top:15px;">
+								<p>hover颜色:</p>
+								<div class="choose_color fl" id="choose2">选择颜色</div>
+								<input type="hidden" name="nav_background_hover_color" value="" />
+								<div class="xs_color01"></div>
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="d_sure" style="margin-top:220px;">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮颜色</p>
+								<div class="choose_color_wap fr" id="choose_color_wap">选择颜色</div>
+								<input type="hidden" name="nav_background_color_wap" value="" />
+								<div class="clear"></div>
+								<div class="xs_color_wap xs_color_wap01"></div>
+							</div>
+							<div class="t_put" style="margin-top:70px;">
+								<p>按钮文字</p>
+								<input type="text" class="form_put p_txt" placeholder="请输入按钮文字" id="btt_txt" />
+							</div>
+							<div class="set-control" id="btn_color">
+								<div class="set-color">
+									<button type="text" id="btn_style"></button>
+									<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+								</div>
+								<div class="bold common">B</div>
+								<div class="lean common">I</div>
+								<div class="underline common">U</div>
+								<div class="font-style font_family" id="font-style">
+									<div class="title">
+										<p>微软雅黑</p>
+										<i></i>
+									</div>
+									<ul class="font-list" id="font-style-list">
+										<li font-family="Microsoft YaHei">微软雅黑</li>
+										<li font-family="Microsoft JhengHei">黑体</li>
+										<li font-family="Verdana">华文细黑</li>
+										<li font-family="Arial">Arial</li>
+									</ul>
+								</div>
+							</div>
+							<ul class="img_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" style="margin-top:220px;" id="wap_yy">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景颜色</p>
+								<div class="choose_color_wap fr" id="choose_color_bg">选择颜色</div>
+								<input type="hidden" name="nav_background_color_bg" value="" />
+								<div class="clear"></div>
+								<div class="xs_color_wap" id="xs_color_bg"></div>
+							</div>
+
+							<div class="t_put" style="margin-top:100px;">
+								<p>中间颜色</p>
+								<div class="choose_color_wap fr" id="choose_color_center">选择颜色</div>
+								<input type="hidden" name="nav_background_color_center" value="" />
+								<div class="clear"></div>
+								<div class="xs_color_wap" id="xs_color_center"></div>
+							</div>
+							<a href="javascript:;" class="put_sure" style="margin-top:100px;" id="wap_more">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--导航菜单编辑-->
+		<div class="dh_tc" id="dh_bj">
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="dh_body">
+					<div class="s_put">
+						<p>栏目名称1</p>
+						<input type="text" placeholder="请输入栏目名称" id="menu1" />
+					</div>
+					<div class="set-control" id="link_one">
+						<div class="set-color">
+							<button type="text" id="l_one"></button>
+							<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+						</div>
+						<div class="bold common">B</div>
+						<div class="lean common">I</div>
+						<div class="underline common">U</div>
+						<div class="font-style font_family" id="font-style">
+							<div class="title">
+								<p>微软雅黑</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-style-list">
+								<li font-family="Microsoft YaHei">微软雅黑</li>
+								<li font-family="Microsoft JhengHei">黑体</li>
+								<li font-family="Verdana">华文细黑</li>
+								<li font-family="Arial">Arial</li>
+							</ul>
+						</div>
+					</div>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" id="url1" />
+					</div>
+					<!--<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul class="dh_ul" id="dh1_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>-->
+					<a href="javascript:;" class="put_sure m100" id="menu1_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="dh_body">
+					<div class="s_put">
+						<p>栏目名称2</p>
+						<input type="text" placeholder="请输入栏目名称" id="menu2" />
+					</div>
+					<div class="set-control" id="link_two">
+						<div class="set-color">
+							<button type="text" id="l_two"></button>
+							<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+						</div>
+						<div class="bold common">B</div>
+						<div class="lean common">I</div>
+						<div class="underline common">U</div>
+						<div class="font-style font_family" id="font-style">
+							<div class="title">
+								<p>微软雅黑</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-style-list">
+								<li font-family="Microsoft YaHei">微软雅黑</li>
+								<li font-family="Microsoft JhengHei">黑体</li>
+								<li font-family="Verdana">华文细黑</li>
+								<li font-family="Arial">Arial</li>
+							</ul>
+						</div>
+					</div>
+					<!--<div class="s_put">
+						<p>跳转链接</p>
+						<input type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" />
+					</div>-->
+					<!--<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul class="dh_ul" id="dh2_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>-->
+					<a href="javascript:;" class="put_sure m100" id="menu2_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="dh_body">
+					<div class="s_put">
+						<p>栏目名称3</p>
+						<input type="text" placeholder="请输入栏目名称" id="menu3" />
+					</div>
+					<div class="set-control" id="link_three">
+						<div class="set-color">
+							<button type="text" id="l_three"></button>
+							<!-- <input id="unique-id-4" name="unique-name-4" value="" style="display: none"></input> -->
+						</div>
+						<div class="bold common">B</div>
+						<div class="lean common">I</div>
+						<div class="underline common">U</div>
+						<div class="font-style font_family" id="font-style">
+							<div class="title">
+								<p>微软雅黑</p>
+								<i></i>
+							</div>
+							<ul class="font-list" id="font-style-list">
+								<li font-family="Microsoft YaHei">微软雅黑</li>
+								<li font-family="Microsoft JhengHei">黑体</li>
+								<li font-family="Verdana">华文细黑</li>
+								<li font-family="Arial">Arial</li>
+							</ul>
+						</div>
+					</div>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" id="url3" />
+					</div>
+					<!--<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul class="dh_ul" id="dh3_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>-->
+					<a href="javascript:;" class="put_sure m100" id="menu3_sure">确定</a>
+				</div>
+			</div>
+		</div>
+		<!--编辑KV弹窗-->
+		<div class="kv_tc">
+			<div class="dh_wrap active w900">
+				<p class="tc_title"><span>编辑KV</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">KV背景图</li>
+							<li>视频按钮</li>
+							<li>官方下载</li>
+							<li>tap下载</li>
+							<li>新闻KV</li>
+						</ul>
+					</div>
+					<div class="r_kv r_auto">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="kv_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 640px*1056px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="qimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="kv_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮图</p>
+								<div class="put_file">
+									<input id="video_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，123px*131px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wimg_ul"></ul>
+							<div class="t_put">
+								<p>播放链接</p>
+								<input id="video_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" class="a_link" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="video_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>下载按钮</p>
+								<div class="put_file">
+									<input id="kd_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，191px*82px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="kdimg_ul"></ul>
+							<div class="t_put">
+								<p>下载地址</p>
+								<input id="gf_down_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" class="a_link" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="kdo_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>下载按钮</p>
+								<div class="put_file">
+									<input id="wtap_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，191px*82px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wapimg_ul"></ul>
+							<div class="t_put">
+								<p>下载地址</p>
+								<input id="tap_down_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" class="a_link" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="wt_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="news_bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，640*179px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="newsimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="news_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑视频弹窗-->
+		<div class="vd_tc">
+			<div class="ne_wrap">
+				<p class="tc_title"><span>新增视频</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">视频</li>
+							<li>背景图</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<!--<input type="text" class="search" placeholder="搜索视频" />-->
+								<div class="add_tail" id="add_vd">添加视频</div>
+							</div>
+							<ul class="bj_video">
+								<li>
+									<span>标题</span>
+									<span>缩略图</span>
+									<span>操作</span>
+								</li>
+								<div class="bj_div"></div>
+							</ul>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="bj_video_bg" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，181px*298px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ad_v_bg"></ul>
+							<a href="javascript:;" class="put_sure m38" id="ad_v_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--新增视频弹窗-->
+		<div class="new_vd">
+			<div class="v_wrap">
+				<p class="tc_title"><span>编辑视频</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="add_put">
+								<p>分类</p>
+								<div class="dropdown">
+									<input type="text" value="新闻" readonly="readonly" class="new_input_select" id="video_put" />
+									<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dao.png" alt="" class="dao" />
+									<ul id="video_menu_ul">
+
+									</ul>
+								</div>
+								<p class="add_p">标题</p>
+								<input type="text" class="add_title add_title01" id="add_video_title" />
+							</div>
+							<div class="su_put">
+								<p>缩略图</p>
+								<div class="put_file">
+									<input id="news_vd_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传缩略图，181px*298px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="news_vd_ul"></ul>
+							<div class="su_put">
+								<p>播放链接</p>
+								<input type="text" class="su_link" id="video_play_url" />
+							</div>
+							<div class="su_put">
+								<div class="chengg"></div>
+								<p>排序</p>
+								<input type="text" placeholder="输入数字，数字大的在前面" class="sm_w" id="video_sort" />
+								<p class="no">是否显示</p>
+								<div class="tu_se">
+									<div class="s_sel active" id="video_xianshi"><i value="1"></i></div>
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="add_video_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑视频弹窗-->
+		<div class="add_video">
+			<div class="v_wrap">
+				<p class="tc_title"><span>编辑视频</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="add_lunbo">
+					<div class="swiper-container tc_tu1">
+						<ul class="swiper-wrapper">
+							<!--<li class="swiper-slide"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg" alt="" /></li>-->
+							<!--<li class="swiper-slide"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/kv.jpg" alt="" /></li>-->
+						</ul>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+				<div class="add_put">
+					<p>分类</p>
+					<div class="dropdown" id="add_video_put">
+						<input type="text" value="新闻" readonly="readonly" class="new_input_select" id="bj_video_put" />
+						<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/dao.png" alt="" class="dao" />
+						<ul id="bj_video_ul">
+							<!--<li>新闻</li>
+							<li>公告</li>
+							<li>活动</li>
+							<li>攻略</li>-->
+						</ul>
+					</div>
+					<p class="add_p">标题</p>
+					<input type="text" class="add_title add_title01" id="bj_video_title" />
+				</div>
+				<div class="su_put">
+					<p>缩略图</p>
+					<div class="put_file">
+						<input class="selectbtn" id="bj_img_file" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+						<a href="javascript:;" class="put_link">点击上传缩略图，181px*298px最佳</a>
+					</div>
+				</div>
+				<ul class="img_ul" id="bj_img_ul"></ul>
+				<div class="su_put">
+					<p>播放链接</p>
+					<input type="text" class="su_link" id="bj_video_url" />
+				</div>
+				<div class="su_put">
+					<div class="chengg"></div>
+					<p>排序</p>
+					<input type="text" placeholder="输入数字，数字大的在前面" class="sm_w" id="bj_video_sort" />
+					<p class="no">是否显示</p>
+					<div class="tu_se">
+						<div class="s_sel active" id="bj_video_xs"><i value="1"></i></div>
+					</div>
+				</div>
+				<a href="javascript:;" class="put_sure m38 b25" id="bj_video_sure">确定</a>
+			</div>
+		</div>
+		<!--编辑新闻轮播图-->
+		<div class="ts_tc" id="ts_tc02">
+			<div class="ts_wrap">
+				<p class="tc_title"><span>编辑模块</span><img src="http://static.dev.yingxiong.com/module/ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">轮播图</li>
+							<li>新闻</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>轮播图</p>
+								<div class="put_file">
+									<input class="selectbtn news-add-lb-tap" type="text" style="opacity: 0;">
+									<a href="javascript:;" class="put_link news_put_link">点击上传图片，580px*308px最佳</a>
+								</div>
+							</div>
+							<ul id="news-img-list" class="img_ul news_lb_ul"></ul>
+						</div>
+						<div class="r_con_div ">
+							<div class="t_put">
+								<input type="text" class="search search-article" placeholder="搜索文章" />
+								<div class="add_tail" id="add_tail">添加文章</div>
+							</div>
+							<ul class="tail_ul" id="tail_ul"></ul>
+							<div class="btn_list tail_btn">
+								<a href="javascript:yx_showTips('保存成功');">确定</a>
+								<!-- <a href="javascript:;">取消</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑新闻轮播图-->
+		<div class="ts_tc news-add-lb-mask" style="display: none;">
+			<div class="news-add-lb-main m_wrap">
+				<a href="javascript:;" class="close"></a>
+				<p class="tc_title"><span>新增轮播图</span></p>
+				<div class="t_put upload-img">
+					<p>上传图片</p>
+					<div class="put_file">
+						<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="news_lb_file">
+						<a href="javascript:;" class="put_link news_put_link">点击上传图片，580px*308px最佳</a>
+					</div>
+				</div>
+				<div class="edit-img">
+					<div class="swiper-container edit_banner">
+						<ul class="swiper-wrapper">
+
+						</ul>
+					</div>
+
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<ul id="news_lb_ul" class="img_ul news_lb_ul"></ul>
+				<div class="t_put">
+					<p>跳转链接</p>
+					<div class="put_file put_file_add">
+						<input class="selectbtn url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com;内网地址需录入：/aaa.html;">
+					</div>
+				</div>
+				<div class="t_put open-type">
+					<p>打开方式</p>
+					<div class="open-type-con">
+						<div class="self-window" data-type="0">
+							<p><span class="active"></span></p>
+							<i>当前窗口</i>
+						</div>
+						<div class="new-window" data-type="1">
+							<p><span></span></p>
+							<i>新窗口</i>
+						</div>
+					</div>
+				</div>
+				<div class="t_put">
+					<p>排序</p>
+					<div class="put_file sort_file">
+						<input class="selectbtn sort" type="number" placeholder="输入数字，数字大的在前面">
+					</div>
+					<div class="show-or-no">
+						<p>是否显示</p>
+						<div class="show-no-icon" id="lb_switch">
+							<!-- <span class="switch-on" data-switch="1"></span> -->
+							<span class="switch-off active" data-switch="1"></span>
+						</div>
+					</div>
+				</div>
+				<div class="news-add-lb-btn">确定</div>
+			</div>
+		</div>
+		<!--添加文章弹窗-->
+		<div class="add_tc article_tc" style="display: none;">
+			<div class="add_wrap">
+				<p class="tc_title"><span class="article-tc-title">添加文章</span><img src="http://static.dev.yingxiong.com/module/ddd_yy/images/close.png" alt="" class="t_close article-close" /></p>
+				<div class="add_ul">
+					<ul>
+						<li class="active">基本属性</li>
+						<li class="">文章内容</li>
+					</ul>
+				</div>
+				<div class="add_con">
+					<div class="add_div active">
+						<div class="add_put">
+							<p>文章分类</p>
+							<div class="dropdown" id="drop_detail">
+								<input type="text" value="" readonly="readonly" class="new_input_select" />
+								<img src="http://static.dev.yingxiong.com/module/ddd_yy/images/dao.png" alt="" class="dao" />
+								<ul id="dropdown-ul"></ul>
+							</div>
+							<p class="add_p">文章标题</p>
+							<input type="text" class="add_title article-title" />
+						</div>
+						<div class="add_put">
+							<!--<p>录入时间</p>-->
+							<!--<input type="text" class="add_date" placeholder="" />-->
+							<p class="add_b">来源</p>
+							<input type="text" class="add_from article-from" placeholder="官方" />
+							<p style="margin-left:126px;">文章排序</p>
+							<input type="number" class="add_num article-num" placeholder="数字大的在前面" />
+						</div>
+						<div class="add_put">
+							<p>缩略图</p>
+							<div class="put_file">
+								<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="article-pic-file">
+								<a href="javascript:;" class="put_link">点击上传缩略图，280px*280px最佳</a>
+							</div>
+							<div class="show-or-no">
+								<p>是否显示</p>
+								<div class="show-no-icon" id="detail_switch">
+									<!-- <span class="switch-on" data-switch="1"></span> -->
+									<span class="switch-off active" data-switch="1"></span>
+								</div>
+							</div>
+							<ul class="article-pic" id="article-pic"></ul>
+						</div>
+						<div class="btn_list">
+							<a href="javascript:;" class="add-article-sure">确定</a>
+							<!-- <a href="javascript:;" class="add-article-cancel">取消</a> -->
+						</div>
+					</div>
+					<div class="add_div">
+						<div class="add_put">
+							<p class="title">简介</p>
+							<input type="text" class="add_jj article-desc" />
+							<div class="article-content"></div>
+							<div class="btn_list editor-btn">
+								<a href="javascript:;" class="add-article-sure">确定</a>
+								<!-- <a href="javascript:;" class="add-article-cancel">取消</a> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑游戏特色-->
+		<div class="ts_tc" id="game_ts">
+			<div class="ts_wrap">
+				<p class="tc_title"><span>编辑游戏特色</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>轮播图</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="te_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，640px*510px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="te_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ts_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>添加图片</p>
+								<div class="put_file">
+									<input id="ad_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，640px*446px最佳</a>
+								</div>
+							</div>
+							<ul id="lb_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="lb_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部自媒体-->
+		<div class="me_tc">
+			<div class="me_wrap">
+				<p class="tc_title"><span>编辑底部自媒体</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>微信</li>
+							<li>QQ群1</li>
+							<li>QQ群2</li>
+							<li>官方微博</li>
+							<li>官方贴吧</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="d_bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，640px*954px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="d_bg_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="off_bg">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put over">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="w_bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，236px*292px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wx_ul"></ul>
+							<div class="t_put over">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="we_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，165px*165px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ew_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="dw_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="q1_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="q1_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="q1_url" />
+							</div>
+							<a href="javascript:;" class="put_sure" id="fi_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="q2_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="q2_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="q2_url" />
+							</div>
+							<a href="javascript:;" class="put_sure" id="ew_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="sn_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="sn_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="sn_url" />
+							</div>
+							<a href="javascript:;" class="put_sure" id="sn_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>Icon</p>
+								<div class="put_file">
+									<input id="ba_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，88px*89px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ba_ul"></ul>
+							<div class="t_put">
+								<p>跳转链接</p>
+								<input type="text" class="price_put wap_put" id="ba_url" />
+							</div>
+							<a href="javascript:;" class="put_sure" id="ba_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑模块登录-->
+		<div class="tc_login">
+			<div class="tc_body">
+				<div class="chengg"></div>
+				<p>用户登录</p>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/use.png" alt="" />
+					<input type="text" placeholder="请输入账号" id="u_count" />
+				</div>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/mi.png" alt="" />
+					<input type="password" placeholder="请输入密码" id="u_password" />
+				</div>
+				<div class="tc_dl">登录</div>
+			</div>
+		</div>
+		<!--编辑页面公共属性-->
+		<div class="tc_property">
+			<div class="ty_body">
+				<p class="tc_title"><span>编辑属性</span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="add_ul">
+					<ul id="add_ul">
+						<li class="active">页面设置</li>
+						<li>公共组件</li>
+					</ul>
+				</div>
+				<div class="pr_con" id="pr_con">
+					<div class="pr_con_div">
+						<div class="pr_put">
+							<p>浏览器标题</p>
+							<input type="text" placeholder="标题建议十个字符以内" id="web_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面关键词</p>
+							<input type="text" placeholder="标点符号建议用半角" id="key_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面简介</p>
+							<textarea placeholder="标点符号建议用半角" id="des_name" style="height:135px;"></textarea>
+						</div>
+						<div class="pr_put">
+							<p>浏览器icon</p>
+							<div class="put_file">
+								<input id="li_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+								<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+							</div>
+						</div>
+						<ul class="img_ul" id="pa_ul"></ul>
+						<a href="javascript:;" class="put_sure m38 b25" id="p_sure">确定</a>
+					</div>
+					<div class="pr_con_div active">
+						<div class="pr_put">
+							<!--<div class="se_pub" data-type="0">
+								<span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共头部</em>
+								<a href="javascript:;" target="_blank" id="yl_tb">预览</a>
+							</div>-->
+							<div class="se_pub pb" data-type="0">
+								<span><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共底部</em>
+								<a href="javascript:;" target="_blank" id="yl_db">预览</a>
+							</div>
+						</div>
+						<div class="pr_put mar">
+							<p>统计代码</p>
+							<textarea placeholder="标点符号建议用半角" id="pub_dm"></textarea>
+						</div>
+						<a href="javascript:;" class="put_sure m38 b25" id="g_sure">确定</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="big_img">
+			<div class="small_img">
+				<p style="font-size:24px;text-align: center;color:#fff;margin-bottom:54px;display: none;">请使用手机扫描二维码预览</p>
+				<img src="" alt="" />
+			</div>
+		</div>
+		<!-- 预览弹窗 -->
+		<div class="add_tc show-img-tc">
+			<div class="add_wrap">
+				<img src="" alt="" class="show-img">
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<script type="text/javascript">
+		var alt = "{module_api_domain}/";
+		var alt01 = "{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/";
+		var alt02 = "{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/";
+	</script>
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/colpick.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/m/js/tc_public.js"></script>
+	<script type="text/javascript">
+		//		$(function() {
+		var img_url = "";
+		var img_list = [];
+		var article_id = null; //文章id
+		var E = window.wangEditor;
+		var editor = new E('.article-content');
+
+		function init(index) { //初始化数据
+			$(".put_file_add input").val(img_list[index].url);
+			$(".sort_file input").val(img_list[index].sort);
+			if(img_list[index].target == 1) { //新窗口
+				$(".open-type-con span").removeClass("active");
+				$(".open-type-con .new-window span").addClass("active");
+			} else {
+				$(".open-type-con span").removeClass("active");
+				$(".open-type-con .self-window span").addClass("active");
+			}
+			if(img_list[index].status == 1) { //显示
+				$("#lb_switch .switch-off").addClass("active");
+				$("#lb_switch .switch-off").attr("data-switch", '1');
+			} else {
+				$("#lb_switch .switch-off").removeClass("active");
+				$("#lb_switch .switch-off").attr("data-switch", '0')
+			}
+		}
+		$(".r_wx a:nth-child(1)").hover(function() {
+			$(".fl_wx").stop().fadeIn();
+		}, function() {
+			$(".fl_wx").stop().fadeOut();
+		});
+		var mySwiper = new Swiper(".edit_banner", {
+			pagination: '.swiper-pagination',
+			loop: false,
+			autoplay: 0,
+			observer: true,
+			// initialSlide:$(obj).index(),
+			observeParents: true,
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			onSlideChangeEnd: function() {
+				init(mySwiper.activeIndex);
+			}
+		});
+		var _date = new Date();
+		var year = _date.getFullYear();
+		var month = (_date.getMonth() + 1) >= 10 ? (_date.getMonth() + 1) : ('0' + (_date.getMonth() + 1));
+		var day = _date.getDate() >= 10 ? _date.getDate() : '0' + _date.getDate();
+		var hour = _date.getHours() >= 10 ? _date.getHours() : '0' + _date.getHours();
+		var minute = _date.getMinutes() >= 10 ? _date.getMinutes() : '0' + _date.getMinutes();
+		var time = year + '/' + month + '/' + day + '    ' + hour + ':' + minute;
+		$(".add_date").val(time);
+
+		function $ajax(url, params, callback) {
+			$.ajax({
+				url: alt + url,
+				type: 'POST',
+				async: true,
+				xhrFields: {
+					withCredentials: true
+				},
+				data: params,
+				success: function(data) {
+					if(data.status == 0) {
+						callback(data);
+					}
+				},
+				error: function() {}
+			});
+		}
+		//拉取用户信息
+//		if(isCan) {
+//			$.ajax({
+//				url: alt + "moduleapi/login/get-user-info",
+//				type: 'POST',
+//				async: true,
+//				xhrFields: {
+//					withCredentials: true
+//				},
+//				data: {
+//					
+//				},
+//				success: function(respon) {
+//					var data = eval(respon);
+//					img_url = data.data.imgapi;
+//					// 富文本编辑器
+//					// 关闭粘贴内容中的样式
+//					editor.customConfig.pasteFilterStyle = false;
+//					editor.customConfig.uploadImgServer = img_url;
+//					editor.customConfig.uploadFileName = 'file';
+//					// editor.customConfig.uploadImgShowBase64 = true;
+//					// editor.customConfig.debug = true;
+//					editor.customConfig.menus = [
+//						'head', // 标题
+//						'bold', // 粗体
+//						'fontSize', // 字号
+//						'fontName', // 字体
+//						'italic', // 斜体
+//						'underline', // 下划线
+//						'strikeThrough', // 删除线
+//						'foreColor', // 文字颜色
+//						'backColor', // 背景颜色
+//						'link', // 插入链接
+//						'list', // 列表
+//						'justify', // 对齐方式
+//						'quote', // 引用
+//						'emoticon', // 表情
+//						'image', // 插入图片
+//						'table', // 表格
+//						// 'video',  // 插入视频
+//						'code', // 插入代码
+//						'undo', // 撤销
+//						'redo' // 重复
+//					];
+//					editor.customConfig.showLinkImg = false; // 隐藏“网络图片”tab
+//					editor.customConfig.uploadImgTimeout = 50000;
+//					editor.customConfig.uploadImgHooks = {
+//						before: function(xhr, editor, files) {
+//
+//						},
+//						success: function(xhr, editor, result) {
+//
+//						},
+//						fail: function(xhr, editor, result) {
+//
+//						},
+//						error: function(xhr, editor) {
+//
+//						},
+//						timeout: function(xhr, editor) {
+//
+//						},
+//						customInsert: function(insertImg, result, editor) {
+//							var url = result.cdn_url
+//							insertImg(url);
+//						}
+//					}
+//					editor.create();
+//
+//				},
+//				error: function() {}
+//			});
+//		}
+
+		//添加edit蒙层
+		function hover_shadow(obj, parent) {
+			$(obj).find(".gou").hide();
+			var ele = '<div class="hover-shadow"><i class="del"></i><i class="edit"></i><i class="forbid"></i></div>';
+			if($(obj).find(".hover-shadow").length == 0) {
+				$(obj).append(ele);
+			}
+			$(".hover-shadow .edit").off("click").on("click", function() { //编辑轮播图
+				var index = $(obj).index();
+				$(".news-add-lb-mask").show();
+				$(".news-add-lb-main .tc_title span").html("编辑图片");
+				$(".news-add-lb-main .upload-img").hide();
+				$(".news-add-lb-main .edit-img").show();
+				$(".news-add-lb-main #news_lb_ul").hide();
+
+				init(index);
+				mySwiper.slideTo($(obj).index(), 1, false); //切换到第一个slide，速度为1秒
+				// function swiper_btn(){
+
+				// }
+			})
+			var index = $(obj).index();
+			var status = null; //禁止不显示
+			var url = img_list[index].url;
+			var sort = img_list[index].sort;
+			var target = img_list[index].target;
+			var id = img_list[index].id;
+			var img = img_list[index].thumb;
+			$(obj).off("click").on("click", function() { //选中轮播图
+				status = 1; //显示
+				$ajax("moduleapi/fragment/update-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_url,
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						if($(obj).find(".gou").length == 0) {
+							$(obj).append('<i class="gou"></i>');
+						} else {
+							$(obj).find(".gou").show();
+						}
+						getLb();
+					}
+				})
+			})
+			$(".hover-shadow .del").off("click").on("click", function() { //删除轮播图
+				var index = $(obj).index();
+				var id = $(obj).attr("data-id");
+				$ajax("moduleapi/fragment/delete-lunbo", {
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						$("#news-img-list li").eq(index).remove();
+						getLb();
+					}
+				})
+			})
+			$(".hover-shadow .forbid").off("click").on("click", function(e) { //禁止轮播图
+				e.stopPropagation();
+				status = 0; //禁止不显示
+				$ajax("moduleapi/fragment/update-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_url,
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						$(obj).find(".gou").remove();
+						getLb();
+					}
+				})
+			})
+		}
+		//获取新闻轮播图
+		function getLb() {
+			$("#news-img-list").empty();
+			$("#iframe").contents().find(".banner").find("ul").empty();
+			$(".news-add-lb-main .edit-img ul").empty();
+			$ajax("moduleapi/fragment/get-lunbo-list", {}, function(data) {
+				var data = eval(data);
+				img_list = data.data.data;
+				var html = "";
+				var _slide = "";
+				var _html = "";
+				for(var i in data.data.data) {
+					html += '<li data-id=' + data.data.data[i].id + '><img src=' + data.data.data[i].thumb + ' /><i class="gou"></i><span class="show">预览</span></li>';
+					_slide += '<li class="swiper-slide" data-id=' + data.data.data[i].id + '><img src="' + data.data.data[i].thumb + '" alt="" /></li>';
+					_html += '<li class="swiper-slide" data-id=' + data.data.data[i].id + '><a href=' + data.data.data[i].url + ' target=' + (data.data.data[i].target == 0 ? '_self' : '_bank') + '><img src="' + data.data.data[i].thumb + '" alt="" /></a></li>'
+				};
+				$(".news-add-lb-main .edit-img ul").append(_slide);
+				$("#news-img-list").append(html);
+				$("#iframe").contents().find(".banner").find("ul").html(null).append(_html);
+				var mySwiper88 = new Swiper('.banner', {
+					loop: true,
+					simulateTouch: false,
+					autoplay: 3000,
+					pagination: '.swiper-pagination02',
+					paginationClickable: true,
+					observer: true,
+					observeParents: true,
+				});
+				img_list.map(function(val, i) {
+					if(val.status == 1) {
+						$("#news-img-list li").eq(i).find(".gou").show();
+					} else {
+						$("#news-img-list li").eq(i).find(".gou").hide();
+					}
+				})
+				$("#news-img-list li").mouseenter(function() {
+					hover_shadow($(this), $("#news-img-list"));
+				}).mouseleave(function() {
+					if(img_list[$(this).index()].status == 1) {
+						$(this).find(".gou").show();
+					}
+					$(this).find(".hover-shadow").remove();
+				})
+				$(".show").click(function() { //预览
+					$(".show-img-tc").show();
+					$(".show-img").attr("src", $(this).parent().find("img").attr("src"));
+				})
+			});
+		};
+		// 新增轮播图
+		var target = $(".open-type-con span.active").parent().parent().attr("data-type"); //窗口打开方式
+		var url = ""; //跳转链接
+		var sort = null; //排序
+		var status = $(".show-no-icon span").attr("data-switch"); //是否显示
+		var img_src = ""; //上传图片地址
+		var id = null; //修改轮播图时候的id
+		$(".news-add-lb-main .open-type-con div").click(function() {
+			target = $(this).attr("data-type");
+			$(".news-add-lb-main .open-type-con span").removeClass("active");
+			$(this).find("span").addClass("active");
+		})
+		$(".show-no-icon span").click(function() {
+			if($(this).hasClass("active")) { //开启
+				$(this).removeClass("active");
+				$(this).attr("data-switch", 0);
+			} else {
+				$(this).addClass("active");
+				$(this).attr("data-switch", 1);
+			}
+			status = $(this).attr("data-switch");
+		})
+		// 编辑轮播和添加
+		$(".news-add-lb-btn").click(function() {
+			url = $(".news-add-lb-main .url").val();
+			sort = $(".news-add-lb-main .sort").val();
+			if($(".edit-img").is(":visible")) { //编辑图片
+				id = $(".edit-img li").eq(mySwiper.activeIndex).attr("data-id");
+				img_src = $(".edit-img li.swiper-slide-active img").attr("src");
+				$ajax("moduleapi/fragment/update-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_src,
+					id: id
+				}, function(data) {
+					if(data.status == 0) {
+						$(".news-add-lb-mask").hide();
+						getLb();
+					}
+				})
+			} else { //新增图片
+				img_src = $("#news_lb_ul img").attr("src");
+				$ajax("moduleapi/fragment/create-lunbo", {
+					url: url,
+					target: target,
+					sort: sort,
+					status: status,
+					img: img_src
+				}, function(data) {
+					if(data.status == 0) {
+						$(".news-add-lb-mask").hide();
+						getLb();
+					}
+				})
+			}
+
+		})
+		// 新增轮播图
+		$(".news-add-lb-tap").click(function() {
+			$('#news_lb_ul').empty();
+			$(".put_file_add input").val("");
+			$(".open-type-con span").removeClass("active");
+			$(".open-type-con .self-window span").addClass("active");
+			$(".sort_file input").val("");
+			// $(".show-no-icon span").removeClass("active");
+			$(".news-add-lb-mask").show();
+			$(".news-add-lb-main .tc_title span").html("新增轮播图");
+			$(".news-add-lb-main .upload-img").show();
+			$(".news-add-lb-main .edit-img").hide();
+			$(".news-add-lb-main #news_lb_ul").show();
+		})
+		$(".news-add-lb-main .close").click(function() {
+			$(".news-add-lb-mask").hide();
+		})
+
+		// 上传轮播图
+		function upload_img(e, img_url, obj, type) { // type : 是显示一张图片还是多张图片
+			var result = e.currentTarget.files[0];
+			var oData = new FormData();
+			oData.append("file", result);
+			$.ajax({
+				url: img_url,
+				type: 'POST',
+				cache: false, //不设置缓存
+				processData: false, // 不处理数据
+				contentType: false, // 不设置内容类型
+				data: oData,
+				dataType: 'json',
+				success: function(data) {
+					var html = "";
+					if(type == 'single') { // 轮播上传
+						html += '<li data-id=' + data.id + '><img src=' + data.cdn_url + ' /><i class="gou"></i><span class="show">预览</span></li>';
+						$(obj).html(html);
+						$(".show").click(function() {
+							$(".show-img-tc").show();
+							$(".show-img").attr("src", data.cdn_url);
+						})
+					} else { //新闻上传
+						var _each = {
+							"src": null,
+							"name": null
+						}
+						// data-name 为上传图片的name
+						html += '<li data-id=' + data.id + ' data-select="1" data-name="' + result.name + '"><img src=' + data.cdn_url + ' /></li>';
+						$(obj).prepend(html);
+						$(obj).find("li:first").append("<i class='gou'></i>").siblings().find('i.gou').remove();
+						$(obj).find("li").mouseenter(function() {
+							var _this = this;
+							if($(_this).find("i.del").length == 0 && $(_this).attr("data-select") == 0) {
+								$(_this).append("<i class='del'></i>");
+							}
+							$(_this).find("i.del").click(function() {
+								$(_this).remove();
+							})
+						}).mouseleave(function() {
+							$(this).find('i.del').remove();
+						})
+						$(obj).find("li").click(function() {
+							var _this = this;
+							$(_this).find('i.del').remove();
+							$(_this).append("<i class='gou'></i>");
+							$(_this).attr("data-select", "1");
+							$(_this).siblings().find('i.gou').remove();
+							$(_this).siblings().attr("data-select", "0");
+						})
+					}
+				},
+				error: function() {
+					console.log("Error！");
+				}
+			});
+		}
+		$("#news_lb_file").on('change', function(e) {
+			upload_img(e, img_url, $("#news_lb_ul"), 'single');
+		});
+		$("#article-pic-file").on('change', function(e) {
+			upload_img(e, img_url, $("#article-pic"), 'more');
+		})
+
+		//-------------------------------- 新闻相关---------------------------------------
+		var article_type = []; //文章分类
+		$(".add_ul li").click(function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".add_con .add_div ").eq(index).addClass("active").siblings().removeClass("active");
+		})
+		$(".article-close").click(function() {
+			$(".article_tc").hide();
+			$(".add_ul li").eq(0).addClass("active").siblings().removeClass("active");
+			$(".add_con .add_div").eq(0).addClass("active").siblings().removeClass("active");
+		})
+		$("#add_tail").click(function() {
+			$(".dropdown input").val(article_type[0]);
+			$(".dropdown input").attr("data-id", Object.keys(article_type)[0]);
+			$(".article-title").val("");
+			$(".article-from").val("");
+			$(".article-num").val("");
+			$("#article-pic").empty();
+			$(".article-desc").val("");
+			editor.txt.html("");
+			$(".article-tc-title").html("添加文章");
+			$(".article_tc").show();
+			$(".add-article-cancel").click(function() {
+				$(".article_tc").hide();
+				$(".add_ul li").eq(0).addClass("active").siblings().removeClass("active");
+				$(".add_con .add_div").eq(0).addClass("active").siblings().removeClass("active");
+			})
+		})
+		//--------------- 添加文章---------------
+		$('body').click(function(e) {
+			if($(e.target).find('#add_video_put').length !== 0) {
+				// 如果 你点击的这个元素 里面包含 select_box （也就是查找出来的dom 数量不是0）
+				// 就执行你需要隐藏的方法  当你点击的元素是select_box 或者他里面的元素 时候，
+				// 里面肯定不会 包含 select_box  也就不会执行 隐藏的方法
+				if($("#bj_video_ul").css('display') == 'block') {
+					$("#bj_video_ul").stop().slideUp();
+				}
+			}
+
+		});
+		$('body').click(function(e) {
+			if($(e.target).find('#drop_detail').length !== 0) {
+				// 如果 你点击的这个元素 里面包含 select_box （也就是查找出来的dom 数量不是0）
+				// 就执行你需要隐藏的方法  当你点击的元素是select_box 或者他里面的元素 时候，
+				// 里面肯定不会 包含 select_box  也就不会执行 隐藏的方法
+				if($("#dropdown-ul").css('display') == 'block') {
+					$("#dropdown-ul").stop().slideUp();
+				}
+			}
+
+		});
+		$(".dropdown input").click(function() {
+			if($(this).siblings("ul").css("display") == "none") {
+				$(this).siblings("ul").stop().slideDown();
+			} else {
+				$(this).siblings("ul").stop().slideUp();
+			}
+			$("#dropdown-ul li").click(function(e) {
+				$(".article_tc .dropdown ul").stop().slideUp();
+				e.stopPropagation();
+				$(".article_tc .dropdown input").val($(this).html());
+				$(".article_tc .dropdown input").attr("data-id", $(this).attr("data-id"));
+			})
+			$("#video_menu_ul li").click(function(e) {
+				$(".new_vd .dropdown ul").stop().slideUp();
+				e.stopPropagation();
+				$(".new_vd .dropdown input").val($(this).html());
+				$(".new_vd .dropdown input").attr("data-id", $(this).attr("data-id"));
+			});
+			$("#bj_video_ul li").click(function(e) {
+				$(".add_video .dropdown ul").stop().slideUp();
+				e.stopPropagation();
+				$(".add_video .dropdown input").val($(this).html());
+				$(".add_video .dropdown input").attr("data-id", $(this).attr("data-id"));
+			})
+		})
+		// 新增文章 或者编辑文章
+		$(".add-article-sure").click(function() {
+			var category_id = $(".article_tc .dropdown input").attr("data-id"); //文章分类
+			var title = $(".article-title").val();
+			var sub_title = $(".article-from").val();
+			var sort = $(".article-num").val();
+			var thumb = "";
+			var formData = new FormData();
+			var status = $("#detail_switch .switch-off").attr("data-switch");
+			$("#article-pic li").map(function(i, val) {
+				if($(val).attr("data-select") == 1) {
+					thumb = $(val).find("img").attr("src");
+					formData.append('article_log[1][name]', $(val).attr("data-name"));
+					formData.append('article_log[1][img]', $(val).find("img").attr("src"));
+				}
+			})
+			var summary = $(".article-desc").val(); //简介
+			var content = editor.txt.html(); //内容
+			var id = article_id;
+			formData.append('category_id', category_id);
+			formData.append('title', title);
+			formData.append('sub_title', sub_title);
+			formData.append('sort', sort);
+			formData.append('thumb', thumb);
+			formData.append('summary', summary); //简介
+			formData.append('content', content);
+			formData.append('id', id);
+			formData.append('status', status);
+			if(category_id == 0) {
+				alert("请选择分类");
+				return false;
+			} else if(title == '') {
+				alert("请填写文章标题");
+				return false;
+			} else if(summary == '') {
+				alert("请填写简介");
+				return false;
+			} else if(thumb == '') {
+				alert("请上传缩略图");
+				return false;
+			} else if(sub_title.length > 10) {
+				alert("来源字数过长");
+				return false;
+			}
+
+			function article_operation(url) {
+				$.ajax({
+					url: alt + url,
+					type: 'POST',
+					dataType: "json",
+					xhrFields: {
+						withCredentials: true
+					},
+					traditional: true,
+					processData: false,
+					contentType: false,
+					data: formData,
+					success: function(data) {
+						page = 1;
+						add_article(page, '', "zonghe");
+						$(".article_tc").hide();
+						$(".add_ul li").eq(0).addClass("active").siblings().removeClass("active");
+						$(".add_con .add_div").eq(0).addClass("active").siblings().removeClass("active");
+						editor.txt.html("");
+					}
+				})
+			}
+			if($(".article-tc-title").html() == '添加文章') {
+				article_operation('/moduleapi/content/create-article');
+			} else if($(".article-tc-title").html() == '编辑文章') {
+				article_operation('/moduleapi/content/update-article');
+			}
+
+		})
+
+		// 搜索文章
+		$(".search-article").keyup(function() {
+			if($(".search-article").val() != '') {
+				page = 1;
+				add_article(page, $(".search-article").val(), "zonghe");
+			} else {
+				page = 1;
+				add_article(page, "", "zonghe");
+			}
+		})
+
+		// 获取文章列表
+		var page = 1;
+		var scroll_list = [];
+
+		function add_article(page, arc_keywords, alias) {
+			$ajax('/moduleapi/content/get-article-list', {
+				page: page,
+				keywords: arc_keywords,
+				alias: alias
+			}, function(data) {
+				var html = "";
+				if(alias == "zonghe") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+							html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><span>【' + data.data[i].categoryName + '】</span>' + data.data[i].title + '</a><i>' + data.data[i].formate_created_at + '</i>' +
+							'</li>'
+						}
+					}
+					$("#iframe").contents().find("#zuixin").html(null).append(html);
+				} else if(alias == "xinwen") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><span>【' + data.data[i].categoryName + '】</span>' + data.data[i].title + '</a><i>' + data.data[i].formate_created_at + '</i>' +
+							'</li>'
+						}
+					}
+					$("#iframe").contents().find("#xinwen").html(null).append(html);
+				} else if(alias == "gonggao") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><span>【' + data.data[i].categoryName + '】</span>' + data.data[i].title + '</a><i>' + data.data[i].formate_created_at + '</i>' +
+							'</li>'
+						}
+					}
+					$("#iframe").contents().find("#gonggao").html(null).append(html);
+				} else if(alias == "huodong") {
+					for(var i in data.data) {
+						if(data.data[i].status == 1){
+						html += '<li>' +
+							'<a href=' + data.data[i].linkUrl + ' target="_blank"><span>【' + data.data[i].categoryName + '】</span>' + data.data[i].title + '</a><i>' + data.data[i].formate_created_at + '</i>' +
+							'</li>'
+						}
+					}
+					$("#iframe").contents().find("#huodong").html(null).append(html);
+				}
+				$("#tail_ul").empty();
+				scroll_list = data.data;
+				if(scroll_list.length == 0) {
+					return false;
+				}
+				$("#article-pic").empty();
+				var list = data.data;
+				var ele = '';
+				list.map(function(val, i) {
+					ele += '<li data-id="' + list[i].id + '"><span>' + list[i].title + '</span><img src="http://static.dev.yingxiong.com/module/ddd_yy/images/h_close.png" alt="" class="del-article"></li>'
+				})
+				$("#tail_ul").append(ele);
+				$("#tail_ul .del-article").click(function() {
+					var _this = this;
+					$ajax('/moduleapi/content/delete-content', {
+						id: $(_this).parent().attr("data-id")
+					}, function(data) {
+						$("#tail_ul li").eq($(_this).parent().index()).remove();
+					})
+				})
+				$("#tail_ul li span").click(function() { //编辑文章
+					article_id = $(this).parent().attr("data-id");
+					$("#article-pic").empty();
+					$(".article_tc").show();
+					$(".article-tc-title").html("编辑文章");
+					$ajax('/moduleapi/content/get-article-info', {
+						id: article_id
+					}, function(data) {
+						var _data = data.data.data;
+						var categoryList = data.data.categoryList;
+						var img_log = data.data.img_log;
+						for(var key in categoryList) {
+							if(_data.category_id == key) {
+								$(".article_tc .dropdown input").val(categoryList[key]);
+							}
+						}
+						$(".article_tc .dropdown input").attr("data-id", _data.category_id); //文章分类
+						$(".article-title").val(_data.title);
+						$(".article-from").val(_data.sub_title);
+						$(".article-num").val(_data.sort);
+						if(_data.status == 1){
+							$("#detail_switch .switch-off").addClass("active");
+							$("#detail_switch .switch-off").attr("data-switch", '1');
+						} else {
+							$("#detail_switch .switch-off").removeClass("active");
+							$("#detail_switch .switch-off").attr("data-switch", '0');
+						}
+						var ele = '';
+						if(typeof img_log !== "undefined") {
+							img_log.map(function(val, i) {
+								ele += '<li data-select="0" data-id="' + val.id + '"><img src=' + val.img + ' /></li>';
+							})
+						} else {
+							ele = '<li data-select="0" data-id="' + _data.id + '"><img src=' + _data.thumb + ' /></li>';
+						}
+						$("#article-pic").append(ele);
+						$("#article-pic li:first").attr("data-select", 1);
+						$("#article-pic li:first").append("<i class='gou'></i>");
+						$(".article-desc").val(_data.summary);
+						editor.txt.html(_data.body);
+						$("#article-pic").find("li").mouseenter(function() {
+							var _this = this;
+							if($(_this).find("i.del").length == 0 && $(_this).attr("data-select") == 0) {
+								$(_this).append("<i class='del'></i>");
+							}
+							$(_this).find("i.del").click(function() {
+								$ajax('/moduleapi/common/delete-img-log', {
+									id: $(_this).attr("data-id")
+								}, function(data) {
+									$(_this).remove();
+								})
+							})
+						}).mouseleave(function() {
+							$(this).find('i.del').remove();
+						})
+						$("#article-pic").find("li").click(function() {
+							var _this = this;
+							$(_this).find('i.del').remove();
+							$(_this).append("<i class='gou'></i>");
+							$(_this).attr("data-select", "1");
+							$(_this).siblings().find('i.gou').remove();
+							$(_this).siblings().attr("data-select", "0");
+						})
+					})
+				})
+
+			})
+		}
+		$(".t_title li").click(function() {
+			var alias = $(this).attr("data-align");
+			$(this).addClass("active").siblings().removeClass("active");
+			add_article(1, "", alias);
+			$(".m_c>div").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$("#tail_ul").scroll(function() {
+			var scrollTop = $(this).scrollTop(); //滚动条距离顶部的高度
+			var scrollHeight = $("#tail_ul li").height() * $("#tail_ul li").length; //当前页面的总高度
+			var clientHeight = $(this).height(); //当前可视的页面高度
+			if(scrollTop + clientHeight >= scrollHeight) {
+				if(scroll_list.length != 0) {
+					page++;
+					add_article(page, "", "zonghe");
+				}
+			} else if(scrollTop <= 0) {
+
+			}
+		});
+		//		});
+		$(function() {
+			window.onload = function() {
+				if(isCan) {
+					getIsLogin();
+					getIcon();
+					getKv();
+					getSecond();
+					getTese();
+					getFmedia();
+					getLb();
+					getVmenu();
+					getVlist();
+					getVbg();
+				}
+			};
+		})
+	</script>
+
+</html>

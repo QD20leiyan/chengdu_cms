@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/cover1120.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+        {csrf}
+	</head>
+	<body>
+		<header>
+			<a href="javascript:;" class="icon"><img src="{$global.logo_img}" alt="" /></a>
+			<div class="header_txt">
+				<p>{$global.title}</p>
+				<p>{$global.sub_title}</p>
+			</div>
+			<a href="{myurl name='wap/site/index'}" class="enter" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_enter.png?{$smarty.const.VERSION}" alt="" /></a>
+		</header>
+		<section>
+		<div class="kv">
+		{fragment var=video code=kv_video size=1}
+		    <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="video_btn {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+			<div class="download">
+				<a href="javascript::" class="stat_cover_down js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_down1.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="https://www.taptap.com/app/34763" class="stat_cover_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_down_tap.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="http://www.3839.com/a/87894.htm" class="stat_cover_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_down_hy.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</div>
+		</section>
+		<section>
+		    <div class="part1">
+			<div class="title1"></div>
+			<div class="tl_sm"></div>
+			<ul class="gift1">
+				<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/lc_six1.png?{$smarty.const.VERSION}" alt=""></li>
+				<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/lc_six2.png?{$smarty.const.VERSION}" alt=""></li>
+				<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/lc_six3.png?{$smarty.const.VERSION}" alt=""></li>
+				<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/lc_six4.png?{$smarty.const.VERSION}" alt=""></li>
+				<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/lc_six5.png?{$smarty.const.VERSION}" alt=""></li>
+				<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/lc_six6.png?{$smarty.const.VERSION}" alt=""></li>
+			</ul>
+			 <a href="/m/p/athletics.html" class="look_detail" target="_blank"></a>
+			 </div>
+		</section>
+		<section>
+		    <div class="part2">
+			<div class="title2"></div>
+			   {fragment var=cover_skill code=cover_skill size=10}
+			<ul class="gift_box">
+				{if $cover_skill neq ''}
+			    {foreach $cover_skill as $key=>$v}
+				<li class="l{$key+1} {if $key eq 0}active{/if}" data-img="{$v.thumb}" data-url="{$v.url}">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_seven{$key+1}.png?{$smarty.const.VERSION}" alt="">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_seven{$key+1}_1.png?{$smarty.const.VERSION}" alt="">
+				</li>
+				{/foreach}
+				{/if}
+				<p class="info">点击技能<br>查看详情</p>
+			</ul>
+			<ul class="select_con">
+			{if $cover_skill neq ''}
+			{foreach $cover_skill as $key=>$v}
+				<li class="info {if $key eq 0}active{/if}"  data-img="{$v.thumb}" data-url="{$v.url}">
+					<h3>{$v.title}</h3>
+					<p>{$v.sub_title}</p>
+					<div class="video">
+						<a href="javascropt:;" class="play_btn js_video_play" data-url="{$v.url}">
+						</a>
+						<img src="{$v.thumb}" alt="">
+						<i></i>
+					</div>
+				</li>
+			{/foreach}
+			{/if}
+			</ul>
+			</div>
+		</section>
+		<section>
+		    <div class="part3">
+			<!-- <div class="title3"></div>
+			<div class="login">
+				<p class="stat_cover_yy login_u active">登录参与活动</p>
+				<p class="username">欢迎您，<br><span>17345702194</span><br><a href="javascript:;">[ 注销 ]</a></p>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_domant.png?{$smarty.const.VERSION}" alt="">
+			</div>
+			<div class="jdt_box">
+				<p><span>68</span><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_percent.png?{$smarty.const.VERSION}" alt=""></p>
+				<div class="line_box">
+					<div class="line"></div>
+					<i class="jdt"></i>
+					<div class="jdt_bg"></div>
+				</div>
+			</div>
+			<div class="info">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_gift.png?{$smarty.const.VERSION}" alt="">
+				<ul class="act_info">
+					<li>
+						<i>01</i><p>枪友们可将自己的账号输入奖池，推动进度条</p>
+					</li>
+					<li>
+						<i>02</i><p>当进度条到达100%时，全服枪友将瓜分2000w钻石</p>
+					</li>
+					<li>
+						<i>03</i><p>活跃账号注入奖池 可为进度条提供1点积分</p>
+					</li>
+					<li><i>04</i><p>老兵账号注入奖池 可为进度条提供2点积分</p></li>
+					<li>
+						<i>05</i><p>老兵账号：90天内未登陆游戏的枪友账号</p>
+					</li>
+				</ul>
+			</div>	 -->
+			<a href="https://mp.weixin.qq.com/s?__biz=MzA5NTU2NjcxNw==&mid=2671683431&idx=1&sn=6c3cc8455a17b581979c0e3317bc0cc4&chksm=8a776975bd00e063f8f07ccabc87ce3ae7529aa07a89c7084e9ff3bbb073a148ba8e4b0585d8&scene=0&xtrack=1&subscene=131&ascene=7&devicetype=android-26&version=2607033c&nettype=WIFI&abtest_cookie=BQABAAgACgALABIAFAAFAJ6GHgAjlx4AV5keAJuZHgCmmR4AAAA%3D&lang=zh_CN&pass_ticket=AXV4plZopMXceIidpUkwJKNvqXfIIpDU4g02YJ84eIpm9GBI4zirAw1xRcN1zcYk&wx_header=1" class="active_detail" target="_blank"></a>
+			</div>
+		</section>
+		<section>
+		    <div class="part4">
+			<div class="title4"></div>
+			<div class="slider">
+                <div class="swiper-container swiper-container2 swiper-container99">
+                    <div class="swiper-wrapper">
+                        {fragment var=cover_ts code=cover_ts size=5}
+						{if $cover_ts neq ''}
+						{foreach $cover_ts as $v}
+                        <div class="swiper-slide">
+                            <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="" src="{$v.thumb}" alt=""></a>
+                        </div>
+                        {/foreach}
+						{/if}
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination21"></div>
+            <div class="swiper-button-prev1"></div>
+            <div class="swiper-button-next1"></div>
+            </div>
+		</section>
+		<section><div class="part5"></div></section>
+		<section>
+		    <div class="tc_login">
+			<div class="login_box">
+				<a href="javascript:;" class='close'></a>
+				<div class="inp-box">
+				<div class="inp2">
+					<input type="text"  placeholder="游戏账号" class="co_gameid">
+				</div>
+				<div class="inp">
+					<input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="手机号码" class="co_username">
+				</div>
+				<div class="check-code">
+					<input type="text" class="captcha" placeholder="验证码">
+					<div class="get-code co_captcha co_imgtxt">点击刷新</div>
+				</div>
+				<div class="check-code">
+					<input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="手机验证码" class="co_codenum1">
+					<div class="get-code co_codebtn1">获取验证码</div>
+				</div>
+			</div>
+			<a href="javascript:;" class="sure_btn sure_login stat_cover_yy_success"></a>
+			</div>
+			</div>
+		</section>
+		<section>
+		    <div class="tc_info">
+			<div class="info_box">
+			<a href="javascript:;" class='close'></a>
+			<p></p>
+			<a href="javascript:;" class="sure_btn sure_info"></a></div>
+			</div>
+		</section>
+		{video_play}
+		{download}
+		<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/cover1120.js?{$smarty.const.VERSION}"></script>
+	</body>
+
+</html>

@@ -1,0 +1,40 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/jjd.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="jjd_con">
+		<div class="jjd_title">
+			<img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/j_title.png?{$smarty.const.VERSION}" alt="" />
+		</div>
+		<ul class="jjd_txt">
+			{foreach $data as $key=>$v}
+				<li>
+					{if $v.frame eq 2}
+					<div class="jjd_pic">
+						<img class="jjd_tit" src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/jjd_tc.png" alt="" />
+						<div class="jjd_bg">
+							<img src="{$v.thumb}" alt="" />
+						</div>
+					</div>
+					{elseif $v.frame eq 1}
+					<div class="jjd_pic">
+						<img class="jjd_tit" src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/jjd_zb.png" alt="" />
+						<div class="jjd_bg">
+							<img src="{$v.thumb}" alt="" />
+						</div>
+					</div>
+					{/if}
+					<div class="jjd_t">
+						<p>{$v.title}</p>
+						<p>{$v.sub_title}</p>
+						<p>{$v.canal}</p>
+						<p>战斗宣言</p>
+						<p>{$v.enounce}</p>
+					</div>
+				</li>
+			{/foreach}
+		</ul>
+	</div>
+</section>
+{include file="../../layouts/wap/footer.html"} {download}
+
+</html>

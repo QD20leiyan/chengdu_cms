@@ -1,0 +1,50 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list">
+		<div class="top_img">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/list_img.png?{$smarty.const.VERSION}" class="list_img"/>
+		</div>
+		<div class="wrap">
+			<div class="list_news">
+				<div class="list_left">
+					{include '../layouts/pc/float.html'}
+					<!--游戏截图-->
+					<div class="game_pic">
+						<p class="jt_tit"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jt_tit.png" alt=""/></p>
+						<div class="jt_pic">
+							{fragment var=index_banner code=game_jt size=20}
+							{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+							<img class="images" src="{$v.thumb}" alt="">
+							{/foreach}
+							{/if}
+						</div>
+					</div>
+				</div>
+				<div class="detailbox">
+					{if $content.category_id==1904}
+					<a href="{myurl name='article/list, id=>1904'}" class="go_list"></a>
+					{else if $content.category_id==1905}
+					<a href="{myurl name='article/list, id=>1905'}" class="go_list"></a>
+					{else if $content.category_id==1906}
+					<a href="{myurl name='article/list, id=>1906'}" class="go_list"></a>
+					{else if $content.category_id==1907}
+					<a href="{myurl name='article/list, id=>1907'}" class="go_list"></a>
+					{/if}
+					<div class="article_title">
+						<h3>{$content.title}</h3>
+						<span><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>作者：官方</span></span>
+					</div>
+					<div class="content">
+						{$content.body}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	{include '../layouts/pc/bottom.html'}
+</div>
+{include '../layouts/pc/footer.html'}

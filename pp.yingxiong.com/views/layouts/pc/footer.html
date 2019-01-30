@@ -1,0 +1,152 @@
+        <div class="to_top to_top1">
+            <p>关注我们</p>
+            <div class="top_box">
+                <div class="img_code">
+                  <img src="{$global.wx_img}" alt="">
+                  <i></i>
+                </div>
+                <a href="javascript:;"><i></i></a>
+            </div>
+            <label class="q_f_icon show" show=""></label>
+        </div>
+        <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+		<script src="http://cdnstatic.yingxiong.com/common/js/yx.js"></script>
+		<script src="http://cdnstatic.yingxiong.com/common/js/statics.js"></script>
+	</body>
+	{video_play}
+    {download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	function show_hide_down() {
+            $(".q_f_icon").click(function() {
+                var state = $(this).attr("show");
+                if(state) {
+                    $(".to_top").animate({
+                        "right": "42px"
+                    }, 500);
+                    $(this).attr({
+                        "show": "",
+                        "class": "q_f_icon show"
+                    });
+                } else {
+                    $(".to_top").animate({
+                        "right": "-90px"
+                    }, 500);
+                    $(this).attr({
+                        "show": "true",
+                        "class": "q_f_icon hide_float"
+                    });
+                }
+            })
+        }
+		$(function() {
+			show_hide_down();
+			//滚动位置判断
+			function showani(){
+				$(".ani:not(.show-ani)").each(function(i,n){
+					var offset=$(n).offset();
+					var scrollY=window.pageYOffset || document.documentElement.scrollTop;
+					if(scrollY > offset.top - document.documentElement.clientHeight + $(n).height()/2){
+						$(n).addClass("show-ani");
+					}
+				})
+			}
+			$(window).scroll(function(e){
+				showani();
+			});
+	        showani();
+			$(window).scroll(function() {
+            var $t = $(this).scrollTop();
+            if($t > 0) {
+                $(".top").css({
+                    top: "0",
+                    position: 'fixed',
+                    zIndex: "999999"
+                });
+            } else {
+                $(".top").css({
+                    top: "42px",
+                    position: 'absolute',
+                    zIndex: "9"
+                });
+            }
+            var scroll = $(this).scrollTop();
+            if (scroll < 600) {
+                $('.to_top2').fadeOut(800);
+                $('.to_top1').fadeOut(800);
+            }else{
+                $('.to_top1').fadeIn(800);
+                $('.to_top2').fadeIn(800);
+            }
+        })
+						//返回顶部
+			$(".to_top a").click(function() {
+			    $("html,body").animate({
+			        scrollTop: 0
+			    }, 700);
+			});
+			var mySwiper = new Swiper(".left_banner", {
+				pagination: '.swiper-pagination',
+
+				loop: true,
+				autoplay: 2500,
+				paginationClickable: true,
+				paginationClickable: true,
+				autoplayDisableOnInteraction: false,
+				observer: true,
+				observeParents: true,
+			});
+
+			var mySwiper = new Swiper('.bottom_banner', {
+			    loop: true,
+				autoplay:3000,
+				speed:1000,
+                autoplayDisableOnInteraction : false,
+				effect: 'coverflow',
+				pagination: '.swiper-pagination1',
+				 paginationClickable: true,
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev1',
+				nextButton: '.swiper-button-next1',
+				coverflow: {
+					rotate: 0,
+					stretch: -50,
+					depth: 560,
+					modifier: 1,
+					slideShadows: false,
+				},
+				observer: true,
+				observeParents: true,
+			});
+			$(".right_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_rule>div").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			$(".news_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".news_list>ul").eq(index).addClass("active").siblings().removeClass("active");
+			})
+			$(".s_put input").focus(function() {
+				$(this).addClass("active");
+			});
+			$(".s_put input").blur(function() {
+				$(this).removeClass("active");
+			});
+			$(".close").click(function() {
+				$(this).parent().parent().hide();
+			});
+			$(".c_yuyue ul li").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".r_wx a:nth-child(1)").hover(function (){
+			$(".fl_wx").stop().fadeIn();
+		},function (){
+			$(".fl_wx").stop().fadeOut();
+		});
+		})
+	</script>
+
+</html>

@@ -1,0 +1,35 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="nav_bar">
+			<div class="wrap">
+				<ul>
+					<a href="/p/time.html"><li><i></i><span>重要事件时间表</span></li></a>
+					<a href="{myurl name='article/list, id=>1975'}"><li  class="active"><i></i><span>公益资讯</span></li></a>
+					<a href="{myurl name='image/list, id=>1976'}"><li><i></i><span>公益图集</span></li></a>
+					<a href="{myurl name='video/list, id=>1978'}"><li><i></i><span>公益视频</span></li></a>
+				</ul>
+			</div>
+		</div>
+		<div class="detailbox">
+			<div class="wrap">
+				<div class="article_title">
+					<a href="{myurl name='article/list, id=>1975'}" class="go_list"></a>
+					<h3>{$content.title}</h3>
+					<span><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>作者：官方</span></span>
+				</div>
+				<div class="content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+
+		<!--footer-->
+		{include '../layouts/pc/bottom.html'}
+	</div>
+
+</div>
+{include '../layouts/pc/footer.html'}

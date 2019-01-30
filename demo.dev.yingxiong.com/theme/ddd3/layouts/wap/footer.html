@@ -1,0 +1,99 @@
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+//	$(".d_t_con_drop").on("click", function(e) {
+//		e.stopPropagation();
+//		if($(this).attr("data") == "0") {
+//			$(".d_t_t").addClass("d_t_t_tran");
+//			$(".d_t_m").addClass("d_t_m_tran");
+//			$(".d_t_b").addClass("d_t_b_tran");
+//			$(".d_top_nav").slideDown();
+//			$(".d_top_cover").show();
+//		} else {
+//			$(".d_t_t").removeClass("d_t_t_tran");
+//			$(".d_t_m").removeClass("d_t_m_tran");
+//			$(".d_t_b").removeClass("d_t_b_tran");
+//			$(".d_top_nav").slideUp();
+//			$(".d_top_cover").hide();
+//		}
+//	});
+//	$(".d_top_cover,.d_t_con").on("click", function(e) {
+//		e.stopPropagation();
+//		if($(".d_t_con_drop").attr("data") == "1") {
+//			$(".d_t_t").removeClass("d_t_t_tran");
+//			$(".d_t_m").removeClass("d_t_m_tran");
+//			$(".d_t_b").removeClass("d_t_b_tran");
+//			$(".d_top_nav").slideUp();
+//			$(".d_top_cover").hide();
+//		} else {
+//			return false;
+//		}
+//
+//	});
+//	$(".d_t_con_loadBtn").on("click", function(e) {
+//		e.stopPropagation();
+//		$(".d_t_t").removeClass("d_t_t_tran");
+//		$(".d_t_m").removeClass("d_t_m_tran");
+//		$(".d_t_b").removeClass("d_t_b_tran");
+//		$(".d_top_nav").slideUp();
+//		$(".d_top_cover").hide();
+//	})
+	//tap
+	var clickTap = true;
+//	$(".d_t_con_loadBtn").click(function() {
+//		if(clicknum % 2 !== 0) {
+//			$(".nav-content1").slideDown();
+//		} else {
+//			$(".nav-content1").slideUp();
+//		}
+//		clicknum++;
+//	});
+	
+	
+		$(".d_t_con_loadBtn").click(function (){
+		if(clickTap){
+			$(".down_ul").stop().slideDown();
+			clickTap = false;
+		} else {
+			$(".down_ul").stop().slideUp();
+			clickTap = true;
+		}
+	});
+    $(".d_t_con_drop").on("click", function(e){
+        e.stopPropagation();
+        if($(this).attr("data")=="0"){
+            $(".d_t_t").addClass("d_t_t_tran");
+            $(".d_t_m").addClass("d_t_m_tran");
+            $(".d_t_b").addClass("d_t_b_tran");
+
+            $(this).attr("data","1");
+            $(".d_top_nav").slideDown();
+            $(".d_top_cover").show();
+//          windowHidden();
+            //documentNoScroll();
+        }else{
+            $(".d_t_t").removeClass("d_t_t_tran");
+            $(".d_t_m").removeClass("d_t_m_tran");
+            $(".d_t_b").removeClass("d_t_b_tran");
+
+
+            $(this).attr("data","0");
+            $(".d_top_nav").slideUp();
+            $(".d_top_cover").hide();
+//          windowScroll();
+            //documentScroll()
+        }
+    });
+    $(".d_top_cover,.d_t_con").on("click",function(e){
+        e.stopPropagation();
+        $(".d_t_t").removeClass("d_t_t_tran");
+        $(".d_t_m").removeClass("d_t_m_tran");
+        $(".d_t_b").removeClass("d_t_b_tran");
+
+        $(".d_t_con_drop").attr("data","0");
+        $(".d_top_nav").slideUp();
+        $(".d_top_cover").hide();
+//      windowScroll();
+        //documentScroll();
+    });
+</script>

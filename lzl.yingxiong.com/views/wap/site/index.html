@@ -1,0 +1,178 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="i_main">
+    <!--第一部分-->
+    <div class="top">
+        <!--kv_video-->
+        <div class="videoBtn">
+            <a target="_blank" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{$video.content_message}"></a>
+        </div>
+        <!--下载-->
+        <div class="download">
+            <a href="" class="js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/download.png?{$smarty.const.VERSION}" alt=""/></a>
+          	<a href="http://l.taptap.com/c3HXLlqB" class="tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+          <!--<a href="https://www.taptap.com/app/57841" class=""><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/download.png?{$smarty.const.VERSION}" alt=""/></a>-->
+        </div>
+        <!-- 光-->
+        <canvas id="light"></canvas>
+        <div class="lightimg hidden"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/light.png?{$smarty.const.VERSION}" alt=""/></div>
+        <!-- 娃娃-->
+        <canvas id="child"></canvas>
+        <div class="childimg hidden"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/child.png?{$smarty.const.VERSION}" alt=""/></div>
+
+    </div>
+    <!--第二部分-->
+    <div class="banner_news">
+        <div class="one">
+            <div class="banner">
+                <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+                        {foreach key=cid item=v from=$banner}
+                            <div class="swiper-slide">
+                                <a href="{$v.url}" target="_blank"><img class="images" src="{$v.thumb}" alt=""></a>
+                            </div>
+                        {/foreach}
+                    </div>
+                    <div class="swiper-pagination swiper-pagination1"></div>
+                </div>
+            </div>
+            <div class="news_box">
+                <div class="hd">
+                    <ul>
+                        <li class="on">
+                            <a>最新</a>
+                        </li>
+                        <li>
+                            <a>新闻</a>
+                        </li>
+                        <li>
+                            <a>攻略</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul class="news_info">
+                        {foreach key=cid item=v from=$zx}
+                        <li>
+                            <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">【{$v.categoryName}】</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/foreach}
+                    </ul>
+                    <ul class="news_info hidden">
+                        {foreach key=cid item=v from=$xw}
+                        <li>
+                            <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">【{$v.categoryName}】</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/foreach}
+                    </ul>
+                    <ul class="news_info hidden">
+                        {foreach key=cid item=v from=$gl}
+                        <li>
+                            <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">【{$v.categoryName}】</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="two">
+            <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/title-1.png?{$smarty.const.VERSION}" alt=""/></div>
+            <div class="slider">
+                <div class="swiper-container swiper-container2">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/si-5.jpg?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/si-1.jpg?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/si-2.jpg?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/si-3.jpg?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/si-4.jpg?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination2"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="float_wx">
+	<div class="wx_body">
+		<div class="close">
+			<span></span>
+			<span></span>
+		</div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qr_code.png?{$smarty.const.VERSION}" alt="" />
+		<p>扫码关注官方微信</p>
+	</div>
+</div>
+<!--背景音乐-->
+<audio id="music" src="{$smarty.const.STATIC_DOMAIN}1.0/m/audio/audio.mp3"></audio>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script>
+    $(function(){
+        var swiper01 = new Swiper('.swiper-container1', {
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+        var swiper02 = new Swiper('.swiper-container2',{
+            loop:true,
+            pagination: '.swiper-pagination2',
+            effect : 'coverflow',
+            slidesPerView: 3,
+            paginationClickable: true,
+            centeredSlides: false,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            coverflow: {
+                rotate: 0,
+                stretch:-50,
+                depth:100,
+                modifier:2,
+                slideShadows : true
+            }
+        });
+		$(".close").click(function (){
+			$(".float_wx").stop().fadeOut();
+		});
+		$(".header_a").click(function (){
+			$(".float_wx").stop().fadeIn();
+		});
+        //初始化音乐自动播放
+        $("#music")[0].play();
+        $("#music")[0].volume = 0.5;
+        //播放视频音乐暂停
+        $(".js_video_play").click(function(){
+            $("#music")[0].pause();
+            console.log("音乐暂停");
+            setTimeout(function(){
+                //关闭视频音乐继续
+                $("#video_close").click(function(){
+                    $("#music")[0].play();
+                    console.log("音乐继续");
+                });
+            },10);
+        });
+        //音乐播放完毕隔2秒继续播放
+        $("#music").bind("ended",function(){
+            setTimeout(function(){
+                $("#music")[0].play();
+            },2000)
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>创造与魔法闲鱼福利</title>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}sm/xy/css/style.css?{$smarty.const.VERSION}">
+	<script src="{$smarty.const.STATIC_DOMAIN}sm/xy/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+    <div class="h5_data" style="display: none;">{$h5data}</div>
+	<div class="index-wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+		<section class="page1">
+			<a href="javascript:;" class="logo">
+				<img src="{$smarty.const.STATIC_DOMAIN}sm/xy/images/logo.png" alt="">
+			</a>
+			<div class="link">
+				<a href="javascript:;"  target="_blank" class="link_btn" style="display: block;">
+					<p>打开浏览器，前往游戏官网</p>
+					<p>可了解更多详情：</p>
+					<p>http://sm.yingxiong.com/ </p>
+				</a>
+			</div>
+		</section>
+		<section class="page2"></section>
+		<section class="page3"></section>
+		<section class="page4"></section>
+	</div>
+	<!--微信分享-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+    </script>
+    <script>
+    //初始化
+    $(function(){
+         var u = navigator.userAgent,
+            app = navigator.appVersion;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+            var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            
+        var url = window.location.href;
+        var  url_id=window.location.href.split('tg/')[1];
+        console.log(url_id);
+        var share_icon=$(".index-wrap").attr("data-icon");
+        var share_title=$(".index-wrap").attr("data-title");
+        var share_desc=$(".index-wrap").attr("data-desc");
+        // initForm();
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/sm/xy.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        $(".link_btn").click(function(){
+            // HLog.event("sm_xy_link_num");
+        })
+    });
+</script>
+</body>
+</html>

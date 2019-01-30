@@ -1,0 +1,53 @@
+{include '../layouts/pc/header.html'}
+{include '../layouts/pc/header_bar.html'}
+<!--内容-->
+<div class="i_main list">
+    <div class="top_banner"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/li_banner1.png?{$smarty.const.VERSION}" alt=""/></div>
+    <div class="content">
+    <!--第一部分-->
+    <div class="list_news">
+        <div class="qrcode">
+            <div class="qrcode_list">
+                <a><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_qrcode.png?{$smarty.const.VERSION}" class="code_img js_jump_img"/></a>
+
+            <div class="channel_tap_name" style="display: none">
+                <a href="https://www.taptap.com/app/23420" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+            </div>
+            <div class="channel_name" style="display: none">
+            </div>
+            <div class="no_channel">
+                <a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+                <a href="" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>
+                <a href="https://www.taptap.com/app/23420" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                <!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+            </div>
+
+                <!--{if $channel_name=='t'}-->
+                <!--<a href="https://www.taptap.com/app/23420" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                <!--{else}-->
+                <!--<a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                <!--<a href="" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                <!--<a href="https://www.taptap.com/app/23420" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+               <!--{/if}-->
+                <!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+            </div>
+        </div>
+
+        <div class="videobox">
+            <div>
+                <span class="bn">您的位置: <a href="/index">首页</a>><span>官方视频</span></span>
+                <h2>官方视频</h2>
+            </div>
+
+            <ul class="videolist video">
+                {foreach key=cid item=v from=$data}
+                <li class="vi_img js_video_play" data-url="{$v.content_message}"><img src="{$v.thumb}" alt=""/><i></i></li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<title>{$seo_title}</title>
+<meta name="keywords" content="{$seo_key}" />
+<meta name="description" content="{$seo_desc}" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+<!--公共页面-->
+<link href="{$smarty.const.STATIC_DOMAIN}1.0/css/common.css?{$smarty.const.VERSION}" rel="stylesheet"/>
+<!--H5-->
+<link href="{$smarty.const.STATIC_DOMAIN}1.0/css/one.css?{$smarty.const.VERSION}" rel="stylesheet">
+<!--活动-->
+<link href="{$smarty.const.STATIC_DOMAIN}1.0/css/active.css?{$smarty.const.VERSION}" rel="stylesheet" />
+<!--详情页面-->
+<link href="{$smarty.const.STATIC_DOMAIN}1.0/css/detail.css?{$smarty.const.VERSION}" rel="stylesheet" />
+<!--关于-->
+<link href="{$smarty.const.STATIC_DOMAIN}1.0/css/about.css?{$smarty.const.VERSION}" rel="stylesheet" />
+<!--<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/modernizr-custom.js?{$smarty.const.VERSION}"></script>-->
+	<script data-fixed="true">
+        	if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+            	location.href = "/m/";
+        	}
+   	</script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5500f185d92045686e58c0c3926d88af";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+<body>
+	<!--头部-->
+	<div class="head">
+		<div class="top">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo222.png?{$smarty.const.VERSION}" class="logo"/>
+			<ul>
+				<li class="one">
+					<a href="{myurl name='site/index'}">H5</a>
+				</li>
+				<li class="two">
+					<a href="{myurl name='article/index'}">专题活动</a>
+				</li>
+				<li>
+					<a href="javascript:;" onclick='alert("敬请期待！")'>WEB开发</a>
+				</li>
+				<li class="three">
+					<a href="{myurl name='site/about'}">关于我们</a>
+				</li>
+			</ul>
+			<div class="qianji">
+				<a href="javascript:;" onclick="alert('敬请期待！')">潜</a>
+				<a href="javascript:;" onclick="alert('敬请期待！')">极</a>
+			</div>
+			<div class="bottom">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}"/>
+				<img width="150px" src="{$smarty.const.STATIC_DOMAIN}1.0/images/erma.png?{$smarty.const.VERSION}"/>
+				<p>中国.成都.菁蓉国际广场</p>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.10.2.min.js?{$smarty.const.VERSION}" ></script>
+
+<script type="text/javascript">
+	$(function(){
+		var url = window.location.href;
+		var index =(url.match(/index/i) + "").toLowerCase() == 'index';
+		var article =(url.match(/article/i) + "").toLowerCase() == 'article';
+		var info=(url.match(/info/i) + "").toLowerCase() == 'info';
+		var about=(url.match(/about/i) + "").toLowerCase() == 'about';		
+		if(article){
+			$(".two").addClass("on");
+		}else if(info){
+			$(".two").addClass("on");
+		}else if(about){
+			$(".three").addClass("on");
+		}else{
+			$(".one").addClass("on");
+		}
+	});
+	
+</script>
+</body>
+</html>

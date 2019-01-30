@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		{csrf}
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/n_cover.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+	
+	<body>
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				<a href="{myurl name='wap/site/index'}" class="c_enter"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_enter.png?{$smarty.const.VERSION}" alt="" /></a>
+				{if isset($smarty.session.channel_name)&&$smarty.session.channel_name=='ppcwap'}
+				<a href="http://downurl.yingxiong.com/url/hero_ppcwap.html" class="download"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/download.png?{$smarty.const.VERSION}" alt="" /></a>
+				{/if}
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+				{fragment var=video code=kv_video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_play.png?{$smarty.const.VERSION}" alt="" /></a>
+				<div class="djs">
+					<p class="left_day"></p>
+					<p class="left_hour"></p>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/active1.png?{$smarty.const.VERSION}" alt="" class="active1" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/active2.png?{$smarty.const.VERSION}" alt="" class="active2" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/active3.png?{$smarty.const.VERSION}" alt="" class="active3" />
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_label.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<div class="isLogin">
+					<p class="before_denglu active">欢迎您，请<span class="dl">【登录】</span></p>
+					<p class="after_denglu">欢迎您，<span class="number"></span><i>注销</i></p>
+				</div>
+				<div class="c_number">
+					<p></p>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_share.png?{$smarty.const.VERSION}" alt="" class="c_share" />
+				<p class="check_gift"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_gift.png?{$smarty.const.VERSION}" alt="" /><span>查看我的奖品</span></p>
+				<div class="rule">
+					<div class="chengg"></div>
+					<ul>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_one.png?{$smarty.const.VERSION}" alt="" /><span>所有英雄参与活动前需登陆，分享即可获得288钻石或2888金币</span></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_two.png?{$smarty.const.VERSION}" alt="" /><span>Pc端选择分享渠道，点击分享按钮后，手机登陆或扫描二维码将官网分享给身边的小伙伴即可领取王牌战争公测预约礼包至游戏内兑换</span></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_three.png?{$smarty.const.VERSION}" alt="" /><span>移动端选择分享渠道，点击分享将官网分享给身边的小伙伴即可领取王牌战争公测预约礼包至游戏内兑换</span></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_four.png?{$smarty.const.VERSION}" alt="" /><span>领取方式：<i>下载公测后官网新版本</i>-点击右上角活动窗口-礼包码-进行兑换</span></li>
+					</ul>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_car.png?{$smarty.const.VERSION}" alt="" class="car" />
+			</div>
+		</section>
+		<section>
+			<div class="last">
+				<div class="banner">
+					{fragment var=index_banner code=index_w_banner size=5}
+					<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+								<li class="swiper-slide">
+									<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+										<img src="{$v.thumb}" alt="" />
+									</a>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="c_qudao">
+					<div class="c_q_main">
+						<div class="left_qudao">
+							<a href="https://jq.qq.com/?_wv=1027&k=5nZ1s1F">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_qq.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方Q群1</p>
+							</a>
+							<a href="https://jq.qq.com/?_wv=1027&k=51qn4Rv">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_qq.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方Q群2</p>
+							</a>
+						</div>
+						<div class="center_qudao">
+							<img src="{$global.wx_img}" alt="" />
+						</div>
+						<div class="right_qudao">
+							<a href="https://buluo.qq.com/mobile/barindex.html?_bid=128&_wv=1027&bid=405805">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_bolo.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方兴趣部落</p>
+							</a>
+							<a href="{$global.wb_url}">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_wb.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方微博</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="login">
+				<div class="c_login">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="login_body">
+						<div class="s_put">
+							<input type="tel" placeholder="请输入手机号码" class="phone" />
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="t_yzm" />
+							<div class="captcha">
+								{$captcha_img}
+							</div>
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="yzm" />
+							<input type="button" value="获取验证码" class="g_code" />
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_lq.png?{$smarty.const.VERSION}" alt="" class="lingqu" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="share">
+				<div class="s_share">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="share_body">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/share_title.png?{$smarty.const.VERSION}" alt="" class="share_title" />
+						<p class="share_p">分享好友即领金币钻石好礼！</p>
+						<div class="bshare-custom">
+							<div class="bsPromo bsPromo2"></div>
+							<a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a>
+							<a title="分享到新浪微博" class="bshare-sinaminiblog" href="javascript:void(0);"></a>
+							<a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);"></a>
+							<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+							<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="congra">
+				<div class="c_congra">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="congra_body">
+						<p class="congra_title">恭喜您获得</p>
+						<div class="gift_bg">
+							<div class="icon_bg">
+								<div class="chengg"></div>
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_zuanshi.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<p></p>
+						</div>
+						<div class="dhm">
+							<div class="c_dhm" id="tc11_copyTextz">
+								
+							</div>
+							<div class="fuzhi" id="tc11_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc11_copyTextz">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/fuzhi.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="my_price">
+				<div class="c_my_price">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="price_body">
+						<div class="top_title">
+							<span>奖励名称</span>
+							<span>兑换码</span>
+						</div>
+						<div class="huadong">
+							<ul>
+
+							</ul>
+						</div>
+						<p class="tip">注：长按复制粘贴兑换码</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}3.0/m/";
+		var n_url = "{myurl name='commonMethod/ajax-get-new-subscribes'}";
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/n_cover.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".banner" , {
+				pagination: '.swiper-pagination',
+			});
+		})
+	</script>
+	<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	document.write('<script src="http://game.yingxiong.com/common/herowx/herojs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+</script>
+<script type="text/javascript">
+	$(function() {
+
+		var share = {
+			imgUrl: 'http://cdnstatic.yingxiong.com/hero/3.0/m/images/share_icon.png',
+			shareTitle: '【王牌战争：代号英雄】公测预约有礼',
+			descContent: '送金币送钻石！更有六重专属福利让你心跳一夏！',
+			lineLink: 'http://hero.yingxiong.com/m/'
+		};
+		wx.config({
+			debug: false,
+			appId: wx_conf.appId,
+			timestamp: wx_conf.timestamp,
+			nonceStr: wx_conf.nonceStr,
+			signature: wx_conf.signature,
+			jsApiList: [
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage',
+				'chooseImage',
+				'previewImage',
+				'uploadImage',
+				'downloadImage'
+			]
+		});
+		wx.ready(function() {
+			wx.onMenuShareAppMessage({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				}
+			});
+			wx.onMenuShareTimeline({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				},
+			});
+
+			wx.onMenuShareQQ({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				},
+				cancel: function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+		})
+
+	});
+</script>
+</html>

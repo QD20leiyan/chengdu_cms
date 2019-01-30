@@ -1,0 +1,28 @@
+
+ <script>
+         var wxinfo = getQueryString('info');
+            var  h5_wx=$(".h5_wx").html();
+            var  h5_data=$(".h5_data").html();
+            var  info_data="";
+            var  h5_jk_url="";
+
+            if (!wxinfo) {
+                var url = window.location.href;
+                if(url.indexOf("?") != -1){
+                	window.location.href = "http://game.yingxiong.com/wechat/index.html?callback_url="+url;
+                } else{
+                	window.location.href = "http://game.yingxiong.com/wechat/index.html?callback_url="+url+"?";
+                }
+            }else{
+                info_data=window.location.href.split('info=')[1];
+                h5_jk_url="?h5data="+h5_data+"&info="+info_data;
+             }
+            function getQueryString(name)
+            {
+                var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if(r!=null)return  unescape(r[2]); return null;
+            }
+        </script>
+        
+<!-- {$pvuvStat} -->

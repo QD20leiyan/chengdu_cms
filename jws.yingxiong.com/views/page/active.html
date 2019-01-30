@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>{$seo_title}</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="Keywords" content="{$seo_key}">
+	<meta name="Description" content="{$seo_desc}">
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+	<link rel="shortcut icon" href="{$global.icon_img}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/public.css?{$smarty.const.VERSION}" />
+	<link href="{$smarty.const.STATIC_DOMAIN}7.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" rel="stylesheet">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/active.css?{$smarty.const.VERSION}" />
+	<script src="{$smarty.const.STATIC_DOMAIN}7.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+</head>
+<body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+	<!--内容-->
+	<div class="i_main">
+		<div class="cont">
+			<div class="logo"></div>
+			<!--第一部分-->
+			<div class="kv">
+				<div class="share_box">
+                        <a href="javascript:;" class="weixin"></a>
+                         <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="weibo"  {if $global.wb_url}target="_blank"{else}{/if}></a>
+                         <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="baidu" {if $global.tb_url}target="_blank"{else}{/if}></a>
+                          <img src="{$global.wx_img}" alt="" class="ewm_wx">
+				</div>
+				
+				<a href="{myurl name='/index'}" class="enter"></a>
+				<div class="slogan"></div>
+				<div class="page_two">
+				    <div class="gidt_box1">
+				    	<div class="gifts"></div>
+				    	<a href="javascript:;"></a>
+				    </div>
+				    <div class="gidt_box2">
+				    	<div class="gifts"></div>
+				    	<a href="javascript:;"></a>
+				    </div>
+				</div>
+                <div class="page3">
+                	<div class="part1">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/gif1.gif?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part2">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/gif2.gif?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part3">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/gif3.gif?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part4">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/part4_img.png" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                </div>
+                <div class="page4">
+                	<p class="gift_info">老用户回归最高可获得<span>VIP10</span>和<span>24571钻石</span>返还，无双助您新区再战！</p>
+                	<p class="buch">（该老账号在活动开启后的新服中创建的第1个角色有效）</p>
+                </div>
+			</div>
+	</div>
+</body>
+{download}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+<script>
+$(function (){
+	var mySwiper01 = new Swiper('.h_banner1', {
+			effect: "coverflow",
+			speed: 1500,
+			autoplay: 3500,
+			prevButton: ".wgam_prev",
+			nextButton: ".wgam_next",
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			slidesPerView:2.43,
+			loop: true,
+			effect: 'coverflow',
+			slideToClickedSlide: true,
+			simulateTouch: false,
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false,
+			coverflow: {
+				rotate: 50,
+				stretch: -55,
+				depth: 410,
+				modifier: 1,
+				slideShadows: true
+			},
+			});
+    //tap
+    $(".i_main .share_box a.weixin").hover(function(){
+    	$(".ewm_wx").fadeIn(500);
+    },function(){
+    	$(".ewm_wx").fadeOut(500);
+    })
+});
+</script>
+</html>

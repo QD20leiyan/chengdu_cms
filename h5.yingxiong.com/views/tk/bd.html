@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zjzg/question/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zjzg/question/css/index.css?{$smarty.const.VERSION}" />
+   <script src="{$smarty.const.STATIC_DOMAIN}zjzg/question/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+    </script>
+    {csrf}
+</head>
+<body>
+<!--首页-->
+<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+<div class="h5_data" style="display: none;">{$h5data}</div>
+<div class="i_main hidden" id="page1" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+    <!--第一部分-->
+    <div class="l_top">
+        <!--logo-->
+        <div class="l_logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_logo.png?{$smarty.const.VERSION}">
+        </div>
+        <!--kv_video-->
+        <div class="l_videoBtn"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_play.png?{$smarty.const.VERSION}" class="js_video_play"></div>
+        <!--下载按钮-->
+        <div class="l_download"><a class="js_wap_down" href="javascript:;"></a></div>
+        <div class="l_down"></div>
+    </div>
+    <!--第二部分-->
+    <div class="l_answer">
+        <div class="l_title"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_tit1.png?{$smarty.const.VERSION}" alt=""/></div>
+        <p class="l_info">得分超过80分的用户有机会获得以下奖品</p>
+        <div class="l_gift"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_gift.png?{$smarty.const.VERSION}" alt=""/></div>
+        <div class="l_btn1"><a href="javascript:;"></a></div>
+        <div class="l_btn2">活动规则</div>
+    </div>
+    <!--第三部分-->
+    <div class="ts_play">
+        <div class="l_title"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_tit2.png?{$smarty.const.VERSION}" alt=""/></div>
+        <div class="l_info">
+            《巅峰坦克》是一款主打现代战争题材，集陆空多种载具对战于一体的颠覆级立体战争竞技手游。游戏打破常规载具对战题材壁垒，在手机上首度实现了陆空对战的游戏模式。玩家将在2000x2000的宏大战场中自由驾驶诸如阿帕奇、BMP、悍马、99A 、M1A2等全球知名载具开启一场12v12的实时竞技！
+        </div>
+        <div class="slider">
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_si1.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_si2.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_si3.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_si4.jpg" alt=""></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a><img class="images" src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_si5.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <!--第四部分-->
+    <div class="l_pc">
+        <div class="l_title"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_tit3.png?{$smarty.const.VERSION}" alt=""/></div>
+        <div class="l_pcbox">
+            <a href="#page2">
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg.png?{$smarty.const.VERSION}" alt=""/>
+                <span class="l_btn3"></span>
+            </a>
+        </div>
+        <div class="l_title1"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_tit4.png?{$smarty.const.VERSION}" alt=""/></div>
+        <div class="l_comment">
+            <ul>
+                <li><i></i><span>感觉游戏做得还是挺有心的，战斗挺刺激。陆空对战还挺新颖。前面解锁的载具和后面的操作差别有点大，不知道再后边咋样。天梯有些卡顿，希望后面持续优化。5星支持下。</span></li>
+                <li><i></i><span>比较喜欢这类军事游戏，每天登陆会送道具，游戏玩法多样性还可以比较容易上手，很不错推荐这个游戏，大家可以一起玩玩</span></li>
+                <li><i></i><span>游戏整体节奏挺好，刚开始玩更深入的还没有体验到，打算继续了解下，总体感觉还不错！个人希望商城物品不要对游戏影响太多。总结整体感觉很不错，推荐试玩下。</span></li>
+                <li><i></i><span>游戏还可以，画面上算是目前几款游戏比较好的吧（闪击战和坦克连我也都玩了），操作上和之前玩的战舰差不多（毕竟一家做的）。比较新颖的基本是现代坦克+陆空的玩法，这块确实是亮点。整体可以玩玩，反正游戏氪金肯定是有的。没深玩不知道是不是干氪。</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--规则弹窗-->
+    <div class="co_tips co_tips_rules hidden">
+        <div class="co_con">
+            <i class="co_tips_close"></i>
+            <div class="co_form">
+                <p class="co_title">活动规则</p>
+                <div class="l_rules">
+                    <p><span>参与方式：</span>用户点击立即参与按钮，跳转答题H5页面，答完所有问题给出分数，弹出填写手机页面。分数超过80分的用户随机抽奖， 最后抽奖结果在手助或游戏内公布</p>
+                    <p><span>活动奖励：</span>爱奇艺月卡，小度音响，罗马仕充电宝2W毫安，周边卫衣，周边水杯（需在首页展示，详见参考）</p>
+                    <p><span>活动规则：</span>1.共五道问答题，每道20分，请选择您认为正确的答案</br>
+                        2.请输入正确的手机号以便我们为您发奖</br>
+                        3.本活动最终解释权归多酷游戏所有
+                    </p>
+                </div>
+            </div>
+            <p class="co_tips_btn co_tips_surebtn "></p>
+        </div>
+    </div>
+</div>
+
+<!--评测页面-->
+<div class="i_main i_main1 hidden" id="page2">
+    <!--第一部分-->
+    <div class="l_top l_top1">
+        <!--logo-->
+        <div class="l_logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_logo.png?{$smarty.const.VERSION}">
+        </div>
+    </div>
+    <!--第二部分-->
+    <div class="l_pcinfo">
+        <div class="l_pcinfo1">
+            <div class="l_infotit">
+                <h3>《巅峰坦克》</br>一款可以轻松安利的军武游戏 </h3>
+                <span><span>发布时间：11/28</span><span>来源：本网站</span></span>
+            </div>
+            <div class="l_content">
+                <p>前段时间无聊刷商店的时候，在排行榜第一发现这个叫《巅峰坦克》的游戏。自诩为军事爱好者与手游爱好者，我和基友第一时间下载了，并且在玩了一星期之后，得出了结论。这是一款可圈可点的“军武题材的”游戏，它不一定能让军迷都满意，但作为游戏却算得上是实力雄厚。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg1.png?{$smarty.const.VERSION}" alt=""/>
+                <p class="p1">Loading这张图很符合“冬季行动”的主题，我很喜欢 </p>
+                <p>先给一个总体结论：</p>
+                <p class="p2">画面：8.2分</p>
+                <p>画面优秀</p>
+                <p class="p2">操作：7.6分</p>
+                <p>操作已有较好的提升，但仍有游戏类型带来的的局限</p>
+                <p class="p2">战斗机制：8.4分</p>
+                <p>伤害机制合理易懂，还原现实设定</p>
+                <p class="p2">收集：7.3分</p>
+                <p>研发简明，但材料较为复杂，缺乏定向</p>
+            </div>
+        </div>
+        <div class="l_pcinfo2">
+            <div class="l_content">
+                <h4>画面：8.2分</h4>
+                <p>整体画面我是比较满意的。场地不管是风格还是光影都令人认同，每次天梯赛开场的探路时间，已经变成了我的看风景休闲时间，运气好的话还能找到点彩蛋。</p>
+                <p>咳咳，扯远了。因为是现代战争，绝大多数的车都做到了给人“眼前一亮”的感觉，确实做到了给人一个“现代”“不陈旧”的印象。军事题材的手游，除去那些披着军武皮的回合制游戏，剩下的十个里九个都是二战，甚至一战。对对对大家都有战场情节，但二十一世纪了朋友，是时候往前看了。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg2.png?{$smarty.const.VERSION}" alt=""/>
+                <p class="p1">沙漠图</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg3.png?{$smarty.const.VERSION}" alt=""/>
+                <p class="p1">真tm帅（从官方偷来的图）</p>
+                <p style="margin-top: 1rem;">美中不足的是第一常规赛的有两个地图小了些，探测的属性不是很好发挥。第二就是车身的一些细节还不够，像是裙板的形状，探照灯的灯盖这种问题，大概也只有军迷才会注意到。模型修改不易，但也希望官方能够重视起来。</p>
+            </div>
+        </div>
+        <div class="l_pcinfo3">
+            <div class="l_content">
+                <h4>操作：7.6分</h4>
+                <p>游戏很重要的核心就是个操作手感，而手游的操作肯定是不能与电脑的键鼠相比的。可以说《巅峰坦克》已经在一定范围尽了力。</p>
+                <p>它有两种操作方式，一种摇杆，一种推杆。值得一提的是推杆，让你不用费心思在前进后退上，只要注意方向就好，非常适合骚操作，也适合新手，手感也很好。</p>
+                <p>但它还是没办法完全突破载具游戏的局限性。载具游戏需要表现出你在“操作厚重的坦克”这件事，所以手感必然是有些重的，炮塔转向是需要时间的。这很合理，但这也是大众最容易被卡在门口的壁垒。只能说有些可惜。</p>
+                <p>所以个人建议，新人上来之后多尝试几种车和操作方式，熟练一下再找出适合自己的玩法。</p>
+            </div>
+        </div>
+        <div class="l_pcinfo4">
+            <div class="l_content">
+                <h4>战斗机制：8.4分</h4>
+                <p>游戏的伤害机制不错，简明符合逻辑，拥有载具手游里独一无二的现代题材+大地图多人对战+陆空战争。</p>
+                <p>简单说一下我和基友对战斗的想法。游戏里有三大类车型，额，载具。分别是坦克，装甲车和直升机。具体还能细分火力支援车和武装直升机之类的，在此不做细表。三种车型形成了一个非绝对的三角克制关系。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg4.png?{$smarty.const.VERSION}" alt=""/>
+                <p>坦克作为现实中的陆战王者，本身属于移动炮台，而且是厚甲移动炮台。输出高，火力强，一炮要了脆皮的半条命。是前期最简单的车。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg5.png?{$smarty.const.VERSION}" alt=""/>
+                <p>符合现实设定的就是，坦克的仰角很小。这就意味着坦克的炮管只能抬高到一定的角度，对于空中和高处的目标，用主炮基本上只能打远处的。如果对方离你太近，炮管就抬不起来，这就需要你换机枪和导弹去打。这也是这个游戏设计的比较平衡的地方，每辆车都有自己的优缺点，面对克制的目标又不会毫无还手之力。</p>
+                <p style="margin-top: 1.6rem;">直升机是唯一的空中单位，别人都在地上走，你可以跨越一切麻烦的地形，想飞哪都可以走直线。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg6.png?{$smarty.const.VERSION}" alt=""/>
+                <p>前边也说过了，对上坦克它可以在坦克头顶盘旋，然后用火箭弹去压制地面。技术够好可以把一片地面的人耍得团团转。</p>
+                <p style="margin-top: 1.6rem;">装甲车是我认为这个游戏最灵活也最有趣的车。上打直升机下打坦克，灵活如兔风骚如狗。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg7.png?{$smarty.const.VERSION}" alt=""/>
+                <p style="margin-top: 1.6rem;">总的来说，装甲车的通病是——脆皮，所以对于坦克这种高伤害的地面战神，被打到一炮真的难受。但是......你不被打到不就好了？（笑）实际上，装甲车真的可以做到。</p>
+                <p>首先，装甲车的速度是地面最快，侦查地面最强。探出了敌人第一时间可以选择打还是跑。对面技术差一点，用机枪跟着扫都跟不上你风一样的速度。</p>
+                <p>其次，装甲车内部分类多，而且是唯一可以装备地雷的车。在占点图、交通要道放好地雷，打伏击诱敌深入都是妥妥的。</p>
+                <p>最后，装甲车的武器仰角都非常高，对直升机这种空中单位可以造成非常有效的打击。无论是机枪还是导弹都可以装备，直升机遇到它就乖乖跑远就对了。如果可以，我都想玩一场12V12的地雷战，可惜策划为了平衡，每场匹配的时候每种车都有限制，装甲车好像不会超过5辆......可惜。</p>
+                <p style="margin-top: 1.6rem;">在车型的克制上说太多了，说回基础机制。</p>
+                <p style="margin-top: 1.6rem;">游戏最多可以打12V12，也就是24个人一个战场。图大人多，跟吃鸡是不能比，但是在同类的竞技游戏里确实是很强大了。进了战场，要是运气好遇到对方是拳头阵型，坦克军团+僚机+护卫车，那人是真多啊.......所有的炮火都锁定了你，开了全速灵活走位，车后，侧面，装甲上全都是炮火爆炸的特效与声音，甚至分不清方向，一心只想着怎么活下来。如果这时候你还能突出重围，活下来回到大部队中......</p>
+                <p>恭喜你，是个强者。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg8.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+        </div>
+        <div class="l_pcinfo5">
+            <div class="l_content">
+                <h4>收集：7.3分</h4>
+                <p>收集模块属于这个游戏褒贬不一的地方，导致有些人说它是一个氪金游戏。我的主观感受是，大部分的收集比较简单，好理解，价格低于平均，少量车型坑有点深，不是每个人都应该去追的。</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg9.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+        </div>
+        <div class="l_pcinfo6">
+            <div class="l_content">
+                <h4>先说优点：</h4>
+                <p>研发线的设计上，它是少数有勇气抛弃经典那一套树型研发线，自己做了思考去设计一套新的获得系统的游戏。以前的那一套我要一辆9级车，我得先肝完这条线的1-8级车，还得练。想要另一辆9级车还要从头肝另一条线。说实话，累死人了，所以看到这边的研发线这么简单我还是挺高兴的。</p>
+                <p>这点勇气带来的结果是它的车的获得方式都很容易懂。无非分三种，等级解锁，金币买，活动得。金币在游戏里也可以攒，有心的话，大多数车都可以到手。跟每隔一期出一堆只有人民币才能直接买的车比，这种可以积攒获得的还是比较照顾0氪玩家。</p>
+                <p>每辆车是可以换各种武器的，平常战斗结束，一些免费的抽奖都可以抽出四星，这个设定非常友好。5星就需要积攒去换了</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg10.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+        </div>
+        <div class="l_pcinfo7">
+            <div class="l_content">
+                <h4>说完优点说缺点：</h4>
+                <p>缺点集中在两个点，第一，某些车的获得方式比较深。比如“心动抽奖”可以得到AIFV这辆车（手感贼好），金币抽箱子可以得，随机出各种材料到限时和永久车。中奖概率严格来说是1/200，这对本非酋来说真的约等于没有...建议各位在箱子还剩下50个以下，并且没有人抽到永久车的时候发力。这样获得的概率会一口气提升4倍以上，抽到材料也不算太亏。</p>
+                <p>第二点就是这个游戏的材料比较复杂。载具解锁新的模块需要升级整辆车出车架、发动机、转向机、观测仪，让整个车身提升之后才有能力装备新的武器（仔细想想竟然还挺合理的？）。而每个部位提升需要两种通用材料（合金、助溶剂）与两种专属材料（如信号机干扰组件，观测仪组件）。武器升级也需要一种材料。</p>
+                <p>我前面提到，游戏在很多地方简化了我们操作入门的门槛，于是在这里体现出了“军事知识的丰富性”......结果只能说是有利有弊。</p>
+            </div>
+        </div>
+        <div class="l_pcinfo8">
+            <div class="l_content">
+                <h4>综合评分：7.8——值得一玩 </h4>
+                <p>一开始我说它是“可以轻松安利的军武游戏”，并不是说笑</p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg11.png?{$smarty.const.VERSION}" alt=""/>
+                <p class="p1">经典的59式 </p>
+                <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/l_pcimg12.png?{$smarty.const.VERSION}" alt=""/>
+                <p class="p1">阿帕奇</p>
+                <p style="margin-top: 1.6rem;">它尽管是军武题材，却做到了很多人没做到的事，就是坚守“游戏性第一”这个原则。更有趣，更爽快，更容易上手，这一切都是将一款游戏安利出去的最大卖点。在这个基础上，它再尽全力去表现现代战争应有的一些魅力，也收录了从二战后期到现今的很多帅气的装备。</p>
+                <p>我只能算个伪军迷，但偶尔也会感觉到大家身上不得不独行的气质。我们真的有必要这么孤独吗？，期待《巅峰坦克》这个游戏能给我们带来更多的新鲜血液，大家开心的一起玩。无论作为军武题材的作品，还是作为一款游戏，都十分可圈可点。希望制作组将来能更上一层楼，克服困难，继续前进。</p>
+            </div>
+        </div>
+
+        <div class="l_gotop"></div>
+    </div>
+</div>
+
+<!--答题页面-->
+<div id="page3" class="hidden">
+    <div class="part1">
+        <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_b.png?{$smarty.const.VERSION}" alt="" class="logo1">
+        <div class="info_box">
+            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/1.png?{$smarty.const.VERSION}" alt="" class="dati_logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/gift.png?{$smarty.const.VERSION}" alt="" class="gift_box">
+        </div>
+        <a href="javascript:;" class="test_go"></a>
+    </div>
+    <div class="part2 hidden">
+        <div class="tm tm_list1">
+            <p class="top_tl"><span>Question 1</span><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_s.png?{$smarty.const.VERSION}" alt="" class="logo2"></p>
+             <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/img1.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+            <p class="tm_text">抗战胜利日阅兵（2015年9月3日）是纪念抗战胜利多少周年？</p>
+            <div class="tm_sel tm_sel1">
+                <a href="javascript:;" class="choose1 true" data-sel="A"><i></i>70周年</a>
+                <a href="javascript:;" class="choose2" data-sel="B"><i></i>30周年</a>
+                <a href="javascript:;" class="choose3" data-sel="C"><i></i>20周年</a>
+                <a href="javascript:;" class="choose4" data-sel="D"><i></i>10周年</a>
+            </div>
+            <a href="javascript:;" class="next on"></a>
+        </div>
+        <div class="tm tm_list2 hidden">
+            <p class="top_tl"><span>Question 2</span><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_s.png?{$smarty.const.VERSION}" alt="" class="logo2"></p>
+             <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/img2.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+            <p class="tm_text">《巅峰坦克》目前最大支持多少人同场作战？</p>
+            <div class="tm_sel tm_sel2">
+                <a href="javascript:;" class="choose1" data-sel="A"><i></i>3v3</a>
+                <a href="javascript:;" class="choose2" data-sel="B"><i></i>5v5</a>
+                <a href="javascript:;" class="choose3" data-sel="C"><i></i>7v7</a>
+                <a href="javascript:;" class="choose4 true" data-sel="D"><i></i>12v12</a>
+            </div>
+            <a href="javascript:;" class="next on"></a>
+        </div>
+        <div class="tm tm_list3 hidden">
+            <p class="top_tl"><span>Question 3</span><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_s.png?{$smarty.const.VERSION}" alt="" class="logo2"></p>
+             <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/img3.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+            <p class="tm_text">以下哪辆是中国现代主战坦克？</p>
+            <div class="tm_sel tm_sel3">
+                <a href="javascript:;" class="choose1" data-sel="A"><i></i>T-34</a>
+                <a href="javascript:;" class="choose2" data-sel="B"><i></i>四号坦克</a>
+                <a href="javascript:;" class="choose3" data-sel="C"><i></i>M4“谢尔曼”</a>
+                <a href="javascript:;" class="choose4 true" data-sel="D"><i></i>99式主战坦克</a>
+            </div>
+            <a href="javascript:;" class="next on"></a>
+        </div>
+        <div class="tm tm_list4 hidden">
+            <p class="top_tl"><span>Question 4</span><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_s.png?{$smarty.const.VERSION}" alt="" class="logo2"></p>
+             <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/img4.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+            <p class="tm_text">被称为“坦克克星”的是？</p>
+            <div class="tm_sel tm_sel4">
+                <a href="javascript:;" class="choose1 true" data-sel="A"><i></i>阿帕奇武装直升机</a>
+                <a href="javascript:;" class="choose2" data-sel="B"><i></i>越野车</a>
+                <a href="javascript:;" class="choose3" data-sel="C"><i></i>步兵</a>
+            </div>
+            <a href="javascript:;" class="next on"></a>
+        </div>
+        <div class="tm tm_list5 hidden">
+            <p class="top_tl"><span>Question 5</span><img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_s.png?{$smarty.const.VERSION}" alt="" class="logo2"></p>
+             <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/img5.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+            <p class="tm_text">不属于坦克战斗力三大要素的是？</p>
+            <div class="tm_sel tm_sel5">
+                <a href="javascript:;" class="choose1" data-sel="A"><i></i>火力</a>
+                <a href="javascript:;" class="choose2" data-sel="B"><i></i>越野力</a>
+                <a href="javascript:;" class="choose3" data-sel="C"><i></i>防护力</a>
+                <a href="javascript:;" class="choose4 true" data-sel="D"><i></i>抗腐蚀能力</a>
+            </div>
+            <a href="javascript:;" class="next on1"></a>
+        </div>
+    </div>
+    <div class="part3 hidden">
+        <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/logo_b.png?{$smarty.const.VERSION}" alt="" class="logo1">
+        <div class="info_box2">
+            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/question/images/h2_info.png?{$smarty.const.VERSION}" alt="" class="dati_h2">
+            <p id="send">本次答题共获得<span></span>分的好成绩</p>
+            <div class="info_box3">
+                <p>请留下您的个人信息，确保能正常参与抽奖。</p>
+                <p>获奖名单将于1月4日百度版《巅峰坦克》游戏内公布，请注意查看。</p>
+            </div>
+            <div class="co_form co_form2">
+                <div class="co_input">
+                    <input type="text" class="co_username" placeholder="请输入您的昵称" maxlength="20">
+                </div>
+                <div class="co_input">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_userphone" placeholder="请输入手机号码" maxlength="11">
+                </div>
+            </div>
+        </div>
+        <a href="javascript:;" class="test_submit"></a>
+    </div>
+</div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}zjzg/question/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+ <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}zjzg/question/js/js.js?{$smarty.const.VERSION}"></script>
+<!--微信分享-->
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+       
+    $(function() {
+        var url = window.location.href;
+        var  url_id=window.location.href.split('bd.html#page')[1];
+        console.log(url_id);
+        var  h5_wx=$(".h5_wx").html();
+        var  h5_data=$(".h5_data").html();
+        var share_icon=$(".i_main").attr("data-icon");
+        var share_title=$(".i_main").attr("data-title");
+        var share_desc=$(".i_main").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/tk/bd.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        if(url_id==2){
+            $(".i_main1").removeClass("hidden");
+            $("body,html").removeClass("on");
+        }else if(url_id==3){
+            $("#page3").removeClass("hidden");
+            $("body,html").addClass("on");
+        }
+    });
+</script>
+</html>

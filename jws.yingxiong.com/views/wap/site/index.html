@@ -1,0 +1,143 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}8.0/m/css/index_n.css?{$smarty.const.VERSION}" />
+<section>
+	<!-- <div class="down_img"><img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/down.png?{$smarty.const.VERSION}" alt="" /></div> -->
+</section>
+<section>
+	<div class="kv">
+		<!--<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" /></div>-->
+		<div class="slogan">
+			<!-- <img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/slogan2.png?{$smarty.const.VERSION}" alt="" /> -->
+			<a href="javascript:;" class="video_p js_video_play" data-url="{$cover_video[0].url}"></a>
+		</div>
+		<!--<div class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/slogan.png?{$smarty.const.VERSION}" alt="" /></div>-->
+		<!-- <div class="no_channel">
+			<div class="float">
+				<a href="{myurl name='m/p/active'}" target="_blank"></a>
+				<div class="fl_txt">
+					<i></i>
+				</div>
+			</div>
+		</div> -->
+	</div>
+</section>
+<section>
+	<div class="l_bg">
+		<div class="l_banner">
+			<ul class="swiper-wrapper">
+				{foreach $banner as $v}
+				<li class="swiper-slide">
+					<a href="{$v.url}"><img src="{$v.thumb}" alt="" /></a>
+				</li>
+				{/foreach}
+			</ul>
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="no_channel">
+			<div class="l_list">
+				<ul class="l_nav">
+					<li class="active">综合</li>
+					<li>新闻</li>
+					<li>公告</li>
+					<li>活动</li>
+					<a href="{myurl name='wap/article/list,type=>zx,page=>1'}"><img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/more.png" alt="" /></a>
+				</ul>
+				<div class="n_news">
+					<ul class="active">
+						{foreach $zx as $v}
+						<li>
+							<a href="{$v.wapLinkUrl}"><em>[&nbsp;{$v.categoryName}&nbsp;]</em><span>{$v.title}</span></a><i>{$v.created_at|date_format:"%m/%d"}</i>
+						</li>
+						{/foreach}
+					</ul>
+					<ul>
+						{foreach $xw as $v}
+						<li>
+							<a href="{$v.wapLinkUrl}"><em>[&nbsp;{$v.categoryName}&nbsp;]</em><span>{$v.title}</span></a><i>{$v.created_at|date_format:"%m/%d"}</i>
+						</li>
+						{/foreach}
+					</ul>
+					<ul>
+						{foreach $gg as $v}
+						<li>
+							<a href="{$v.wapLinkUrl}"><em>[&nbsp;{$v.categoryName}&nbsp;]</em><span>{$v.title}</span></a><i>{$v.created_at|date_format:"%m/%d"}</i>
+						</li>
+						{/foreach}
+					</ul>
+					<ul>
+						{foreach $hd as $v}
+						<li>
+							<a href="{$v.wapLinkUrl}"><em>[&nbsp;{$v.categoryName}&nbsp;]</em><span>{$v.title}</span></a><i>{$v.created_at|date_format:"%m/%d"}</i>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="j_wj">
+		<div class="wj_list">
+			<div class="no_channel">
+				<a class="c_more" href="{myurl name='wap/article/role'}"><img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/c_more.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<ul class="wj_pic">
+				{foreach $roles as $key=>$v}
+				<li class="{if $key eq 0}active{else}{/if}">
+					<img src="{$v.redirect_url}" alt="" />
+				</li>
+				{/foreach}
+			</ul>
+			<div class="wj_con">
+				{foreach $roles as $key=>$b} {if $b.info!=null}
+				<div class="{if $key eq 0}active{else}{/if} wj_char">
+					<img class="wj_name" src="{$b.info[0].title_img}" alt="" />
+					<img class="wj_img" src="{$b.info[0].img}" alt="" />
+					<div class="wj_txt">
+						<p>{$b.info[0].info}</p>
+					</div>
+				</div>
+				{/if} {/foreach}
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="no_channel">
+		<div class="vd_list">
+			<div class="vd_bg">
+				<a class="c_more" href="{myurl name='wap/video/index'}"><img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/c_more.png?{$smarty.const.VERSION}" alt="" /></a>
+				<ul>
+					{foreach $video as $v}
+					<li>
+						<a href="javascript:;">
+							<img class="v_f_img" src="{$v.thumb}" alt="" />
+							<div class="v_play js_video_play" data-url="{$v.content_message}">
+								<img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/v_big.png" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}8.0/m/images/v_small.png" alt="" />
+							</div>
+						</a>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="no_channel"><a href="/m/site/mrt.html" class="mrt_url" target="_blank"></a></div>
+{include file="../../layouts/wap/footer.html"} {download} {video_play}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}8.0/m/js/swiper.3.1.7.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}8.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var new_url = window.location.href;
+	if(new_url.indexOf("part") >= 0){
+		$(".l_bg").css("margin-top" , "-17.65625rem");
+			$(".j_wj").css( {
+				"margin-top" : "-13rem",
+				"margin-bottom": "2rem"
+			} );
+	}
+</script>
+
+</html>

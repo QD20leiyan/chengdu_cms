@@ -1,0 +1,112 @@
+{include file="../../layouts/wap/dataHead.html"}
+{include file="./ajax_get_data.html"}
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+</body>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery.fittext.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('html').fitText(2);
+
+        //全局变量
+        var clickNumber = 1;
+
+        $(".menu").click(function() {
+            if(clickNumber % 2 !== 0) {
+                $(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav_close.png");
+                $(this).siblings(".menu_nav").slideDown();
+            } else {
+                $(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav.png");
+                $(this).siblings(".menu_nav").slideUp();
+            }
+            clickNumber++;
+        });
+
+        $(document).on("click",".title_bg li",function(){
+            var id = $(this).attr("name");
+            $(this).addClass("active").siblings().removeClass("active");
+            scrollTo($("#"+id),300);
+        });
+
+        //加载更多
+        $("#getMoreData").click(function() {
+            var isClick = $(this).attr("isClick");
+            var myThis = $(this);
+            if(isClick){
+                return;
+            }
+            $(this).attr("isClick","true");
+            var category_id = parseInt($(this).attr("category_id"));
+            var pageIndex = parseInt($(this).attr("pageIndex"));
+            $.ajax({
+                url: '{myurl name="/wap/article/ajax-data"}',
+                type: 'get',
+                data: {
+                    "id": category_id,
+                    "page": pageIndex + 1
+                },
+                success: function(data){
+                    var data = JSON.parse(data);
+                    console.log(data);
+                    if(data.status == 0){
+                        if(data.msg.data.length != 0){
+                            addDataToPage(data.msg.data);
+                        }else {
+                            alert("没有更多的数据了喔~");
+                        }
+                    }else {
+
+                    }
+                    myThis.attr("isClick","");
+                },
+                error: function(){
+                    alert("请检查您的网络是否链接喔~");
+                    myThis.attr("isClick","");
+                }
+            })
+        });
+
+        //添加数据
+        function addDataToPage(data){
+            var html = "";
+            var pageIndex = parseInt($("#getMoreData").attr("pageIndex"));
+            for(var i=0; i<data.length; i++){
+                if(data[i].thumb){
+                    html = html + '<dl url="'+data[i].linkUrl+'" class="data-img">'+
+                            '<dt><a href="'+data[i].linkUrl+'">' +
+                            '<img src="'+data[i].thumb+'">'+
+                            '</a></dt>'+
+                            '<dd>'+data[i].title+'</dd>'+
+                            '</dl>';
+                }else {
+                    html = html + '<dl url="'+data[i].linkUrl+'" class="data-img">'+
+                            '<dt><a href="'+data[i].linkUrl+'">'+
+                            '</a></dt>'+
+                            '<dd>'+data[i].title+'</dd>'+
+                            '</dl>';
+                }
+            }
+            $("#dl_scroll").append(html);
+            $("#getMoreData").attr("pageIndex",pageIndex+1);
+        }
+
+        //页面滚动
+        function scrollTo(ele, speed){
+            if(!speed){
+                speed = 300;
+            }
+            if(!ele){
+                return false;
+            }
+            if(ele.length>0) {
+                $("html,body").animate({
+                    "scrollTop": ele.offset().top
+                },speed);
+            }
+            return false;
+        }
+
+    })
+</script>
+{click}
+</html>

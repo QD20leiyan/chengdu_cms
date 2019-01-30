@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$seo_title}</title>
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="keywords" content="{$seo_key}" />
+  <!--   <link rel="shortcut icon" href="{$smarty.const.STATIC_DOMAIN}1.0/images/favicon.ico?{$smarty.const.VERSION}" /> -->
+    <link rel="shortcut icon" href="{$global.icon_img}">
+    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/swiper.min.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/style.css?{$smarty.const.VERSION}">
+    <script src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+    <script src="{$smarty.const.STATIC_DOMAIN}2.0/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+
+
+    <script data-fixed="true">
+        if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+                location.href = "/m/";
+            }
+    </script>
+    {csrf}
+</head>
+<body>
+<div class="header">
+    <div class="nav-box">
+        <div class="w1200 clearfix">
+            <div class="icon clearfix fl">
+                <img src="{$global.logo_img}" alt="">
+                <div class="fr">
+                    <p>{$global.title}</p>
+                    <span>	{$global.sub_title}</span>
+                </div>
+            </div>
+            <div class="nav clearfix fl">
+                <a class="{if isset($smarty.get.id)} {else}active{/if}" href="{myurl name='site/index'}" target="_blank">首页</a>
+                <a class="" href="{myurl name='article/list, id=>571'}" target="_blank">新闻 <em></em></a>
+                <a class="" href="{myurl name='article/list, id=>576'}" target="_blank">攻略</a>
+                <a class="" href="{myurl name='video/list, id=>577'}" target="_blank">视频</a>
+                <!--<a onclick="yx_showTips('敬请期待！')">客服</a>-->
+                <a href="http://bbs.yingxiong.com/t/pc/39" target="_blank">社区</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>

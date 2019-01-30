@@ -1,0 +1,77 @@
+{include '../../layouts/wap/header.html'}
+<section class="mine-banner">
+    <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/imin_banner01.jpg?{$smarty.const.VERSION}">
+</section>
+<section class="video-wrapp">
+    <article class="video-box">
+    <div class="clearfix video-icon">
+        <a href="{myurl name='wap/site/index'}" class="icon"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/icon.png?{$smarty.const.VERSION}"></a>
+        <aside class="video-title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/video-title.png?{$smarty.const.VERSION}"></aside>
+    </div>
+    <aside class="video-wrapper" data-id="{$id}">
+        <ul class="clearfix">
+            <!--<li>
+                <img src="images/img1.png">
+                <p>《三国演义》最新宣传视频</p>
+                <i></i>
+            </li>-->
+        </ul>
+    </aside>
+    </article>
+    <div class="loadmore">
+       上拉加载更多...
+    </div>
+</section>
+</body>
+{include '../../layouts/wap/footer.html'}
+<script type="text/javascript">
+		var isScroll = 1;//是否可以滚动
+		var page = 1; //页数
+		var id = $(".video-wrapper").attr("data-id");//类型
+		console.log(id);
+		var ajaxUrl = '/commonMethod/ajax-get-list';
+		getListFu();
+		window.onscroll=function(){
+			var winH = window.innerHeight; //屏幕高度
+			var allH = document.body.scrollHeight; //总高度
+			var topH = window.pageYOffset; //滚动高度
+			if((allH - (winH
+					+ topH)<10) && isScroll == 1){
+				isScroll = 0;
+				$(".loadmore").html("数据加载中...")
+				getListFu();
+			}
+		}
+		function getListFu(){
+			$.ajax({
+				type:"get",
+				url:ajaxUrl,
+				data:{
+					page:page++,
+					id:id,
+				},
+				success:function(data){
+					var data = JSON.parse(data);
+					if(data.status == 0&& data.msg.length>0){
+	//					if(page===1){
+	//						$('.news_list').empty();
+	//					}
+						var result = '';
+						for(var i = 0; i < data.msg.length; i++) {
+							result += "<li><img src=" + data.msg[i].thumb+"><p>" + data.msg[i].title+"</p><i class='js_video_play' data-url="+ data.msg[i].video.media_url+"></i></li>";
+						}
+						$('.video-wrapper ul').html(null).append(result);
+						videoInit();
+						$(".loadmore").html("上滑加载更多<i></i>");
+						isScroll = 1;
+					} else{
+						$(".loadmore").html("没有更多信息了");
+					}
+				},
+				error:function(data){
+					console.log(data);
+				}
+			});
+		}
+</script>
+</html>

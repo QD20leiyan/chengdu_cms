@@ -1,0 +1,168 @@
+{include '../../layouts/wap/header.html'}
+<section class="qz-search">
+	<input id="searchVal" type="text" placeholder="搜索"/>
+	<button id="searchBtn"></button>
+</section>
+<section class="news news-list">
+	<div class="tab_box">
+		<p class="qm_title">
+			{if $category_id>=319 and $category_id<=323}
+			<a href="{myurl name='wap/site/index'}" class="go_back"></a>新闻资讯
+			{else}
+			<a href="{myurl name='wap/site/glzx'}" class="go_back"></a>新闻资讯
+			{/if}
+		</p>
+		<div class="tab_til">
+			<ul data-id="{$category_id}">
+				{if $category_id>=319 and $category_id
+				<=323} <li {if $category_id==319}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>319'}">最新</a>
+				</li>
+				<li {if $category_id==320}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>320'}">新闻</a>
+				</li>
+				<li {if $category_id==321}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>321'}">公告</a>
+				</li>
+				<li {if $category_id==322}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>322'}">活动</a>
+				</li>
+				<li {if $category_id==323}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>323'}">攻略</a>
+				</li>
+
+				{else}
+
+				<li {if $category_id==324}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>324'}">最新</a>
+				</li>
+				<li {if $category_id==325}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>325'}">武器</a>
+				</li>
+				<li {if $category_id==326}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>326'}">PVP</a>
+				</li>
+				<li {if $category_id==327}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>327'}">PVE</a>
+				</li>
+				<li {if $category_id==328}class="active" {/if}>
+				<a href="{myurl name='wap/article/list, id=>328'}">新手</a>
+				</li>
+
+				{/if}
+			</ul>
+		</div>
+		<div class="tab_main">
+			<div class="news_infor show">
+				<div class="loading_enter"></div>
+				<ul class="news_list">
+
+				</ul>
+			</div>
+
+		</div>
+		<!--<div class="dropload-down">-->
+			<!--<div>上滑刷新...</div>-->
+		<!--</div>-->
+	</div>
+</section>
+
+</body>
+{include '../../layouts/wap/foot.html'}
+<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/dropload.min.js?{$smarty.const.VERSION}"></script>
+
+<script>
+	$(function() {
+		//全局
+		var ajaxUrl = '/wap/article/ajax-get-list.html';
+		var page = 1;
+		var id = $(".tab_til ul").attr("data-id");
+		var isfirst = true;
+		var obj = '';
+		$(".tab_til li").on("click", function() {
+			page = 1;
+			$(".dropload-noData").text("");
+			$(".news_list").html("");
+			//newAjax(obj);
+		});
+		ajaxList();
+		function newAjax(me) {
+			var title = $("#searchVal").val();
+			$.ajax({
+				type: 'GET',
+				url: ajaxUrl,
+				data: {
+					page: page,
+					id:id,
+					title:title||""
+				},
+				dataType: 'json',
+				success: function(data) {
+					if(data.status === 0) {
+						me.noData(false);
+						me.unlock();
+						if(data.msg.length) {
+							isfirst = false;
+							if(page===1){
+								$('.news_list').empty();
+							}
+							page++;
+							var result = '';
+							for(var i = 0; i < data.msg.length; i++) {
+								result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i>[" +data.msg[i].name+"]</i>"+data.msg[i].title+"</a><span>"+data.msg[i].created_at+"</span></li>";
+							}
+							// 为了测试，延迟1秒加载
+							setTimeout(function() {
+								$('.news_list').append(result);
+								// 每次数据加载完，必须重置
+								me.resetload();
+							}, 0);
+						} else {
+							// 锁定
+							me.lock();
+//								// 无数据
+							me.noData(true);
+							me.resetload();
+							if(!isfirst) {
+								$(".dropload-noData").text("数据加载完毕");
+								} else {
+									$(".dropload-noData").text("数据加载中");
+								}
+								return 0;
+							}
+						}
+					},
+					error: function(xhr, type) {
+
+					}
+				});
+		}
+		function ajaxList() {
+			$('.news_infor').dropload({
+				scrollArea: window,
+				loadDownFn: function(me) {
+					obj = me
+					newAjax(me);
+				}
+			});
+		}
+
+
+		//列表搜索
+		$("#searchBtn").click(function() {
+			var title = $("#searchVal").val();
+			if(title=="" || title==null){
+				return;
+			}
+			page=1;
+			newAjax(obj);
+		});
+		$("#searchVal").on("input",function(e){
+			if(!this.value){
+				page=1;
+				newAjax(obj);
+			}
+		});
+	});
+
+</script>

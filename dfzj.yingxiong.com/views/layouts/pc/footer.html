@@ -1,0 +1,83 @@
+<div class="zj_footer">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<ul>
+			<li>
+				<img src="" alt="" class="js_jump_img"/>
+				<div class="zj_txt">
+					<p class="zj_txt1">下载游戏</p>
+					<p class="zj_txt2">扫描二维码，立即下载游戏</p>
+					<p class="zj_txt3">首款次世代TPS海战手游</p>
+				</div>
+			</li>
+			<li>
+				<img src="{$global.wx_img}" alt="" />
+				<div class="zj_txt">
+					<p class="zj_txt1">微信公众号</p>
+					<p class="zj_txt2">扫描二维码关注官方微信</p>
+					<p class="zj_txt3"><span>官方微信号：</span>巅峰战舰</p>
+				</div>
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/kf.jpg?{$smarty.const.VERSION}" alt="" />
+				<div class="zj_txt">
+					<p class="zj_txt1">客户服务</p>
+					<p class="zj_txt2">客户服务电话：<span>4009393333</span></p>
+					<p class="zj_txt2">客户服务QQ：<span>{$global.group_num}</span></p>
+					<p class="zj_txt2">客户交流群：<span>{$global.group_two_num}</span></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="float">
+	<div class="f_nav">
+		<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_nav.png?{$smarty.const.VERSION}" alt="" />
+	</div>
+	<div class="float_div">
+		<div class="float_code">
+			<img src="" alt="" class="js_jump_img"/>
+		</div>
+		<div class="no_channel">
+			<a class="js_down_ios stat_ios" href="javascript:;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_ios.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a class="js_down_andriod stat_android" href="javascript:;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_and.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://l.taptap.com/BhhZYyd3" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_tab.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://www.3839.com/a/89425.htm" target="_blank" class="stat_hy"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_haoyou.png?{$smarty.const.VERSION}" alt="" /></a>
+		</div>
+		<div class="channel_name" style="display: none;">
+			<a class="js_down_ios stat_ios" href="javascript:;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_ios.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a class="js_down_andriod stat_android" href="javascript:;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_and.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://l.taptap.com/BhhZYyd3" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_tab.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://www.3839.com/a/89425.htm" target="_blank" class="stat_hy"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_haoyou.png?{$smarty.const.VERSION}" alt="" /></a>
+		</div>
+		<div class="channel_tap_name" style="display: none;">
+			<a class="js_down_ios stat_ios" href="javascript:;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_ios.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a class="js_down_andriod stat_android" href="javascript:;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_and.png?{$smarty.const.VERSION}" alt="" /></a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="http://static.dev.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+</body>
+
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var clickNumber = 0;
+	$(".r_wx a:nth-child(1)").hover(function() {
+		$(".fl_wx").stop().fadeIn();
+	}, function() {
+		$(".fl_wx").stop().fadeOut();
+	})
+	$(".float .f_nav").click(function() {
+		if(clickNumber % 2 == 0) {
+			$("body").addClass("op");
+			$(".float").addClass("active");
+		} else {
+			$(".float").removeClass("active");
+			$("body").removeClass("op");
+		}
+		clickNumber++;
+	});
+
+</script>
+{video_play} {download}

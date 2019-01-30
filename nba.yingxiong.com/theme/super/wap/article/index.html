@@ -1,0 +1,29 @@
+{include '../../layouts/wap/header.html'}
+    <div class="listBg fade">
+		{if $diy}
+		<p style="font-size:20px;color:#000;font-weight:bold;text-align: center;margin-top:100px;">推荐位：code=detail_w_kv(尺寸640*845)</p>
+		{else}
+		{fragment var=detail code=detail_w_kv size=1}
+		<img src="{if $detail}{$detail[0].thumb}{/if}" alt="" />
+		{/if}
+    </div>
+    <div class="news-info fade">
+        <div class="news-info-box">
+            <div class="list-info">
+                <div class="back"><a href="{myurl name='/wap/site/index'}"></a></div>
+                <ul class="list-article-title" data-id="{$alias}">
+                    <li class="{if $alias eq zonghe}active{else} {/if}"><a href="{myurl name='article/list, alias=>zonghe'}">综合</a></li>
+                    <li class="{if $alias eq xinwen}active{else} {/if}"><a href="{myurl name='article/list, alias=>xinwen'}">新闻</a></li>
+                    <li class="{if $alias eq gonggao}active{else} {/if}"><a href="{myurl name='article/list, alias=>gonggao'}">公告</a></li>
+                    <li class="{if $alias eq huodong}active{else} {/if}"><a href="{myurl name='article/list, alias=>huodong'}">活动</a></li>
+                    <li class="{if $alias eq gonglve}active{else} {/if}"><a href="{myurl name='article/list, alias=>gonglve'}">攻略</a></li>
+                </ul>
+                <ul class="list-article">
+                </ul>
+                <div class="dropload-down">
+                    <div class="dropload-noData">上拉加载更多信息...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{include '../../layouts/wap/footer.html'}

@@ -1,0 +1,28 @@
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+{download}
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/js.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+	$(function(){
+        var url = window.location.href;
+		var  url_id=window.location.href.split('part/m/')[1];
+		var channel = new Array();
+		channel=["tt1.html","tt2.html","tt3.html","tt4.html","tt5.html","tt6.html","tt7.html","tt8.html","tt9.html","tt10.html","tt11.html","tt12.html","tt13.html","tt14.html","tt15.html","tt16.html","tt17.html","tt18.html","tt19.html","tt20.html"];
+         if(channel.indexOf(url_id)>-1){
+             console.log("true");
+             $(".i_main .foot").hide();
+             $(".i_main .ts_play").css("height","28.0625rem");
+             return;
+         } else {
+            console.log("false"); 
+            $(".i_main .top .download .tap").css("display","block");
+             $(".i_main .banner_news").show();
+             
+             $(".header_a .type").show(); 
+            return;
+        }   
+	})
+</script>
+</html>

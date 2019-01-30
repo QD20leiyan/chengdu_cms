@@ -1,0 +1,56 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="kv"></div>
+<div class="content">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<div class="n_list">
+			<ul class="n_top_ul">
+				<li class="{if $id eq 523}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>523'}">最新</a>
+				</li>
+				<li class="{if $id eq 527}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>527'}">新闻</a>
+				</li>
+				<li class="{if $id eq 524}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>524'}">攻略</a>
+				</li>
+				<li class="{if $id eq 526}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>526'}">活动</a>
+				</li>
+				<li class="{if $id eq 525}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>525'}">公告</a>
+				</li>
+				<a href="{myurl name='site/index'}" class="n_back"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/sanjiao.png?{$smarty.const.VERSION}" alt="" /></a>
+				<p class="n_tz">
+					<a href="{myurl name='site/index'}">首页</a> > 新闻资讯</p>
+			</ul>
+			<div class="clear"></div>
+			{if !empty($data)}
+			<ul class="list_ul">
+				{foreach $data as $v}
+					<li>
+						<a href="{$v.linkUrl}" target="_blank">
+							<div class="left_data">
+								<p class="l_title">{$v.created_at|date_format:"%d"}</p>
+								<p class="b_title">{$v.created_at|date_format:"%Y/%m"}</p>
+							</div>
+							<div class="middle_img">
+								<img src="{$v.thumb}" alt="" />
+							</div>
+							<div class="right_txt">
+								<p class="right_txt1">{$v.title}</p>
+								<p class="right_txt2">{$v.contentMessage}</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/r_sanjiao.png?{$smarty.const.VERSION}" alt="" class="r_sanjiao" />
+						</a>
+					</li>
+				{/foreach}
+			</ul>
+			{$page}
+			{/if}
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/footer.html"}
+</html>

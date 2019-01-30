@@ -1,0 +1,26 @@
+{include file="../layouts/pc/header.html"}
+<div class="kv-box2 w1920">
+    <img class="cover" draggable="false" src="{$smarty.const.STATIC_DOMAIN}2.0/images/kv2.jpg?{$smarty.const.VERSION}" alt="">
+</div>
+<div class="w1200">
+    <div class="page-title-wrapper clearfix">
+        <a href="{myurl name='site/index'}">
+            <img draggable="false" src="{$smarty.const.STATIC_DOMAIN}2.0/images/page-arrow.png?{$smarty.const.VERSION}" alt="">
+        </a>
+        <img draggable="false" src="{$smarty.const.STATIC_DOMAIN}2.0/images/video-title.png?{$smarty.const.VERSION}" alt="">
+    </div>
+</div>
+<div class="line"></div>
+<div class="page-video-item w1200 clearfix">
+    {foreach $data as $v}
+    <div class="item js_video_play"  data-url="{$v.video.media_url}">
+        <img class="cover" src="{$v.thumb}" alt="">
+        <p class="ellipsis">{$v.title} <i></i></p>
+        <div class="mask">
+            <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/video-icon.png?{$smarty.const.VERSION}" alt="">
+        </div>
+    </div>
+    {/foreach}
+</div>
+{video_play}
+{include file="../layouts/pc/footer.html"}

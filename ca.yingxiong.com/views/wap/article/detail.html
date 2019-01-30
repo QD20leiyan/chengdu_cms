@@ -1,0 +1,26 @@
+{include '../../layouts/wap/header.html'}
+
+<section class="list_main">
+	<div class="art_main">
+		<div class="art_til">
+			<h3>{$content.title}</h3>
+			<p>本网站 时间：{$content.created_at|date_format:"%m/%d"}</p>
+		</div>
+		<div class="art_m">
+			{$content.body}
+		</div>
+	</div>
+	<div class="art_back">
+		{if $content.category_id>=319 and $content.category_id<=323}
+		<a href="{myurl name='wap/article/list, id=>319'}" class="back_list">返回列表</a>
+		{else}
+		<a href="{myurl name='wap/article/list, id=>324'}" class="back_list">返回列表</a>
+		{/if}
+
+		<a href="{myurl name='wap/site/index'}" class="back_home">返回首页</a>
+	</div>
+
+</section>
+
+</body>
+{include '../../layouts/wap/foot.html'}

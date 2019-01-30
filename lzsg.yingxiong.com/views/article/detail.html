@@ -1,0 +1,64 @@
+       {include file="../layouts/pc/head.html"}
+
+       <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/list.css?{$smarty.const.VERSION}" />
+<div class="n_kv">
+			<div class="wrap">
+			</div>
+		</div>
+		<div class="eff1">
+		</div>
+		<div class="d_body n_body">
+			<div class="top_ul">
+				<div class="tab_ul">
+					<a href="{myurl name='article/list, id=>650'}" class="d_back"></a>
+					<div class="d_title">
+						<h3>{$content.title}</h3>
+						<p class="d_date">{$content.created_at_formate} 官方录入</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="detail_body">
+			<div class="wrap">
+				<div class="float">
+					<div class="d_float">
+						<div class="c_code">
+						<img src="{$global.wx_img}" alt=""/>
+						</div>
+						<ul class="left_ul">
+							<li>
+								<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="weibo">
+								<i>	</i>
+								</a>
+							</li>
+							<li>
+								<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="tieba">
+								<i>	</i>
+								</a>
+							</li>
+							<li>
+								<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if};" class="qqun">
+								<i>	</i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="d_content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+		<div class="bottom_bg">	</div>
+		<div class="to_top to_top2">
+            <p>关注我们</p>
+            <div class="top_box">
+                <div class="img_code">
+                  <img src="{$global.wx_img}" alt="">
+                  <i></i>
+                </div>
+                <a href="javascript:;"><i></i></a>
+            </div>
+             <label class="q_f_icon show" show=""></label>
+        </div>
+{include file="../layouts/pc/foot.html"}

@@ -1,0 +1,597 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+	<meta name="format-detection" content="telephone=no"/>
+	<meta name="baidu-site-verification" content="4QTWrEt07K" />
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+
+	<style>
+		.news_title{ 
+			width:100%;
+			height:3.4rem;
+			background:url({$smarty.const.STATIC_DOMAIN}2.0/m/{#newsbg#}) no-repeat;
+			background-position: 0 1.33rem;
+			background-size: 19.46rem 1.28rem;
+		}
+		.arms_title{
+			width:100%;
+			height:3.57rem;
+			background:url({$smarty.const.STATIC_DOMAIN}2.0/m/{#armsbg#}) no-repeat;
+			background-position: 0 1.33rem;
+			background-size: 19.46rem 1.28rem;
+		}
+		.movie_title{
+			width:100%;
+			height:3.57rem;
+			background:url({$smarty.const.STATIC_DOMAIN}2.0/m/{#moviebg#}) no-repeat;
+			background-position: 0 1.33rem;
+			background-size: 19.46rem 1.28rem;
+		}
+		.war .war_title{
+			width:100%;
+			height:3.57rem;
+			background:url({$smarty.const.STATIC_DOMAIN}2.0/m/{#warbg#}) no-repeat;
+			background-position: 0 1.33rem;
+			background-size: 19.46rem 1.28rem;
+		}
+		.question_title{
+			width:100%;
+			height:3.57rem;
+			background:url({$smarty.const.STATIC_DOMAIN}2.0/m/{#questionbg#}) no-repeat;
+			background-position: 0 1.33rem;
+			background-size: 19.46rem 1.28rem;
+		}
+	</style>
+	<script>
+		//yxhy2017
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?063286b02e5eabecf763ba46a43621e4";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+	{csrf}
+	<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+
+		})(document, window);
+	</script>
+	<link href="{$smarty.const.STATIC_DOMAIN}2.0/images/favico.ico.ico" rel="SHORTCUT ICON">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/common.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/index.css?{$smarty.const.VERSION}">
+</head>
+<body>
+<div class="header">
+	<div class="header_bg"></div>
+	<div class="header_con">
+		<div class="header_title">
+			<a href="{myurl name="wap/site/index"}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_01.png?{$smarty.const.VERSION}"></a>
+		</div>
+		<div class="header_name">
+			<p>{#headername#}</p>
+			<p>{#headersup#}</p>
+		</div>
+		<div class="header_load">
+			<a class="order_down"><div>{#loadgame#}</div></a>
+		</div>
+	</div>
+
+</div>
+<div class="con_img">
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/banner1.jpg?{$smarty.const.VERSION}" >
+	<!--<div class="lang"><span class="lang_active" data-title="zh_cn">中文</span><i>|</i><span data-title="en">English</span></div>-->
+	<!--<div class="login">{#login#}</div>-->
+	<!--<div class="register">{#register#}</div>-->
+	<div class="user_name"><i></i><span class="exit">{#exit#}</span></div>
+</div>
+
+<div class="top_nav">
+	<div class="shouye active">
+		<a href="{myurl name='wap/site/index'}">
+		<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/index_a.png?{$smarty.const.VERSION}">-->
+		</a>
+		<a href="{myurl name='wap/site/index'}">{#shouye#}</a>
+	</div>
+	<div class="huodong">
+		<a href="{myurl name="m/info/xinwen/list_1"}">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/activity.png?{$smarty.const.VERSION}">-->
+		</a>
+		<a href="{myurl name="m/info/xinwen/list_1"}">{#houdong#}</a>
+	</div>
+	<div class="gonglue">
+		<a href="{myurl name="m/info/gonglue/list_1"}">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/raiders.png?{$smarty.const.VERSION}">-->
+		</a>
+		<a href="{myurl name="m/info/gonglue/list_1"}">{#gonglue#}</a>
+	</div>
+	{if $language eq en}
+	<div class="shuju shuju_en">
+		<a>
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/life.png?{$smarty.const.VERSION}">-->
+		</a>
+		<a>{#shuju#}</a>
+	</div>
+	{else}
+	<div class="shuju">
+		<a href="javascript:alert('{#waiting#}');">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/life.png?{$smarty.const.VERSION}">-->
+		</a>
+		<a href="javascript:alert('{#waiting#}');">{#shuju#}</a>
+	</div>
+	{/if}
+</div>
+
+<div class="news">
+	<div class="news_title"></div>
+
+	<div class="swiper-container swiper_01">
+		<div class="news_banner swiper-wrapper">
+			{if $xinwen|@count neq 0}
+			{foreach $xinwen as $k=>$v}
+			{if $k eq 0}
+			<a href="{$v['wapLinkUrl']}" class="swiper-slide">
+				<img src="{$v['thumb']}">
+				<p>{$v['title']}</p>
+			</a>
+			{/if}
+			{/foreach}
+			{/if}
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	<!--{*<div class="swiper-container swiper_01">-->
+		<!--<div class="swiper-wrapper">-->
+			<!--{foreach ￥xinwen as ￥v}-->
+			<!--{if ￥v['title'] neq '首页纯图片'}-->
+			<!--<div class="swiper-slide"><a href="{￥v['wapLinkUrl']}"><img src="{￥v['thumb']}"></a></div>-->
+			<!--{else}-->
+			<!--<div class="swiper-slide"><img src="{￥v['thumb']}"></div>-->
+			<!--{/if}-->
+			<!--{/foreach}-->
+		<!--</div>-->
+		<!--<div class="swiper-pagination"></div>-->
+	<!--</div>*}-->
+	<div class="latest_news">
+		{if $gonggao|@count neq 0}
+		<div class="ln_title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_08.png?{$smarty.const.VERSION}">{#lntitle#}</div>
+		<div class="ln_lists">
+
+			{foreach $gonggao as $n}
+			<div class="ln_list" theUrl="{$n['wapLinkUrl']}">{$n['title']}</div>
+			{/foreach}
+
+		</div>
+		{/if}
+		<div class="li_more"><a href="{myurl name="m/info/xinwen/list_1"}">{#limore#}</a>></div>
+	</div>
+</div>
+<div class="xuxian"></div>
+
+<div class="arms">
+	<div class="arms_title"></div>
+	<div class="swiper-container swiper_02">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/{#banner01#}" /></div>
+			<!--取消掉人族医疗兵-->
+			<div class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/{#banner03#}" /></div>
+			<div class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/{#banner04#}" /></div>
+			<div class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/{#banner05#}" /></div>
+			<div class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/{#banner06#}" /></div>
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+
+
+	<div class="li_more"><a href="javascript:alert('{#waiting#}');">{#limore#}></a></div>
+</div>
+<div class="xuxian"></div>
+<div class="movie">
+	<div class="movie_title"></div>
+	{foreach $video as $n}
+	<div class="movie_lists js_video_play" data-url="{$n['content_message']}">
+		<div class="movie_img"><img src="{$n['thumb']}" alt=""></div>
+		<div class="movie_btn">
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_14.png?{$smarty.const.VERSION}" class="movie_btn1">
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_13.png?{$smarty.const.VERSION}" class="movie_btn2">
+		</div>
+	</div>
+	<div class="movie_text">
+		<div class="inner">{$n['title']}</div>
+	</div>
+	{/foreach}
+	<div class="li_more"><a href="{myurl name='wap/video/index'}">{#limore#}></a></div>
+</div>
+<div class="xuxian"></div>
+<div class="question">
+	<div class="question_title"></div>
+	<div class="question_lists">
+		{foreach $FAQ as $n}
+		<div class="question_list" theUrl="{$n['wapLinkUrl']}"><span class="point"></span><i>{$n['title']}</i></div>
+		{/foreach}
+	</div>
+	<div class="li_more"><a href="{myurl name="m/info/faq/list_1"}">{#limore#}></a></div>
+</div>
+<div class="xuxian"></div>
+<div class="war">
+	<div class="war_title"></div>
+	<div class="war_lists">
+		{foreach $zhanzheng as $n}
+		<div class="war_list" theUrl="{$n['wapLinkUrl']}"><span class="point"></span><i>{$n['title']}</i></div>
+		{/foreach}
+	</div>
+	<div class="li_more"><a href='{myurl name="m/info/zhanzheng/list_1"}'>{#limore#}></a></div>
+</div>
+{if $language eq zh_cn}
+<div class="relation">
+	<div class="rel">
+		<div class="rel_top">
+			<div>
+				<a href="http://bbs.yingxiong.com/t/m/15.html"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_35.png?{$smarty.const.VERSION}">
+					{#gflt#}</a>
+			</div>
+			<div>
+				<a href="{$global.tb_url}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_36.png?{$smarty.const.VERSION}">
+					{#bdtb#}</a>
+			</div>
+			<div>
+				<a href="{$global.wb_url}">
+					<img src="{$global.wb_img}">
+				</a>
+				{#gfwb#}
+			</div>
+			<div>
+				<img src="{$global.wx_img}">
+				{#bfwx#}
+			</div>
+		</div>
+		<div class="rel_btm">
+			<div class="rel_btm_header"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_40.png?{$smarty.const.VERSION}" alt="">{#qqgroup#}</div>
+			<ul>
+				<li><span class="point2"></span>365057262<i>(iOS{#group1#})</i></li>
+				<li><span class="point2"></span>479578417<i>(iOS{#group2#})</i></li>
+				<li><span class="point2"></span>413576671<i>(iOS{#group3#})</i></li>
+			</ul>
+		</div>
+		<div class="rel_ser">
+			<a href="http://kf.yingxiong.com/">客服中心</a>
+			<a href="tel:4009393333"><i></i>400-939-3333</a>
+		</div>
+	</div>
+</div>
+{else}
+<div class="wap_bottom">
+	<!--<a href="https://www.facebook.com/redtides.mobile/?tsid=0.7278705859292902&source=result" class="facebook"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/face_book.png" alt=""/></a>-->
+	<a href="https://www.facebook.com/redtides.mobile/?tsid=0.7278705859292902&source=result" class="wap_facebook"></a>
+	<a href="https://www.youtube.com/channel/UC-maiOYUEXdHJoRgEyCss8w" class="wap_tube"></a>
+	<a href="https://forum.gamer.com.tw/A.php?bsn=32971" class="wap_bhmt"></a>
+</div>
+{/if}
+<div class="return_top">
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/{#top#}">
+</div>
+
+
+<div class="bottom_H"></div>
+
+<!--登陆层-->
+<div class="cover"></div>
+<div class="land">
+	<div class="land_header">
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/landLogin.png?{$smarty.const.VERSION}" class="landLogin">
+		<div class="land_close">
+		</div>
+	</div>
+	<div class="land_con">
+		<div class="land_title">{#landtitle#}</div>
+		<div class="land_user">
+			<div class="land_user_icon">
+
+			</div>
+			<div class="land_user_input">
+				<input type="text" placeholder="{#landuserph#}">
+			</div>
+		</div>
+		<div class="land_password">
+			<div class="land_password_icon">
+
+			</div>
+			<div class="land_password_input">
+				<input type="password" placeholder="{#landpsdph#}">
+			</div>
+		</div>
+		<div class="send_btn">
+			{#login#}
+		</div>
+		<div class="error_tips"></div>
+	</div>
+</div>
+
+<!--下载预约弹框-->
+<div class="load_tips hidden">
+	<div class="content">
+		{if $language eq zh_cn}
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tipsbg01.png?{$smarty.const.VERSION}" alt="">
+		{else}
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tipsbg01_en.png?{$smarty.const.VERSION}" alt="">
+		{/if}
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/loadtips_close.png?{$smarty.const.VERSION}" alt="" class="loadtips_close">
+		<div>
+			{if $language eq zh_cn}
+			<div class="btn">
+				<span class="ios"></span>
+				<span class="ad"></span>
+			</div>
+			{else}
+			<div class="btn_en">
+				<div class="btn">
+					<span class="ios"></span>
+					<span class="ad"></span>
+				</div>
+			</div>
+			{/if}
+			<div class="load_div ">
+				{if $language eq zh_cn}
+				<p><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/load_qrcode_ch.png?{$smarty.const.VERSION}" class="js_jump_img"></p>
+				{else}
+				<p><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/load_qrcode.png?{$smarty.const.VERSION}"></p>
+				{/if}
+				<!--<h4>{#orderinfo#}</h4>-->
+			</div>
+			<div class="order_div hidden">
+				{if $language eq zh_cn}
+				<!--<p class="soon">{#sooninfo#}</p>-->
+				<input type="text" placeholder="{#loadtel#}" class="load_tel">
+				<div class="code">
+					<input type="text" placeholder="{#codenum#}" class="codenum">
+					<button class="sendcode">{#sendcode#}</button>
+				</div>
+				<button class="orderbtn">{#submit#}</button>
+				<h4>{#orderinfo#}</h4>
+				{else}
+				<p class="soon">{#sooninfo#}</p>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+<!--邮件发送弹框-->
+<div class="email_tips hidden">
+	<div class="content">
+		<h2 class="service">CUSTOMER SERVICE</h2>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/i_img2.png?{$smarty.const.VERSION}" alt="" class="emailtips_close">
+		<div class="show_email">
+			<p>BUSINESS CONTACT </p>
+			<p>herogame@yingxiong.com</p>
+		</div>
+		<div class="show_email">
+			<p>CUSTOMER SERVICE</p>
+			<p>support@redtides.vip</p>
+		</div>
+	</div>
+</div>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+{download}
+{video_play}
+<script>
+	var language = "{$language}";
+	$(".lang span").removeClass("lang_active");
+	if(language==="en"){   //英文
+		$(".lang span").eq(1).addClass("lang_active")
+	}else{
+		$(".lang span").eq(0).addClass("lang_active")
+	}
+</script>
+
+<script>
+	var swiper_01 = new Swiper('.swiper_01', {
+		autoplay: 3000,
+//		loop:true,
+		pagination : '.swiper-pagination',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false
+	});
+	var swiper_02 = new Swiper('.swiper_02', {
+		autoplay: 3000,
+		loop:true,
+		pagination : '.swiper-pagination',
+		prevButton:'.swiper-button-prev',
+		nextButton:'.swiper-button-next',
+		paginationClickable: true,
+		autoplayDisableOnInteraction: false,
+		paginationBulletRender: function (swiper, index, className) {
+			return '<span class="' + className + '"></span>';
+		}
+	});
+	$(".login").on("touchstart",function(e){
+		e.stopPropagation();
+		$(this).addClass("login_click")
+	});
+	$(".login").on("touchend",function(e){
+		e.stopPropagation();
+		$(this).removeClass("login_click");
+		$(".cover").addClass("cover_show")
+		$(".land").addClass("land_show");
+		$(".land_close").addClass("land_close_show");
+	})
+	$(".register").on("touchstart",function(e){
+		e.stopPropagation();
+		$(this).addClass("login_click")
+	});
+	$(".register").on("touchend",function(e){
+		e.stopPropagation();
+		$(this).removeClass("login_click");
+		window.open("http://m.i.yingxiong.com/reg/index");
+	});
+	$(".exit").on("click",function(e){
+		$.ajax({
+			type:"GET",
+			url:'{myurl name="site/ajax-logout"}',
+			dataType:"json",
+			success:function(response){
+
+				if(response.status===0){  //退出成功
+					$(".user_name").hide();
+					$(".login").show();
+					$(".register").show();
+					$(".user_name i").empty();
+				}else{                    //退出失败
+
+				}
+			},
+			error:function(response){
+				console.log(response);
+			}
+		})
+	});
+	$(".header_load a").click(function (){
+//		alert("敬请期待");
+	})
+	$(".land_close").on("touchend",function(e){
+		$(".cover").removeClass("cover_show");
+		$(".land").removeClass("land_show");
+		$(".land_close").removeClass("land_close_show");
+		$(".error_tips").hide();
+		$(".land_user_input input").val("");
+		$(".land_password_input input").val("");
+	});
+	$(".send_btn").on("touchstart",function(e){
+		e.stopPropagation();
+		$(this).addClass("send_btn_start");
+	});
+	$(".send_btn").on("touchend",function(e){
+		e.stopPropagation();
+		$(this).removeClass("send_btn_start");
+		var userVal = $(".land_user_input input").val();
+		var psdVal =  $(".land_password_input input").val();
+		if(userVal&&psdVal){
+			var a = document.getElementsByName("csrf-token")[0].content
+
+			$.ajax({
+				type:"POST",
+				url:'{myurl name="site/ajax-login"}',
+				dataType:"json",
+				data:"username="+userVal+"&password="+psdVal+"&cms_csrf="+a,
+				success:function(response){
+
+					if(response.status===0){
+						//alert("登陆成功");
+						$(".cover").removeClass("cover_show");
+						$(".land").removeClass("land_show");
+						$(".land_close").removeClass("land_close_show");
+						$(".land_user_input input").val("");
+						$(".land_password_input input").val("");
+						$(".error_tips").hide();
+						$(".login").hide();
+						$(".register").hide();
+						$(".user_name").show();
+						$(".user_name i").text("{#dear#}"+response.msg.username+"{#welcome#}");
+					}else{
+						//alert("登录失败")
+
+						$(".error_tips").text(response.msg).show();
+					}
+				},
+				error:function(response){
+					console.log(response);
+				}
+
+			})
+
+
+			// //验证成功
+
+		}else{
+			//验证失败
+			$(".error_tips").text("*请输入有效的用户名或密码，谢谢！").show();
+		}
+	});
+	$(".movie_btn").on("click",function(e){
+//			e.stopPropagation();
+//			var movieSrc= $(this).parents(".movie_lists").attr("data");
+//			tankuang(movieSrc);
+	});
+	$(".ln_list").on("click",function(e){
+		e.stopPropagation();
+		var a = $(this).attr("theUrl");
+		location.href=a;
+	});
+	$(".war_list").on("click",function(e){
+		e.stopPropagation();
+		var a = $(this).attr("theUrl");
+		location.href=a;
+	});
+	$(".question_list").on("click",function(e){
+		e.stopPropagation();
+		var a = $(this).attr("theUrl");
+		location.href=a;
+	});
+	$(window).on("scroll",function(e){
+		e.stopPropagation();
+		var a = $(this).scrollTop();
+
+		if(a>100){
+			$(".return_top").addClass("return_top_show")
+		}else{
+			$(".return_top").removeClass("return_top_show")
+		}
+	});
+	$(".return_top").on("click",function(e){
+		e.stopPropagation();
+		var b = $(window).scrollTop();
+		var speed = 30;
+		var timer = null;
+		timer = setInterval(function(){
+			$(window).scrollTop(b-speed);
+			speed+=30;
+			if(speed>=b+30){
+				speed=b;
+				clearInterval(timer);
+			}
+		},10)
+
+	});
+	$('.lang span').click(function(){
+		var language = $(this).attr('data-title');
+		$.getJSON('{myurl name="site/ajax-change-language"}',{ language:language },function(result){
+			if(result.status===0)
+				window.location.href='';
+		});
+	});
+
+
+	var send_url ='/commonMethod/get-verify';
+	var order_url = '/commonMethod/yuyue';
+	var device_type="ios";
+
+</script>
+</body>
+</html>

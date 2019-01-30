@@ -1,0 +1,120 @@
+{include file="../layouts/pc/header.html"}
+{if $id == 560}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/music.css?{$smarty.const.VERSION}" />
+{else}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news.css?{$smarty.const.VERSION}" /> 
+{/if}
+{include file="../layouts/pc/s_header.html"}
+<div class="news_con">
+	<p class="n_title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/yinfu.png?{$smarty.const.VERSION}" alt="" /><span>{if $id >= 460 and $id <= 463}新闻资讯{elseif $id >= 561 and $id <= 563}游戏资料{elseif $id == 560}原创音乐{/if}</span></p>
+	<p class="list_info">当前位置：
+		<a href="{myurl name='site/index'}">官网首页</a>><span>{if $id >= 460 and $id <= 463}新闻资讯{elseif $id >= 561 and $id <= 563}游戏资料{elseif $id == 560}原创音乐{/if}</span>
+	</p>
+	{if $id == 560}
+	<p class="music_title">原创专辑</p>
+	{/if}
+	
+	{if $id == 560}
+		<div class="music_con">
+			{if !empty($data)}
+			<div class="music_zhuanji">
+				<img src="{$data[0].thumb}" alt="" class="show_img" />
+				<div class="music_jieshao">
+					<p class="zhuanji">专辑介绍</p>
+					<p class="zhuanji_t">{$data[0].contentMessage}</p>
+				</div>
+			</div>
+			<p class="m_list_t">歌曲列表</p>
+				<ul class="music_ul">
+					{foreach $data as $v}
+						<li data-type="{$v.sub_title}" data-src="{$v.thumb}" data-con="{$v.contentMessage}">
+							<em></em><span>{$v.title}</span><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/dian.png?{$smarty.const.VERSION}" alt="" /><i>{$v.title}</i>
+						</li>
+					{/foreach}
+				</ul>
+				<audio src="" id="audio" loop="loop"></audio>
+				{$page}
+			{/if}
+		</div>
+	{else}
+		<ul class="n_tab_ul">
+			{if $id >= 460 and $id <= 463}
+				<li class="{if $id eq 460}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>460'}">最新</a>
+				</li>
+				<li class="{if $id eq 461}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>461'}">新闻</a>
+				</li>
+				<li class="{if $id eq 462}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>462'}">公告</a>
+				</li>
+				<li class="{if $id eq 463}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>463'}">媒体</a>
+				</li>
+			{else}
+				<li class="{if $id eq 561}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>561'}">最新</a>
+				</li>
+				<li class="{if $id eq 562}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>562'}">新手攻略</a>
+				</li>
+				<li class="{if $id eq 563}active{else} {/if}">
+					<a href="{myurl name='article/list, id=>563'}">高手进阶</a>
+				</li>
+			{/if}
+		</ul>
+		<div class="append_ul">
+			{if !empty($data)}
+			<ul class="append_list">
+				{foreach $data as $v}
+					<li>
+						<a href="{$v.linkUrl}" target="_blank">
+							<em class="{if {$v.category_id}==461}xw{else if {$v.category_id}==463}hd{else if {$v.category_id} == 562}xs{else if {$v.category_id} == 563}gs{/if}"><i>{if {$v.category_id} >= 460 and {$v.category_id} <= 463}{$v.name}{else if {$v.category_id} == 562}攻略{else if {$v.category_id} == 563}进阶{/if}</i></em>
+							<div class="list_txt">
+								<p class="list_title">{$v.title}</p>
+								<p class="list_con">{$v.contentMessage}</p>
+							</div>
+							<div class="list_date">{$v.created_at_formate}</div>
+						</a>
+					</li>
+				{/foreach}
+			</ul>
+				{$page}
+			{/if}
+		</div>
+	{/if}
+</div>
+</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		var clickTap = true;
+		$(".right_nav a:nth-child(1)").hover(function() {
+			$(".right_code").stop().fadeIn();
+		}, function() {
+			$(".right_code").stop().fadeOut();
+		});
+		
+		$(".music_ul li").on("click" , function (){
+			if (clickTap){
+				$(this).addClass("active").siblings().removeClass("active");
+				var src = $(this).attr("data-src");
+				var type = $(this).attr("data-type");
+				var con = $(this).attr("data-con");
+				$(".show_img").attr("src" , src);
+				$(".zhuanji_t").html(con);
+				$("#audio").attr("src" , type);
+				$("#audio")[0].play();
+				clickTap = false;
+			} else {
+				$("#audio")[0].pause();
+				$(".music_ul li").removeClass("active");
+				clickTap = true;
+			}
+		});
+	});
+</script>
+
+</html>

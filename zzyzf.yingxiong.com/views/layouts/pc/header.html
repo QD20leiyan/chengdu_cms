@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}">
+	<meta name="description" content="{$seo_desc}">
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+	<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}3.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}3.0/css/index.css?{$smarty.const.VERSION}">
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m" + window.location.pathname + window.location.search;
+		}
+	</script>
+	{csrf}
+</head>
+<body>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+
+<!--预约弹框-->
+<div class="gg_box yy_box hidden">
+	<div class="wrap">
+		<div>
+			<p class="close"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/close.png?{$smarty.const.VERSION}" alt=""/></p>
+			<div class="tips_peo1">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/tips_peo3.png?{$smarty.const.VERSION}"/>
+			</div>
+			<div class="tc_tip">
+				<img src="{$global.wx_img}" alt="">
+				<p>关注《战争与征服》微信公众号，赢取精美模型！</p>
+			</div>
+			<div class="co_tips co_tips_yy hidden">
+				<div class="co_con">
+					<p class="co_tips_title">游戏预约</p>
+					<div class="co_form">
+						<div class="co_rdo">
+							<span class="rdo on" data-id="ios">
+								<i><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/ios_icon.png?{$smarty.const.VERSION}" alt=""/></i>
+								<b>ios</b>
+							</span>
+							<span class="rdo " data-id="android">
+								 <i><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/and_icon.png?{$smarty.const.VERSION}" alt=""/></i>
+								<b>Android</b>
+							</span>
+						</div>
+						<div class="co_input">
+							<input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))|| arguments.callee.caller.arguments[0]" class="co_username" placeholder="请输入手机号码">
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="co_input tupian" style="display: none;">
+							<input type="text" class="captcha" placeholder="请输入图形验证码">
+							<span class="co_captcha"><img src="" alt=""/></span>
+							<p class="co_error">验证码错误</p>
+							<p class="co_imgtxt">点击刷新</p>
+						</div>
+						<div class="co_input">
+							<input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))|| arguments.callee.caller.arguments[0]" class="co_codenum1" placeholder="请输入手机验证码"><span class="co_codebtn co_codebtn1">获取验证码</span>
+							<p class="co_error">验证码错误</p>
+						</div>
+					</div>
+					<p class="co_tips_btn co_tips_yybtn stat_yy"></p>
+				</div>
+			</div>
+			<!--<div class="co_tips co_tips_type hidden">-->
+			<!--<div class="co_con">-->
+			<!--<p class="co_tips_title">请选择预约平台</p>-->
+			<!--<div class="co_form">-->
+			<!--<div class="co_rdo">-->
+			<!--<span class="rdo on" data-id="1">-->
+			<!--<i><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/ios_icon.png?{$smarty.const.VERSION}" alt=""/></i>-->
+			<!--<b>ios</b>-->
+			<!--</span>-->
+			<!--<span class="rdo " data-id="2">-->
+			<!--<i><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/and_icon.png?{$smarty.const.VERSION}" alt=""/></i>-->
+			<!--<b>Android</b>-->
+			<!--</span>-->
+			<!--</div>-->
+			<!--</div>-->
+			<!--<p class="co_tips_btn"></p>-->
+			<!--</div>-->
+			<!--</div>-->
+			<div class="co_tips co_tips_success hidden">
+				<div class="co_con">
+					<p class="co_tips_title">游戏预约</p>
+					<div class="co_form">
+						<div class="ts hidden">恭喜你，预约成功！</div>
+						<!--<div class="ts_img hidden"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/alyy_img.png?{$smarty.const.VERSION}" alt=""/></div>-->
+						<div class="yy_new hidden">
+							<div class="yy_txt">恭喜您，成功预约《战争与征服》11月12日第二次技术测试。</div>
+							<div class="yy_img"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/yy_img.png?{$smarty.const.VERSION}" alt=""/></div>
+							<div class="yy_txt1">前往官方Q群（144616927）集结备战，豪华补给将在组织内发放。</div>
+						</div>
+					</div>
+					<p class="co_tips_btn co_tips_surebtn hidden"></p>
+					<a class="co_tips_btn1 hidden" href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:;{/if}" {if $global.group_url_one}target="_blank"{/if}></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,77 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="list_news">
+	<div class="top_img">
+		<div class="center">
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+			<div class="wrap1">
+				<ul class="nav_ul">
+					<li>
+						<a href="/index.html">
+							官网首页
+							<i>HOME</i>
+						</a>
+					</li>
+					<li class="active">
+						<a href="{myurl name='article/list, id=>480'}">
+							新闻资讯
+							<i>NEWS</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+		<div class="list_newscon">
+			{include '../layouts/pc/in_float.html'}
+			<div class="news_box">
+				<p class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/list_newtit.png?{$smarty.const.VERSION}" alt=""/></p>
+				<div class="hd">
+					<ul>
+						<li {if $id==480}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>480'}">最新</a>
+						</li>
+						<li {if $id==481}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>481'}">新闻</a>
+						</li>
+						<li {if $id==482}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>482'}">公告</a>
+						</li>
+						<li {if $id==826}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>826'}">活动</a>
+						</li>
+						<li {if $id==483}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>483'}">攻略</a>
+						</li>
+					</ul>
+				</div>
+				<div class="bd">
+					<ul class="news_info">
+						{if !empty($data)}
+						{foreach $data as $v}
+							<li>
+								<a target="_blank" href="{$v.linkUrl}">
+									<i class="small_ti">{$v.name}</i>
+									<div class="con">
+										<span class="title">{$v.title}</span>
+										<span class="sub">{$v.sub_title}</span>
+									</div>
+									<span>{$v.created_at_formate}</span>
+								</a>
+							</li>
+						{/foreach}
+						{$page}
+						{else}
+						<p class="noData" style="line-height: 200px;color: #445359;text-align: center;font-size: 16px;">暂无数据...</p>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include '../layouts/pc/in_foot.html'}
+	<div class="go_top"></div>
+</div>
+
+{include '../layouts/pc/footer.html'}

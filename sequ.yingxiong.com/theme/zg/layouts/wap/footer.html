@@ -1,0 +1,91 @@
+{video_play}
+{download}
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/yx.js?{$smarty.const.VERSION}"></script>
+<script>
+    var mySwiper = new Swiper(".swiper1", {
+        autoplay: 3500,
+        pagination : '.swiper-pagination',
+        paginationClickable :true,
+        autoplayDisableOnInteraction : false,
+		loop: true,
+    });
+   var mySwiper = new Swiper('.bottom_banner', {
+        loop: true,
+        autoplay: 3500,
+        pagination: '.swiper-pagination1',
+        slideToClickedSlide:true,
+        autoplayDisableOnInteraction : false,
+        effect: 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: true,
+        slideToClickedSlide:true,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next',
+        coverflow: {
+            rotate: 0,
+            stretch: -150,
+            depth: 300,
+            modifier: 1,
+            slideShadows: true
+        },
+        observer: true,
+        observeParents: true,
+    });
+    $(".news-list").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+        }
+        var index = parseInt($(this).attr('data-index'));
+        $('.news-list').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news-info').find('li').removeClass('active');
+        $('.news-info').find('li.info').eq(index).addClass('active');
+    });
+    var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var id = $(".list-article-title").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                if(data.status == 0&& data.msg.length>0){
+                    var result = '';
+                    for(var i = 0; i < data.msg.length; i++) {
+                       result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i>[" +data.msg[i].name+"]</i><span>"+data.msg[i].title+"</span><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    $('.list-article').append(result);
+                    $(".dropload-noData").html("上拉加载更多...<i></i>");
+                    isScroll = 1;
+                } else{
+                    $(".dropload-noData").html("没有更多信息了...");
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+</script>
+</html>

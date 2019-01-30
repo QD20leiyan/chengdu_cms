@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="keywords" content="量子体育VSPN 加入我们 招聘 职位信息">
+        <link rel="shortcut icon" href="{$global.icon_img}">
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/bootstrap/css/bootstrap.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/css/reset.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/css/join-us.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/css/common.css?{$smarty.const.VERSION}">
+    </head>
+    <body style="background-color:#272728">
+    	<div id="main">
+            {include '../layouts/pc/header.html'}
+    		<div id="container">
+    			<div id="artTitle" class="activeColor"></div>
+    			<div id="job-info">职位信息</div>
+    			<div id="job-info-content">
+	    			<div id="functions">
+	    				<p class="activeColor job-title">岗位职能:</p>
+	    				<div id="function-content"></div>
+	    			</div>
+	    			<div id="requires">
+	    				<p id="title-require" class="activeColor job-title">任职要求:</p>
+	    				<div id="require-content"></div>
+                        <p id="email_p" class="job-title" style="color:#989898">欢迎投递简历至：<span><a style="display:inline;color:#ab9365" href="mailto:zhaopin@vspn.cn">zhaopin@vspn.cn</a></span></p>
+	    			</div>                   
+    			</div>
+    		</div>
+            {include '../layouts/pc/footer.html'}
+    	</div>
+    </body>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery.min.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/bootstrap/js/bootstrap.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/bootstrap-hover-dropdown.min.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/joblist.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript">
+    //获取参数
+    function getUrlVars(){ 
+        var vars = [], hash; 
+        var hashes = window.location.href.slice(window.location.href.indexOf('?')+1).split('&'); 
+        for(var i = 0; i < hashes.length; i++) { 
+            hash = hashes[i].split('='); 
+            vars.push(hash[0]); 
+            vars[hash[0]] = hash[1]; 
+        } 
+        return vars; 
+    }
+
+    $(document).ready(function(){
+        var jobDetail_list_JSA = new Array();
+        jobDetail_list_JSA = jobDetailListArr.concat();
+
+        var parameters = getUrlVars();
+        var id = typeof(parameters['id'])!='undefined'?parameters['id']: '';
+
+        var title = jobDetail_list_JSA[id].jobName;
+        var functions = jobDetail_list_JSA[id].functions;
+        var requires = jobDetail_list_JSA[id].requires;
+        var pluses = jobDetail_list_JSA[id].pluses;
+
+        document.title = title;
+        $("#artTitle").text(title);
+
+        var functionsContent = '';
+        for(var i=0;i<functions.length;i++){
+            functionsContent+='<p>'+functions[i]+'</p>';
+        }
+        $('#function-content').html(functionsContent);
+
+
+        var requiresContent = '';
+        for(var i=0;i<requires.length;i++){
+            requiresContent+='<p>'+requires[i]+'</p>';
+        }
+        $('#require-content').html(requiresContent);
+
+        if(pluses.length > 0){
+            var pp = '<div id="pluses"><p class="activeColor job-title">加分项:</p><div id="require-content">';
+            for(var i = 0; i <pluses.length; i++){
+                pp += '<p>'+ pluses[i] +'</p>'
+            }
+
+            pp += '</div></div>';
+            $("#job-info-content").append($(pp));                 
+        }
+
+        
+        if (id == 0) {
+        // 管培生详情页邮箱
+            $('#email_p').html('欢迎投递简历至：<span><a style="display:inline;color:#ab9365" href="mailto:operation@vspn.cn">operation@vspn.cn</a></span>&nbsp;&nbsp;&nbsp;<span><a style="display:inline;color:#ab9365" href="mailto:zhaopin@vspn.cn">zhaopin@vspn.cn</a></span>');
+        }
+        if (id == 12) {
+        // 经纪人详情页邮箱
+            $('#email_p').html('欢迎投递简历至：<span><a style="display:inline;color:#ab9365" href="mailto:anchors@vspn.cn">anchors@vspn.cn</a></span>');
+        }
+        if (id == 13) {
+        // 主播详情页邮箱
+            $('#email_p').html('欢迎投递简历至：<span><a style="display:inline;color:#ab9365" href="mailto:anchors@vspn.cn">anchors@vspn.cn</a></span>');
+        }
+    });
+    </script>
+</html>

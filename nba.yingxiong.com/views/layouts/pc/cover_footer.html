@@ -1,0 +1,167 @@
+<div class="four">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_label2.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="t_play">
+			<ul class="swiper-wrapper">
+			{fragment var=banner_ts code=banner_ts size=50}
+                {if $banner_ts neq ''}
+	                {foreach $banner_ts as $v}
+		                <li class="swiper-slide">
+		                	<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""><i></i></a>
+		                </li>
+	                {/foreach}
+                {/if}
+			</ul>
+			<div class="swiper-pagination"></div>
+			<div class="wgam_prev"></div>
+			<div class="wgam_next"></div>
+		</div>
+		<p class="tian_p">EA SPORTS, and the EA SPORTS logo are trademarks of Electronic Arts Inc.</p>
+	</div>
+</div>
+<div class="five">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<ul>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/wechat.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$global.wx_img}" alt="" class="ewm" />
+			</li>
+			<li>
+				<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.wb_url}target="_blank"{/if}><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/weibo.png?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.group_url_one}target="_blank"{/if}><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/qun.png?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.tb_url}target="_blank"{/if}><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tieba.png?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="float">
+	<div class="chengg"></div>
+	<a href="javascript:;" target="_blank" class="js_down_ios"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_ios.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="javascript:;" target="_blank" class="js_down_andriod"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_and.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="http://l.taptap.com/eu6rd9M6" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_tap.png?{$smarty.const.VERSION}" alt="" /></a>
+	<div class="c_code">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/erweima.png?{$smarty.const.VERSION}" alt="" class="js_jump_img" />
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/sanmiao.png?{$smarty.const.VERSION}" alt="" class="saomiao" />
+	</div>
+	<p class="sao_p">扫一扫 下载游戏</p>
+	<div class="back_top"></div>
+	<div class="op_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/op.png?{$smarty.const.VERSION}" alt="" /></div>
+</div>
+<!--弹窗-->
+<!--登录-->
+<div class="login">
+	<div class="c_login">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/denglu.png?{$smarty.const.VERSION}" alt="" class="d_img" />
+		<i class="close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_close.png?{$smarty.const.VERSION}" alt="" /></i>
+		<div class="login_body">
+			<div class="s_put">
+				<input type="tel" placeholder="请输入手机号" class="phone" />
+			</div>
+			<div class="s_put">
+				<input type="text" placeholder="请输入验证码" class="t_yzm" />
+				<div class="captcha">
+					<p>点击刷新</p>
+					<!--<img src="images/kv.jpg?{$smarty.const.VERSION}" alt="" />-->
+				</div>
+			</div>
+			<div class="s_put">
+				<input type="text" placeholder="请输入验证码" class="yzm" />
+				<input type="button" value="获取验证码" class="g_code" />
+			</div>
+			<div class="l_btn stat_yy">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/sure.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+<!--邀请好友-->
+<div class="yaoqing">
+	<div class="c_yaoqing">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yaoqing.png?{$smarty.const.VERSION}" alt="" class="d_img" />
+		<i class="close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_close.png?{$smarty.const.VERSION}" alt="" /></i>
+		<div class="yaoqing_body">
+			<p class="yao_tip">分享你的专属链接，获得更多参与机会，更多明星卡牌等你领！</p>
+			<div class="yao_p">
+				<p>点击复制链接按钮，复制个人专属链接，分享给你的</p>
+				<p>好友预约，即可参加活动；</p>
+				<p>链接地址：</p>
+				<a href="javascript:;" class="share_url" id="tc15_copyTextz"></a>
+			</div>
+			<div class="fuzhi" id="tc15_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc15_copyTextz">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/fuzhi.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+		</div>
+	</div>
+</div>
+<!--中奖弹窗-->
+<div class="price">
+	<div class="c_price">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/gongxi.png?{$smarty.const.VERSION}" alt="" class="d_img" />
+		<i class="close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_close.png?{$smarty.const.VERSION}" alt="" /></i>
+		<div class="price_body">
+			<p class="price_p">恭喜获得预约新赛季礼包</p>
+			<div class="price_name">
+				
+			</div>
+			<p class="date">礼包码兑换时间2018/10/15—11/30</p>
+			<p class="libao">请前往“我的礼包”查看</p>
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/my_gift.png?{$smarty.const.VERSION}" alt="" class="quren" />
+		</div>
+	</div>
+</div>
+<!--队友邀请礼包-->
+<div class="f_invite">
+	<div class="c_invite">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/team.png?{$smarty.const.VERSION}" alt="" class="d_img" />
+		<i class="close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_close.png?{$smarty.const.VERSION}" alt="" /></i>
+		<div class="invite_body">
+			<p class="invite_p">恭喜获得队友邀请礼包</p>
+			<div class="invite_name">
+				
+			</div>
+			<p class="date">礼包码兑换时间2018/10/15—11/30</p>
+			<p class="libao">请前往“我的礼包”查看</p>
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/my_gift.png?{$smarty.const.VERSION}" alt="" class="quren" />
+		</div>
+	</div>
+</div>
+<!--我的礼包-->
+<div class="c_gift">
+	<div class="d_gift">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/libao.png?{$smarty.const.VERSION}" alt="" class="d_img" />
+		<i class="close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_close.png?{$smarty.const.VERSION}" alt="" /></i>
+		<div class="gift_body">
+			<div class="gift_div">
+				<span>奖励名称</span><span>兑换码</span><span>使用期限</span>
+			</div>
+			<div class="huadong">
+				<ul>
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{video_play}
+{download}
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery.animateNumber.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var alt = "{$smarty.const.STATIC_DOMAIN}2.0/";
+</script>

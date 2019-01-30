@@ -1,0 +1,38 @@
+{include '../../layouts/wap/header.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/news.css?{$smarty.const.VERSION}">
+<!--详情内容-->
+	<section class="list_main">
+		<div class="news_top">
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/slogan.png" alt="" class="slogan"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/zh.png" alt="" class="zh"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/zh1.png" alt="" class="zh1"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/dl.png" alt="" class="dl"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/bottom-right.png" alt="" class="dl1"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/dh.png" alt="" class="dh"/>
+
+			{if $type==xinwen}
+			<a href="{myurl name='/wap/article/index, type=>xinwen'}" class="back_list"></a>
+			{else if $type==gonggao}
+			<a href="{myurl name='/wap/article/index, type=>gonggao'}" class="back_list"></a>
+			{else if $type==zhixun}
+			<a href="{myurl name='/wap/article/index, type=>zhixun'}" class="back_list"></a>
+			{else if $type==huodong}
+			<a href="{myurl name='/wap/article/index, type=>huodong'}" class="back_list"></a>
+			{/if}
+		</div>
+		<div class="news_box">
+			<div class="art_main">
+				<div class="art_til">
+					<h3>{$detail.title}</h3>
+					<p>发布时间：{$detail.created_at|date_format:"%m/%d"} 来源：本网站</p>
+				</div>
+				<div class="art_m">
+					{if isset($detail.body)}
+					<p>{$detail.body}</p>
+					{/if}
+				</div>
+			</div>
+		</div>
+</section>
+</body>
+{include '../../layouts/wap/foot.html'}

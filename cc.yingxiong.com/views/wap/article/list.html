@@ -1,0 +1,166 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta name="baidu-site-verification" content="4QTWrEt07K" />
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{include '../../layouts/wap/header3.html'}
+	</head>
+
+	<body>
+		<div class="page-bg"></div>
+		{include '../../layouts/wap/header.html'}
+		<section class="nav-box">
+			<a  href='{myurl name="m/site/index"}'>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/index.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/index_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>首页</p>
+			</a>
+			<a class="{if $data.stype == 'xinwen'}on{/if}" href="{myurl name='m/info/remen/list_1'}">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/activity.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/activity_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>新闻</p>
+			</a>
+			<a class="{if $data.stype == 'gonglue'}on{/if}" href="{myurl name='m/info/xsgl/list_1'}">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/raiders.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/raiders_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>攻略</p>
+			</a>
+			<a href="javascript:alert('敬请期待！')">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/life.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/life_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>数据生涯</p>
+			</a>
+		</section>
+		
+		<section class="top-banner">
+			<div class="swiper-container top-banner-box">
+				<div class="swiper-wrapper">
+					{foreach $data.banner as $k=>$v}
+					<a class="swiper-slide" href="{$v.url}">
+						<img src="{$v.thumb}"/>
+					</a>
+					{/foreach}
+				</div>
+				<div class="swiper-pagination page-icon1"></div>
+			</div>
+		</section>
+		
+		<!--新闻中心-->
+		{if $data.stype == 'xinwen'}
+		<section class="news-box">
+			<p class="tit-tit">
+				<a href='{myurl name="m/site/index"}'><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/arrow-btn.png?{$smarty.const.VERSION}"/></a>
+				<span>新闻中心</span>
+			</p>
+			<div class="cont-box">
+				<div class="tag-box">
+					<a class="{if $data.type == 'remen'}on{/if}" href="{myurl name='m/info/remen/list_1'}">热门</a>
+					<a class="{if $data.type == 'xinwen'}on{/if}" href="{myurl name='m/info/xinwen/list_1'}">新闻</a>
+					<a class="{if $data.type == 'gg'}on{/if}" href="{myurl name='m/info/gg/list_1'}">公告</a>
+					<a class="{if $data.type == 'meiti'}on{/if}" href="{myurl name='m/info/meiti/list_1'}">媒体</a>
+					<a class="{if $data.type == 'huodong'}on{/if}" href="{myurl name='m/info/huodong/list_1'}">活动</a>
+				</div>
+				<div class="item-box on">
+					{foreach $data.data as $k=>$v}
+						<a href="{$v.linkUrl}">
+							<em>
+								{if $data.type == 'remen'}[热门]
+								{elseif $data.type == 'xinwen'}[新闻]
+								{elseif $data.type == 'gonggao'}[公告]
+								{elseif $data.type == 'meiti'}[媒体]
+								{elseif $data.type == 'huodong'}[活动]
+								{/if}
+							</em>
+							<span>{$v.title}</span>
+							<i>{$v.time}</i>
+						</a>
+					{/foreach}
+				</div>
+			</div>
+		</section>
+		{/if}
+		<!--攻略-->
+		{if $data.stype == 'gonglue'}
+		<section class="news-box">
+			<p class="tit-tit">
+				<a href='{myurl name="m/site/index"}'><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/arrow-btn.png?{$smarty.const.VERSION}"/></a>
+				<span>攻略中心</span>
+			</p>
+			<div class="cont-box">
+				<div class="tag-box">
+					<a class="{if $data.type == 'xsgl'}on{/if}" href="{myurl name='m/info/xsgl/list_1'}">入门攻略</a>
+					<a class="{if $data.type == 'jjgl'}on{/if}" href="{myurl name='m/info/jjgl/list_1'}">进阶攻略</a>
+					<a class="{if $data.type == 'faq'}on{/if}" href="{myurl name='m/info/faq/list_1'}">FAQ问答</a>
+					<a class="{if $data.type == 'trgs'}on{/if}" href="{myurl name='m/info/trgs/list_1'}">同人故事</a>
+				</div>
+				<div class="item-box on">
+					{foreach $data.data as $k=>$v}
+						<a href="{$v.linkUrl}"><span>{$v.title}</span><i>{$v.time}</i></a>
+					{/foreach}
+				</div>
+			</div>
+		</section>
+		{/if}
+		<div class="loading-box">上滑加载更多信息</div>
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+		{download}
+		<script type="text/javascript">
+				var isScroll = 1;//是否可以滚动
+				var page = 2; //页数
+				window.onscroll=function(){
+					var winH = window.innerHeight; //屏幕高度
+					var allH = document.body.scrollHeight; //总高度
+					var topH = window.pageYOffset; //滚动高度
+					if((allH - (winH
+						+ topH)<10) && isScroll == 1){
+						isScroll = 0;
+						$(".loading-box").text("数据加载中...")
+						console.log("到底了")
+						getListFu();
+					}
+				}
+				function getListFu(){
+					$.ajax({
+						type:"get",
+						url:'{myurl name="/wap/article/ajax-list"}',
+						data:{
+							page:page++,
+							type:'{$data.type}',
+						},
+						success:function(res){
+							var res = JSON.parse(res);
+							if(res.status == 0&& res.msg.length>0){
+								var dom = '';
+								for(var i =0;i<res.msg.length;i++){
+									var _a ='<a href="'+res.msg[i].wapLinkUrl+'"><span>'+res.msg[i].title+'</span><i>'+res.msg[i].created_at+'</i></a>';
+									dom += _a;
+								}
+								$(".item-box").append(dom);
+								$(".loading-box").text("上滑加载更多信息");
+								isScroll = 1;
+							} else{
+								$(".loading-box").text("没有更多信息了");
+							}
+						},
+						error:function(res){
+							console.log(res);
+//							isScroll = 1;
+						}
+					});
+				}
+				
+		</script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/clipboard.min.js"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+	
+	</body>
+
+</html>

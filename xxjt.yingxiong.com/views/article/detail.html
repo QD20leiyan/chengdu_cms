@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/news.css?{$smarty.const.VERSION}" />
+		<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+		</script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		{csrf}
+	</head>
+	
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+		<div class="i_main">
+			<div class="nav">
+			    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+			    <ul class="s_ul">
+					<li><a href="javascript:;"></a></li>
+					<li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+					<li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+					<img src="{$global.wx_img}" alt="" class="fl_wx">
+				</ul>
+				<ul class="nav_ul">
+					<li >
+						<a href="/index.html#section1" data-id="#index">首 页</a>
+						<p>Home</p>
+					</li>
+					<p>▪</p>
+					<li>
+						<a href="/index.html#section2" data-id="#news">重 铸</a>
+						<p>recast</p>
+					</li>
+					<p>▪</p>
+					<li>
+						<a href="/index.html#section3" data-id="#yssj">世 界</a>
+						<p>world</p>
+					</li>
+					<p>▪</p>
+					<li>
+						<a href="/index.html#section4" data-id="#ysxd">英 雄</a>
+						<p>hero</p>
+					</li>
+					<p>▪</p>
+					<li>
+						<a href="/index.html#section5" data-id="#zygl">战 报</a>
+						<p>War newspaper</p>
+					</li>
+				</ul>
+			</div>
+		    <div class="n_kv"></div>
+		<div class="d_body">
+			<div class="top_ul">
+				<div class="tab_ul">
+					<a href="{myurl name='article/list, id=>2032'}" class="d_back"></a>
+					<div class="d_title">
+					    <p class="d_date">{$content.created_at_formate|date_format:"%m-%d"}<span>{$content.title}</span></p>
+						<p class="z_title">{$content.sub_title}</p>
+					</div>
+					<div class="new_address">
+						<p class="fanhui">位置：<a href="/index.html#section1">官网</a>&gt;&gt;<a href="{myurl name='article/list, id=>2032'}">新闻中心</a>&gt;&gt;新闻详情</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="detail_body">
+			<div class="detail_bg"></div>
+			<div class="wrap">
+				<div class="d_content">
+					{$content.body}
+				</div>
+			</div>
+		<a href="javascript:;" class="btn_ljyy stat_event_yy"></a>
+		</div>
+
+			<div class="footer footer2">
+		   	    <ul>
+		   	    	<li><a href="javascript:;"><img src="{$global.wx_img}" alt=""></a><p>&gt;&gt;官方微信&lt;&lt;</p></li>
+		   	    	<li><a href="{if $global.wb_url&&$global.wb_url != '暂无数据'}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb"></a><p>&gt;&gt;官方微博&lt;&lt;</p></li>
+		   	    	<li><a href="{if $global.group_url_one&&$global.group_url_one != '暂无数据'}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq"></a><p>&gt;&gt;官方QQ群&lt;&lt;</p></li>
+		   	    </ul>
+		   </div>
+		</div>
+	  {include file="../layouts/pc/footer.html"}
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/index.js?{$smarty.const.VERSION}"></script>
+	<script>
+		$(window).scroll(function() {
+            var $t = $(this).scrollTop();
+            if($t > 0) {
+                $(".nav").css({
+                    top: "0",
+                    position: 'fixed',
+                    zIndex: "600"
+                });
+            } else {
+                $(".nav").css({
+                    top: "0px",
+                    position: 'absolute',
+                    zIndex: "9"
+                });
+            }
+        })
+	</script>
+
+</html>

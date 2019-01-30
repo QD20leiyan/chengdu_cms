@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/css/animate.min.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/css/swiper.min.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/css/index.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/css/active.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchangse' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    {csrf}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body class="active">
+ <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+<div class="h5_data" style="display: none;">{$h5data}</div>
+<div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide swiper-no-swiping page0">
+                <div class="bg"></div>
+                <div class="banner">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/banner.png" alt="" onclick="return false"/>
+                    <a href="javascript:;" class="head_img"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/head2.png" alt="" class="hand_move"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/light.png" alt=""></a>
+                </div>
+                <div class="title0">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/zi.png" alt="" onclick="return false"/>
+                </div>
+                <div class="page0_v hidden">
+                    <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/audio/video.mp4"></video>
+               </div>
+            </section>
+            <section class="swiper-slide page1 hidden">
+                <div class="bg"></div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+                <div class="logo">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/slogan.jpg" alt="" onclick="return false"/>
+                </div>
+               <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo_co">
+                <div class="form_info">
+                    <input type="text" class='name' placeholder="请输入姓名" maxlength="7">
+                </div>
+                <div class="title1">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/title.png" alt="" onclick="return false"/>
+                </div>
+                <ul class="term_list">
+                    <li class="term1" data-id="1"></li>
+                    <li class="term2" data-id="2"></li>
+                </ul>
+                <button class="test_btn slideInUp animated"></button>
+                
+            </section>
+            <section class="swiper-slide page2 hidden">
+                <div class="bg"></div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+               <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo_co">
+                <div class="logo">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box">
+                           <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/test1.png" alt="">
+                        </div>
+                        <div class="choose_box">
+                            <a href="javascript:;" class="" data-id="1"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/4.png" alt=""></a>
+                            <a href="javascript:;" class="" data-id="2"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/5.png" alt=""></a>
+                            <a href="javascript:;" class="" data-id="3"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/6.png" alt=""></a>
+                            <a href="javascript:;" class="" data-id="4"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/7.png" alt=""></a>
+                         </div>
+            </section>
+            <section class="swiper-slide page3 hidden">
+                <div class="bg"></div>
+                 <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo_co">
+                <div class="logo">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box2">
+                    <div class="choose_box2">
+                        <a href="javascript:;" class="" data-id="1"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/1.png" alt=""></a>
+                        <a href="javascript:;" class="" data-id="2"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/2.png" alt=""></a>
+                        <a href="javascript:;" class="" data-id="3"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/3.png" alt=""></a>
+                        <a href="javascript:;" class="" data-id="4"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/8.png" alt=""></a>
+                    </div>
+                </div>
+            </section>
+            <section class="swiper-slide page4 hidden">
+                <div class="bg"></div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo_co">
+                 <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+                <div class="logo">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box3">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/yyy.png" alt="" class="yyy_bg">
+                </div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/zs.png" alt="" onclick="return false" class="zs"/>
+            </section>
+            <section class="swiper-slide page5 hidden">
+                <div class="bg"></div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo_co">
+                <div class="logo">
+                    <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box4">
+                    <p class=""></p>
+                    <a href="javascript:;" class="jietu"></a>
+                    <span id="text"></span>
+                </div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/zs.png" alt="" onclick="return false" class="zs"/>
+            </section>
+            <section class="swiper-slide page6 hidden">
+                <div class="bg"></div>
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" alt="" class="logo_co">
+                <!-- 英雄之心 -->
+                <div class="result_text boot1">
+                    <div class="lf_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_i.png" alt="" class="term1">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_11.png" alt="" class="term2 active ">
+                        <p> 
+                            <span>你对自己了解的很透彻</span>
+                            <span>总能以最快的速度找到最适合自己的位置</span>
+                            <span>在擅长的领域，拥有绝对的话语权</span>
+                        </p>
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/11.png" alt="">
+                        <div class="user_box">
+                            <p><span class="user_name"></span>的天命枪</p>
+                            <p>特性：射速高</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 白金AK -->
+                <div class="result_text boot2">
+                    <div class="lf_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_i.png" alt="" class="term1">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_11.png" alt="" class="term2 active ">
+                         <p> 
+                            <span>冷静的你总能轻易的看穿一切</span>
+                            <span>并做出正确的决定</span>
+                            <span>一切尽在你的掌握之中</span>
+                            
+                        </p>
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/12.png" alt="">
+                       <div class="user_box">
+                            <p><span class="user_name"></span>的天命枪</p>
+                            <p>特性：性能好</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 英雄之魂 -->
+                <div class="result_text boot3">
+                    <div class="lf_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_i.png" alt="" class="term1">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_11.png" alt="" class="term2 active ">
+                         <p>
+                            <span>你善于倾听他人意见</span>
+                            <span>且有超强的控场能力不容小觑</span>
+                            <span>所有事情你都能处理的恰到好处</span>
+                        </p>
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/13.png" alt="">
+                        <div class="user_box">
+                            <p><span class="user_name"></span>的天命枪</p>
+                            <p>特性：输出稳</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- 英雄之光 -->
+                <div class="result_text boot4">
+                    <div class="lf_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_i.png" alt="" class="term1">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_11.png" alt="" class="term2 active ">
+                        <p> 
+                            <span>你是一颗小太阳，实力超强,</span>
+                            <span>同时也是值得信赖的伙伴 </span>
+                            <span>因为有你前行的路将不再黑暗</span>
+                        </p>
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/14.png" alt="">
+                        <div class="user_box">
+                            <p><span class="user_name"></span>的天命枪</p>
+                            <p>特性：射程远</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 白金战龙 -->
+                <div class="result_text boot5">
+                    <div class="lf_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_i.png" alt="" class="term1">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/img_11.png" alt="" class="term2 active ">
+                       <p>                     
+                            <span>冷静的你总能轻易的看穿一切</span>
+                            <span>并做出正确的决定</span>
+                            <span>一切尽在你的掌握之中</span>
+                        </p>
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/15.png" alt="">
+                        <div class="user_box">
+                            <p><span class="user_name"></span>的天命枪</p>
+                            <p>特性：爆发强</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="swiper-slide page7 hidden">
+                 <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+                 <p>长按保存图片</p>
+                <img src="" alt="" class="jp_img" onclick="return false">
+                <a href="javascript:;" class="gift_page"></a>
+            </section> 
+        </section>
+    </section>
+</div>
+<section class="lottery hidden">
+    <section class="a-container">
+        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/logo.png" onclick="return false" class="logo_co">
+         <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png" alt="" class="music_img active"/>
+        <section class="a-item3">
+            <div>
+                <img id="rotate" src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/cj_pan.png" onclick="return false">
+                <div class="p-all-center">
+                    <!-- <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/pointer.png" alt="" class="text"> -->
+                   <img id="cj_start_btn" src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/cj_zz1.png">
+                </div>
+            </div>
+            <a href="javascript:;" class="gift_look"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/gift_look.png" alt=""></a>
+        </section> 
+    </section>
+    <section class="b-container">
+        <section class="b-open_style">
+            <ul class="act_info">
+                <li class="rule">
+                    <i>i</i><b>活动规则</b>
+                </li>
+                <li>
+                    <i>1</i><p>活动时间：9月11日—9月30日； </p>
+                </li>
+                <li>
+                    <i>2</i><p>活动期间，每个微信账号共拥有3次抽奖机会； </p>
+                </li>
+                <li>
+                    <i>3</i><p>奖励兑换说明：游戏礼包请打开《全民枪战2》游戏-任务-兑换礼品-进行兑换；</p>
+                </li>
+                <li>
+                    <i>4</i><p>CA温馨提示：同类型礼包仅可兑换一次，若有活动礼包问题，请与《全民枪战2》官方客服联系，联系方式：<span>关注“quanminqiangzhan”公众号——”枪友之家“——”在线客服“；</span></p>
+                </li>
+                <li>
+                    <i>5</i><p>在法律规定范围内《全民枪战2》运营团队拥有本活动最终解释权。</p>
+                </li>
+            </ul>
+            <a class="down_btn" href="http://downurl.yingxiong.com/url/pc_qmqz.html"><img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/down_btn.png" alt=""></a>
+        </section>
+    </section>
+<!--兑换码弹框-->
+<div class="tips code_tips">
+    <div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/tl1.png" alt="" class="lable_tl">
+        <div class="co_form">
+            <p class="info">恭喜你获得</p>
+            <div class="gift_ico">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/icon1.png" alt="" class="img1">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/icon2.png" alt="" class="img2">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/icon3.png" alt="" class="img3">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/icon4.png" alt="" class="img4">
+                <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/icon5.png" alt="" class="img5 active">
+            </div>
+            <p class="gift_name"></p>
+            <div class="dhm_info">
+                <p>兑换码：<span class="code" id="page_gold_code"></span></p>
+            </div>
+            <div class="copy_btn copy" id="tc1_copy_btn" data-clipboard-action="copy" data-clipboard-target="#page_gold_code"></div>
+            <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+        </div>
+    </div>
+</div>
+<!--礼包弹框-->
+<div class="tips f_login_tips">
+<div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <img src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/tl2.png" alt="" class="lable_tl2">
+    <div class="g_price">
+        <div class="price_div">
+            <span>名称</span>
+            <span>兑换码</span>
+            <span>时间</span>
+            <span></span>
+        </div>
+        <ul class="price_ul">
+        </ul>
+
+    </div>
+        <div class="sure_btn"></div>
+        <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+    </div>
+</div>
+</section>
+<!--音乐-->
+<audio id="music1" src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/audio/music.mp3" loop="loop" preload="load" autoplay="autoplay"></audio>
+<audio id="music2" src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/audio/music2.wav" preload="load"></audio>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<!--遮罩层-->
+<div id='loading10' style="position:fixed;left:0;top:0;z-index:9999;background:rgba(0,0,0,1);width:100%;height:100%;display: none;" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="font-family:'微软雅黑';width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+<!-- <audio id="music" src="<{$smarty.const.STATIC_MAIN}>qmqz/h5/sayLove/audio/music.mp3"  loop="loop"></audio> -->
+<script src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/js/jquery-1.11.2.min.js"></script>
+{include '../h5-common/h5_data.html'}
+<script src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/js/swiper.min.js"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/js/swiper.animate.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/js/awardRotate.js"></script>
+
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}nba/js/clipboard.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<!--微信分享-->
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+
+<script type="text/javascript">
+var click_bnt = true;
+var srf = $('meta[name="csrf-token"]').attr('content');
+var boot_box=['.boot1','.boot2','.boot3','.boot4','.boot5'];
+var boot1_box=['.boot1','.boot2','.boot4'];
+var boot1=boot_box[Math.floor(Math.random()*boot_box.length)];
+var boot2=boot1_box[Math.floor(Math.random()*boot1_box.length)];
+var play1=true;
+var lottery_num="0";
+var  h5_wx=$(".h5_wx").html();
+var  h5_data=$(".h5_data").html();
+var lottery_url="/ca/fouryear/lottery.html"+ h5_jk_url;//转盘
+var recode_url="/ca/fouryear/get-gift-log.html"+ h5_jk_url;//抽奖记录
+var num_url="/ca/fouryear/get-user-info.html"+ h5_jk_url;//
+var text_url="/ca/fouryear/check-name.html"+ h5_jk_url;//
+var bRotate = false;
+    var giftNum = [
+        {
+            "id": "364",
+            "name": "虚空恶魔",
+            "img":".img3"
+        },
+        {
+            "id": "365",
+            "name": "强化点",
+            "img":".img1"
+        },
+        {
+            "id": "366",
+            "name": "钻石",
+            "img":".img6"
+        },
+        {
+            "id": "367",
+            "name": "吕布飞将AK47-1阶",
+            "img":".img2"
+        },
+        {
+            "id": "368",
+            "name": "暴烈涂鸦AWP",
+            "img":".img4"
+        },
+        {
+            "id": "369",
+            "name": "克里斯",
+            "img":".img5"
+        },
+        {
+            "id": "370",
+            "name": "谢谢参与",
+            "img":""
+        }
+    ];
+// 抽奖次数
+        function lottr_num(){
+            $.post(num_url, {}, function(data) {
+                    if(data.code=="0") {
+                        lottery_num = data.data.lottery_num;
+                    }else{
+                        alert(data.msg);
+                        return;
+                    }
+                }, "json");
+        }
+        //抽奖记录
+        function lottery_recode(){
+            $.post(recode_url, {}, function(data) {
+                    if(data.code=="0") {
+                        var msg=data.data.logs;;
+                        if(!msg) {
+                            alert("您还没有中奖记录哦~");
+                        } else {
+                        var result="";
+                        var listLen=msg.length;
+                        for(var i = 0; i < listLen; i++) {
+                        var lbId = msg[i].gift_id - 364;
+                        console.log(lbId);
+                    result += '<li>' +
+                        '<span class="name_txt align-center-vertical">' + giftNum[lbId].name + '</span>' +
+                        '<span class="name_code align-center-vertical"  id="page_gold_code' + i + 1 + '">' + msg[i].code + '</span>' +
+                        '<span class="name_time">' + msg[i].created_at + '</span>'+
+                        '<span class="copy_btn2"><a href="javascript:;" id="tc2_copy_btn' + i + 1 + '" data-clipboard-action="copy" data-clipboard-target="#page_gold_code' + i + 1 + '" class="copy' + i + 1 + '"></a></span>' 
+                    }
+                    $(".tips.f_login_tips").fadeIn();
+                    $(".f_login_tips .price_ul").html(null).append(result);
+                     }
+                    }else{
+                        alert(data.msg);
+                        return;
+                    }
+                }, "json");
+        }
+        // lottery_recode();
+        //弹窗滚动
+        function windowHidden(){
+            $("html,body").css({
+                "overflow":"hidden",
+                "width":"100%",
+                "height":"100%"
+            });
+        };
+        function windowScroll(){
+            $("html,body").css({
+                "overflow":"visible",
+                "width":"100%",
+                "height":"auto"
+            });
+        };
+
+        var rotateTimeOut = function() {
+        $('#rotate').rotate({
+            angle: 0,
+            animateTo: 2160,
+            duration: 8000,
+            callback: function() {
+                alert('网络超时，请检查您的网络设置！');
+            }
+        });
+    };
+    var rotateFn = function(awards, angles, txt, num) {
+        bRotate = !bRotate;
+        $('#rotate').stopRotate();
+        $('#rotate').rotate({
+            angle: 0,
+            animateTo: angles + 1777.5,
+            duration: 3000,
+            callback: function() {
+                if(num == 0) {
+                    $(".code_tips").fadeIn();
+                }
+                if(num == 1) {
+                     alert("谢谢参与")
+                }
+                bRotate = !bRotate;
+            }
+        })
+    };
+    $(function(){
+        var  h5_wx=$(".h5_wx").html();
+        var  h5_data=$(".h5_data").html();
+        var lottery_url="/ca/fouryear/lottery.html"+ h5_jk_url;//转盘
+        var recode_url="/ca/fouryear/get-gift-log.html"+ h5_jk_url;//抽奖记录
+        var num_url="/ca/fouryear/get-user-info.html"+ h5_jk_url;//抽奖次数
+
+        (function(){
+            //手机类型判断
+            var u = navigator.userAgent,
+                    app = navigator.appVersion;
+            var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if(isIOS) {
+                audioAutoPlay1();
+            }
+            var myauo1=document.getElementById("music1");
+            var timer=setInterval(function(){
+                if(myauo1.readyState==4){
+                    clearInterval(timer);
+                    myauo1.pause();
+                }
+            },10);
+        })();
+        //音乐视频初始化
+            document.addEventListener('DOMContentLoaded', function () {
+                var  myVid1=document.getElementById("my_video1");
+                function audioAutoPlay() {
+                    myVid1.load();
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                         myVid1.load();
+                    }, false);
+                }
+                audioAutoPlay();
+            });
+        var  myVid1=document.getElementById("my_video1");
+        var  myauo1=document.getElementById('music1');
+        var  myauo2=document.getElementById("music2");
+        function audioAutoPlay2(){
+            document.getElementById('music2').play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                document.getElementById('music2').play();
+            }, false);
+        }
+        function audioAutoPlay1(){
+            document.getElementById('music1').play();
+            document.getElementById('music1').volume = .5;
+            document.addEventListener("WeixinJSBridgeReady", function () {
+               document.getElementById('music1').play();
+                document.getElementById('music1').volume = .5;
+                 setTimeout(function(){
+                  document.getElementById('music1').volume += .1;
+                  },1200);
+            }, false);
+        }
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/ca/fouryear.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        lottr_num();
+        //摇一摇
+        var jsonObject=null;
+        var shake=4000,   
+           last_update=0,   
+           times=0,  
+           x=y=z=last_x=last_y=last_z=0;    
+       console.log(new Date().valueOf());  
+       function deviceMotionHandler(eventData){  
+            var acceleration = eventData.accelerationIncludingGravity,  
+                currTime=new Date().valueOf(),  
+                diffTime=currTime-last_update;  
+   
+                if(diffTime>100){  
+                   last_update=currTime;  
+                   x=acceleration.x;  
+                   y=acceleration.y;  
+                   z=acceleration.z;  
+                   var speed=Math.abs(x+y+z-last_x-last_y-last_z)/diffTime*10000  
+                   if(speed>shake){
+                         times++; 
+                         // alert(times);
+                         setTimeout(function(){
+                            if(times>=0 && times<=5){
+                                $(".question_box4 p").html("羡慕嫉妒恨！<br />您一定告别单身很久了");
+                                 // break;
+                            }else if(times>=6 && times <= 9){
+                                $(".question_box4 p").html("您的稳定性非常强！<br />但爆发力稍弱~");
+                                // break;
+                            }
+                            else if(times>=10 && times <= 14){
+                                $(".question_box4 p").html("十项全能说的肯定就是你了！");
+                                // break;
+                            }
+                            else if(times>=15){
+                                $(".question_box4 p").html("您的小宇宙是爆发了嘛？");
+                                // break;
+                            }else{
+                                $(".question_box4 p").html("摇一摇出现异常了哦~");
+                            }
+                            $(".page4").addClass("hidden");
+                            $(".page5").removeClass("hidden");
+                         },3000)   
+                   }  
+                   last_x = x;  
+                   last_y = y;  
+                   last_z = z;  
+                }  
+       }  
+       //点击视频
+        $(".page0 .head_img").click(function(){
+            // mySwiper.slideNext();
+            // $(".page0").addClass("hidden");
+            $(".page0_v").removeClass("hidden");
+            myVid1.play();
+            // myauo1.play();
+            // setTimeout(function(){
+            //     myauo1.pause();
+            // },1);
+            myVid1.onended = function() {
+                $(".page0_v").addClass("hidden");
+                $(".page0").addClass("hidden");
+                $(".page1").removeClass("hidden");
+               // document.getElementById('music1').play();
+               audioAutoPlay1();
+            }
+        });
+        
+        $('.p-all-center').click(function() {
+                if(bRotate) return;
+                if(lottery_num >3){
+                    alert("您的抽奖次数已用完~");
+                    return;
+                }
+                $.post(lottery_url, {}, function(data) {
+                    if(data.code=="0") {
+                        var item = data.data.gift_id;
+                       switch(item) {
+                            case 368:
+                                rotateFn(-23.5, 31.5, '暴烈涂鸦AWP', 0);
+                                break;
+                            case 367:
+                                rotateFn(287.5,335.5, '吕布飞将AK47-1阶', 0);
+                                break;
+                            case 365:
+                                rotateFn(241.5, 286.5, '强化点'
+                                , 0);
+                                break;
+                            case 364:
+                                rotateFn(194.5, 240.5, '虚空恶魔', 0);
+                                break;
+                            case 366:
+                                rotateFn(144.5, 193.5, '钻石', 0);
+                                break;
+                            case 369:
+                                rotateFn(89.5, 143.5, '克里斯', 0);
+                                break;
+                            case 370:
+                                rotateFn(30.5, 88.5, '谢谢参与', 1);
+                                break;
+                        }
+                        var giftId = data.data.gift_id - 364;
+                        $(".code_tips .gift_ico img").removeClass("active");
+                        $(".code_tips .dhm_info .code").html(data.data.code);
+                        console.log(giftNum[giftId].img);
+                        $(".code_tips .gift_ico").find(giftNum[giftId].img).addClass("active");
+                        $(".code_tips .gift_name").html(giftNum[giftId].name);
+                         $(".code_tips").removeClass("hidden");
+                    }else{
+                        alert(data.msg);
+                        return;
+                    }
+                }, "json");
+        });
+        //选择战队
+         $(".term_list").find('li').click(function() {
+          $(this).addClass("active").siblings().removeClass("active");
+
+           var index = $(".term_list li.active").attr("data-id");
+            console.log(index);
+           if(index==1){
+               $(".page6 .lf_lin .term1").removeClass("active");
+               $(".lf_lin .term2").addClass("active");
+           }else if(index==2){
+               $(".page6 .lf_lin .term1").addClass("active");
+               $(".page6 .lf_lin .term2").removeClass("active");
+           }
+        });
+         //第一题选择
+         $(".choose_box").find('a').click(function() {
+            $(this).addClass("active").siblings().removeClass("active");
+            
+           var index2 = $(".choose_box a.active").data("id");
+            console.log(index2);
+            $(".form_info input").blur();
+            $(".form_info input").remove();
+           setTimeout(function(){
+            $(".page2").addClass("hidden");
+            $(".page3").removeClass("hidden");
+            audioAutoPlay2();
+           },500)
+        });
+         //第2题选择
+        $(".choose_box2").find('a').click(function() {
+           $(this).addClass("active").siblings().removeClass("active");
+           var index3 = $(".choose_box2 a.active").data("id");
+           console.log(index3);
+           if(index3==1){ 
+               $(".result_text").hide();
+               console.log(boot1);
+               $(boot1).show();
+           }else if(index3==2){
+               $(".result_text").hide();
+               $(".result_text.boot3").show();
+           }
+           else if(index3==3){
+              $(".result_text").hide();
+              $(boot2).show();
+           }
+           else if(index3==4){
+               $(".result_text").hide();
+               $(".result_text.boot5").show();
+           }
+
+           setTimeout(function(){
+            $(".page3").addClass("hidden");
+            $(".page4").removeClass("hidden");
+            audioAutoPlay2();
+            if(window.DeviceMotionEvent){  
+                window.addEventListener("devicemotion",deviceMotionHandler,false);
+           }else{  
+             alert("本设备不支持devicemotion事件");  
+           }
+            // onload_yyy();
+
+           },500)
+        });
+        // $(".page4 .question_box3").click(function(){
+        //     setTimeout(function(){
+        //    $(".page4").addClass("hidden");
+        //    $(".page5").removeClass("hidden");
+        //    },300)
+        // })
+        $(".styar_sel li").click(function(){
+            if(status==1){
+                var li1=$(this).text();
+                $("input.star1").val(li1);
+                i1=$(this).attr("data-id");
+                $(".star_list").addClass("hidden") ;
+            }else if(status==2){
+                var li2=$(this).text();
+                $("input.star2").val(li2);
+                i2=$(this).attr("data-id");
+                $(".star_list").addClass("hidden") ; 
+            }
+            
+        });
+        //点击一键测试
+        $(".page1 .test_btn").click(function(){
+            var name=$(".form_info .name").val();
+            var term=$(".term_list li.active").data("id");
+            if(name == "" || name==undefined){
+                alert("请输入您的姓名~");
+                return;
+            }
+            if(term == "" || term==undefined){
+                alert("请选择您的阵营~");
+                return;
+            }
+            $.ajax({
+                'url':text_url,
+                'data':{
+                           "name":name,"cms_csrf":srf
+                        },
+                        'type':'POST',
+                        'dataType':'Json',
+                        success:function(data){
+                            if(data.code=="0"){
+                                $(".page1").addClass("hidden");
+                                $(".page2").removeClass("hidden");
+                                audioAutoPlay2();
+                                $(".rt_lin .user_name").html(name);
+                            }else{
+                                alert(data.msg);
+                                return;
+                            }
+                        }
+                        ,error:function(){
+                            alert("网络请求错误，请刷新页面");
+                        }
+            });
+        });
+        //抽奖按钮
+        $(".gift_page").click(function(){
+            $(".page7").addClass("hidden");
+            $(".lottery").removeClass("hidden");
+            audioAutoPlay2();
+            $("body").removeClass("active");
+        })
+        //关闭弹窗按钮
+        $(".close_tips").click(function(){
+          $(this).parent().parent().fadeOut();
+          // windowScroll();
+        });
+        //查看礼包
+        $(".gift_look").click(function(){
+            // $(".tips.f_login_tips").fadeIn();
+            // windowHidden();
+            lottery_recode();
+        });
+         //复制
+         new Clipboard('.copy');
+        $(".copy").click(function() {
+           alert("已复制");
+        });
+        new Clipboard('.copy01');
+        $(".price_ul").on("click",".copy_btn2",function() {
+           alert("已复制");
+        });
+        //  //复制
+        new Clipboard('.copy11');
+        // $(".copy11").click(function() {
+        //    alert("已复制");
+        // });
+        new Clipboard('.copy21');
+        // $(".copy21").click(function() {
+        //    alert("已复制");
+        // });
+         $(".sure_btn").click(function(){
+            $(".tips.f_login_tips").fadeOut();
+            // windowHidden();
+        });
+        $(".music_img").click(function(){
+            if(play1){
+                document.getElementById('music1').pause();
+                $(".music_img").removeClass("active");
+                $(".music_img").attr("src","{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play.png");
+                play1=false;
+            }else{
+                document.getElementById('music1').play();
+                $(".music_img").addClass("active");
+                 $(".music_img").attr("src","{$smarty.const.STATIC_DOMAIN}ca/anniversary_fore/images/play_on.png");
+                play1=true;
+            }
+        })
+        //生成告白姿势
+        $(".jietu").click(function(){
+                    $(".js_load").show();
+                    $(".page5").hide();
+                    $(".page6").show();
+                    // $(".page4 .tch_box_con").fadeIn(1000);
+                    var canvas2 = document.createElement("canvas");
+                    let _canvas = document.querySelector('.page6');
+                    var w = parseInt(window.getComputedStyle(_canvas).width);
+                    var h = parseInt(window.getComputedStyle(_canvas).height);
+                    canvas2.width = w * 2;
+                    canvas2.height = h * 2;
+                    canvas2.style.width = w + "px";
+                    canvas2.style.height = h + "px";
+                    var context = canvas2.getContext("2d");
+                    context.scale(2,2);
+                    html2canvas(_canvas, {
+                        canvas: canvas2,
+                        useCORS: true
+                    }).then(function(canvas) {
+                        // console.log(canvas.toDataURL());
+                        $(".page6").addClass("hidden");
+                        $(".js_load").hide();
+                        $(".jp_img").attr("src",canvas.toDataURL("data:image/jpeg"));
+                        audioAutoPlay2();
+                        $(".page7").removeClass("hidden");
+                        // mySwiper.update();
+                       $(".page7").on('touchstart',function(){
+                            if(click_bnt){
+                            setTimeout(function(){
+                                 $(".gift_page").fadeIn(300);
+                            },1500);
+                            click_bnt = false;
+                            }
+                        }) 
+                    });
+        });     
+})
+</script>
+</body>
+</html>

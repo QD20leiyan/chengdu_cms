@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="shortcut icon" href="{$global.website_icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/n_cover.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div class="cover">
+			{fragment var=kv_img code=index_kv_img size=1}
+			<div class="c_cover public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}">
+				<div class="right_nav public_nav" data-right="{jumpbackend name='nav_wb_url'}">
+					<div class="r_wx">
+						<a href="javascript:;"><img src="{$global.nav_wechat_icon}" /></a>
+						<a href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.nav_wb_icon}" /></a>
+						<a href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.nav_baidu_icon}" /></a>
+					</div>
+					<div class="fl_wx">
+						<img src="{$global.nav_wechat_ewm}" alt="" />
+					</div>
+				</div>
+				<div class="wrap">
+					{fragment var=video code=index_video size=1}
+					<img src="{if $video}{$video[0].thumb}{/if}" alt="" class="play {if $video}js_video_play{else}{/if} public_video" data-url="{if $video}{$video[0].url}{/if}" data-video="{if $video}{$video[0].jumpbackend}{/if}"/>
+					<div class="c_down public_nav_one" style="background:url({$global.download_ewm_background_img}) no-repeat center;" data-one="{jumpbackend name='download_android_background_img'}">
+						<div class="code public_footer" data-footer="{jumpbackend name='bottommedia_download_ewm'}">
+							<img src="{$global.bottommedia_download_ewm}" alt="" />
+						</div>
+						<div class="c_tab">
+							<a href="{if $global.download_android_url}{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.download_android_background_img}" alt="" /></a>
+							<a href="{if $global.download_ios_url}{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.download_ios_background_img}" alt="" /></a>
+							<a href="{if $global.download_tap_url}{$global.download_tap_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.download_tap_background_img}" alt="" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<div class="public_rule" style="z-index:99999999;">
+		{if $diy}
+		{include file="../../layouts/public.html"}
+		<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+		{else}
+		<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+		{/if}
+	</div>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(".r_wx a:nth-child(1)").hover(function (){
+			$(".fl_wx").stop().fadeIn();
+		},function (){
+			$(".fl_wx").stop().fadeOut();
+		});
+		$(".fl_wx").hover(function (){
+			$(this).stop().fadeIn();
+		},function (){
+			$(this).stop().fadeOut();
+		});
+	</script>
+</html>

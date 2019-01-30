@@ -1,0 +1,40 @@
+{include file="../layouts/pc/news_header.html"}
+					<div class="right_news">
+						<div class="video_title">视频专区</div>
+						<div class="video_body">
+							{if !empty($data)}
+								{foreach $data as $v}
+									<dl>
+										<dt>
+											<img src="{$v.thumb}" alt="" />
+											<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/dbx.png?{$smarty.const.VERSION}" alt="" class="js_video_play" data-url="{$v.contentMessage}"/>
+											<i></i>
+										</dt>
+										<dd>
+											{$v.title}
+										</dd>
+									</dl>
+								{/foreach}
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{include file="../layouts/pc/footer.html"}
+	<script type="text/javascript">
+		$(function (){
+            $('.nav ul').find('li').removeClass();
+            $('.nav ul').find('li:nth-child(3)').addClass('active');
+			addDl();
+			function addDl(){
+				$(".video_body dl").each(function (i){
+					var n = i+1;
+					if(n%3 == 2){
+						$(this).addClass("active");
+					}
+				})
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,206 @@
+{if $language eq zh_cn} {config_load file="../layouts/pc/cc_zh.conf"} {else} {config_load file="../layouts/pc/cc_en.conf"} {/if} {include '../layouts/pc/top.html'} {include '../layouts/pc/header.html'}
+<link href="{$smarty.const.STATIC_DOMAIN}2.0/css/news_center.css?{$smarty.const.VERSION}" rel="stylesheet">
+</head>
+
+<body>
+	{include '../layouts/pc/nav.html'}
+	<!-- 这是banner图 -->
+	<div class="n_banner"></div>
+	<!-- 这是新闻列表 -->
+	<div class="n_content">
+		<div class="n_c_title">
+			{if $type eq "xinwen"}
+			<div class="news_gonglue">
+				<a href="{myurl name='article/index,type=>xinwen,page=>1'}">
+					<h1 class="news_gonglue01 {if $language eq zh_cn}{else}news_gonglue01_en{/if}" attr-type="xinwen">{#index_news#}</h1>
+				</a>
+				<a href="{myurl name='article/index,type=>gg,page=>1'}">
+					<h1 class="news_gonglue02 {if $language eq zh_cn}{else}news_gonglue01_en{/if}" attr-type="gg">{#index_bulletin#}</h1>
+				</a>
+			</div>
+			<p>
+				<a href='{myurl name="site/index"}'>{#index#}</a><span>></span>
+				<span href="javascript:">{#navName3#}</span>
+			</p>
+			{elseif $type eq "faq"}
+			<h1>{#faq#}</h1>
+			<p>
+				<a href='{myurl name="site/index"}'>{#index#}</a><span>></span>
+				<span href="javascript:">FAQ</span>
+			</p>
+			{elseif $type eq "zhanzheng"}
+			<h1>{#war#}</h1>
+			<p>
+				<a href='{myurl name="site/index"}'>{#index#}</a><span>></span>
+				<span>{#war#}</span>
+			</p>
+			{elseif $type eq "gonglue"}
+			<div class="news_gonglue game_gonglue">
+				<a href="{myurl name='article/index,type=>gonglue,page=>1'}">
+					<h1 class="news_gonglue01 {if $language eq zh_cn}{else}news_gonglue01_en{/if}" attr-type="gonglue">{#index_gonglue1#}</h1>
+				</a>
+				<a href="{myurl name='article/index,type=>xsgl,page=>1'}">
+					<h1 class="news_gonglue02 {if $language eq zh_cn}{else}news_gonglue02_en{/if}" attr-type="xsgl">{#index_gonglue2#}</h1>
+				</a>
+				<a href="{myurl name='article/index,type=>jjgl,page=>1'}">
+					<h1 class="news_gonglue03 {if $language eq zh_cn}{else}news_gonglue03_en{/if}" attr-type="jjgl">{#index_gonglue3#}</h1>
+				</a>
+			</div>
+			<p>
+				<a href='{myurl name="site/index"}'>{#index#}</a><span>></span>
+				<span>{#index_gonglue#}</span>
+			</p>
+			{/if}
+		</div>
+
+		{if $type eq "xinwen"}
+		<ul class="n_c_list">
+			{include file="./ajax_list.html"}
+		</ul>
+		{elseif $type eq "gonglue"}
+		<ul class="n_c_list">
+			{if $data|@count neq 0} {foreach $data as $list} {if $list.title neq "首页纯图片"}
+			<li>
+				<a href="{$list.linkUrl}">
+					<img src="{$list.thumb}" title="{$list.title}" />
+					<div>
+						<h1>{$list.title}</h1>
+						<p>{$list.summary}</p>
+						<span>{$list.created_at|date_format:"%m/%d"}</span>
+					</div>
+				</a>
+			</li>
+			{/if} {/foreach} {/if}
+		</ul>
+		{else}
+		<ul class="theList">
+			{if $data|@count neq 0} {foreach $data as $list}
+			<li>
+				<a href="{$list.linkUrl}">{$list.title}</a>
+			</li>
+			{/foreach} {/if}
+		</ul>
+		{/if}
+	</div>
+	<!--这是页码-->
+	<div class="new_page">
+		{if $data|@count neq 0} {$page} {/if}
+	</div>
+	<!--这是回到顶部icon-->
+	{include '../layouts/pc/goTop.html'}
+</body>
+<script type="text/javascript">
+	var type = "xinwen";
+	var page = 1;
+	$(function() {
+//		function nonePage() {
+//			var top_url = window.location.href;
+//			var newStr = "xinwen";
+//			if(top_url.indexOf(newStr) > 0) {
+//				$(".new_page").hide();
+//				$('.page li').each(function() {
+//					var url = $(this).find('a').attr('href');
+//					$(this).find('a').attr('href', 'javascript:;')
+//				});
+//				$(".page li").off();
+//				$('.page li').click(function() {
+//					page = parseInt($(this).children("a").attr('data-page')) + 1;
+//					loadInit();
+//				});
+//			}
+//		};
+//		nonePage();
+//
+//        function glPage() {
+//            var top_url = window.location.href;
+//            var newStr = "gonglue";
+//            if(top_url.indexOf(newStr) > 0) {
+//                $(".new_page").hide();
+//                $('.page li').each(function() {
+//                    var url = $(this).find('a').attr('href');
+//                    $(this).find('a').attr('href', 'javascript:;')
+//                });
+//                $(".page li").off();
+//                $('.page li').click(function() {
+//                    page = parseInt($(this).children("a").attr('data-page')) + 1;
+//                    loadInit();
+//                });
+//            }
+//        };
+
+//		$(".news_gonglue h1").click(function() {
+//			type = $(this).attr("attr-type");
+//			$(this).addClass("active").siblings().removeClass("active");
+//			loadInit();
+//		});
+//		$(".news_gonglue01").click(function() {
+//            type = $(this).attr("attr-type");
+//			$(this).addClass("on");
+//			$(".news_gonglue02,.news_gonglue03").removeClass("on");
+//		});
+//		$(".news_gonglue02").click(function() {
+//            type = $(this).attr("attr-type");
+//			$(this).addClass("on");
+//			$(".news_gonglue01,.news_gonglue03").removeClass("on");
+//		});
+//		$(".news_gonglue03").click(function() {
+//            type = $(this).attr("attr-type");
+//			$(this).addClass("on");
+//			$(".news_gonglue01,.news_gonglue02").removeClass("on");
+//		});
+
+		if(location.href.indexOf('xinwen')>-1){
+			$(".news_gonglue01").addClass("active");
+			$(".news_gonglue01").addClass("on");
+		}else if(location.href.indexOf('gg')>-1){
+			$(".news_gonglue02").addClass("active");
+			$(".news_gonglue02").addClass("on");
+		}else if(location.href.indexOf('gonglue')>-1){
+			$(".news_gonglue01").addClass("active");
+			$(".news_gonglue01").addClass("on");
+		}else if(location.href.indexOf('xsgl')>-1){
+			$(".news_gonglue02").addClass("active");
+			$(".news_gonglue02").addClass("on");
+		}else if(location.href.indexOf('jjgl')>-1){
+			$(".news_gonglue03").addClass("active");
+			$(".news_gonglue03").addClass("on");
+		}
+
+//		function loadInit() {
+//			$.ajax({
+//				type: "GET",
+//				dataType: "json",
+//				url: '{myurl name="/article/ajax-list"}',
+//				data: {
+//					type: type,
+//					page: page
+//				},
+//				success: function(data) {
+//                    glPage();
+//					$(".n_c_list").empty();
+//					$(".n_c_list").html(data.msg);
+//					$('.page li').each(function() {
+//						var url = $(this).find('a').attr('href');
+//						$(this).find('a').attr('href', 'javascript:;')
+//					});
+//					$(".page li").off();
+//					$('.page li').click(function() {
+//						page = parseInt($(this).children("a").attr('data-page')) + 1;
+//						loadInit();
+//					});
+//				},
+//				error: function(data) {
+//					console.log("失败");
+//				}
+//			})
+//		}
+	})
+</script>
+{if $language eq en}
+<script>
+	$(".page .first,.page .last").remove();
+	$(".page .prev span").text("Previous");
+	$(".page .next span").text("Next");
+</script>
+{/if}
+{include '../layouts/pc/public_js.html'} {include '../layouts/pc/foot.html'}

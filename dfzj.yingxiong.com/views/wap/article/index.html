@@ -1,0 +1,91 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/news.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv"></div>
+</section>
+<section>
+	<div class="n_con">
+		<div class="chengg"></div>
+		<div class="news_body">
+			<div class="top_ul">
+				<ul data-id="{$id}" id="t_id">
+					<li {if $id==523}class="active" {/if}>
+						<a href="{myurl name='wap/article/index, id=>523'}">最新</a>
+					</li>
+					<li {if $id==527}class="active" {/if}>
+						<a href="{myurl name='wap/article/index, id=>527'}">新闻</a>
+					</li>
+					<li {if $id==524}class="active" {/if}>
+						<a href="{myurl name='wap/article/index, id=>524'}">攻略</a>
+					</li>
+					<li {if $id==526}class="active" {/if}>
+						<a href="{myurl name='wap/article/index, id=>526'}">活动</a>
+					</li>
+				</ul>
+				<a href="{myurl name='wap/site/index'}" class="back"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sanjiao.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<div class="n_body">
+				<ul>
+					<!--<li>
+						<a href="javascript:;">
+							<em>[新闻]</em><span>《巅峰战舰》两周年庆典即将《巅峰战舰》两周年庆典即将《巅峰战舰》两周年庆典即将</span><i>05/06</i>
+						</a>
+					</li>-->
+				</ul>
+				<div class="dropload-down">
+                	<div class="dropload-noData">上滑加载更多信息</div>
+            	</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+<script type="text/javascript">
+    var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var id = $("#t_id").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                var result = '';
+                if(data.status == 0 && data.msg.length>0){
+                    for(var i = 0; i < data.msg.length; i++) {
+                        result += "<li><a href=" + data.msg[i].wapLinkUrl+"><em>[" +data.msg[i].name+"]</em><span>"+data.msg[i].title+"</span><i>"+data.msg[i].created_at+"</i></a></li>";
+                    }
+                    $('.n_body ul').append(result);
+//                    $(".dropload-noData").html("<span class='loadMore'>上滑加载更多</span><i></i>");
+                    $(".dropload-noData").html("上滑加载更多");
+                    isScroll = 1;
+               } else{
+                    $(".dropload-noData").html("没有更多信息了");
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+
+</script>
+{include '../../layouts/wap/footer.html'}
+</html>

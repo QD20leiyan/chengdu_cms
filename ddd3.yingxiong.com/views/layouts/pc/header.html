@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/yx.css?{$smarty.const.VERSION}" />
+       <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index_new.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+    	    if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+    	        location.href = "/m"+window.location.pathname+window.location.search;
+    	    }
+    	</script>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="top">
+			<div class="wrap">
+				<img src="{$global.logo_img}" alt="" class="icon" />
+				<div class="header_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<ul class="top_ul">
+					<li class="{if isset($smarty.get.id)} {else}active{/if}">
+						<a href="{myurl name='site/index'}">首页</a>
+					</li>
+					<li class="{if isset($smarty.get.id)}active{/if}">
+						<a href="{myurl name='article/index, id=>533'}" target="_blank">新闻</a>
+					</li>
+					<li>
+						<a href="http://bbs.yingxiong.com/t/pc/31" target="_blank">论坛</a>
+					</li>
+				</ul>
+				<div class="r_wx">
+					<a href="javascript:;"></a>
+					<a href="{$global.wb_url}" target="_blank"></a>
+					<a href="{$global.tb_url}" target="_blank"></a>
+				</div>
+				<div class="fl_wx">
+					<img src="{$global.wx_img}" alt="">
+				</div>
+			</div>
+
+		</div>

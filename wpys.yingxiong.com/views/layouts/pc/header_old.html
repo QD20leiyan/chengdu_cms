@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/common/css/common.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/common/css/swiper.3.1.7.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index2.css?{$smarty.const.VERSION}" />
+
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/common/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+	<script data-fixed="true">
+		if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+</head>
+<body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+<div class="top">
+	<div class="top_content">
+		<img src="{$global.logo_img}" alt="" class="icon_big lf">
+		<div class="i_top_title">
+			<h3>{$global.title}</h3>
+			<p>{$global.sub_title}</p>
+		</div>
+		<div class="i_nav">
+			<ul>
+				<li>
+					<a href="{myurl name='site/index'}"  class="{if isset($smarty.get.id)}{else}on{/if}">首 页</a>
+				</li>
+				<li>
+					<a href="{myurl name='article/list, id=>450'}"  class="{if isset($smarty.get.id)}on{else}{/if}">新闻中心</a>
+				</li>
+				</li>
+			</ul>
+		</div>
+		<div class="i_share clearfix">
+			<a href="javascript:;" class="i_share_wx" title="微信"></a>
+			<a href="{$global.wb_url}" title="微博" target="_blank" class="i_share_wb"></a><!--
+                    <a href="javascript:alert('敬请期待！')" class="i_share_bd" title="百度" target="_blank"></a> -->
+			<div class="i_share_weixin">
+				<img src="{$global.wx_img}" alt="微信ewm">
+			</div>
+		</div>
+	</div>
+</div>

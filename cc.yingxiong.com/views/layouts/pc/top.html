@@ -1,0 +1,43 @@
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/public/jquery-1.7.1.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script type="text/javascript">
+	$(".language").click(function(){
+		var language = $(this).attr("name");
+		var thisLanguage = $(this);
+		$.ajax({
+			type:"get",
+			url:"{myurl name="/site/ajax-change-language"}",
+			data: {
+				language: language
+			},
+			success: function(data){
+				var data = JSON.parse(data);			
+				if(data.status == 0){
+					if("{$tag}" == "detail"){
+						if("{$style}" == "xinwen"){
+							location.href = '{myurl name="article/index,type=>xinwen,page=>1"}';
+						}else if("{$style}" == "faq"){
+							location.href = '{myurl name="article/index,type=>faq,page=>1"}';
+						}else if("{$style}" == "zhanzheng"){
+							location.href = '{myurl name="article/index,type=>zhanzheng,page=>1"}';
+						}else if("{$style}" == "gonggao"){
+							location.href = '{myurl name="site/index"}';
+						}else if("{$style}" == "gonglue"){
+							location.href = '{myurl name="article/index,type=>gonglue,page=>1"}';
+						}
+						return;
+					}
+					$(".language").removeClass("active");
+					thisLanguage.addClass("active");
+					location.reload();
+				}
+			},
+			error: function(){
+				if("{$language}" == "zh_cn"){
+					alert("失败,请检查网络");
+				}else{
+					alert("Error,Please check the network");
+				}
+			}
+		});
+	});
+</script>

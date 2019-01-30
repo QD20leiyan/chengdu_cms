@@ -1,0 +1,130 @@
+{include file="../layouts/pc/header.html"}
+
+<body>
+	{fragment var=kv_img code=index_kv_img size=1}
+	<div class="bg public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}">
+		<section>
+			<div class="i_top public_nav" style="background-color:{$global.nav_background_color}" data-right="{jumpbackend name='nav_font_color'}">
+				<div class="cont">
+					<div class="i_topcon clearfix">
+						<div class="i_icon public_icon" data-icon="{jumpbackend name='website_title'}">
+							<img src="{$global.website_logo_img}" alt="icon">
+						</div>
+						<div class="i_top_title public_icon">
+							<h3>{$global.website_title}</h3>
+							<p>{$global.website_sub_title}</p>
+						</div>
+						<div class="i_nav">
+							<ul class="public_ul" data-color="{$global.nav_font_color}" data-hover="{$global.nav_font_hover_color}" data-bg="{$global.nav_background_color}" data-img="{$global.nav_background_img}">
+								<li class='{if $alias eq ' '}active {/if}'>
+									<a href="{myurl name='site/index'}">首 页</a>
+								</li>
+								<li class="{if $alias}active{/if}">
+									<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank">新闻资讯</a>
+								</li>
+								<li>
+									<a href="javascript:yx_showTips('敬请期待');">论坛</a>
+								</li>
+							</ul>
+						</div>
+						<div class="i_share clearfix">
+							<a href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="i_share_wb" title="微博" target="_blank"><img src="{$global.nav_wb_icon}" /></a>
+							<a href="javascript:" class="i_share_wx" title="微信"><img src="{$global.nav_wechat_icon}" /></a>
+							<a href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="i_share_bd" title="百度" target="_blank"><img src="{$global.nav_baidu_icon}" /></a>
+							<div class="i_share_weixin">
+								<div class="ewm">
+									<img src="{$global.nav_wechat_ewm}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="sec">
+			<section class="clearfix">
+				<article class="news-list-lef">
+					<nav class="titles">
+						<h3>新闻资讯<span><a href="{myurl name='site/index'}">首页 &gt;</a>  新闻资讯</span></h3>
+						<ul class="menu clearfix">
+							<li class="{if $alias eq zonghe}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>zonghe'}">最新</a>
+							</li>
+							<li class="{if $alias eq xinwen}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>xinwen'}">资讯</a>
+							</li>
+							<li class="{if $alias eq gonggao}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>gonggao'}">公告</a>
+							</li>
+							<li class="{if $alias eq huodong}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>huodong'}">活动</a>
+							</li>
+							<li class="{if $alias eq gonglve}active{else} {/if}">
+								<a href="{myurl name='article/list, alias=>gonglve'}">攻略</a>
+							</li>
+						</ul>
+						<div class="content">
+							{if !empty($data)}
+							<ul class="content-list show">
+								{foreach $data as $v}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">[{$v.name}]{$v.title}</a><span>[{$v.created_at|date_format:"%Y-%m-%d"}]</span>
+									</li>
+								{/foreach}
+							</ul>
+							{$page}
+							{else}
+							<p style="text-align: center;padding-top: 35px;">暂无数据</p>
+							{/if}
+						</div>
+					</nav>
+				</article>
+				<article class="news-list-rig public_footer" data-footer="{jumpbackend name='bottommedia_qq_ewm'}">
+					<aside class="erweima">
+						<img src="{$global.bottommedia_download_ewm}" />
+						<i></i>
+						<a href="{if $global.download_ios_url}{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.download_ios_background_img}"></a>
+						<a href="{if $global.download_tap_url}{$global.download_tap_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.download_tap_background_img}"></a>
+						<a href="{if $global.download_android_url}{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$global.download_android_background_img}"></a>
+					</aside>
+				</article>
+			</section>
+		</div>
+	</div>
+	{include file="../layouts/pc/footer.html"} 
+	<script type="text/javascript">
+		var fontColor = $(".public_ul").attr("data-color");
+		var hoverColor = $(".public_ul").attr("data-hover");
+		var bgColor = $(".public_ul").attr("data-bg");
+		$(".public_ul li a").css("color", fontColor);
+		$(".public_ul li a").hover(function() {
+			$(this).css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		}, function() {
+			$(this).css({
+				"color": fontColor,
+				"border-bottom-color": "transparent",
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+			$(".public_ul li:nth-child(2) a").css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		});
+		$(".public_ul li:nth-child(2) a").css({
+			"color": hoverColor,
+			"border-bottom-color": hoverColor,
+			"border-bottom-width": "3px",
+			"border-bottom-style": "solid"
+		});
+	</script>
+</body>
+
+</html>

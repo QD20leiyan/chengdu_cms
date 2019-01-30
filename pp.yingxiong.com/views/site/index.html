@@ -1,0 +1,191 @@
+{include file="../layouts/pc/header.html"}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css" />
+		<div class="kv">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				{fragment var=video code=video_index size=1}
+				<div class="slogan">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" alt="" class="ani zoomIn"/>
+					<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" data-url="{if $video}{$video[0].url}{/if}" class="{if $video}js_video_play play{else}play{/if}">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play2.png?{$smarty.const.VERSION}" alt=""/>
+					</a>
+				</div>
+            	<div class="download_box">
+					<div class="down_ewm">
+						<img src="" alt="" class="js_jump_img">
+						<i><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/guangbiao.png?{$smarty.const.VERSION}" alt=""></i>
+					</div>
+					<div class="down_btn">
+						<a href="javascript:;" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios2.png?{$smarty.const.VERSION}" alt=""></a>
+
+						<a href="javascript:;" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/az_btn2.png?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+				</div>
+            </div>
+			</div>
+		</div>
+		<div class="last ani">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<p class="title">新闻中心</p>
+				<p class="title1">NEWS</p>
+				<div class="m_content">
+					<div class="left_banner">
+					    {fragment var=banner code=news_banner size=5}
+						<ul class="swiper-wrapper">
+						{if $banner neq ''}
+						{foreach $banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+					    {/foreach}
+					    {/if}
+						</ul>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="right_news">
+						<div class="right_main">
+							<ul class="news_ul">
+								<li class="active">综合</li>
+								<li>新闻</li>
+								<li>公告</li>
+								<li>攻略</li>
+								<li>活动</li>
+								<a href="{myurl name='article/list, id=>	1894'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+							</ul>
+							<div class="news_list">
+								<ul class="active">
+								{article id="1894" size=4 var=zx}
+							    {if $zx neq ''}
+								{foreach $zx as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+								</ul>
+								<ul class="">
+							{article id="1895" size=4 var=xw}
+							{if $xw neq ''}
+								{foreach $xw as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="1896" size=4 var=gg}
+							{if $gg neq ''}
+								{foreach $gg as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="1897" size=4 var=gl}
+							{if $gl neq ''}
+								{foreach $gl as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="1898" size=4 var=hd}
+							{if $hd neq ''}
+								{foreach $hd as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+							</div>
+						</div>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/peo1.png?{$smarty.const.VERSION}" alt="" class="peo1 ani-item">
+				</div>
+				<div class="m_play">
+				     <div class="peo2">	
+				    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/peo22.png?{$smarty.const.VERSION}" alt=""></div> 
+					<p class="m_title">游戏特色</p>
+					<p class="m_title1">GAME FEATURES</p>
+					<div class="bottom_banner">
+						{fragment var=i_play code=banner_pcts size=5}
+				<ul class="swiper-wrapper">
+					{if $i_play neq ''}
+						{foreach $i_play as $v}
+							<li class="swiper-slide"><a href="javascript:;"><img src="{$v.thumb}" alt="" /></a></li>
+						{/foreach}
+					{/if}
+				</ul>
+					</div>
+					<div class="swiper-pagination1"></div>
+					<div class="swiper-button-prev1"></div>
+					<div class="swiper-button-next1"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="zj_footer" style="display: none;">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<ul>
+					<li>
+					    <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}">
+						<img src="{$global.wb_img}" alt="" />
+						<div class="zj_txt">
+							<p class="zj_txt1">官方微博</p>
+							<p class="zj_txt2">扫描二维码，进入官方微博</p>
+							<p class="zj_txt3"><span>官方微博：</span>泡泡联盟</p>
+						</div>
+						</a>
+					</li>
+					<li>
+						<img src="{$global.wx_img}" alt="" />
+						<div class="zj_txt">
+							<p class="zj_txt1">微信公众号</p>
+							<p class="zj_txt2">扫描二维码关注官方微信</p>
+							<p class="zj_txt3"><span>官方微信号：</span>泡泡联盟</p>
+						</div>
+					</li>
+					<li>
+					    <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}">
+						<img src="{$global.tb_img}" alt="" />
+						<div class="zj_txt">
+							<p class="zj_txt1">百度贴吧</p>
+							<p class="zj_txt2">官方贴吧交流平台</p>
+							<p class="zj_txt3"><span>官方贴吧：</span>泡泡联盟</p>
+						</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		{include file="../layouts/pc/footer.html"}
+		

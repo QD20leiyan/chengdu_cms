@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+	{csrf}
+    <title>{$seo_title}</title>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/public.css?{$smarty.const.VERSION}" />
+	<link href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" rel="stylesheet">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/active.css?{$smarty.const.VERSION}" />
+	<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script>
+
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+
+		})(document, window);
+	</script>
+</head>
+
+<body>
+    <header class="header">
+		<a href="{myurl name='wap/site/index'}" class="logo"><img src="{$global.logo_img}" alt=""></a>
+		<div class="h_text">
+			<p class="h_p01">{$global.title}</p>
+            <p class="h_p02">{$global.sub_title}</p>
+		</div>
+		<a href="{myurl name='wap/site/index'}" class="h_loadGame"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/enter.png?{$smarty.const.VERSION}" alt=""></a>
+	</header>
+	<!--内容-->
+			<!--第一部分-->
+			<div class="kv">
+				<a href="javascript:;" class="enter"></a>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo2">
+				<div class="slogan"></div>
+				<div class="peo bounse"></div>
+			</div>
+			<div class="page_two">
+				 <div class="gidt_box1">
+				 	<div class="gifts"></div>
+				 	<a href="javascript:;" class="js_wap_down stat_cover_down"></a>
+				 </div>
+				 <div class="gidt_box2">
+				 	<div class="gifts"></div>
+				 	<a href="javascript:;" class="js_wap_down stat_cover_down"></a>
+				 </div>
+			</div>
+                 <div class="page3">
+                	<div class="part1">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/gif1.gif?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part2">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/gif2.gif?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part3">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/gif3.gif?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part4">
+                		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/part4_img.png?{$smarty.const.VERSION}" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part5">
+                		<p class="gift_info">老用户回归最高可获得<span>VIP10</span>和<span>24571钻石</span>返还，无双助您新区再战！</p>
+                	    <p class="buch">（该老账号在活动开启后的新服中创建的第1个角色有效）</p>
+                	</div>
+                	<div class="part6">
+                		<div class="share_box">
+				<ul>
+					<li>
+						<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/qq.png?{$smarty.const.VERSION}" alt="" target="_blank">
+							<p>官方Q群1</p>
+						</a>
+					</li>
+					<li>
+						<a href="{if $global.group_two_num}{$global.group_two_num}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/qq.png?{$smarty.const.VERSION}" alt="">
+							<p>官方Q群2</p>
+						</a>
+					</li>
+				</ul>
+				<div class="weixin_box">
+					<img src="{$global.wx_img}" alt="">
+				</div>
+				<ul>
+					<li>
+						<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/wb.png?{$smarty.const.VERSION}" alt="">
+							<p>官方微博</p>
+						</a>
+					</li>
+					<li>
+						<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/tb.png?{$smarty.const.VERSION}" alt="">
+							<p>官方贴吧</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+                	</div>
+                </div>
+	</div>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+</body>
+{download}
+{video_play}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js"></script>
+<script>
+$(function (){
+	var mySwiper01 = new Swiper('.h_banner1', {
+			effect: "coverflow",
+			speed: 1500,
+			autoplay: 3500,
+			prevButton: ".wgam_prev",
+			nextButton: ".wgam_next",
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			slidesPerView:2.43,
+			loop: true,
+			effect: 'coverflow',
+			slideToClickedSlide: true,
+			simulateTouch: false,
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false,
+			coverflow: {
+				rotate: 50,
+				stretch: -55,
+				depth: 410,
+				modifier: 1,
+				slideShadows: true
+			},
+			});
+	$(".gidt_box1 a").click(function(){
+		HLog.event("jws_active_gift1");
+	})
+	$(".gidt_box2 a").click(function(){
+		HLog.event("jws_active_gift2");
+	})
+});
+</script>
+</html>

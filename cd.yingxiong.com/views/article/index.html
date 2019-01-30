@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{seo name='title'}</title>
+		<meta name="keywords" content="{seo name='keywords'}" />
+		<meta name="description" content="{seo name='description'}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/swiper.3.1.7.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/news.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/js/jquery-1.7.1.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+		<script>
+		    var _hmt = _hmt || [];
+		    (function() {
+		      var hm = document.createElement("script");
+		      hm.src = "https://hm.baidu.com/hm.js?c5056f67f2a864dfc774e882633a7871";
+		      var s = document.getElementsByTagName("script")[0]; 
+		      s.parentNode.insertBefore(hm, s);
+		    })();
+		</script>
+		 <script>
+   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+   //push 参数，name：页面名称，behavior 行为 
+   //event 参数，event：事件名称，args 拓展参数 
+   var HLog={ 
+    push: function(name,behavior){},
+    setUser:function(){},
+    event:function(event,args){},
+    ready:function(){}
+    };
+   HLog.config={
+       "senseHash":0, //hash锚点是否进入url统计
+       "senseQuery":0, //url参数是否进入url统计
+       "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+   };
+   (function() {
+      var hl = document.createElement("script");
+      hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/47/client/1/filter/stat.js";
+      hl.async = "async";
+      var s = document.getElementsByTagName("script")[0];
+      HLog.ready = function(){
+        HLog.push('reflash')
+      };
+      s.parentNode.insertBefore(hl, s);
+   })();
+</script>
+	</head>
+	
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="m_con">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/red.png?{$smarty.const.VERSION}" alt="" class="red" />
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/blue.png?{$smarty.const.VERSION}" alt="" class="blue" />
+				<div class="z_news">
+					<div class="z_con">
+						<p class="fanhui"><a href="{myurl name='site/index'}">首页</a>>新闻列表</p>
+						<ul class="t_title">
+							<li class="{if $type eq xinwen}active{else}{/if}"><a href="{myurl name='/article/index, type=>xinwen,page=>1'}">新闻</a></li>
+							<li class="{if $type eq gonggao}active{else}{/if}"><a href="{myurl name='/article/index, type=>gonggao,page=>1'}">公告</a></li>
+							<li class="{if $type eq zhixun}active{else}{/if}"><a href="{myurl name='/article/index, type=>zhixun,page=>1'}">资讯</a></li>
+							<li class="{if $type eq huodong}active{else}{/if}"><a href="{myurl name='/article/index, type=>huodong,page=>1'}">活动</a></li>
+						</ul>
+						<div class="n_con">
+							<ul class="n_con_ul">
+								{foreach $data as $v}
+									<li><a href="{$v.linkUrl}" target="_blank"><i>【{$v.name}】</i>{$v.title}</a><span>[{$v.created_at_formate}]</span></li>
+								{/foreach}
+							</ul>
+							{$page}
+						</div>
+					</div>	
+				</div>
+			</div>
+			<div class="ewm-box">
+				<i class="f_close"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/fuhao.png?{$smarty.const.VERSION}" alt="" /></i>
+            <div>
+                <img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ewm.png" class="js_jump_img" />
+            </div>
+            <h1>扫一扫,下载体验版</h1>
+            <p></p>
+            <label></label>
+			{if !in_array($channel_name,['ppcpc','stpc','jpcpc'])}
+				<!-- <a href="javascript:alert('敬请期待');" class="goods"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods_2.png?{$smarty.const.VERSION}"></a> -->
+				<a href="http://l.taptap.com/ywzEouU6" class="goods stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods_2.png?{$smarty.const.VERSION}"></a>
+				<a href="http://cdn.yingxiong.com/dou/dou-hykb-P33074A-0830.apk" class="goods stat_hy"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods.png?{$smarty.const.VERSION}"></a>
+            {/if}
+			<label></label>
+            <ul class="cd-gf">
+                <li>
+                    <a href="javascript:">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weixin.png?{$smarty.const.VERSION}">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weixin_active.png?{$smarty.const.VERSION}">
+                        </div>
+                        <p>微信</p>
+                    </a>
+                    <i>
+                        <img src="{$global.wx_img}">
+                    </i>
+                </li>
+                <li>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weibo.png?{$smarty.const.VERSION}">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weibo_active.png?{$smarty.const.VERSION}">
+                        </div>
+                        <p>微博</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.tb_url}" target="_blank">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}4.0/images/tieba.png?{$smarty.const.VERSION}">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}4.0/images/tieba_active.png?{$smarty.const.VERSION}">
+                        </div>
+                        <p>贴吧</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+		</div>
+	</body>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function (){
+			$('.f_close').click(function() {
+				$('body').toggleClass('op');
+				if($('body').hasClass('op')) {
+					$(this).children("img").css("transform","rotate(180deg)");
+				} else {
+					$(this).children("img").css("transform","rotate(0deg)");
+				}
+			});
+		});
+	</script>
+</html>

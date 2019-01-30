@@ -1,0 +1,111 @@
+{include '../layouts/pc/header.html'}
+		<div class="cont_img" style="background-image: url({$top_thumb})"></div>
+		<div class="cont_news">
+			<div class="cont_route">您的当前位置:
+				<a href="{myurl name='site/index'}">代号英雄</a>&nbsp;>&nbsp;
+				<em {if $data.id==419}class="showEm" {/if}>最新</em>
+				<em {if $data.id==421}class="showEm" {/if}>新闻</em>
+				<em {if $data.id==422}class="showEm" {/if}>公告</em>
+				<em {if $data.id==423}class="showEm" {/if}>攻略</em>
+				<em {if $data.id==420}class="showEm" {/if}>活动</em>
+			</div>
+		</div>
+		<div class="listbox">
+			<ul class="list_tab">
+				<li {if $data.id==419}class="active" {/if}>
+					<a href="{myurl name='article/list, id=>419'}">最新</a>
+				</li>
+				<li {if $data.id==421}class="active" {/if}>
+					<a href="{myurl name='article/list, id=>421'}">新闻</a>
+				</li>
+				<li {if $data.id==422}class="active" {/if}>
+					<a href="{myurl name='article/list, id=>422'}">公告</a>
+				</li>
+				<li {if $data.id==423}class="active" {/if}>
+					<a href="{myurl name='article/list, id=>423'}">攻略</a>
+				</li>
+				<li {if $data.id==420}class="active" {/if}>
+					<a href="{myurl name='article/list, id=>420'}">活动</a>
+				</li>
+			</ul>
+			<div class="newslist">
+				<ul>
+					{if isset($data.data[0])} {foreach $data.data as $key=>$v}
+					<a href="{$v.linkUrl}" target="_blank">
+						<li>
+							<div class="newlist_left">
+								<span class="newlist_title">{$v.name}</span>
+								<span class="newlist_time">{$v.created_at|date_format:"%m/%d"}</span>
+							</div>
+							<div class="newlist_img"><img src="{$v.thumb}"></div>
+							<div class="newlist_right">
+								<h3>{$v.title}</h3>
+								<p>{$v.seo_description}</p>
+							</div>
+						</li>
+					</a>
+					{/foreach} {else}
+					<p class="noData">暂无数据</p>
+					{/if}
+				</ul>
+			</div>
+
+			{if $data.page neq 1}
+			<div class="pages">
+				{$data.page}
+			</div>
+			{/if}
+		</div>
+		<!-- 这是弹窗 -->
+		{include file='../layouts/pc/getGoldFloat.html'}
+		{include file="../layouts/pc/float.html"}
+	</body>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/x/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/x/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/x/js/getGold.js?{$smarty.const.VERSION}"></script>
+	<script>
+
+     //点击隐藏和显示下载悬浮框
+function show_hide_down() {
+
+    $(".q_f_icon").click(function() {
+        var state = $(this).attr("show");
+        if(state) {
+            $(".q_float").animate({
+                "right": "60px"
+            }, 200);
+            $("#bshare-custom, #q_back").animate({
+                "right": "280px"
+            }, 200);
+            $(this).attr({
+                "show": "",
+                "class": "show"
+            });
+        } else {
+            $(".q_float").animate({
+                "right": "-177px"
+            }, 200);
+            $("#bshare-custom, #q_back").animate({
+                "right": "40px"
+            }, 200);
+            $(this).attr({
+                "show": "true",
+                "class": "hide"
+            });
+        }
+    })
+}
+		//QQ二维码
+    $(".qq1").hover(function(){
+        $(".wem1").toggleClass("active");
+    });
+    $(".qq2").hover(function(){
+        $(".wem2").toggleClass("active");
+    });
+show_hide_down();
+	</script>
+    {download}
+</html>

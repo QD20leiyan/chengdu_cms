@@ -1,0 +1,222 @@
+{include '../../layouts/wap/header.html'}
+<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css" />
+<div class="cont1">
+			<div class="logo"></div>
+			{fragment var=video code=index_video size=1}
+			<!--<div class="play"></div>-->
+	<div class="play-btn js_video_play" data-url="{if $video}{$video[0].url}{/if}" >
+	<img class="play_bg"src="{$smarty.const.STATIC_DOMAIN}/m/images/play2.png?{$smarty.const.VERSION}" alt="">
+	<img class="play_sm scaleImg2" src="{$smarty.const.STATIC_DOMAIN}images/play2_02.png?{$smarty.const.VERSION}"/>
+	</div>
+			<!--<img class="video js_video_play" data-url="{if $video}{$video[0].url}{/if}" src="{$smarty.const.STATIC_DOMAIN}/m/images/video1.png?{$smarty.const.VERSION}" alt="">-->
+			<div class="download"><a class="js_wap_down stat_down" href=""></a></div>
+		</div>
+		<div class="cont2">
+			<div class="swiper1">
+				{fragment var=index_banner code=banner size=3}
+				<div class="swiper-wrapper">
+					{if $index_banner neq ''}
+					{foreach $index_banner as $v}
+					<div class="swiper-slide">
+						<a href="javascript:;">
+							<img src="{$v.thumb}">
+							<p>{$v.title}</p>
+						</a>
+					</div>
+					{/foreach}
+					{/if}
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="news">
+				<ul class="news-list">
+					<li class="active" data-index="0">最新</li>
+					<li data-index="1">新闻</li>
+					<li data-index="2">攻略</li>
+					<li data-index="3">公告</li>
+					<a href="{myurl name='wap/article/list, id=>442'}"></a>
+				</ul>
+				<ul class="news-info">
+					<li class="info active">
+						{article id="442" size=4 var=zx}
+						{if $zx neq ''}
+							<a href="{$zx[0].wapLinkUrl}">
+								<h3>{$zx[0].title}</h3>
+								<p>{$zx[0].contentMessage}</p>
+							</a>
+							<ul class="news-info-list">
+								{foreach $zx as $key=>$v}
+								{if $key > 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<span><i>[{$v.name}]</i>{$v.title}</span>
+										<span>{$v.created_at|date_format:"%m/%d"}</span>
+									</a>
+								</li>
+								{/if}
+								{/foreach}
+							</ul>
+							{else}
+							<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="444" size=4 var=xw}
+						{if $xw neq ''}
+							<a href="{$xw[0].wapLinkUrl}">
+								<h3>{$xw[0].title}</h3>
+								<p>{$xw[0].contentMessage}</p>
+							</a>
+							<ul class="news-info-list">
+								{foreach $xw as $key=>$v}
+								{if $key > 0}
+								<li><a href="{$v.wapLinkUrl}"><span><i>[{$v.name}]</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+								{/if}
+								{/foreach}
+							</ul>
+							{else}
+							<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="445" size=4 var=hd}
+						{if $hd neq ''}
+							<a href="{$hd[0].wapLinkUrl}">
+								<h3>{$hd[0].title}</h3>
+								<p>{$hd[0].contentMessage}</p>
+							</a>
+							<ul class="news-info-list">
+								{foreach $hd as $key=>$v}
+								{if $key > 0}
+								<li><a href="{$v.wapLinkUrl}"><span><i>[{$v.name}]</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+								{/if}
+								{/foreach}
+							</ul>
+							{else}
+							<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="446" size=4 var=gg}
+						{if $gg neq ''}
+							<a href="{$gg[0].wapLinkUrl}">
+								<h3>{$gg[0].title}</h3>
+								<p>{$gg[0].contentMessage}</p>
+							</a>
+							<ul class="news-info-list">
+								{foreach $gg as $key=>$v}
+								{if $key > 0}
+								<li><a href="{$v.wapLinkUrl}"><span><i>[{$v.name}]</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+								{/if}
+								{/foreach}
+							</ul>
+							{else}
+							<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="cont3">
+			<div class="title"></div>
+			<div class="playBg">
+				<div class="swiper2">
+					<div class="swiper-wrapper">
+						{fragment var=banner_play code=banner_play size=3}
+						{if $banner_play neq ''}
+						{foreach $banner_play as $v}
+						<div class="swiper-slide">
+							<a href="javascript:;">
+								<img src="{$v.thumb}">
+							</a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</div>
+        <div class="cont4">
+            <a class="qq1" href="http://qm.qq.com/cgi-bin/qm/qr?k=pxAlTVtxwhVdosqUEwnVl8ompXxgASVA#"></a>
+            <a class="qq2 " href="javascript:yx_showTips('敬请期待');"></a>
+            <a class="weibo" href="{$global.wb_url}"></a>
+            <a class="tieba" href="{$global.tb_url}"></a>
+            <img class="weixin" src="{$global.wx_img}" alt="">
+            <img class="bg" src="{$smarty.const.STATIC_DOMAIN}/m/images/img222.png?{$smarty.const.VERSION}" alt="">
+        </div>
+	</body>
+{video_play}
+{download}
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js"></script>
+<script type="text/javascript">
+    setShareInfo({
+        title:          '漂移车神_官方网站__SUPREME DRIFT',
+        summary:        '全3D写实在线竞速手游',
+        pic:            'http://cdnstatic.yingxiong.com/sd//m/images/icon.png',
+        url:            'http://sd.yingxiong.com/m/',
+    });
+</script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/sdwx/sdwxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+    $(function(){
+        var share = {
+            imgUrl      : 'http://cdnstatic.yingxiong.com/sd//m/images/icon.png',
+            title  :'漂移车神_官方网站__SUPREME DRIFT',
+            desc : '全3D写实在线竞速手游',
+            link    : wx_conf.url,
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function () {
+            wx.onMenuShareAppMessage(share);//分享给好友
+            wx.onMenuShareTimeline(share);//分享到朋友圈
+            wx.onMenuShareQQ(share);//分享给手机QQ
+        });
+    });
+</script>
+
+<script src="{$smarty.const.STATIC_DOMAIN}/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script>
+    var mySwiper = new Swiper(".swiper1", {
+        autoplay: 5000,
+        pagination : '.swiper-pagination',
+		loop: true
+    });
+    var mySwiper2 = new Swiper(".swiper2", {
+        autoplay: 5000,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        loop: true
+    });
+    $(".news-list").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+		}
+		var index = parseInt($(this).attr('data-index'));
+        $('.news-list').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news-info').find('li').removeClass('active');
+        $('.news-info').find('li.info').eq(index).addClass('active');
+    });
+</script>
+{include '../../layouts/wap/foot.html'}

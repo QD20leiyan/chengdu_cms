@@ -1,0 +1,365 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="baidu-site-verification" content="4QTWrEt07K" />
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{include '../../layouts/wap/header3.html'}
+	</head>
+
+	<body>
+		<div class="page-bg"></div>
+		{include '../../layouts/wap/header.html'}
+		<section class="nav-box">
+			<a class="on" href='{myurl name="m/site/index"}'>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/index.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/index_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>首页</p>
+			</a>
+			<a href="{myurl name='m/info/remen/list_1'}">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/activity.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/activity_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>新闻</p>
+			</a>
+			<a href="{myurl name='m/info/xsgl/list_1'}">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/raiders.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/raiders_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>攻略</p>
+			</a>
+			<a href="javascript:alert('敬请期待！')">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/life.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/life_a.png?{$smarty.const.VERSION}" alt="" />
+				<p>数据生涯</p>
+			</a>
+		</section>
+		<section class="kv-box">
+			<img class="img-cover" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/kv-3.png?{$smarty.const.VERSION}" />
+			<img class="video-btn an1 js_video_play"
+				src="{$smarty.const.STATIC_DOMAIN}3.0/m/images//video-mmm.png?{$smarty.const.VERSION}"
+			  	data-video='http://video.yingxiong.com/hd/41af9f0616f8454982d05eddf86d744b.mp4'
+			  	data-url='http://video.yingxiong.com/hd/41af9f0616f8454982d05eddf86d744b.mp4'
+			  	data-img="//cdnimg01.yingxiong.com/M00/01/FC/CsggAllKRi6ES-kXAAAAAAHxZdQ301.png" />
+			<a class="js_wap_down stat_event_down" href="javascript:;" style="display:block;position: absolute;width: 100%;height: 30%;bottom: 0;left: 0;"></a>
+			
+		</section>
+		<section class="box1">
+			<div class="swiper-container banner1">
+				<div class="swiper-wrapper">
+					{foreach $banner as $key=> $v}
+					<a class="swiper-slide" href="{$v.url}">
+						<img src="{$v.thumb}" alt="" />
+					</a>
+					{/foreach}
+				</div>
+				<div class="page-box">
+					<div class="swiper-container text1">
+						<div class="swiper-wrapper">
+							{foreach $banner as $key=> $v}
+							<div class="swiper-slide">
+								<p>{$v.title}</p>
+							</div>
+							{/foreach}
+						</div>
+					</div>
+					<div class="swiper-pagination page-icon1">
+
+					</div>
+				</div>
+			</div>
+			<div class="tag-box">
+				<a href="javascript:alert('敬请期待！')">资料库</a>
+				<a href="/m/info/xsgl/list_1.html">萌新攻略</a>
+				<a href="/m/info/jjgl/list_1.html">高手进阶</a>
+				<a href="javascript:alert('敬请期待！')">大神专栏 </a>
+			</div>
+		</section>
+		<section class="news-box">
+			<p class="tit"><span>新闻中心</span>
+				<a href="{myurl name='m/info/remen/list_1'}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/more-btn.png?{$smarty.const.VERSION}" /></a>
+			</p>
+			<div class="cont-box">
+				<div class="tag-box">
+					<a class="on">热门</a>
+					<a>新闻</a>
+					<a>公告</a>
+					<a>媒体</a>
+					<a>活动</a>
+				</div>
+				<div class="item-box on">
+					{foreach $remen as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><em>[热门]</em><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $xinwen as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><em>[新闻]</em><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $gonggao as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><em>[公告]</em><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $meiti as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><em>[媒体]</em><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{if $huodong}
+						{foreach $huodong as $key=> $v}
+							<a href="{$v.wapLinkUrl}"><em>[活动]</em><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+						{/foreach}
+					{else}
+						<p style="text-align: center;color:#ccc;">暂无数据</p>
+					{/if}
+				</div>
+			</div>
+		</section>
+		<section class="info-box">
+			<p class="tit">种族介绍</p>
+			<div class="cont-box">
+				<div class="tag-box">
+
+					<a class="on"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon1.png?{$smarty.const.VERSION}" alt="" />人族</a>
+					<a><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon2.png?{$smarty.const.VERSION}" alt="" />神族</a>
+					<a><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon3.png?{$smarty.const.VERSION}" alt="" />妖族</a>
+				</div>
+				<a class="item-box on" href="javascript:alert('敬请期待！')">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/bgg1.jpg" />
+				</a>
+				<a class="item-box" href="javascript:alert('敬请期待！')">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/bgg2.jpg" />
+				</a>
+				<a class="item-box" href="javascript:alert('敬请期待！')">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/bgg3.jpg" />
+				</a>
+			</div>
+		</section>
+		<section class="raiders-box">
+			<p class="tit"><span>攻略中心</span>
+				<a href="{myurl name='m/info/xsgl/list_1'}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/more-btn.png?{$smarty.const.VERSION}" /></a>
+			</p>
+			<div class="cont-box">
+				<div class="tag-box">
+					<a class="on">入门攻略</a>
+					<a>进阶攻略</a>
+					<a>FAQ问答</a>
+					<a>同人故事</a>
+				</div>
+				<div class="item-box on">
+					{foreach $xsgl as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $jjgl as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $FAQ as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $trgs as $key=> $v}
+					<a href="{$v.wapLinkUrl}"><span>{$v.title}</span><i>{$v.created_at|date_format:'%m/%d'}</i></a>
+					{/foreach}
+				</div>
+			</div>
+		</section>
+		<section class="video-box">
+			<p class="tit"><span>视频中心</span>
+				<a href='{myurl name="m/video/zxsp/list_1"}'><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/more-btn.png?{$smarty.const.VERSION}" /></a>
+			</p>
+			<div class="cont-box">
+				<div class="tag-box">
+					<a class="on">最新视频</a>
+					<a>官方视频</a>
+					<a>玩家视频</a>
+				</div>
+				<div class="item-box on">
+					{foreach $video_new as $key=> $v}
+					<a class="js_video_play" data-url='{$v.content_message}' data-img='{$v.thumb}' data-video='{$v.content_message}' data-cover='{$v.thumb}'>
+						<img class="cover" src="{$v.thumb}" />
+						<img class="icon" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/video-icon.png?{$smarty.const.VERSION}" alt="" />
+						<p>{$v.title}</p>
+					</a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $video_off as $key=> $v}
+					<a class="js_video_play" data-url='{$v.content_message}' data-img='{$v.thumb}' data-video='{$v.content_message}' data-cover='{$v.thumb}'>
+						<img class="cover" src="{$v.thumb}" />
+						<img class="icon" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/video-icon.png?{$smarty.const.VERSION}" alt="" />
+						<p>{$v.title}</p>
+					</a>
+					{/foreach}
+				</div>
+				<div class="item-box">
+					{foreach $video_player as $key=> $v}
+					<a class="js_video_play" data-url='{$v.content_message}' data-img='{$v.thumb}' data-video='{$v.content_message}' data-cover='{$v.thumb}'>
+						<img class="cover" src="{$v.thumb}" />
+						<img class="icon" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/video-icon.png?{$smarty.const.VERSION}" alt="" />
+						<p>{$v.title}</p>
+					</a>
+					{/foreach}
+				</div>
+			</div>
+		</section>
+		<section class="college-box">
+			<p class="tit">英雄学院</p>
+			<div class="swiper-container college">
+				<div class="num-box">
+					<span class="college-num">1</span>/<span class="college-all-num">4</span>
+				</div>
+				<div class="swiper-wrapper">
+					<a class="swiper-slide" href="javascript:alert('敬请期待！')">
+						<h4>什么是赤潮</h4>
+						<p>《战争艺术·赤潮》是一款快节奏的全球同服团队实时竞技游戏。你可以从人、神、妖三个种族中挑选兵种组成你的部队，在战斗中，运用巧妙的出兵策略和强大的指挥官技能，打爆敌方基地取得胜利。</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon4.png?{$smarty.const.VERSION}" />
+					</a>
+					<a class="swiper-slide" href="javascript:alert('敬请期待！')">
+						<h4>如何加入战斗</h4>
+						<p>进入战场只需要三步：搭配部队、排兵布阵、摧毁敌方基地。选定一个种族，配置您的专属部队，进入战场观察局势实时出兵，最终打爆敌方基地获取胜利吧！</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon4.png?{$smarty.const.VERSION}" />
+					</a>
+					<a class="swiper-slide" href="javascript:alert('敬请期待！')">
+						<h4>指挥官如何成长</h4>
+						<p>赤潮需要长线收集的元素为兵种和符文，上百种兵种与几十种符文的自由组合，可以帮助您在战场上更灵活地应对千变万化的战斗。</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon4.png?{$smarty.const.VERSION}" />
+					</a>
+					<a class="swiper-slide" href="javascript:alert('敬请期待！')">
+						<h4>如何成为指挥官</h4>
+						<p>《战争艺术：赤潮》iOS版现已全球公测，进入App Store搜索“战争艺术赤潮”并下载，即刻成为一名赤潮指挥官加入我们吧！</p>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon4.png?{$smarty.const.VERSION}" />
+					</a>
+				</div>
+				<div class="swiper-pagination page-icon2"></div>
+			</div>
+		</section>
+		<section class="contact-box">
+			<a href="http://bbs.yingxiong.com/t/m/15.html">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon-bbs.png?{$smarty.const.VERSION}" />
+				<p>官方论坛</p>
+			</a>
+			<a href="{$global.tb_url}">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon-tieba.png?{$smarty.const.VERSION}" />
+				<p>百度贴吧</p>
+			</a>
+			<a href="{$global.wb_url}">
+				<img src="{$global.wb_img}" />
+				<p>官方微博</p>
+			</a>
+			<a>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon-qq.png?{$smarty.const.VERSION}" />
+				<p>官方Q群</p>
+				<span>{$global.group_num}</span>
+			</a>
+			<a>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/icon-cantact.png?{$smarty.const.VERSION}" />
+				<p>客服服务</p>
+				<span>4009393333</span>
+			</a>
+			<a>
+				<img src="{$global.wx_img}" />
+				<p>公众号</p>
+			</a>
+		</section>
+		<section class="video-dialog-box">
+			<div class="video-cont-box">
+				<img class="close-btn" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/loadtips_close.png?{$smarty.const.VERSION}" />
+			</div>
+		</section>
+		
+
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script src="http://cdnstatic.yingxiong.com/common/js/statics.js"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/clipboard.min.js"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+		<!--<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.2.0.js" charset="utf-8"></script>-->
+		{download}
+		
+		<script type="text/javascript">
+			//轮播
+			var banner1 = new Swiper('.banner1', {
+				pagination: '.page-icon1',
+				autoplay:3000,
+				loop:true,
+			});
+			var text1 = new Swiper('.text1', {
+				loop:true,
+				effect: 'fade',
+				fade: {
+					crossFade: true,
+				}
+			});
+			//swiper双向控制
+			banner1.params.control = text1;
+
+			//类别切换
+			var tagBox = $(".tag-box");
+			tagBox.find("a").click(function() {
+				var on = $(this).hasClass("on");
+				var index = $(this).index();
+				console.log(index)
+				if(!on) {
+					$(this).siblings().removeClass("on");
+					$(this).addClass('on');
+					$(this).parent('.tag-box').siblings('.item-box').removeClass('on');
+					$(this).parent('.tag-box').siblings('.item-box').eq(index).addClass('on');
+				}
+			});
+			//英雄学院
+			var college = new Swiper('.college', {
+				pagination: '.page-icon2',
+				onInit: function(swiper) {
+					console.log(swiper)
+					console.log(swiper.activeIndex)
+				},
+				onSlideChangeEnd: function(swiper) {
+					console.log(swiper.activeIndex)
+					$(".college-num").text(swiper.activeIndex + 1);
+				}
+			});
+//			//弹出视频对话框
+//			var dialogBox = $(".video-dialog-box");
+//			$(".video-box").find('.item-box').find('a').click(function() {
+//				//视频地址
+//				var videoSrc = $(this).attr('data-video');
+//				//封面
+//				var videoCover = $(this).attr('data-cover');
+//				dialogBox.show();
+//			});
+//			$(".video-btn").click(function() {
+//				//视频地址
+//				var videoSrc = $(this).attr('data-video');
+//				//封面
+//				var videoCover = $(this).attr('data-cover');
+//				//视频DOM
+//				dialogBox.show();
+//			})
+//			//关闭对话框
+//			$(".close-btn").click(function() {
+//				$(".video-dialog-box").hide();
+//				dialogBox.find("video").remove();
+//				$("#video-B").empty();
+//			});
+// 下载统计
+			
+
+		</script>
+		{video_play}
+	</body>
+
+</html>

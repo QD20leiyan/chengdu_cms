@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title id="lo_title">{$global.web_title}</title>
+		<meta name="keywords" content="{$global.web_key}" />
+		<meta name="description" content="{$global.web_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/colpick.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/tc_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/m/css/index_new.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<script type="text/javascript">
+			var websiteId = "{$global.website_id}";
+			var FooterConFig = {
+				switch: 1,
+				icp: '',
+				kf_id : 0,
+				kefu:'0',
+				community_id : 0,
+				sequ: "javascript:;",
+				burl: ""
+			}
+		</script>
+	</head>
+
+	<body id="wap_body">
+		<!--header-->
+		<header class="header" id="header" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{/if}{if $global.nav_background_img neq '暂无数据'}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+			<a href="javascript:;" class="logo">
+				<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" >
+			</a>
+			<div class="h_text">
+				<p id="txt01" class="h_p01" style="{if $global.website_title_style neq '暂无数据'}{$global.website_title_style}{/if}">{if isset($global.website_title)}{$global.website_title}{/if}</p>
+				<p id="txt02" class="h_p02" style="{if $global.website_sub_title_style neq '暂无数据'}{$global.website_sub_title_style}{/if}">{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+			</div>
+			<div class="header_a">
+				<a href="javascript:;" class="down_btn" style="background-color:{if $global.nav_button_color_wap neq ''}{$global.nav_button_color_wap}{/if};{if $global.nav_button_title_style_wap neq ''}{$global.nav_button_title_style_wap}{/if}">{if $global.nav_button_title_wap neq ''}{$global.nav_button_title_wap}{/if}</a>
+			</div>
+			{if $diy}
+				<div class="pb_tc" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</header>
+		<!--内容-->
+		<div class="i_main">
+			<!--第一部分-->
+			<div class="top fade" style="background:url({if $global.kv_background_img_wap neq '暂无数据'}{$global.kv_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<!--slogan-->
+				<div class="slogan">
+					<!--kv_video-->
+					<div data-url="{if isset($global.kv_video_url)}{$global.kv_video_url}{/if}" class="videoBtn {if isset($global.kv_video_button_img)}js_video_play{/if}"><img src="{if $global.kv_video_button_img neq '暂无数据'}{$global.kv_video_button_img}{/if}"></div>
+				</div>
+				<!--预约按钮-->
+				<div class="order"><img id="order" src="{if isset($global.kv_yuyue_module_botton_img)}{$global.kv_yuyue_module_botton_img}{/if}"></div>
+				{if $diy}
+				<div class="pb_kv" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+			<!--第二部分-->
+			<div class="ward_box" style="background:url({if $global.progress_background_img_wap neq '暂无数据'}{$global.progress_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<p class="con_txt" style="{if $global.progress_background_summary_style neq '暂无数据'}{$global.progress_background_summary_style}{/if}">{if isset($global.progress_background_summary)}{$global.progress_background_summary}{/if}</p>
+				<a href="javascript:;" class="yy_btn" id="jd_yy"><img src="{if isset($global.progress_yuyue_botton_img_wap)}{$global.progress_yuyue_botton_img_wap}{/if}" alt=""></a>
+				<p class="yyue_num2 text_number" id="yy_number"></p>
+				<p class="yuyue_text">目前官网已预约人数</p>
+				<div class="dialog">
+					<div class="yueBox">
+						<div class="line">
+							<img class="line-nocolor" src="{if $global.progress_bar_background_img_wap neq '暂无数据'}{$global.progress_bar_background_img_wap}{/if}">
+							<img class="line-color" src="{if $global.progress_bar_fill_img_wap neq '暂无数据'}{$global.progress_bar_fill_img_wap}{/if}" alt="">
+							<ul id="line-img">
+								<li>
+									<img id="info1" src="{if isset($global.progress_node_1_img)}{$global.progress_node_1_img}{/if}" alt="">
+									<p id="info_img1" style="{if $global.progress_node_1_summary_style neq '暂无数据'}{$global.progress_node_1_summary_style}{/if}">{if isset($global.progress_node_1_summary)}{$global.progress_node_1_summary}{/if}</p>
+								</li>
+								<li>
+									<img id="info2" src="{if isset($global.progress_node_2_img)}{$global.progress_node_2_img}{/if}" alt="">
+									<p id="info_img2" style="{if $global.progress_node_2_summary_style neq '暂无数据'}{$global.progress_node_2_summary_style}{/if}">{if isset($global.progress_node_2_summary)}{$global.progress_node_2_summary}{/if}</p>
+								</li>
+								<li>
+									<img id="info3" src="{if isset($global.progress_node_3_img)}{$global.progress_node_3_img}{/if}" alt="">
+									<p id="info_img3" style="{if $global.progress_node_3_summary_style neq '暂无数据'}{$global.progress_node_3_summary_style}{/if}">{if isset($global.progress_node_3_summary)}{$global.progress_node_3_summary}{/if}</p>
+								</li>
+								<li>
+									<img id="info4" src="{if isset($global.progress_node_4_img)}{$global.progress_node_4_img}{/if}" alt="">
+									<p id="info_img4" style="{if $global.progress_node_4_summary_style neq '暂无数据'}{$global.progress_node_4_summary_style}{/if}">{if isset($global.progress_node_4_summary)}{$global.progress_node_4_summary}{/if}</p>
+								</li>
+								<li>
+									<img id="info5" src="{if isset($global.progress_node_5_img)}{$global.progress_node_5_img}{/if}" alt="" />
+									<p id="info_img4" style="{if $global.progress_node_5_summary_style neq '暂无数据'}{$global.progress_node_5_summary_style}{/if}">{if isset($global.progress_node_5_summary)}{$global.progress_node_5_summary}{/if}</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				{if $diy}
+				<div class="pb_con" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+			<!--第四部分-->
+			<div class="ts_play" style="background:url({if count($global.tese_background_img_wap) > 0 && $global.tese_background_img_wap neq ''}{$global.tese_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<div class="slider">
+					<div class="swiper-container swiper-container2">
+						{fragment var=ts_img code=tese size=5} {if $ts_img neq ''}
+						<div class="swiper-wrapper" id="swiper-wrapper">
+							{foreach $ts_img as $v}
+							<div class="swiper-slide">
+								<a href="javascript:;"><img class="images" src="{$v.thumb}" alt=""></a>
+							</div>
+							{/foreach}
+						</div>
+						{/if}
+					</div>
+					<div class="swiper-pagination swiper-pagination2"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				{if $diy}
+				<div class="pb_ts" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+			<!--底部-->
+			<div class="official" style="background:url({if $global.media_background_img_wap neq '暂无数据'}{$global.media_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<div class="f_main">
+					<a href="{if $global.media_qq_1_url neq '暂无数据'}{$global.media_qq_1_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq1" id="qq1">
+						<img src="{if $global.media_qq_1_icon_wap neq '暂无数据'}{$global.media_qq_1_icon_wap}{/if}" alt="" id="qq_img1"/>
+						<p>官方Q群1</p>
+					</a>
+					<a href="{if $global.media_qq_2_url neq '暂无数据'}{$global.media_qq_2_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq2" id="qq2">
+						<img src="{if $global.media_qq_2_icon_wap neq '暂无数据'}{$global.media_qq_2_icon_wap}{/if}" alt="" id="qq_img2"/>
+						<p>官方Q群2</p>
+					</a>
+					<a href="{if $global.media_sina_url neq '暂无数据'}{$global.media_sina_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb" id="wb">
+						<img src="{if $global.media_sina_icon_wap neq '暂无数据'}{$global.media_sina_icon_wap}{/if}" alt="" id="wb_img"/>
+						<p>官方微博</p>
+					</a>
+					<a href="{if $global.media_baidu_url}{$global.media_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="lt" id="tb">
+						<img src="{if $global.media_baidu_icon_wap}{$global.media_baidu_icon_wap}{/if}" alt="" id="tb_img"/>
+						<p>官方贴吧</p>
+					</a>
+					<span class="gzh" style="background:url({if $global.media_wechat_background_img_wap neq '暂无数据'}{$global.media_wechat_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+               	 		<img src="{if $global.media_wechat_img neq '暂无数据'}{$global.media_wechat_img}{/if}" alt="" id="d_ewm"/>
+            		</span>
+				</div>
+				{if $diy}
+					<div class="pb_footer" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+			{if $global.public_button_js eq 1}
+				<script type="text/javascript" src="http://static.dev.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+			{/if}
+			<div id="sf_di">
+
+			</div>
+		</div>
+		<!--预约弹框-->
+		<div class="co_tips co_tips_login hidden" id="login">
+			<div class="co_con" style="background:url({if count($global.kv_yuyuepopup_background_img) > 0 && $global.kv_yuyuepopup_background_img neq ''}{$global.kv_yuyuepopup_background_img}{/if}) no-repeat center;background-size:100% 100%">
+				<i class="co_tips_close"></i>
+				<div class="co_form">
+					<div class="rdo_box">
+						<span class="rdo on" data-id="ios">
+							<em><img class="wx_icon" src="{if isset($global.kv_yuyuepopup_platform_no_select_icon)}{$global.kv_yuyuepopup_platform_no_select_icon}{/if}" alt="" /><img class="yx_icon" src="{if isset($global.kv_yuyuepopup_platform_select_icon)}{$global.kv_yuyuepopup_platform_select_icon}{/if}" alt="" /></em>
+							<i class="ios_text">{if isset($global.kv_yuyuepopup_platform_ios)}{$global.kv_yuyuepopup_platform_ios}{/if}</i>
+						</span>
+						<span class="rdo" data-id="android">
+							<em><img class="wx_icon" src="{if isset($global.kv_yuyuepopup_platform_no_select_icon)}{$global.kv_yuyuepopup_platform_no_select_icon}{/if}" alt="" /><img class="yx_icon" src="{if isset($global.kv_yuyuepopup_platform_select_icon)}{$global.kv_yuyuepopup_platform_select_icon}{/if}" alt="" /></em>
+							<i class="and_text">{if isset($global.kv_yuyuepopup_platform_android)}{$global.kv_yuyuepopup_platform_android}{/if}</i>
+						</span>
+					</div>
+					<div class="co_input">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码" />
+						<p class="co_error">手机号码错误</p>
+					</div>
+					<div class="co_input">
+						<input type="text" class="captcha" placeholder="请输入验证码" />
+						<span class="co_captcha">
+               			<i class="co_imgtxt">点击刷新</i><img src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/m/images/order_btn.png" alt=""></span>
+						<p class="co_error">验证码错误</p>
+					</div>
+					<div class="co_input">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码" /><span class="co_codebtn co_codebtn1">获取验证码</span>
+						<p class="co_error">验证码错误</p>
+					</div>
+				</div>
+				<p class="co_tips_btn co_tips_loginbtn" style="background:url({if isset($global.kv_yuyuepopup_botton_img)}{$global.kv_yuyuepopup_botton_img}{/if}) no-repeat center;background-size:100% 100%;"></p>
+			</div>
+		</div>
+	</body>
+	{video_play}
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/colpick.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/m/js/index.js?{$smarty.const.VERSION}"></script>
+	
+	<script>
+		$(function() {
+			var swiper01 = new Swiper('.swiper-container1', {
+				pagination: '.swiper-pagination1',
+				slidesPerView: 1,
+				paginationClickable: true,
+				autoplayDisableOnInteraction: false,
+				autoplay: 2000,
+				loop: true
+			});
+			var swiper02 = new Swiper('.swiper-container2', {
+				pagination: '.swiper-pagination2',
+				paginationClickable: true,
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: false,
+				loop: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 0,
+					stretch: -110,
+					depth: 350,
+					modifier: 1,
+					slideShadows: false
+				}
+			});
+			$("#header").hover(function (){
+				$(".pb_tc").stop().show();
+			},function (){
+				$(".pb_tc").stop().hide();
+			});
+			$(".pb_tc").click(function (){
+				$(".nav_tc" , parent.document).show();
+				$(".baocun" , parent.document).addClass("active");
+			});
+			$(".top").hover(function (){
+				$(".pb_kv").stop().show();
+			},function (){
+				$(".pb_kv").stop().hide();
+			});
+			$(".pb_kv").click(function (){
+				$(".kv_tc" , parent.document).show();
+				$(".baocun" , parent.document).addClass("active");
+			});
+			$(".ward_box").hover(function (){
+				$(".pb_con").stop().show();
+			},function (){
+				$(".pb_con").stop().hide();
+			});
+			$(".pb_con").click(function (){
+				$(".jd_tc" , parent.document).show();
+				$(".baocun" , parent.document).addClass("active");
+			});
+			$(".ts_play").hover(function (){
+				$(".pb_ts").stop().show();
+			},function (){
+				$(".pb_ts").stop().hide();
+			});
+			$(".pb_ts").click(function (){
+				$(".ts_tc" , parent.document).show();
+				$(".baocun" , parent.document).addClass("active");
+			});
+			$(".official").hover(function (){
+				$(".pb_footer").stop().show();
+			},function (){
+				$(".pb_footer").stop().hide();
+			});
+			$(".pb_footer").click(function (){
+				$(".me_tc" , parent.document).show();
+				$(".baocun" , parent.document).addClass("active");
+			});
+		});
+	</script>
+
+</html>

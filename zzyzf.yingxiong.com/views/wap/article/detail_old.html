@@ -1,0 +1,26 @@
+{include '../../layouts/wap/header.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/news.css?{$smarty.const.VERSION}" />
+{include '../../layouts/wap/top.html'}
+<section class="main2 fade">
+
+    <div class="left_lunbo">
+	    <div class="del_03">
+			<div class="clear"></div>
+			<h4 class="title">{$content.title}</h4>
+			<p class="creat_date">{$content.created_at|date_format:"%m/%d"}</p>
+			<div class="news_zenwen">{$content.body}</div>
+		</div>
+	</div>
+        
+		<section>
+			<div class="rw_info">
+			<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+			<a href="javascript:;" class="weixin_btn"></a>
+			<a href="{$global.group_url_one}"></a>
+			<div class="wechat hidden">
+				<img src="{$global.wx_img}" alt="">
+			</div>
+		</div>
+		</section>
+		</section>
+	{include '../../layouts/wap/footer.html'}

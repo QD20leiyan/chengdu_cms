@@ -1,0 +1,25 @@
+{video_play} {download}
+<script type="text/javascript">
+	//搜索
+	$(".inp .icon").click(function() {
+		var k = $(".inp input").val();
+		if($.trim(k)) {
+			var base = btoa(encodeURIComponent(k));
+			window.location.href = "search.html?" + base;
+		} else {
+			alert("请输入关键词");
+			$(".inp input").val("").focus();
+		}
+	});
+	$(".download").hover(function() {
+		$(".xf_code").show();
+	}, function() {
+		$(".xf_code").hide();
+	});
+	$(".xf_code").hover(function() {
+		$(this).show();
+	}, function() {
+		$(this).hide();
+	});
+</script>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>

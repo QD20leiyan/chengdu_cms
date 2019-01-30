@@ -1,0 +1,235 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/index.css?{$smarty.const.VERSION}" />
+<div class="kv">
+	<div class="kv-wrapper">
+		<img class="scaleImg" src="{$smarty.const.STATIC_DOMAIN}images/kv2.jpg?{$smarty.const.VERSION}" alt="">
+	</div>
+	<img class="kv-bottom" src="{$smarty.const.STATIC_DOMAIN}images/kv-bottom.png?{$smarty.const.VERSION}" alt="">
+	<div class="wrap">
+		{fragment var=video code=index_video size=1}
+		<div class="play-btn js_video_play" data-url="{if $video}{$video[0].url}{/if}">
+		    <img class="play_bg" src="{$smarty.const.STATIC_DOMAIN}images/play2.png?{$smarty.const.VERSION}"/>
+			<img class="play_sm scaleImg2" src="{$smarty.const.STATIC_DOMAIN}images/play2_02.png?{$smarty.const.VERSION}"/>
+		</div>
+		<!--<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}">-->
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}images/play.png?{$smarty.const.VERSION}" alt="" class="big_img" />-->
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}images/s_play.png?{$smarty.const.VERSION}" alt="" class="s_img" />-->
+		<!--</div>-->
+		<div class="logo">
+			<img src="{$smarty.const.STATIC_DOMAIN}images/logo2.png?{$smarty.const.VERSION}" alt="" />
+		</div>
+		<div class="down-box2">
+			<img src="http://gamerimage.yingxiong.com/qrcode/jump_sd_pcgw.png" alt="" class="js_jump_img"/>
+			<a href="javascript:;" class="ios-down js_down_ios stat_ios"  target="_blank"></a>
+			<a href="javascript:;" class="andriod-down  js_down_andriod stat_android"  target="_blank"></a>
+			<a  href="http://l.taptap.com/i7UYGanI" class="tap-down stat_tap"  target="_blank"></a>
+		</div>
+		<div class="download" style="display: none;">
+			<div class="code">
+				<div class="c_code">
+					<img src="http://gamerimage.yingxiong.com/qrcode/jump_sd_pcgw.png" alt="" class="js_jump_img"/>
+				</div>
+				<p>扫一扫，下载游戏</p>
+			</div>
+			<div class="t_download">
+				<a href="javascript:alert('敬请期待!');" class="js_down_ios stat_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="javascript:alert('敬请期待!');" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</div>
+	</div>
+	<!--<video src="{$smarty.const.STATIC_DOMAIN}images/kv.mp4?{$smarty.const.VERSION}" class="kv_video" autoplay="autoplay" loop="loop"></video>-->
+</div>
+<div class="main">
+	<div class="wrap">
+		<div class="f_main">
+			<div class="left_lunbo">
+				<div class="m_banner">
+					{fragment var=index_banner code=banner size=5}
+					<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+								<li class="swiper-slide">
+									<a href="javascript:;">
+										<img src="{$v.thumb}" alt="" />
+										<div class="s_txt">
+											<p>{$v.title}</p>
+										</div>
+									</a>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+			<div class="right_news">
+				<div class="main_news">
+					<ul class="n_title">
+						<li class="active">
+							<a href="javascript:;">最新</a>
+						</li>
+						<li>
+							<a href="javascript:;">新闻</a>
+						</li>
+						<li>
+							<a href="javascript:;">攻略</a>
+						</li>
+						<li>
+							<a href="javascript:;">公告</a>
+						</li>
+					</ul>
+					<a href="{myurl name='article/list, id=>442'}" class="more" target="_blank">
+						<img src="{$smarty.const.STATIC_DOMAIN}images/more.png?{$smarty.const.VERSION}" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}images/more_h.png?{$smarty.const.VERSION}" alt="" />
+					</a>
+					<div class="con_news">				
+						<ul class="active">
+							{article id="442" size=4 var=zx}
+							{if $zx neq ''}
+								<a href="{$zx[0].linkUrl}" class="top_title" target="_blank">
+									<p class="con_news_tit">{$zx[0].title}</p>
+									<p class="con_news_con">{$zx[0].contentMessage}</p>
+								</a>
+								{foreach $zx as $key=>$v}
+									{if $key > 0}
+										<li>
+											<a href="{$v.linkUrl}" target="_blank">
+												<p><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></p>
+											</a>
+										</li>
+									{/if}
+								{/foreach}
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="444" size=4 var=xw}
+							{if $xw neq ''}
+								<a href="{$xw[0].linkUrl}" class="top_title" target="_blank">
+									<p class="con_news_tit">{$xw[0].title}</p>
+									<p class="con_news_con">{$xw[0].contentMessage}</p>
+								</a>
+								{foreach $xw as $key=>$v}
+									{if $key > 0}
+										<li>
+											<a href="{$v.linkUrl}" target="_blank">
+												<p><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></p>
+											</a>
+										</li>
+									{/if}
+								{/foreach}
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="445" size=4 var=hd}
+							{if $hd neq ''}
+								<a href="{$hd[0].linkUrl}" class="top_title" target="_blank">
+									<p class="con_news_tit">{$hd[0].title}</p>
+									<p class="con_news_con">{$hd[0].contentMessage}</p>
+								</a>
+								{foreach $hd as $key=>$v}
+									{if $key > 0}
+										<li>
+											<a href="{$v.linkUrl}" target="_blank">
+												<p><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></p>
+											</a>
+										</li>
+									{/if}
+								{/foreach}
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="446" size=4 var=gg}
+							{if $gg neq ''}
+								<a href="{$gg[0].linkUrl}" class="top_title" target="_blank">
+									<p class="con_news_tit">{$gg[0].title}</p>
+									<p class="con_news_con">{$gg[0].contentMessage}</p>
+								</a>
+								{foreach $gg as $key=>$v}
+									{if $key > 0}
+										<li>
+											<a href="{$v.linkUrl}" target="_blank">
+												<p><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></p>
+											</a>
+										</li>
+									{/if}
+								{/foreach}
+							{/if}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<img src="{$smarty.const.STATIC_DOMAIN}images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="d_gallery">
+			<div class="d_banner">
+				<ul class="swiper-wrapper">
+					{fragment var=banner_play code=banner_play size=5}
+					{if $banner_play neq ''}
+						{foreach $banner_play as $v}
+							<li class="swiper-slide">
+								<a href="javascript:;" target="_blank"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination1"></div>
+				<div class="swiper-button-prev1"></div>
+				<div class="swiper-button-next1"></div>
+			</div>
+		</div>
+		<div class="lx-wrapper">
+			<a class="weixin">
+				<img src="{$global.wx_img}" alt="">
+			</a>
+			<a class="weibo" href="{$global.wb_url}" target="_blank"></a>
+			<a class="tieba" href="{$global.tb_img}" target="_blank"></a>
+			<a class="qq">
+				<img src="{$global.group}" alt="">
+			</a>
+		</div>
+	</div>
+</div>
+
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".m_banner", {
+			pagination: '.swiper-pagination',
+			simulateTouch: false,
+			loop: true,
+			autoplay: 2500,
+			observer:true,
+			observeParents:true,
+		});
+		var mySwiper01 = new Swiper(".d_banner", {
+			loop: true,
+			autoplay : 2500,
+			pagination: '.swiper-pagination1',
+			effect: 'coverflow',
+			slidesPerView: 3,
+			centeredSlides: false,
+			prevButton: '.swiper-button-prev1',
+			nextButton: '.swiper-button-next1',
+			autoplayDisableOnInteraction : false,
+			coverflow: {
+				rotate: 50,
+				stretch: -200,
+				depth: 400,
+				modifier: 1,
+				slideShadows: true
+			},
+			observer:true,
+			observeParents:true,
+			simulateTouch: false,
+		});
+		$(".n_title li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".con_news ul").eq(index).addClass("active").siblings().removeClass("active");
+		})
+	})
+</script>
+
+</html>

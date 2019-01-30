@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>巅峰战舰</title>
+    <meta content="{$seo_key}" name="keywords">
+    <meta content="{$seo_desc}" name="description">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link href="{$smarty.const.STATIC_DOMAIN}dfzj/momo/css/index.css?{$smarty.const.VERSION}" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    {csrf}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="wrap" data-id="{$id}" data-info="{$info}" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+        <div class="h5_data" style="display: none;">{$h5data}</div>
+    <div class="banner"><img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/banner.png?{$smarty.const.VERSION}" alt=""/></div>
+    <div class="userinfo">
+        <div class="mine ">
+            <span class="yq_num">已邀请<i class="peo">0</i>人</span>
+            <span class="gift">我的礼包</span>
+        </div>
+        <div class="him hidden">
+            <span class="yq_num"><i class="name"></i>已邀请<i class="peo">0</i>人</span>
+            <span class="help">我也要助力</span>
+        </div>
+    </div>
+    <button class="momo_btn"></button>
+    <div class="ward">
+        <p class="title"></p>
+        <div class="gift_box">
+            <div class="gift">
+                <span class="border"><img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/gift1.png?{$smarty.const.VERSION}" alt=""/></span>
+                <span class="name">双倍</span>
+                <span class="name">银币卡*1</span>
+            </div>
+            <div class="gift">
+                <span class="border"><img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/gift2.png?{$smarty.const.VERSION}" alt=""/></span>
+                <span class="name">双倍</span>
+                <span class="name">经验卡*1</span>
+            </div>
+            <div class="gift">
+                <span class="border"><img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/gift3.png?{$smarty.const.VERSION}" alt=""/></span>
+                <span class="name more">燃油*88</span>
+
+            </div>
+            <div class="gift">
+                <span class="border"><img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/gift4.png?{$smarty.const.VERSION}" alt=""/></span>
+                <span class="name">金币*288 </span>
+            </div>
+        </div>
+    </div>
+    <div class="word_box">
+        <p class="title"></p>
+        <div class="ward_rules">
+            <ul>
+                <li><i>1</i><span>通过分享该页签，让好友为你助力；</span></li>
+                <li><i>2</i><span>好友点击活动链接下载脉脉APP，绑定用户信息，即可通过短信获得永久绝版战舰、588金币礼包或288金币礼包；</span></li>
+                <li><i>3</i><span>当成功邀请10位好友时（好友必须完成上诉规则2内容），即可通过本次活动额外获得288金币礼包；</span></li>
+                <li><i>4</i><span>如使用外挂、作弊器以及其他不正当的方式参加本次活动，官方将取消其资格；</span></li>
+                <li><i>5</i><span> 《巅峰战舰》保留法律允许范围内对活动进行补充解释权利。</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="list_box">
+        <div class="price_con">
+            <ul class="mine">
+
+            </ul>
+            <p class="price_no hidden">暂无相关数据</p>
+        </div>
+    </div>
+</div>
+
+<!--礼包码弹框-->
+<div class="co_tips co_tips_code co_tips_code1 hidden">
+    <div class="co_con">
+        <img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="co_form">
+            <div class="my_code">
+                <p>
+                    <span>您的礼包码为</span>
+                    <span class="code_num"></span>
+                </p>
+            </div>
+            <p class="copy">*长按复制粘贴礼包码</p>
+        </div>
+
+    </div>
+</div>
+<!--我也要助力-->
+<div class="co_tips co_tips_code co_tips_code2 hidden">
+    <div class="co_con">
+        <img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="co_form">
+            <div class="my_code">
+                <span> 已成功为其助力</span>
+                <span>我也要领绝版战舰</span>
+            </div>
+            <p class="co_tips_btn help"></p>
+        </div>
+    </div>
+</div>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/images/share_bg.png?{$smarty.const.VERSION}" alt=""/></div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}dfzj/momo/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+{include '../h5-common/h5_data.html'}
+<script>
+    var help_url='/dfzj/maim/ajax-friend-help.html'+h5_jk_url;//好友助力
+    var code_url='/dfzj/maim/ajax-my-code.html'+h5_jk_url;//我的礼包
+    var get_url='/dfzj/maim/ajax-auto-data.html'+h5_jk_url;//获取用户信息
+    var info=$(".wrap").attr("data-info");
+    // var invite_code=$(".wrap").attr("data-openid");
+    var h5_id=$(".wrap").attr("data-id");
+    var is_share=1;
+    var srf = $('meta[name="csrf-token"]').attr('content');
+    //中奖名单滚动效果
+    function autoScroll(obj) {
+        $(obj).animate({
+            marginTop: "-1.9rem"
+        }, 1000, function() {
+            $(this).css({
+                marginTop: "0px"
+            }).find("li:first").appendTo(this);
+        });
+    }
+    // var is_me_=1;
+    // var share_url='';
+    // var openid=""; 
+    // var user_name="";
+    // var invite_code="";
+    // var wx_name = "";
+    // var wx_img = "";
+    //  //判断邀请码
+    // function in_code(){
+    //     if(invite_code=="" || invite_code==undefined){
+    //         invite_code=openid;
+    //     }else{
+    //         invite_code=getQueryString('invite_code');
+    //     }else{
+    //         invite_code="1";
+    //     }
+    // }
+    // function getQueryString(name) {
+    //     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 匹配目标参数
+    //     var result = window.location.search.substr(1).match(reg); // 对querystring匹配目标参数
+    //     if(result != null) {
+    //         return decodeURIComponent(result[2]);
+    //     } else {
+    //         return null;
+    //     }
+    // }
+    // function wx_info(){
+    //      $.ajax({
+    //         'url':"/h5-common/get-wx-info.html"+h5_jk_url,
+    //         'data':{},
+    //         'type':'POST',
+    //         'dataType':'Json',
+    //         success:function(data){
+    //             if(data.status==0){ 
+    //                  openid=data.msg.openid;
+    //                  wx_name=data.msg.nickname;
+    //                  wx_img=data.msg.headimgurl;
+    //                  invite_code=getQueryString('invite_code');
+    //                  in_code();
+    //                  console.log(invite_code);
+    //             }else{
+    //                 alert("网络请求失败，请重新刷新页面");
+    //             }
+    //         }
+    //         ,error:function(){
+    //             alert("网络请求失败，请重新刷新页面");
+    //         }
+    //     });
+    // }
+    // function info_url(){
+    //     $.ajax({
+    //         'url':get_url,
+    //         'data':{
+    //             'info':info,'invite_code':invite_code,'h5_id':h5_id,"cms_csrf":srf
+    //         },
+    //         'type':'POST',
+    //         'dataType':'Json',
+    //         success:function(data){
+    //             if(data.status==0){
+    //                 var help_num=data.help_num;
+    //                 is_share=data.is_me;
+    //                 console.log(is_share);
+    //                 $(".him .name").text(data.username);
+    //                 $(".peo").text(data.help_num);
+    //                 $(".code_num").text(data.code);
+    //                 if(data.msg.length>0){
+    //                     var result = '';
+    //                     for(var i = 0; i < data.msg.length; i++) {
+    //                         result += " <li><span class='name'>"+data.msg[i]+"</span>已为<span>"+(is_share=='1'?"我":data.username)+"</span>助力</li>";
+    //                     }
+    //                     $('.price_con ul').append(result);
+    //                     //中奖名单--只有一个时复制一个
+    //                     if($(".price_con ul li").length>1){
+    //                         setInterval('autoScroll(".price_con ul")', 1500);
+    //                     }
+    //                 }else{
+    //                     $(".price_no").removeClass("hidden");
+    //                 }
+    //                 if(help_num==10&&is_share==1){
+    //                     $(".co_tips_code1").removeClass("hidden");
+    //                 }
+    //                 //他人和个人页面的判断--个别显示部分
+    //                 if(is_share==0){
+    //                     is_me_=0;
+    //                     //他人
+    //                     $(".userinfo .mine").addClass("hidden");
+    //                     $(".userinfo .him").removeClass("hidden");
+    //                 }
+    //             }
+    //         }
+    //         ,error:function(){
+    //             alert("网络请求失败，请重新刷新页面");
+    //         }
+    //     });
+    // }
+    $(function(){
+        //获取个人信息
+        // wx_info();
+        // info_url();
+        //弹框关闭
+        // $(".close").click(function(){
+        //     $(".co_tips").addClass("hidden");
+        //     $(".co_tips_gift .gift_box").addClass("hidden");
+        //     $("body,html").removeClass("no_auto");
+        // });
+        // //我也要助力
+        // $(".help").click(function(){
+        //     var url=location.href;
+        //     if(url.indexOf("?") != -1){
+        //         url = url.split("?")[0];
+        //     }
+        //     window.location.href = url+'?time='+((new Date()).getTime());
+        // });
+
+        // //我的礼包
+        // $(".gift").click(function(){
+        //     $.ajax({
+        //         'url':code_url,
+        //         'data':{
+        //             'info':info,"cms_csrf":srf
+        //         },
+        //         'type':'POST',
+        //         'dataType':'Json',
+        //         success:function(data){
+        //             if(data.status==0){
+        //                 $(".code_num").text(data.msg);
+        //                 $(".co_tips_code1").removeClass("hidden");
+        //             }else{
+        //                 alert(data.msg);
+        //             }
+        //         }
+        //         ,error:function(){
+        //             alert("网络请求失败，请重新刷新页面");
+        //         }
+        //     });
+        // });
+        // //脉脉助力
+        // $(".momo_btn").click(function(){
+        //     if(is_share==1){
+        //         $("body,html").addClass("no_auto");
+        //         $(".share_bg").removeClass("hidden");
+        //     }else{
+        //         $.ajax({
+        //             'url':help_url,
+        //             'data':{
+        //                 'info':info,'invite_code':invite_code,"cms_csrf":srf
+        //             },
+        //             'type':'POST',
+        //             'dataType':'Json',
+        //             success:function(data){
+        //                 if(data.status==0){
+        //                     location.href="https://maimai.cn/activity/activity_yxhy";
+        //                 }else{
+        //                     $(".co_tips_code2").removeClass("hidden");
+        //                 }
+        //             }
+        //             ,error:function(){
+        //                 alert("网络请求失败，请重新刷新页面");
+        //             }
+        //         });
+        //     }
+        // });
+        // $(".share_bg").click(function(){
+        //     $(".share_bg").addClass("hidden");
+        // });
+    });
+</script>
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script>
+    var is_me_=1;
+    var share_url='';
+    var openid=""; 
+    var user_name="";
+    var invite_code="";
+    var wx_name = "";
+    var wx_img = "";
+     //判断邀请码
+    function in_code(){
+        if(invite_code=="" || invite_code==undefined){
+            invite_code=openid;
+        }else{
+            invite_code=getQueryString('invite_code');
+        }
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 匹配目标参数
+        var result = window.location.search.substr(1).match(reg); // 对querystring匹配目标参数
+        if(result != null) {
+            return decodeURIComponent(result[2]);
+        } else {
+            return null;
+        }
+    }
+
+    function info_url(){
+        $.ajax({
+            'url':get_url,
+            'data':{
+                'info':info,'invite_code':invite_code,'h5_id':h5_id,"cms_csrf":srf
+            },
+            'type':'POST',
+            'dataType':'Json',
+            success:function(data){
+                if(data.status==0){
+                    var help_num=data.help_num;
+                    is_share=data.is_me;
+                    console.log(is_share);
+                    $(".him .name").text(data.username);
+                    $(".peo").text(data.help_num);
+                    $(".code_num").text(data.code);
+                    if(data.msg.length>0){
+                        var result = '';
+                        for(var i = 0; i < data.msg.length; i++) {
+                            result += " <li><span class='name'>"+data.msg[i]+"</span>已为<span>"+(is_share=='1'?"我":data.username)+"</span>助力</li>";
+                        }
+                        $('.price_con ul').append(result);
+                        //中奖名单--只有一个时复制一个
+                        if($(".price_con ul li").length>1){
+                            setInterval('autoScroll(".price_con ul")', 1500);
+                        }
+                    }else{
+                        $(".price_no").removeClass("hidden");
+                    }
+                    if(help_num==10&&is_share==1){
+                        $(".co_tips_code1").removeClass("hidden");
+                    }
+                    //他人和个人页面的判断--个别显示部分
+                    if(is_share==0){
+                        is_me_=0;
+                        //他人
+                        $(".userinfo .mine").addClass("hidden");
+                        $(".userinfo .him").removeClass("hidden");
+                    }
+                }
+            }
+            ,error:function(){
+                alert("网络请求失败，请重新刷新页面");
+            }
+        });
+    }
+    function wx_o(){
+            if(is_me_ == 1){
+            share_url='http://h5.yingxiong.com/index/dfzj/maim.html?invite_code='+openid;
+        }else{
+            share_url='http://h5.yingxiong.com/index/dfzj/maim.html?invite_code='+invite_code;
+        }
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        // initForm();
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : share_url
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        }
+    function wx_info(){
+         $.ajax({
+            'url':"/h5-common/get-wx-info.html"+h5_jk_url,
+            'data':{},
+            'type':'POST',
+            'dataType':'Json',
+            success:function(data){
+                if(data.status==0){ 
+                     openid=data.msg.openid;
+                     wx_name=data.msg.nickname;
+                     wx_img=data.msg.headimgurl;
+                     invite_code=getQueryString('invite_code');
+                     in_code();
+                     info_url();
+                     wx_o();
+                     console.log(invite_code);
+                }else{
+                    alert("网络请求失败，请重新刷新页面");
+                }
+            }
+            ,error:function(){
+                alert("网络请求失败，请重新刷新页面");
+            }
+        });
+    }
+    $(function(){
+         wx_info();
+        $(".close").click(function(){
+            $(".co_tips").addClass("hidden");
+            $(".co_tips_gift .gift_box").addClass("hidden");
+            $("body,html").removeClass("no_auto");
+        });
+        //我也要助力
+        $(".help").click(function(){
+            var url=location.href;
+            if(url.indexOf("?") != -1){
+                url = url.split("?")[0];
+            }
+            window.location.href = url+'?time='+((new Date()).getTime());
+        });
+
+        //我的礼包
+        $(".gift").click(function(){
+            $.ajax({
+                'url':code_url,
+                'data':{
+                    'info':info,"cms_csrf":srf
+                },
+                'type':'POST',
+                'dataType':'Json',
+                success:function(data){
+                    if(data.status==0){
+                        $(".code_num").text(data.msg);
+                        $(".co_tips_code1").removeClass("hidden");
+                    }else{
+                        alert(data.msg);
+                    }
+                }
+                ,error:function(){
+                    alert("网络请求失败，请重新刷新页面");
+                }
+            });
+        });
+        //脉脉助力
+        $(".momo_btn").click(function(){
+            if(is_share==1){
+                $("body,html").addClass("no_auto");
+                $(".share_bg").removeClass("hidden");
+            }else{
+                $.ajax({
+                    'url':help_url,
+                    'data':{
+                        'info':info,'invite_code':invite_code,"cms_csrf":srf
+                    },
+                    'type':'POST',
+                    'dataType':'Json',
+                    success:function(data){
+                        if(data.status==0){
+                            location.href="https://maimai.cn/activity/activity_yxhy";
+                        }else{
+                            $(".co_tips_code2").removeClass("hidden");
+                        }
+                    }
+                    ,error:function(){
+                        alert("网络请求失败，请重新刷新页面");
+                    }
+                });
+            }
+        });
+        $(".share_bg").click(function(){
+            $(".share_bg").addClass("hidden");
+        });
+
+        
+    });
+</script>
+</html>

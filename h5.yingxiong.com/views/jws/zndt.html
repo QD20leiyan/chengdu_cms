@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>穿越三国，你是谁？</title>
+        <meta name="keywords" content="{$seo_key}" />
+        <meta name="description" content="{$seo_desc}" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+        <meta name="full-screen" content="yes">
+        <meta name="x5-fullscreen" content="true">
+		<meta name="format-detection" content="telephone=no">
+		<link href="{$smarty.const.STATIC_DOMAIN}jws/dati/css/animate.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}jws/dati/css/swiper.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}jws/dati/css/index.css?{$smarty.const.VERSION}" rel="stylesheet" />
+        <script src="{$smarty.const.STATIC_DOMAIN}jws/dati/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+        {csrf}
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+	</head>
+
+	<body>
+		<div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+            <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+            <div class="h5_data" style="display: none;">{$h5data}</div>
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+                    <section class="swiper-slide page0">
+                        <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/logo.png?{$smarty.const.VERSION}" alt=""  class="logo" swiper-animate-delay="1s">
+                        <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/slogan.png?{$smarty.const.VERSION}" alt="" class="s2 ani animated zoomIn" swiper-animate-delay="0.5s">
+                        <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/sl2.png?{$smarty.const.VERSION}" alt="" class="s1 ani animated fadeInDown" swiper-animate-delay="1.6s">
+                        <div class="start_btn2">
+                            <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/dl2.png?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+                    </section>
+					<section class="swiper-slide page1 hidden">
+                        <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+                        <p class="s_inp">
+                            <input type="text" placeholder="请输入您的名字" maxlength="6" class="s_inp_name">
+                         </p>
+                        <div class="start_btn">
+                            <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/dl.png?{$smarty.const.VERSION}" alt=""></a>
+                        </div>
+					</section>
+					<section class="swiper-slide page2 hidden">
+                        <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo logo2">
+                        <div class="quest quest1 active" data-page="jws_zndt_page4">
+                            <div class="type type1">
+                                <div class="timu">
+                                    <p>1. 比起循规蹈矩的常规工作，你更喜欢去做些带有风险性但收益高的创造性活动。</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer1" data-id="1">
+                                <li class="" data-sel="A"><p class="align-center-vertical">A.是</p></li>
+                                <li data-sel="B"><p class="align-center-vertical">B.否</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev1"></a>
+                            <a href="javascript:;" class="next next1"></a>
+                        </div>
+                        <div class="quest quest2" data-page="jws_zndt_page5" data-page2="jws_zndt_page3">
+                            <div class="type type2">
+                                <div class="timu">
+                                    <p class="on1">2.当你和熟人约会，你偏向谈论：</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer2" data-id="2">
+                                <li class="" data-sel="A"><p class="align-center-vertical">A.关于未来事物和生活的种种可能，例如一个科技发明或革新</p></li>
+                                <li data-sel="B"><p class="align-center-vertical">B.实际具体的、关于现在的事物,例如你即将要参加的一趟旅程</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev2"></a>
+                            <a href="javascript:;" class="next next2"></a>
+                        </div>
+                        <div class="quest quest3" data-page="jws_zndt_page6" data-page2="jws_zndt_page4">
+                            <div class="type type3">
+                                <div class="timu">
+                                    <p class="on2">3. 你认为你更偏向于：</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer3" data-id="3">
+                                <li data-sel="A"><p class="align-center-vertical">A.强势进取，志在必得</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.保守稳健，居安思危</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev3"></a>
+                            <a href="javascript:;" class="next next3"></a>
+                        </div> 
+                        <div class="quest quest4" data-page="jws_zndt_page7" data-page2="jws_zndt_page5">   
+                            <div class="type type4">
+                                 <div class="timu">
+                                     <p class="on1">4.你会为不是自己的过错所造成的损失承担责任吗？</p>
+                                 </div>
+                            </div>
+
+                            <ul class="answer answer4" data-id="4">
+                                <li data-sel="A"><p class="align-center-vertical">A.会根据形势考虑是否委曲求全</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.痛恨被人冤枉，绝不会做替罪羔</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev4"></a>
+                            <a href="javascript:;" class="next next4"></a>
+                        </div> 
+                        <div class="quest quest5" data-page="jws_zndt_page8" data-page2="jws_zndt_page6">   
+                            <div class="type type5">
+                                <div class="timu">
+                                    <p>5.如果要你以牺牲健康为代价，换取数量可观的金钱或者荣誉，你会如何抉择：</p>
+                                </div>
+                            </div>
+
+                            <ul class="answer answer5"  data-id="5">
+                                <li data-sel="A"><p class="align-center-vertical">A.宁可透支身体和精力，也要过上富足或者荣耀的生活</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.身体是革命的本钱，如果要以健康为代价，我宁愿放弃那些不必要的东西</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev5"></a>
+                            <a href="javascript:;" class="next next5"></a>
+                        </div>
+                        <div class="quest quest6" data-page="jws_zndt_page9" data-page2="jws_zndt_page7">    
+                            <div class="type type6">
+                                <div class="timu">
+                                    <p class="on1">6.对于死刑，你更认同下列哪种说法</p>
+                                </div>
+                            </div>
+
+                            <ul class="answer answer6"  data-id="6">
+                                <li data-sel="A"><p class="align-center-vertical">A.以其人之道还治其人之身，将痛苦施加到犯罪人身上，作为惩罚</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.遏制罪恶继续发生，从根本上预防更多罪行</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev6"></a>
+                            <a href="javascript:;" class="next next6"></a>
+                        </div>
+                        <div class="quest quest7" data-page="jws_zndt_page10" data-page2="jws_zndt_page8">    
+                            <div class="type type7">
+                                <div class="timu">
+                                    <p>7.在一部电影里，主角孤身犯险，被重创到奄奄一息，这时你认为剧情应当如何推进？</p>
+                                </div>
+                            </div>
+
+                            <ul class="answer answer7"  data-id="7">
+                                <li data-sel="A"><p class="align-center-vertical">A.同伴适时出现，拯救主角</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.主角凭借自己的力量起死回生，击败对手</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev7"></a>
+                            <a href="javascript:;" class="next next7"></a>
+                        </div>    
+                        <div class="quest quest8" data-page="jws_zndt_page11" data-page2="jws_zndt_page9">
+                            <div class="type type8">
+                                <div class="timu">
+                                    <p class="on1">8.在做任何事情之前，你都会考虑到是否为自己留有余地？</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer8"  data-id="8">
+                                <li data-sel="A"><p class="align-center-vertical">A.是</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.不是</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev8"></a>
+                            <a href="javascript:;" class="next next8"></a>
+                        </div>
+                        <div class="quest quest9" data-page="jws_zndt_page12" data-page2="jws_zndt_page10">    
+                            <div class="type type9">
+                                <div class="timu">
+                                    <p class="on1">9.对于生活中的睚眦必报，你怎么理解？</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer9"  data-id="9">
+                                <li data-sel="A"><p class="align-center-vertical">A.这是一种很现实的生存方式</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.太小心眼了，完全没有必要</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev9"></a>
+                            <a href="javascript:;" class="next next9"></a>
+                        </div>
+                        <div class="quest quest10" data-page="jws_zndt_page13" data-page2="jws_zndt_page11">    
+                            <div class="type type10">
+                                <div class="timu">
+                                    <p class="on1">10.你喜欢凡事比别人知道的多一点？</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer10"  data-id="10">
+                                <li data-sel="A"><p class="align-center-vertical">A.是的</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.并不是</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev10"></a>
+                            <a href="javascript:;" class="next next10"></a>
+                        </div>
+                        <div class="quest quest11" data-page="jws_zndt_page14" data-page2="jws_zndt_page12">    
+                            <div class="type type11">
+                                <div class="timu">
+                                    <p class="on1">11.你是否赞同“进攻是最好的防守”这句话？</p>
+                                </div>
+                            </div>
+                            <ul class="answer answer11"  data-id="11">
+                                <li data-sel="A"><p class="align-center-vertical">A.是</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.否</p></li>
+                            </ul>
+                            <a href="javascript:;" class="prev prev11"></a>
+                            <a href="javascript:;" class="next next11"></a>
+                        </div>    
+					</section>
+					<section class="swiper-slide page3 hidden">
+                        <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo logo2">
+                        <div class="zhezhao">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo1.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo1 ">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo2.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo2">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo3.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo3">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo4.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo4">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo5.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo5">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo6.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo6">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo7.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo7">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo8.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo8 ">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo9.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo9">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo10.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo10">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo11.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo11">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo12.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo12">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo13.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo13">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo14.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo14">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo15.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo15">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo16.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo16">
+                        </div>
+                        <div class="peo_name">
+                            <img class="name1" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n1.png?{$smarty.const.VERSION}">
+                            <img class="name2" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n2.png?{$smarty.const.VERSION}">
+                            <img class="name3" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n3.png?{$smarty.const.VERSION}">
+                            <img class="name4" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n4.png?{$smarty.const.VERSION}">
+                            <img class="name5" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n5.png?{$smarty.const.VERSION}">
+                            <img class="name6" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n6.png?{$smarty.const.VERSION}">
+                            <img class="name7" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n7.png?{$smarty.const.VERSION}">
+                            <img class="name8" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n8.png?{$smarty.const.VERSION}">
+                            <img class="name9" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n9.png?{$smarty.const.VERSION}">
+                            <img class="name10" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n10.png?{$smarty.const.VERSION}">
+                            <img class="name11" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n11.png?{$smarty.const.VERSION}">
+                            <img class="name12" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n12.png?{$smarty.const.VERSION}">
+                            <img class="name13" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n13.png?{$smarty.const.VERSION}">
+                            <img class="name14" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n14.png?{$smarty.const.VERSION}">
+                            <img class="name15" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n15.png?{$smarty.const.VERSION}">
+                            <img class="name16" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n16.png?{$smarty.const.VERSION}">
+                        </div>
+                        <div class="user_name">
+                            <p><span class="p1"></span> 前世是 <span class="p2"></span></p>
+                        </div>
+                       <div class="text_wenan">
+                            <p class="text15">
+                                你有着平易近人的亲和品质，含蓄内敛不张扬，但始终以很高的标准严格要求甚至苛求自己。通常都会很无私的帮助别人，实际上你也很需要别人的关怀和照顾。你喜欢人群，终生都追求着心灵的归属，你情愿倾尽所有，换取一个厮守一生的知己。
+                            </p>
+                            <p class="text5">
+                                你是一个坚定的理想主义者，笃信于绝对的力量，富有冒险精神，对于新鲜事物跃跃欲试.你生性带着一种粗糙的幽默感，享受“横冲直撞”带来的刺激感，但纯真的个性里没有杀伤力。你对自己充满自信，有着坚强的意志力和不服输的拼劲，用行动力营造充实的每一天。
+                                <span>Tips：体恤下属很重要</span>
+                            </p>
+                            <p class="text6">
+                               你是个当机则断、精明干练的人，积极进取形容你的确恰如其分。但同时你更是个值得依靠的人，习惯把事情控制在自己可以支配的范围内，往往不经意间就构建出百年大计。你不会放纵自己，无论何时，你都流露出动静皆宜的吸引力。
+                               <span>Tips：有必要时可以和亲</span>
+                            </p>
+                            <p class="text11">
+                                你具有高瞻远瞩的领袖气魄，却也有着刨根问底的敬业精神。你在抉择之际会表现出异于常人的果断，喜欢在掌握先机之后直切主题。你有着较强的判断意识，也有着比较独到的处理方式，习惯思考如何把隐患降低到最小，用冷静和理智去看生活中的春去秋来。
+                                <span>Tips：尽量对小孩好点</span>
+                            </p>
+                            <p class="text13">
+                                你有着全神贯注般犀利的直觉，并将这种与生俱来的天赋发挥到极致。你细心周到，谨慎而富有条理性，有着旺盛的批判精神，追求无懈可击的完美境界。你对任何事都有一套详细的规划，喜欢全身心的投入到细小的工作中，以严格的标准要求并审视自己的一言一行。
+                                <span>Tips：注意身体，按时体检</span>
+                            </p>
+                            <p class="text14">
+                                你有着令旁人咋舌的强烈第六感，也有着不屈不挠的强悍性格，让你妥协实在是很困难的事。你注重自我保护，往往以冷漠示人，让异己产生距离感。你往往通过对自己要求的超越，不断填补内心深处的激进欲望，在决定行动时会表现的大胆积极，敢爱敢恨。
+                                <span>Tips：保护眼睛，就是保护自己</span>
+                            </p>
+                            <p class="text8">
+                                你崇尚绝对的力量，坚信真正的强盛可以无坚不摧，对于自己的生命有使命感。你喜欢被人肯定，开朗而富有领袖潜质，做事干脆利落，斩钉截铁，向来不会拖泥带水。平日里的你悠闲中流露优雅，即使忙碌为之奔驰，也能在日日如是的工作中散发魅力。
+                                <span>Tips：爸爸的女人最好别想</span>
+                            </p>
+                            <p class="text12">
+                                你的品格中有着格物致知的精确，也有着止戈为武的睿智。你喜欢热情的参与到周遭环境之中与他人互动，有比较旺盛的控制欲望,你会非常注重自己的个人空间，同时也能用清晰的眼光看世间的纷扰，却不刻意逃避，敢于直面各种尖锐的问题。
+                            </p>
+                            <p class="text7">
+                                你有着爱憎分明的鲜明性格，更有着功成名就的雄心壮志。你喜欢使自己具有权威性，因而你善于与他人沟通，同时你野心很大，通常对自己和伴侣的要求会很高。你具有审判律师的个性，享受热烈的辩论，不会轻易认输，凡事都力争寻求到真相。
+                            </p>
+                            <p class="text10">
+                                你是一个富有志向而又深谋远虑的人，为实现最终的胜利甘愿选择隐忍的生活方式，不管过程有多艰辛多漫长你都甘之如饴。你享受生活带来的充实感，善于观察生活中的细节，做事会带有很明确的目的性。你用深藏不露诠释了一种最深邃的进取。
+                            </p>
+                            <p class="text4">
+                                你对于生活有着独到的见地，是个冷静沉着不急于暴露实力的人，但往往厚积薄发，在最适合的时机便会一鸣惊人。你青睐于稳扎稳打的生活模式，乐意从事自己有经验的事物，比较喜欢低调而与世无争，但始终很明确自己的目标，只是容易给人留下刻薄无情的印象。
+                                <span>Tips：注意情绪，不要过于伤心 </span>
+                            </p>
+                            <p class="text3">
+                                你生性善解人意，喜欢通过自己的平衡去化解不稳定的因素。你重视感情关系中的和谐，很会顾及别人的感受。你有情却不多情，你可以改变却不善变，你喜欢亲身去经历一些传奇的故事，会很向往居高临下的那份成就。
+                                <span>Tips：记得多保暖</span>
+                            </p>
+                            <p class="text2">
+                                你淡泊名利，不求光耀一时，却能居安思危，凡事都力争稳妥。你有着未卜先知般的灵验，而这完全来源于你对生活谨慎的度量，和日积月累的悉心储备。有着以不变应万变的从容和自信。你喜欢灵魂的透彻，用心细如尘去注解仁慈与博爱。
+                                <span>Tips：记得感谢罗贯中</span>
+                            </p>
+                            <p class="text1">
+                               你的稳健可谓是从容不迫，做出的决定讲求中庸却又无可挑剔，你坚信对别人的负责便是对自己的忠诚，面对诱惑能够很好的把持住自己，具有不为外力所动的耐力和持久力。你信奉“能活着就该好好活着”的道理，唯实际主义至上。
+                                <span>Tips：有些熊孩子救了也没用</span>
+                            </p>
+                            <p class="text16">
+                                你喜欢稳定而有保障的生活，内心往往有着不为人所知的不安全感。你注重修缮和身边每一个人的关系，也甘愿做任劳任怨的支持者，你需要通过这种方式维系自己情感世界的完整。你有着很强的物质追求，喜欢通过自己的努力保障衣食住行的富足乃至奢华。
+                                 <span>Tips：小心救人被碰瓷</span>
+                            </p>
+                            <p class="text9">
+                                你蕴涵着无穷尽的智慧，追求新锐与变通，才思敏捷而又善于交际，有着无法捉摸的灵性和难以限量的才华。你所决定的事毋庸置疑，会矢志不渝的兑现自己内心的承诺，一旦抉择便义无反顾，也会为达目的而选择更加巧妙的方式。
+                                <span>Tips：今生至少有2个男人</span>
+                            </p>
+                        </div>
+                        <div class="ewm">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/ewm_img.png?{$smarty.const.VERSION}" alt="">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/btn_bg.png?{$smarty.const.VERSION}" alt="" class="btn_bg">
+                            <p>扫一扫，</p>
+                             <p class="test">测试你和哪位三国英雄个性最像</p>
+                        </div>
+					</section> 
+					<section class="swiper-slide page4 hidden">
+                       <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo logo2">
+                        <div class="zhezhao">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo1.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo1 ">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo2.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo2">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo3.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo3">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo4.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo4">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo5.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo5">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo6.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo6">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo7.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo7">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo8.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo8 ">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo9.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo9">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo10.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo10">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo11.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo11">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo12.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo12">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo13.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo13">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo14.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo14">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo15.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo15">
+                            <img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/peo16.png?{$smarty.const.VERSION}" alt="" class="peo_11 peo16">
+                        </div>
+                        <div class="peo_name">
+                            <img class="name1" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n1.png?{$smarty.const.VERSION}">
+                            <img class="name2" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n2.png?{$smarty.const.VERSION}">
+                            <img class="name3" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n3.png?{$smarty.const.VERSION}">
+                            <img class="name4" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n4.png?{$smarty.const.VERSION}">
+                            <img class="name5" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n5.png?{$smarty.const.VERSION}">
+                            <img class="name6" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n6.png?{$smarty.const.VERSION}">
+                            <img class="name7" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n7.png?{$smarty.const.VERSION}">
+                            <img class="name8" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n8.png?{$smarty.const.VERSION}">
+                            <img class="name9" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n9.png?{$smarty.const.VERSION}">
+                            <img class="name10" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n10.png?{$smarty.const.VERSION}">
+                            <img class="name11" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n11.png?{$smarty.const.VERSION}">
+                            <img class="name12" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n12.png?{$smarty.const.VERSION}">
+                            <img class="name13" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n13.png?{$smarty.const.VERSION}">
+                            <img class="name14" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n14.png?{$smarty.const.VERSION}">
+                            <img class="name15" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n15.png?{$smarty.const.VERSION}">
+                            <img class="name16" src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/n16.png?{$smarty.const.VERSION}">
+                        </div>
+                        <div class="user_name">
+                            <p><span class="p1"></span> 前世是 <span class="p2"></span></p>
+                        </div>
+                       <div class="text_wenan">
+                            <p class="text15">
+                                你有着平易近人的亲和品质，含蓄内敛不张扬，但始终以很高的标准严格要求甚至苛求自己。通常都会很无私的帮助别人，实际上你也很需要别人的关怀和照顾。你喜欢人群，终生都追求着心灵的归属，你情愿倾尽所有，换取一个厮守一生的知己。
+                            </p>
+                            <p class="text5">
+                                你是一个坚定的理想主义者，笃信于绝对的力量，富有冒险精神，对于新鲜事物跃跃欲试.你生性带着一种粗糙的幽默感，享受“横冲直撞”带来的刺激感，但纯真的个性里没有杀伤力。你对自己充满自信，有着坚强的意志力和不服输的拼劲，用行动力营造充实的每一天。
+                                <span>Tips：体恤下属很重要</span>
+                            </p>
+                            <p class="text6">
+                               你是个当机则断、精明干练的人，积极进取形容你的确恰如其分。但同时你更是个值得依靠的人，习惯把事情控制在自己可以支配的范围内，往往不经意间就构建出百年大计。你不会放纵自己，无论何时，你都流露出动静皆宜的吸引力。
+                               <span>Tips：有必要时可以和亲</span>
+                            </p>
+                            <p class="text11">
+                                你具有高瞻远瞩的领袖气魄，却也有着刨根问底的敬业精神。你在抉择之际会表现出异于常人的果断，喜欢在掌握先机之后直切主题。你有着较强的判断意识，也有着比较独到的处理方式，习惯思考如何把隐患降低到最小，用冷静和理智去看生活中的春去秋来。
+                                 <span>Tips：尽量对小孩好点</span>
+                            </p>
+                            <p class="text13">
+                                你有着全神贯注般犀利的直觉，并将这种与生俱来的天赋发挥到极致。你细心周到，谨慎而富有条理性，有着旺盛的批判精神，追求无懈可击的完美境界。你对任何事都有一套详细的规划，喜欢全身心的投入到细小的工作中，以严格的标准要求并审视自己的一言一行。
+                                <span>Tips：注意身体，按时体检</span>
+                            </p>
+                            <p class="text14">
+                                你有着令旁人咋舌的强烈第六感，也有着不屈不挠的强悍性格，让你妥协实在是很困难的事。你注重自我保护，往往以冷漠示人，让异己产生距离感。你往往通过对自己要求的超越，不断填补内心深处的激进欲望，在决定行动时会表现的大胆积极，敢爱敢恨。
+                                <span>Tips：保护眼睛，就是保护自己</span>
+                            </p>
+                            <p class="text8">
+                                你崇尚绝对的力量，坚信真正的强盛可以无坚不摧，对于自己的生命有使命感。你喜欢被人肯定，开朗而富有领袖潜质，做事干脆利落，斩钉截铁，向来不会拖泥带水。平日里的你悠闲中流露优雅，即使忙碌为之奔驰，也能在日日如是的工作中散发魅力。
+                                <span>Tips：爸爸的女人最好别想</span>
+                            </p>
+                            <p class="text12">
+                                你的品格中有着格物致知的精确，也有着止戈为武的睿智。你喜欢热情的参与到周遭环境之中与他人互动，有比较旺盛的控制欲望,你会非常注重自己的个人空间，同时也能用清晰的眼光看世间的纷扰，却不刻意逃避，敢于直面各种尖锐的问题。
+                            </p>
+                            <p class="text7">
+                                你有着爱憎分明的鲜明性格，更有着功成名就的雄心壮志。你喜欢使自己具有权威性，因而你善于与他人沟通，同时你野心很大，通常对自己和伴侣的要求会很高。你具有审判律师的个性，享受热烈的辩论，不会轻易认输，凡事都力争寻求到真相。
+                            </p>
+                            <p class="text10">
+                                你是一个富有志向而又深谋远虑的人，为实现最终的胜利甘愿选择隐忍的生活方式，不管过程有多艰辛多漫长你都甘之如饴。你享受生活带来的充实感，善于观察生活中的细节，做事会带有很明确的目的性。你用深藏不露诠释了一种最深邃的进取。
+                            </p>
+                            <p class="text4">
+                                你对于生活有着独到的见地，是个冷静沉着不急于暴露实力的人，但往往厚积薄发，在最适合的时机便会一鸣惊人。你青睐于稳扎稳打的生活模式，乐意从事自己有经验的事物，比较喜欢低调而与世无争，但始终很明确自己的目标，只是容易给人留下刻薄无情的印象。
+                                <span>Tips：注意情绪，不要过于伤心 </span>
+                            </p>
+                            <p class="text3">
+                                你生性善解人意，喜欢通过自己的平衡去化解不稳定的因素。你重视感情关系中的和谐，很会顾及别人的感受。你有情却不多情，你可以改变却不善变，你喜欢亲身去经历一些传奇的故事，会很向往居高临下的那份成就。
+                                <span>Tips：记得多保暖</span>
+                            </p>
+                            <p class="text2">
+                                你淡泊名利，不求光耀一时，却能居安思危，凡事都力争稳妥。你有着未卜先知般的灵验，而这完全来源于你对生活谨慎的度量，和日积月累的悉心储备。有着以不变应万变的从容和自信。你喜欢灵魂的透彻，用心细如尘去注解仁慈与博爱。
+                                <span>Tips：记得感谢罗贯中</span>
+                            </p>
+                            <p class="text1">
+                               你的稳健可谓是从容不迫，做出的决定讲求中庸却又无可挑剔，你坚信对别人的负责便是对自己的忠诚，面对诱惑能够很好的把持住自己，具有不为外力所动的耐力和持久力。你信奉“能活着就该好好活着”的道理，唯实际主义至上。
+                               <span>Tips：有些熊孩子救了也没用</span>
+                            </p>
+                            <p class="text16">
+                                你喜欢稳定而有保障的生活，内心往往有着不为人所知的不安全感。你注重修缮和身边每一个人的关系，也甘愿做任劳任怨的支持者，你需要通过这种方式维系自己情感世界的完整。你有着很强的物质追求，喜欢通过自己的努力保障衣食住行的富足乃至奢华。
+                                <span>Tips：小心救人被碰瓷</span>
+                            </p>
+                            <p class="text9">
+                                你蕴涵着无穷尽的智慧，追求新锐与变通，才思敏捷而又善于交际，有着无法捉摸的灵性和难以限量的才华。你所决定的事毋庸置疑，会矢志不渝的兑现自己内心的承诺，一旦抉择便义无反顾，也会为达目的而选择更加巧妙的方式。
+                                <span>Tips：今生至少有2个男人</span>
+                            </p>
+                        </div>
+                        <p class="btn">
+                            <a href="javascript:;" class="btn1"><img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/btn1.png?{$smarty.const.VERSION}" alt=""></a>
+                            <a href="http://downurl.yingxiong.com/url/jws_znh5.html" class="btn2" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}jws/dati/images/btn2.png?{$smarty.const.VERSION}" alt=""></a>
+                        </p>
+                        <p class="share">长按保存分享给好友</p>
+                        <img src="" alt="" class="jp_img1">
+					</section>
+				</section>
+			</section>
+		</div>
+        <div class="music_play music_img">
+          <audio id="music" src="{$smarty.const.STATIC_DOMAIN}jws/dati/music/music.mp3?{$smarty.const.VERSION}" loop="loop"></audio>
+          <audio id="music1" src="{$smarty.const.STATIC_DOMAIN}jws/dati/music/music2.mp3" preload="load"></audio>
+          <i></i>
+        </div>
+    <div id='loading10' style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+    </div>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="{$smarty.const.STATIC_DOMAIN}jws/dati/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}jws/dati/js/swiper.animate.min.js?{$smarty.const.VERSION}"></script>
+        <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+		<!--微信分享-->
+		 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+		<script type="text/javascript">
+    var play1=true;
+    var  h5_wx=$(".h5_wx").html();
+    var  h5_data=$(".h5_data").html();
+    var srf = $('meta[name="csrf-token"]').attr('content');
+    var text_url="/h5-common/check-filter.html?h5data="+ h5_data;
+        function md_ym_sy(){
+            var num = 0;
+                var timer = setInterval(function () {
+                    if (!window.HLog) {
+                        num++;
+                        if (num >= 10) {
+                            clearInterval(timer);
+                        }
+                    } else {
+                        HLog.push("jws_zndt_page1");
+                        clearInterval(timer);
+                    }
+                }, 500);
+        }
+        var  myauo1=document.getElementById('music');
+        var  myauo2=document.getElementById("music1");
+        function audioAutoPlay2(){
+            document.getElementById('music1').play();
+            document.getElementById('music1').volume = 1;
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                document.getElementById('music1').play();
+                document.getElementById('music1').volume = 1;
+            }, false);
+        }
+        function audioAutoPlay1(){
+            document.getElementById('music').play();
+            document.getElementById('music').volume = .5;
+            document.addEventListener("WeixinJSBridgeReady", function () {
+               document.getElementById('music').play();
+                document.getElementById('music').volume = .5;
+                 setTimeout(function(){
+                  document.getElementById('music').volume += .1;
+                  },1200);
+            }, false);
+        }
+    $(function() {
+        md_ym_sy();
+        audioAutoPlay1();
+        var  h5_wx=$(".h5_wx").html();
+        var  h5_data=$(".h5_data").html();
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        var len="";
+        var md_name="";
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/jws/zndt.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        //滑动页面
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            // effect : 'fade',
+            fade: {
+                crossFade: true
+            },
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        $(".start_btn2 a").click(function(){
+            $(".page0").addClass("hidden");
+            $(".page1").removeClass("hidden");
+            HLog.push("jws_zndt_page2");
+            HLog.event("jws_zndt_cyc");
+        });
+        $(".start_btn a").click(function(){
+            var name=$(".s_inp_name").val();
+            if(name == "" || name==undefined){
+                alert("请输入您的姓名~");
+                return;
+            }
+            $.ajax({
+                'url':text_url,
+                'data':{
+                           "words":name,"cms_csrf":srf
+                        },
+                        'type':'POST',
+                        'dataType':'Json',
+                        success:function(data){
+                            if(data.code=="0"){
+                                $(".page1").addClass("hidden");
+                                $(".page2").removeClass("hidden");
+                                HLog.push("jws_zndt_page3");
+                                HLog.event("jws_zndt_nameSure");
+                                $(".user_name p .p1").html(name);
+                            }else{
+                                alert(data.msg);
+                                return;
+                            }
+                        }
+                        ,error:function(){
+                            alert("网络请求错误，请刷新页面");
+                        }
+            });
+        });
+        $(".btn .btn1").click(function(){
+             window.location.reload();
+             HLog.event("jws_zndt_repeat");
+        });
+        $(".btn .btn2").click(function(){
+             HLog.event("jws_zndt_ztDown");
+        });
+        function tz(name,md_name){
+            $(".quest").removeClass("active");
+            name.parent().next().addClass("active");
+            md_name=name.parent().data("page");
+            HLog.push(md_name);
+        }
+        function tz2(name,md_name2){
+            $(".quest").removeClass("active");
+            name.parent().prev().addClass("active");
+            md_name2=name.parent().data("page2");
+            HLog.push(md_name2);
+        }
+        $(".page2 .next").click(function(){
+            HLog.event("jws_zndt_next_num");
+            var name=$(this);
+            md_name=name.parent().data("page");
+            if(name.hasClass("on")){
+                tz(name,md_name);
+            }else{
+                alert("请选择您的答案喔~");
+            }
+        })
+        $(".page2 .prev").click(function(){
+            var name=$(this);
+            md_name2=name.parent().data("page2");
+            HLog.event("jws_zndt_prev_num");
+            tz2(name,md_name2);
+        })
+        var true_id=0;
+        var sel_txt1="";
+        var sel_txt2="";
+        var sel_txt3="";
+        var sel_txt4="";
+        var index_fa="";
+        var index="";
+        var index_fa_next="";
+        var options = new Array();
+        var wrap=$(".page2").find('.answer');
+        $(".page2 .answer>li:nth-child(1)").click(function(){
+            HLog.event("jws_zndt_A_num");
+        });
+         $(".page2 .answer>li:nth-child(2)").click(function(){
+            HLog.event("jws_zndt_B_num");
+        });
+        $(".page2 ul li").click(function(){
+            audioAutoPlay2();
+        	index=$(this).index();
+            index_fa=$(this).parent(".answer").data("id");
+            index_fa_next=index_fa;
+            sel_txt1=$(".answer3 li.active").data("sel");
+            sel_txt2=$(".answer4 li.active").data("sel");
+            sel_txt3=$(".answer5 li.active").data("sel");
+            sel_txt4=$(".answer7 li.active").data("sel");
+            console.log(index_fa);
+            console.log(index_fa_next);
+            $(this).addClass("active").siblings().removeClass("active");
+            $(".quest.active").find(".next").addClass("on"); 
+        })
+        $(".music_img").click(function(){
+            if(play1){
+                document.getElementById('music').pause();
+                $(this).addClass("active");
+                HLog.event("jws_zndt_music_pause");
+                play1=false;
+            }else{
+                document.getElementById('music').play();
+                 HLog.event("jws_zndt_music_play");
+                $(this).removeClass("active");
+                play1=true;
+            }
+        })
+        $(".page2 .quest11 .next11").click(function(){
+                    for(var i=0;i<wrap.length;i++){
+                    var index=$(wrap[i]);
+                    var li_list=index.find("li.active");
+                    var sel_txt=li_list.data("sel");
+                    var answer_txt=$(".act_name span").html();
+                     options.push(sel_txt);
+                    }
+                    if(sel_txt1 == "A" && sel_txt2 == "A" && sel_txt3 == "A" && sel_txt4 == "A"){
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name1").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text1").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo1").addClass("active");
+                        $(".user_name p .p2").html("赵云");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "A" && sel_txt3 == "A" && sel_txt4 == "B"){
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name2").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text2").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo2").addClass("active");
+                        $(".user_name p .p2").html("诸葛亮");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "A" && sel_txt3 == "B" && sel_txt4 == "A"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name3").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text3").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo3").addClass("active");
+                        $(".user_name p .p2").html("孙权");
+                    }
+                     else if(sel_txt1 == "A" && sel_txt2 == "A" && sel_txt3 == "B" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name4").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text4").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo4").addClass("active");
+                        $(".user_name p .p2").html("许褚");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "B" && sel_txt3 == "A" && sel_txt4 == "A"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name5").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text5").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo5").addClass("active");
+                        $(".user_name p .p2").html("张飞");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "B" && sel_txt3 == "A" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name6").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text6").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo6").addClass("active");
+                        $(".user_name p .p2").html("关羽");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "B" && sel_txt3 == "B" && sel_txt4 == "A"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name7").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text7").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo7").addClass("active");
+                        $(".user_name p .p2").html("曹操");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "B" && sel_txt3 == "B" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name8").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text8").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo8").addClass("active");
+                        $(".user_name p .p2").html("吕布");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "A" && sel_txt3 == "A" && sel_txt4 == "A"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name9").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text9").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo9").addClass("active");
+                        $(".user_name p .p2").html("貂蝉");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "A" && sel_txt3 == "A" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name10").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text10").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo10").addClass("active");
+                        $(".user_name p .p2").html("吕蒙");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "A" && sel_txt3 == "B" && sel_txt4 == "A"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name11").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text11").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo11").addClass("active");
+                        $(".user_name p .p2").html("张辽");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "A" && sel_txt3 == "B" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name12").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text12").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo12").addClass("active");
+                        $(".user_name p .p2").html("司马懿");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "B" && sel_txt3 == "A" && sel_txt4 == "A"){
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name13").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text13").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo13").addClass("active");
+                        $(".user_name p .p2").html("周瑜");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "B" && sel_txt3 == "A" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name14").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text14").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo14").addClass("active");
+                        $(".user_name p .p2").html("夏侯惇");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "B" && sel_txt3 == "B" && sel_txt4 == "A"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name15").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text15").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo15").addClass("active");
+                        $(".user_name p .p2").html("郭嘉");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "B" && sel_txt3 == "B" && sel_txt4 == "B"){
+                       $(".peo_name img").removeClass("active");
+                        $(".peo_name img").removeClass("active");
+                        $(".peo_name img.name16").addClass("active");
+                        $(".text_wenan p").removeClass("active");
+                        $(".text_wenan p.text16").addClass("active");
+                        $(".zhezhao img").removeClass("active");
+                        $(".zhezhao img.peo16").addClass("active");
+                        $(".user_name p .p2").html("华佗");
+                    }
+                   
+                    $(".page2").addClass("hidden");
+                    $(".page3").removeClass("hidden");
+                    $(".js_load").show();
+                    var canvas1 = document.createElement("canvas");
+                    let _canvas = document.querySelector('.page3');
+                    var w = parseInt(window.getComputedStyle(_canvas).width);
+                    var h = parseInt(window.getComputedStyle(_canvas).height);
+                    canvas1.width = w * 2;
+                    canvas1.height = h * 2;
+                    canvas1.style.width = w + "px";
+                    canvas1.style.height = h + "px";
+                    var context1 = canvas1.getContext("2d");
+                    context1.scale(2,2);
+                    html2canvas(_canvas,
+                    {
+                        canvas:canvas1,
+                        useCORS: true
+                    }
+                    ).then(
+                    function(canvas){
+                    console.log(canvas1.toDataURL());
+                    $(".js_load").hide();
+                    $(".page3").addClass("hidden");
+                    $(".jp_img1").attr("src",canvas1.toDataURL());
+                    $(".page4").removeClass("hidden");
+                      HLog.push("jws_zndt_page15");
+                    });
+        })
+    });
+        </script>
+	</body>
+</html>

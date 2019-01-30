@@ -1,0 +1,81 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="nav_bar">
+			<div class="wrap">
+				<ul>
+					<a href="/p/time.html"><li><i></i><span>重要事件时间表</span></li></a>
+					<a href="{myurl name='article/list, id=>1975'}"><li><i></i><span>公益资讯</span></li></a>
+					<a href="{myurl name='image/list, id=>1976'}"><li class="active"><i></i><span>公益图集</span></li></a>
+					<a href="{myurl name='video/list, id=>1978'}"><li><i></i><span>公益视频</span></li></a>
+				</ul>
+			</div>
+		</div>
+		<div class="img_box">
+			<div class="img_list">
+				<ul>
+					{if !empty($data)}
+					{foreach $data as $v}
+					<li class="group" data-id="{$v.id}">
+						<div class="gallery thumb">
+							<a href="javascript:;">
+								<img src={$v.thumb}>
+								<div class="gallery-ico"><i class="fa fa-link"></i></div>
+								<div class="gallery-mask"></div>
+							</a>
+						</div>
+						<div class="meta">
+							<div class="title">
+								<a href="javascript:;">{$v.title}</a>
+							</div>
+						</div>
+					</li>
+					{/foreach}
+					{else}
+					<p class="noData" style="line-height: 350px;color: #CBB487;text-align: center;font-size: 24px;">暂无数据...</p>
+					{/if}
+				</ul>
+
+				{$page}
+			</div>
+		</div>
+
+		<!--footer-->
+		{include '../layouts/pc/bottom.html'}
+	</div>
+</div>
+{include '../layouts/pc/footer.html'}
+<script>
+	$(function(){
+		var swiper03 = new Swiper('.swiper-container3', {
+			pagination: '.swiper-pagination3',
+			paginationType : 'fraction',
+			paginationClickable: true,
+			slidesPerView: 1,
+			autoplayDisableOnInteraction : false,
+//			autoplay:3000,
+			loop:true,
+			autoplayDisableOnInteraction: false,
+			prevButton:'.swiper-button-prev3',
+			nextButton:'.swiper-button-next3',
+		});
+
+		$(window).resize(function (e) {
+			if($(".list .img_box .img_list ul li").length<=0){
+				$(".img_tj,.video_box").height("auto");
+			}else{
+				$(".group,.img_more").height($(".group").width()*270/480);
+				$(".img_tj,.video_box").height($(".group").width()*2*270/480);
+			}
+		});
+		if($(".list .img_box .img_list ul li").length<=0){
+			$(".img_tj,.video_box").height("auto");
+		}else{
+			$(".group,.img_more").height($(".group").width()*270/480);
+			$(".img_tj,.video_box").height($(".group").width()*2*270/480);
+		}
+	});
+</script>

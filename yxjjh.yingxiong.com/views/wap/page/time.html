@@ -1,0 +1,29 @@
+{include '../../layouts/wap/header.html'}
+{include '../../layouts/wap/top.html'}
+<!--内容-->
+<div class="i_main">
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="time_box">
+			<div class="title">重要事件时间表</div>
+			<div class="timezone">
+				{fragment var=index_banner code=time_list size=100}
+				{if $index_banner neq ''}
+				{foreach $index_banner as $v}
+				<div class="time">
+					<h2>{$v.sub_title}</h2>
+					<div>
+						<p>{$v.summary}</p>
+						<img src="{$v.thumb}" alt=""/>
+					</div>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+
+		</div>
+	</div>
+	<!--footer-->
+	{include '../../layouts/wap/bottom.html'}
+</div>
+{include '../../layouts/wap/footer.html'}

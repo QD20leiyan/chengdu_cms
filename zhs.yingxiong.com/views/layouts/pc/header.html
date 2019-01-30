@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    {csrf}
+    <link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+    
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+    <script data-fixed="true">
+        if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+            location.href = "/m"+window.location.pathname+window.location.search;
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+        <div class="nav">
+            <div class="wrap">
+                <img src="{$global.logo_img}" alt="" class="icon" />
+                <div class="n_txt">
+                    <p>{$global.title}</p>
+                    <p>{$global.sub_title}</p>
+                </div>
+                <ul class="nav_ul">
+                    <li class='{if isset($smarty.get.id)} {else}active{/if}'>
+                        <a href="{myurl name='site/index'}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/nav1.png?{$smarty.const.VERSION}" alt="" /></a>
+                    </li>
+                    <li class="{if isset($smarty.get.id) && ($smarty.get.id) neq 622}active{else}{/if}">
+                        <a href="{myurl name='article/list, id=>619'}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/nav2.png?{$smarty.const.VERSION}" alt="" /></a>
+                    </li>
+                    <li class="{if isset($smarty.get.id) && ($smarty.get.id) eq 622}active{else}{/if}">
+                        <a href="{myurl name='article/list, id=>622'}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/nav3.png?{$smarty.const.VERSION}" alt=""/></a>
+                    </li>
+                    <li>
+                        <a href="https://webim.yingxiong.com/chat/ting/180" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/nav4.png?{$smarty.const.VERSION}" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="http://bbs.yingxiong.com/t/pc/33/index" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/nav5.png?{$smarty.const.VERSION}" alt="" /></a>
+                    </li>
+                </ul>
+                <ul class="s_ul">
+                    <li></li>
+                    <li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+                    <li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+                </ul>
+                <div class="weixin_ewm"><img src="{$global.wx_img}" alt=""/></div>
+            </div>
+        </div>

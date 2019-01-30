@@ -1,0 +1,54 @@
+    {video_play}
+	{download}
+	</body>
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function(){
+			var mySwiper = new Swiper(".top_banner",{
+				pagination: '.swiper-pagination',
+				loop: true,
+				simulateTouch: false,
+				autoplay: 2500,
+				paginationClickable: true
+			});
+			var mySwiper = new Swiper('.bottom_banner', {
+					loop: true,
+					effect: 'coverflow',
+					slidesPerView: 3,
+					centeredSlides: true,
+					prevButton: '.swiper-button-prev',
+					nextButton: '.swiper-button-next',
+					coverflow: {
+						rotate: 0,
+						stretch: -40,
+						depth: 300,
+						modifier: 1,
+						slideShadows: true
+					},
+					observer: true,
+					observeParents: true,
+				});
+			$(".top_ul li").on("click", function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".con_ul ul").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			$(".close").click(function() {
+				$(".float_wx").stop().fadeOut();
+			});
+			$(".header_a").click(function() {
+				$(".float_wx").stop().fadeIn();
+			});
+			// var minAwayBtm = 30;  // 距离页面底部的最小距离
+			// $(window).scroll(function() {
+			//         var awayBtm = $(document).height() - $(window).scrollTop() - $(window).height();
+			//     if (awayBtm <= minAwayBtm) {
+			//         $(".down_fix").addClass("active");
+			//     }else{
+			//     	$(".down_fix").removeClass("active");
+			//     }
+	  //   	});
+		})
+	</script>
+</html>

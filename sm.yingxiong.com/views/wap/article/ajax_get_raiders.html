@@ -1,0 +1,49 @@
+
+<section>
+    <div class="main_content">
+        <div id="top_menu" class="top_menu">
+            <ul>
+                <li {if $cid eq 132}class="active"{/if}>
+                <a href='{myurl name="wap/list, id=>132,cat_dir=>info/raiders"}'>基础引导</a>
+                </li>
+                <li {if $cid eq 135}class="active"{/if}>
+                <a href='{myurl name="wap/list, id=>135,cat_dir=>info/raiders"}'>烹饪攻略</a>
+                </li>
+                <li {if $cid eq 138}class="active"{/if}>
+                <a href='{myurl name="wap/list, id=>138,cat_dir=>info/raiders"}'>魔法攻略</a>
+                </li>
+                <li {if $cid eq 139}class="active"{/if}>
+                <a href='{myurl name="wap/list, id=>139,cat_dir=>info/raiders"}'>生物攻略</a>
+                </li>
+                <li {if $cid eq 140}class="active"{/if}>
+                <a href='{myurl name="wap/list, id=>140,cat_dir=>info/raiders"}'>建造攻略</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{if $data}
+<ul id="raiderList" class="raiderList">
+    {foreach $data as $k => $v}
+    <li>
+        <a {if $v.linkUrl}href="{$v.linkUrl}"{/if}>
+        {if $v.title}{$v.title}{/if}
+        </a>
+        <span>
+            {if $v.created_at_formate}{$v.created_at_formate}{/if}
+        </span>
+    </li>
+    {/foreach}
+</ul>
+<section class="pageMore" >
+    <div id="clickPageMore" name="true" class="show">加载更多</div>
+    <div>
+        <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/jiazai.png">
+        <span>加载中...</span>
+    </div>
+    <div>
+        没有更多的数据
+    </div>
+</section>
+{/if}
+

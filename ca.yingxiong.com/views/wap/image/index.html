@@ -1,0 +1,51 @@
+{include '../../layouts/wap/header.html'}
+<header class="nav_header">
+	<ul>
+		<li><a href="{myurl name='wap/site/index'}#">首页</a></li>
+		<li><a href="{myurl name='wap/site/glzx'}">攻略中心</a></li>
+		<li><a href="{myurl name='wap/site/index'}#athletics">CA竞技</a></li>
+		<li><a href="{myurl name='wap/image/list, id=>350'}" class="active">CA档案库</a></li>
+	</ul>
+</header>
+<section class="record-box">
+	<section class="record-site">
+		<a href="{$role[0].url}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/record01.png?{$smarty.const.VERSION}" alt="{$role[0].title}"/></a>
+		<a href="{$gun[0].url}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/record02.png?{$smarty.const.VERSION}" alt="{$gun[0].title}"/></a>
+		<a href="{$map[0].url}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/record03.png?{$smarty.const.VERSION}" alt="{$map[0].title}"/></a>
+	</section>
+	<section class="in_main in_m1">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{foreach key=cid item=v from=$data}
+				<div class="swiper-slide" data-src="{$v.contentMessage}">
+					<time>{$v.created_at}</time>
+					<a><img class="images" src="{$v.thumb}" alt=""></a>
+				</div>
+				{/foreach}
+			</div>
+			<div class="swiper-pagination c_style"></div>
+		</div>
+		<div class="bigimg hidden">
+			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/big_close.png?{$smarty.const.VERSION}" alt="" class="big_close"/>
+			<img src="" alt="" class="big_img"/>
+		</div>
+	</section>
+</section>
+
+</body>
+{include '../../layouts/wap/foot.html'}
+<script type="text/javascript">
+	var swiper01 = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplayDisableOnInteraction : false,
+		autoplay:2000,
+		loop:true,
+		onClick:function(swiper,e){
+			var src=$(swiper.clickedSlide).attr("data-src");
+			$(".big_img").attr('src',src);
+			$(".bigimg").removeClass("hidden");
+		}
+	});
+</script>

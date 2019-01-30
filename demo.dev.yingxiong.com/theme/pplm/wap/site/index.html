@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title id="lo_title">{$global.web_title}</title>
+		<meta name="keywords" content="{$global.web_key}" />
+		<meta name="description" content="{$global.web_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/colpick.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/tc_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/m/common/css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/m/css/index.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/m/common/js/jquery-1.11.3.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<script type="text/javascript">
+			var websiteId = "{$global.website_id}";
+			var FooterConFig = {
+				switch: 1,
+				icp: '',
+				kf_id: 0,
+				kefu: '0',
+				community_id: 0,
+				sequ: "javascript:;",
+				burl: ""
+			}
+		</script>
+	</head>
+
+	<body id="wap_body">
+		<header>
+			<div class="header" id="header" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{/if}{if $global.nav_background_img neq '暂无数据'}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+				<a href="/" class="back">
+					<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+				</a>
+				<div class="txt">
+					<p id="txt01" style="{if $global.website_title_style neq '暂无数据'}{$global.website_title_style}{/if}">{if isset($global.website_title)}{$global.website_title}{/if}</p>
+					<p id="txt02" style="{if $global.website_sub_title_style neq '暂无数据'}{$global.website_sub_title_style}{/if}">{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+				</div>
+				<div class="nav_top" style="background-color:{if $global.nav_more_button_background_color_wap neq '暂无数据'}{$global.nav_more_button_background_color_wap}{/if};">
+					<span class="nav_top01 nav_span" style="background-color:{if $global.nav_more_button_middel_color_wap neq '暂无数据'}{$global.nav_more_button_middel_color_wap}{/if};"></span>
+					<span class="nav_top02 nav_span" style="background-color:{if $global.nav_more_button_middel_color_wap neq '暂无数据'}{$global.nav_more_button_middel_color_wap}{/if};"></span>
+					<span class="nav_top03 nav_span" style="background-color:{if $global.nav_more_button_middel_color_wap neq '暂无数据'}{$global.nav_more_button_middel_color_wap}{/if};"></span>
+				</div>
+				<div class="header_a">
+					<a href="{if $global.download_website_url_wap neq '暂无数据'}{$global.download_website_url_wap}{/if}" class="down_btn" style="background-color:{if $global.nav_button_color_wap neq ''}{$global.nav_button_color_wap}{/if};{if $global.nav_button_title_style_wap neq ''}{$global.nav_button_title_style_wap}{/if}">{if $global.nav_button_title_wap neq ''}{$global.nav_button_title_wap}{/if}</a>
+				</div>
+				{nav var=nav}
+				<ul class="tab_select">
+					{foreach $nav as $key=>$v}
+					<li data-id="{$v.id}" data-href="{$v.target}">
+						<a style="{$v.style}" href="{if $v.alias eq 'xw'}/m{myurl name='article/list, alias=>zonghe'}{else}{$v.url}{/if}" target="{if $v.target eq 1}_blank{else}_self{/if}" style="{if $key eq 0}color:{$global.nav_background_hover_color}{/if}">{$v.name}</a>
+					</li>
+					{/foreach}
+				</ul>
+				{if $diy}
+				<div class="pb_tc" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+		</header>
+		<!--内容-->
+		<div class="i_main">
+			<!--第一部分-->
+			<div class="top fade kv" style="background:url({if $global.kv_background_img_wap neq '暂无数据'}{$global.kv_background_img_wap}{/if}) center center / 100% 100% no-repeat;">
+				<!--视频播放按钮-->
+				<img data-url="{if isset($global.kv_video_url)}{$global.kv_video_url}{/if}" src="{if isset($global.kv_video_button_img)}{$global.kv_video_button_img}{/if}" alt="" class="play {if isset($global.kv_video_button_img)}js_video_play{/if}" />
+				<!--预约按钮-->
+				<div class="download">
+					<a class="down_gf yxyy" href="{if $global.download_website_url_wap neq '暂无数据' }{$global.download_website_url_wap}{/if}"><img src="{if $global.download_website_img_wap neq '暂无数据'}{$global.download_website_img_wap}{/if}" alt="" /></a>
+					<a class="tap k_top" href="{if $global.download_tap_url neq '暂无数据' }{$global.download_tap_url}{/if}"><img src="{if $global.download_tap_img_wap neq '暂无数据'}{$global.download_tap_img_wap}{/if}" alt="" /></a>
+				</div>
+				{if $diy}
+					<div class="pb_kv" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+			<!--第二部分-->
+			<div class="banner_news list" style="background:url({if $global.news_background_img_wap neq '暂无数据'}{$global.news_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<div class="title"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}pp/m/images/news_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="banner">
+					{fragment var=index_banner code=lunbo size=5}
+					<div class="swiper-container swiper-container1">
+						{if $index_banner neq ''}
+						<div class="swiper-wrapper">
+							{foreach $index_banner as $v}
+							<div class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+							</div>
+							{/foreach}
+						</div>
+						{/if}
+						<div class="swiper-pagination swiper-pagination1"></div>
+					</div>
+				</div>
+				<div class="news_box">
+					<div class="hd">
+						<ul>
+							<li class="on" data-align="zonghe">
+								<a href="javascript:;">综合</a>
+							</li>
+							<li data-align="xinwen">
+								<a href="javascript:;">新闻</a>
+							</li>
+							<li data-align="gonggao">
+								<a href="javascript:;">公告</a>
+							</li>
+							<li data-align="huodong">
+								<a href="javascript:;">活动</a>
+							</li>
+							<li data-align="gonglve">
+								<a href="javascript:;">攻略</a>
+							</li>
+						</ul>
+					</div>
+					<div class="bd">
+						{article alias="zonghe" size=4 var=zh}
+						<ul class="news_info" id="zuixin">
+							{if isset($zh) && $zh neq ""} {foreach $zh as $key=>$v}
+							<li>
+								<a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+							</li>
+							{/foreach}{/if}
+						</ul>
+
+						{article alias="xinwen" size=4 var=xw}
+						<ul class="news_info hidden" id="xinwen">
+							{if isset($xw) && $xw neq ""} {foreach $xw as $key=>$v}
+							<li>
+								<a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+							</li>
+							{/foreach}{/if}
+						</ul>
+
+						{article alias="gonggao" size=4 var=gg}
+						<ul class="news_info hidden" id="gonggao">
+							{if isset($gg) && $gg neq ""} {foreach $gg as $key=>$v}
+							<li>
+								<a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+							</li>
+							{/foreach}{/if}
+						</ul>
+
+						{article alias="huodong" size=4 var=hd}
+						<ul class="news_info hidden" id="huodong">
+							{if isset($hd) && $hd neq ""} {foreach $hd as $key=>$v}
+							<li>
+								<a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+							</li>
+							{/foreach}{/if}
+						</ul>
+
+						{article alias="gonglve" size=4 var=gl}
+						<ul class="news_info hidden" id="gonglve">
+							{if isset($gl) && $hd neq ""} {foreach $gl as $key=>$v}
+							<li>
+								<a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+							</li>
+							{/foreach}{/if}
+						</ul>
+					</div>
+					<a href="{myurl name='wap/article/list, alias=>zonghe'}" class="more">查看更多 +</a>
+				</div>
+				{if $diy}
+					<div class="pb_news" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>				
+				{/if}
+			</div>
+			<!--第四部分-->
+			<div class="ts_play" style="background:url({if count($global.tese_background_img_wap) > 0 && $global.tese_background_img_wap neq ''}{$global.tese_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+				<div class="title"></div>
+				<div class="slider">
+					<div class="swiper-container swiper-container2">
+						{fragment var=ts_img code=tese size=5} {if $ts_img neq ''}
+						<div class="swiper-wrapper" id="swiper-wrapper">
+							{foreach $ts_img as $v}
+							<div class="swiper-slide">
+								<a><img class="images" src="{$v.thumb}" alt=""></a>
+							</div>
+							{/foreach} {/if}
+						</div>
+					</div>
+					<div class="swiper-pagination swiper-pagination2"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				{if $diy}
+				<div class="pb_ts" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+				{/if}
+			</div>
+			<!--底部-->
+				<div class="official" style="background:url({if $global.media_background_img_wap neq '暂无数据'}{$global.media_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+					<div class="f_main">
+						<a href="{if $global.media_qq_1_url neq '暂无数据'}{$global.media_qq_1_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq1" id="qq1">
+							<img src="{if $global.media_qq_1_icon_wap neq '暂无数据'}{$global.media_qq_1_icon_wap}{/if}" alt="" id="qq_img1" />
+							<p>官方Q群1</p>
+						</a>
+						<a href="{if $global.media_qq_2_url neq '暂无数据'}{$global.media_qq_2_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq2" id="qq2">
+							<img src="{if $global.media_qq_2_icon_wap neq '暂无数据'}{$global.media_qq_2_icon_wap}{/if}" alt="" id="qq_img2" />
+							<p>官方Q群2</p>
+						</a>
+						<a href="{if $global.media_sina_url neq '暂无数据'}{$global.media_sina_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb" id="wb">
+							<img src="{if $global.media_sina_icon_wap neq '暂无数据'}{$global.media_sina_icon_wap}{/if}" alt="" id="wb_img" />
+							<p>官方微博</p>
+						</a>
+						<a href="{if $global.media_baidu_url}{$global.media_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="lt" id="tb">
+							<img src="{if $global.media_baidu_icon_wap}{$global.media_baidu_icon_wap}{/if}" alt="" id="tb_img" />
+							<p>官方贴吧</p>
+						</a>
+						<span class="gzh" style="background:url({if $global.media_wechat_background_img_wap neq '暂无数据'}{$global.media_wechat_background_img_wap}{/if}) no-repeat center;background-size:100% 100%;">
+               	 		<img src="{if $global.media_wechat_img neq '暂无数据'}{$global.media_wechat_img}{/if}" alt="" id="d_ewm"/>
+            		</span>
+					</div>
+					{if $diy}
+					<div class="pb_footer" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 4%;top: 2%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+					{/if}
+				</div>
+		</div>
+		{if $global.public_button_js eq 1}
+		<script type="text/javascript" src="http://static.dev.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+		{/if}
+	</body>
+	{video_play}
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/colpick.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/m/common/js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}czymf_gw/m/js/public.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}pp/m/js/js.js"></script>
+	<script type="text/javascript">
+		var swiper01 = new Swiper('.swiper-container1', {
+			pagination: '.swiper-pagination1',
+			slidesPerView: 1,
+			paginationClickable: true,
+			autoplayDisableOnInteraction: false,
+			autoplay: 2000,
+			loop: true
+		});
+		var swiper02 = new Swiper('.swiper-container2', {
+			pagination: '.swiper-pagination2',
+			paginationClickable: true,
+			effect: 'coverflow',
+			slidesPerView: 3,
+			centeredSlides: false,
+			loop: true,
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			coverflow: {
+				rotate: 0,
+				stretch: -110,
+				depth: 350,
+				modifier: 1,
+				slideShadows: false
+			}
+		});
+		$("#header").hover(function() {
+			$(".pb_tc").stop().show();
+		}, function() {
+			$(".pb_tc").stop().hide();
+		});
+		$(".pb_tc").click(function() {
+			$(".nav_tc", parent.document).show();
+			$(".baocun", parent.document).addClass("active");
+		});
+		$(".top").hover(function() {
+			$(".pb_kv").stop().show();
+		}, function() {
+			$(".pb_kv").stop().hide();
+		});
+		$(".pb_kv").click(function() {
+			$(".kv_tc", parent.document).show();
+			$(".baocun", parent.document).addClass("active");
+		});
+		$(".list").hover(function() {
+			$(".pb_news").stop().show();
+		}, function() {
+			$(".pb_news").stop().hide();
+		});
+		$(".pb_news").click(function() {
+			$("#ts_tc02", parent.document).show();
+			$(".baocun", parent.document).addClass("active");
+		});
+		$(".ych").hover(function() {
+			$(".pb_video").stop().show();
+		}, function() {
+			$(".pb_video").stop().hide();
+		});
+		$(".pb_video").click(function() {
+			$(".vd_tc", parent.document).show();
+			$(".baocun", parent.document).addClass("active");
+		});
+		$(".ts_play").hover(function() {
+			$(".pb_ts").stop().show();
+		}, function() {
+			$(".pb_ts").stop().hide();
+		});
+		$(".pb_ts").click(function() {
+			$("#game_ts", parent.document).show();
+			$(".baocun", parent.document).addClass("active");
+		});
+		$(".official").hover(function() {
+			$(".pb_footer").stop().show();
+		}, function() {
+			$(".pb_footer").stop().hide();
+		});
+		$(".pb_footer").click(function() {
+			$(".me_tc", parent.document).show();
+			$(".baocun", parent.document).addClass("active");
+		});
+		
+	</script>
+
+</html>

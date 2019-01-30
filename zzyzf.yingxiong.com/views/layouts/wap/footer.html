@@ -1,0 +1,96 @@
+	</body>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js?<?= VERSION;?>#style=-1"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/common/js/jquery.fittext.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/common/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/cover.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	var clickNumber = 0;
+		$(function() {
+			$('html').fitText(3);
+			var mySwiper = new Swiper('.z_banner', {
+				loop: true,
+				simulateTouch: false,
+				autoplay: 3000,
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+			});
+
+			var mySwiper = new Swiper(".m_banner", {
+		    pagination: '.swiper-pagination1',
+			simulateTouch: false,
+			loop: true,
+			autoplay: 2500,
+			observer:true,
+			observeParents:true,
+			});
+		});
+		//分享
+		function sharefn(e,i){
+			var url=$(".log_af").attr("data-url");
+			var arr=['weixin','sinaminiblog','qzone'];
+			bShare.addEntry({
+				title: "战争与征服官方网站",
+				url: url,
+				summary: "每一个梦想 都将在这里实现",//分享的文本摘要，默认为页面Meta标签中description的内容或者用户高亮的内容
+				pic: "http://static.dev.yingxiong.com/zzyzf/4.0/images/nav_top_bg.png"   //指定分享的图片的链接，目前支持新浪微博，QQ空间，搜狐微博，网易微博，人人网， 嘀咕，腾讯微博和做啥。
+			});
+			bShare.share(e, arr[i]);
+		}
+         $(".h_nav,.h_nav2").on("click", function(e) {
+		e.stopPropagation();
+		if(clickNumber % 2 == 0) {
+			$(".d_t_t").addClass("d_t_t_tran");
+			$(".d_t_m").addClass("d_t_m_tran");
+			$(".d_t_b").addClass("d_t_b_tran");
+			$(".header_nav").stop().slideDown();
+		} else {
+			$(".d_t_t").removeClass("d_t_t_tran");
+			$(".d_t_m").removeClass("d_t_m_tran");
+			$(".d_t_b").removeClass("d_t_b_tran");
+			$(".header_nav").stop().slideUp();
+		}
+		clickNumber++;
+	});
+	$(".header_nav li,.fade").click(function() {
+		$(".d_t_t").removeClass("d_t_t_tran");
+		$(".d_t_m").removeClass("d_t_m_tran");
+		$(".d_t_b").removeClass("d_t_b_tran");
+		$(".header_nav").stop().slideUp();
+	})
+	$(".header_nav li").on("click", function() {
+		$(this).addClass("active").siblings().removeClass("active");
+	});
+	 $(".weixin_btn").click(function(){
+        $(".wechat").fadeIn(500);
+    })
+     $(".wechat").click(function(){
+        $(".wechat").fadeOut(500);
+    })
+	// //出现立即预约浮层
+	// $(window).scroll(function() {
+	// 	var scroHei = $(window).scrollTop(); //滚动的高度
+	// 	if(scroHei >450) {
+	// 		$('.yyue_bg').fadeIn();
+	// 	}else {
+	// 		$('.yyue_bg').fadeOut();
+	// 	}
+	// })
+	// var minAwayBtm = 100;  // 距离页面底部的最小距离
+	// 	$(window).scroll(function() {
+	// 	        var awayBtm = $(document).height() - $(window).scrollTop() - $(window).height();
+	// 	    if (awayBtm <= minAwayBtm) {
+	// 	        $(".yyue_bg").addClass("active");
+	// 	        $(".bot_box").addClass("active");
+	// 	    }else{
+	// 	    	$(".yyue_bg").removeClass("active");
+	// 	    	 $(".bot_box").removeClass("active");
+	// 	    }
+	// });
+	</script>
+	{video_play}
+    {download}
+</html>

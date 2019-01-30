@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="designer" content="ling.wang,xiaoling.wei">
+	<meta name="front-end technicist" content="yu.lan,hui.liu,shuang.wen">
+	<meta name="editor" content="li.zhang">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}"/>
+	<link rel="shortcut icon" href="{$smarty.const.STATIC_DOMAIN}3.0/images/favicon.ico?{$smarty.const.VERSION}">
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/animate.css?{$smarty.const.VERSION}">
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/common.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/isotope.css?{$smarty.const.VERSION}">
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/index.css?{$smarty.const.VERSION}">
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m/";
+		}
+	</script>
+	<meta name="360-site-verification" content="5c910b54a59af16a8b9d36ad91cd95d9" />
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?744fc26928ce00373c1f19768d018dce";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	{csrf}
+</head>
+<body>
+<!--topBar-->
+<div class="topBar">
+	<div class="topBox">
+		<a href="/index.html" title="英雄互娱" class="topLogo"></a>
+		<ul class="topBoxlist">
+			<li class="homeHero{if !isset($smarty.get.id)&&!isset($id)} on{/if}"><a href="/index.html" title="首页">首页</a></li>
+			<li class="proHero{if (isset($id)&&$id=='product')} on{/if}"><a href="/product.html" title="产品中心">产品中心</a></li>
+			<li class="joinHero{if (isset($smarty.get.id)&&$smarty.get.id=='join')} on{/if}"><a href="{myurl name='page/index, id=>join'}" title="加入英雄">加入英雄</a></li>
+			<li class="aboutHero{if (isset($smarty.get.id)&&($smarty.get.id=='about'||$smarty.get.id==242))} on{/if}"><a href="{myurl name='page/index, id=>about'}" title="关于英雄">关于英雄</a></li>
+		</ul>
+	</div>
+</div>
+
+<!--系统tips-->
+<div class="alert_tips hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/tips_close.png" alt="" class="co_tips_close">
+		<div class="right">
+			<!--<h2>敬请期待！</h2>-->
+			<!--<p>项目正在紧张开发中...</p>-->
+			<h2>暂无数据！</h2>
+			<p>到其他地方看看吧...</p>
+			<span class="surebtn">确定</span>
+		</div>
+	</div>
+</div>

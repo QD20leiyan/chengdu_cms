@@ -1,0 +1,269 @@
+{include '../layouts/pc/header.html'}
+{include '../layouts/pc/top.html'}
+<div class="z_all_box">
+	<div class="z_container1">
+		{fragment var=video code=video size=1}
+		<button class="z1_videoBtn js_video_play" data-url="{if $video}{$video[0].url}{/if}"></button>
+		<!-- <div class="main_btn">
+            <div class="code lf">
+                <img src="{$global.wx_img}" class="lf">
+            </div>
+            <div class="yuyue rt">
+                <a href="javascript:;" target="_blank" class="js_down_ios"><img class="ioc" src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_ios_download.png?{$smarty.const.VERSION}" alt="" /></a>
+                <a href="javascript:;" target="_blank" class="js_down_andriod"><img class="android" id="yuyue_btn" src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_android_download.png?{$smarty.const.VERSION}" alt="" /></a>
+            </div>
+        </div> -->
+		<button class="z1_yyBtn"></button>
+		<p>已经预约<span class="z1_yy_number"></span>人</p>
+	</div>
+	<div class="z_container1_1">
+		<div class="z_container1_con">
+			<div class="f_main">
+				<div class="left_lunbo">
+					<div class="m_banner">
+						{fragment var=banner code=banner size=5}
+						<ul class="swiper-wrapper">
+							{if $banner neq ''}
+							{foreach $banner as $v}
+							<li class="swiper-slide">
+								<a href="{$v.url}">
+									<img src="{$v.thumb}" alt="" />
+								</a>
+							</li>
+							{/foreach}
+							{/if}
+						</ul>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="news_box rt">
+					<div class="text_tab_more">
+						<a href="{myurl name='article/list, id=>480'}" class="more" target="_blank"></a>
+					</div>
+					<div class="art-news">
+						<ul class="news-nav clearfix">
+							<li class="curr" data-index="0">最新</li>
+							<li data-index="1">新闻</li>
+							<!-- <li data-index="2">公告</li> -->
+							<li data-index="3">攻略</li>
+						</ul>
+						<div class="tab-cont">
+							<ul class="ul">
+								{article id="480" size=5 var=zx}
+								{if $zx neq ''}
+								{foreach $zx as $key=>$v}
+								{if $key >= 0}
+								<li><i>[ {$v.name} ]</i>
+									<a href="{$v.linkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+								{/foreach}
+								{else}
+								<p>暂无数据~</p>
+								{/if}
+							</ul>
+							<ul class="ul hide">
+								{article id="481" size=5 var=xw}
+								{if $xw neq ''}
+								{foreach $xw as $key=>$v}
+								{if $key >= 0}
+								<li><i>[ {$v.name} ]</i>
+									<a href="{$v.linkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+								{/foreach}
+								{else}
+								<p>暂无数据~</p>
+								{/if}
+							</ul>
+							<!-- <ul class="ul hide">
+								 {article id="482" size=6 var=gg}
+								{if $gg neq ''}
+								{foreach $gg as $key=>$v}
+								{if $key >= 0}
+								<li><i>[ {$v.name} ]</i>
+									<a href="{$v.linkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+							</ul> -->
+							<ul class="ul hide">
+								{article id="483" size=5 var=gl}
+								{if $gl neq ''}
+								{foreach $gl as $key=>$v}
+								{if $key >= 0}
+								<li><i>[ {$v.name} ]</i>
+									<a href="{$v.linkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+								{/foreach}
+								{else}
+								<p>暂无数据~</p>
+								{/if}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="z_container2">
+		<ul class="z2_list">
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yxb1.png?{$smarty.const.VERSION}">
+				<i></i>
+				<span>10,000</span>
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yxb2.png?{$smarty.const.VERSION}">
+				<i></i>
+				<span>20,000</span>
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yxb3.png?{$smarty.const.VERSION}">
+				<i></i>
+				<span>50,000</span>
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yxb4.png?{$smarty.const.VERSION}">
+				<i></i>
+				<span>100,000</span>
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yxb5.png?{$smarty.const.VERSION}">
+				<i></i>
+				<span>200,000</span>
+			</li>
+		</ul>
+	</div>
+	<div class="z_container3">
+		<div class="z_loginBox">
+			<div id="z3_noLogin">
+				<h1>请先登录游戏帐号</h1>
+				<button></button>
+			</div>
+			<div id="z3_loginend">
+				<!-- <div class="z3_head">
+                    <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/z_head1.png?{$smarty.const.VERSION}">
+                </div> -->
+				<div class="z3_inf" data-url="">
+					<h1 class="userName"></h1>
+					<p>我的邀请码<span class="userYqm"></span></p>
+					<span>已成功邀请<label class="userFriend"></label>位好友</span>
+				</div>
+			</div>
+		</div>
+		<ul class="z3_list">
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/z_box1.png?{$smarty.const.VERSION}">
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/z_box2.png?{$smarty.const.VERSION}">
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/z_box3.png?{$smarty.const.VERSION}">
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/z_box4.png?{$smarty.const.VERSION}">
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/z_box5.png?{$smarty.const.VERSION}">
+			</li>
+		</ul>
+		<div class="z3_tellFriend">
+			<button></button>
+		</div>
+	</div>
+	<div class="z_container4">
+		<div>
+			<div class="swiper-container">
+				{fragment var=banner_img code=banner_img size=5}
+				<div class="swiper-wrapper">
+					{if $banner_img neq ''}
+					{foreach $banner_img as $v}
+					<div class="swiper-slide"><a href="{$v.url}"><img src="{$v.thumb}"></a></div>
+
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+			<!-- 如果需要导航按钮 -->
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+		</div>
+	</div>
+</div>
+<!-- 这是弹窗 -->
+<div class="z_tcBox">
+	<div class="tc1">
+		<h1>登录</h1>
+		<input id="userPhone" type="text" name="phone" placeholder="请输入手机号码" maxlength="11">
+		<p class="tc1_err">请输入手机号码</p>
+		<div class="tc1_imgMark">
+			<input type="text" placeholder="图片验证码">
+			<label>
+				<img id="tc1_img" src="">
+				<p class="shuaxin">点击图片刷新</p>
+			</label>
+		</div>
+		<p class="tc1_err">请输入图片验证码</p>
+		<div class="tc1_phoneMark">
+			<input type="text" placeholder="手机验证码">
+			<label>获取验证码</label>
+		</div>
+		<p class="tc1_err">请输入手机验证码</p>
+		<button class="tc1_login"></button>
+		<label class="tc_close"></label>
+	</div>
+	<div class="tc2">
+		<h1>预约信息</h1>
+		<div class="tc2_yyType">
+			<p class="active" type="ios">
+				<label><i></i></label>IOS
+			</p>
+			<p type="android">
+				<label><i></i></label>Android
+			</p>
+		</div>
+		<div class="tc2_friend">
+			<h2>是否有好友邀请</h2>
+			<p class="active" type="yes">
+				<label><i></i></label>是
+			</p>
+			<p type="no">
+				<label><i></i></label>否
+			</p>
+		</div>
+		<input class="tc2_yqm" type="text" placeholder="请输入邀请码">
+		<p class="tc2_err">请输入邀请码</p>
+		<button class="tc2_sendYY"></button>
+		<label class="tc_close"></label>
+	</div>
+	<div class="tc3">
+		<h1>邀请好友来玩</h1>
+		<div>
+			<!-- JiaThis Button BEGIN -->
+			<div class="share">
+				<a href="javascript:sharefn(event,0)"  class="co_wx"></a>
+				<a href="javascript:sharefn(event,1);" class="co_qq"></a>
+				<a href="javascript:sharefn(event,2);" class="co_wb"></a>
+			</div>
+			<label class="tc3_line"></label>
+			<div class="tc3_markBox">
+				<img src="" style="width: 100%;">
+			</div>
+			<div class="tc3_yqm">
+				<h2>我的邀请码</h2>
+				<p class="userYqm"></p>
+			</div>
+		</div>
+		<p>
+			扫描二维码分享页面邀请好友
+		</p>
+		<label class="tc_close"></label>
+	</div>
+</div>
+{include '../layouts/pc/footer.html'}

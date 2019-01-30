@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" /> {csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}rape_community/css/cdn-swiper.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}rape_community/css/style.css?{$smarty.const.VERSION}">
+		<script src="http://cdnstatic.yingxiong.com/qmqz/7.0/js/jquery-1.7.1.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}rape_community/js/cdn-swiper.js?{$smarty.const.VERSION}"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?cd3c5f317e3f5ced9e323d594c3eb7b3";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js??{$smarty.const.VERSION}"></script>
+		<div class="search-wrap">
+			{include file="../layouts/pc/ych_header.html"}
+			<div class="page1-wrap">
+				<div class="leaf">
+					<img src="{$smarty.const.STATIC_DOMAIN}rape_community/images/leaf1.png?{$smarty.const.VERSION}" alt="" class="leaf1">
+					<img src="{$smarty.const.STATIC_DOMAIN}rape_community/images/leaf2.png?{$smarty.const.VERSION}" alt="" class="leaf2">
+					<img src="{$smarty.const.STATIC_DOMAIN}rape_community/images/leaf3.png?{$smarty.const.VERSION}" alt="" class="leaf3">
+					<img src="{$smarty.const.STATIC_DOMAIN}rape_community/images/leaf4.png?{$smarty.const.VERSION}" alt="" class="leaf4">
+				</div>
+				<div class="main">
+					<div class="con-box">
+						<div class="tab-list">
+							<ul>
+								<li class="active" data-type="zz">作者相关</li>
+								<li data-type="zp">作品名相关</li>
+							</ul>
+							<div class="flower"></div>
+						</div>
+						<div class="con-list">
+							<div class="per one_type">
+								<ul class="pic-list" id="pic-list">
+
+								</ul>
+							</div>
+							<div class="per two_type">
+								<ul class="pic-list" id="pic-list-two">
+
+								</ul>
+							</div>
+							<div class="dropload-down">
+								<div class="dropload-noData">上滑加载更多</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 视频弹窗 -->
+			<div class="mask video-mask">
+				<div class="video-mask-con">
+					<a href="javascript:;" class="close video-mask-close"></a>
+					<div class="video-box">
+						<img src="" alt="" />
+						<i></i>
+						<span></span>
+					</div>
+					<div class="introduce">
+						<p class="name">
+							作品名称：<span></span>
+						</p>
+						<div class="author-box">
+							<p class="author">
+								作者：
+								<span></span>
+							</p>
+							<div class="fire">
+								<i></i>
+								<span class="num"></span>
+							</div>
+						</div>
+						<div class="good">
+							<i></i> 赞一下
+						</div>
+						<p class="des"></p>
+					</div>
+				</div>
+			</div>
+			<!-- 轮播图弹窗 -->
+			<div class="mask lunbo-mask">
+				<div class="lunbo-mask-con">
+					<a href="javascript:;" class="close lunbo-mask-close"></a>
+					<div class="pic-lunbo">
+						<div class="swiper-container gallery-top">
+							<div class="swiper-wrapper">
+
+							</div>
+							<!-- Add Arrows -->
+							<div class="button-next button-next01"></div>
+							<div class="button-prev button-prev01"></div>
+						</div>
+						<div class="gallery-thumbs-wrap">
+							<div class="swiper-container gallery-thumbs">
+								<div class="swiper-wrapper">
+
+								</div>
+							</div>
+							<!-- Add Arrows -->
+							<div class="button-next button-next02"></div>
+							<div class="button-prev button-prev02"></div>
+						</div>
+					</div>
+					<div class="introduce">
+						<p class="name">
+							作品名称：<span></span>
+						</p>
+						<div class="author-box">
+							<p class="author">
+								作者：
+								<span></span>
+							</p>
+							<div class="fire">
+								<i></i>
+								<span class="num"></span>
+							</div>
+						</div>
+						<div class="good">
+							<i></i> 赞一下
+						</div>
+						<p class="des"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--大图弹窗-->
+		<div id="big_img">
+			<div class="scroll">
+				<div class="swiper-container ul_img">
+					<ul class="swiper-wrapper">
+
+					</ul>
+					<img src="{$smarty.const.STATIC_DOMAIN}rape_community/images/close.png?{$smarty.const.VERSION}" alt="" class="n_close" />
+					<div class="swiper-button-next00"></div>
+					<div class="swiper-button-prev00"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+	{video_play} {download}
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}rape_community/js/masonry-docs.min.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}rape_community/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+	<script>
+		var base = location.search.substr(1);
+		var k = decodeURIComponent(atob(base));
+		$(".inp input").val(k);
+		var page = 1;
+		var isScroll = 1;
+		var ajaxUrl = '/ych/search-words.html';
+		window.onscroll = function() {
+			var winH = window.innerHeight;
+			var allH = document.body.scrollHeight;
+			var topH = window.pageYOffset;
+			if((allH - (winH +
+					topH) < 10) && isScroll == 1) {
+				getListFu();
+			}
+		};
+		$("#pic-list-two,#pic-list").masonry({
+			itemSelector: '.video-border',
+			gutter: 6,
+			isAnimated: true
+		});
+		function good() {
+			$(".num").unbind();
+			$(".num").click(function(e) {
+				e.stopPropagation();
+				var this_good = $(this);
+				var praise_id = this_good.parent().parent().attr("data-id");
+				var praise_type = this_good.parent().parent().attr("data-ntype");
+				var praise_url = '/common/praise.html';
+				console.log(praise_id);
+				$.ajax({
+					type: "POST",
+					url: praise_url,
+					data: {
+						limit_type: "ip",
+						id: praise_id,
+						praise_type: praise_type,
+						count: 1
+					},
+					success: function(data) {
+						var data = JSON.parse(data);
+						if(data.status == 0) {
+							this_good.parent().find(".num>span").text(data.msg);
+							$(".video-border[data-id='" + praise_id + "'] .num span").text(data.msg);
+						} else {
+							alert(data.msg);
+						}
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+			});
+		}
+		function getListFu() {
+			var k = $(".inp input").val();
+			$(".dropload-noData").html("数据加载中...");
+			isScroll = 0;
+			$.ajax({
+				type: "POST",
+				url: ajaxUrl,
+				data: {
+					page_size: 20,
+					page: page++,
+					keywords: k
+				},
+				success: function(data) {
+					var data = JSON.parse(data);
+					if(data.status == 0 && data.msg) {
+						if($(".tab-list ul li.active").data("type") == "zz") {
+							if(page == 2) {
+								$("#pic-list").empty();
+							}
+							if(data.msg.authors.length) {
+								$("#pic-list").masonry("destroy");
+								for(var i in data.msg.authors) {
+									var author = data.msg.authors[i];
+									var li = '<li class="video-border" data-ntype="content" data-type="' + author.category_type_id + '" data-id="' + author.id + '" data-desc="' + author.summary + '" data-imgs="' + author.images.join(",") + '"><div class="top">' + (author.category_type_id == "media" ?
+											'<img src="' + author.thumb + '"><i class="play-btn js_video_play" data-url="' + author.body + '"></i><div class="shadow"></div>' :
+											'<img src="' + author.thumb + '">') +
+										'</div><div class="bottom"><p class="title">' + author.title + '</p><p class="name"><i></i><span>' + author.sub_title.replace(k, '<b class="key">' + k + '</b>') + '</span></p>' +
+										'<div class="num"><i class="icon"></i><span>' + author.praise + '</span></div>' +
+										'</div></li>'
+									$("#pic-list").html(null).append(li);
+								}
+								var $container = $('#pic-list');
+								$container.imagesLoaded(function() {
+									$container.masonry({
+										itemSelector: '.video-border',
+										gutter: 6,
+										isAnimated: true
+									});
+								});
+								$(".js_video_play").unbind();
+								videoInit();
+								$(".dropload-noData").html("上滑加载更多<i></i>");
+								isScroll = 1;
+								good();
+							} else {
+								$(".dropload-noData").html("没有更多信息了");
+							}
+						} else {
+							if(page == 2) {
+								$("#pic-list-two").empty();
+							}
+							if(data.msg.procs.length) {
+								$('#pic-list-two').masonry("destroy");
+								for(var i in data.msg.procs) {
+									var procs = data.msg.procs[i];
+									var li = '<li class="video-border" data-ntype="content" data-type="' + procs.category_type_id + '" data-id="' + procs.id + '" data-desc="' + procs.summary + '" data-imgs="' + procs.images.join(",") + '"><div class="top">' + (procs.category_type_id == "media" ?
+											'<img src="' + procs.thumb + '"><i class="play-btn js_video_play" data-url="' + procs.body + '"></i><div class="shadow"></div>' :
+											'<img src="' + procs.thumb + '">') +
+										'</div><div class="bottom"><p class="title">' + procs.title + '</p><p class="name"><i></i><span>' + procs.sub_title.replace(k, '<b class="key">' + k + '</b>') + '</span></p>' +
+										'<div class="num"><i class="icon"></i><span>' + procs.praise + '</span></div>' +
+										'</div></li>'
+									$("#pic-list-two").html(null).append(li);
+								}
+								var $container = $('#pic-list-two');
+								$container.imagesLoaded(function() {
+									$container.masonry({
+										itemSelector: '.video-border',
+										gutter: 6,
+										isAnimated: true
+									});
+								});
+								$(".js_video_play").unbind();
+								videoInit();
+								$(".dropload-noData").html("上滑加载更多<i></i>");
+								isScroll = 1;
+								good();
+							} else {
+								$(".dropload-noData").html("没有更多信息了");
+							}
+						}
+
+						$("#pic-list-two li,#pic-list li").click(function() {
+							$(".video-box i").removeClass("js_video_play").unbind();
+							$('.gallery-top .swiper-wrapper').empty();
+							$(".gallery-thumbs .swiper-wrapper").empty();
+							$("#big_img .swiper-wrapper").empty();
+							var type = $(this).attr("data-type");
+							var id = $(this).attr("data-id");
+							if(type != "media") {
+								//轮播弹窗
+								$(".lunbo-mask-con .introduce .good").attr("data-id", id);
+								$(".lunbo-mask-con .introduce .good").attr("data-type", "content");
+								$(".lunbo-mask-con .introduce .name span").text($(this).find(".title").text());
+								$(".lunbo-mask-con .introduce .author-box .author span").text($(this).find(".name span").text());
+								$(".lunbo-mask-con .author-box .fire .num").text($(this).find(".num span").text());
+								$(".lunbo-mask-con .introduce .des").text($(this).attr("data-desc"));
+								var result = '';
+								var imgs = $(this).attr("data-imgs").split(",");
+								for(var i = 0; i < imgs.length; i++) {
+									result += "<div class='swiper-slide'><img src=" + imgs[i] + "></div>";
+								}
+								$("#big_img .swiper-wrapper").html(null).append(result);
+								$(".gallery-top .swiper-wrapper").html(null).append(result);
+								$(".gallery-thumbs .swiper-wrapper").html(null).append(result);
+								//								$(".lunbo-mask").show();
+								var mySwiper00 = new Swiper('.ul_img', {
+									loop: true,
+									navigation: {
+										nextEl: '.swiper-button-next00',
+										prevEl: '.swiper-button-prev00',
+									},
+									observer: true,
+									observeParents: true,
+								});
+								$(".pic-lunbo .swiper-slide img").trigger("click");
+								var galleryTop = new Swiper('.gallery-top', {
+									spaceBetween: 10,
+									navigation: {
+										nextEl: '.button-next01',
+										prevEl: '.button-prev01',
+									},
+									observer: true,
+									observeParents: true,
+								});
+								var galleryThumbs = new Swiper('.gallery-thumbs', {
+									spaceBetween: 0,
+									slidesPerView: 5,
+									touchRatio: 0.2,
+									slideToClickedSlide: true,
+									centeredSlides: !0,
+									navigation: {
+										nextEl: '.button-next02',
+										prevEl: '.button-prev02',
+									},
+									observer: true,
+									observeParents: true,
+								});
+								galleryTop.controller.control = galleryThumbs;
+								galleryThumbs.controller.control = galleryTop;
+							} else {
+								//视频弹窗
+								$(".video-mask-con .good").attr("data-id", id);
+								$(".video-mask-con .good").attr("data-type", "content");
+								$(".video-mask-con .introduce .name span").text($(this).find(".title").text());
+								$(".video-mask-con .introduce .author span").text($(this).find(".name span").text());
+								$(".video-mask-con .fire span.num").text($(this).find(".num span").text());
+								$(".video-mask-con .introduce .des").text($(this).attr("data-desc"));
+
+								$(".video-mask-con .video-box img").attr("src", $(this).find(".top img").attr("src"));
+								$(".video-mask-con .video-box i").attr("data-url", $(this).find(".play-btn").attr("data-url"));
+								$(".video-mask-con .video-box i").addClass("js_video_play");
+								videoInit();
+								$(".video-mask-con .video-box i").click(function() {
+									$(".video-mask").hide();
+								});
+								//								$(".video-mask").show();
+								$(".video-mask .video-box i").trigger("click");
+							}
+						});
+					} else {
+						$(".dropload-noData").html("没有更多信息了");
+					}
+				},
+				error: function(data) {
+					console.log(data);
+				}
+			})
+		}
+		getListFu();
+		$(".inp .icon").click(function() {
+			var k = $(".inp input").val();
+			if($.trim(k)) {
+				page = 1;
+				isScroll = 0;
+				getListFu();
+			} else {
+				alert("请输入关键词");
+				$(".inp input").val("").focus();
+			}
+		});
+		$(".tab-list li").click(function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".con-list .per").eq(index).show().siblings(".per").hide();
+			page = 1;
+			getListFu();
+		});
+
+		$(".lunbo-mask-close").click(function() {
+			$(".lunbo-mask").hide();
+		})
+		$(".video-mask-close").click(function() {
+			$(".video-mask").hide();
+		})
+		//作品点赞
+		//		$(".good").click(function() {
+		//			var this_good = $(this);
+		//			var praise_id = this_good.attr("data-id");
+		//			var praise_url = '/common/praise.html';
+		//			var praise_type = this_good.attr("data-type");
+		//			$.ajax({
+		//				type: "POST",
+		//				url: praise_url,
+		//				data: {
+		//					limit_type: "ip",
+		//					id: praise_id,
+		//					count: 1,
+		//					praise_type: praise_type
+		//				},
+		//				success: function(data) {
+		//					var data = JSON.parse(data);
+		//					if(data.status == 0) {
+		//						$(".fire .num").text(data.msg);
+		//						$(".video-border[data-id='" + praise_id + "'] .num span").text(data.msg);
+		//					} else {
+		//						alert(data.msg);
+		//					}
+		//				},
+		//				error: function(data) {
+		//					console.log(data);
+		//				}
+		//			})
+		//		});
+		$(".download").hover(function() {
+			$(".xf_code").show();
+		}, function() {
+			$(".xf_code").hide();
+		});
+		$(".xf_code").hover(function() {
+			$(this).show();
+		}, function() {
+			$(this).hide();
+		});
+		$(".n_close").click(function() {
+			$("#big_img").hide();
+		});
+		//点击轮播图出来大图展示
+		$(".gallery-top .swiper-wrapper").on("click", ".swiper-slide img", function() {
+			$(".lunbo-mask").hide();
+			$("#big_img").show();
+		});
+		$(function() {
+			good();
+		})
+	</script>
+
+</html>

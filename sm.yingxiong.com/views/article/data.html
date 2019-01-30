@@ -1,0 +1,155 @@
+ {include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news_data.css" />
+<div class="main_content">
+	<div class="news_data">
+		<div class="left_data">
+			<ul>
+				<li data="0" class="{if $category_id eq 117}active{else} {/if}">
+					<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page01_1.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page01.png" title="" alt="" />				
+					</a>
+				</li>
+				<li data="1" class="{if $category_id eq 118}active{else} {/if}">
+					<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page02.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page02_1.png" title="" alt="" />					
+					</a>
+				</li>
+				<li data="2" class="{if $category_id eq 119}active{else} {/if}">
+					<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page03.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page03_1.png" title="" alt="" />					
+					</a>
+				</li>
+				<li data="3" class="{if $category_id eq 120}active{else} {/if}">
+					<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page04.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page04_1.png" title="" alt="" />					
+					</a>
+				</li>
+				<li data="4" class="{if $category_id eq 121}active{else} {/if}">
+					<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page05.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/page05_1.png" title="" alt="" />				
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="right_data">
+			{include file="./ajax_get_data.html"}
+		</div>
+		<div class="right_detail" style="display: none;">
+
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+</body>
+<script type="text/javascript">
+	var test = window.location.href;
+	var bb = test.indexOf("article/");
+	var cc = test.substring(parseInt(bb) + 8);
+	console.log(test.substring(parseInt(bb) + 8))
+	if(cc.indexOf("data") != -1) {
+		$(".link li").eq(2).addClass("active");
+	};
+	clickOff();
+	click();
+	$(".left_data li").on("click", function() {
+		var aa = $(this).attr("data");
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".right_txt .tab").eq(index).addClass("active");
+		$(".right_txt .tab").eq(index).siblings().removeClass("active");
+		init(parseInt(aa) + 117);
+	});
+	$(".link li").hover(function() {
+		$(this).addClass("active");
+		$(this).siblings().removeClass("active");
+	}, function() {
+
+	});
+	
+	function click() {
+		$(".title_bg li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+
+		$(".tab_qh01 li").on("click", function() {
+			$(".tab_qh01 li").removeClass("active");
+			$(this).addClass("active");
+			//			detail($(this).find("a").attr("data"));
+		});
+
+		$(".dl_scroll dt").on("click", function() {
+			//			detail($(this).find("a").attr("data"));
+		});
+
+		$(".tab_qh .tab01").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			var tt = $(this).parent().next().children();
+			$(tt).eq(index).addClass("active");
+			$(tt).eq(index).siblings().removeClass("active");
+		});
+	};
+
+	function clickOff() {
+		$(".title_bg li").off();
+		$(".tab_qh01 li").off();
+		$(".tab_qh .tab01").off()
+	}
+
+	//	function detail(data) {
+	//
+	//		$.ajax({
+	//			type: "GET",
+	//			url: data,
+	//			success: function(response) {
+	//				$(".right_data").hide();
+	//				$(".right_detail").empty();
+	//				$(".right_detail").show().append(response);
+	//				clickOff();
+	//				click();
+	//			},
+	//			error: function(response) {
+	//				console.log(response);
+	//			}
+	//		});
+	//	}
+	function pageOff(){
+		$(".page li a").attr("href" , "javascript:;");
+	};
+	
+	var page = 1
+	function init(curId) {
+		$.ajax({
+			type: "GET",
+			url: '{myurl name="/article/ajax-get-data"}',
+			data: {
+				id: curId,
+				page : page
+			},
+			success: function(data) {
+				$(".right_detail").hide();
+				$(".right_data").empty();
+				$(".right_data").show().append(data);
+				clickOff();
+				click()
+				pageOff();
+				$(".page li").on("click" , function (){
+					page = parseInt($(this).children("a").attr("data-page")) + 1;
+					init(curId);
+				});
+			},
+			error: function(data) {
+				console.log("失败");
+			}
+		})
+	}
+</script>
+
+</html>

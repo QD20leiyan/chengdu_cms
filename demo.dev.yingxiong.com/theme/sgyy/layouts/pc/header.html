@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/yx.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="nav">
+			<div class="wrap">
+				<img src="{$global.website_logo_img}" alt="" class="icon" />
+				<div class="n_txt">
+					<p>{$global.website_title}</p>
+					<p>{$global.website_sub_title}</p>
+				</div>
+				<ul class="nav_ul">
+					<li class='{if $alias eq ''}active {/if}'>
+						<a href="{myurl name='site/index'}" target="_blank">首页</a>
+						<i>	</i>
+					</li>
+					<li class="{if $alias}active{/if}">
+						<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank">新闻中心</a>
+						<i>	</i>
+					</li>
+					<li>
+						<a href="javascript:yx_showTips('敬请期待');" target="_blank">客服</a>
+						<i>	</i>
+					</li>
+					<li>
+						<a href="javascript:yx_showTips('敬请期待');" target="_blank">论坛</a>
+						<i>	</i>
+					</li>
+				</ul>
+				<ul class="s_ul">
+					<li></li>
+					<li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+					<li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+					<div class="fl_wx"><img src="{$global.wx_img}" alt=""/></div>
+				</ul>
+			</div>
+		</div>

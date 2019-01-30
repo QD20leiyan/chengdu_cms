@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+        <meta name="screen-orientation" content="portrait">
+        <meta name="x5-orientation" content="portrait">
+		<meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+		<link href="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/css/animate.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/css/swiper.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+		<link href="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/css/index.css?{$smarty.const.VERSION}" rel="stylesheet" />
+
+        <script src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        {csrf}
+	</head>
+	<body>
+		<div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+            <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+            <div class="h5_data" style="display: none;">{$h5data}</div>
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+					<section class="swiper-slide page2 swiper-no-swiping">
+                        <div class="wrap">
+                            <i class="ic_mouse"></i>
+                            <div class="heart_li">
+                                 <div class="heart_line"></div>
+                            </div>
+                            <p id="loading-txt">LOADING...<span></span></p>
+                        </div>
+					</section>
+                    <section class="swiper-slide page3 swiper-no-swiping"> 
+                        <a href="javascript:;" class="jump"></a>
+                        <a href="javascript:;" class="play"></a>
+                        <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/music/video.mp4?{$smarty.const.VERSION}" poster="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/cover.jpg?{$smarty.const.VERSION}"></video>
+                    </section>
+                    <section class="swiper-slide page1">
+                        <div class="poster">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/1.png?{$smarty.const.VERSION}" alt="" class="s1 ani animated" swiper-animate-delay="3.4s">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/2.png?{$smarty.const.VERSION}" alt="" class="s2 ani animated" swiper-animate-delay="2.9s">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/3.png?{$smarty.const.VERSION}" alt="" class="s3 ani animated" swiper-animate-delay="2.4s">
+                             <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/4.png?{$smarty.const.VERSION}" alt="" class="s4 ani animated" swiper-animate-delay="1.9s">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/5.png?{$smarty.const.VERSION}" alt="" class="s5 ani animated" swiper-animate-delay="1.4s"> 
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/6.png?{$smarty.const.VERSION}" alt="" class="s6 ani animated" swiper-animate-delay="0.9s">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/7.png?{$smarty.const.VERSION}" alt="" class="s7 ani animated" swiper-animate-delay="0.4s">
+                        </div>
+                        <div class="poster_sm ani animated" swiper-animate-delay="3.6s"></div>
+                        <div class="poster_sm2"></div>
+                        <div class="down"></div>
+                    </section>
+                    <section class="swiper-slide page10">
+                        <div class="poster">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/lad2.png?{$smarty.const.VERSION}" alt="" class="lo2">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/log2.png?{$smarty.const.VERSION}" alt="" class="lo3">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/log3.png?{$smarty.const.VERSION}" alt="" class="lo4">
+                        </div>
+                        <a href="javascript:;" class="next_btn"></a>
+                        <!-- <div class="down"></div> -->
+                    </section>
+                    <section class="swiper-slide page4 swiper-no-swiping">   
+                        <div class="poster_sm2"></div>
+                        <div class="slogan2">   </div>
+                        <div class="sel_box">
+                            <!-- <div class="box1 box">
+                                <a href="javascript:;" class="sel sel1 on1"></a>
+                                <i></i>
+                            </div> -->
+                            <div class="box2 box">
+                                <a href="javascript:;" class="sel sel2 on1"></a>
+                                <i></i>
+                            </div>
+                            <div class="box3 box">
+                                <a href="javascript:;" class="sel sel3 on1"></a>
+                                <i></i>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page5 swiper-no-swiping">
+                        <!-- <div class="poster_sm2"></div>
+                        <div class="title">   </div>
+                        <div class="rutern on1"></div>
+                        <div class="info">
+                            <p><span class="name username">姓名</span><input type="text" class="co_username" placeholder="请输入您的名字" maxlength="6" /></p>
+                            <p><span class="name">电话</span><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_phone" placeholder="请输入您的电话"/></p>
+                            <a href="javascript:;" class="submit submit1"></a>
+                            <div class="tetx_info">
+                                <p>捐赠形式</p>
+                                <div class="down"></div>
+                                <p>下载“巅峰坦克”，购买“关爱老兵礼包”，</p>
+                                <p>礼包所得部分收入将用于关爱老兵 </p>
+                                <p>慈善基金会捐款</p>
+                            </div>
+                        </div> -->
+                        <div class="poster_sm2"></div>
+                        <div class="title">   </div>
+                        <div class="rutern on1"></div>
+                        <div class="info">
+                            <p><span>《巅峰坦克》</span>与<span>深圳市龙越慈善基金会</span>正式达成战略合作，下载“巅峰坦克”，购买“关爱老兵”礼包，我们会将义卖盈利的10%用于致敬坦克老兵，及关爱烈士家属等其他慈善公益活动中。</p>
+                            <a href="http://downurl.yingxiong.com/url/tk_lbh5.html" class="submit submit1"></a>
+                            <div class="tetx_info">
+                                <p>感谢您对公益事业的关注与支持！</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page6 swiper-no-swiping">
+                        <div class="poster_sm2"></div>
+                        <div class="title">   </div>
+
+                        <div class="rutern on1"></div>
+                        <div class="info">
+                            <p><span class="name">姓名</span><input type="text" class="co_username" placeholder="请输入您的名字" maxlength="6" /></p>
+                            <p><span class="name">电话</span><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_phone" placeholder="请输入您的电话"/></p>
+                            <a href="javascript:;" class="submit submit2"></a>
+                            <div class="tetx_info">
+                                <p>捐赠形式</p>
+                                <div class="down"></div>
+                                <p>生成您的朋友圈专属海报</p>
+                                <p>一起为关爱老兵公益事业发声</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page7 swiper-no-swiping">
+                        <div class="poster_sm2"></div>
+                        <div class="title">   </div>
+                        <div class="rutern on1"></div>
+                        <div class="info">
+                            <p><span class="name">姓名</span><input type="text" class="co_username" placeholder="请输入您的名字" maxlength="6" /></p>
+                            <p><span class="name">电话</span><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_phone" placeholder="请输入您的电话"/></p>
+                            <div class="qf qf_and">
+                                <span class="name time">时长</span>
+                                <span class="name2 name2_1">选择时长<i></i></span>
+                                <select class="js_serverId">
+                                    <option></option>
+                                    <option data-id="1">1小时</option>
+                                    <option data-id="2">2小时</option>
+                                    <option data-id="3">3小时</option>
+                                    <option data-id="4">4小时</option>
+                                    <option data-id="5">5小时</option>
+                                    <option data-id="6">6小时</option>
+                                    <option data-id="7">7小时</option>
+                                    <option data-id="8">8小时</option>
+                                    <option data-id="9">9小时</option>
+                                    <option data-id="10">10小时</option>
+                                </select>
+                            </div>
+                            <div class="qf qf_and city">
+                                <span class="name">城市</span>
+                                <span class="name2 name2_2">选择城市<i></i></span>
+                                <select id="selProvince" onchange="provinceChange();">
+                                </select>
+                                <select id="selCity">
+                                </select> 
+                            </div>
+                            <a href="javascript:;" class="submit submit3"></a>
+                            <div class="tetx_info">
+                                <p>捐赠形式</p>
+                                <div class="down"></div>
+                                <p>“巅峰坦克”携手龙越慈善基金会发起“关爱退伍</p>
+                                <p>老兵”公益行动，我们将定期组织线下探望老  </p>
+                                <p>兵志愿活动，我们将根据您填写的信息在活动 </p>
+                                <p>开始前告知您活动的地点与时间</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page8 swiper-no-swiping hidden">
+                        <div class="poster_sm2"></div>
+                        <div class="rutern"></div>
+                        <div class="pic_box">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p1.png?{$smarty.const.VERSION}" alt="" class="img1">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p2.jpg?{$smarty.const.VERSION}" alt="" class="img2">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p3.jpg?{$smarty.const.VERSION}" alt="" class="img3">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p4.jpg?{$smarty.const.VERSION}" alt="" class="img4">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p5.jpg?{$smarty.const.VERSION}" alt="" class="img5">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p6.jpg?{$smarty.const.VERSION}" alt="" class="img6">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p7.jpg?{$smarty.const.VERSION}" alt="" class="img7">
+                            <i></i>
+                        </div>
+                        <div class="slogan4"></div>
+                        <div class="info">
+                            <p class="username" id="name_img">“<span></span>”</p>
+                            <p class="jx_text"></p>
+                            <h2></h2>
+                        </div>
+                        <div class="ewm_box">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/ewm.png?{$smarty.const.VERSION}" alt="" class="ewm">
+                            <div class="info2">
+                                <p>长按保存图片</p>
+                                <p>邀朋友一起来为公益发声</p>
+                            </div>
+                        </div>
+                        <img src="" alt="" class="jp_img1">
+                    </section>
+                    <section class="swiper-slide page9 swiper-no-swiping hidden">
+                        <div class="poster_sm2"></div>
+                       <div class="pic_box">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p1.png?{$smarty.const.VERSION}" alt="" class="img1">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p2.jpg?{$smarty.const.VERSION}" alt="" class="img2">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p3.jpg?{$smarty.const.VERSION}" alt="" class="img3">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p4.jpg?{$smarty.const.VERSION}" alt="" class="img4">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p5.jpg?{$smarty.const.VERSION}" alt="" class="img5">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p6.jpg?{$smarty.const.VERSION}" alt="" class="img6">
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/p7.jpg?{$smarty.const.VERSION}" alt="" class="img7">
+                            <i></i>
+                        </div>
+                        <div class="slogan4"></div>
+                        <div class="info">
+                            <p class="username" id="name_img2">“<span></span>”</p>
+                            <p class="jx_text"></p>
+                            <h2></h2>
+                        </div>
+                        <div class="ewm_box">
+                            <div class="ewm_bam">
+                            <div class="tedt">
+                                <p>关注本身或许就是改变的开始！ </p>
+                                <p>关爱老兵，我在行动！</p>
+                            </div>
+                            <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/ewm.png?{$smarty.const.VERSION}" alt="" class="ewm"></div>
+                           <img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/logo2.png?{$smarty.const.VERSION}" alt="" class="logo2">
+                        </div>
+                    </section>
+				</section>
+
+			</section>
+		</div>
+        <div id="loading10" style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+		<!--微信分享提示-->
+		<div class="share_bg hidden"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/images/share_bg.png?{$smarty.const.VERSION}" alt="" /></div>
+		<div class="music_play music_img">
+		  <audio id="music1" src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/music/music.mp3?{$smarty.const.VERSION}" loop="loop"></audio>
+          <i></i>
+		</div>
+         <!--横竖屏-->
+        <div id="orientLayer" class="mod-orient-layer">
+            <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+                <div class="mod-orient-layer__desc">为了更好体验，请锁定屏幕旋转浏览</div>
+            </div>
+        </div>
+		<script src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/js/swiper.animate.min.js?{$smarty.const.VERSION}"></script>
+        <!--微信分享-->
+         <script src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/js/html2canvas.min.js?{$smarty.const.VERSION}"></script>
+         <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?{$smarty.const.VERSION}"></script>
+        <script src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/js/cityselect.js?{$smarty.const.VERSION}"></script>
+        <script src="{$smarty.const.STATIC_DOMAIN}zjzg/laobin/js/older.js?{$smarty.const.VERSION}"></script>
+		<!--微信分享-->
+		<script>
+    	 document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+		</script>
+		<script type="text/javascript">
+       
+        $(function() {
+            var  h5_wx=$(".h5_wx").html();
+        var  h5_data=$(".h5_data").html();
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/tk/old.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        });
+        </script>
+	</body>
+</html>

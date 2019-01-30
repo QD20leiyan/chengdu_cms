@@ -1,0 +1,307 @@
+{include '../layouts/pc/header.html'}
+<div class="wrap">
+	<!--p-imgbox-->
+	<div class="p-imgbox">
+		<a href="" target="_blank">
+			<img class="images show" src="{$smarty.const.STATIC_DOMAIN}3.0/images/p-banner.png?{$smarty.const.VERSION}">
+			<img class="images" style="display: none;" src="{$smarty.const.STATIC_DOMAIN}3.0/images/p-banner.png?{$smarty.const.VERSION}">
+		</a>
+		<div class="w_swiper_box">
+			<div class="swiper-container" id="swiper3">
+				<div class="swiper-wrapper">
+					{foreach key=cid item=v from=$banner}
+						<div class="swiper-slide{if $cid eq 0} active{/if}">
+							<div class="w_sm_gun">
+								<img src="{$v.thumb}" data-url="{$v.url}">
+								<div class="progress"><span></span></div>
+							</div>
+						</div>
+					 {/foreach}
+				</div>
+			</div>
+			<div class="swiper-button-prev3"></div>
+			<div class="swiper-button-next3"></div>
+		</div>
+	</div>
+	<!--pn-inner-->
+	<div class="pn-inner">
+		<div class="pn-nav" data-option-key="filter">
+			<ul class="align">
+				<li class="all">
+					<a href="#all" data-option-value="*" class="active">所有产品</a>
+				</li>
+				<li class="hot">
+					<a href="#hot" data-option-value=".hot">热门游戏</a>
+				</li>
+				<li class="new">
+					<a href="#new" data-option-value=".new">最新游戏</a>
+				</li>
+				<li class="test">
+					<a href="#test" data-option-value=".test">测试游戏</a>
+				</li>
+			</ul>
+		</div>
+		<div class="pn-con">
+			<div class="pn-list">
+				{foreach key=cid item=v from=$games_list}
+				<figure class="item {$v.tag}">
+					<a href="javascript:">
+						<div class="hover" data-modal-image="{$v.modal_pic}" data-modal-link-url="{$v.user_name}" {if isset($v.game_desc)}data-desc="{$v.game_desc|truncate:125:'...':true}"{/if} {if isset($v.game_desc_color)}data-color="{$v.game_desc_color}"{/if} {if isset($v.ewm_download)}data-download="{$v.ewm_download}"{/if} {if isset($v.ewm_gzh)}data-gzh="{$v.ewm_gzh}"{/if}>
+							<div class="pn-ewm">
+								<img src="{$v.redirect_url}" alt="">
+								<p>{$v.ewm_title}</p>
+							</div>
+							<div class="pn-hover-right fr">
+								{if isset($v.type)}<div class="pn-type">游戏类型:<span>{$v.type}</span></div>{/if}
+								<div class="pn-star">玩家评分:
+									<span class="star {if (isset($v.grade)&&$v.grade>=2)}full{/if} {if (isset($v.grade)&&$v.grade==1)}half{/if}"></span>
+									<span class="star {if (isset($v.grade)&&$v.grade>=4)}full{/if} {if (isset($v.grade)&&$v.grade==3)}half{/if}"></span>
+									<span class="star {if (isset($v.grade)&&$v.grade>=6)}full{/if} {if (isset($v.grade)&&$v.grade==5)}half{/if}"></span>
+									<span class="star {if (isset($v.grade)&&$v.grade>=8)}full{/if} {if (isset($v.grade)&&$v.grade==7)}half{/if}"></span>
+									<span class="star {if (isset($v.grade)&&$v.grade>=10)}full{/if} {if (isset($v.grade)&&$v.grade==9)}half{/if}"></span>
+								</div>
+								{if isset($v.small_title)}<div class="pn-info">{$v.small_title}</div>{/if}
+								<div class="pn-more">
+									<span>了解更多</span>
+									<i></i>
+								</div>
+							</div>
+						</div>
+						<img src="{$v.thumb}" alt="{$v.title}">
+					</a>
+					<figcaption>
+						<h3>{$v.title}</h3>
+						<h6>{$v.sub_title|truncate:50:'...':true}</h6>
+					</figcaption>
+				</figure>
+				{/foreach}
+			</div>
+		</div>
+	</div>
+</div>
+<!--tips-->
+<div class="pn-tck">
+	<div class="pn-tckcon">
+		<i class="pn-tck-close"></i>
+		<img src="" alt="" class="bg_img">
+		<p class="game_desc hidden"></p>
+		<div class="ewm download hidden">
+			<img src="" alt=""/>
+			<span>扫码下载游戏</span>
+		</div>
+		<div class="ewm weixin hidden">
+			<img src="" alt=""/>
+			<span>关注微信号</span>
+		</div>
+		<a href="" class="pn-tck-home" target="_blank">进入官网</a>
+	</div>
+</div>
+{include '../layouts/pc/foot.html'}
+<script>
+	$(function(){
+		//轮播
+		var count=0;
+		var state=true;
+		setInterval(function(){
+			if(!state) return;
+			count++;
+			var time=500;
+			$(".active .progress span").width(count/time*100+"%");
+			if(count>=time){
+				count=0;
+				$(".active .progress span").width("0px");
+				var index=$("#swiper3 .swiper-slide.active").next(".swiper-slide").index();
+				if(index==-1){
+					index=0;
+				}
+				var slide=$(swiper3.slides[index]);
+				$(swiper3.slides).removeClass("active");
+				slide.addClass("active");
+				$(swiper3.slides).unbind("mouseover.state");
+				$(swiper3.slides).unbind("mouseout.state");
+				slide.on("mouseover.state",function(){
+					state=false;
+				});
+				slide.on("mouseout.state",function(){
+					state=true;
+				});
+				$(".active .progress span").width("0px");
+				swiper3.slideTo(index-1);
+				var show=$(".p-imgbox>a>img.show");
+				var hide=$(".p-imgbox>a>img:not(.show)");
+				show.removeClass("show").fadeOut(500);
+				var src=slide.find(".w_sm_gun img").attr("src");
+				var url=slide.find(".w_sm_gun img").attr("data-url");
+				$(".p-imgbox>a").attr("href",url);
+				hide.attr("src",src).addClass("show").fadeIn(500);
+			}
+		},10);
+		var swiper3 = new Swiper('#swiper3', {
+			prevButton:'.swiper-button-prev3',
+			nextButton:'.swiper-button-next3',
+			slidesPerView: 4,
+			onInit:function(swiper){
+				var slide=$(swiper.slides[swiper.realIndex]);
+				slide.on("mouseover.state",function(){
+					state=false;
+				});
+				slide.on("mouseout.state",function(){
+					state=true;
+				});
+				var src=slide.find(".w_sm_gun img").attr("src");
+				var url=slide.find(".w_sm_gun img").attr("data-url");
+				$(".p-imgbox>a").attr("href",url);
+				$(".p-imgbox>a>img.show").attr("src",src);
+			},
+			onClick: function(swiper){
+				$(".active .progress span").width("0px");
+				$(swiper.slides).removeClass("active");
+				var slide=$(swiper.slides[swiper.clickedIndex]);
+				slide.addClass("active");
+				$(swiper.slides).unbind("mouseover.state");
+				$(swiper.slides).unbind("mouseout.state");
+				slide.on("mouseover.state",function(){
+					state=false;
+				});
+				slide.on("mouseout.state",function(){
+					state=true;
+				});
+				$(".active .progress span").width("0px");
+				count=0;
+				var show=$(".p-imgbox>a>img.show");
+				var hide=$(".p-imgbox>a>img:not(.show)");
+				show.removeClass("show").fadeOut(500);
+				var src=slide.find(".w_sm_gun img").attr("src");
+				var url=slide.find(".w_sm_gun img").attr("data-url");
+				$(".p-imgbox>a").attr("href",url);
+				hide.attr("src",src).addClass("show").fadeIn(500);
+			}
+		});
+		$('.swiper-button-prev3').click(function(){
+			var index=$("#swiper3 .swiper-slide.active").prev(".swiper-slide").index();
+			if(index==-1){
+				index=swiper3.slides.length-1;
+			}
+			var slide=$(swiper3.slides[index]);
+			$(".active .progress span").width("0px");
+			$(swiper3.slides).removeClass("active");
+			slide.addClass("active");
+			$(swiper3.slides).unbind("mouseover.state");
+			$(swiper3.slides).unbind("mouseout.state");
+			slide.on("mouseover.state",function(){
+				state=false;
+			});
+			slide.on("mouseout.state",function(){
+				state=true;
+			});
+			$(".active .progress span").width("0px");
+			count=0;
+			swiper3.slideTo(index);
+			var show=$(".p-imgbox>a>img.show");
+			var hide=$(".p-imgbox>a>img:not(.show)");
+			show.removeClass("show").fadeOut(500);
+			var src=slide.find(".w_sm_gun img").attr("src");
+			var url=slide.find(".w_sm_gun img").attr("data-url");
+			$(".p-imgbox>a").attr("href",url);
+			hide.attr("src",src).addClass("show").fadeIn(500);
+		});
+		$('.swiper-button-next3').click(function(){
+			$(".active .progress span").width("0px");
+			var index=$("#swiper3 .swiper-slide.active").next(".swiper-slide").index();
+			if(index==-1){
+				index=0;
+			}
+			var slide=$(swiper3.slides[index]);
+			$(swiper3.slides).removeClass("active");
+			slide.addClass("active");
+			$(swiper3.slides).unbind("mouseover.state");
+			$(swiper3.slides).unbind("mouseout.state");
+			slide.on("mouseover.state",function(){
+				state=false;
+			});
+			slide.on("mouseout.state",function(){
+				state=true;
+			});
+			$(".active .progress span").width("0px");
+			count=0;
+			swiper3.slideTo(index-1);
+			var show=$(".p-imgbox>a>img.show");
+			var hide=$(".p-imgbox>a>img:not(.show)");
+			show.removeClass("show").fadeOut(500);
+			var src=slide.find(".w_sm_gun img").attr("src");
+			var url=slide.find(".w_sm_gun img").attr("data-url");
+			$(".p-imgbox>a").attr("href",url);
+			hide.attr("src",src).addClass("show").fadeIn(500);
+		});
+
+		//弹框的显示与关闭
+		$(".pn-list .item").on("click",".hover",function(){
+			$(".pn-tck .game_desc,.pn-tck .ewm.download,.pn-tck .ewm.weixin").addClass("hidden");
+			var image_url = $(this).attr('data-modal-image');
+			var href_url =  $(this).attr('data-modal-link-url');
+			var game_desc=$(this).attr('data-desc');
+			var game_desc_color=$(this).attr('data-color');
+			var download_url=$(this).attr('data-download');
+			var gzh_url=$(this).attr('data-gzh');
+			$(".pn-tck").find('.bg_img').attr("src",image_url);
+			$(".pn-tck").find('a').attr("href",href_url);
+			$(".pn-tck").find('.game_desc').text(game_desc);
+			$(".pn-tck").find('.game_desc').css({
+				"color":game_desc_color
+			});
+			$(".pn-tck").find('.ewm.download img').attr("src",download_url);
+			$(".pn-tck").find('.ewm.weixin img').attr("src",gzh_url);
+			$(".pn-tck").addClass("md-show");
+			if(game_desc&&game_desc_color&&download_url&&gzh_url){
+				$(".pn-tck .game_desc,.pn-tck .ewm.download,.pn-tck .ewm.weixin").removeClass("hidden");
+			}
+		});
+		$(".pn-tck-close").click(function(){
+			$(".pn-tck").find('img').attr("src","");
+			$(".pn-tck").find('a').attr("href","");
+			$(".pn-tck").removeClass("md-show");
+		});
+
+		//游戏的筛选
+		var $container = $('.pn-inner .pn-list');
+			$container.isotope({});
+		var $optionSets = $('.pn-inner .pn-nav'),
+			$optionLinks = $optionSets.find('a');
+			$optionLinks.click(function(){
+			var $this = $(this);
+			// don't proceed if already selected
+			if ( $this.hasClass('active') ) {
+				return false;
+			}
+			var $optionSet = $this.parents('.pn-nav');
+			$optionSet.find('.active').removeClass('active');
+			$this.addClass('active');
+
+			// make option object dynamically, i.e. { filter: '.my-filter-class' }
+			var options = {},
+					key = $optionSet.attr('data-option-key'),
+					value = $this.attr('data-option-value');
+			// parse 'false' as false boolean
+			value = value === 'false' ? false : value;
+			options[ key ] = value;
+			if ( key === 'layoutMode' && typeof changeLayoutMode === 'function' ) {
+				// changes in layout modes need extra logic
+				changeLayoutMode( $this, options )
+			} else {
+				// otherwise, apply new options
+				$container.isotope( options );
+			}
+
+			return false;
+		});
+
+		//首页锚点跳转
+		if(location.hash){
+			var param=location.hash.replace("#","");
+			$("li."+param+">a").trigger("click");
+			var h=$("li."+param).offset().top-$(".topBar").height();
+			$("html,body").stop().animate({ scrollTop:h+"px" },300);
+		}
+	});
+</script>
+</html>

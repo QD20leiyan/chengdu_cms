@@ -1,0 +1,26 @@
+{include file="../../layouts/wap/header.html"}
+{fragment var=kv_img code=index_kv_img_wap size=1}
+<div class="listBg">
+	<img src="{if $kv_img}{$kv_img[0].thumb}{/if}" alt="" />
+</div>
+<div class="news-info">
+	<div class="news-info-box">
+		<div class="back back2">
+			<a href="{myurl name='/wap/site/index'}"></a>
+		</div>
+		<div class="art_til">
+			<h3>{$content.title}</h3>
+			<p>发布时间：<span class="detail-time">{$content.created_at|date_format:"%m-%d"}</span><span>来源：本网站</span></p>
+		</div>
+		<div class="art_m">
+			{$content.body}
+		</div>
+	</div>
+</div>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script>
+
+</script>
+
+</html>

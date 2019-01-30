@@ -1,0 +1,175 @@
+ <div class="share_bottom">
+            <div class="cont5-box">
+                <ul>
+                    <li>
+                        <img src="{$global.wx_img}">
+                        <h4>微信公众号</h4>
+                        <p>扫描关注</p>
+                        <span>获取最新游戏资讯</span>
+                    </li>
+                    <li>
+                        <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+                        <img src="{$global.group}">
+                        <h4>官方Q群</h4>
+                        <p>扫描加群</p>
+                        <span>玩家&客服在线交流</span>
+                        </a>
+                    </li>
+                    <li> 
+                        <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+                        <img src="{$global.wb_img}">
+                        <h4>官方微博</h4>
+                        <p>扫描关注</p>
+                        <span>获取最新游戏资讯</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}"  target="_blank">
+                        <img src="{$global.tb_img}">
+                        <h4>官方贴吧</h4>
+                        <p>点击进入</p>
+                        <span>玩家交流社区</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+    </body>
+    {download}
+    {video_play}
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+    <script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript"  >
+    function show_hide_down() {
+            $(".q_f_icon").click(function() {
+                var state = $(this).attr("show");
+                if(state) {
+                    $(".to_top").animate({
+                        "right": "42px"
+                    }, 500);
+                    $(this).attr({
+                        "show": "",
+                        "class": "q_f_icon show"
+                    });
+                } else {
+                    $(".to_top").animate({
+                        "right": "-90px"
+                    }, 500);
+                    $(this).attr({
+                        "show": "true",
+                        "class": "q_f_icon hide_float"
+                    });
+                }
+            })
+        }
+      $(function(){
+        show_hide_down();
+        $(window).scroll(function() {
+            var $t = $(this).scrollTop();
+            if($t > 0) {
+                $(".nav").css({
+                    top: "0",
+                    position: 'fixed',
+                    zIndex: "999999"
+                });
+            } else {
+                $(".nav").css({
+                    top: "42px",
+                    position: 'absolute',
+                    zIndex: "9"
+                });
+            }
+            var scroll = $(this).scrollTop();
+            if (scroll < 600) {
+                $('.to_top2').fadeOut(800);
+                $('.to_top1').fadeOut(800);
+            }else{
+                $('.to_top1').fadeIn(800);
+                $('.to_top2').fadeIn(800);
+            }
+        })
+        var mySwiper = new Swiper(".left_banner", {
+        loop: true,
+        autoplay: 4000,
+        autoplayDisableOnInteraction: false,
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        });
+        var mySwiper2 = new Swiper(".left_banner2", {
+                // loop : true,
+                // autoplay: 6000,
+                // autoplayDisableOnInteraction: false,
+                prevButton: '.swiper-button-prev',
+                nextButton: '.swiper-button-next',
+                pagination: '.swiper-pagination2',
+                paginationClickable: true,
+                observer: true,
+                observeParents: true,
+                effect : 'fade',
+                fade: {
+                    crossFade: true,
+                },
+                paginationBulletRender: function(swiper, index, className) {
+                    var font = new Array();
+                    $(".xn_pic").each(function() {
+                        font.push($(this).html());
+                    });
+                    return '<span class="' + className + '">' +
+                         font[index]  +
+                        '</span>';
+                },
+                slideToClickedSlide: true,
+                onSlideChangeStart: function() {
+             var e = $(".swiper-pagination2 .swiper-pagination-bullet-active").index() + 1;
+            g = e - 8;
+            var c = $(".swiper-pagination2 span").width(),
+                i = parseFloat($(".swiper-pagination2").css("height") + 16),
+                r = c + i;
+            g > -1 && (
+                m = 0 == g ? "0px" : -1 * parseInt(i) + "px", $(".swiper-pagination2").css("margin-top", m)
+
+            );
+        }
+       });
+          var mySwiper3 = new Swiper('.special-swiper', {
+            loop: true,
+            autoplay: 4000,
+            autoplayDisableOnInteraction: false,
+            effect: 'coverflow',
+            slidesPerView: 3,
+            centeredSlides: true,
+            pagination: '.swiper-pagination5',
+            paginationClickable: true,
+            prevButton: '.swiper-button-prev1',
+            nextButton: '.swiper-button-next1',
+            coverflow: {
+                rotate: 0,
+                stretch: -58,
+                depth: 500,
+                modifier: 1,
+                slideShadows: true,
+            },
+            observer: true,
+            observeParents: true,
+            });
+      })
+        $(".s_ul li:nth-child(1)").hover(function (){
+            $(".fl_wx").stop().fadeIn();
+        },function (){
+            $(".fl_wx").stop().fadeOut();
+        });
+        $(".top_ul li").on("click", function() {
+        var index = $(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+        $(".right_con ul").eq(index).addClass("active").siblings().removeClass("active");
+         });
+        //返回顶部
+        $(".to_top a").click(function() {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 700);
+        });
+    </script>
+
+</html>

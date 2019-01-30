@@ -1,0 +1,80 @@
+{include '../layouts/pc/header.html'}
+		<div class="cont_img" style="background-image: url({$content.top_thumb})"></div>
+		<div class="cont_news">
+			<div class="cont_route">您的当前位置:
+				<a href="{myurl name='site/index'}">代号英雄</a>&nbsp;>&nbsp;
+				<a href="{myurl name=" article/index, id=>{$content.category_id}"}">{$content.name}</a>&nbsp;>&nbsp;详情
+			</div>
+			<h1>{$content.title}</h1>
+			<div class="cont_news_tips"><span>{$content.created_at|date_format:"%m/%d"}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代号英雄官方</span>
+				<span class="cont_new_share">分享到：
+            <div class="jiathis_style">
+                <a class="jiathis_button_qzone"></a>
+                <a class="jiathis_button_tsina"></a>
+                <a class="jiathis_button_tqq"></a>
+                <a class="jiathis_button_weixin"></a>
+                <a class="jiathis_button_renren"></a>
+                <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+                <a class="jiathis_counter_style"></a>
+            </div>
+        </span>
+			</div>
+		</div>
+		<div class="cont_line"></div>
+		<div class="cont_news_main">
+			<p>{$content.body}</p>
+		</div>
+		<!-- 这是弹窗 -->
+		{include '../layouts/pc/getGoldFloat.html'}
+		{include file="../layouts/pc/float.html"}
+	</body>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/x/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/x/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/x/js/getGold.js?{$smarty.const.VERSION}"></script>
+	<script>
+
+     //点击隐藏和显示下载悬浮框
+function show_hide_down() {
+
+    $(".q_f_icon").click(function() {
+        var state = $(this).attr("show");
+        if(state) {
+            $(".q_float").animate({
+                "right": "60px"
+            }, 200);
+            $("#bshare-custom, #q_back").animate({
+                "right": "280px"
+            }, 200);
+            $(this).attr({
+                "show": "",
+                "class": "show"
+            });
+        } else {
+            $(".q_float").animate({
+                "right": "-177px"
+            }, 200);
+            $("#bshare-custom, #q_back").animate({
+                "right": "40px"
+            }, 200);
+            $(this).attr({
+                "show": "true",
+                "class": "hide"
+            });
+        }
+    })
+}
+		//QQ二维码
+    $(".qq1").hover(function(){
+        $(".wem1").toggleClass("active");
+    });
+    $(".qq2").hover(function(){
+        $(".wem2").toggleClass("active");
+    });
+    show_hide_down();
+	</script>
+   {video_play}
+   {download}
+</html>

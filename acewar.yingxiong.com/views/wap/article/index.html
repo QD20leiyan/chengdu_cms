@@ -1,0 +1,73 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/news.css?{$smarty.const.VERSION}" />
+<section class="news_top">
+	<a href="{myurl name='wap/site/index'}" class="n_back">返回</a>
+	<ul class="news_ul" data-id="{$id}">
+		<li {if $id==1843}class="active" {/if}>
+			<a href="{myurl name='wap/article/index, id=>1843'}">最新</a>
+		</li>
+		<li {if $id==1844}class="active" {/if}>
+			<a href="{myurl name='wap/article/index, id=>1844'}">新闻</a>
+		</li>
+		<li {if $id==1845}class="active" {/if}>
+			<a href="{myurl name='wap/article/index, id=>1845'}">公告</a>
+		</li>
+		<li {if $id==1899}class="active" {/if}>
+			<a href="{myurl name='wap/article/index, id=>1899'}">活动</a>
+		</li>
+		<li {if $id==1900}class="active" {/if}>
+			<a href="{myurl name='wap/article/index, id=>1900'}">攻略</a>
+		</li>
+	</ul>
+</section>
+<section class="news_con">
+	<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+	<ul class="list_ul">
+		<!--<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>-->
+	</ul>
+	<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/check.png?{$smarty.const.VERSION}" alt="" class="check_more" />
+</section>
+{include file="../../layouts/wap/footer.html"}
+</body>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var isScroll = 1; //是否可以滚动
+	var page = 1; //页数
+	var id = $(".news_ul").attr("data-id"); //类型
+	var ajaxUrl = '/commonMethod/ajax-get-list.html';
+	getListFu();
+	$(".check_more").click(function (){
+		isScroll = 0;
+		getListFu();
+	})
+	function getListFu() {
+		$.ajax({
+			type: "get",
+			url: ajaxUrl,
+			data: {
+				page: page++,
+				id: id,
+			},
+			success: function(data) {
+				var data = JSON.parse(data);
+				var result = '';
+				if(data.status == 0 && data.msg.length > 0) {
+					for(var i = 0; i < data.msg.length; i++) {
+						result += "<li><a href=" + data.msg[i].wapLinkUrl + "><em>[" + data.msg[i].name + "]</em><span>" + data.msg[i].title + "</span><i>" + data.msg[i].created_at + "</i></a></li>";
+					}
+					$('.list_ul').append(result);
+					//                    $(".dropload-noData").html("<span class='loadMore'>上滑加载更多</span><i></i>");
+//					$(".dropload-noData").html("上滑加载更多");
+					isScroll = 1;
+				} else {
+					$(".check_more").hide();
+				}
+			},
+			error: function(data) {
+				console.log(data);
+			}
+		});
+	}
+</script>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/cover1120.css?{$smarty.const.VERSION}" />
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+	<script src="{$smarty.const.STATIC_DOMAIN}7.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+</head>
+<body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+<div class="i_main">
+	<!--kv-->
+	<div class="con1">
+		<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_logo.png?{$smarty.const.VERSION}" alt=""/></div>
+		<a class="inter" href="/index.html"  target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_inter.png?{$smarty.const.VERSION}" alt=""/></a>
+		<div class="wrap">
+			{fragment var=video code=kv_video size=1}
+			<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+			<div class="download">
+				<div class="code">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_erweima.png?{$smarty.const.VERSION}" class="js_jump_img">
+					<i></i>
+				</div>
+				<div class="btn">
+					<a href="" class="js_down_ios stat_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_ios.png?{$smarty.const.VERSION}?1542609528" alt=""></a>
+					<a href="" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_and.png?{$smarty.const.VERSION}?1542609528" alt=""></a>
+
+				</div>
+				<div class="btn">
+					<a href="http://www.3839.com/a/87894.htm" class="stat_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_hy.png?{$smarty.const.VERSION}?1542609528" alt=""></a>
+					<a href="https://www.taptap.com/app/34763" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_tap.png?{$smarty.const.VERSION}?1542609528" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--ca竞技-->
+	<div class="athletics">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_lable1.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="sixbox">
+				<div class="six six1"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_six1.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="six six2"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_six2.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="six six3"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_six3.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="six six4"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_six4.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="six six5"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_six5.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="six six6"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_six6.png?{$smarty.const.VERSION}" alt=""/></div>
+			</div>
+			<div class="detail">
+				<a href="/p/athletics.html" target="_blank"></a>
+			</div>
+		</div>
+	</div>
+	<!--战术技能-->
+	<div class="skill">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_lable2.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="sevenbox">
+				{fragment var=cover_skill code=cover_skill size=10}
+				{if $cover_skill neq ''}
+				{foreach $cover_skill as $key=>$v}
+				<div class="seven seven{$key+1} {if $key eq 0}active{/if}" data-img="{$v.thumb}" data-url="{$v.url}">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_seven{$key+1}.png?{$smarty.const.VERSION}" class="dark"/>
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_seven{$key+1}_1.png?{$smarty.const.VERSION}" class="light"/>
+					<span class="name">{$v.title}</span>
+					<p class="intro">{$v.sub_title}</p>
+				</div>
+				{/foreach}
+				{/if}
+
+				<div class="big_seven">
+					<span class="big_name"></span>
+					<p class="big_intro"></p>
+					<div class="audio2 js_video_play" data-url="">
+						<a href="javascript:;" class="play-img">
+							<img src="">
+							<div class="play-sm">
+								<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_play1.png?{$smarty.const.VERSION}?1542617402">
+							</div>
+							<i></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--钻石赢取-->
+	<div class="probar">
+		<div class="wrap">
+			<!-- <div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_lable3.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="login ">
+				<p class="co_before "><i class="diamond"></i><span class="co_loginbtn stat_cover_yy">登录参与活动</span></p>
+				<p class="co_after hidden"><i class="diamond"></i>您好<span class="user_phone"></span>,<span class="logout">[注销]</span></p>
+			</div>
+			<div class="progressbar">
+				<div class="progress"> -->
+					<!--<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_progressbg1.png?{$smarty.const.VERSION}" id="bar">-->
+					<!-- <div class="po_bar"></div>
+				</div>
+				<span class="pro_num"><em>0</em><i>%</i></span>
+			</div>
+			<div class="rule">
+				<div class="l_bx"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_bx.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="txt">
+					<p><i>01</i>枪友们可将自己的账号输入奖池，推动进度条</p>
+					<p><i>02</i>当进度条到达100%时，全服枪友将瓜分2000w钻石</p>
+					<p><i>03</i>活跃账号注入奖池 可为进度条提供1点积分</p>
+					<p><i>04</i>老兵账号注入奖池 可为进度条提供2点积分</p>
+					<p><i>05</i>老兵账号：90天内未登陆游戏的枪友账号</p>
+				</div>
+			</div> -->
+			<a href="https://mp.weixin.qq.com/s?__biz=MzA5NTU2NjcxNw==&mid=2671683431&idx=1&sn=6c3cc8455a17b581979c0e3317bc0cc4&chksm=8a776975bd00e063f8f07ccabc87ce3ae7529aa07a89c7084e9ff3bbb073a148ba8e4b0585d8&scene=0&xtrack=1&subscene=131&ascene=7&devicetype=android-26&version=2607033c&nettype=WIFI&abtest_cookie=BQABAAgACgALABIAFAAFAJ6GHgAjlx4AV5keAJuZHgCmmR4AAAA%3D&lang=zh_CN&pass_ticket=AXV4plZopMXceIidpUkwJKNvqXfIIpDU4g02YJ84eIpm9GBI4zirAw1xRcN1zcYk&wx_header=1" class="active_detail" target="_blank"></a>
+		</div>
+	</div>
+	<!--游戏特色-->
+	<div class="ts_play">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_lable4.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="slider">
+				<div class="swiper-container swiper-container2">
+					<div class="swiper-wrapper">
+						{fragment var=cover_ts code=cover_ts size=5}
+						{if $cover_ts neq ''}
+						{foreach $cover_ts as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-pagination swiper-pagination2"></div>
+				<div class="swiper-button-prev swiper-button-prev2"></div>
+				<div class="swiper-button-next swiper-button-next2"></div>
+			</div>
+		</div>
+	</div>
+	<!--回归礼包-->
+	<div class="more_gift">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_lable5.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="gift_box">
+				<div class="co_loginbtn stat_cover_yy"></div>
+				<a href="" class="ios js_down_ios stat_ios"></a>
+				<a href="" class="and js_down_andriod stat_android"></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--直播登陆-->
+<div class="co_tips order-to hidden">
+	<div class="tips_center">
+		<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_close.png?{$smarty.const.VERSION}"></i>
+		<div class="co_form">
+			<div class="inp-box">
+				<div class="inp">
+					<input type="text" placeholder="游戏账号" maxlength="50" class="game_user">
+					<p class="co_error">手机号码错误</p>
+				</div>
+				<div class="inp">
+					<input type="tel" placeholder="手机号码" class="co_username">
+					<p class="co_error">手机号码错误</p>
+				</div>
+				<div class="inp inp1">
+					<input type="text"  class="captcha" placeholder="验证码"/>
+					<div class="get-code co_captcha">点击刷新</div>
+					<p class="co_error">手机号码错误</p>
+				</div>
+				<div class="inp inp1">
+					<input type="number" placeholder="手机验证码" class="co_codenum1">
+					<div class="get-code co_codebtn1">获取验证码</div>
+					<p class="co_error">手机号码错误</p>
+				</div>
+			</div>
+		</div>
+		<div class="co_tipsbtn co_tips_loginbtn stat_cover_yy_success">
+			<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_tipsbtn.png?{$smarty.const.VERSION}" />
+		</div>
+	</div>
+</div>
+<!--提示弹窗-->
+<div class="co_tips forecast-suc hidden">
+	<div class="tips_center">
+		<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_close.png?{$smarty.const.VERSION}"></i>
+		<div class="co_form">
+			<div class="inp-box">
+				<p class="tips_info">恭喜您投票成功！</p>
+			</div>
+		</div>
+		<div class="co_tipsbtn co_surebtn">
+			<img src="{$smarty.const.STATIC_DOMAIN}7.0/images/lc_tipsbtn.png?{$smarty.const.VERSION}" />
+		</div>
+	</div>
+</div>
+</body>
+{download}
+{video_play}
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}7.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}7.0/js/cover1120.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+</html>

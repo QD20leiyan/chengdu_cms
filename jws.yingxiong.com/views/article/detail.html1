@@ -1,0 +1,34 @@
+{include '../layouts/pc/header.html'}
+{include '../layouts/pc/header_bar.html'}
+<!--内容-->
+<div class="i_main list">
+    <div class="top_banner"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/li_banner1.png?{$smarty.const.VERSION}" alt=""/></div>
+    <div class="content">
+        <!--第一部分-->
+        <div class="list_news">
+            <div class="qrcode">
+                <p>
+                    <a><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_qrcode.png?{$smarty.const.VERSION}" class="code_img"/></a>
+                    <a href="" class="js_down_ios stat_ios " target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="https://www.taptap.com/app/23420" target="_blank" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                </p>
+            </div>
+            <div class="detailbox">
+                <div class="bn">您的位置: <a href="/site">首页</a>><span>新闻资讯</span>><span>{$data.name}</span></div>
+                <div class="article_title">
+                    <h3>{$data.title}</h3>
+                    <span>发布时间：<span>{$data.created_at|date_format:"%m/%d"}</span> 来源：<span>{$data.user_name}</span></span>
+                </div>
+                <div class="content">
+                    {$data.body}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+
+</html>

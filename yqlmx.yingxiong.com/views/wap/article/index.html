@@ -1,0 +1,155 @@
+{include file="../../layouts/wap/header_top.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/list.css?{$smarty.const.VERSION}" />
+<section class="l_banner"></section>
+<section class="l_list">
+	<section class="l_list_nav p_re">
+		<ul id='tab'>
+			<li attr-type="zuixin">
+				<span class="active">最新</span>
+			</li>
+			<li attr-type="xinwen">
+				<span>新闻</span>
+			</li>
+			<li attr-type="gonggao">
+				<span>公告</span>
+			</li>
+			<li attr-type="huodong">
+				<span>活动</span>
+			</li>
+			<li attr-type="gonglue">
+				<span>攻略</span>
+			</li>
+		</ul>
+	</section>
+	<div>
+		<section>
+			<div id="l_list_c1" class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<ul>
+							{*
+							<li>
+								<a href="">[最新] </a><span></span>
+							</li>
+							*}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/i_line1.png?{$smarty.const.VERSION}" alt="">
+		<p class="check_more">查看更多</p>
+	</div>
+</section>
+<section>
+	<div class="login">
+		<div class="login_m">
+			<div class="chengg"></div>
+			<div class="l_input">
+				<input type="tel" placeholder="请输入手机号" class="h_phone" />
+				<img class="l_close" src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_close.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="f_code">
+				<input class="s_code" type="text" placeholder="请输入验证码" />
+				<input type="button" class="e_code" value="发送验证码" />
+			</div>
+			<a class="s_tj" href="javascript:;">确认提交</a>
+			<p class="c_t">预约成功后我们会在第一时间通知您，更多精彩游戏与奖励等着您！</p>
+			<span class="lo_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/lo_close.png?{$smarty.const.VERSION}" alt="" /></span>
+		</div>
+	</div>
+	<div class="login_tc">
+		<div class="login_n">
+			<img src="../images/lo_close.png?{$smarty.const.VERSION}" alt="" class="tc_close t_close" />
+			<p><img src="../images/smile.png?{$smarty.const.VERSION}" alt="" /><span>恭喜您预约成功!</span></p>
+			<div class="tc_txt">我们将在游戏开启前通过手机给您传递时间信息及专属礼包!</div>
+			<div class="make_sure t_close">确定</div>
+		</div>
+	</div>
+</section>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/list.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	var page = 1;
+	var type = 'zuixin';
+	getData();
+	$('#tab li').click(function() {
+		var type_new = $(this).attr('attr-type');
+		if(type == type_new) {
+			return false;
+		} else {
+			type = type_new;
+		}
+		$(".swiper-slide ul").html('');
+		page = 1;
+		getData();
+	});
+	$(".check_more").click(function() {
+		getData();
+	});
+	var is_last_page = false;
+
+	function getData() {
+		if(is_last_page == true) {
+			return false;
+		}
+		$.get('/wap/article/ajax-news.html', {
+			type: type,
+			page: page
+		}, function(data) {
+			if(data.status == 0) {
+				var str = "";
+				for(var i in data.msg) {
+					str += "<li>" +
+						"<a href='" + data.msg[i].wapLinkUrl + "'>" + data.msg[i].title + "</a>" +
+						"<span>" + data.msg[i].created_at_formate + "</span>" +
+						"</li>"
+				}
+				if(data.msg.length > 0) {
+					page++;
+				} else if(data.msg.lengh <= 0) {
+					$(".check_more").html("暂无数据");
+					is_last_page = true;
+				}
+				$('.swiper-slide ul').append(str);
+				var l_list_nav = $(".l_list_nav li");
+				var page_w = document.body.clientWidth;
+				//重置页面某些模块高度
+				(function() {
+					$(".l_banner").height(page_w * 0.46 + "px");
+				}());
+				//调用swiper
+				var list_Swiper = new Swiper('#l_list_c1', {
+					loop: false,
+					onInit: function() {
+						reset_list_h(0);
+					},
+					onSlideChangeEnd: function(swiper) {
+						//一张轮播结束之后的回调函数
+						var activeIndex = swiper.activeIndex;
+						//重置list的ul的高度
+						reset_list_h(activeIndex);
+						l_list_nav.find("span").removeClass();
+						l_list_nav.eq(activeIndex).find("span").attr("class", "active");
+					}
+				})
+
+				function reset_list_h(index) {
+					var list_ul = $("#l_list_c1 ul");
+					list_ul.height(0);
+					list_ul.eq(index).css({
+						height: "auto"
+					})
+				}
+				//添加事件
+				l_list_nav.on("touchend", function() {
+					var index = $(this).index();
+					l_list_nav.find("span").removeClass();
+					$(this).find("span").attr("class", "active");
+					list_Swiper.slideTo(index, 500, true);
+				});
+			}
+		}, "json")
+	}
+</script>
+{download}

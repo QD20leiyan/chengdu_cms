@@ -1,0 +1,706 @@
+{include '../layouts/pc/in_header.html'}
+<div class="i_main">
+    <!--top-->
+    <div class="kv">
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+        <div class="wrap">
+            <div class="slogan">
+                {fragment var=video code=index_video size=1}
+                <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+                <div class="download">
+                    <div class="code">
+                        <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jump_lszt_wapgw.png?{$smarty.const.VERSION}" class="">
+                        <i></i>
+                    </div>
+                    <div class="btn">
+                        <a href="javascript:;" class="js_down_ios stat_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+                        <a href="javascript:;" class="js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_and.png?{$smarty.const.VERSION}" alt=""/></a>
+                        <a href="https://www.taptap.com/app/139039" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                    </div>
+                    <!--<p>（本次测试只开放安卓）</p>-->
+                </div>
+            </div>
+            <div class="nav_tab">
+                <ul>
+                    <li>
+                        <a href="javascript:;"></a>
+                    </li>
+                    <li>
+                        <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a>
+                    </li>
+                    <li>
+                        <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a>
+                    </li>
+                    <div class="fl_wx">
+                        <img src="{$global.wx_img}" alt="" />
+                    </div>
+                </ul>
+            </div>
+        </div>
+       <!--  <video class="video" src="{$smarty.const.STATIC_DOMAIN}1.0/video/i_video1.mp4" class="video" autoplay="autoplay" id="video" muted></video> -->
+        <video class="video video1" src="{$smarty.const.STATIC_DOMAIN}1.0/video/i_video22.mp4" class="video" id="video1" autoplay="autoplay" loop="loop" muted></video>
+    </div>
+    <!--新闻-->
+    <div class="banner_news ani">
+        <div class="wrap">
+            <div class="chengg"></div>
+            <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_tit1.png?{$smarty.const.VERSION}" alt=""></p>
+            <div class="banner ani-item">
+                <div class="swiper-container swiper-container2">
+                    <div class="swiper-wrapper">
+                        {fragment var=index_banner code=banner size=5}
+                        {if $index_banner neq ''}
+                        {foreach $index_banner as $v}
+                        <div class="swiper-slide">
+                            <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+                        </div>
+                        {/foreach}
+                        {/if}
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination2"></div>
+            </div>
+            <div class="news_box ani-item ani-delay">
+                <a href="{myurl name='article/list, id=>643'}" class="more" target="_blank"></a>
+                <div class="hd">
+                    <ul>
+                        <li class="on">
+                            <a>最新</a>
+                        </li>
+                        <li>
+                            <a>新闻</a>
+                        </li>
+                        <li>
+                            <a>公告</a>
+                        </li>
+                        <li>
+                            <a>活动</a>
+                        </li>
+                        <li>
+                            <a>攻略</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul class="news_info">
+                        {fragment var=tj code=tj_news size=1}
+                        {if $tj neq ''}
+                        {foreach $tj as $v}
+                        <h2 class="first"><a href="{$v.url}" target="_blank"><i></i><b>{$v.title}</b></a></h2>
+                        {/foreach}
+                        {/if}
+
+                        {article id="643" size=6 var=qb}
+                        {if $qb neq ''}
+                        {foreach $qb as $key=>$v}
+                        {if $key >= 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+                            <span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        {else}
+                        <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size: 15px;">暂无数据...</p>
+                        {/if}
+                    </ul>
+                    <ul class="news_info hidden">
+                        {fragment var=tj code=tj_news size=1}
+                        {if $tj neq ''}
+                        {foreach $tj as $v}
+                        <h2 class="first"><a href="{$v.url}" target="_blank"><i></i><b>{$v.title}</b></a></h2>
+                        {/foreach}
+                        {/if}
+
+                        {article id="644" size=6 var=xw}
+                        {if $xw neq ''}
+                        {foreach $xw as $key=>$v}
+                        {if $key >= 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+                            <span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        {else}
+                        <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size:15px;">暂无数据...</p>
+                        {/if}
+                    </ul>
+                    <ul class="news_info hidden">
+                        {fragment var=tj code=tj_news size=1}
+                        {if $tj neq ''}
+                        {foreach $tj as $v}
+                        <h2 class="first"><a href="{$v.url}" target="_blank"><i></i><b>{$v.title}</b></a></h2>
+                        {/foreach}
+                        {/if}
+
+                        {article id="648" size=6 var=gg}
+                        {if $gg neq ''}
+                        {foreach $gg as $key=>$v}
+                        {if $key >= 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+                            <span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        {else}
+                        <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size: 15px;">暂无数据...</p>
+                        {/if}
+                    </ul>
+                    <ul class="news_info hidden">
+                        {fragment var=tj code=tj_news size=1}
+                        {if $tj neq ''}
+                        {foreach $tj as $v}
+                        <h2 class="first"><a href="{$v.url}" target="_blank"><i></i><b>{$v.title}</b></a></h2>
+                        {/foreach}
+                        {/if}
+
+                        {article id="649" size=6 var=hd}
+                        {if $hd neq ''}
+                        {foreach $hd as $key=>$v}
+                        {if $key >= 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+                            <span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        {else}
+                        <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size:15px;">暂无数据...</p>
+                        {/if}
+                    </ul>
+                    <ul class="news_info hidden">
+                        {fragment var=tj code=tj_news size=1}
+                        {if $tj neq ''}
+                        {foreach $tj as $v}
+                        <h2 class="first"><a href="{$v.url}" target="_blank"><i></i><b>{$v.title}</b></a></h2>
+                        {/foreach}
+                        {/if}
+
+                        {article id="715" size=6 var=gl}
+                        {if $gl neq ''}
+                        {foreach $gl as $key=>$v}
+                        {if $key >= 0}
+                        <li>
+                            <a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+                            <span>{$v.created_at|date_format:"%m/%d"}</span>
+                        </li>
+                        {/if}
+                        {/foreach}
+                        {else}
+                        <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size: 15px;">暂无数据...</p>
+                        {/if}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--职业介绍-->
+    <div class="zy_box">
+        <div class="wrap">
+            <div class="chengg"></div>
+            <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_tit2.png?{$smarty.const.VERSION}" alt=""></p>
+            <div class="left">
+                <i></i>
+                <div class="sm_img">
+                    {fragment var=zy_smimg code=zy_smimg size=5}
+                    {if $zy_smimg neq ''}
+                    {foreach $zy_smimg as $key=>$v}
+                    <span class="sm sm{$key+1}" data-name="{$v.title}"><i><img src="{$v.thumb}" alt=""/></i></span>
+                    {/foreach}
+                    {/if}
+                </div>
+                <div class="big_img">
+                    {fragment var=zy_bigimg code=zy_bigimg size=5}
+                    {if $zy_bigimg neq ''}
+                    {foreach $zy_bigimg as $key=>$v}
+                    <span class="hidden" data-name="{$v.title}"><video src="{$v.url}" id="{$v.sub_title}" autoplay="autoplay" loop="loop"></span>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+            <div class="right">
+                <!--战士-->
+                <div class="right_info ">
+                    <div class="rw_info">
+                        <h3><span>战士</span><i>近战物理高爆发职业</i></h3>
+                        <p>最为骁勇善战的勇士，性格坚韧而骄傲。战斗中一直冲锋在前，是团队的中流砥柱，被誉为团队之坚盾！</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="x_info">
+                        <div class="type">
+                            <span class="active">狂爆系</span>
+                            <span>魔战系</span>
+                            <span>守护系</span>
+                        </div>
+                        <div class="type_txt">
+                            <p>狂爆系拥有武术系中最强的伤害技能，但是其缺点是没有多少防御技能。</p>
+                            <p class="hidden">魔战系主要拥有远程对攻能力，对法师类角色处于克制状态，攻、防平均，辅助技能好。</p>
+                            <p class="hidden">守护系的技能多是防御和增益技能，可以使自己或者队友获得更长的攻击时间，减少休息的时间。</p>
+                        </div>
+                    </div>
+                    <div class="cz_info">
+                        操作难度：
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="jn_info">
+                        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jntit.png?{$smarty.const.VERSION}" alt=""/></p>
+                        <div class="jn_box">
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzs1.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>提升自己物理防御和魔法防御，持续10秒</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzs2.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>单体攻击，角色冲到敌人面前，并有100%的几率使敌人眩晕3秒（不可抵抗），带有一定的物理攻击</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzs3.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>单体持续攻击，带有一定的物理攻击，对敌人造成伤害</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzs4.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>主动技能，以自身为中心生成5*5范围火焰围绕10秒，每秒对靠近的最多8个敌人造成伤害</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--法师-->
+                <div class="right_info hidden">
+                    <div class="rw_info">
+                        <h3><span>法师</span><i>远程法术高输出职业</i></h3>
+                        <p>擅长使用元素之力，拥有极高的伤害能力，冰火雷交织的绚丽技能将是战场上一道恐怖的风景线！</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="x_info">
+                        <div class="type">
+                            <span class="active">火系</span>
+                            <span>冰系</span>
+                            <span>电系</span>
+                        </div>
+                        <div class="type_txt">
+                            <p>火系主要为高伤害法术，其技能攻击高，同时消耗大。</p>
+                            <p class="hidden">冰系的攻击力稍弱，但是附带的冰冻和冰封效果可以有效的减缓或停止敌人的进攻。</p>
+                            <p class="hidden">电系的攻击力与冰系相当，但是其附带的各种状态可以令敌人痛苦不已。</p>
+                        </div>
+                    </div>
+                    <div class="cz_info">
+                        操作难度：
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                    </div>
+                    <div class="jn_info">
+                        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jntit.png?{$smarty.const.VERSION}" alt=""/></p>
+                        <div class="jn_box">
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnfs1.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>单体持续攻击，带有一定魔法攻击，对敌人造成伤害</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnfs2.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>群体持续攻击技能，带有一定魔法攻击，攻击3*3格范围内最多3个敌人</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnfs3.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>带有一定魔法攻击力，对目标当前所在位置为中心周围5*5范围内最多3个敌人造成伤害，持续6秒</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnfs4.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>主动技能，增加自身魔法攻击力，持续60秒</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--弓手-->
+                <div class="right_info hidden">
+                    <div class="rw_info">
+                        <h3><span>弓手</span><i>远程物理高暴击职业</i></h3>
+                        <p>继承羿之神力，远可放矢击敌，近可携宠探敌，退可陷阱诱敌，绝对的箭神传人！</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="x_info">
+                        <div class="type">
+                            <span class="active">弓箭系</span>
+                            <span>宠物系</span>
+                            <span>陷阱系</span>
+                        </div>
+                        <div class="type_txt">
+                            <p>弓箭系为射术系的最强伤害方向，其主要方向就是加强弓箭的攻击力，对敌人造成更大伤害。</p>
+                            <p class="hidden">宠物系主要技能为对宠物的捕获，控制和加强，其主要攻击手段是靠宠物来攻击。</p>
+                            <p class="hidden">陷阱系的主要技能为陷阱和带不良状态的攻击。通过两者的配合，达到削弱和杀伤敌人的目的。</p>
+                        </div>
+                    </div>
+                    <div class="cz_info">
+                        操作难度：
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="jn_info">
+                        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jntit.png?{$smarty.const.VERSION}" alt=""/></p>
+                        <div class="jn_box">
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jngs1.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>单体持续攻击，带有一定的物理攻击，对敌人造成伤害</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jngs2.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>单体攻击，连续射出两支箭矢，第一支箭矢对敌人造成额外伤害，第二支箭矢带有额外的物理攻击加成</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jngs3.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>主动技能，增加角色物理攻击力并增加物理防御力及魔法防御力，持续60秒</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jngs4.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>状态技能，提升人物移动速度及重击率，持续45秒</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--仙术-->
+                <div class="right_info hidden">
+                    <div class="rw_info">
+                        <h3><span>仙术</span><i>状态法术控制类职业</i></h3>
+                        <p>拥有丰富的治疗手段，亦有多样的诅咒控制。他将是一个贴心战友，或者是一个麻烦对手！</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="x_info">
+                        <div class="type">
+                            <span class="active">天系</span>
+                            <span>地系</span>
+                            <span>人系</span>
+                        </div>
+                        <div class="type_txt">
+                            <p>天系主要为增益技能，可以为队友提供各种帮助，是一支队伍中，不可缺少的角色。</p>
+                            <p class="hidden">地系主要为减益技能和诅咒。可以保持对敌人的持续伤害和使其长时间不能正常攻击，同时可以大幅度降低对手攻防。</p>
+                            <p class="hidden">人系主要为各种控制技能和削弱技能，既可以对敌人造成伤害，也可以对友方进行加强，但不如其他两个方向专精</p>
+                        </div>
+                    </div>
+                    <div class="cz_info">
+                        操作难度：
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="jn_info">
+                        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jntit.png?{$smarty.const.VERSION}" alt=""/></p>
+                        <div class="jn_box">
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnxs1.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>主动技能，增加一屏内自己和队友攻击力提升，持续300秒，</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnxs2.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>状态技能，施放到自己身上，所有1级属性提升，持续60秒</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnxs3.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>状态技能，驱散己方身上所有能驱散的负面状态并为其创造一个持续30秒的护盾来吸收受到的伤害</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnxs4.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>被动技能，使用神圣祝福时，屏内自己和队友受到的伤害减少，并增加一定的生命上限</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--召唤-->
+                <div class="right_info hidden">
+                    <div class="rw_info">
+                        <h3><span>召唤</span><i>召唤类职业</i></h3>
+                        <p>作为资深的召唤师深深沉迷于收集各系魔宠神兽，身边时常围绕有众多召唤兽，让敌人无法轻易靠近！</p>
+                    </div>
+                    <div class="line"></div>
+                    <div class="x_info">
+                        <div class="type">
+                            <span class="active">亡灵召唤</span>
+                            <span>天神召唤</span>
+                            <span>自然召唤</span>
+                        </div>
+                        <div class="type_txt">
+                            <p>亡灵召唤的召唤兽均为亡灵，其主要特点为：攻防高。</p>
+                            <p class="hidden">天神召唤的召唤兽均为天神，其对某些属性的敌人有克制作用，增益状态技能特别加强。</p>
+                            <p class="hidden">自然召唤的召唤兽为自然系的生物或者元素。其特点为平均的伤害和对主人的某些属性加强，辅助状态技能特别加强。</p>
+                        </div>
+                    </div>
+                    <div class="cz_info">
+                        操作难度：
+                        <span class="active"></span>
+                        <span class="active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="jn_info">
+                        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jntit.png?{$smarty.const.VERSION}" alt=""/></p>
+                        <div class="jn_box">
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzh1.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>召唤一个骷髅弓手与角色一起作战，骷髅弓手会继承人物一定比例的魔法攻击力</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzh2.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>状态技能，施放后召唤兽攻击力提升，持续60秒</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzh3.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>状态技能，施放到自己身上，在一定时间内内完全躲避对方攻击</i></div>
+                            </div>
+                            <div class="jn_img">
+                                <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_jnzh4.png?{$smarty.const.VERSION}" alt=""/></span>
+                                <div class="sub"><i>状态技能，可以和召唤物合体，将召唤物的攻击属性按照一定比例加到人物身上，合体后生命值回满</i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--视频中心-->
+    <div class="video_box ani">
+        <div class="wrap">
+            <div class="chengg"></div>
+            <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_tit3.png?{$smarty.const.VERSION}" alt=""></p>
+            <div class="video_con ani-item">
+                <div class="video_type">
+                    <span class="active">图片壁纸</span>
+                    <span>精彩视频</span>
+                    <span>游戏原声</span>
+                </div>
+                <div class="video_info img1 ">
+                    {article id="716" size=6 var=bz_img}
+                    {if $bz_img neq ''}
+                    {foreach $bz_img as $key=>$v}
+                    {if $key >= 0}
+                    <div class="img_box">
+                        <span><img src="{$v.thumb}" alt=""/></span>
+                        <i class="desc">{$v.title}</i>
+                    </div>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size: 18px;">暂无数据...</p>
+                    {/if}
+                </div>
+                <div class="video_info img2 hidden">
+                    {article id="757" size=6 var=jc_video}
+                    {if $jc_video neq ''}
+                    {foreach $jc_video as $key=>$v}
+                    {if $key >= 0}
+                    <div class="img_box js_video_play" data-url="{$v.video.media_url}">
+                        <span><img src="{$v.thumb}" alt=""/></span>
+                        <i class="desc">{$v.title}</i>
+                        <i class="zz"></i>
+                        <i class="play"></i>
+                    </div>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size:18px;">暂无数据...</p>
+                    {/if}
+                </div>
+                <div class="video_info img3 hidden">
+                    {article id="758" size=6 var=music}
+                    {if $music neq ''}
+                    {foreach $music as $key=>$v}
+                    {if $key >= 0}
+                    <div class="img_box" data-url="{$v.sub_title}">
+                        <span><img src="{$v.thumb}" alt=""/></span>
+                        <i class="desc">{$v.title}</i>
+                        <i class="zz"></i>
+                        <i class="play"></i>
+                    </div>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size: 18px;">暂无数据...</p>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--玩家互动-->
+    <div class="player_box ani hidden">
+        <div class="wrap">
+            <div class="chengg"></div>
+            <p class="title "><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_tit4.png?{$smarty.const.VERSION}" alt=""></p>
+            <div class="pl_con ani-item ">
+                <div class="play_type">
+                    <span class="active"><i>荣耀榜</i></span>
+                    <span><i>玩家话题</i></span>
+                    <span><i>美女陪玩</i></span>
+                </div>
+                <div class="pl_info ">
+                    <div class="ry">
+                        <div class="ry_head">
+                            <span><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_plhead.png?{$smarty.const.VERSION}" alt=""/></span>
+                            <span>玩家头像</span>
+                            <span>玩家ID/区服</span>
+                            <span>战斗力</span>
+                        </div>
+                        <div class="ry_body">
+                            {fragment var=honor_list code=honor_list size=100}
+                            {if $honor_list neq ''}
+                            {foreach $honor_list as $key=>$v}
+                            <div class="ry_tr">
+                                <span><i class="{if $key lt 3}active{/if}">{$key+1}</i></span>
+                                <span><img src="{$v.thumb}" alt=""/></span>
+                                <span>{$v.title}</span>
+                                <span>{$v.sub_title}</span>
+                            </div>
+                            {/foreach}
+                            {/if}
+                        </div>
+                    </div>
+                </div>
+                <div class="pl_info hidden">
+                    <div class="topic">
+                        <div class="banner">
+                            <div class="swiper-container swiper-container3">
+                                <div class="swiper-wrapper">
+                                    {fragment var=player_topic code=player_topic size=100}
+                                    {if $player_topic neq ''}
+                                    {foreach $player_topic as $key=>$v}
+                                    <div class="swiper-slide">
+                                        <h3>{$v.title}</h3>
+                                        <a href="{$v.url}" class="active">
+                                            <img src="{$v.thumb}" alt="">
+                                            <i class="go_btn">点击前往</i>
+                                        </a>
+                                        <p class="title">{$v.sub_title}</p>
+                                        <p class="sub_title">{$v.summary}</p>
+                                    </div>
+                                    {/foreach}
+                                    {/if}
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev swiper-button-prev3"></div>
+                            <div class="swiper-button-next swiper-button-next3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pl_info girl_info hidden">
+                    <div><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_plgirl.png?{$smarty.const.VERSION}" class="girl"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        <div class="wrap">
+            <div class="chengg"></div>
+            <div class="c_media">
+                <ul>
+                    <li>
+                        <div class="chengg"></div>
+                        <div class="erweima"><img src="{$global.wx_img}" alt=""></div>
+                    </li>
+                    <li>
+                        <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.wb_url}target="_blank"{else}{/if} ></a>
+                    </li>
+                    <li>
+                        <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" {if $global.group_url_one}target="_blank"{else}{/if}></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--左侧导航-->
+<div class="left_select">
+    <ul class="swiper-pagination z_float">
+        <li class="swiper-pagination-bullet swiper-pagination-bullet-active" data-index="1">
+            <div class="pag_img">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_bn.png?{$smarty.const.VERSION}" alt="">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_sn.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <p class="pag_p"></p>
+        </li>
+        <li class="swiper-pagination-bullet" data-index="2">
+            <div class="pag_img">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_bn.png?{$smarty.const.VERSION}" alt="">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_sn.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <p class="pag_p"></p>
+        </li>
+        <li class="swiper-pagination-bullet" data-index="3">
+            <div class="pag_img">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_bn.png?{$smarty.const.VERSION}" alt="">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_sn.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <p class="pag_p"></p>
+        </li>
+        <li class="swiper-pagination-bullet" data-index="4">
+            <div class="pag_img">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_bn.png?{$smarty.const.VERSION}" alt="">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_sn.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <p class="pag_p"></p>
+        </li>
+        <li class="swiper-pagination-bullet hidden" data-index="5">
+            <div class="pag_img">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_bn.png?{$smarty.const.VERSION}" alt="">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_sn.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <p class="pag_p"></p>
+        </li>
+    </ul>
+</div>
+<!--悬浮窗下载-->
+<div class="float">
+    <div class="chengg"></div>
+    <div class="c_float">
+        <div class="f_code"><img src="{$global.wx_img}"><i></i></div>
+        <p class="f_title">扫码关注公众号<br/><span>领取活动奖励</span></p>
+        <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank" class="i_wb"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_wbimg.png?{$smarty.const.VERSION}" alt="" /></a>
+        <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank" class="i_qq"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_qqimg.png?{$smarty.const.VERSION}" alt="" /></a>
+        <p class="back"></p>
+        <div class="op_close">
+            <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_sj2.png?{$smarty.const.VERSION}" alt="" />
+        </div>
+    </div>
+</div>
+<!--弹窗-->
+<div class="b_img">
+    <div class="swiper-container swiper-container7">
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_close.png?{$smarty.const.VERSION}" alt="" class="i_close"/>
+        <div class="b_cimg swiper-wrapper">
+            {article id="716" size=6 var=bz_img}
+            {if $bz_img neq ''}
+            {foreach $bz_img as $key=>$v}
+            {if $key >= 0}
+            <div class="swiper-slide">
+                <img src="{$v.thumb}" alt="" class="z_img" />
+            </div>
+            {/if}
+            {/foreach}
+            {/if}
+        </div>
+        <div class="swiper-button-prev swiper-button-prev7"></div>
+        <div class="swiper-button-next swiper-button-next7"></div>
+    </div>
+</div>
+<audio src="" id="music1"></audio>
+{include '../layouts/pc/in_footer.html'}
+<script>
+    //视频
+    window.onload = function() {
+        var video = document.getElementById('video1');
+        // video.onended = function() {
+        //     $("#video").css("display", "none");
+            $("#video1").css("display", "block");
+        // }
+    }
+</script>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>{csrf}
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/style.css?{$smarty.const.VERSION}">
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/js/setPageRem.js?{$smarty.const.VERSION}"></script>
+    <title>投票</title>
+</head>
+<body>
+    <div class="vote-container">
+        <img class="title" src="{$smarty.const.STATIC_DOMAIN}1.0/images/title.png?{$smarty.const.VERSION}">
+        <div class="rule">
+            <div class="rule-title">投票规则</div>
+            <ul class="rule-main">
+                <li><em></em>到场每人次有3票； </li>
+                <li><em></em>3票必须选择3个不同节目,单人次投票数不得小于3票； </li>
+                <li><em></em>不投表示弃权。 </li>
+            </ul>
+        </div>
+        <div class="check-box">
+        </div>
+        <div class="null"></div>
+        <ul class="main_ul">
+            {foreach key=cid item=v from=$node}
+            <li>{$v}</li>
+            {/foreach}
+        </ul>
+    </div>
+    <div class="vote-box">
+        <img class="noVote" src="{$smarty.const.STATIC_DOMAIN}1.0/images/vote-button2.png?{$smarty.const.VERSION}">
+        <img class="vote" style="display: none" src="{$smarty.const.STATIC_DOMAIN}1.0/images/vote-button.png?{$smarty.const.VERSION}">
+        <img class="voted" style="display: none" src="{$smarty.const.STATIC_DOMAIN}1.0/images/vote-button3.png?{$smarty.const.VERSION}">
+    </div>
+    <div class="mask">
+        <div class="dialog" id="dialog-voted">
+            <h2>投票成功</h2>
+            <span class="answer-close"></span>
+        </div>
+    </div>
+    <div class="mask2">
+        <div class="dialog" id="error">
+            <h2>服务器繁忙，请稍后重试</h2>
+            <span class="answer-close2"></span>
+        </div>
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
+    <div id="orientLayer_pc" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用手机浏览</div>
+        </div>
+    </div>
+</body>
+
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script>
+    var data = [
+        {
+            id:1,
+            name:'舞蹈《good time》',
+            department:'客服部',
+            check:false
+        },
+        {
+            id:2,
+            name:'脱口秀',
+            department:'客服部',
+            check:false
+        },
+        {
+            id:3,
+            name:'歌曲《小幸运》',
+            department:'项目-QA部',
+            check:false
+        },{
+            id:4,
+            name:'小品《吃鸡》',
+            department:'研发部',
+            check:false
+        },
+        {
+            id:5,
+            name:'歌舞《说唱脸谱》',
+            department:'人力行政部',
+            check:false
+        },
+        {
+            id:6,
+            name:'歌曲《燃烧》',
+            department:'研发部',
+            check:false
+        }
+    ]
+    $(function () {
+        //自定义tap
+        $(document).on("touchstart", function(e) {
+            if(!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 0);
+        });
+        $(document).on("touchmove", function(e) {
+            if(!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 1);
+        });
+        $(document).on("touchend", function(e) {
+            if(!$(e.target).hasClass("disable") && $(e.target).data("isMoved") == 0) $(e.target).trigger("tap");
+        });
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+            if(IsPC()){
+                $('#orientLayer_pc').show();
+            }else{
+                $('#orientLayer_pc').hide();
+            }
+        }, false);
+        if(IsPC()){
+            $('#orientLayer_pc').show();
+        }
+        var html = '';
+        var ul_child = $('.main_ul').children('li');
+        if($(ul_child) && $(ul_child).length > 0){
+            $(ul_child).each(function () {
+                var tar = $(this);
+                $(data).each(function () {
+                    if(this.id == parseInt($(tar).text())){
+                        this.check = true;
+                    }
+                })
+            })
+            app();
+            $('.vote-box').find('img').hide();
+            $('.voted').show();
+            $('.vote-box').attr('disable','disable');
+        }else{
+            app();
+            $('.check').on('tap',function () {
+                var tar = $(this);
+                var vote = 0;
+                $('.check').each(function () {
+                    if($(this).hasClass('active')){
+                        vote++;
+                    }
+                })
+                if($(tar).hasClass('active')){
+                    $(this).removeClass('active');
+                    vote--;
+                    $('.vote-box').find('img').hide();
+                    $('.noVote').show();
+                }else if(vote >= 3){
+                    return;
+                }else{
+                    $(this).addClass('active');
+                    vote++;
+                    if(vote >= 3){
+                        $('.vote-box').find('img').hide();
+                        $('.vote').show();
+                    }
+                }
+                if($('.vote-box').attr('disable')){
+                    $('.vote-box').find('img').hide();
+                    $('.voted').show();
+                }
+            })
+            $('.vote').on('tap',function () {
+                var ids = [];
+                $('.check').each(function () {
+                    if($(this).hasClass('active')){
+                        ids.push(parseInt($(this).find('span').text()));
+                    }
+                })
+                var params= {
+                    "nodes":ids,
+                    "cms_csrf": $("meta[name='csrf-token']").attr("content")
+                }
+                $.ajax(
+                    {
+                        url: "/site/ajax-vote.html",
+                        dataType: 'json',
+                        data: params,
+                        type: 'post',
+                        success: function(data){
+//                            var data = JSON.parse(data);
+                            if(data.status == 0){
+                                $('.vote-box').find('img').hide();
+                                $('.voted').show();
+                                $('.mask').slideDown(500);
+                                $('.vote-box').attr('disable','disable');
+                            }else{
+                                $('#error').find('h2').text(data.msg);
+                                $('.mask2').slideDown(500);
+                                return;
+                            }
+                        },
+                        error: function (data) {
+//                            var data = JSON.parse(data);
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+//                $.post("/site/ajax-vote.html", params ,function(data){
+//                    var data = JSON.parse(data);
+//                    if(data.status == 0){
+//                        $('.vote-box').find('img').hide();
+//                        $('.voted').show();
+//                        $('.mask').slideDown(500);
+//                        $('.vote-box').attr('disable','disable');
+//                    }else{
+//                        alert(data.msg);
+//                        return;
+//                    }
+//                });
+            })
+        }
+        function app(){
+            $(data).each(function () {
+                var checkHtml = '<div class="check active">';
+                var noCheckHtml = '<div class="check">';
+                var normalHtml = '<h4>'+ this.name +'</h4>\n' +
+                    '<p>'+ this.department +'</p>\n' +
+                    '<span>'+ this.id +'</span>\n' +
+                    '<em></em>\n' +
+                    '</div>';
+                if(this.check){
+                    html += checkHtml+ normalHtml;
+                }
+                else{
+                    html += noCheckHtml+ normalHtml;
+                }
+            })
+            $('.check-box').append(html);
+        }
+        $('.answer-close').on('tap',function () {
+            $('.mask').slideUp(500);
+        })
+        $('.answer-close2').on('tap',function () {
+            $('.mask2').slideUp(500);
+        })
+    })
+</script>
+</html>

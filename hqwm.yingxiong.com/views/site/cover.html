@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/cover.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="top">
+			<div class="wrap">
+				<img src="{$global.logo_img}" alt="" class="icon" />
+				<div class="header_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<a href="{myurl name='site/index'}" class="enter"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/enter.png?{$smarty.const.VERSION}" alt="" /></a>
+				<div class="r_wx">
+					<a href="javascript:;"></a>
+					<a href="{$global.wb_url}" target="_blank"></a>
+					<a href="{$global.tb_url}" target="_blank"></a>
+				</div>
+				<div class="fl_wx">
+					<img src="{$global.wx_img}" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="kv">
+			<div class="wrap">
+				{fragment var=video code=index_video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $video}js_video_play{else}{/if} play" data-url="{if $video}{$video[0].url}{/if}">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt="" />	
+				</a>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tuijian.png?{$smarty.const.VERSION}" alt="" class="tuijian" />
+				<div class="download">
+					<a href="javascript:;" class="btn js_down_andriod stat_android" ><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/xiazai.png?{$smarty.const.VERSION}" alt="" /></a>
+					<div class="c_down">
+						<img src="{$global.wx_img}" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c_con">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_label.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<div class="is_login">
+					<p class="b_denglu active">欢迎您！请<span>登录</span></p>
+					<p class="a_denglu">欢迎您<span class="c_phone"></span><span class="zhuxiao">注销</span>已成功邀请<span class="person"></span>人<i>剩余<span class="number"></span>次抽奖机会</i></p>
+				</div>
+				<div class="c_btn">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/check.png?{$smarty.const.VERSION}" alt="" class="check" />
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/invite.png?{$smarty.const.VERSION}" alt="" class="invite" />
+					<a href="http://hqwm.yingxiong.com/hd/2018/0614/4510.html" target="_blank" class="fuli">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fuli.png?{$smarty.const.VERSION}" alt="" />
+					</a>
+				</div>
+				<div class="tip">
+					<p>预约成功即可参与活动，<span>分享个人专属链接邀请好友助力，获取参与机会</span>，每位用户每日最多可有3次参与机会。</p>
+				</div>
+				<div class="main_gift">
+					<div class="lottery" id="lottery">
+						<ul>
+							<li class="lottery-unit lottery-unit-0">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tie.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>6000铁*3</p>
+							</li>
+							<li class="lottery-unit lottery-unit-1">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ls.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>1W粮食*1</p>
+							</li>
+							<li class="lottery-unit lottery-unit-2">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mc.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>1W木材*1</p>
+							</li>
+							<li class="lottery-unit lottery-unit-7">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yin.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>150银*1</p>
+							</li>
+							<li class="click_btn">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_btn.png?{$smarty.const.VERSION}" alt="" />
+								<p>剩余<span>0</span>次</p>
+							</li>
+							<li class="lottery-unit lottery-unit-3">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jiasu.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>5分钟加速*5</p>
+							</li>
+							<li class="lottery-unit lottery-unit-6">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/switch.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>Switch</p>
+							</li>
+							<li class="lottery-unit lottery-unit-5">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ipad.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>iPad</p>
+							</li>
+							<li class="lottery-unit lottery-unit-4">
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_bg.png?{$smarty.const.VERSION}" alt="" />
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/li_active.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jdk.png?{$smarty.const.VERSION}" alt="" class="gift_icon" />
+								<p>JD卡</p>
+							</li>
+						</ul>
+					</div>
+					<div class="right_rule">
+						<ul class="rule_ul">
+							<li class="active">中奖名单</li>
+							<li>活动规则</li>
+						</ul>
+						<div class="tab_rule">
+							<div class="price_con active">
+								<ul>
+
+								</ul>
+							</div>
+							<div class="rule_con">
+								<ul>
+									<li>
+										<em>1</em><span>活动时间：2018年6月15日——7月12日18：00</span>
+									</li>
+									<li>
+										<em>2</em><span>活动期间，玩家完成预约，即可成功获得一次抽奖机会；单账号仅限领取1次；</span>
+									</li>
+									<li>
+										<em>3</em><span>玩家邀请相应数量的好友在本页面成功预约，每成功邀请一位好友完成预约，即可再获1次抽奖机会，单个帐号每日仅限抽3次；</span>
+									</li>
+									<li>
+										<em>4</em><span>礼包领取请关注游戏内公告提示；实物奖品发放将在活动结束2个月内完成发放，实物获奖玩家将有工作人员联系，无法取得联系的将视为无效；</span>
+									</li>
+									<li>
+										<em>5</em><span>如使用外挂、作弊器以及其他不正当的方式参加本活动的，将取消用户参与资格、获奖资格。</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c_last">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<p class="c_title active">每日<span class="c_dl">登陆</span>官网签到 领取千元累计福利</p>
+				<p class="c_a_title">登陆成功 您已累计签到<span class="tian">0</span>天</p>
+				<div class="s_check">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/xuan.png?{$smarty.const.VERSION}" alt="" />
+					<p>查看我的奖品</p>
+				</div>
+				<div class="s_rule">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/r_rw.png?{$smarty.const.VERSION}" alt="" />
+					<div class="rule_txt">
+						<div class="rule_title">
+							<div class="chengg"></div>
+							<p>活动规则</p>
+						</div>
+					</div>
+					<div class="rule_s_txt">
+						<p>1.活动时间：6月15日——7月14日24:00；</p>
+						<p>2.每天单个账号在《火器文明》预约官网点击当日奖励图标完成签到，即可领取当日福利；</p>
+						<p>3.每日累计签到即可领取当前奖励；</p>
+						<p>4.累计签到7天、15天、30天即可额外获得惊喜礼包一份。</p>
+					</div>
+				</div>
+				<div class="c_biaoge">
+					<div class="chengg"></div>
+					<p class="biaoge_title">欧气释放，签到豪礼助力称霸欧洲！<span class="title_span">累计签到7天、15天、30天即可获得额外惊喜礼包！</span></p>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yumao.png?{$smarty.const.VERSION}" alt="" class="yumao" />
+					<ul class="biaoge_ul">
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ls.png?{$smarty.const.VERSION}" alt="" />
+								<p>1W粮食*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第一天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mc.png?{$smarty.const.VERSION}" alt="" />
+								<p>1W木材*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jiasu.png?{$smarty.const.VERSION}" alt="" />
+								<p>5分钟加速*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第三天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tie.png?{$smarty.const.VERSION}" alt="" />
+								<p>6000铁*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第四天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jingyan.png?{$smarty.const.VERSION}" alt="" />
+								<p>100VIP经验*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第五天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/rongyu.png?{$smarty.const.VERSION}" alt="" />
+								<p>荣誉旗帜*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第六天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yin.png?{$smarty.const.VERSION}" alt="" />
+								<p>150银*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第七天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mingyun.png?{$smarty.const.VERSION}" alt="" />
+								<p>命运之石*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第八天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/xingshi.png?{$smarty.const.VERSION}" alt="" />
+								<p>骠骑星石*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第九天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/duilie.png?{$smarty.const.VERSION}" alt="" />
+								<p>1天建造队列*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/xingyun.png?{$smarty.const.VERSION}" alt="" />
+								<p>幸运火枪币*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十一天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ls.png?{$smarty.const.VERSION}" alt="" />
+								<p>1W粮食*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十二天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mc.png?{$smarty.const.VERSION}" alt="" />
+								<p>1W木材*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十三天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jiasu.png?{$smarty.const.VERSION}" alt="" />
+								<p>5分钟加速*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十四天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jingyan.png?{$smarty.const.VERSION}" alt="" />
+								<p>100VIP经验*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十五天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/rongyu.png?{$smarty.const.VERSION}" alt="" />
+								<p>荣誉旗帜*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十六天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yin.png?{$smarty.const.VERSION}" alt="" />
+								<p>150银*3</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十七天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/liangshi.png?{$smarty.const.VERSION}" alt="" />
+								<p>15W粮食*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十八天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jingong.png?{$smarty.const.VERSION}" alt="" />
+								<p>2小时强化进攻*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第十九天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fangyu.png?{$smarty.const.VERSION}" alt="" />
+								<p>2小时强化防御*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/hudun.png?{$smarty.const.VERSION}" alt="" />
+								<p>2小时保护盾*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十一天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tie.png?{$smarty.const.VERSION}" alt="" />
+								<p>6000铁*3</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十二天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jingyan.png?{$smarty.const.VERSION}" alt="" />
+								<p>100VIP经验*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十三天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/rongyu.png?{$smarty.const.VERSION}" alt="" />
+								<p>荣誉旗帜*5</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十四天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ls.png?{$smarty.const.VERSION}" alt="" />
+								<p>1W粮食*5</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十五天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mc.png?{$smarty.const.VERSION}" alt="" />
+								<p>1W木材*5</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十六天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jiasu.png?{$smarty.const.VERSION}" alt="" />
+								<p>5分钟加速*5</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十七天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yin.png?{$smarty.const.VERSION}" alt="" />
+								<p>150银*1</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十八天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jingyan.png?{$smarty.const.VERSION}" alt="" />
+								<p>100VIP经验*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第二十九天 <span>已签到</span></p>
+						</li>
+						<li>
+							<div class="gift_li">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jiasu_8.png?{$smarty.const.VERSION}" alt="" />
+								<p>8小时加速*2</p>
+							</div>
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuan.png?{$smarty.const.VERSION}" alt="" class="yuan" />
+							<p class="qiandao_txt">第三十天 <span>已签到</span></p>
+						</li>
+						<i class="biaoge_i"></i>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="login">
+			<div class="c_login">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="login_form">
+					<div class="chengg"></div>
+					<div class="s_put">
+						<input type="tel" placeholder="请输入手机号" class="phone" />
+					</div>
+					<div class="s_put">
+						<input type="text" placeholder="请输入图形验证码" class="t_yzm" />
+						<div class="captcha">
+							{$captcha_img}
+						</div>
+					</div>
+					<div class="s_put">
+						<input type="tel" placeholder="请输入验证码" class="yzm" />
+						<input type="button" value="获取验证码" class="g_code" />
+					</div>
+					<div class="btn_login"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/dl.png?{$smarty.const.VERSION}" alt="" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="yuyue">
+			<div class="c_yuyue">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="login_form">
+					<div class="chengg"></div>
+					<div class="s_put">
+						<input type="tel" placeholder="请输入手机号" class="y_phone" />
+					</div>
+					<div class="s_put">
+						<input type="text" placeholder="请输入图形验证码" class="y_t_yzm" />
+						<div class="captcha01">
+							{$captcha_img}
+						</div>
+					</div>
+					<div class="s_put">
+						<input type="tel" placeholder="请输入验证码" class="y_yzm" />
+						<input type="button" value="获取验证码" class="i_code" />
+					</div>
+					<div class="btn_yuyue"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/y_btn.png?{$smarty.const.VERSION}" alt="" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="tc_price">
+			<div class="t_price">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="price_body">
+					<div class="top_title">
+						<span>名称</span>
+						<span>兑换码</span>
+						<span></span>
+					</div>
+					<div class="huadong">
+						<ul>
+							
+						</ul>
+					</div>
+				</div>
+				<p class="price_tit">获得游戏实物周边的小伙伴，记得留下你的收件地址哦!虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+				<div class="dizhi"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/dizhi.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/xiugai.png?{$smarty.const.VERSION}" alt="" /></div>
+			</div>
+		</div>
+		
+		<div class="tc_price01">
+			<div class="t_price">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="price_body">
+					<div class="top_title">
+						<span>名称</span>
+						<span>兑换码</span>
+						<span></span>
+					</div>
+					<div class="huadong01">
+						<ul>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="c_sure"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}" alt="" /></div>
+			</div>
+		</div>
+		
+		<div class="t_dizhi">
+			<div class="c_dizhi">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="d_body">
+					<div class="s_put">
+						<input type="text" placeholder="姓名" class="name" />
+						<input type="tel" placeholder="邮编" class="youbian" />
+					</div>
+					<div class="p_put">
+						<input type="tel" placeholder="收件人电话" class="s_phone" />
+					</div>
+					<textarea class="s_dizhi" placeholder="详细地址"></textarea>
+				</div>
+				<div class="s_sure"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}" alt="" /></div>
+			</div>
+		</div>
+		<div class="success">
+			<div class="c_success">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="success_body">
+					<p class="success_tit">分享你的专属链接，获得更多参与机会，千元游戏礼包等你领!</p>
+					<div class="success_code">
+						<p>点击复制链接按钮，复制个人专属链接，分享给你的好友预约，即可参加活动；<br />链接地址：</p>
+						<a href="javascript:;" target="_blank" id="tc11_copyTextz"></a>
+						<i id="tc11_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc11_copyTextz">复制链接</i>
+					</div>
+					<p class="lbm">礼包码：<span id="tc12_copyTextz"></span><i id="tc12_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc12_copyTextz">复制礼包码</i></p>
+				</div>
+				<ul class="success_ul">
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/rongyu.png?{$smarty.const.VERSION}" />
+						<p>荣誉旗帜*25</p>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/chuji.png?{$smarty.const.VERSION}" />
+						<p>初级领主经验值（5000）*5</p>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/zhongji.png?{$smarty.const.VERSION}" />
+						<p>中级飞艇经验值（5000）*10</p>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/jiasu_6.png?{$smarty.const.VERSION}" />
+						<p>60分钟加速*3</p>
+					</li>
+				</ul>
+				<div class="s_weixin">
+					<img src="{$global.wx_img}" alt="" />
+				</div>
+				<div class="lingqu">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="share">
+			<div class="c_share">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="share_body">
+					<p class="share_p">分享你的专属链接，获得更多参与机会，千元游戏礼包等你领!</p>
+					<div class="share_code">
+						<p>点击复制链接按钮，复制个人专属链接，分享给你的好友预约，即可参加活动；<br />链接地址：</p>
+						<a href="javascript:;" target="_blank" id="tc13_copyTextz"></a>
+					</div>
+					<div class="s_fuzhi" id="tc13_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc13_copyTextz"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fuzhi.png?{$smarty.const.VERSION}" alt="" /></div>
+				</div>
+			</div>
+		</div>
+		<div class="congra">
+			<div class="c_congra">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="congra_con">
+					<p class="c_t">恭喜您获得</p>
+					<div class="jiangpin">
+						<img src="" alt="" />
+						<p></p>
+					</div>
+					<div class="duihuanma">
+						<span>兑换码</span><i id="tc14_copyTextz"></i><span class="g_fuzhi" id="tc14_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc14_copyTextz">复制</span>
+					</div>
+					<p class="t_t">获得游戏实物周边的小伙伴，记得留下你的收件地址哦!虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+					<div class="d_dizhi">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/dizhi.png?{$smarty.const.VERSION}" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/xiugai.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="c_qiandao">
+			<div class="q_body">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<div class="congra_con">
+					<p class="c_t">恭喜您获得</p>
+					<div class="q_jiangpin">
+						<img src="" alt="" />
+						<p></p>
+					</div>
+					<div class="duihuanma">
+						<span>兑换码</span><i></i><span class="g_fuzhi">复制</span>
+					</div>
+					<div class="j_sure">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="tc_tip">
+			<div class="c_tip">
+				<div class="chengg"></div>
+				<span class="close"></span>
+				<p></p>
+				<div class="c_sure"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}" alt="" /></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	</body>
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}1.0/";
+	</script>
+	{video_play} {download}
+    <script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/cover.js?{$smarty.const.VERSION}"></script>
+
+</html>

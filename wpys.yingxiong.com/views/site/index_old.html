@@ -1,0 +1,175 @@
+{include '../layouts/pc/header.html'}
+		<div class="main">
+		    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/star.png?{$smarty.const.VERSION}" alt="" class="zz_ceng">
+			<div class="main_content">
+				<img class="wp_logo" src="{$smarty.const.STATIC_DOMAIN}1.0/images/n_logo.png?{$smarty.const.VERSION}" title="" alt="" />
+				<div class="wp_banner"></div>
+				{fragment var=video code=index_video size=1}
+				<img class="play js_video_play" src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" data-url="{if $video}{$video[0].url}{/if}">
+				<div class="txt_bg">
+					<div class="code"><img class="js_jump_img"></div>
+					<!-- <a class="video-w" href="/cover.html" target="_blank"></a> -->
+					<div class="downBox">
+						<!-- <a href="/cover.html" target="_blank" class="stat_ios ios_btn">
+							<img class="ios" src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios3.png?{$smarty.const.VERSION}" alt="">
+						</a> -->
+					
+						<a href="javascript:;" class="js_down_ios_tap stat_ios">
+							<img class="ios" src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios3.png?{$smarty.const.VERSION}" alt="">
+						</a>
+						<a href="/cover.html" class="stat_android" style="cursor: pointer;display: block;">
+						   <img class="andr" src="{$smarty.const.STATIC_DOMAIN}1.0/images/andr2.png?{$smarty.const.VERSION}" alt="">
+						</a>
+					</div>
+				</div>
+				
+					<div class="ewm_bg" style="width: 100%;height: 100%;z-index: 100;position: absolute;top: 0;display: none;"><img class="ios_ewm" src="{$smarty.const.STATIC_DOMAIN}1.0/images/pc_ios_down.jpg?{$smarty.const.VERSION}" alt="" style="width: 120px;height: 120px;position: absolute;top: 500px;left: 290px;"></div>
+				<!-- <div class="txt_bg">
+					<span class="radio on">
+                		<input class="radio01" data-id="1" type="radio" checked="checked" name="wp" value="ios" />
+                	<span>iOS预约</span>
+					</span>
+
+					<span class="radio">
+                		<input class="radio01" data-id="2" type="radio" name="wp" value="android"/>
+                	<span>安卓预约</span>
+					</span>
+					<form action="" class="tel_bg">
+						<input type="tel" class="tel_p" id="phone" placeholder="输入手机号码" />
+						<i class="btn tel_btn stat_yy">立即预约</i>
+					</form>
+				</div> -->
+				
+				<div class="news_box">
+                    <div class="text_tab_more">
+                        <a href="{myurl name='article/list, id=>450'}" class="more" target="_blank"></a>
+                    </div>	
+				    <div class="art-news">
+						<ul class="news-nav clearfix">
+                            <li class="curr" data-index="0">最新</li>
+                            <li data-index="1">新闻</li>
+                            <li data-index="2">公告</li>
+                            <li data-index="3">攻略</li>
+                        </ul>
+                        <div class="tab-cont">
+							<ul class="ul">
+								{article id="450" size=4 var=zx}
+                   				{if $zx neq ''}
+                   				{foreach $zx as $key=>$v}
+                   				{if $key >= 0}
+								<li>
+									<i>[{$v.name}] </i>
+									<a href="{$v.linkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+									{/if}
+                    				{/foreach}
+                    				{else}
+                    				<p style="text-align: center">暂无数据</p>
+                    				{/if}
+								</li>
+							</ul>
+							<ul class="ul hide">
+								{article id="451" size=4 var=xw}
+                   				{if $xw neq ''}
+                   				{foreach $xw as $key=>$v}
+                   				{if $key >= 0}
+								<li>
+									<i>[{$v.name}] </i>
+									<a href="{$v.linkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+									{/if}
+                    				{/foreach}
+                    				{else}
+                    				<p style="text-align: center">暂无数据</p>
+                    				{/if}
+								</li>
+							</ul>
+							<ul class="ul hide">
+								{article id="452" size=4 var=gg}
+                   				{if $gg neq ''}
+                   				{foreach $gg as $key=>$v}
+                   				{if $key >= 0}
+								<li>
+									<i>[{$v.name}] </i>
+									<a href="{$v.linkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+									{/if}
+                    				{/foreach}
+                    				{else}
+                    				<p style="text-align: center">暂无数据</p>
+                    				{/if}
+								</li>
+							</ul>
+							<ul class="ul hide">
+								{article id="453" size=4 var=gl}
+                   				{if $gl neq ''}
+                   				{foreach $gl as $key=>$v}
+                   				{if $key >= 0}
+								<li>
+									<i>[{$v.name}] </i>
+									<a href="{$v.linkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+									{/if}
+                    				{/foreach}
+                    				{else}
+                    				<p style="text-align: center">暂无数据</p>
+                    				{/if}
+								</li>
+							</ul>
+						</div>
+                    </div>
+				</div>
+				<div class="tck">
+					<a href="{$global.wb_url}" target="_blank">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/weibo.png?{$smarty.const.VERSION}" title="" alt="" />
+					</a>
+					<a class="weixin" href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/weixin.png?{$smarty.const.VERSION}" title="" alt="" />
+					</a>
+					<!--<a href="javascript:;">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/baidu.png?{$smarty.const.VERSION}" title="" alt="" />
+					</a>-->
+					<img class="erweima" src="{$global.wx_img}" title="" alt="" />
+				</div>
+				<div class="con_txt">
+					<p>QQ群<em>{$global.group_num}</em>
+						<a href="https://jq.qq.com/?_wv=1027&k=5Plfmqs" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/qun.png?{$smarty.const.VERSION}" alt="" /></a>
+					</p>
+					<p>兴趣部落
+						<a href="https://buluo.qq.com/p/barindex.html?bid=392700" style="text-decoration: underline;"  target="_blank">王牌御史正版手游部落</a>
+					</p>
+				</div>
+				<div class="main_banner">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/banner04.png?{$smarty.const.VERSION}" title="" alt="" />
+						</div>
+					</div>
+				</div>
+				<!--<div class="renwu">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/n_renwu.png?{$smarty.const.VERSION}" title="" alt="" />
+				</div>-->
+
+				<div class="banner_ng">
+					<div class="banner_vg">
+						<div class="swiper-wrapper boder_bg">
+							{fragment var=index_banner code=game_play size=20}
+                			{if $index_banner neq ''}
+                			{foreach $index_banner as $v}
+							<div class="swiper-slide">
+								<img src="{$v.thumb}" title="" alt="" />
+							</div>
+							{/foreach}
+                			{/if}
+						</div>
+					</div>
+					<div class="swiper-button-last"></div>
+					<div class="swiper-button-xia"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+		<div class="channel_tap_name">
+			<div class="tap">
+				<a href="https://www.taptap.com/app/85889" class="tap_btn stat_tap" target="_blank"></a>
+			</div>
+		</div>
+{video_play}{download}
+		<!--通用底部-->
+{include '../layouts/pc/foot.html'}

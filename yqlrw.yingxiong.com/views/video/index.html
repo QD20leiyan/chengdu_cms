@@ -1,0 +1,88 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/video.css?{$smarty.const.VERSION}" />
+{include file="../layouts/pc/s_header.html"}
+<div class="news_con">
+	<p class="n_title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/yinfu.png?{$smarty.const.VERSION}" alt="" /><span>精彩视频</span></p>
+	<p class="list_info">当前位置：
+		<a href="{myurl name='site/index'}">官网首页</a>><span>精彩视频</span></p>
+	<ul class="n_tab_ul">
+		<li class="{if $id eq 557}active{else} {/if}">
+			<a href="{myurl name='video/list, id=>557'}">最新</a>
+		</li>
+		<li class="{if $id eq 558}active{else} {/if}">
+			<a href="{myurl name='video/list, id=>558'}">官方视频</a>
+		</li>
+		<li class="{if $id eq 559}active{else} {/if}">
+			<a href="{myurl name='video/list, id=>559'}">玩家视频</a>
+		</li>
+		<p>
+			<a href="javascript:;" target="_blank">我要投稿<span>···</span></a>
+		</p>
+	</ul>
+	<div class="video_con">
+		<div class="video_left">
+			<div class="v_banner">
+				{fragment var=index_banner code=video_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="v_tuijian">
+				<p class="v_t_title">播放最多</p>
+				<ul>
+					{if !empty($data)}
+						{foreach $data as $key=>$v}
+							<li class="js_video_play" data-url="{$v.video.media_url}"><em>{$key+1}</em><span class="li_title">{$v.title}</span>
+								<div class="li_img"><i></i><span>{$v.sort}次播放</span></div>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+			</div>
+		</div>
+		<div class="video_list">
+			{if !empty($data)}
+			<ul class="v_list_ul">
+				{foreach $data as $v}
+					<li>
+						<img src="{$v.thumb}" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/v_p.png?{$smarty.const.VERSION}" alt="" class="v_p js_video_play" data-url="{$v.video.media_url}">
+						<i></i>
+						<div class="v_title">
+							<p>{$v.title}</p>
+						</div>
+					</li>
+				{/foreach}
+			</ul>
+				{$page}
+			{/if}
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".v_banner", {
+			paginationClickable: true,
+			autoplayDisableOnInteraction: false,
+			pagination: '.swiper-pagination',
+		});
+		$(".right_nav a:nth-child(1)").hover(function() {
+			$(".right_code").stop().fadeIn();
+		}, function() {
+			$(".right_code").stop().fadeOut();
+		});
+	});
+</script>
+
+</html>

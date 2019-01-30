@@ -1,0 +1,36 @@
+{include '../../layouts/wap/head.html'}
+    <div class="listBg">
+        <div class="back"><a href="{myurl name='wap/site/index'}" target="_blank"></a></div>
+    </div>
+    <div class="art_til">
+        <h3>{$content.title}</h3>
+        <p class="new_information_time"><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span></p>
+    </div>
+    <div class="art_m">
+        <p>{$content.body}</p>
+    </div>
+    <div class="bottom_bg">
+        <div class="server-wrapp">
+                <div class="server-box">
+                    <a href="javascript:;">
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wx.png">
+                    </a>
+                    <a  href="{if isset($global.wb_url)}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.wb_url)}target="_blank"{/if}>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wb.png">
+                    </a>
+                    <a href="{if isset($global.group_url_one)}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.tb_url)}target="_blank"{/if}>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/qq.png">
+                    </a>
+                    <a href="{if isset($global.tb_url)}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.tb_url)}target="_blank"{/if}>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tb.png">
+                    </a>
+            </div>
+        </div>
+    </div>    
+    <div class="bigImg">
+    <img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="">
+    <p>长按保存至手机</p>
+    <p>发送至微信内识别</p>
+    <p>关注《明日决胜！》官方微信</p>
+</div>
+{include '../../layouts/wap/foot.html'}

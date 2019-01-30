@@ -1,0 +1,29 @@
+{include file="../layouts/pc/header.html"}
+		<div class="detail_kv">
+			{if $diy}
+			<p style="font-size:50px;color:#000;font-weight:bold;text-align: center;">推荐位：详情页code=detail_kv(尺寸：1920*597)</p>
+			{else}
+				{fragment var=kv code=detail_kv size=1}
+				{if $kv}
+				<img src="{$kv[0].thumb}" alt="" />
+				{/if}
+			{/if}
+		</div>
+		<div class="detail_body">
+			<div class="chengg"></div>
+			<div class="wrap">
+				<div class="detail_con">
+					<div class="chengg"></div>
+					<div class="detail_top">
+						<p class="back">您当前位置：<a href="{myurl name='site/index'}">首页</a>>新闻详情</p>
+						<div class="detail_title">{$content.title}</div>
+						<p class="detail_date"><span>{$content.created_at_formate}</span><span>作者<em>英雄互娱官方</em></span></p>
+					</div>
+					<div class="detail_center">
+						{$content.body}
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+{include file="../layouts/pc/footer.html"}

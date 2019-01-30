@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    {csrf}
+    <link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/lx_public.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/lx_index.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/lx_style.css?{$smarty.const.VERSION}" />
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/js/jquery-1.7.1.min.js?{$smarty.const.VERSION}"></script>
+    <script data-fixed="true">
+        if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+            location.href = "/m" + window.location.pathname + window.location.search;
+        }
+    </script>
+    <script>
+        $(window).scroll(function() {
+            var $t = $(this).scrollTop();
+            if($t > 0) {
+                $(".nav").css({
+                    position: 'fixed',
+                    zIndex: "999"
+                });
+            } else {
+                $(".nav").css({
+                    position: 'absolute'
+                });
+            }
+        })
+    </script>
+      <script>
+   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+   //push 参数，name：页面名称，behavior 行为 
+   //event 参数，event：事件名称，args 拓展参数 
+   var HLog={ 
+    push: function(name,behavior){},
+    setUser:function(){},
+    event:function(event,args){},
+    ready:function(){}
+    };
+   HLog.config={
+       "senseHash":0, //hash锚点是否进入url统计
+       "senseQuery":0, //url参数是否进入url统计
+       "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+   };
+   (function() {
+      var hl = document.createElement("script");
+      hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/34/client/1/filter/stat.js";
+      hl.async = "async";
+      var s = document.getElementsByTagName("script")[0];
+      HLog.ready = function(){
+        HLog.push('reflash')
+      };
+      s.parentNode.insertBefore(hl, s);
+   })();
+</script>
+</head>
+
+<body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+<div class="kv">
+    <div class="nav">
+        <div class="wrap">
+            <ul class="nav_ul">
+                <div class="nav_div">
+                    <img src="{$global.logo_img}" alt="" />
+                    <p>
+                        <span>{$global.title}</span>
+                        <span>{$global.sub_title}</span>
+                    </p>
+                </div>
+                <div class="right_nav">
+                    <a href="javascript:;">
+                        <img src="{$smarty.const.STATIC_DOMAIN}4.0/images/c_weixin.png?{$smarty.const.VERSION}" alt="" />
+                        <!--<img src="images/c_weixin_active.png" alt="" />-->
+                    </a>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <img src="{$smarty.const.STATIC_DOMAIN}4.0/images/c_weibo.png?{$smarty.const.VERSION}" alt="" />
+                        <!--<img src="images/c_weibo_active.png" alt="" />-->
+                    </a>
+                    <!--<a href="javascript:;" target="_blank">-->
+                        <!--<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/c_baidu.png?{$smarty.const.VERSION}" alt="" />-->
+                        <!--&lt;!&ndash;<img src="images/c_baidu_active.png" alt="" />&ndash;&gt;-->
+                    <!--</a>-->
+                    <img src="{$global.wx_img}" alt="" class="t_erweima"/>
+                </div>
+                <div class="gowebsite">
+                    <a href="/index.html" target="_blank"></a>
+                </div>
+            </ul>
+        </div>
+    </div>

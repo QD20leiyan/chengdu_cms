@@ -1,0 +1,358 @@
+{include file="../layouts/pc/header.html"}
+		<div class="kv">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				 <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/btn2.png?{$smarty.const.VERSION}" alt="" class="btn" />
+				{fragment var=video code=index_video size=1}
+		<div class="slogan">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan2.png?{$smarty.const.VERSION}" alt="" class="ani zoomIn animated"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play2.png?{$smarty.const.VERSION}" alt="" class="js_video_play" data-url="{if $video}{$video[0].url}{/if}"/>
+		</div>
+            	<!-- <a href="javascript:;" class="btn js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/btn3.png?{$smarty.const.VERSION}" alt=""/></a> -->
+            	<!--<div class="down_box">-->
+            	    <!--<div class="ewm_code">-->
+            	    	<!--<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sys.png?{$smarty.const.VERSION}" alt="" class="txt">-->
+            	    	<!--<img src="" alt="" class="ewmai js_jump_img">-->
+            	    	<!--<i></i>-->
+            	    <!--</div>-->
+            		<!--<div class="down_btn">-->
+            			<!--<a href="javascript:;" class="js_down_ios stat_ios ios_btn" target="_blank"></a>-->
+            			<!--<a href="javascript:;" class="js_down_andriod stat_android android_btn" ></a>-->
+            		<!--</div>-->
+            	<!--</div>-->
+            	<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/peo_girl.png?{$smarty.const.VERSION}" alt="" class="peo_girl">
+            	<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/brid.png?{$smarty.const.VERSION}" alt="" class="brid">
+            </div>
+		</div>
+		
+		<div class="content">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<div class="bird1">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bird1.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<div class="bird2">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/airport.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bird.png?{$smarty.const.VERSION}" alt="" class="bird3" />
+				<p class="label"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label_tl.png?{$smarty.const.VERSION}" alt=""></p>
+				<p class="label_info">截止游戏公测时，预约总数达到目标数量即可解锁相应预约奖励，奖励将会在公测期间，<br> 发放给游戏公测一周内注册登录游戏的玩家。</p>
+				<a href="javascript:;" class="yy_btn"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yy_btn.png?{$smarty.const.VERSION}" alt=""></a>
+				<p class="label2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label_tl2.png?{$smarty.const.VERSION}" alt=""></p>
+				<p class="yyue_num2 text_number"></p>
+				<p class="yuyue_text">目前官网已预约人数</p>
+				<div class="z_line">
+					<div class="line"></div>
+					<i class="jdt"></i>
+					<div class="xianshi">
+						<div class="first active">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/gf1.png?{$smarty.const.VERSION}" alt="">
+							</div>
+							<div class="info">
+								<p>金币*888</p>
+								<p>初级强化石*10</p>
+							</div>
+						</div>
+						<div class="second active">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/gf2.png?{$smarty.const.VERSION}" alt="">
+							</div>
+							<div class="info">
+								<p>宝物召唤券*2</p>
+								<p>金币*1888</p>
+							</div>
+						</div>
+						<div class="third active">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/gf3.png?{$smarty.const.VERSION}" alt="">
+							</div>
+							<div class="info">
+								<p>宠物召唤券*2</p>
+								<p>宠物修炼手册*2</p>
+							</div>
+						</div>
+						<div class="four active">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/gf4.png?{$smarty.const.VERSION}" alt="">
+							</div>
+							<div class="info">
+								<p>宠物祝福石*3</p>
+								<p>祝福石*3</p>
+								<p>钻石*128</p>
+							</div>
+						</div>
+						<div class="five active">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/gf5.png?{$smarty.const.VERSION}" alt="">
+							</div>
+							<div class="info" style="margin-left: -19px;width: 225px;">
+								<p>装扮：经典方框墨镜*1（永久）</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<div class="last">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<p class="title">新闻中心</p>
+		<p class="title1">NEWS</p>
+		<div class="m_content">
+			<div class="left_banner">
+				{fragment var=banner code=index_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $banner neq ''}
+						{foreach $banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="right_news">
+				<div class="right_main">
+					<ul class="news_ul">
+						<li class="active">最新</li>
+						<li>资讯</li>
+						<li>公告</li>
+						<li>活动</li>
+						<!--<li>策略</li>-->
+						<a href="{myurl name='article/list, id=>533'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+					</ul>
+					<div class="news_list">
+						<ul class="active">
+							{article id="533" size=4 var=zx}
+							{if $zx neq ''}
+								{foreach $zx as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="534" size=4 var=xw}
+							{if $xw neq ''}
+								{foreach $xw as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="536" size=4 var=gg}
+							{if $gg neq ''}
+								{foreach $gg as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="">
+							{article id="537" size=4 var=hd}
+							{if $hd neq ''}
+								{foreach $hd as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData" style="line-height: 50px;color: #ad886d;text-align: center;">暂无数据...</p>
+							{/if}
+						</ul>
+						<!--<ul class="">
+							{article id="538" size=4 var=gl}
+							{if $gl neq ''}
+								{foreach $gl as $key=>$v}
+									{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title} </span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+									{/if}
+								{/foreach}
+							{else}
+							<p class="noData">暂无数据...</p>
+							{/if}
+						</ul>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="m_play">
+			<p class="m_title">游戏特色</p>
+			<p class="m_title1">GAME FEATURES</p>
+			<div class="d_play">
+				{fragment var=i_play code=index_play size=5}
+				<ul class="swiper-wrapper">
+					{if $i_play neq ''}
+						{foreach $i_play as $v}
+							<li class="swiper-slide"><img src="{$v.thumb}" alt="" /><i></i></li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination1"></div>
+				<div class="swiper-button-prev1"></div>
+				<div class="swiper-button-next1"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="zj_footer">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<ul>
+			<li>
+				<img class="js_jump_img" src="{$smarty.const.STATIC_DOMAIN}1.0/images/erweima.png?{$smarty.const.VERSION}" alt="" />
+				<div class="zj_txt">
+					<p class="zj_txt1">下载游戏</p>
+					<p class="zj_txt2">扫描二维码，立即下载游戏</p>
+					<p class="zj_txt3">3D即时制团战弹射手游</p>
+				</div>
+			</li>
+			<li>
+				<img src="{$global.wx_img}" alt="" />
+				<div class="zj_txt">
+					<p class="zj_txt1">微信公众号</p>
+					<p class="zj_txt2">扫描二维码关注官方微信</p>
+					<p class="zj_txt3"><span>官方微信号：</span>弹弹岛3</p>
+				</div>
+			</li>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/kf.jpg?{$smarty.const.VERSION}" alt="" />
+				<div class="zj_txt">
+					<p class="zj_txt1">客户服务</p>
+					<p class="zj_txt2">BUG反馈，游戏问题</p>
+					<p class="zj_txt3"><span>客户服务电话：</span>400-939-333</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+		<div class="login">
+			<div class="c_login">
+				<div class="chengg"></div>
+				<i class="close"></i>
+				<div class="login_main">
+				    <ul class="c_yuyue">
+					<li class="active" data-id="ios">
+						<i><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/y.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/y_h.png?{$smarty.const.VERSION}" alt="" /></i><span>iOS</span></li>
+					<li data-id="android">
+						<i><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/y.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/y_h.png?{$smarty.const.VERSION}" alt="" /></i><span>安卓平台</span></li>
+				   </ul>
+					<div class="s_put" data-id="ios">
+						<input type="tel" placeholder="请输入手机号" class="phone" />
+					</div>
+					<div class="s_put">
+						<input type="text" placeholder="请输入图形验证码" class="t_yzm" />
+						<div class="captcha">
+						    <i>点击刷新</i>
+							<img src="" />
+						</div>
+					</div>
+					<div class="s_put">
+						<input type="tel" placeholder="请输入验证码" class="yzm" />
+						<input type="button" value="获取验证码" class="g_code" />
+					</div>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/y_btn.png?{$smarty.const.VERSION}" alt="" class="denglu stat_yy" />
+			</div>
+		</div>
+		<div class="message">
+			<div class="c_message">
+				<div class="chengg"></div>
+				<i class="close"></i>
+				<p></p>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/sure.png?{$smarty.const.VERSION}" alt="" class="sure" />
+			</div>
+		</div>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+		<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	</body>
+	{video_play}
+{download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/index_new.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper(".left_banner", {
+				pagination: '.swiper-pagination',
+				simulateTouch: false,
+				loop: true,
+				autoplay: 2500,
+				paginationClickable: true,
+				autoplayDisableOnInteraction: false,
+				observer: true,
+				observeParents: true,
+			});
+			var mySwiper01 = new Swiper(".d_play", {
+				loop: true,
+				autoplay:4500,
+				pagination: '.swiper-pagination1',
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev1',
+				nextButton: '.swiper-button-next1',
+				autoplayDisableOnInteraction: false,
+				coverflow: {
+					rotate: 0,
+					stretch: -166,
+					depth: 400,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+				//				simulateTouch: false,
+			});
+			$(".right_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_rule>div").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			$(".news_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+			$(".s_put input").focus(function() {
+				$(this).addClass("active");
+			});
+			$(".s_put input").blur(function() {
+				$(this).removeClass("active");
+			});
+			$(".close").click(function() {
+				$(this).parent().parent().hide();
+			});
+			$(".c_yuyue ul li").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".r_wx a:nth-child(1)").hover(function (){
+			$(".fl_wx").stop().fadeIn();
+		},function (){
+			$(".fl_wx").stop().fadeOut();
+		});
+		})
+	</script>
+
+</html>

@@ -1,0 +1,141 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+
+<section class="kv">
+	<!-- <a href="javascript:;" class="js_wap_down public_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/h_down.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn_gif.gif?{$smarty.const.VERSION}" alt="" class="img2"></a> -->
+	<a href="javascript:;" class="yy_btn"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/h_down2.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn_gif.gif?{$smarty.const.VERSION}" alt="" class="img2"></a>
+	<div class="gift_box"></div>
+	{fragment var=video code=index_video size=1}
+	<div class="videobtn">
+		<a href="{if $video&&$video != '暂无数据'}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+			<span></span>
+			<i></i>
+		</a>
+	</div>
+</section>
+<section class="second">
+	<div class="m_banner">
+		{fragment var=banner code=index_banner size=5}
+		<div class="n_banner">
+			<ul class="swiper-wrapper">
+				{if $banner neq ''} {foreach $banner as $v}
+				<li class="swiper-slide">
+					<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+				</li>
+				{/foreach} {/if}
+			</ul>
+		</div>
+		<div class="swiper-pagination"></div>
+	</div>
+	<ul class="new_ul">
+		<li class="active">最新</li>
+		<li>新闻</li>
+		<li>公告</li>
+		<li>活动</li>
+		<li>攻略</li>
+	</ul>
+	<div class="news_div">
+		{article id="1843" size=5 var=zx}
+		<ul class="active">
+			{if $zx neq ''} {foreach $zx as $key=>$v}
+			<li>
+				<a href="{$v.wapLinkUrl}"><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i></a>
+			</li>
+			{/foreach} {else}
+			<p class="noData" style="line-height: 3rem;color: #98854F;text-align: center;font-size: .5rem;">暂无数据...</p>
+			{/if}
+		</ul>
+		
+		{article id="1844" size=5 var=xw}
+		<ul class="">
+			{if $xw neq ''} {foreach $xw as $key=>$v}
+			<li>
+				<a href="{$v.wapLinkUrl}"><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i></a>
+			</li>
+			{/foreach} {else}
+			<p class="noData" style="line-height: 3rem;color: #98854F;text-align: center;font-size: .5rem;">暂无数据...</p>
+			{/if}
+		</ul>
+		
+		{article id="1845" size=5 var=gg}
+		<ul class="">
+			{if $gg neq ''} {foreach $gg as $key=>$v}
+			<li>
+				<a href="{$v.wapLinkUrl}"><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i></a>
+			</li>
+			{/foreach} {else}
+			<p class="noData" style="line-height: 3rem;color: #98854F;text-align: center;font-size: .5rem;">暂无数据...</p>
+			{/if}
+		</ul>
+		{article id="1899" size=5 var=hd}
+		<ul class="">
+			{if $hd neq ''} {foreach $hd as $key=>$v}
+			<li>
+				<a href="{$v.wapLinkUrl}"><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i></a>
+			</li>
+			{/foreach} {else}
+			<p class="noData" style="line-height: 3rem;color: #98854F;text-align: center;font-size: .5rem;">暂无数据...</p>
+			{/if}
+		</ul>
+		{article id="1900" size=5 var=gl}
+		<ul class="">
+			{if $gl neq ''} {foreach $gl as $key=>$v}
+			<li>
+				<a href="{$v.wapLinkUrl}"><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i></a>
+			</li>
+			{/foreach} {else}
+			<p class="noData" style="line-height: 3rem;color: #98854F;text-align: center;font-size: .5rem;">暂无数据...</p>
+			{/if}
+		</ul>
+		<a href="{myurl name='wap/list, id=>1843'}" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+</section>
+<section class="third">
+	<div class="b_banner">
+		{fragment var=person code=index_person size=5}
+		<ul class="swiper-wrapper">
+		{if $person neq ''} {foreach $person as $v}
+			<li class="swiper-slide xn_pic" data-src="{$v.thumb}"><img src="{$v.url}" alt="" /></li>
+		{/foreach} {/if}
+		</ul>
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+		<div class="pagenation"></div>
+	</div>
+</section>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".n_banner", {
+			autoplayDisableOnInteraction: false,
+						loop: true,
+			pagination: '.swiper-pagination',
+						// autoplay: 4000,
+		});
+		var mySwiper01 = new Swiper(".b_banner", {
+			prevButton:'.swiper-button-prev',
+			nextButton:'.swiper-button-next',
+			pagination: '.pagenation',
+			paginationClickable: true,
+			paginationBulletRender: function(swiper, index, className) {
+				var font = new Array();
+				$(".xn_pic").each(function() {
+					font.push($(this).attr("data-src"));
+				});
+				return '<li class="' + className + '"><img src=' + font[index] + ' /></li>';
+			}
+		});
+		$(".news_ul ul li").click(function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".tab_div ul").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$(".new_ul li").click(function (){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".news_div ul").eq(index).addClass("active").siblings().removeClass("active");
+		})
+	})
+</script>
+
+</html>

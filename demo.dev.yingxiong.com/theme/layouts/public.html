@@ -1,0 +1,159 @@
+<script type="text/javascript">
+	$(".public_kv a").attr("href", "javascript:;");
+	$(".public_second").attr("href", "javascript:;");
+	$(".public_third").attr("href", "javascript:;");
+	$(".public_video").removeClass("js_video_play");
+	var base = {
+		h_nav_left: $(".public_icon").attr("data-icon"),
+		h_nav_right: $(".public_nav").attr("data-right"),
+		h_nav_one: $(".public_nav_one").attr("data-one"),
+		h_kv: $(".public_kv").attr("data-kv"),
+		h_second: $(".public_second").attr("data-second"),
+		h_third: $(".public_third").attr("data-third"),
+		h_play: $(".public_video").attr("data-video"),
+		h_banner: $(".public_banner").attr("data-banner"),
+		h_news_nav: $(".public_news_title").attr("data-news"),
+		h_news_con: $(".public_news_con").attr("data-con"),
+		h_banner_ts: $(".public_ts").attr("data-ts"),
+		h_footer: $(".public_footer").attr("data-footer")
+	}
+	$(".public_kv").click(function() {
+		window.open(base.h_kv);
+		return false;
+	});
+	$(".public_kv").hover(function (){
+		$(".main_kv").show();
+	},function (){
+		$(".main_kv").hide();
+	});
+	$(".public_nav_two").hover(function (){
+		$(".main_nav_one").show();
+		$(".main_kv").hide();
+	},function (){
+		$(".main_nav_one").hide();
+		$(".main_kv").show();
+	});
+	$(".public_second").hover(function (){
+		$(".main_second").show();
+	},function (){
+		$(".main_second").hide();
+	});
+	$(".public_third").hover(function (){
+		$(".main_third").show();
+	},function (){
+		$(".main_third").hide();
+	});
+	$(".public_nav").hover(function (){
+		$(".main_nav").show();
+		$(".main_kv").hide();
+	},function(){
+		$(".main_nav").hide();
+		$(".main_kv").show();
+	});
+	$(".public_footer").hover(function (){
+		$(".main_footer").show();
+		$(".main_footer01").show();
+		$(".main_kv").hide();
+		$(".main_third").hide();
+	},function(){
+		$(".main_footer").hide();
+		$(".main_footer01").hide();
+		$(".main_kv").show();
+		$(".main_third").show();
+	});
+	$(".public_video").hover(function (){
+		$(".main_play").show();
+		$(".main_kv").hide();
+	},function(){
+		$(".main_play").hide();
+		$(".main_kv").show();
+	});
+	$(".banner_ng").hover(function (){
+		$(".main_banner").show();
+		$(".main_kv").hide();
+		$(".main_second").hide();
+	},function(){
+		$(".main_banner").hide();
+		$(".main_kv").show();
+		$(".main_second").show();
+	});
+	$(".public_nav_one").hover(function (){
+		$(".main_nav_one").show();
+		$(".main_kv").hide();
+	},function(){
+		$(".main_nav_one").hide();
+		$(".main_kv").show();
+	});
+	$(".art-news").hover(function (){
+		$(".main_news").show();
+		$(".main_kv").hide();
+		$(".main_second").hide();
+	},function(){
+		$(".main_news").hide();
+		$(".main_kv").show();
+		$(".main_second").show();
+	});
+	$(".cont").hover(function (){
+		$(".main_tese").show();
+		$(".main_kv").hide();
+		$(".main_second").hide();
+	},function(){
+		$(".main_tese").hide();
+		$(".main_kv").show();
+		$(".main_second").show();
+	});
+	$(".public_second").click(function() {
+		window.open(base.h_second);
+		return false;
+	});
+	$(".public_third").click(function() {
+		window.open(base.h_third);
+		return false;
+	});
+	$(".public_nav_one").click(function() {
+		window.open(base.h_nav_one);
+		return false;
+	})
+	$(".public_video").click(function() {
+		window.open(base.h_play);
+		return false;
+	});
+	$(".public_icon").click(function() {
+		window.open(base.h_nav_left);
+		return false;
+	});
+	$(".public_nav").click(function() {
+		window.open(base.h_nav_right);
+		return false;
+	});
+	$(".public_banner").click(function() {
+		window.open(base.h_banner);
+		return false;
+	})
+	$(".public_news_title").click(function() {
+		window.open(base.h_news_nav);
+		return false;
+	});
+	$(".public_news_con").click(function() {
+		window.open(base.h_news_con);
+		return false;
+	});
+	$(".public_ts").click(function() {
+		window.open(base.h_banner_ts);
+		return false;
+	});
+	$(".public_footer").click(function() {
+		window.open(base.h_footer);
+		return false;
+	});
+
+	$(document).mousemove(function(e) {
+		//event.pageX/event.pageY鼠标相对于文档的坐标位置。
+		var x = e.pageX + 'px';
+		var y = e.pageY + 'px';
+		$("#div1").css({
+			'left': x,
+			'top': y
+		})
+	})
+</script>

@@ -1,0 +1,68 @@
+       {include file="../layouts/pc/head.html"}
+       
+       <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/list.css?{$smarty.const.VERSION}" />
+        <div class="n_kv">
+            <div class="wrap">
+            </div>
+        </div>
+        <div class="n_body">
+            <div class="top_ul">
+                <ul class="tab_ul">
+                    <li class="{if $id eq 650}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>650'}">最新</a>
+            </li>
+            <li class="{if $id eq 651}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>651'}">新闻</a>
+            </li>
+            <li class="{if $id eq 652}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>652'}">公告</a>
+            </li>
+            <li class="{if $id eq 653}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>653'}">活动</a>
+            </li>
+            <li class="{if $id eq 655}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>655'}">攻略</a>
+            </li>
+            <p class="back">
+                <a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+                </ul>
+            </div>
+            <div class="newslist">
+                {if !empty($data)}
+        <ul class="news_box">
+            {foreach $data as $v}
+                <a href="{$v.linkUrl}" target="_blank">
+                    <li>
+                        <div class="newlist_left">
+                            <span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+                            <span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+                        </div>
+                        <div class="newlist_img"><img src="{$v.thumb}" alt="" /></div>
+                        <div class="newlist_right">
+                            <h3>{$v.title}</h3>
+                            <p>{$v.contentMessage}</p>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/l_hover.png" alt="" class="l_hover" />
+                    </li>
+                </a>
+            {/foreach}
+        </ul>
+        {$page}
+        {else}
+        <p class="noData" style="text-align: center;padding-top: 20px;font-size: 23px;">暂无数据...</p>
+        {/if}
+            </div>
+        </div>
+        <div class="bottom_bg"> </div>
+        <div class="to_top to_top2">
+            <p>关注我们</p>
+            <div class="top_box">
+                <div class="img_code">
+                  <img src="{$global.wx_img}" alt="">
+                  <i></i>
+                </div>
+                <a href="javascript:;"><i></i></a>
+            </div>
+             <label class="q_f_icon show" show=""></label>
+        </div>
+{include file="../layouts/pc/foot.html"}

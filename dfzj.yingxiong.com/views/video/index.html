@@ -1,0 +1,46 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="kv"></div>
+<div class="content">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<div class="n_list">
+			<div class="n_top_ul">
+				<p class="v_title">游戏视频</p>
+				<a href="{myurl name='site/index'}" class="n_back"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/sanjiao.png?{$smarty.const.VERSION}" alt="" /></a>
+				<p class="n_tz"><a href="{myurl name='site/index'}">首页</a> > 视频列表</p>
+			</div>
+			<div class="clear"></div>
+			<div class="video_body">
+				{if !empty($data)}
+				<ul class="video_ul">
+					{foreach $data as $v}
+						<li>
+							<div class="li_div">
+								<img src="{$v.thumb}" alt="" class="v_img" />
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/video.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.contentMessage}"/>
+								<i></i>
+							</div>
+							<p>{$v.title}</p>
+						</li>
+					{/foreach}
+				</ul>
+				{$page}
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	addClass();
+	function addClass() {
+		$(".video_ul li").each(function(i, n) {
+			if((i + 1) % 5 == 0) {
+				$(n).addClass("active");
+			}
+		});
+	}
+</script>
+
+</html>

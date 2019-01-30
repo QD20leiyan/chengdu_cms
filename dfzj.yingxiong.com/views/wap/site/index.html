@@ -1,0 +1,431 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/index.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv">
+		<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+		{fragment var=video code=index_video size=1}
+		<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+		<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_nplay.png?{$smarty.const.VERSION}" alt=""/>
+		</a>
+	</div>
+</section>
+<section>
+	<div class="n_content">
+		<div class="n_con">
+			<div class="chengg"></div>
+			<div class="n_banner">
+				{fragment var=banner code=index_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $banner neq ''}
+						{foreach $banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="i_news">
+				<ul class="n_ul">
+					<li class="active">最新</li>
+					<li>新闻</li>
+					<li>攻略</li>
+					<li>活动</li>
+					<a href="{myurl name='wap/list, id=>523'}" class="more"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+				</ul>
+				<div class="i_content">
+					<ul class="active">
+						{article id="523" size=3 var=zx}
+						{if $zx neq ''}
+						<a href="{$zx[0].wapLinkUrl}" class="f_li">
+							<p class="news_tit">{$zx[0].title}</p>
+							<p class="news_con">{$zx[0].contentMessage}</p>
+						</a>
+							{foreach $zx as $key=>$v}
+								{if $key > 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{/if}
+					</ul>
+					<ul class="">
+						{article id="527" size=3 var=xw}
+						{if $xw neq ''}
+						<a href="{$xw[0].wapLinkUrl}" class="f_li">
+							<p class="news_tit">{$xw[0].title}</p>
+							<p class="news_con">{$xw[0].contentMessage}</p>
+						</a>
+							{foreach $xw as $key=>$v}
+								{if $key > 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{/if}
+					</ul>
+					<ul class="">
+						{article id="524" size=3 var=gl}
+						{if $gl neq ''}
+						<a href="{$gl[0].wapLinkUrl}" class="f_li">
+							<p class="news_tit">{$gl[0].title}</p>
+							<p class="news_con">{$gl[0].contentMessage}</p>
+						</a>
+							{foreach $gl as $key=>$v}
+								{if $key > 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{/if}
+					</ul>
+					<ul class="">
+						{article id="526" size=3 var=hd}
+						{if $hd neq ''}
+						<a href="{$hd[0].wapLinkUrl}" class="f_li">
+							<p class="news_tit">{$hd[0].title}</p>
+							<p class="news_con">{$hd[0].contentMessage}</p>
+						</a>
+							{foreach $hd as $key=>$v}
+								{if $key > 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{/if}
+					</ul>
+					<ul class="">
+						{article id="525" size=3 var=gg}
+						{if $gg neq ''}
+						<a href="{$gg[0].wapLinkUrl}" class="f_li">
+							<p class="news_tit">{$gg[0].title}</p>
+							<p class="news_con">{$gg[0].contentMessage}</p>
+						</a>
+							{foreach $gg as $key=>$v}
+								{if $key > 0}
+								<li>
+									<a href="{$v.wapLinkUrl}">
+										<em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+								{/if}
+							{/foreach}
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="zj_con">
+		<ul class="zj_ul">
+			<li>
+				<a href="http://dfzj.yingxiong.com/m/info/2018/0510/3859.html"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/wq.jpg?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="http://dfzj.yingxiong.com/m/info/2018/0510/3886.html"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/cz.jpg?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="http://dfzj.yingxiong.com/m/info/2018/0510/3920.html"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/dt.jpg?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="http://dfzj.yingxiong.com/m/info/2018/0510/3861.html"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/zj.jpg?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="http://dfzj.yingxiong.com/m/info/2018/0510/3858.html"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sd.jpg?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+			<li>
+				<a href="http://dfzj.yingxiong.com/m/info/2018/0510/3898.html"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tz.jpg?{$smarty.const.VERSION}" alt="" /></a>
+			</li>
+		</ul>
+		<div class="banner_tab">
+			<div class="m_tab">
+				<div class="chengg"></div>		
+				<div class="zj_banner zj_banner1 active">
+					<ul class="swiper-wrapper">
+						{article id="517" size=20 var=xyj}
+						{if $xyj neq ''}
+							{foreach $xyj as $key=>$v}
+								<li class="swiper-slide">
+									<img src="{$v.thumb}" alt="" class="z_img" />
+									<a href="{if $v.summary}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="li_video {if $v.summary}js_video_play{else}{/if}" data-url="{$v.summary}">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_video.png?{$smarty.const.VERSION}" alt="" />
+									</a>
+									<div class="zj_txt">
+										<p>{$v.title}</p>
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-button-prev p_prev"></div>
+					<div class="swiper-button-next p_next"></div>
+					<div class="swiper-pagination1 p_pag"></div>
+				</div>
+				
+				<div class="zj_banner zj_banner2">
+					<ul class="swiper-wrapper">
+						{article id="516" size=20 var=qzj}
+						{if $qzj neq ''}
+							{foreach $qzj as $key=>$v}
+								<li class="swiper-slide">
+									<img src="{$v.thumb}" alt="" class="z_img" />
+									<a href="{if $v.summary}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="li_video {if $v.summary}js_video_play{else}{/if}" data-url="{$v.summary}">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_video.png?{$smarty.const.VERSION}" alt="" />
+									</a>
+									<div class="zj_txt">
+										<p>{$v.title}</p>
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-button-prev1 p_prev"></div>
+					<div class="swiper-button-next1 p_next"></div>
+					<div class="swiper-pagination2 p_pag"></div>
+				</div>
+				
+				<div class="zj_banner zj_banner3">
+					<ul class="swiper-wrapper">
+						{article id="515" size=20 var=zlj}
+						{if $zlj neq ''}
+							{foreach $zlj as $key=>$v}
+								<li class="swiper-slide">
+									<img src="{$v.thumb}" alt="" class="z_img" />
+									<a href="{if $v.summary}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="li_video {if $v.summary}js_video_play{else}{/if}" data-url="{$v.summary}">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_video.png?{$smarty.const.VERSION}" alt="" />
+									</a>
+									<div class="zj_txt">
+										<p>{$v.title}</p>
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-button-prev2 p_prev"></div>
+					<div class="swiper-button-next2 p_next"></div>
+					<div class="swiper-pagination3 p_pag"></div>
+				</div>
+				
+				<div class="zj_banner zj_banner4">
+					<ul class="swiper-wrapper">
+						{article id="513" size=20 var=qt}
+						{if $qt neq ''}
+							{foreach $qt as $key=>$v}
+								<li class="swiper-slide">
+									<img src="{$v.thumb}" alt="" class="z_img" />
+									<a href="{if $v.summary}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="li_video {if $v.summary}js_video_play{else}{/if}" data-url="{$v.summary}">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_video.png?{$smarty.const.VERSION}" alt="" />
+									</a>
+									<div class="zj_txt">
+										<p>{$v.title}</p>
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-button-prev3 p_prev"></div>
+					<div class="swiper-button-next3 p_next"></div>
+					<div class="swiper-pagination4 p_pag"></div>
+				</div>
+				
+				<div class="zj_banner zj_banner5">
+					<ul class="swiper-wrapper">
+						{article id="514" size=20 var=hm}
+						{if $hm neq ''}
+							{foreach $hm as $key=>$v}
+								<li class="swiper-slide">
+									<img src="{$v.thumb}" alt="" class="z_img" />
+									<a href="{if $v.summary}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="li_video {if $v.summary}js_video_play{else}{/if}" data-url="{$v.summary}">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_video.png?{$smarty.const.VERSION}" alt="" />
+									</a>
+									<div class="zj_txt">
+										<p>{$v.title}</p>
+									</div>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-button-prev4 p_prev"></div>
+					<div class="swiper-button-next4 p_next"></div>
+					<div class="swiper-pagination5 p_pag"></div>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/zj_bg.png?{$smarty.const.VERSION}" alt="" class="zj_bg" />
+			</div>
+			<ul class="c_tab_ul">
+				<li class="active">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/xyj.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/xyj_h.png?{$smarty.const.VERSION}" alt="" />
+				</li>
+				<li>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qt.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qt_h.png?{$smarty.const.VERSION}" alt="" />
+				</li>
+				<li>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qzj.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qzj_h.png?{$smarty.const.VERSION}" alt="" />
+				</li>
+				<li>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/zlj.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/zlj_h.png?{$smarty.const.VERSION}" alt="" />
+				</li>
+				<li>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/hm.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/hm_h.png?{$smarty.const.VERSION}" alt="" />
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="c_video">
+		<div class="v_main">
+			<a href="{myurl name='wap/video/list, id=>532'}" class="v_more"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/v_more.png?{$smarty.const.VERSION}" alt="" /></a>
+			{article id="532" size=5 var=yxsp}
+			{if $yxsp neq ''}
+			<ul>
+				{foreach $yxsp as $key=>$v}
+					<li>
+						<img src="{$v.thumb}" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.contentMessage}"/>
+						<i></i>
+					</li>
+				{/foreach}
+			</ul>
+			{/if}
+		</div>
+	</div>
+</section>
+<section>
+	<div class="last">
+		<div class="last_main">
+			<div class="left_footer">
+				<a href="https://jq.qq.com/?_wv=1027&k=5bqC2UM"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qun.png?{$smarty.const.VERSION}" alt="" />
+					<p>官方Q群1</p>
+				</a>
+				<a href="https://jq.qq.com/?_wv=1027&k=5vObode"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/qun.png?{$smarty.const.VERSION}" alt="" />
+					<p>官方Q群2</p>
+				</a>
+			</div>
+			<div class="middle_footer">
+				<div class="f_code">
+					<img src="{$global.wx_img}" alt="" />
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/f_wx.png?{$smarty.const.VERSION}" alt="" class="f_wx" />
+			</div>
+			<div class="right_footer">
+				<a href="{$global.wb_url}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/f_vb.png?{$smarty.const.VERSION}" alt="" />
+					<p>官方微博</p>
+				</a>
+				<a href="http://bbs.yingxiong.com/Index/Mobile?fid=7&click_type=30"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/f_lt.png?{$smarty.const.VERSION}" alt="" />
+					<p>官方论坛</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/swiper-3.4.2.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".n_banner", {
+			loop:true,
+			autoplay:4000,
+			autoplayDisableOnInteraction: false,
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			observer:true,
+			observeParents:true,
+		});
+		var mySwiper = new Swiper(".zj_banner1", {
+			loop: true,
+			//				autoplayDisableOnInteraction : false,
+			//				pagination : '.swiper-pagination',
+			//				paginationClickable :true,
+			pagination: '.swiper-pagination1',
+			paginationType: 'fraction',
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			observer:true,
+			observeParents:true,
+		});
+		var mySwiper = new Swiper(".zj_banner2", {
+			loop: true,
+			//				autoplayDisableOnInteraction : false,
+			//				pagination : '.swiper-pagination',
+			//				paginationClickable :true,
+			pagination: '.swiper-pagination2',
+			paginationType: 'fraction',
+			prevButton: '.swiper-button-prev1',
+			nextButton: '.swiper-button-next1',
+			observer:true,
+			observeParents:true,
+		});
+		var mySwiper = new Swiper(".zj_banner3", {
+			loop: true,
+			//				autoplayDisableOnInteraction : false,
+			//				pagination : '.swiper-pagination',
+			//				paginationClickable :true,
+			pagination: '.swiper-pagination3',
+			paginationType: 'fraction',
+			prevButton: '.swiper-button-prev2',
+			nextButton: '.swiper-button-next2',
+			observer:true,
+			observeParents:true,
+		});
+		var mySwiper = new Swiper(".zj_banner4", {
+			loop: true,
+			//				autoplayDisableOnInteraction : false,
+			//				pagination : '.swiper-pagination',
+			//				paginationClickable :true,
+			pagination: '.swiper-pagination4',
+			paginationType: 'fraction',
+			prevButton: '.swiper-button-prev3',
+			nextButton: '.swiper-button-next3',
+			observer:true,
+			observeParents:true,
+		});
+		var mySwiper = new Swiper(".zj_banner5", {
+			loop: true,
+			//				autoplayDisableOnInteraction : false,
+			//				pagination : '.swiper-pagination',
+			//				paginationClickable :true,
+			pagination: '.swiper-pagination5',
+			paginationType: 'fraction',
+			prevButton: '.swiper-button-prev4',
+			nextButton: '.swiper-button-next4',
+			observer:true,
+			observeParents:true,
+		});
+		$(".n_ul li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".i_content ul").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$(".c_tab_ul li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".m_tab .zj_banner").eq(index).addClass("active").siblings().removeClass("active");
+		});
+		$(".li_alert").click(function (){
+			alert("敬请期待~");
+		})
+	});
+</script>
+
+</html>

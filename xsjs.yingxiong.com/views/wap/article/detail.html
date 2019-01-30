@@ -1,0 +1,19 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="i_main">
+    <div class="list">
+        <div class="list_banner"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/list_top.jpg" alt=""/></div>
+        <div class="detailbox">
+            <div class="article_title">
+                <h3>{$data.title}</h3>
+                <span><span>发布时间：{$data.created_at|date_format:"%m/%d"}</span><span>来源：{$data.user_name}</span></span>
+            </div>
+            <div class="content">
+                {$data.body}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{include '../../layouts/wap/foot.html'}
+</html>

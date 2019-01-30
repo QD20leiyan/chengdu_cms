@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>NBA LIVE新赛季新挑战</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="keywords" content="{$seo_key}" />
+        <meta name="description" content="{$seo_desc}" />
+        <meta name="full-screen" content="yes" />
+        <meta name="x5-fullscreen" content="true" />
+        <link href="{$smarty.const.STATIC_DOMAIN}nba/css/animate.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+        <link href="{$smarty.const.STATIC_DOMAIN}nba/css/swiper.min.css?{$smarty.const.VERSION}" rel="stylesheet" />
+        <link href="{$smarty.const.STATIC_DOMAIN}nba/css/dati.css?{$smarty.const.VERSION}" rel="stylesheet" />
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if(!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+
+                recalc();
+                //判断是否支持监听事件 ，不支持则停止
+                if(!doc.addEventListener) return;
+                //注册翻转事件
+                win.addEventListener(resizeEvt, recalc, false);
+            })(document, window);
+        </script>
+        <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    {csrf}
+    </head>
+
+    <body>
+        <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+        <div class="h5_data" style="display: none;">{$h5data}</div>
+        <div class="wrap" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+            <section class="swiper-container">
+                <section class="swiper-wrapper">
+                    <section class="swiper-slide page1 swiper-no-swiping">
+                        <div class="poster">
+                            <div class="s1 ani animated fadeInLeft">
+                             
+                            <div class="slogan  ani animated zoomIn" swiper-animate-delay="0.8s"></div>
+                            <img src="{$smarty.const.STATIC_DOMAIN}nba/images/button.png?{$smarty.const.VERSION}" alt="" class="button">
+                            <img src="{$smarty.const.STATIC_DOMAIN}nba/images/kv_img1.png?{$smarty.const.VERSION}" alt="" class="s5">
+                        <a href="javascript:;" class="test_go_btn"></a></div>
+                            <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2 ani animated bounceInDown">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/kv_img3.png?{$smarty.const.VERSION}" alt="" class="s4">
+                        </div>
+                    </section>
+                    <section class="swiper-slide page2 swiper-no-swiping page">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="quest_box">
+                            <div class="title title1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tl1.png?{$smarty.const.VERSION}" alt="">
+                            </div>
+                            <div class="question_board">
+                                <p>现在你正面临一场很重要的比赛，你的心里会是？</p>
+                            </div>
+                            <ul class="daan_box">
+                                <li data-id="4">A.&nbsp;&nbsp;紧张到无法呼吸</li>
+                                <li data-id="3">B.&nbsp;&nbsp;自然没有感觉</li>
+                                <li data-id="2">C.&nbsp;&nbsp;加强训练准备</li>
+                                <li data-id="1">D.&nbsp;&nbsp;消极担忧比赛会输</li>
+                            </ul>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tm1.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+                    </section>
+                    <section class="swiper-slide page3 swiper-no-swiping page">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="quest_box">
+                            <div class="title title1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tl2.png?{$smarty.const.VERSION}" alt="">
+                            </div>
+                            <div class="question_board">
+                                <p>比赛正式开始，你临时作为队长上场你有怎样的感觉？</p>
+                            </div>
+                            <ul class="daan_box">
+                                <li data-id="4">A.&nbsp;&nbsp;欣然接受，合理组织战术 </li>
+                                <li data-id="3">B.&nbsp;&nbsp;接受分配，顺其自然。</li>
+                                <li data-id="2">C.&nbsp;&nbsp;答应试试，心中有些打鼓。</li>
+                                <li data-id="1">D.&nbsp;&nbsp;觉得不可想象，坚决推掉。</li>
+                            </ul>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tm2.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+                    </section>
+                    <section class="swiper-slide page4 swiper-no-swiping page">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="quest_box">
+                            <div class="title title1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tl3.png?{$smarty.const.VERSION}" alt="">
+                            </div>
+                            <div class="question_board on1">
+                                <p>比赛开场比分落后很多，你的队友情绪低落你会怎么做？</p>
+                            </div>
+                            <ul class="daan_box">
+                                <li data-id="4">A.&nbsp;&nbsp;自己持球创造机会 </li>
+                                <li data-id="3">B.&nbsp;&nbsp;鼓励队友多打配合</li>
+                                <li data-id="2">C.&nbsp;&nbsp;挑起重任创造机会</li>
+                                <li data-id="1">D.&nbsp;&nbsp;畏缩胆怯承认败局</li>
+                            </ul>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tm3.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+                    </section>
+                    <section class="swiper-slide page5 pag swiper-no-swipinge">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="quest_box">
+                            <div class="title title1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tl4.png?{$smarty.const.VERSION}" alt="">
+                            </div>
+                            <div class="question_board">
+                                <p>经过努力比分反超对面，这时你会选择什么战术？</p>
+                            </div>
+                            <ul class="daan_box">
+                                <li data-id="4">A.&nbsp;&nbsp;加强组织进攻</li>
+                                <li data-id="3">B.&nbsp;&nbsp;保持优势有效进攻</li>
+                                <li data-id="2">C.&nbsp;&nbsp;防守阵地维持比分</li>
+                                <li data-id="1">D.&nbsp;&nbsp;骄傲自大轻视对手</li>
+                            </ul>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tm4.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+                    </section>
+                    <section class="swiper-slide page6 page swiper-no-swiping">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="quest_box">
+                            <div class="title title1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tl5.png?{$smarty.const.VERSION}" alt="">
+                            </div>
+                            <div class="question_board">
+                                <p>因为你的一次失误比分被追平你的心理会怎么想？</p>
+                            </div>
+                            <ul class="daan_box">
+                                <li data-id="4">A.&nbsp;&nbsp;还有时间可以弥补</li>
+                                <li data-id="3">B.&nbsp;&nbsp;失误在所难免</li>
+                                <li data-id="2">C.&nbsp;&nbsp;无所谓</li>
+                                <li data-id="1">D.&nbsp;&nbsp;比赛要输了</li>
+                            </ul>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tm5.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+                    </section>
+                     <section class="swiper-slide page7 page swiper-no-swiping">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="quest_box">
+                            <div class="title title1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tl6.png?{$smarty.const.VERSION}" alt="">
+                            </div>
+                            <div class="question_board">
+                                <p>最后的绝杀时候队友将球交给你，你会怎做？</p>
+                            </div>
+                            <ul class="daan_box">
+                                <li data-id="4" class="nba_dt_num">A.&nbsp;&nbsp;毫不犹豫出手</li>
+                                <li data-id="3" class="nba_dt_num">B.&nbsp;&nbsp;交给更稳妥的人</li>
+                                <li data-id="2" class="nba_dt_num">C.&nbsp;&nbsp;内心抗拒强出手</li>
+                                <li data-id="1" class="nba_dt_num">D.&nbsp;&nbsp;犹豫不决浪费时间</li>
+                            </ul>
+                        </div>
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/tm6.png?{$smarty.const.VERSION}" alt="" class="tm_img">
+                    </section>
+                    <section class="swiper-slide page8 swiper-no-swiping">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="info">
+                            <div class="pp_peo">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li1.png?{$smarty.const.VERSION}" alt="" class="li1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li2.png?{$smarty.const.VERSION}" alt="" class="li2">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li3.png?{$smarty.const.VERSION}" alt="" class="li3">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li4.png?{$smarty.const.VERSION}" alt="" class="li4">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li5.png?{$smarty.const.VERSION}" alt="" class="li5">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li6.png?{$smarty.const.VERSION}" alt="" class="li6">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li7.png?{$smarty.const.VERSION}" alt="" class="li7">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li8.png?{$smarty.const.VERSION}" alt="" class="li8">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li9.png?{$smarty.const.VERSION}" alt="" class="li9">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li10.png?{$smarty.const.VERSION}" alt="" class="li10">
+                            </div>
+                            <div class="pp_name">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t1_8.png?{$smarty.const.VERSION}" alt="" class="pp1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t2_7.png?{$smarty.const.VERSION}" alt="" class="pp2">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t3_10.png?{$smarty.const.VERSION}" alt="" class="pp3">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t4.png?{$smarty.const.VERSION}" alt="" class="pp4">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t5_6_9.png?{$smarty.const.VERSION}" alt="" class="pp5">
+                            </div>
+                        </div>
+                        <div class="info1"></div>
+                        <div class="py_box">
+                            <div class="py_txt">
+                                <p>您和<span class="pp_peo_name"></span>最像，<span class="description"></span></p>
+                            </div>
+                        </div>
+                        <a href="http://nba.yingxiong.com/part/m/csh5.html" class="xsj nba_xsj_num" target="_blank"></a>
+                        <img src="" alt="" class="jp_img1">
+                    </section> 
+                    <section class="swiper-slide page9 swiper-no-swiping">
+                        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo3.png?{$smarty.const.VERSION}" alt="" class="s2">
+                        <div class="info">
+                            <div class="pp_peo">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li1.png?{$smarty.const.VERSION}" alt="" class="li1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li2.png?{$smarty.const.VERSION}" alt="" class="li2">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li3.png?{$smarty.const.VERSION}" alt="" class="li3">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li4.png?{$smarty.const.VERSION}" alt="" class="li4">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li5.png?{$smarty.const.VERSION}" alt="" class="li5">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li6.png?{$smarty.const.VERSION}" alt="" class="li6">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li7.png?{$smarty.const.VERSION}" alt="" class="li7">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li8.png?{$smarty.const.VERSION}" alt="" class="li8">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li9.png?{$smarty.const.VERSION}" alt="" class="li9">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/li10.png?{$smarty.const.VERSION}" alt="" class="li10">
+                            </div>
+                            <div class="pp_name">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t1_8.png?{$smarty.const.VERSION}" alt="" class="pp1">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t2_7.png?{$smarty.const.VERSION}" alt="" class="pp2">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t3_10.png?{$smarty.const.VERSION}" alt="" class="pp3">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t4.png?{$smarty.const.VERSION}" alt="" class="pp4">
+                                <img src="{$smarty.const.STATIC_DOMAIN}nba/images/t5_6_9.png?{$smarty.const.VERSION}" alt="" class="pp5">
+                            </div>
+                        </div>
+                        <div class="py_box">
+                            <div class="py_txt">
+                                <p>您和<span class="pp_peo_name"></span>最像，<span class="description"></span></p>
+                            </div>
+                        </div>
+                        <div class="ewm_box">
+                            <img src="{$smarty.const.STATIC_DOMAIN}nba/images/shre_ewm.png?{$smarty.const.VERSION}" alt="">
+                            <div class="txt">
+                                <p>扫一扫二维码测试</p>
+                                <p>您在NBA LIVE中的最佳位置</p>
+                            </div>
+                        </div>
+                    </section> 
+                </section>
+            </section>
+        </div>
+        <div id='loading10' style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+        <div class="music_play music_img">
+          <audio id="music" src="{$smarty.const.STATIC_DOMAIN}nba/audio/music5.mp3"  loop="loop"></audio>
+          <i></i>
+        </div>
+        <audio id="music1" src="{$smarty.const.STATIC_DOMAIN}nba/audio/music2.mp3" preload="load"></audio>
+        <!--横竖屏-->
+        <div id="orientLayer" class="mod-orient-layer">
+            <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+                <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+            </div>
+        </div>
+        <script src="{$smarty.const.STATIC_DOMAIN}nba/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+        <script src="{$smarty.const.STATIC_DOMAIN}nba/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+        <script src="{$smarty.const.STATIC_DOMAIN}nba/js/swiper.animate.min.js?{$smarty.const.VERSION}"></script>
+        <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+        <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}nba/js/dati.js?{$smarty.const.VERSION}"></script>
+
+        <!--微信分享-->
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+        <script type="text/javascript">
+    $(function() {
+        function nba_dati_share(){
+            HLog.event("nba_dt_share");
+        }
+        // 分享接口
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/nba/dati.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    nba_dati_share();
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    nba_dati_share();
+                }
+            });
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+                    nba_dati_share();
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    });
+</script>
+    </body>
+</html>

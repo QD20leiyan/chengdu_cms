@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// �ֻ���ת�¼�,�󲿷��ֻ��������֧�� onorientationchange ���֧�֣�����ʹ��ԭʼ�� resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: ��ȡ����ɼ����ݵĿ�ȣ����������������������߿�
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//�ж��Ƿ�֧�ּ����¼� ����֧����ֹͣ
+				if(!doc.addEventListener) return;
+				//ע�ᷭת�¼�
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:;" class="icon"><img src="{if isset($global.logo_img)}{$global.logo_img}{/if}" alt="" /></a>
+			<div class="header_txt">
+				<p>{if isset($global.title)}{$global.title}{/if}</p>
+				<p>{if isset($global.sub_title)}{$global.sub_title}{/if}</p>
+			</div>
+			<!-- <a href="javascript:;" class="down js_wap_down public_down stat_down">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/down.png?{$smarty.const.VERSION}" alt="" />
+			</a> -->
+			<a href="javascript:;" class="down yy_btn">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/down2.png?{$smarty.const.VERSION}" alt="" />
+			</a>
+			
+		</header>

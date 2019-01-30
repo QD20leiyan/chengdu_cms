@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>HERO送祝福了！</title>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}year/css/style.css">
+	<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+	<div class="wrap" data-id="{$id}" data-info="{$info}" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+		<div class="h5_data" style="display: none;">{$h5data}</div>
+		<div class="video-box">
+			<video src="" id="video" controls poster="{$smarty.const.STATIC_DOMAIN}year/images/poster.jpg" autoplay="autoplay" style="background: url({$smarty.const.STATIC_DOMAIN}year/images/poster.jpg);background-size: 100% 100%;"></video>
+			<i class="video-btn"></i>
+		</div>
+		<div class="chat-box">
+			<div class="write-word">
+				<p>所有留言</p>
+				<div class="write-word-btn">
+					<i></i>
+					写留言
+				</div>
+			</div>
+			<div class="content">
+				<ul class="list" id="words-list"></ul>
+			</div>
+		</div>
+		<div class="write-inp">
+			<textarea name="" id="" cols="30" rows="10" placeholder="评论" class="inp"></textarea>
+			<!-- <input type="text" name="" id="" placeholder="评论" class="inp"> -->
+			<i class="send-words-btn">确定</i>
+		</div>
+	</div>
+	<script src="{$smarty.const.STATIC_DOMAIN}year/js/jquery.min.js"></script>
+	<!--微信分享-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+	    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+	</script>
+	{include '../h5-common/h5_data.html'}
+	<script>
+		$(function(){
+			var words_list = []; //留言列表
+			function $ajax(url,params,callback){
+				$.ajax({
+					url:url+h5_jk_url,
+					type:"POST",
+					data:params,
+					dataType:"json",
+					success:function(data){
+						if(data.code == 0){
+							callback(data);
+						}else{
+							alert(data.msg)
+						}
+					}
+				})
+			}
+			/*截取参数*/
+			function GetQueryString(name) {
+			    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			    var r = decodeURI(window.location.search.substr(1)).match(reg);
+			    if (r != null)return unescape(r[2]);
+			    return null;
+			}
+
+			var invite_code = GetQueryString("invite_code");
+			var info = GetQueryString("info");
+			var page = 0;
+			var page_list = []; //加载分页的数据
+			
+			var flag = 1;
+			var openid = "";
+			// 微信信息
+		    function wx_o(){
+		        var share_url='http://h5.yingxiong.com/index/cg/year.html?invite_code='+invite_code;
+		        var share_icon=$(".wrap").attr("data-icon");
+		        var share_title=$(".wrap").attr("data-title");
+		        var share_desc=$(".wrap").attr("data-desc");
+		        var share = {
+		            imgUrl      : "http:"+share_icon,
+		            shareTitle  : share_title,
+		            descContent : share_desc,
+		            lineLink    : share_url
+		        };
+		        wx.config({
+		            debug     : false,
+		            appId     : wx_conf.appId,
+		            timestamp : wx_conf.timestamp,
+		            nonceStr  : wx_conf.nonceStr,
+		            signature : wx_conf.signature,
+		            jsApiList : [
+		                'onMenuShareTimeline',
+		                'onMenuShareAppMessage',
+		                'chooseImage',
+		                'previewImage',
+		                'uploadImage',
+		                'downloadImage'
+		            ]
+		        });
+		        wx.ready(function(){
+		            wx.onMenuShareAppMessage({
+		                title   : share.shareTitle,
+		                desc    : share.descContent,
+		                link    : share.lineLink,
+		                imgUrl  : share.imgUrl,
+		                success : function() {
+		                     // dfzj_inv_share();
+		                }
+		            });
+		            wx.onMenuShareTimeline({
+		                title   : share.shareTitle,
+		                desc    : share.descContent,
+		                link    : share.lineLink,
+		                imgUrl  : share.imgUrl,
+		                success : function() {
+		                    // dfzj_inv_share();
+		                }
+		            });
+
+		            wx.onMenuShareQQ({
+		                title: share.shareTitle,
+		                desc: share.descContent,
+		                link: share.lineLink,
+		                imgUrl: share.imgUrl,
+		                success : function() {
+		                    // dfzj_inv_share();
+		                },
+		                cancel: function () {
+		                    // 用户取消分享后执行的回调函数
+		                }
+		            });
+		        })
+	        }
+			
+			function init(url,params,type){
+				$ajax(url,params,function(data){
+					wx_o();
+					flag = 1;
+					var list = [];
+					if(data.data.message){
+						list = data.data.message;
+						words_list = data.data.message;
+					}
+					if(type == 'pagination'){
+						list = data.data;
+						page_list = data.data;
+					}
+					list.map(function(val,i){
+						var ele = '<li id="'+ val.id +'"><div class="avatar"><img src="' + val.headimgurl + '" alt=""></div><div class="info"><div class="top"><p class="name">' + val.nickname + '</p><p class="num"><i class="praise-btn"></i><span class="praise-num">' + val.praise_num + '</span></p></div><div class="word-txt">'+ val.message +'</div></div></li>';
+						$("#words-list").append(ele);
+						if(val.is_praise){
+							$("#words-list li:last").find(".praise-btn").addClass("active");
+						}
+					})
+					
+
+					$("#words-list").scroll(function(){
+					 	var scrollTop = $(this).scrollTop();    //滚动条距离顶部的高度
+					 	var scrollHeight = $("#words-list li").height()*$("#words-list li").length;   //当前页面的总高度
+					 	var clientHeight = $(this).height();    //当前可视的页面高度
+					 	if(scrollTop + clientHeight >= scrollHeight){  
+						 	if(words_list.length >= 10 && flag){
+						 		if((page_list.length != 0 && page_list.length >= 10) || page == 0){
+						 			page++;
+						 			flag = 0;
+						 			init("/cg/year/get-message.html",{
+										page:page
+									},'pagination');
+						 		}
+						 	} 	
+					 	}else if(scrollTop<=0){ 
+						 	
+					 	}
+					});
+
+					$("video").attr("src",data.data.media);
+					$(".video-btn").click(function(){
+						$('#video').trigger('play');
+						$(".video-btn").hide();
+					})
+
+					$(".praise-btn").off("click").on("click",function(){  //点赞
+						var _this = $(this);
+						if(_this.hasClass("active")){
+							alert("你已经点过赞了~");
+							return false;
+						}else{
+							_this.addClass("active");
+						}
+						$ajax("/cg/year/praise.html",{
+							id:_this.parents("li").attr("id")
+						},function(data){
+							_this.next(".praise-num").html(data.data);
+						})
+					})
+
+
+				})
+			}
+			init("/cg/year/index.html",{
+				invite_code:invite_code,
+				info:info
+			},"");
+			$(".write-word-btn").click(function(){ //写留言
+				$(".write-inp").show();
+				$(".inp").focus();
+				$(".video-box video").show();
+				$(".video-box video").hide();
+			})
+			
+			
+
+			$(".send-words-btn").click(function(){ //发送留言
+				$ajax("/cg/year/save-message.html",{
+					message:$(".inp").val()
+				},function(data){
+					$(".write-inp").hide();
+					$(".inp").val("");
+					page = 0;
+					$("#words-list").empty();
+					init("/cg/year/index.html",{
+						invite_code:invite_code,
+						info:info
+					},"");
+				})
+			})
+			
+			$(".write-inp").click(function(e){
+				if(e.target != $(".inp")[0]){
+					$(".write-inp").hide();
+					$(".video-box video").show();
+				}
+			})
+
+		})
+	</script>
+</body>
+</html>

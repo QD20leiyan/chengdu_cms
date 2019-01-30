@@ -1,0 +1,543 @@
+{include file="../layouts/pc/header.html"}
+		<div class="content">
+			<div class="chengg"></div>
+			<div class="wrap">
+				<div class="t_body">
+					<div class="left_banner list1" id="go2">
+						{fragment var=index_banner code=banner size=5}
+						<ul class="swiper-wrapper">
+							{if $index_banner neq ''}
+								{foreach $index_banner as $v}
+									<li class="swiper-slide"><a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a></li>
+								{/foreach}
+							{/if}
+						</ul>
+						<div class="swiper-pagination swiper-pagination1"></div>
+					</div>
+					<div class="right_news">
+						<div class="right_c">
+							<ul class="r_ul">
+								<li class="active">全部</li>
+								<li>新闻</li>
+								<li>公告</li>
+								<li>活动</li>
+								<a href="{myurl name='article/list, id=>460'}" target="_blank" class="more">
+                                    <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+							</ul>
+							<div class="l_news">
+								{fragment var=n_banner code=index_new_banner size=1}
+								{if $n_banner neq ''}
+								{foreach $n_banner as $v}
+								<p class="z_title"><a href="{$v.url}" target="_blank">{$v.title}</a></p>
+								{/foreach}
+								{/if}
+								<ul class="active">
+									{article id="460" size=6 var=qb}
+									{if $qb neq ''}
+										{foreach $qb as $key=>$v}
+											{if $key >= 0}
+											<li><a href="{$v.linkUrl}" target="_blank"><em class="{if {$v.category_id}==461}xw{else if {$v.category_id}==463}hd{/if}">{$v.name}</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a></li>
+											{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+								</ul>
+								<ul>
+									{article id="461" size=6 var=xw}
+									{if $xw neq ''}
+										{foreach $xw as $key=>$v}
+											{if $key >= 0}
+											<li><a href="{$v.linkUrl}" target="_blank"><em class="xw">{$v.name}</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a></li>
+											{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+								</ul>
+								<ul>
+									{article id="462" size=6 var=gg}
+									{if $gg neq ''}
+										{foreach $gg as $key=>$v}
+											{if $key >= 0}
+											<li><a href="{$v.linkUrl}" target="_blank"><em>{$v.name}</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a></li>
+											{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+								</ul>
+								<ul>
+									{article id="463" size=6 var=hd}
+									{if $hd neq ''}
+										{foreach $hd as $key=>$v}
+											{if $key >= 0}
+											<li><a href="{$v.linkUrl}" target="_blank"><em class="hd">{$v.name}</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a></li>
+											{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="s_game list1" id="go3">
+						<!--<p class="g_title">游戏特色<span>Game Features</span></p>-->
+						<!--<div class="t_game">-->
+							<!--<ul class="swiper-wrapper">-->
+								<!--{fragment var=banner_play code=banner_img size=5}-->
+								<!--{if $banner_play neq ''}-->
+									<!--{foreach $banner_play as $v}-->
+									<!--<li class="swiper-slide"><a href="javascript:;"><img src="{$v.thumb}" alt="" /></a></li>-->
+									<!--{/foreach}-->
+								<!--{/if}-->
+							<!--</ul>-->
+						<!--</div>-->
+						<!--<div class="swiper-pagination"></div>-->
+                        <ul class="s_game_title">
+                            <li class="active">玩家风采</li>
+                            <li>游戏截图</li>
+                            <li>游戏插画</li>
+                            <a href="javascript:yx_showTips('敬请期待！');"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/more3.png?{$smarty.const.VERSION}" alt=""></span></a>
+                        </ul>
+                        <ul class="s_game_list s_game_list1">
+                            {fragment var=banner_play1 code=list2 size=6}
+                            {if $banner_play1 neq ''}
+                            {foreach $banner_play1 as $v}
+                            <li><a href="{if $v.url neq ''}$v.url{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""><p>{$v.title}</p></a></li>
+                            {/foreach}
+                            {/if}
+                        </ul>
+                        <ul class="s_game_list s_game_list2">
+                            {fragment var=banner_play2 code=list3 size=6}
+                            {if $banner_play2 neq ''}
+                            {foreach $banner_play2 as $v}
+                            <li><a href="{if $v.url neq ''}$v.url{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""><p>{$v.title}</p></a></li>
+                            {/foreach}
+                            {/if}
+                        </ul>
+                        <ul class="s_game_list s_game_list3">
+                            {fragment var=banner_play3 code=list1 size=6}
+                            {if $banner_play3 neq ''}
+                            {foreach $banner_play3 as $v}
+                            <li><a href="{if $v.url neq ''}$v.url{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""><p>{$v.title}</p></a></li>
+                            {/foreach}
+                            {/if}
+                        </ul>
+					</div>
+                    <!-- <div class="slider2" id="go4">
+                        <ul class="img-list">
+                            {fragment var=banner_play code=banner_img size=5}
+                            {if $banner_play neq ''}
+                            {foreach $banner_play as $v name=foo}
+                                {if  $smarty.foreach.foo.index == 0}
+                                <div style="display: block" class="cont-box cont-box1">
+                                    <img class="li li1" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li1_person.png?{$smarty.const.VERSION}" alt="">
+                                    <a><img class="pic" src="{$v.thumb}"/></a>
+                                </div>
+                                {/if}
+                                {if  $smarty.foreach.foo.index == 1}
+                                <div class="cont-box cont-box2">
+                                    <img class="li li2" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li2_person.png?{$smarty.const.VERSION}" alt="">
+                                    <a><img class="pic" src="{$v.thumb}"/></a>
+                                </div>
+                                {/if}
+                                {if  $smarty.foreach.foo.index == 2}
+                                <div class="cont-box cont-box3">
+                                    <img class="li li3" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li3_pic.png?{$smarty.const.VERSION}" alt="">
+                                    <a><img class="pic" src="{$v.thumb}"/></a>
+                                </div>
+                                {/if}
+                                {if  $smarty.foreach.foo.index == 3}
+                                <div class="cont-box cont-box4">
+                                    <img class="li li4" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li4_pic.png?{$smarty.const.VERSION}" alt="">
+                                    <a><img class="pic" src="{$v.thumb}"/></a>
+                                </div>
+                               {/if}
+                               {if  $smarty.foreach.foo.index == 4}
+                                <div class="cont-box cont-box5">
+                                    <img class="li li5" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li5_person.png?{$smarty.const.VERSION}" alt="">
+                                    <a><img class="pic" src="{$v.thumb}"/></a>
+                                </div>
+                                {/if}
+                            {/foreach}
+                            {/if}
+                        </ul>
+                        <ul class="tab-list">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div> -->
+                    <ul class="ss_pic list1">
+                        {fragment var=banner_play code=banner_img size=5}
+                            {if $banner_play neq ''}
+                            {foreach $banner_play as $v name=foo}
+                                {if  $smarty.foreach.foo.index == 0}
+						<li class="active">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/li1.png?{$smarty.const.VERSION}" alt="">
+							<div class="big big1 ">
+								<img class="li" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li1_person.png?{$smarty.const.VERSION}" alt="">
+								<img class="pic" src="{$v.thumb}">
+							</div>
+						</li>
+						{/if}
+                        {if  $smarty.foreach.foo.index == 1}
+						<li class="">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/li2.png" alt="">
+							<div class="big big2 hidden">
+								<img class="li" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li2_person.png?{$smarty.const.VERSION}" alt="">
+								<img class="pic" src="{$v.thumb}">
+							</div>
+						</li>
+						{/if}
+                        {if  $smarty.foreach.foo.index == 2}
+						<li class="">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/li3.png" alt="">
+							<div class="big big3 hidden">
+								<img class="li" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li3_pic.png?{$smarty.const.VERSION}" alt="">
+								<img class="pic" src="{$v.thumb}">
+							</div>
+						</li>
+						{/if}
+                        {if  $smarty.foreach.foo.index == 3}
+						<li class="">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/li4.png" alt="">
+							<div class="big big4 hidden">
+								<img class="li" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li4_pic.png?{$smarty.const.VERSION}" alt="">
+								<img class="pic" src="{$v.thumb}">
+							</div>
+						</li>
+						{/if}
+                        {if  $smarty.foreach.foo.index == 4}
+						<li>
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/li5.png" alt="">
+							<div class="big big5 hidden">
+								<img class="li" src="{$smarty.const.STATIC_DOMAIN}2.0/images/li5_person.png?{$smarty.const.VERSION}" alt="">
+								<img class="pic" src="{$v.thumb}">
+							</div>
+						</li>
+						 {/if}
+                            {/foreach}
+                            {/if}
+					</ul>
+				</div>
+			</div>
+		<div class="r_nav">
+			<div class="chengg"></div>
+			<ul class="nav_ul">
+				<li class="active" data-to="go1">
+					<a href="javascript:;">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg"/>-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/sy.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>01&nbsp;&nbsp;官网首页</p>
+						</div>
+					</a>
+				</li>
+				<li data-to="go2">
+					<a href="javascript:;" target="_blank">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg"/>-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/xw.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>02&nbsp;&nbsp;新闻公告</p>
+						</div>
+					</a>
+				</li>
+				<li data-to="go3" class="tiaozhuan">
+					<a href="javascript:;">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg"/>-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yx.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>03&nbsp;&nbsp;壁纸图库</p>
+						</div>
+					</a>
+				</li>
+				<li data-to="go4">
+					<a href="javascript:;">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg"/>-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/lt.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>04&nbsp;&nbsp;游戏特色</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:alert('敬请期待！');">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg"/>-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/faq.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>05&nbsp;&nbsp;官方论坛</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="f_download">
+				<a href="javascript:;" class="pub_btn1" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/app.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="javascript:;" class="js_down_andriod stat_android "><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<div class="x_code">
+				<div class="code_img">
+					<img class="js_jump_img" src="{$smarty.const.STATIC_DOMAIN}2.0/images/code.jpg?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<p>游戏下载二维码</p>
+			</div>
+			<div class="fw">
+				<a href="javascript:;" class="t_code"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/wexin.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="https://jq.qq.com/?_wv=1027&k=5Cdz254" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/num.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<div class="back">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/top1.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/top2.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="xf_code">
+				<div class="xf_img">
+					<img src="{$global.wx_img}" alt="" />
+				</div>
+				<p>扫一扫关注公众号</p>
+			</div>
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/k_close.png?{$smarty.const.VERSION}" alt="" class="float_btn" />
+		</div>
+		<script>
+				var code_url = "{myurl name='commonMethod/ajax-yuyue-verify'}";
+		        var yy_url = "{myurl name='commonMethod/ajax-yuyue'}";
+		        var url = '{myurl name="commonMethod/ajax-get-subscribes"}';
+                var params = {
+                "name":"yqlrw_total",
+                "cms_csrf": $("meta[name='csrf-token']").attr("content")
+            }
+		</script>
+	{include file="../layouts/pc/footer.html"}
+	<script type="text/javascript">
+		$(function (){
+			var and_xz = $(".stat_android").length; 
+			var ios_xz = $(".stat_ios").length; 
+			var tap_xz = $(".stat_tap").length; 
+			if(and_xz > 0) {
+			$('.stat_android').click(function(){HLog.event('stat_android')});
+			}
+			if(ios_xz>0){
+			    $('.stat_ios').click(function(){HLog.event('stat_ios')});
+			}
+			if(tap_xz>0){
+			    $('.stat_tap').click(function(){HLog.event('stat_tap')});
+			}
+			$("body").removeClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k.png?{$smarty.const.VERSION}");
+					click = true;
+            $('.li1').css('left','-340px');
+            $('.cont-box1').find('.pic').css('right','40px');
+            var mySwiper = new Swiper(".left_banner",{
+                loop:true,
+				simulateTouch: false,
+				autoplay: 2500,
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+            })
+            var mySwiper01 = new Swiper(".t_game",{
+                loop:true,
+                autoplay:2500,
+                pagination: '.swiper-pagination',
+                paginationClickable :true,
+                simulateTouch : false,
+            })
+//			$(".r_ul li").on("click" , function (){
+//				var index = $(this).index();
+//				$(this).addClass("active").siblings().removeClass("active");
+//				$(".l_news ul").eq(index).addClass("active").siblings().removeClass("active");
+//			});
+            $(".tab-list li").click(function() {
+                var index = $(this).index();
+                $('.li').css('left','-1000px');
+                $('.pic').css('right','-300px');
+                switch (index){
+                    case 0:
+                        $('.li1').animate(
+                            {
+                                "left":"-340px"
+                            },500);
+                        $('.cont-box1').find('.pic').animate(
+                            {
+                                "right":"40px"
+                            },500);
+                        break;
+                    case 1:
+                        $('.li2').animate(
+                            {
+                                "left":"-100px"
+                            },500);
+                        $('.cont-box2').find('.pic').animate(
+                            {
+                                "right":"40px"
+                            },500);
+                        break;
+                    case 2:
+                        $('.li3').animate({
+                            "left":"-150px"
+                        },500);
+                        $('.cont-box3').find('.pic').animate({
+                            "right":"40px"
+                        },500);
+                        break;
+                    case 3:
+                        $('.li4').animate({
+                            "left":"-210px"
+                        },500);
+                        $('.cont-box4').find('.pic').animate({
+                            "right":"40px"
+                        },500);
+                        break;
+                    case 4:
+                        $('.li5').animate({
+                            "left":"-130px"
+                        },500);
+                        $('.cont-box5').find('.pic').animate({
+                            "right":"40px"
+                        },500);
+                        break;
+                }
+                $('.cont-box').hide();
+                $('.cont-box').eq(index).show();
+            });
+            $('.s_game_title').find('li').click(function () {
+                $('.s_game_title').find('li').removeClass('active');
+                $(this).addClass('active');
+                var index = $(this).index();
+                $('.s_game_list').hide();
+                $('.s_game_list').eq(index).show();
+            })
+            $(".r_ul li").hover(function () {
+                var index = $(this).index();
+                $(this).addClass("active").siblings().removeClass("active");
+                $(".l_news ul").eq(index).addClass("active").siblings().removeClass("active");
+            })
+            $(".nav_ul li").on("click" ,function(){
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+            //点击礼包跳到对应游戏区域
+            $('.nav_ul li').on('click', function(e) {
+                $('.nav_ul').find('li').removeClass('active');
+                $(this).addClass('active');
+                var id = $(this).attr("data-to");
+                $('html,body').animate({
+                    scrollTop: $('#' + id).offset().top
+                }, 500);
+            });
+            //返回顶部
+            $(".back").click(function (){
+                $("html,body").animate({
+                    scrollTop: 0
+                }, 500);
+            });
+            //悬浮出现微信二维码
+            $(".t_code").hover(function (){
+                $(".xf_code").stop().fadeIn(500);
+            },function (){
+                $(".xf_code").stop().fadeOut();
+            });
+        $(window).on("scroll",function(){
+			e=$(window).scrollTop();
+			h=$(window).height();
+			$(".list1").each(function(i,n){
+				var top=$(n).offset().top;
+				if((top-h/2)<e){
+					$(".nav_ul li").removeClass("active");
+					$(".nav_ul li").eq(i).addClass("active");
+				}
+			});
+
+		});
+			var click = false;
+			var click1 = true;
+            $(window).scroll(function() {
+				var scroHei = $(window).scrollTop(); //滚动的高度
+				if(scroHei > 560 && !click  && click1) {
+					$("body").addClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k_close.png?{$smarty.const.VERSION}");
+				}else if(scroHei < 560 && click1){
+					$("body").removeClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k.png?{$smarty.const.VERSION}");
+				}
+			});
+			$(".float_btn").click(function() {
+				if($("body").hasClass("op")){
+					$("body").removeClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k.png?{$smarty.const.VERSION}");
+					click = true;
+				}else{
+					click1 = false;
+					$("body").addClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k_close.png?{$smarty.const.VERSION}");
+				}
+	        });
+			//左右滑动轮播图
+			$(".ss_pic li>img").hover(function (){
+				$(this).parent().addClass("active").siblings().removeClass("active");
+				$(".big").addClass("hidden");
+				$(this).parent().find(".big").removeClass("hidden");
+				var index = $(this).parent().index();
+				console.log(index);
+				switch (index){
+						case 0:
+							$('.big1 .li').css('left','-1000px');
+							$('.big1 .pic').css('right','-100px');
+							$('.big1 .li').animate(
+									{
+										"left":"-340px"
+									},700);
+							$('.big1 .pic').animate(
+									{
+										"right":"10px"
+									},900);
+							break;
+						case 1:
+							$('.big2 .li').css('left','-1000px');
+							$('.big2 .pic').css('right','-100px');
+							$('.big2 .li').animate(
+									{
+										"left":"-100px"
+									},700);
+							$('.big2 .pic').animate(
+									{
+										"right":"40px"
+									},900);
+							break;
+						case 2:
+							$('.big3 .li').css('left','-1000px');
+							$('.big3 .pic').css('right','-100px');
+							$('.big3 .li').animate({
+								"left":"-150px"
+							},700);
+							$('.big3 .pic').animate({
+								"right":"40px"
+							},900);
+							break;
+						case 3:
+							$('.big4 .li').css('left','-1000px');
+							$('.big4 .pic').css('right','-50px');
+							$('.big4 .li').animate({
+								"left":"-210px"
+							},700);
+							$('.big4 .pic').animate({
+								"right":"40px"
+							},900);
+							break;
+						case 4:
+							$('.big5 .li').css('left','-1000px');
+							$('.big5 .pic').css('right','-50px');
+							$('.big5 .li').animate({
+								"left":"-130px"
+							},700);
+							$('.big5 .pic').animate({
+								"right":"40px"
+							},900);
+							break;
+					}
+			});
+        })
+	</script>
+</html>

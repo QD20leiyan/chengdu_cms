@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>《NBA LIVE》问卷调查</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <link href="{$smarty.const.STATIC_DOMAIN}nba/css/animate.min.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}nba/css/swiper.min.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}nba/css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+    </script>
+    {csrf}
+</head>
+<body>
+<div class="bg hidden">
+    <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+    <div class="h5_data" style="display: none;">{$h5data}</div>
+    <img class="peo animated zoomIn" src="{$smarty.const.STATIC_DOMAIN}nba/images/peo.png?{$smarty.const.VERSION}">
+    <div class="logo animated bounce"></div>
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/light.png?{$smarty.const.VERSION}" alt="" class="light">
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/jqqd.png?{$smarty.const.VERSION}" alt="" class="jqqd">
+</div>
+<div class="con" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+<section class="swiper-container" >
+<section class="swiper-wrapper">
+<div class="bg"></div>
+<div class="wrap wrap1 swiper-slide swiper-no-swiping">
+    <section class="page1">
+        <div class="logo animated bounce"></div>
+            <img class="peo animated zoomIn" src="{$smarty.const.STATIC_DOMAIN}nba/images/peo.png?{$smarty.const.VERSION}">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/light.png?{$smarty.const.VERSION}" alt="" class="light">
+        <div class="content_box">
+            <p><input type="text" placeholder="请选择游戏区服" class="qufu_input" readonly="readonly"><a href="javascript:;" class="sel"></a></p>
+            <p><input type="number" placeholder="请输入游戏ID" class="sel_input" value="" class="term_btn" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"></p>
+            <p><input type="text" placeholder="请输入角色名" class="act_name" ></p>
+            <p><input type="number" class="co_username" placeholder="请输入手机号码"/></p>
+            <p class="last tp_yzm"><input type="text"  class="co_codenum1 code1" placeholder="请输入图形验证码"/><span class="co_codebtn co_codebtn2"><i>点击刷新</i><img src="" alt="" /></span></p>
+            <p class="last"><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1 code2" placeholder="请输入短信验证码"/><span class="co_codebtn co_codebtn1">发送验证码</span></p>
+            <a href="javascript:;" class="btn_add"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/btn.png?{$smarty.const.VERSION}" alt=""></a>
+        </div>
+    </section>
+    <section class="tips">
+        <div class="tip2 active">
+            <ul>
+                <li data-id="201">iOS</li>
+                <li data-id="200">安卓</li>
+            </ul>
+        </div>
+    </section>
+</div>
+<div class="wrap wrap2 swiper-slide swiper-no-swiping">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第1/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question1.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info">1.您的性别?</p>
+    </div>
+    <div class="sel_list sole">
+        <ul>
+            <li class="so"><i></i><p>男</p></li>
+            <li class="so"><i></i><p>女</p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第2/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question2.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info">2.您的年龄?</p>
+    </div>
+    <div class="sel_list sole">
+        <ul>
+            <li class="so"><i></i><p>18岁以下</p></li>
+            <li class="so"><i></i><p>18-25岁</p></li>
+            <li class="so"><i></i><p>26-30岁</p></li>
+            <li class="so"><i></i><p>30岁以上</p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第3/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question3.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info">3.您的职业是什么</p>
+    </div>
+    <div class="sel_list sole">
+        <ul>
+            <li class="so"><i></i><p>在校学生</p></li>
+            <li class="so"><i></i><p>互联网从业者</p></li>
+            <li class="so"><i></i><p>企业普通职员</p></li>
+            <li class="so"><i></i><p>党政/事业单位/公务员</p></li>
+            <li class="so"><i></i><p>私营业主</p></li>
+            <li class="so"><i></i><p>自由职业者</p></li>
+            <li class="other"><i></i><p><span>其他</span><input type="text" maxlength="15" placeholder="请输入15字以内" data-index=""></p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第4/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question4.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on">4. 您愿意在喜欢的游戏中每个月投入多少?</p>
+    </div>
+    <div class="sel_list sole">
+        <ul>
+            <li class="so"><i></i><p>无</p></li>
+            <li class="so"><i></i><p>1-50元</p></li>
+            <li class="so"><i></i><p>50-100元</p></li>
+            <li class="so"><i></i><p>100-200元</p></li>
+            <li class="so"><i></i><p>200-500元</p></li>
+            <li class="so"><i></i><p>500-1000元</p></li>
+            <li class="so"><i></i><p>1000元以上</p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第5/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question5.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on">5. 您平均每天花多少时间在游戏上?</p>
+    </div>
+    <div class="sel_list sole">
+        <ul>
+            <li class="so"><i></i><p>一小时之内</p></li>
+            <li class="so"><i></i><p>1-3小时</p></li>
+            <li class="so"><i></i><p>3-5小时</p></li>
+            <li class="so"><i></i><p>5-8小时</p></li>
+            <li class="so"><i></i><p>8小时以上</p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第6/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question6.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on">6.您目前使用什么设备进行游戏?(多选，至少选一个)</p>
+    </div>
+    <div class="sel_list more">
+        <ul>
+            <li class="so"><i></i><p>Vivo NEX</p></li>
+            <li class="so"><i></i><p>OPPO FIND X</p></li>
+            <li class="so"><i></i><p>iPhoneX</p></li>
+            <li class="so"><i></i><p>华为p20</p></li>
+            <li class="so"><i></i><p>一加6</p></li>
+            <li class="so"><i></i><p>小米8</p></li>
+            <li class="so"><i></i><p>三星 GALAXY S9+</p></li>
+            <li class="so"><i></i><p>Vivo x21</p></li>
+            <li class="so"><i></i><p>iPhone8 plus</p></li>
+            <li class="other"><i></i><p><span>其他</span><input type="text" maxlength="15" placeholder="请输入15字以内" data-index=""></p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第7/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question7.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on2">7.您除了《NBALIVE》手游之外还玩什么类型的游戏呢?(多选，至少选一个)</p>
+    </div>
+    <div class="sel_list more">
+        <ul>
+            <li class="on so"><i></i><p>角色扮演类<br><span>（如 魔兽世界 最终幻想14 剑网3）</span></p></li>
+            <li class="on so"><i></i><p>射击类 <br><span>（如 守望先锋 绝地求生）</span></p></li>
+            <li class="on so"><i></i><p>MOBA类 <br><span>（如 英雄联盟 DOTA2）</span></p></li>
+            <li class="on so"><i></i><p>休闲类 <br><span>（如 煮糊了 炉石传说 昆特牌）</span></p></li>
+            <li class="on so"><i></i><p>动作类 <br><span>（如 龙之谷 天涯明月刀）</span></p></li>
+            <li class="on so"><i></i><p>页游类 <br><span>（如 大天使之剑 贪玩蓝月9+）</span></p></li>
+            <li class="on so"><i></i><p>手游类 <br><span>（如 逆水寒 刀塔传奇）</span></p></li>
+            <li class="so"><i></i><p>其他不玩 只玩《NBALIVE》</p></li>
+            <li class="other"><i></i><p><span>其他</span><input type="text" maxlength="15" placeholder="请输入15字以内" data-index=""></p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第8/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question8.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on3">8.您觉得《NBA LIVE》哪方面最吸引你?(多选，至少选一个)</p>
+    </div>
+    <div class="sel_list more">
+        <ul>
+            <li class="so"><i></i><p>我比较喜欢NBA类<br></p></li>
+            <li class="so"><i></i><p>操作很流畅</p></li>
+            <li class="so"><i></i><p>喜欢NBA球星</p></li>
+            <li class="so"><i></i><p>朋友在玩一起玩最开心</p></li>
+            <li class="so"><i></i><p>游戏活动丰富</p></li>
+            <li class="other"><i></i><p><span>其他</span><input type="text" maxlength="15" placeholder="请输入15字以内" data-index=""></p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第9/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question9.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on">9.您希望游戏的什么内容加强?(多选，至少选一个)</p>
+    </div>
+    <div class="sel_list more">
+        <ul>
+            <li class="so"><i></i><p>改善新手引导<br></p></li>
+            <li class="so"><i></i><p>增加新玩法</p></li>
+            <li class="so"><i></i><p>提升游戏画质</p></li>
+            <li class="so"><i></i><p>加强游戏中的荣誉感，成就感</p></li>
+            <li class="other"><i></i><p><span>其他</span><input type="text" maxlength="15" placeholder="请输入15字以内" data-index=""></p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="next">下一题</a>
+    </div>
+</div>
+<div class="wrap wrap2 swiper-no-swiping swiper-slide slide10">
+    <p class="top"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt=""><span>第10/10题</span></p>
+    <div class="title">
+        <img src="{$smarty.const.STATIC_DOMAIN}nba/images/question10.png?{$smarty.const.VERSION}" alt="">
+        <p class="title_info on2">10.您是通过什么渠道知道《NBA LIVE》这款游戏的?(多选，至少选一个)</p>
+    </div>
+    <div class="sel_list more">
+        <ul>
+            <li class="so"><i></i><p>官网<br></p></li>
+            <li class="so"><i></i><p>朋友介绍</p></li>
+            <li class="so"><i></i><p>游戏资讯网站</p></li>
+            <li class="so"><i></i><p>搜索引擎</p></li>
+            <li class="so"><i></i><p>App Store推荐，渠道商店推荐</p></li>
+            <li class="so"><i></i><p>微博微信公众号</p></li>
+            <li class="other"><i></i><p><span>其他</span><input type="text" maxlength="15" placeholder="请输入15字以内" data-index=""></p></li>
+        </ul>
+    </div>
+    <div class="next_box">
+    <a href="javascript:;" class="submit_wj">提 交</a>
+    </div>
+</div>
+<div class="wrap wrap3 swiper-no-swiping swiper-slide">
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt="" class="logo">
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/gxn.png?{$smarty.const.VERSION}" alt="" class="success">
+    <p class="info">获得兑换码</p>
+    <p class="dh_code">
+        <span class="code_num" id="page_gold_code">网络请求错误</span>
+        <span class="copy" id="tc2_copy_btn" data-clipboard-action="copy" data-clipboard-target="#page_gold_code">复制</span>
+    </p>
+    <div class="rule">
+        <i>1</i><p>请使用兑换码在游戏中激活。</p>
+    </div>
+    <div class="rule2">
+        <i>2</i><p>更多精彩活动请关注NBALIVE微信、微博公众号。</p>
+    </div>
+    <div class="ewm_box">
+        <p><img src="{$smarty.const.STATIC_DOMAIN}nba/images/ewm.png?{$smarty.const.VERSION}" alt=""></p>
+        <p><img src="{$smarty.const.STATIC_DOMAIN}nba/images/ewm2.png?{$smarty.const.VERSION}" alt=""></p>
+    </div>
+    <a href="javascript:;" class="cysw"><img src="{$smarty.const.STATIC_DOMAIN}nba/images/lottery.png?{$smarty.const.VERSION}" alt=""></a>
+    <a href="javascript:;" class="no_tks close_index">不用，谢谢</a>
+</div>
+<div class="wrap wrap4 swiper-no-swiping swiper-slide">
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt="" class="logo">
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/secj.png?{$smarty.const.VERSION}" alt="" class="secj">
+    <p class="info">请先填写个人信息</p>
+    <div class="content_box">
+    <p><input type="text" placeholder="请输入姓名" class="name_input" value="" class="term_btn"></p>
+    <p><input type="number" placeholder="请输入QQ号码" class="qq_num" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"></p>
+    <textarea type="text" placeholder="详细地址..." class="address"></textarea> 
+    </div>
+    <a href="javascript:;" class="submit_info"></a>
+</div>
+<div class="wrap wrap5 swiper-no-swiping swiper-slide">
+    <img src="{$smarty.const.STATIC_DOMAIN}nba/images/logo_t.png?{$smarty.const.VERSION}" alt="" class="logo">
+    <div class="rule">
+        <i>1</i><p>我们将随机抽取5名幸运玩家获得炫酷战靴。</p>
+    </div>
+    <div class="rule2">
+        <i>2</i><p>实物获奖名单将在活动结束后的7个工作日内在NBALIVE微信、微博公众号公布并在公布后的7个工作日内发放。</p>
+    </div>
+    <div class="rule3">
+        <i>3</i><p>更多精彩活动请关注NBALIVE微信、微博公众号</p>
+    </div>
+    <div class="ewm_box">
+        <p><img src="{$smarty.const.STATIC_DOMAIN}nba/images/ewm.png?{$smarty.const.VERSION}" alt=""></p>
+        <p><img src="{$smarty.const.STATIC_DOMAIN}nba/images/ewm2.png?{$smarty.const.VERSION}" alt=""></p>
+    </div>
+    <a href="javascript:;" class="gxcy close_index" ><img src="{$smarty.const.STATIC_DOMAIN}nba/images/thanks.png?{$smarty.const.VERSION}" alt=""></a>
+</div>
+</section>
+</section>
+</div>
+<!--横竖屏-->
+        <div id="orientLayer" class="mod-orient-layer">
+            <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+                <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+            </div>
+        </div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}nba/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}nba/js/clipboard.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}nba/js/swiper.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}nba/js/swiper.animate.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}nba/js/index.js?11.0"></script> 
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+        <script type="text/javascript">
+    $(function() {
+        // 分享接口
+        var share_icon=$(".con").attr("data-icon");
+        var share_title=$(".con").attr("data-title");
+        var share_desc=$(".con").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/nba/psq.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    });
+</script>
+</html>

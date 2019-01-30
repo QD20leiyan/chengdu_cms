@@ -1,0 +1,266 @@
+	 {include '../../layouts/wap/head.html'} 
+	    <!-- <section>
+			<div class="loading hidden">
+				<i class="ic_mouse"></i>
+			</div>
+		</section> -->
+		<section>
+			<div class="kv" data-src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/">
+			    <!--<div class="zhezhao2">	</div>-->
+			    <!--canvas视频-->
+			   <!--  <div class="canvasbox">
+                <canvas id="child" width="640" height="946"></canvas>
+                </div> -->
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/slog.png?{$smarty.const.VERSION}" class="slogan" />
+				{fragment var=video code=video size=1}
+				<a class="{if $video}js_video_play play{else}play{/if}" data-url="{if $video}{$video[0].url}{/if}" href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" >
+		        	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/play.png?{$smarty.const.VERSION}" class="b_play" >
+		        </a>
+				<!-- <a class="down_box js_wap_down" href=''>
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/down_box.png?{$smarty.const.VERSION}" alt="">
+				</a> -->
+				<a class="yy_box js_wap_down" href='javascript:;'>
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/yuyue2.png?{$smarty.const.VERSION}" alt="">
+				</a>
+				<div class="next-wrapp">
+                     <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/down01.png">
+                </div>
+			</div>
+		</section>
+		<div class="cont2">
+		    <div class="swiper1">
+		        {fragment var=banner code=banner size=5}
+					<div class="swiper-wrapper">
+					{if $banner neq ''}
+								{foreach $banner as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url neq ''}{$v.url} {else}javascript:;{/if}">
+								<img src="{$v.thumb}">
+							</a>
+						</div>
+						{/foreach}
+							{/if}
+					</div>
+				</div>
+				<div class="swiper-pagination1"></div>
+			<div class="news">
+				<ul class="news-list">
+					<li class="active" data-index="0"><span>最新</span><i></i></li>
+					<li data-index="1"><span>新闻</span><i></i></li>
+					<li data-index="2"><span>公告</span><i></i></li>
+					<li data-index="3"><span>活动</span><i></i></li>
+					<li data-index="4"><span>攻略</span></li>
+					<a href="{myurl name='wap/article/index, id=>473'}"></a>
+				</ul>
+				<ul class="news-info">
+					<li class="info active">
+					    {article id="473" size=5 var=zx}
+						{if $zx neq ''}
+						<ul class="news-info-list">
+						{foreach $zx as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><span><i>{$v.name}</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+					    {article id="474" size=5 var=xw}
+						{if $xw neq ''}
+						<ul class="news-info-list">
+						{foreach $xw as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><span><i>{$v.name}</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+					{article id="475" size=5 var=gg}
+						{if $gg neq ''}
+						<ul class="news-info-list">
+						{foreach $gg as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><span><i>{$v.name}</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+					{article id="476" size=5 var=hd}
+						{if $hd neq ''}
+						<ul class="news-info-list">
+						{foreach $hd as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><span><i>{$v.name}</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+					{article id="478" size=5 var=gl}
+						{if $gl neq ''}
+						<ul class="news-info-list">
+						{foreach $gl as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><span><i>{$v.name}</i>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+				</ul>
+			</div>
+			<div class="tree"></div>
+		</div>
+		<div class="cont3">
+			<div class="title"><i></i><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tl2.png?{$smarty.const.VERSION}" alt=""></div>
+			<div class="jobBox">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/grass.png?{$smarty.const.VERSION}" alt="" class="grass" />
+				<ul class="jobList">
+					<li class="active"><i></i></li>
+					<li><i></i></li>
+					<li><i></i></li>
+					<li><i></i></li>
+				</ul>
+				<div class="job_person_box">
+					<div class="job_person job1_female">
+					</div>
+				</div>
+				<ul class="sexList">
+					<li>
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job1_nan.png"><i class="sex1"></i></div>
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job3_nan.png"><i class="sex1"></i></div>
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job5_nan.png"><i class="sex1"></i></div>
+						<i></i>
+					</li>
+					<li class="active">
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job2_nan.png"><i class="sex2"></i></div>
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job4_nan.png"><i class="sex2"></i></div>
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job6_nan.png"><i class="sex2"></i></div>
+						<div class="peo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/job7_nan.png"><i class="sex2"></i></div>
+						<i></i>
+					</li>
+				</ul>
+				<div class="play2 js_video_play" id="play1" data-url="//video.zhengyuetech.com/sd/1acbc6ffd13a4b80be67f72ede638c57.mp4"></div>
+				<div class="play2 js_video_play" id="play2" data-url="//video.zhengyuetech.com/sd/70594eb6680d4fe8bb31ea25ceab8345.mp4"></div>
+				<div class="play2 js_video_play" id="play3" data-url="//video.zhengyuetech.com/sd/4b1357b491b64daea6d91ae2d3c8e86f.mp4"></div>
+				<div class="play2 js_video_play" id="play4" data-url="//video.zhengyuetech.com/sd/ace2de00e1f140edb1fe0b2946302bf9.mp4"></div>
+				<div class="play2 js_video_play" id="play1" data-url="//video.zhengyuetech.com/sd/1acbc6ffd13a4b80be67f72ede638c57.mp4"></div>
+			</div>
+			<div class="job_information job_information1" style="display: block">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/actor1.png?{$smarty.const.VERSION}" alt="" class="actor1">
+				<div class="role_title"><span>"战</span>以止戈，方为武道！” </div>
+								<p>浪客是由一群流浪武士组成的团体，他们自称剑术来源于武神之星的庇护。</p>
+								<p>他们因各种原因无家可归、失去亲友，因此，近乎偏执地守护秩序与和平。</p>
+			</div>
+			<div class="job_information job_information2">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/actor2.png?{$smarty.const.VERSION}" alt="" class="actor2">
+				<div class="role_title"><span>"日</span>落星辰，东升西落，此<br>&nbsp;&nbsp;&nbsp;&nbsp;乃天道”</div>
+								<p>灵士借助星辰的灵力幻化法术，他们总在黑暗中凝视星空，在他们脚下，一个巨大星盘在缓缓转动。</p>
+								<p>他们沉默寡言，却似乎在用目光告诉世人，世事的变幻尽在繁星的图画中。</p>
+			</div>
+			<div class="job_information job_information3">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/actor3.png?{$smarty.const.VERSION}" alt=""  class="actor3">
+				<div class="role_title"><span>"吾</span>所欲者，唯自由尔。</div>
+								<p>鬼影因乱世而生，他们曾远赴东瀛，将忍术发展成独特的刺杀技巧。</p>
+								<p>他们遁于黑暗，似是恶鬼，却只为了在乱世中，寻找一片没有政治的“桃花源”。</p>
+			</div>
+			<div class="job_information job_information4">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/actor4.png?{$smarty.const.VERSION}" alt="" class="actor4">
+				<div class="role_title"><span>"浮</span>生若梦，为欢几何？”</div>
+								<p>妙手感应天地万物之灵，幻化梦境，治愈世人。在他们眼中，世事荒诞、世人悲苦，人无法心安理得地生存在荒诞之中，因此需要梦境。</p>
+			</div>
+		</div>
+		<div class="cont4">
+		    <div class="title"><i></i><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/4.png?{$smarty.const.VERSION}" alt=""></div>
+			<div class="cont4_container">
+				<ul class="img-list">
+					<li class="active" data-index="0"><span>精美图片</span></li>
+					<li data-index="1"><span>精彩视频</span></li>
+					<a></a>
+				</ul>
+				<ul class="img_box">
+				<li class="swiper2 active info">
+				{fragment var=banner2 code=banner2 size=20}
+					<div class="swiper-wrapper">
+					{if $banner2 neq ''}
+						{foreach $banner2 as $v}
+						<div class="swiper-slide">
+							<a>
+								<img src="{$v.thumb}">
+							</a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+					<div class="swiper-button-prev1"></div>
+					<div class="swiper-button-next1"></div>
+				</li>
+				<li class="video_box info">
+					{article id="479" size=20 var=sp}
+						{if $sp neq ''}
+					<div class="swiper-wrapper">
+							{foreach $sp as $key=>$v}
+							{if $key >= 0}
+						<div class="swiper-slide">
+							<a class="js_video_play" data-url="{$v.video.media_url}">
+								<img src="{$v.thumb}">
+								<span><i></i></span>
+							</a>
+						</div>
+						{/if}
+							{/foreach}
+					</div>
+					{/if}
+				</li>
+				</ul>
+			</div>
+			<div class="server-wrapp">
+        		<div class="server-box">
+        			<a href="javascript:;">
+        				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wx.png">
+        			</a>
+        		    <a  href="{if isset($global.wb_url)}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.wb_url)}target="_blank"{/if}>
+        		    	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wb.png">
+        		    </a>
+        		    <a href="{if isset($global.group_url_one)}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.tb_url)}target="_blank"{/if}>
+        		    	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/qq.png">
+        		    </a>
+        		    <a href="{if isset($global.tb_url)}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" {if isset($global.tb_url)}target="_blank"{/if}>
+        		    	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tb.png">
+        		    </a>
+            </div>
+		</div>
+		<div class="bigImg">
+			<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="">
+			<p>长按保存至手机</p>
+			<p>发送至微信内识别</p>
+			<p>关注《明日决胜！》官方微信</p>
+        </div>
+		
+			</div>
+<section>
+	<div class="big_img">
+		<div class="small_img">
+			<img src="" alt="" class="z_img"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/close.png" alt="" class="close" />
+		</div>
+	</div>
+</section>
+   <!--  <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/canvas.js?{$smarty.const.VERSION}"></script> -->
+{include '../../layouts/wap/foot.html'}

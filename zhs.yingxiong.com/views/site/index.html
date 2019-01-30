@@ -1,0 +1,174 @@
+{include file="../layouts/pc/header.html"}
+<!--内容-->
+<div class="i_main">
+    <!--第一部分-->
+    <div class="top">
+        <!--logo-->
+        <div class="logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}">
+        </div>
+        <!--order-->
+        <div class="order hidden">
+            <!--kv_video-->
+            <div class="videoBtn">
+               <a href="">
+               <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_play.png?{$smarty.const.VERSION}" class="js_video_play">
+               </a>
+            </div>
+            <div class="yy_box">
+                <p class="yy_btn"></p>
+                <p class="yy_num"><span>已预约<i>12345</i>人</span></p>
+            </div>
+        </div>
+        <!--download-->
+        <div class="download">
+            <div class="wx_img"><img src="" alt="" class="js_jump_img"></div>
+            <!--kv_video-->
+            <div class="down_box">
+               <!--  <a href="javascript:;" class="ios down_btn js_down_ios stat_ios" target="_blank"></a>
+                <a href="javascript:;" class="and down_btn js_down_andriod stat_android" target="_blank"></a>
+                <a href="https://www.taptap.com/app/134939" target="_blank" class="tap stat_tap"></a> -->
+                <a href="javascript:;" class="down_btn"></a>
+            </div>
+        </div>
+        {fragment var=video code=index_video size=1}
+            <div class="videoBtn">
+            <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}"  class="{if $video}js_video_play{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+            </div>
+            <!-- <div class="data_time"></div> -->
+    </div>
+    <!--第二部分-->
+    <div class="ward_box">
+        <p class="ward_title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/news_tl.png?{$smarty.const.VERSION}" alt=""/></p>
+        <div class="wrap">
+                <div class="content">
+                    <div class="left_banner">
+                    {fragment var=index_banner code=new_banner size=5}
+                        <ul class="swiper-wrapper">
+                        {if $index_banner neq ''}
+                        {foreach $index_banner as $v}
+                           <li class="swiper-slide">
+                                <a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+                                    <img src="{$v.thumb}" alt="" />
+                                </a>
+                            </li>
+                        {/foreach}
+                    {/if}
+                        </ul>
+                    </div>
+                    <div class="swiper-pagination1"></div>
+                    <div class="right_news">
+                        <ul class="top_ul">
+                            <li class="active"><span></span></li>
+                            <li><span></span></li>
+                            <li><span></span></li>
+                            <li><span></span></li>
+                            <li><a href="{myurl name='article/list, id=>619'}"><span></span></a></li>
+                        </ul>
+                        <div class="right_con">
+                            <ul class="active">
+                            {article id="619" size=6 var=zx}
+                        {if $zx neq ''}
+                            {foreach $zx as $key=>$v}
+                                {if $key >= 0}
+                                <li>
+                                        <a href="{$v.linkUrl}" target="_blank">
+                                            <em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+                                        </a>
+                                    </li>
+                               {/if}
+                            {/foreach}
+                        {else}
+                        <p class="noData">暂无数据...</p>
+                        {/if}
+                            </ul>
+                            <ul class="">
+                        {article id="620" size=6 var=xw}
+                        {if $xw neq ''}
+                            {foreach $xw as $key=>$v}
+                                {if $key >= 0}
+                                    <li>
+                                        <a href="{$v.linkUrl}" target="_blank">
+                                            <em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+                                        </a>
+                                    </li>
+                                {/if}
+                            {/foreach}
+                        {else}
+                        <p class="noData">暂无数据...</p>
+                        {/if}
+                    </ul>
+                    <ul class="">
+                        {article id="621" size=6 var=gg}
+                        {if $gg neq ''}
+                            {foreach $gg as $key=>$v}
+                                {if $key >= 0}
+                                    <li>
+                                        <a href="{$v.linkUrl}" target="_blank">
+                                            <em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+                                        </a>
+                                    </li>
+                                {/if}
+                            {/foreach}
+                        {else}
+                        <p class="noData">暂无数据...</p>
+                        {/if}
+                    </ul>
+                    <ul class="">
+                        {article id="622" size=6 var=gl}
+                        {if $gl neq ''}
+                            {foreach $gl as $key=>$v}
+                                {if $key >= 0}
+                                    <li>
+                                        <a href="{$v.linkUrl}" target="_blank">
+                                            <em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+                                        </a>
+                                    </li>
+                                {/if}
+                            {/foreach}
+                        {else}
+                        <p class="noData">暂无数据...</p>
+                        {/if}
+                    </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!--第三部分-->
+    <div class="play_box">
+        <div>
+            <div class="play">
+                <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_title1.png?{$smarty.const.VERSION}" alt=""/></div>
+                <div class="slider">
+                    <div class="swiper-container swiper-container2">
+                     <div class="swiper-wrapper">
+                   {fragment var=i_play code=index_play size=5}
+                            {if $i_play neq ''}
+                            {foreach $i_play as $v}
+                        <div class="swiper-slide">
+                                <a><img class="images" src="{$v.thumb}" alt=""></a>
+                            </div>
+                            {/foreach}
+                            {/if}
+                    </div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination2"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            <div class="hz_info">
+                <a href="javascript:void(0);" class="wx">
+                    <div class="ewm_wx">
+                        <img src="{$global.wx_img}" alt="ewm_wx">
+                    </div>
+                </a>
+               <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank" class="qq"></a>
+               <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank" class="wb"></a>
+                <a href="http://bbs.yingxiong.com/t/pc/33/index" class="lt" target="_blank"></a>
+            </div>
+        </div>
+    </div>
+</div>
+{include file="../layouts/pc/footer.html"}

@@ -1,0 +1,40 @@
+ {include file="../layouts/pc/pageHead.html"}
+<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}7.0/css/newsDetails.css?{$smarty.const.VERSION}">
+<a href="{myurl name='article/list, id=>319'}" id="q_back" class="q_back">
+	返回<br/>列表
+</a>
+<div class="bshare-custom" id="bshare-custom">
+	<div class="bsPromo bsPromo2"></div>
+	<span>分享</span>
+	<a title="分享到微信" class="bshare-weixin"></a>
+	<a title="分享到qq" class="bshare-qqim"></a>
+	<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+</div>
+<div class="q_container">
+	<div class="n_bg"></div>
+	<div class="q_item1" id="detail_item">
+		<div class="q1_title">
+			<h1>新闻资讯</h1>
+			<p>
+				<span>NEWS</span>
+				<span>CENTER</span>
+			</p>
+		</div>
+	</div>
+
+	<div class="n_content">
+		{if $content.title}
+		<h1>{$content.title}</h1>
+		{/if}
+		<h2>《全民枪战》官方网站 时间：{$content.created_at_formate}</h2> {$content.body}
+	</div>
+	{include file="../layouts/pc/get_gift.html"}
+	{include file="../layouts/pc/pageFoot.html"}
+
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+	<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}7.0/css/share.css?{$smarty.const.VERSION}" />
+    <script type="text/javascript">
+    	page_nav_active(1);
+    </script>
+	</html>

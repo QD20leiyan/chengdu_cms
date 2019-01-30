@@ -1,0 +1,125 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/imgList.css?{$smarty.const.VERSION}" />
+{include file="../layouts/pc/s_header.html"}
+<div class="news_con">
+	<p class="n_title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/yinfu.png?{$smarty.const.VERSION}" alt="" /><span>热舞图库</span></p>
+	<p class="list_info">当前位置：
+		<a href="{myurl name='site/index'}">官网首页</a>><span>热舞图库</span></p>
+	<ul class="n_tab_ul">
+		<li class="active">
+			<a href="javascript:;">最新发布</a>
+		</li>
+		<!--<li>
+			<a href="javascript:;">点赞最多</a>
+		</li>-->
+	</ul>
+	<ul class="p_ul" id="p_ul" data-id="564">
+		<!--<li class="box">
+			<img src="images/pic_l.jpg" alt="" class="ul_img" />
+			<div class="p_li">
+				<div class="p_title">
+					<p class="p_fitst">同人插画</p>
+					<p class="p_second"><img src="images/renwu.png" alt="" /><span>官方发布</span></p>
+				</div>
+				<div class="p_dianzan">
+					<img src="images/xin.png" alt="" />
+					<p>1</p>
+				</div>
+			</div>
+		</li>-->
+	</ul>
+	<div class="clear">
+	<div class="dropload-down">
+		<div class="dropload-noData"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/loading.png?{$smarty.const.VERSION}" alt="" /><span>正在加载...</span></div>
+	</div>
+	<div class="big_img">
+		<div class="big_show">
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/close.png?{$smarty.const.VERSION}" alt="" class="close" />
+			<img src="" alt="" class="x_img" />
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/masonry-docs.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".right_nav a:nth-child(1)").hover(function() {
+			$(".right_code").stop().fadeIn();
+		}, function() {
+			$(".right_code").stop().fadeOut();
+		});
+		$(".p_ul li").on("click" , function (){
+			var img = $(this).children(".ul_img").attr("src");
+			$(".x_img").attr("src",img);
+			$(".big_img").stop().fadeIn();
+		});
+		$(".big_img").click(function() {
+			$(this).stop().fadeOut();
+		});
+		
+		//图库加载
+		var isScroll = 1;//是否可以滚动
+		var page = 1; //页数
+		var id = $(".p_ul").attr("data-id");//类型
+		var ajaxUrl = '/commonMethod/ajax-get-list';
+			getListFu();
+		window.onscroll=function(){
+			var winH = window.innerHeight; //屏幕高度
+			var allH = document.body.scrollHeight; //总高度
+			var topH = window.pageYOffset; //滚动高度
+			if((allH - (winH
+					+ topH)<10) && isScroll == 1){
+				isScroll = 0;
+//				$(".dropload-noData").html("数据加载中...")
+			getListFu();
+			}
+		}
+		
+		function getListFu(){
+			$.ajax({
+				type:"get",
+				url:ajaxUrl,
+				data:{
+					page:page++,
+					id:id,
+				},
+				success:function(data){
+					var data = JSON.parse(data);
+					if(data.status == 0&& data.msg.length>0){
+						var result = '';
+						for(var i = 0; i < data.msg.length; i++) {
+							result += "<li class='box'><img src=" + data.msg[i].thumb+" class='ul_img' /><div class='p_li'><div class='p_title'><p class='p_first'>" + data.msg[i].title+"</p><p class='p_second'><img src='{$smarty.const.STATIC_DOMAIN}3.0/images/renwu.png' /><span>" + data.msg[i].sub_title+"</span></p></div><div class='p_dianzan'><img src='{$smarty.const.STATIC_DOMAIN}3.0/images/xin.png' /><p>" + data.msg[i].sort+"</p></div></div></li>";
+						}
+						result=$(result);
+						$(result).on("click" , function (){
+							var img = $(this).children(".ul_img").attr("src");
+							$(".x_img").attr("src",img);
+							$(".big_img").stop().fadeIn();
+						});
+						$('.p_ul').html(null).append(result);
+						var $container = $('#p_ul');
+						$container.imagesLoaded(function() {
+							$container.masonry({
+								itemSelector: '.box',
+								gutter: 9,
+								isAnimated: true,
+							});
+						});
+//						$(".dropload-noData").html("上滑加载更多<i></i>");
+						isScroll = 1;
+					} else{
+						$(".dropload-noData").html("没有更多信息了");
+					}
+				},
+				error:function(data){
+					console.log(data);
+				}
+			});
+		}
+	});
+</script>
+
+</html>

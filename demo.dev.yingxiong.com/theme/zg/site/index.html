@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="shortcut icon" href="{$global.website_icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/n_index.css?{$smarty.const.VERSION}" />
+		<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+				<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		{fragment var=kv_img code=index_kv_img size=1}
+		<div class="kv public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}">
+			<div class="wrap">
+				{fragment var=video code=index_video size=1}
+				<div style="z-index:10;" class="play {if $video}js_video_play{else}{/if} public_video" data-url="{if $video}{$video[0].url}{/if}" data-video="{if $video}{$video[0].jumpbackend}{/if}">
+					<img src="{if $video}{$video[0].thumb}{/if}" alt="" />
+					<div class="main_play" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑视频</i></div>
+				</div>
+				{if $diy}
+					<div class="main_kv" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑KV</i></div>
+				{/if}
+			</div>
+			<div class="kv_con public_nav_one" style="background:url({$global.nav_background_img}) no-repeat center;" data-one="{jumpbackend name='nav_background_img'}">
+			    <div class="kv_cwap">
+			    	<div class="kv_left public_icon" data-icon="{jumpbackend name='website_logo_img'}">
+						<img src="{$global.website_logo_img}" alt="" class="icon" />
+						<div class="kv_txt">
+							<p class="kv_tit">{$global.website_title}</p>
+							<p class="k_tit">{$global.website_sub_title}</p>
+						</div>
+					</div>
+					<div class="kv_right public_nav" data-right="{jumpbackend name='download_android_background_img'}">
+						<div class="kv_code" style="background:url({$global.download_ewm_background_img}) no-repeat center;">
+							<img src="{$global.nav_wechat_ewm}" alt="" />
+						</div>
+						<div class="kv_down">
+							<a href="{if $global.download_ios_url}{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$global.download_ios_background_img}" alt="" /></a>
+							<a href="{if $global.download_android_url}{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$global.download_android_background_img}" alt="" /></a>
+							<a href="{if $global.download_tap_url}{$global.download_tap_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.download_tap_background_img}" alt="" /></a>
+						</div>
+					</div>
+			    </div>
+			    {if $diy}
+					<div class="main_nav_one" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑导航</i></div>
+				{/if}
+			</div>
+		</div>
+		<div class="content public_third" style="{if $global.tese_background_img neq ''}background:url({$global.tese_background_img}) no-repeat center;{elseif $global.tese_background_color neq ''}background-color:{$global.tese_background_color}{/if}" data-third="{jumpbackend name='tese_background_img'}">
+			<div class="wrap">
+				<div class="bottom_con">
+					<div class="bottom_banner">
+						{fragment var=ts_img code=banner_ts size=5}
+						<ul class="swiper-wrapper public_ts" data-ts="{$ts_img[0].jumpbackend}">
+							{if $ts_img neq ''}
+							    {foreach $ts_img as $v}
+									<li class="swiper-slide">
+										<a href="{if isset($v.url)}{$v.url}{/if}"><img src="{$v.thumb}" alt="" /></a>
+									</li>
+								{/foreach}
+					    	{/if}
+						</ul>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+				{if $diy}
+					<div class="main_third" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+				{/if}
+			</div>
+		</div>
+	</body>
+	<div class="public_rule" style="z-index:99999999;">
+			{if $diy}
+			{include file="../../layouts/public.html"}
+			<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{else}
+			<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{/if}
+		</div>
+
+		{video_play}
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper('.bottom_banner', {
+				loop: true,
+				pagination: '.swiper-pagination',
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 0,
+					stretch: -90,
+					depth: 300,
+					modifier: 1,
+					slideShadows: true
+				},
+				observer: true,
+				observeParents: true,
+			});
+		});
+	</script>
+
+</html>

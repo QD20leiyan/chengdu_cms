@@ -1,0 +1,44 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/news.css?{$smarty.const.VERSION}" />
+<div class="main_news">
+	<div class="news_bg"></div>
+	<div class="c_news">
+		<div class="c_wrap">
+			<div class="top_sel">您的位置：
+				<a href="{myurl name='site/index'}">首页</a>>
+				<a href="javascript:;">新闻中心</a>
+			</div>
+			<img src="{$smarty.const.STATIC_DOMAIN}images/title.png?{$smarty.const.VERSION}" alt="" class="s_title" />
+			<div class="m_news">
+				<div class="m_c_ul">
+					<ul class="t_ul">
+						<li class="{if $id eq 442}active{else} {/if}">
+							<a href="{myurl name='article/list, id=>442'}">最新</a>
+						</li>
+						<li class="{if $id eq 444}active{else} {/if}">
+							<a href="{myurl name='article/list, id=>444'}">新闻</a>
+						</li>
+						<li class="{if $id eq 445}active{else} {/if}">
+							<a href="{myurl name='article/list, id=>445'}">资讯</a>
+						</li>
+						<li class="{if $id eq 446}active{else} {/if}">
+							<a href="{myurl name='article/list, id=>446'}">公告</a>
+						</li>
+					</ul>
+				</div>
+				{if !empty($data)}
+					<ul class="body_ul">
+							{foreach $data as $v}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank"><em>[{$v.name}]</em><span>{$v.title}</span><i>{$v.created_at_formate}</i></a>
+								</li>
+							{/foreach}
+					</ul>
+					{$page}
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}

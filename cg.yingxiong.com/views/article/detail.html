@@ -1,0 +1,49 @@
+{include file="../layouts/pc/header.html"}
+<body>
+    <div class="detail">
+    	<div class="mid">
+    		<p>{$content.title}</p>
+    		<span class="sm-title">{$content.sub_title}</span>
+    		<span class="time">{$content.created_at_formate}</span>
+    		<div class="come">
+    			<div class="come-left">
+    				<img src="{$content.image_url}" />
+    				<a href="{$content.redirect_url}" target="_blank">进入专题</a>
+    			</div>
+    			<img src="{$content.thumb}" class="come-fr fr">
+    		</div>
+    		<div class="word">
+    			<p>{$content.body}</p>
+    		</div>
+    		<img src="{$content.thumb}" class="active-img">
+    	</div>
+    	<div class="dianzan">
+    		<a href="javascript:;" class="point" onclick="praiseFu({$content.id})">
+    			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/zan-1.png?{$smarty.const.VERSION}">
+    		</a>
+			( <span class="praise">{$content.praise}</span> )
+    	</div>
+    	<div class="close">
+    		<a href="javascript:history.go(-1);">
+    			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/close.jpg?{$smarty.const.VERSION}">
+    		</a>	            
+        </div> 
+    </div>
+    {click}
+</body>
+<script>
+	function praiseFu(id) {
+		getChangeData(id, 'praise', callBack);
+		function callBack(res) {
+			console.log(res);
+			if(res.status == '-1') {
+				alert(res.msg.msg)
+			} else{
+				var praise = $('.dianzan').find(".praise");
+				console.log($('.dianzan').find(".praise").text())
+				praise.text( Number(praise.text())+1);
+			}
+		}
+	}
+</script>
+</html>

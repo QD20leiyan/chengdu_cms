@@ -1,0 +1,158 @@
+{include file="../layouts/pc/header.html"}
+		<div class="kv">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+				{fragment var=video code=index_video size=1}
+				<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/s_play.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<div class="kv_con">
+					<div class="kv_left">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/icon.png?{$smarty.const.VERSION}" alt="" class="icon" />
+						<div class="kv_txt">
+							<p class="kv_tit">兵者</p>
+							<p class="k_tit">《兵者》是一款关于象棋和兵法的独立解谜游戏。在游戏中,玩家只能控制最弱小的棋子“兵”,去对抗强大的车马炮,吃掉敌人的老将。</p>
+						</div>
+					</div>
+					<div class="kv_right">
+						<div class="kv_down">
+							<a href="javascript:;" class="js_down_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+							<a href="javascript:;" class="js_down_andriod"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+							<a href="http://l.taptap.com/l9stAAcr" class="tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+						</div>
+						<div class="kv_code">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/erweima.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="wrap">
+				<div class="con">
+					<div class="left_banner">
+						{fragment var=banner code=index_banner size=5}
+						<ul class="swiper-wrapper">
+							{if $banner neq ''}
+								{foreach $banner as $v}
+									<li class="swiper-slide">
+										<a href="javascript:;"><img src="{$v.thumb}" alt="" /></a>
+									</li>
+								{/foreach}
+							{/if}
+						</ul>
+						<div class="swiper-pagination1"></div>
+					</div>
+					<div class="right_news">
+						<div class="right_con">
+							<ul class="top_ul">
+								<li class="active">
+									<p>最新</p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/title.png?{$smarty.const.VERSION}" alt="" /></li>
+								<li>
+									<p>新闻</p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/title.png?{$smarty.const.VERSION}" alt="" /></li>
+								<li>
+									<p>攻略</p><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/title.png?{$smarty.const.VERSION}" alt="" /></li>
+							</ul>
+							<div class="con_news">
+								<ul class="active">
+								{article id="489" size=3 var=zx}
+										{if $zx neq ''}
+											{foreach $zx as $key=>$v}
+												<li>
+													<a href="{$v.linkUrl}" target="_blank">
+														<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+													</a>
+												</li>
+											{/foreach}
+										{/if}
+								</ul>
+								<ul class="">
+								{article id="490" size=3 var=xw}
+										{if $xw neq ''}
+											{foreach $xw as $key=>$v}
+												<li>
+													<a href="{$v.linkUrl}" target="_blank">
+														<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+													</a>
+												</li>
+											{/foreach}
+										{/if}
+								</ul>
+								<ul class="">
+								{article id="490" size=3 var=gl}
+										{if $gl neq ''}
+											{foreach $gl as $key=>$v}
+												<li>
+													<a href="{$v.linkUrl}" target="_blank">
+														<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+													</a>
+												</li>
+											{/foreach}
+										{/if}
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/wanfa.png?{$smarty.const.VERSION}" alt="" class="wanfa" />
+				<div class="bottom_con">
+					<div class="bottom_banner">
+						{fragment var=i_play code=index_play size=5}
+						<ul class="swiper-wrapper">
+							{if $i_play neq ''}
+							{foreach $i_play as $v}
+									<li class="swiper-slide">
+										<a href="javascript:;"><img src="{$v.thumb}" alt="" /><i></i><span></span></a>
+									</li>
+								{/foreach}
+							{/if}
+						</ul>
+						<div class="swiper-pagination"></div>
+
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper(".left_banner", {
+				loop:true,
+				autoplay:5000,
+				autoplayDisableOnInteraction : false,
+				pagination: '.swiper-pagination1',
+				observer: true,
+				observeParents: true,
+			});
+			$(".top_ul li").on("click", function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".con_news ul").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			var mySwiper = new Swiper('.bottom_banner', {
+				loop: true,
+				pagination: '.swiper-pagination',
+				effect: 'coverflow',
+				slidesPerView: 5,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 0,
+					stretch: -40,
+					depth: 200,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+			});
+		});
+	</script>
+{include file="../layouts/pc/footer.html"}

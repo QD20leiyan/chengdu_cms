@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/cover0118.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+	</head>
+	
+	<body class="stat_page_cover">
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="kv">
+			<div class="wrap1">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				<div class="kv_nav">
+					<ul>
+						<li></li>
+						<li><a target="_blank" href="{$global.wb_url}"></a></li>
+						<li><a target="_blank" href="{$global.tb_url}"></a></li>
+						<img src="{$global.wx_img}" alt="" class="fl_wx" />
+					</ul>
+					<a href="{myurl name='site/index'}" target="_blank" class="enter"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_enter.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="download">
+					<div class="ewm">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/ewm_downl.jpg?{$smarty.const.VERSION}" alt="" class="js_jump_img"/>
+					</div>
+					<div class="btn">
+						<a href="javascript:;" target="_blank" class="stat_event_cover_down stat_event_cover_ios js_down_ios"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_ios.png?{$smarty.const.VERSION}" alt="" /></a>
+						<a href="http://l.taptap.com/BhhZYyd3" target="_blank" class="stat_event_cover_down stat_event_cover_tap"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_tap.png?{$smarty.const.VERSION}" alt="" /></a>
+						<a href="javascript:;" target="_blank" class="stat_event_cover_down js_down_andriod stat_event_cover_android"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_and.png?{$smarty.const.VERSION}" alt="" /></a>
+						<a href="http://www.3839.com/a/89425.htm" target="_blank" class="stat_event_cover_down stat_event_cover_hy"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_haoyou.png?{$smarty.const.VERSION}" alt="" /></a>
+					</div>
+				</div>
+				{fragment var=video code=index_video size=1}
+				<a href="javascript:;" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/c_nplay.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	    $(function(){
+	    	pc_cover();
+	    });
+		$(".kv_nav ul li:nth-child(1)").hover(function (){
+			$(".fl_wx").stop().fadeIn();
+		},function (){
+			$(".fl_wx").stop().fadeOut();
+		});
+	</script>
+</html>

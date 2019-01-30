@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<title>{$seo_title}</title>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/public/flexible.js?{$smarty.const.VERSION}"></script>
+		<link rel="shortcut icon" href="{$smarty.const.STATIC_DOMAIN}1.0/images/favicon.ico?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/public/resetWap.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/public/yx_swiper.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/public/public.css?{$smarty.const.VERSION}" />
+		{csrf}
+		<script>
+			// yxhy2017
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?03aeeabf5a6cc2f5c8a969caf18461c6";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<section class="i_container p_re">
+			<header class="i_download">
+				<img src="{$global.logo_img}" alt="一起来冒险" />
+				<section>
+					<h1 class="over_ell">{$global.title}</h1>
+					<p class="over_ell">{$global.sub_title}</p>
+				</section>
+				 <a href="javascript:" class="js_a"></a>
+				<div class="nav-content1">
+					{if isset($smarty.session.channel_name)}
+					{if $smarty.session.channel_name=='wxone'}
+					<a href="http://uri6.com/NN3Yb2" class="down_load"></a>
+					{else if $smarty.session.channel_name=='wxtwo' }
+					<a href="http://uri6.com/YR3Qbe" class="down_load"></a>
+					{else}
+					<a href="javascript:" class="js_wap_down stat_down down_load"></a>
+					{/if}
+					{else}
+					<a href="javascript:" class="js_wap_down stat_down down_load"></a>
+					{/if}
+					{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcwap','stwap','jpcwap','sp1','sp2','sycwap'])}
+					<a href="http://l.taptap.com/HK3g9xdu" class="tap stat_tap" style="display: none;"></a>
+					{else}
+					<a href="http://l.taptap.com/HK3g9xdu" class="tap stat_tap" style="display: block;"></a>
+					{/if}
+					<a href="http://www.3839.com/a/87547.htm" class="hy stat_hy"></a>
+				</div>
+			</header>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    	<meta name="keyword" content="{$seo_key}">
+    	<meta name="description" content="{$seo_desc}"> {csrf}
+    	<meta name="format-detection" content="telephone=no"/>
+    	<title>{$seo_title}</title>
+		<meta name="format-detection" content="telephone=no"/>  
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="//cdnstatic.zhengyuetech.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/index.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/style.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<a href="/index.html" class="icon"><img src="{$global.logo_img}" alt="" /></a>
+				<div class="i_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<a class="c_download " href="javascript:;"></a>
+				 <!--<a href="javascript:;" class="c_download2"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/yxz.png?{$smarty.const.VERSION}" alt="" /></a>-->
+				<div class="l_download" style="right:0;">
+					<a href="javascript:;" class="js_wap_down gf stat_down"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/gf.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="https://www.taptap.com/app/52292" target="_blank" class="stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+          
+				</div>
+			</div>
+		</header>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>{$seo_title}</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/public0119.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/cover0119.css?{$smarty.const.VERSION}" />
+	<script>
+		(function(doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if(!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+	<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+</head>
+<body class="stat_page_cover">
+<header class="header">
+	<a href="/m/cover.html" class="logo">
+		<img src="{$global.logo_img}" alt="">
+	</a>
+	<div class="h_text">
+		<p class="h_p01">{$global.title}</p>
+		<p class="h_p02">{$global.sub_title}</p>
+	</div>
+	<div class="header_a">
+		<a href="/m/index.html" class="inter_btn"></a>
+	</div>
+</header>
+<div class="i_main" data-src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/">
+	<!--kv-->
+	<div class="con1">
+		<!--<div class="wrap">-->
+			<div class="slogan">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nslogan.png?{$smarty.const.VERSION}"/>
+			</div>
+			<div class="peo1 ani">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_npeo1.png?{$smarty.const.VERSION}" class="ani-item"/>
+			</div>
+			<div class="peo2 ani">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_npeo2.png?{$smarty.const.VERSION}" class="ani-item"/>
+			</div>
+			{fragment var=video code=kv_video size=1}
+			<a href="{if $video&&$video != '暂无数据'}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+			<div class="no_channel">
+				<div class="download">
+					<a href="javascript:;" class="js_wap_down stat_event_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nios.png?{$smarty.const.VERSION}" alt=""></a>
+					<a href="https://www.taptap.com/app/34763" class="stat_event_cover_down stat_event_cover_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_ntap.png?{$smarty.const.VERSION}" alt=""></a>
+					<a href="http://www.3839.com/a/87894.htm" class="stat_event_cover_down stat_event_cover_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nhy.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+			</div>
+			<div class="channel_name" style="display: none">
+				<div class="download">
+					<a href="javascript:;" class="js_wap_down stat_event_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nios.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+			</div>
+		<!--</div>-->
+	</div>
+	<!--新枪展示-->
+	<div class="new_gun">
+		<!--<div class="wrap">-->
+			<div class="chengg"></div>
+			<div class="det_five">
+				<div class="w_imgbox">
+					<img class="big_img hidden" src="">
+					<p class="big_name"></p>
+					<div class="w_swiper_box">
+						<div class="swiper-container" id="swiper3">
+							<div class="swiper-wrapper">
+								{fragment var=new_guns code=new_guns size=20}
+								{if $new_guns neq ''}
+								{foreach $new_guns as $v}
+								<div class="swiper-slide">
+									<div class="w_sm_gun">
+										<img src="{$v.thumb}" data-src="{$v.thumb}" data-name="{$v.title}">
+										<i class="time">{$v.sub_title}</i>
+									</div>
+								</div>
+								{/foreach}
+								{/if}
+							</div>
+						</div>
+						<div class="swiper-button-prev3"></div>
+						<div class="swiper-button-next3"></div>
+					</div>
+				</div>
+			</div>
+		<!--</div>-->
+	</div>
+	<!--抽奖板块-->
+	<div class="lottery_box">
+		<div class="chengg"></div>
+		<div class="l_login">
+			<!--登录前-->
+			<p class="co_before ">HI,请 <span class="co_loginbtn">[登录]</span></p>
+			<!--登录后-->
+			<p class="co_after hidden">欢迎您,<span class="user_phone"></span><span class="logout">[注销]</span></p>
+		</div>
+		<div class="hm-cj" id="lottery">
+			<ul>
+				<li class="lottery-unit lottery-unit-0">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">幻舞QBZ95</span>
+				</li>
+				<li class="lottery-unit lottery-unit-1">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">八卦手雷</span>
+				</li>
+				<li class="lottery-unit lottery-unit-2">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">强化点*88W</span>
+				</li>
+				<li class="lottery-unit lottery-unit-7">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">熊猫挂饰</span>
+				</li>
+				<li class="lottery-unit click_btn">
+					<p class="begin_txt"></p>
+					<p class="leave">剩余抽奖：<span class="count">0</span>/<span class="count_all">0</span></p>
+				</li>
+				<li class="lottery-unit lottery-unit-3">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">疾风骑士碎片*2</span>
+				</li>
+				<li class="lottery-unit lottery-unit-6">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img07.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">谢谢参与</span>
+				</li>
+				<li class="lottery-unit lottery-unit-5">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img08.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">强化点10W</span>
+				</li>
+				<li class="lottery-unit lottery-unit-4">
+					<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img09.png?{$smarty.const.VERSION}" alt="">
+					<span class="name">强化点*8W</span>
+				</li>
+			</ul>
+		</div>
+		<div class="check_ward">[ 中奖记录 ]</div>
+	</div>
+	<!--暴风玩法-->
+	<div class="new_play">
+		<!--<div class="wrap">-->
+			<div class="chengg"></div>
+			<div class="bf_box ani">
+				{fragment var=bf_play code=bf_play size=2}
+				{if $bf_play neq ''}
+				{foreach $bf_play as $key=>$v}
+				<div class="bf_bg ani-item">
+					<div class="chengg"></div>
+					<div class="title {if $v.url}js_video_play{else}{/if}" data-url="{if $v.url}{$v.url}{/if}"><img src="{if $key eq 0}{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nbftit1.png?{$smarty.const.VERSION} {else}{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nbftit2.png?{$smarty.const.VERSION}{/if}" alt=""/></div>
+					<div class="sub_title">
+						{$v.summary}
+					</div>
+					<div class="img"><img src="{$v.thumb}" alt=""/></div>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+		<!--</div>-->
+	</div>
+	<!--游戏特色-->
+	<div class="ts_play">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="slider">
+				<div class="swiper-container swiper-container2">
+					<div class="swiper-wrapper">
+						{fragment var=cover_ts code=cover_ts size=20}
+						{if $cover_ts neq ''}
+						{foreach $cover_ts as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-pagination swiper-pagination2"></div>
+				<div class="swiper-button-prev swiper-button-prev2"></div>
+				<div class="swiper-button-next swiper-button-next2"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--登录弹框-->
+<div class="co_tips co_tips_login hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nclose.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="div">
+			<div class="co_form">
+				<div class="co_input">
+					<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+					<p class="co_error">手机号码错误</p>
+				</div>
+				<div class="co_input">
+					<input type="text"  class="captcha" placeholder="请输入验证码"/>
+					<span class="co_captcha">点击刷新</span>
+					<p class="co_error">验证码错误</p>
+				</div>
+				<div class="co_input">
+					<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+					<p class="co_error">验证码错误</p>
+				</div>
+			</div>
+		</div>
+		<div class="co_tips_loginbtn"></div>
+	</div>
+</div>
+<!--奖品弹框-->
+<div class="co_tips co_tips_ward hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nclose.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="div">
+			<div class="co_form">
+				<p class="tis_img"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt=""/></p>
+				<p class="tips_txt">恭喜你抽中了</p>
+				<p class="tips_name"></p>
+			</div>
+		</div>
+		<div class="co_tips_surebtn"></div>
+	</div>
+</div>
+<!--中奖记录弹框-->
+<div class="co_tips co_tips_record hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nclose.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="div">
+			<div class="co_form">
+				<p class="table_title">
+					<span>名称</span>
+					<span>兑换码</span>
+					<span>操作</span>
+				</p>
+				<div class="table_list">
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<!--谢谢参与弹框-->
+<div class="co_tips co_tips_no hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/c_nclose.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="div">
+			<div class="co_form">
+				<p class="tips_txt">谢谢参与！</p>
+			</div>
+		</div>
+		<div class="co_tips_surebtn"></div>
+	</div>
+</div>
+</body>
+{download}
+{video_play}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/statics.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/cover0119.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+</html>

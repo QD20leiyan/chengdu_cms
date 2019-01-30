@@ -1,0 +1,125 @@
+{include '../../layouts/wap/header.html'}
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo"/>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/text.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/text2.png?{$smarty.const.VERSION}" alt="" class="slogan2" />
+				{fragment var=video code=index_video size=1}
+				<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play1.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play2.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+			</div>
+		</section>
+		<section class="down_fix">
+			<a href="javascript:;" class="download js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/button.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://l.taptap.com/CyFoh2NE" class="tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+		</section>
+		<section>
+			<div class="content">
+				<div class="top_banner">
+				{fragment var=index_banner code=banner1 size=5}
+					<ul class="swiper-wrapper">
+					{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+						<li class="swiper-slide">
+						   <a href="{if $v.url}{$v.url}  target='_blank'{else}javascript:;{/if}">
+						   <img src="{$v.thumb}" alt="" />
+						   </a>
+						</li>
+					{/foreach}
+						{/if}	
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="news">
+					<ul class="top_ul">
+						<li class="active">最新</li>
+						<li>新闻</li>
+						<li>攻略</li>
+					</ul>
+					<div class="con_ul">
+						<ul class="active">
+						    {article id="492" size=3 var=zx}
+							{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.linkUrl}" target="_blank">
+									<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p>暂无数据~</p>
+							{/if}
+						</ul>
+						<ul>
+						    {article id="493" size=3 var=xw}
+							{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.linkUrl}" target="_blank">
+									<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p>暂无数据~</p>
+							{/if}
+						</ul>
+						<ul>
+						{article id="494" size=3 var=gl}
+									{if $gl neq ''}
+										{foreach $gl as $key=>$v}
+											{if $key >= 0}
+							<li>
+								<a href="{$v.linkUrl}" target="_blank">
+									<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p>暂无数据~</p>
+							{/if}
+						</ul>
+					</div>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wanfa.png?{$smarty.const.VERSION}" alt="" class="wanfa" />
+				<div class="bottom_con">
+					<div class="bottom_banner">
+					 {fragment var=index_banner code=banner2 size=5}
+						<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+								{foreach $index_banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+							{/foreach}
+							{/if}
+						</ul>
+					</div>
+					<div class="swiper-pagination1"></div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="float_wx">
+				<div class="wx_body">
+					<div class="close">
+						<span></span>
+						<span></span>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/erweima.png?{$smarty.const.VERSION}" alt="" />
+					<p>扫码关注官方微信</p>
+				</div>
+			</div>
+		</section>
+{include '../../layouts/wap/bottom.html'}

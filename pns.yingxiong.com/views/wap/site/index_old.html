@@ -1,0 +1,199 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="i_main">
+    <!--第一部分-->
+    <div class="top fade">
+        <!--logo-->
+        <div class="logo1">
+            <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo1.png?{$smarty.const.VERSION}">
+        </div>
+        <!--slogan-->
+        <div class="slogan">
+            <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/slogan.png?{$smarty.const.VERSION}">
+            <!--kv_video-->
+            {fragment var=video code=video_index size=1}
+            <div class="videoBtn"><a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images//play.png?{$smarty.const.VERSION}" alt=""></a></div>
+        </div>
+        <div class="download">
+            <a class="down_gf js_wap_down stat_down" href="javascript:;"></a>
+            <a class="tap stat_tap" href="javascript:yx_showTips('敬请期待');" target="_blank"></a>
+        </div>
+    </div>
+    <!--第二部分-->
+    <div class="banner_news">
+        <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/news_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+        <div class="banner">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                    {fragment var=banner code=news_banner size=20}
+                    {if $banner neq ''}
+                    {foreach $banner as $v}
+                    <div class="swiper-slide">
+                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+        </div>
+        <div class="news_box">
+            <div class="hd">
+                <ul>
+                    <li class="on">
+                        <a>综合</a>
+                    </li>
+                    <li>
+                        <a>新闻</a>
+                    </li>
+                    <li>
+                        <a>公告</a>
+                    </li>
+                    <li>
+                        <a>活动</a>
+                    </li>
+                    <li>
+                        <a>攻略</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul class="news_info">
+                    {article id="1894" size=4 var=zh}
+                    {if $zh neq ''}
+                    {foreach $zh as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                    {/if}
+                </ul>
+                <ul class="news_info hidden">
+                    {article id="1895" size=4 var=xw}
+                    {if $xw neq ''}
+                    {foreach $xw as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                    {/if}
+                </ul>
+                <ul class="news_info hidden">
+                    {article id="1896" size=4 var=gg}
+                    {if $gg neq ''}
+                    {foreach $gg as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                    {/if}
+                </ul>
+                <ul class="news_info hidden">
+                    {article id="1898" size=4 var=hd}
+                    {if $hd neq ''}
+                    {foreach $hd as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                    {/if}
+                </ul>
+                <ul class="news_info hidden">
+                    {article id="1897" size=4 var=gl}
+                    {if $gl neq ''}
+                    {foreach $gl as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                    {/if}
+                </ul>
+            </div>
+            <a href="{myurl name='wap/article/list, id=>1894'}" class="more">查看更多 +</a>
+        </div>
+    </div>
+    <!--第三部分-->
+    <div class="ts_play">
+        <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+        <div class="slider">
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    {fragment var=i_play code=banner_wapts size=20}
+                    {if $i_play neq ''}
+                    {foreach $i_play as $v}
+                    <div class="swiper-slide">
+                        <a><img class="images" src="{$v.thumb}" alt=""></a>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination2"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <!--底部-->
+    <div class="footer_bottom">
+        <div class="official">
+            <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq1"></a>
+            <a href="{if $global.group_url_two}{$global.group_url_two}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq2" ></a>
+            <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb" ></a>
+            <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="lt" ></a>
+            <span class="gzh">
+                <img src="{$global.wx_img}" alt=""/>
+            </span>
+        </div>
+    </div>
+</div>
+{include '../../layouts/wap/foot.html'}
+<script>
+    $(function(){
+        var swiper01 = new Swiper('.swiper-container1', {
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+        var swiper02 = new Swiper('.swiper-container2',{
+            pagination: '.swiper-pagination2',
+            paginationClickable: true,
+            effect : 'coverflow',
+            slidesPerView: 3,
+            centeredSlides: false,
+            loop:true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            coverflow: {
+                rotate:0,
+                stretch:-110,
+                depth:350,
+                modifier:1,
+                slideShadows : false
+            }
+        });
+    });
+</script>
+</html>

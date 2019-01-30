@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/common.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/index.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/yx.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+	</head>
+	
+	<body class="op">
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<!--<div class="header">-->
+			<!--<div class="wrap">-->
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/icon.png?{$smarty.const.VERSION}" alt="" class="l_icon" />-->
+				<!--<div class="header_txt">-->
+					<!--<p>一起来热舞</p>-->
+					<!--<p>迪士尼正版授权音舞手游</p>-->
+				<!--</div>-->
+				<!--<ul>-->
+					<!--<li class="{if isset($smarty.get.id)} {else}active{/if}"><a href="{myurl name='site/index'}">首页</a></li>-->
+					<!--<li class="{if isset($smarty.get.id)}active{else}{/if}"><a href="{myurl name='article/index, id=>460'}">新闻</a></li>-->
+					<!--<li><a href="http://bbs.yingxiong.com/t/pc/19.html" target="_blank">论坛</a></li>-->
+					<!--<li><a href="javascript:alert('敬请期待！');">FAQ</a></li>-->
+				<!--</ul>-->
+			<!--</div>-->
+		<!--</div>-->
+        <div class="kv list1" id="go1">
+            <div class="wrap">
+                <div class="header">
+                    <div class="wrap">
+                        <img src="{$global.logo_img}" alt="" class="l_icon" />
+                        <div class="header_txt">
+                            <p>{$global.title}</p>
+                            <p>{$global.sub_title}</p>
+                        </div>
+                        <ul>
+                            <li class="active"><a href="javascript:;"><p>官网首页</p><p>·INDEX·</p></a></li>
+                            <li><a href="{myurl name='article/list, id=>460'}" target="_blank"><p>新闻公告</p><p>·NEWS·</p></a></li>
+                            <li data-to="go3"><a href="javascript:yx_showTips('敬请期待！');"><p>壁纸图库</p><p>·WALLPAPER·</p></a></li>
+                            <li data-to="go4"><a href="javascript:yx_showTips('敬请期待！');"><p>游戏特色</p><p>·FEATURE·</p></a></li>
+                            <li><a href="http://bbs.yingxiong.com/t/pc/19.html" target="_blank"><p>官方论坛</p><p>·FORUM·</p></a></li>
+                            <li><a href="{$global.wb_url}" target="_blank"><p>官方微博</p><p>·WEIBO·</p></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="disney"></div>
+				<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/logo.png?{$smarty.const.VERSION}" alt="" /></div>
+				{fragment var=video code=cover_video size=1}
+				<div style="opacity: 0;filter:alpha(opacity=0);" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"></div>
+			</div>
+			<video src="{$smarty.const.STATIC_DOMAIN}2.0/images/kv.mp4?{$smarty.const.VERSION}" class="kv_video" autoplay="autoplay" loop="loop"></video>
+			<div class="video_bg"></div>
+		</div>

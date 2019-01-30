@@ -1,0 +1,394 @@
+{include '../../layouts/wap/ych_header.html'}
+<div class="i_main">
+	<!--top-part-->
+	<div class="top_nav">
+		<a href="/m/ych/list_658_1.html"></a>
+		<p class="s_iup">
+			<input type="text" placeholder="斧头">
+			<i></i>
+			<a href="http://forumsm.yingxiong.com/forum.php?mod=forumdisplay&fid=66" class="tougao"></a>
+		</p>
+	</div>
+	<div class="search_menu">
+		<a href="javascript:;" data-type="zz" class="active">作者相关</a>
+		<a href="javascript:;" data-type="zp">作品名相关</a>
+	</div>
+	<div class="search_bord">
+		<ul id="p_ul"></ul>
+		<ul id="p_ul2" class="hidden"></ul>
+		<div class="dropload-down">
+			<div class="dropload-noData">上滑加载更多</div>
+		</div>
+	</div>
+</div>
+</body>
+<!--tips-->
+<div class="co_tips detail_tips hidden">
+    <div class="scroll">
+        <div class="w_imgbox">
+            <img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/close.png?{$smarty.const.VERSION}" class="close"/>
+            <div class="big_img">
+                <div>
+                    <img class="images" src="" alt="">
+                </div>
+            </div>
+            <div class="w_swiper_box">
+                <div class="swiper-container" id="swiper3">
+                    <div class="swiper-wrapper"></div>
+                </div>
+                <div class="swiper-button-prev3"></div>
+                <div class="swiper-button-next3"></div>
+            </div>
+            <div class="txt_info">
+                <div class="list_info">
+                    <div class="top">
+                        <div class="info_tl">
+                            <p>作品名称:<span class="zp_name"></span></p>
+                            <p>作者:<span class="zp_zz"></span></p>
+                        </div>
+                        <div class="info_hot">
+                            <i></i>
+                            <span></span>
+                        </div>
+                        <div class="good" data-id="" data-type=""></div>
+                    </div>
+                    <div class="desc"></div>
+                </div>
+            </div>
+            <a href="javascript:;" class="detail_btn hidden">查看详情</a>
+        </div>
+    </div>
+</div>
+<div class="co_tips video_tips hidden">
+    <div class="scroll">
+        <div class="w_imgbox">
+            <img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/close.png?{$smarty.const.VERSION}" class="close"/>
+            <div class="tips_video">
+                <div class="" data-url="">
+                    <img src="" alt=""/>
+                    <i></i>
+                    <a href="javascript:;" class="video_p"></a>
+                </div>
+            </div>
+            <div class="txt_info">
+                <div class="list_info">
+                    <div class="top">
+                        <div class="info_tl">
+                            <p>作品名称:<span class="zp_name"></span></p>
+                            <p>作者:<span class="zp_zz"></span></p>
+                        </div>
+                        <div class="info_hot">
+                            <i></i>
+                            <span></span>
+                        </div>
+                        <div class="good" data-id="" data-type=""></div>
+                    </div>
+                    <div class="desc"></div>
+                </div>
+            </div>
+            <a href="javascript:;" class="detail_btn hidden">查看详情</a>
+        </div>
+    </div>
+</div>
+
+{include '../../layouts/wap/ych_footer.html'}
+<script type="text/javascript">
+        var swiper3=null;
+        //作品点赞
+        function good(){
+        $(".info_hot").unbind();
+        $(".info_hot").click(function(e){
+            e.stopPropagation();
+            var this_good=$(this);
+            var praise_id=this_good.parent().parent().attr("data-id");
+            var praise_type=this_good.parent().parent().attr("data-type");
+            var praise_url='/common/praise.html';
+            $.ajax({
+                type:"POST",
+                url:praise_url,
+                data:{
+                    limit_type:"ip",
+                    id:praise_id,
+                    praise_type:praise_type
+                },
+                success:function(data){
+                    var data = JSON.parse(data);
+                    if(data.status == 0){
+                        this_good.parent().find(".info_hot>span").text(data.msg);
+                        $(".slidebox>ul>li[data-id='"+praise_id+"'] .info_hot>span").text(data.msg);
+                        $(".sel_box ul>li[data-id='"+praise_id+"'] .info_hot>span").text(data.msg);
+                        yx_showTips("点赞成功");
+                    }else{
+                        yx_showTips(data.msg);
+                    }
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+        });
+    }
+
+		$(function() {
+		    // 获取搜索关键字参数
+		    var base=location.search.substr(1);
+            var k=decodeURIComponent(atob(base));
+        	$(".top_nav p input").val(k);
+
+            //轮播初始化
+            swiper3 = new Swiper('#swiper3', {
+                prevButton:'.swiper-button-prev3',
+                nextButton:'.swiper-button-next3',
+                slidesPerView: 3,
+                spaceBetween : 10,
+                onClick: function(swiper){
+                    $(swiper.slides).removeClass("active");
+                    var slide=$(swiper.slides[swiper.clickedIndex]);
+                    slide.addClass("active");
+                    var src=slide.find(".w_sm_gun img").attr("src");
+                    $(".w_imgbox .big_img img").attr("src",src);
+                }
+            });
+            $('.swiper-button-prev3').click(function(){
+                var index=$("#swiper3 .swiper-slide.active").prev(".swiper-slide").index();
+                if(index==-1){
+                    index=swiper3.slides.length-1;
+                }
+                var slide=$(swiper3.slides[index]);
+                $(swiper3.slides).removeClass("active");
+                slide.addClass("active");
+                swiper3.slideTo(index);
+                var src=slide.find(".w_sm_gun img").attr("src");
+                $(".w_imgbox .big_img img").attr("src",src);
+            });
+            $('.swiper-button-next3').click(function(){
+                var index=$("#swiper3 .swiper-slide.active").next(".swiper-slide").index();
+                var slide=$(swiper3.slides[index]||swiper3.slides[0]);
+                $(swiper3.slides).removeClass("active");
+                slide.addClass("active");
+                swiper3.slideTo(index);
+                var src=slide.find(".w_sm_gun img").attr("src");
+                $(".w_imgbox .big_img img").attr("src",src);
+            });
+			var page=1;
+			var isScroll = 1;//是否可以滚动
+            var ajaxUrl = '/ych/search-words.html';
+			window.onscroll=function(){
+				var winH = window.innerHeight; //屏幕高度
+				var allH = document.body.scrollHeight; //总高度
+				var topH = window.pageYOffset; //滚动高度
+				if((allH - (winH
+						+ topH)<10) && isScroll == 1){
+					getListFu();
+				}
+			}
+
+			$("#p_ul,#p_ul2").masonry({
+				itemSelector: '.box',
+				gutter: 10,
+				isAnimated: true
+			});
+
+            function getListFu(){
+				var k=$(".top_nav p input").val();
+				$(".dropload-noData").html("数据加载中...");
+				isScroll = 0;
+                $.ajax({
+                    type:"post",
+                    url:ajaxUrl,
+                    data:{
+						page_size:20,
+                        page:page++,
+                        keywords:k
+                    },
+                    success:function(data){
+                        var data = JSON.parse(data);
+                        if(data.status == 0&& data.msg){
+							if($(".search_menu a.active").data("type")=="zz"){
+                                if(page==2){
+                                    $('#p_ul').empty();
+                                    $(".search_bord ul").css("height","4rem");
+                                }
+								if(data.msg.authors.length){
+									$('#p_ul').masonry("destroy");
+									for(var i in data.msg.authors){
+										var author=data.msg.authors[i];
+										var li='<li class="box" data-url="'+author.redirect_url+'" data-typename="'+author.category_type_id+'" data-id="' + author.id +'" data-type="content" data-desc="' + author.summary +'" data-imgs="' + author.images.join(",") +'">' +(author.category_type_id=="media"?
+												'<div class="list_img" data-url="'+author.body+'"><img src="'+author.thumb+'">' +
+												'<i></i><a href="javascript:;" class="video_p"></a></div>':
+												'<i class="photo_num">'+author.images.length+'</i><img class="pic" src="'+author.thumb+'">')+
+												'<div class="list_info">' +
+												'<div class="info_tl">' +
+												'<p>'+author.title+'</p>' +
+												'<p><i></i><span>'+author.sub_title.replace(k,'<i class="key">'+k+'</i>') +'</span></p>' +
+												'</div><div class="info_hot"><i></i><span>'+author.praise+'</span></div></div></li>'
+										$('.search_bord #p_ul').append(li);
+									}
+									var $container = $('#p_ul');
+									$container.imagesLoaded(function() {
+										$container.masonry({
+											itemSelector: '.box',
+											gutter: 10,
+											isAnimated: true
+										});
+									});
+									$(".js_video_play").unbind();
+									videoInit();
+									$(".dropload-noData").html("上滑加载更多<i></i>");
+									isScroll = 1;
+
+                                    good();
+								}else{
+									$(".dropload-noData").html("没有更多信息了");
+								}
+							}else{
+                                if(page==2){
+                                    $('#p_ul2').empty();
+                                    $(".search_bord ul").css("height","4rem");
+                                }
+								if(data.msg.procs.length){
+									$('#p_ul2').masonry("destroy");
+									for(var i in data.msg.procs){
+										var procs=data.msg.procs[i];
+										var li='<li class="box" data-url="'+procs.redirect_url+'" data-typename="'+procs.category_type_id+'" data-id="' + procs.id +'" data-type="content" data-desc="' + procs.summary +'" data-imgs="' + procs.images.join(",") +'">' +
+                                                (procs.category_type_id=="media"?'<div class="list_img" data-url="'+procs.body+'"><img src="'+procs.thumb+'">' +
+												'<i></i><a href="javascript:;" class="video_p"></a></div>':
+												'<i class="photo_num">'+procs.images.length+'</i><img class="pic" src="'+procs.thumb+'">')+
+												'<div class="list_info">' +
+												'<div class="info_tl">' +
+												'<p>'+procs.title+'</p>' +
+												'<p><i></i><span>'+procs.sub_title.replace(k,'<i class="key">'+k+'</i>') +'</span></p>' +
+												'</div><div class="info_hot"><i></i><span>'+procs.praise+'</span></div></div></li>'
+										$('#p_ul2').append(li);
+									}
+									var $container = $('#p_ul2');
+									$container.imagesLoaded(function() {
+										$container.masonry({
+											itemSelector: '.box',
+											gutter: 10,
+											isAnimated: true
+										});
+									});
+									$(".js_video_play").unbind();
+									videoInit();
+									$(".dropload-noData").html("上滑加载更多<i></i>");
+									isScroll = 1;
+                                    good();
+								}else{
+									$(".dropload-noData").html("没有更多信息了");
+								}
+							}
+
+                            $("#p_ul li,#p_ul2 li").click(function(){
+                                $(".video_tips .tips_video>div").removeClass("js_video_play").unbind();
+                                $(".video_tips .video_p").attr("href", "javascript:;");
+                                $('.detail_tips .swiper-wrapper').empty();
+                                $('.b_img .b_cimg').empty();
+                                var type=$(this).attr("data-typename");
+                                var id=$(this).attr("data-id");
+                                var detail_url=$(this).attr("data-url");
+                                if(type!="media"){
+                                    //活动弹窗
+                                    if(detail_url){
+                                        $(".detail_tips .detail_btn").removeClass("hidden");
+                                        $(".detail_tips .detail_btn").attr("href",detail_url);
+                                    }else{
+                                        $(".detail_tips .detail_btn").addClass("hidden");
+                                        $(".detail_tips .detail_btn").attr("href","javascript:;");
+                                    }
+                                    $(".detail_tips .good").attr("data-id",id);
+									$(".detail_tips .good").attr("data-type","content");
+                                    $(".detail_tips .zp_name").text($(this).find(".info_tl p:eq(0)").text());
+                                    $(".detail_tips .zp_zz").text($(this).find(".info_tl p span").text());
+                                    $(".detail_tips .info_hot span").text($(this).find(".info_hot span").text());
+                                    $(".detail_tips .desc").text($(this).attr("data-desc"));
+                                    $(".detail_tips .big_img img").attr("src",$(this).find(".pic").attr("src"));
+                                    var result = '';
+                                    var result_big = '';
+                                    var imgs=$(this).attr("data-imgs").split(",");
+									if(imgs!=""){
+                                        $(".detail_tips .big_img img").attr("src",imgs[0]);
+										$('.detail_tips .w_swiper_box').removeClass("hidden");
+                                    	for(var i = 0; i < imgs.length; i++) {
+                                        	result += "<div class='swiper-slide "+(i==0?"active":"")+"'><div class='w_sm_gun'><img src=" + imgs[i]+"></div></div>";
+                                            result_big += "<div class='swiper-slide'><img src=" + imgs[i]+" class='z_img'></div>";
+                                        }
+                                    	$('.detail_tips .swiper-wrapper').append(result);
+                                        $('.b_img .b_cimg').append(result_big);
+									}else{
+										$('.detail_tips .w_swiper_box').addClass("hidden");
+									}
+//                                    $(".detail_tips").removeClass("hidden");
+                                    $(".w_imgbox .big_img img").trigger("click");
+                                    swiper3.update();
+
+                                }else{
+                                    //视频弹窗
+                                    if(detail_url){
+                                        $(".video_tips .detail_btn").removeClass("hidden");
+                                        $(".video_tips .detail_btn").attr("href",detail_url);
+                                    }else{
+                                        $(".video_tips .detail_btn").addClass("hidden");
+                                        $(".video_tips .detail_btn").attr("href","javascript:;");
+                                    }
+                                    $(".video_tips .good").attr("data-id",id);
+									$(".video_tips .good").attr("data-type","content");
+                                    $(".video_tips .zp_name").text($(this).find(".info_tl p:eq(0)").text());
+                                    $(".video_tips .zp_zz").text($(this).find(".info_tl p span").text());
+                                    $(".video_tips .info_hot span").text($(this).find(".info_hot span").text());
+                                    $(".video_tips .desc").text($(this).attr("data-desc"));
+                                    $(".video_tips .tips_video>div img").attr("src",$(this).find(".list_img img").attr("src"));
+                                    $(".video_tips .tips_video>div").attr("data-url",$(this).find(".list_img").attr("data-url"));
+                                    $(".video_tips .tips_video>div").addClass("js_video_play");
+                                    $(".video_tips .video_p").attr("href", "javascript:;");
+
+                                    videoInit();
+
+                                    $(".video_tips .js_video_play").click(function(){
+                                        $(".video_tips").addClass("hidden");
+                                    });
+
+//                                    $(".video_tips").removeClass("hidden");
+                                    $(".w_imgbox .tips_video>div").trigger("click");
+                                }
+                            });
+
+                        } else{
+                            $(".dropload-noData").html("没有更多信息了");
+                        }
+                    },
+                    error:function(data){
+                        console.log(data);
+                    }
+                });
+            }
+            getListFu();
+
+			//搜索
+			$(".s_iup i").click(function () {
+				var k=$(".s_iup input").val();
+				if($.trim(k)){
+					page=1;
+					isScroll = 0;
+					getListFu();
+				}else {
+					alert("请输入关键词");
+					$(".s_iup input").val("").focus();
+				}
+			});
+			//分类切换
+			$(".search_menu a").click(function(){
+				$(this).addClass("active");
+				$(this).siblings().removeClass("active");
+				$(this).parent().next(".search_bord").find("ul").addClass("hidden");
+				$(this).parent().next(".search_bord").find("ul").eq($(this).index()).removeClass("hidden");
+				page=1
+				getListFu();
+			});
+
+            //作品弹窗关闭
+            $(".co_tips .close").click(function(){
+                $(".co_tips").addClass("hidden");
+            });
+		});
+</script>

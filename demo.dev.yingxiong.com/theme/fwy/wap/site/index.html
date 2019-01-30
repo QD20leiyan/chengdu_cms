@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/n_active.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<header>
+			<div class="header" style="background-color:{$global.nav_background_color}">
+				<a href="javascript:;" class="icon"><img src="{$global.website_logo_img}" alt="" /></a>
+				<div class="i_txt">
+					<p>{$global.website_title}</p>
+					<p>{$global.website_sub_title}</p>
+				</div>
+				<a href="{if $global.bottommedia_download_url}{$global.bottommedia_download_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="c_download">游戏下载</a>
+			</div>
+		</header>
+		<section>
+			{fragment var=kv_img code=index_kv_img_wap size=1}
+			<div class="kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;background-size:100% 100%;">
+				<a class="juxing" >
+					<img src="{if isset($global.download_img_wap)}{$global.download_img_wap}{/if}" alt="">
+				</a>
+			</div>
+		</section>
+		<div class="cont2" style="{if $global.news_background_img_wap}background:url({$global.news_background_img_wap}) no-repeat center;{elseif $global.news_background_color}background-color:{$global.news_background_color}{/if}background-size:100% 100%;">
+			<a class="jq_Btn" href="{if isset($global.bootommedia_qq_url)}{$global.bottommedia_qq_url}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+		</div>
+		<div class="cont3" style="{if $global.tese_background_img_wap}background:url({$global.tese_background_img_wap}) no-repeat center;{elseif $global.tese_background_color}background-color:{$global.tese_background_color}{/if}background-size:100% 100%;">
+			<div class="shareTitle"></div>
+			<div class="slide">
+				<div class="swiper-container">
+					{fragment var=ts_img code=banner_ts size=5}
+					<div class="swiper-wrapper">
+						{if $ts_img neq ''}
+							{foreach $ts_img as $v}
+								<div class="swiper-slide">
+									<a href="javascript:;"><img class="images" src="{$v.thumb}" alt=""></a>
+								</div>
+							{/foreach}
+					    {/if}
+					</div>
+				</div>
+			</div>
+		</div>
+		<section>
+			<div class="bottom">
+				<div class="chengg"></div>
+				<div class="erweima">
+					<img src="{$global.bottommedia_wechat_ewm}" alt="" />
+				</div>
+				<div class="code_txt">
+					<p>扫描二维码关注官方微信</p>
+					<p>获取更多活动礼包</p>
+					<p><span>{$global.bottommedia_qq_sub_title2}</span></p>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/back.png?{$smarty.const.VERSION}" class="back" />
+			</div>
+		</section>
+	</body>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(".back").click(function (){
+			$("html,body").animate({
+				scrollTop: 0
+			}, 500);
+		});
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 3000,
+			autoplayDisableOnInteraction : false,
+			effect: 'coverflow',
+			slidesPerView: 3,
+			centeredSlides: true,
+			loop: true,
+			coverflow: {
+				rotate: 5,
+				stretch: -80,
+				depth: 200,
+				modifier: 1,
+			}
+		});
+	</script>
+</html>

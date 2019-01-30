@@ -1,0 +1,53 @@
+<div class="cj_footer public_footer" data-footer="{jumpbackend name='bottommedia_download_title'}">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<ul>
+					<li>
+						<img src="{$global.bottommedia_download_ewm}" alt="" class=""/>
+						<div class="cj_txt">
+							<p class="cj_txt1">{$global.bottommedia_download_title}</p>
+							<p class="cj_txt2">{$global.bottommedia_download_sub_title1}</p>
+							<p class="cj_txt3">{$global.bottommedia_download_sub_title2}</p>
+						</div>
+					</li>
+					<li>
+						<img src="{$global.bottommedia_wechat_ewm}" alt="" />
+						<div class="cj_txt">
+							<p class="cj_txt1">{$global.bottommedia_wechat_title}</p>
+							<p class="cj_txt2">{$global.bottommedia_wechat_sub_title1}</p>
+							<span{$global.bottommedia_wechat_sub_title2}</span>
+						</div>
+					</li>
+					<li>
+						<img src="{$global.bottommedia_qq_ewm}" alt="" />
+						<div class="cj_txt">
+							<p class="cj_txt1">{$global.bottommedia_qq_title}</p>
+							<p class="cj_txt2">{$global.bottommedia_qq_sub_title1}</p>
+							<span>{$global.bottommedia_qq_sub_title2}</span>
+						</div>
+					</li>
+				</ul>
+				{if $diy}
+				<div class="main_footer" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑模块</i></div>
+			{/if}
+			</div>
+	</div>
+	<div class="public_rule" style="z-index:99999999;">
+		{if $diy}
+		{include file="../../../layouts/public.html"}
+		<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+		{else}
+		<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+		{/if}
+	</div>
+	{video_play}
+	</body>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(".s_ul li:nth-child(1)").hover(function (){
+			$(".fl_wx").stop().fadeIn();
+		},function (){
+			$(".fl_wx").stop().fadeOut();
+		});
+	</script>
+</html>

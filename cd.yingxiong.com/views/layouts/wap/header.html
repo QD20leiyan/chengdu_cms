@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/common.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/style.css?{$smarty.const.VERSION}" />
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/js/setPageRem.js"></script>
+	<script>
+		//yxhy2017
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?c5056f67f2a864dfc774e882633a7871";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	  <script>
+   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+   //push 参数，name：页面名称，behavior 行为 
+   //event 参数，event：事件名称，args 拓展参数 
+   var HLog={ 
+    push: function(name,behavior){},
+    setUser:function(){},
+    event:function(event,args){},
+    ready:function(){}
+    };
+   HLog.config={
+       "senseHash":0, //hash锚点是否进入url统计
+       "senseQuery":0, //url参数是否进入url统计
+       "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+   };
+   (function() {
+      var hl = document.createElement("script");
+      hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/34/client/1/filter/stat.js";
+      hl.async = "async";
+      var s = document.getElementsByTagName("script")[0];
+      HLog.ready = function(){
+        HLog.push('reflash')
+      };
+      s.parentNode.insertBefore(hl, s);
+   })();
+</script>
+	{csrf}
+</head>
+<body>
+<!--顶部-->
+<div class="top">
+	<a href="/m/index"><img class="icon" src="{$global.logo_img}" alt=""></a>
+	<div class="top-word">
+		<h3>{$global.title}</h3>
+		<p>{$global.sub_title}</p>
+	</div>
+	<div class="top-menu">
+		<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/menu.png" alt="" class="menu-top">
+		<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/menu-close.png" alt=""  class="menu-up">
+		<div class="top-menu-main">
+			<ul>
+				<li><a href="/m/index">官网首页</a></li>
+				<li><a href="{myurl name='wap/list, type=>xinwen ,page=>1'}">新闻资讯</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="top-down">
+		<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/down.png" alt="" class="down-top">
+		<img class="down-up" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/down-up.png" alt="">
+		<div class="top-down-main">
+			<ul>
+				<li><a class="js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/down1.png"></a></li>
+				<li><a href="" class="js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/down2.png"></a></li>
+				{if !in_array($channel_name,['ppcwap','stwap','jpcwap'])}
+				<li><a href="http://l.taptap.com/ywzEouU6" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/down3.png"></a></li>
+				<li><a href="http://www.3839.com/a/86046.htm" class="stat_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/down4.png"></a></li>
+				{/if}
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="mask">
+	
+	<img class="yueTitle" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yueTitle.png?{$smarty.const.VERSION}" alt="">
+	<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/bottom-right.png?{$smarty.const.VERSION}" alt="" class="peo1">
+	<div class="dialog">
+		<div class="yueBox">
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/close.png?{$smarty.const.VERSION}" alt="" id="mask-close" class="close">
+			<img id="mask-yue" class="yue-button" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yue-button2.png?{$smarty.const.VERSION}" alt="">
+			<p class="tishi_info">达成指定预约人数，即可领取对应礼包</p>
+			<div class="line">
+				<img class="line-nocolor" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/line.png?{$smarty.const.VERSION}">
+				<img class="line-color" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/line-color2.png?{$smarty.const.VERSION}" alt="">
+				<ul id="line-img">
+					<li>
+						<div class="prise-word">
+							<h4>10W</h4>
+							<small>人预约</small>
+							<p><i class="huizh"></i><span class="huizh">徽章X20 </span><i class="laba"></i><span class="laba">小喇叭X2</span></p>
+						</div>
+						<img class="color" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_left_on2.png?{$smarty.const.VERSION}" alt="">
+						<img class="nocolor" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_left.png?{$smarty.const.VERSION}" alt="">
+					</li>
+					<li>
+						<div class="prise-word">
+							<h4>40W</h4>
+							<small>人预约</small>
+							<p><i class="huizh"></i><span>徽章X30</span><i class="huaduo"></i><span>花朵X2</span></p>
+							<p><i class="jlb"></i><span>加勒比(恶魔)限时一天</span></p>
+						</div>
+						<img class="color" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_right_on2.png?{$smarty.const.VERSION}" alt="">
+						<img class="nocolor" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_right.png?{$smarty.const.VERSION}" alt="">
+					</li>
+					<li>
+						<div class="prise-word">
+							<h4>70W</h4>
+							<small>人预约</small>
+							<p><i class="huizh"></i><span class="huizh">徽章X30</span><i class="laba"></i><span class="laba">小喇叭X2</span></p>
+							<p><i class="bkl"></i><span>黄恐龙(天使)限时一天</span></p>
+						</div>
+						<img class="color" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_left_on2.png?{$smarty.const.VERSION}" alt="">
+						<img class="nocolor" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_left.png?{$smarty.const.VERSION}" alt="">
+					</li>
+					<li>
+						<div class="prise-word">
+							<h4>100W</h4>
+							<small>人预约</small>
+							<p><i class="huizh"></i><span>徽章X50</span><i class="huaduo"></i><span>花朵X2</span></p>
+							<p><i class="shoubiao"></i><span>手表怪兽(人类)限时一天</span></p>
+						</div>
+						<img class="color" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_right_on2.png?{$smarty.const.VERSION}" alt="">
+						<img class="nocolor" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/gift_right.png?{$smarty.const.VERSION}" alt="">
+					</li>
+				</ul>
+			</div>
+			<img class="code" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/2-qrdoce.png?{$smarty.const.VERSION}" alt="">
+		</div>
+	</div>
+	<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/bottom-left.png?{$smarty.const.VERSION}" alt="" class="bottom-left">
+	<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/zh.png?{$smarty.const.VERSION}" alt="" class="bottom-right">
+</div>
+
+<div class="mask2">
+	<div class="dialog">
+		<img class="yueTitle" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yueTitle2.png?{$smarty.const.VERSION}" alt="">
+		<div class="information">
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/close.png?{$smarty.const.VERSION}" alt="" id="mask2-close" class="close">
+			<div class="input-box">
+				<input type="text" id="phone">
+			</div>
+			<div class="input-box">
+				<input id="img-code" type="text" placeholder="请输入验证码">
+				<img id="img-code-box" />
+			</div>
+			<div class="input-box">
+				<input id="yanCode" type="text" placeholder="请输入验证码">
+				<span id="yanCode-box">获取验证码</span>
+			</div>
+			<img id="mask2-yue" class="yue-button" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yue-button.png?{$smarty.const.VERSION}" alt="">
+			<p class="qq-box">最新消息，请加官方Q群：<span>555200400</span></p>
+			<p class="rule">预约规则：<br/>
+				1.填写正确的手机号码即可参与预约。<br/>
+				2.我们会在正式上线期以短信形式发送通知，请注意查收。
+			</p>
+			<img class="code" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/2-qrdoce.png?{$smarty.const.VERSION}" alt="">
+		</div>
+		<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/bottom-right.png?{$smarty.const.VERSION}" alt="" class="bottom-left">
+		<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/zh.png?{$smarty.const.VERSION}" alt="" class="bottom-right">
+	</div>
+</div>
+

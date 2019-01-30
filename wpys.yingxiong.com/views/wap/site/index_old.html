@@ -1,0 +1,150 @@
+{include '../../layouts/wap/header2.html'}
+<div class="wp_con">
+    <!--<img class="wp_bg" src="./images/lx_wap.png">-->
+    <img class="wp_mask" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wap_mask.png?{$smarty.const.VERSION}">
+    {fragment var=video code=index_video size=1}
+    <img class="wp_play js_video_play" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wap_play.png?{$smarty.const.VERSION}" data-url="{if $video}{$video[0].url}{/if}">
+    <!-- 下载 -->
+    <!-- <a href="javascript:;" class="js_wap_down js_down_wap_btn stat_down"></a> -->
+   <!--   <a href="javascript:;" class="js_down_wap_btn android-down stat_down js_wap_down" target="_blank"></a> -->
+    <!-- 预约 -->
+    <a href="/m/cover.html" class="yy_btn" target="_blank"></a>
+    <div class="swiper-container wp_swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/0.png?{$smarty.const.VERSION}"></div>
+            <!--<div class="swiper-slide"><img src="./images/2.png"></div>
+        <div class="swiper-slide"><img src="./images/3.png"></div>-->
+        </div>
+    </div>
+    <div class="lx_news">
+        <a class="add" href="{myurl name='wap/article/list, id=>450'}"></a>
+        <ul class="news_title">
+            <li class="active" data-index="0">最新</li>
+            <li data-index="1">新闻</li>
+            <li data-index="2">公告</li>
+            <li data-index="3">攻略</li>
+        </ul>
+        <ul class="news_info">
+            <li class="news_main active">
+                <ul>
+                    {article id="450" size=4 var=zx}
+                    {if $zx neq ''}
+                    {foreach $zx as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+            </li>
+            <li class="news_main">
+                <ul>
+                    {article id="451" size=4 var=xw}
+                    {if $xw neq ''}
+                    {foreach $xw as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+            </li>
+            <li class="news_main">
+                <ul>
+                    {article id="452" size=4 var=gg}
+                    {if $gg neq ''}
+                    {foreach $gg as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+            </li>
+            <li class="news_main">
+                <ul>
+                    {article id="453" size=4 var=gl}
+                    {if $gl neq ''}
+                    {foreach $gl as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="swiperBox">
+        <div class="title"></div>
+        <div class="swiper-container wp_swiper_b">
+            <div class="swiper-wrapper">
+                {fragment var=index_banner code=game_play size=20}
+                {if $index_banner neq ''}
+                {foreach $index_banner as $v}
+                <div class="swiper-slide">
+                    <a href="javascript:;">
+                        <img src="{$v.thumb}">
+                        <p>{$v.title}</p>
+                    </a>
+                </div>
+                {/foreach}
+                {/if}
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="wp_txt">
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/bwh.png?{$smarty.const.VERSION}" alt="" class="wp_bwh" />
+        <div class="code">
+            <img src="{$global.wx_img}" alt="" />
+            <p>官方微信公众号</p>
+        </div>
+        <div class="wp_right">
+            <p>详细下载流程，</p>
+            <p>可关注官方微信公众号</p>
+            <p class="wp_p">【王牌御史正版手游】</p>
+            <p>了解噢~</p>
+        </div>
+        <div class="wp_down">
+            <p><span>官方微博</span>
+                <a href="{$global.wb_url}">王牌御史手游</a>
+            </p>
+            <p><span>QQ群</span><em>{$global.group_num}</em>
+                <a href="https://jq.qq.com/?_wv=1027&k=5Plfmqs"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/enter.png?{$smarty.const.VERSION}" alt="" /></a>
+            </p>
+            <p><span>兴趣部落</span>
+                <a href="https://buluo.qq.com/p/barindex.html?bid=392700">王牌御史正版手游部落</a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="tap">
+        <a href="https://www.taptap.com/app/85889" class="tap_btn stat_tap" target="_blank"></a>
+        
+    </div>
+{video_play}{download}
+{include '../../layouts/wap/foot.html'}
+<script>
+    $(".news_title").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+        }
+        var index = parseInt($(this).attr('data-index'));
+        $('.news_title').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news_info').find('li.news_main').removeClass('active');
+        $('.news_info').find('li.news_main').eq(index).addClass('active');
+    });
+</script>

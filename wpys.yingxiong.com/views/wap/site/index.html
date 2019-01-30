@@ -1,0 +1,495 @@
+{include '../../layouts/wap/header.html'}
+    </head>
+    <body class="{if isset($smarty.get.id)}newsBody{/if}">
+        <div class="header stat_page_home">
+            <div class="h_bg"></div>
+            <div class="h_con top">
+                <div class="h_logo"><a href="/m/index.html" style="display:block;"><img src="{$global.logo_img}" alt=""></a></div>
+                <div class="h_name">
+                    <h3>{$global.title}</h3>
+                    <p>{$global.sub_title}</p>
+                </div>
+                <!--<a class="h_order stat_event_down" href="http://downurl.yingxiong.com/url/wpys_gwyy.html "></a>-->
+                <a class="h_order stat_event_down js_wap_down" href="javascript:;"></a>
+                <div class="h_nav">
+                    <span class="d_t_t"></span>
+                    <span class="d_t_m"></span>
+                    <span class="d_t_b"></span>
+                </div>
+                <ul class="top-list">
+                    <li class="{if isset($smarty.get.id)} {else}active{/if} top1"><a href="/m/index">首页</a></li>
+                    <li class="top0"><a href="javascript:;">新闻中心</a></li>
+                    <li class="top2"><a href="javascript:;">御史世界</a></li>
+                    <li class="top3"><a href="javascript:;">御史小队</a></li>
+                    <li class="top4"><a href="javascript:;">捉妖攻略</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wx_tc co_tips hidden"></div>
+        <div class="wp_con">
+            <div class="part1" id="part1">
+                <div class="header2"></div>
+                <div class="share">
+                    <a href="javascript:;" class="weixin"></a>
+                    <a href="{$global.wb_url}" class="weibo" target="_blank"></a>
+                    <img src="{$global.wx_img}" alt="" class="ewm">
+                </div>
+                <div class="no_channel">
+                <!-- <div class="tap">
+                    <a href="https://www.taptap.com/app/85889" class="tap_btn stat_event_tap" target="_blank"></a>
+                </div> -->
+                <div class="xz_btn">
+                    <a href="https://www.taptap.com/app/85549" class="tap stat_event_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tap22.png?{$smarty.const.VERSION}" alt=""></a>
+                    <a href="https://www.3839.com/a/97672.htm" class="hy stat_event_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/hy.png?{$smarty.const.VERSION}" alt=""></a>
+                </div>
+                </div>
+                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_slogan.png?{$smarty.const.VERSION}" alt="" class="slogan">
+                {fragment var=video code=index_video size=1}
+                <a href="javascript:;" class="videobtn js_video_play" data-url="{if $video}{$video[0].url}{/if}"></a>
+                <!--<a href="http://downurl.yingxiong.com/url/wpys_gwyy.html " class="yy_btn stat_event_down"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_peo8.png?{$smarty.const.VERSION}" alt=""></a>-->
+                <a href="javascript:;" class="yy_btn stat_event_down js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_peo8.png?{$smarty.const.VERSION}" alt=""></a>
+
+            </div>
+            <div class="part2" id="part0">
+                <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_tl1.png?{$smarty.const.VERSION}" alt=""></div>
+                <div class="p2_con" >
+                    <a class="add" href="{myurl name='wap/article/list, id=>450'}"></a>
+                    <div class="swiperBox2">
+                        {fragment var=banner code=banner size=20}
+                        <div class="swiper-container wp_swiper_b2">
+                            <div class="swiper-wrapper">
+                                {if $banner neq ''}
+                                {foreach $banner as $v}
+                                <div class="swiper-slide"><a href="{if $v.url}{$v.url}{else}javascript:;{/if}" target="_blank"><img src="{$v.thumb}"></a></div>
+                                {/foreach}
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="swiper-pagination swiper-pagination2"></div>
+                    </div>
+                    <div class="lx_news">
+                        <ul class="news_title">
+                            <li class="active" data-index="0"><a href="javascript:;">最新</a></li>
+                            <li data-index="1"><a href="javascript:;">新闻</a></li>
+                            <li data-index="2"><a href="javascript:;">公告</a></li>
+                            <li data-index="3"><a href="javascript:;">活动</a></li>
+                            <li data-index="4"><a href="javascript:;">玩家作品</a></li>
+                        </ul>
+                        <ul class="news_info">
+                            <li class="news_main active">
+                                <ul>
+                    {article id="450" size=5 var=zx}
+                    {if $zx neq ''}
+                    {foreach $zx as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+                            </li>
+                            <li class="news_main">
+                                <ul>
+                    {article id="451" size=5 var=xw}
+                    {if $xw neq ''}
+                    {foreach $xw as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+                            </li>
+                            <li class="news_main">
+                                <ul>
+                    {article id="452" size=5 var=gg}
+                    {if $gg neq ''}
+                    {foreach $gg as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+                            </li>
+                            <li class="news_main">
+                                <ul>
+                    {article id="453" size=5 var=gl}
+                    {if $gl neq ''}
+                    {foreach $gl as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+                            </li>
+                            <li class="news_main">
+                                <ul>
+                    {article id="1919" size=5 var=wjzp}
+                    {if $wjzp neq ''}
+                    {foreach $wjzp as $key=>$v}
+                    {if $key >= 0}
+                    <li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%m/%d"}</span></a></li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p style="text-align: center">暂无数据</p>
+                    {/if}
+                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="swiperBox">
+                <div class="title" id="part2"></div>
+                <div class="swiper-container wp_swiper_b">
+                    <div class="swiper-wrapper">
+                        {fragment var=index_banner code=game_play size=20}
+                {if $index_banner neq ''}
+                {foreach $index_banner as $v}
+                        <div class="swiper-slide">
+                    <a href="javascript:;">
+                        <img src="{$v.thumb}">
+                        <p>{$v.title}</p>
+                    </a>
+                </div>
+                {/foreach}
+                {/if}
+                    </div>
+
+                    <!-- 如果需要导航按钮 -->
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+            </div>
+            <div class="part3">
+                <div class="title" id="part3"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_tl2.png?{$smarty.const.VERSION}" alt=""></div>
+                <div class="p3_con">
+                    <div class="wj_big">
+                        <div class="wj_content">
+                        {article id="1933" size=100 var=ys_roles}
+                        {article_custom var=ys_roles alias=ys_roles size=100}
+                        <div class="swiper-wrapper">
+                        {if $ys_roles neq ''}
+                        {foreach $ys_roles as $key=>$v}
+                        {if $key >= 0}
+                        <div class="swiper-slide">
+                            <img class="wj_per wj_per1" src="{$v.summary.imgsrc}"/>
+                            <img class="xn_pic" src="{$v.thumb}">
+                            <div class="wj_des">
+                                <p class="role_name">{$v.title}<p>
+                                <a href="javascript:;" class="video_role js_video_play" data-url="{if $v.sub_title}{$v.sub_title}{/if}"></a>
+                                <div class="detail_role">
+                                    <h2>{$v.summary.name}</h2>
+                                    <p class="info1">{$v.summary.info}</p>
+                                    <p>{$v.summary.age}</p>
+                                    <p>{$v.summary.birthday}</p>
+                                    <p>{$v.summary.constellation}</p>
+                                    <p>{$v.summary.high}</p>
+                                    <p>{$v.summary.like}</p>
+                                    <p>{$v.summary.dislike}</p>
+                                </div>
+                                <div class="wj_jn">
+                                    <ul class="wj_jn_ul">
+                                       {foreach key=k item=s from=$v.summary.skill}
+                                            {if $s!=null}
+                                        <li class="{if $k eq aa}active{/if}">
+                                            <img class="b_img" src="{if isset($s.src)}{$s.src}{/if}" alt="" />
+                                            <p>{$s.name}</p>
+                                        </li>
+                                        {/if}
+                                        {/foreach}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <ul class="wj_txt_ul">
+                                {foreach key=k item=s from=$v.summary.skill}
+                                    {if $s!=null}
+                                <li class="{if $k eq aa}active{/if}">
+                                    <p>{$s.desc}</p>
+                                </li>
+                                {/if}
+                                {/foreach}
+                            </ul>
+                        </div>
+                        {/if}
+                        {/foreach}
+                        {/if}
+                        </div>
+                        </div>
+                    <div class="wj_page">
+                        <div class="swiper-pagination swiper-pagination5"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="part4">
+                <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_tl6.png?{$smarty.const.VERSION}" alt=""></div>
+                <div class="p4_con">
+                    <div class="wj_big2">
+                        <div class="wj_content2">
+                          {article id="1951" size=15 var=ssqy_roles}
+                        {article_custom var=ssqy_roles alias=ssqy_roles size=100}
+                        <div class="swiper-wrapper">
+                        {if $ssqy_roles neq ''}
+                        {foreach $ssqy_roles as $key=>$v}
+                        {if $key >= 0}
+                        <div class="swiper-slide">
+                            <img class="wj_per2 wj_per1" src="{$v.summary.imgsrc}"/>
+                            <img class="xn_pic2" src="{$v.thumb}">
+                            <div class="wj_des2">
+                                <p class="role_name">{$v.title}<p>
+                                <a href="javascript:;" class="video_role2" data-url="{$v.sub_title}"></a>
+                                <div class="detail_role">
+                                    <p>{$v.summary.name}</p>
+                                    <p>{$v.summary.subname}</p>
+                                    <p>{$v.summary.painter}</p>
+                                    <p>{$v.summary.word}</p>
+                                    <p>{$v.summary.info}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {/if}
+                        {/foreach}
+                        {/if}
+                        </div>
+                        </div>
+                        <div class="wj_page2">
+                            <div class="swiper-pagination swiper-pagination6"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="title title2" id="part4"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_tl3.png?{$smarty.const.VERSION}" alt=""></div>
+                <a href="http://wpys.wiki.yingxiong.com/" class="zy_gl" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_zh4.png?{$smarty.const.VERSION}" alt=""></a>
+            </div>
+            <div class="part5">
+                <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_tl4.png?{$smarty.const.VERSION}" alt=""></div>
+                <div class="swiperBox3">
+                    {fragment var=index_banner2 code=tr_banner2 size=20}
+                      
+                    <div class="swiper-container wp_swiper_b3">
+                        <div class="swiper-wrapper">
+                              {if $index_banner2 neq ''}
+                              {foreach $index_banner2 as $v}
+                            <div class="swiper-slide"><a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+                                <p>{$v.title}</p></div>
+                            {/foreach}
+                        {/if}
+                        </div>
+                        <!-- 如果需要导航按钮 -->
+                    </div>
+                    <div class="swiper-pagination swiper-pagination3"></div>
+                </div>
+                <div class="con5">
+                    <p><span>热门作品</span><a href="{myurl name='wap/article/list, id=>1919'}" target="_blank" class="more_active"></a></p>
+                    <ul>
+                        {fragment var=index_banner code=tr_zp size=3}
+                    {if $index_banner neq ''}
+                    {foreach $index_banner as $v}
+                        <li>
+                            <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""></a>
+                            <h5>{$v.title}</h5>
+                            <p>{$v.sub_title}</p>
+                        </li>
+                        {/foreach}
+                        {/if}
+                    </ul>
+                </div>
+                <div class="con5_2">
+                    <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_tl5.png?{$smarty.const.VERSION}" alt=""></div>
+                    <ul class="hy_term">
+                        {fragment var=index_banner code=ym_list size=100}
+                        {if $index_banner neq ''}
+                        {foreach $index_banner as $v}
+                        <li class="hidden"><img src="{$v.thumb}" alt=""><p class="p1">{$v.title}</p><p class="p2">{$v.sub_title}</p></li>
+                        {/foreach}
+                        {/if}
+                    </ul>
+                </div>
+                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_peo7.png?{$smarty.const.VERSION}" alt="" class="peo_51">
+                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_peo5.png?{$smarty.const.VERSION}" alt="" class="peo_52">
+                <a href="javascript:;" class="more_term"></a>
+            </div>
+            <div class="part6">
+                <div class="wp_txt">
+                    <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/le_box.png?{$smarty.const.VERSION}" alt="" class="wp_bwh" />
+                    <div class="code">
+                        <img src="{$global.wx_img}" alt="" />
+                        <p>官方微信公众号</p>
+                    </div>
+                    <div class="wp_right">
+                        <p>详细下载流程，</p>
+                        <p>可关注官方微信公众号</p>
+                        <p class="wp_p">【王牌御史正版手游】</p>
+                        <p>了解噢~</p>
+                    </div>
+                    <div class="wp_down">
+                        <p><span>官方微博</span>
+                            <a href="{$global.wb_url}">王牌御史手游</a>
+                        </p>
+                        <p><span>QQ群</span><em>584968086</em>
+                            <a href="{$global.group_url_one}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/enter.png?{$smarty.const.VERSION}" alt="" /></a>
+                        </p>
+                        <p><span>兴趣部落</span>
+                            <a href="https://buluo.qq.com/p/barindex.html?bid=392700">王牌御史正版手游部落</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="order_betro"></div>
+        <!-- <div class="order_b_bg">
+            <img class="order_b_ibg" src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/5.png?{$smarty.const.VERSION}" alt="">
+            <img class="order_b_close" src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/close.png?{$smarty.const.VERSION}" alt="">
+            <div class="order_b_form">
+                <p>预约后我们会在游戏上线第一时间通知您!</p>
+                <div class="order_b_f_input">
+                    <div><input class="order_phone" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"></div>
+                    <div><button><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/6.png?{$smarty.const.VERSION}" alt=""></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="order_b_bg2">
+            <img class="order_b_ibg2" src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/bg_2_2.png?{$smarty.const.VERSION}" alt="">
+            <a href="" class="order_b_close2"></a>
+            <div class="order_b_form2">
+                <div class="order_b_f_input2">
+                    <input class="order_phone2" type="text" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" placeholder="输入手机号码">
+                    <input class="order_email" type="text" placeholder="输入邮箱地址">
+                    <a href="javascript:;" class="email_yy"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/yy_btn2.png?{$smarty.const.VERSION}" alt=""></a>
+                </div>
+                <p><i></i>  预约后我们会在游戏上线第一时间通知您!</br>该邮箱地址，将用于接收测试邀请，请御史 大人正确填写！</p>
+            </div>
+        </div> -->
+        <div class="video">
+            <div class="video_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/c.png?{$smarty.const.VERSION}"></div>
+            <div class="video_box"></div>
+        </div>
+        <div class="mask"></div>
+
+        <div class="tck_yue">
+            <a href="javascript:" class="close"></a>
+            <img class="fl" src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/ewm_gzh.jpg" alt="ewm">
+            <div class="text fr">
+                <p>恭喜预约成功！</p>
+                <p>更多详情尽请关注《王牌御使》手游官方微信公众号！</p>
+                <p>有机会优先获得测试资格哦！</p>
+            </div>
+        </div>
+        <!--<div class="w_footer">-->
+            <!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/f_logo.png?{$smarty.const.VERSION}" alt="" class="f_logo" />-->
+            <!--<div class="f_p1">-->
+                <!--<p>客服中心<span>|</span>游戏社区<span>|</span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tel.png?{$smarty.const.VERSION}" alt="" />010-50948585</p>-->
+            <!--</div>-->
+            <!--<p>版权信息  ©腾讯动漫  ©啊哈娱乐</p>-->
+            <!--<p>COPYRIGHT©2015 – 2017 . ALL RIGHTS RESERVED</p>-->
+            <!--<p>《网络文化经营许可证》[2015]0629-259号</p>-->
+            <!--<p>天津英雄互娱科技有限公司</p>-->
+        <!--</div>-->
+        <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+        <audio src="" id="music1"></audio>
+        <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+        <script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+        <script type="text/javascript" src="http://cdnstatic.yingxiong.com/common/js/statics.js"></script>
+        <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/snowfall.js?{$smarty.const.VERSION}"></script>
+        <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+        <script type="text/javascript">
+            //header部分花瓣飘落效果
+            $(function(){
+                var url1 = window.location.href;
+                var  url_id1=window.location.href.split('?id=')[1];
+                var  url_fgw=window.location.href.split('part/m/')[1];
+//                 $(".header2").snowfall({
+//                image: [
+//                    "{$smarty.const.STATIC_DOMAIN}2.0/m/images/ly2.png?{$smarty.const.VERSION}",
+//                    "{$smarty.const.STATIC_DOMAIN}2.0/m/images/ly4.png?{$smarty.const.VERSION}",
+//                    "{$smarty.const.STATIC_DOMAIN}2.0/m/images/ly5.png?{$smarty.const.VERSION}",
+//                    "{$smarty.const.STATIC_DOMAIN}2.0/m/images/ly6.png?{$smarty.const.VERSION}",
+//                    "{$smarty.const.STATIC_DOMAIN}2.0/m/images/ly7.png?{$smarty.const.VERSION}",
+//                    "{$smarty.const.STATIC_DOMAIN}2.0/m/images/ly8.png?{$smarty.const.VERSION}",
+//                ],
+//                flakeCount:3,
+//                minSize: 90,
+//                maxSize: 90,
+//                minSpeed:1,
+//                maxSpeed:1
+//            });
+                if(url_fgw == "txdm1.html" || url_fgw == "txdm1"){
+                    $(".part1 .tap").hide();
+                }
+                if(url_id1==1){
+                    $(".top-list li").removeClass("active");
+                    $(".top-list li.top1").addClass("active");
+                    $('html,body').animate({
+                        scrollTop: 0
+                    }, 500);
+                }else if(url_id1==2){
+                    $(".top-list li").removeClass("active");
+                    $(".top-list li.top0").addClass("active");
+                    $('html,body').animate({
+                        scrollTop: $('#part0').offset().top-80
+                    }, 500);
+                }else if(url_id1==3){
+                    $(".top-list li").removeClass("active");
+                    $(".top-list li.top2").addClass("active");
+                    $('html,body').animate({
+                        scrollTop: $('#part2').offset().top-80
+                    }, 500);
+                }else if(url_id1==4){
+                    $(".top-list li").removeClass("active");
+                    $(".top-list li.top3").addClass("active");
+                    $('html,body').animate({
+                        scrollTop: $('#part3').offset().top-80
+                    }, 500);
+                }else if(url_id1==5){
+                    $(".top-list li").removeClass("active");
+                    $(".top-list li.top4").addClass("active");
+                    $('html,body').animate({
+                        scrollTop: $('#part4').offset().top-80
+                    }, 500);
+                }
+                $(window).scroll(function(){
+        var $t = $(this).scrollTop();
+        if($t > 80){
+            $(".top-list li").removeClass("active");
+            $(".top-list li.top1").addClass("active");
+        }
+        if($t > 400){
+            $(".top-list li").removeClass("active");
+            $(".top-list li.top0").addClass("active");
+        }
+        if($t > 700){
+            $(".top-list li").removeClass("active");
+            $(".top-list li.top2").addClass("active");
+            $(".float_box").stop().fadeOut();
+        }
+        if($t > 1100){
+            $(".top-list li").removeClass("active");
+            $(".top-list li.top3").addClass("active");
+            $(".float_box").stop().fadeOut();
+        }
+        if($t > 2200){
+            $(".top-list li").removeClass("active");
+            $(".top-list li.top4").addClass("active");
+            $(".float_box").stop().fadeOut();
+        }
+
+    });
+                 
+            });
+            
+        </script>
+        {video_play}{download}
+    </body>
+</html>

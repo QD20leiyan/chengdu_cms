@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{seo name='title'}</title>
+		<meta name="keywords" content="{seo name='keywords'}" />
+		<meta name="description" content="{seo name='description'}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/swiper.3.1.7.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/css/index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/js/jquery-1.7.1.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+		<script>  
+		    var _hmt = _hmt || [];
+		    (function() {
+		      var hm = document.createElement("script");
+		      hm.src = "https://hm.baidu.com/hm.js?c5056f67f2a864dfc774e882633a7871";
+		      var s = document.getElementsByTagName("script")[0]; 
+		      s.parentNode.insertBefore(hm, s);
+		    })();
+		</script>
+		  <script>
+   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+   //push 参数，name：页面名称，behavior 行为 
+   //event 参数，event：事件名称，args 拓展参数 
+   var HLog={ 
+    push: function(name,behavior){},
+    setUser:function(){},
+    event:function(event,args){},
+    ready:function(){}
+    };
+   HLog.config={
+       "senseHash":0, //hash锚点是否进入url统计
+       "senseQuery":0, //url参数是否进入url统计
+       "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+   };
+   (function() {
+      var hl = document.createElement("script");
+      hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/34/client/1/filter/stat.js";
+      hl.async = "async";
+      var s = document.getElementsByTagName("script")[0];
+      HLog.ready = function(){
+        HLog.push('reflash')
+      };
+      s.parentNode.insertBefore(hl, s);
+   })();
+</script>
+	</head>
+	
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="main">
+			<div class="wrap">
+				<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/logo.png?{$smarty.const.VERSION}" alt="" /></div>
+        		<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+        		<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/cd1.png?{$smarty.const.VERSION}" alt="" class="cd1">
+        		<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/cd2.png?{$smarty.const.VERSION}" alt="" class="cd2">
+        		<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/cd3.png?{$smarty.const.VERSION}" alt="" class="cd3">
+				<div class="play js_video_play" data-url="{$video.url}"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/c_play.png?{$smarty.const.VERSION}" alt="" /></div>
+		        <!-- <a href=""  class="y_enger"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/acrive.png?{$smarty.const.VERSION}"></a>  -->
+				<div class="b_list">
+					<div class="download">
+						<a href="javascript:;" target="_blank" class="app js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/app_2.png?{$smarty.const.VERSION}" /></a>
+						<a href="javascript:;" target="_blank" class="and js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/and_2.png?{$smarty.const.VERSION}" /></a>
+						<!--<a href="http://l.taptap.com/ywzEouU6" target="_blank" class="tap stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/tap.png?{$smarty.const.VERSION}" /></a>-->
+						<!-- <a href="http://l.taptap.com/ywzEouU6" target="_blank" class="tap stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/tap.png?{$smarty.const.VERSION}" /></a> -->
+					</div>
+					<div class="code">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/code.png?{$smarty.const.VERSION}" alt="" class="js_jump_img"/>
+					</div>
+					<div class="btn">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/btn_3.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+					<div class="star">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/star.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+					<div class="banner">
+						<ul class="swiper-wrapper">
+							{foreach $banner as $v}
+								<li class="swiper-slide"><a href="{if $v.url}{$v.url}  target='_blank'{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a></li>
+							{/foreach}
+						</ul>
+						<div class="swiper-pagination"></div>
+					</div>
+					<div class="news">
+						<div class="top_title">
+							<ul>
+								<li class="active">新闻</li>
+								<li>公告</li>
+								<li>资讯</li>
+								<li>活动</li>
+							</ul>
+							<a href="{myurl name='/article/index, type=>xinwen ,page=>1'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+						</div>
+						<div class="m_news">
+							<ul class="active">
+								{foreach $xw as $v}
+									<li><a href="{$v.linkUrl}" target="_blank">{$v.title}</a><i>{$v.created_at}</i></li>
+								{/foreach}
+							</ul>
+							<ul class="">
+								{foreach $gg as $v}
+									<li><a href="{$v.linkUrl}" target="_blank">{$v.title}</a><i>{$v.created_at}</i></li>
+								{/foreach}
+							</ul>
+							<ul class="">
+								{foreach $zx as $v}
+									<li><a href="{$v.linkUrl}" target="_blank">{$v.title}</a><i>{$v.created_at}</i></li>
+								{/foreach}
+							</ul>
+							<ul class="">
+								{foreach $hd as $v}
+									<li><a href="{$v.linkUrl}" target="_blank">{$v.title}</a><i>{$v.created_at}</i></li>
+								{/foreach}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ewm-box">
+				<i class="f_close"></i>
+            <div>
+                <img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ewm.png?{$smarty.const.VERSION}" class="js_jump_img" />
+            </div>
+            <h1>扫一扫,下载游戏</h1>
+            <p></p>
+            <label></label>
+				{if !in_array($channel_name,['ppcpc','stpc','jpcpc'])}<!-- 
+				<a href="http://l.taptap.com/ywzEouU6" target="_blank" class="goods"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods_2.png?{$smarty.const.VERSION}"></a> -->
+				<a href="http://l.taptap.com/ywzEouU6" target="_blank" class="goods stat_tap"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods_2.png?{$smarty.const.VERSION}"></a>
+				<a href="http://cdn.yingxiong.com/dou/dou-hykb-P33074A-0830.apk" class="goods stat_hy"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods.png?{$smarty.const.VERSION}"></a>
+				
+				{/if}
+			<label></label>
+            <ul class="cd-gf">
+                <li>
+                    <a href="javascript:">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weixin.png?{$smarty.const.VERSION}">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weixin_active.png?{$smarty.const.VERSION}">
+                        </div>
+                        <p>微信</p>
+                    </a>
+                    <i>
+                        <img src="{$global.wx_img}">
+                    </i>
+                </li>
+                <li>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weibo.png?{$smarty.const.VERSION}">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}4.0/images/weibo_active.png?{$smarty.const.VERSION}">
+                        </div>
+                        <p>微博</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.tb_url}" target="_blank">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}4.0/images/tieba.png?{$smarty.const.VERSION}">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}4.0/images/tieba_active.png?{$smarty.const.VERSION}">
+                        </div>
+                        <p>贴吧</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+		</div>
+		<div class="login">
+			<div class="login_c">
+				<i class="close"></i>
+				<div class="p_put">
+					<input type="tel" placeholder="请输入手机号" class="phone" />
+					<div class="z_code">
+						<input type="text" placeholder="请输入验证码" class="p_code" id="g_code"/>
+						<div class="i_code">{$captcha_img}</div>
+					</div>
+					<div class="z_code">
+						<input type="text" placeholder="请输入验证码" class="p_code" id="i_code"/>
+						<input type="button" value="获取验证码" class="g_code"/>
+					</div>
+					<div class="c_yy"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yy.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yy_h.png?{$smarty.const.VERSION}" alt="" /></div>
+					<p class="login_p">最新消息，请加官方Q群：<a href="javascript:;" target="_blank">555200400</a></p>
+					<ul class="login_ul">
+						<li>预约规则：</li>
+						<li>1.填写正确的手机号码即可参与预约。</li>
+						<li>2.我们会在正式上线期以短信形式发送通知，请注意查收。</li>
+					</ul>
+				</div>
+				<div class="c_ewm">
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/code.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="x_login">
+			<div class="m_login">
+				<i class="close"></i>
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yellow.png?{$smarty.const.VERSION}" alt="" class="yellow"/>
+				<div class="c_ewm">
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/code.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<div class="c_ewm1">
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/anzh.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<!-- <div class="c_ewm2">
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ios.png?{$smarty.const.VERSION}" alt="" />
+				</div> -->
+				<div class="c_yy1">
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/btn1_on.png?{$smarty.const.VERSION}" alt="" />
+					<!-- <img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yy_h.png?{$smarty.const.VERSION}" alt="" /> -->
+					<p>达成指定预约人数，即可领取对应礼包</p>
+				</div>
+				<div class="z_line">
+					<div class="line"></div>
+					<i class="jdt" data-type="{$user_all}"></i>
+					<div class="xianshi">
+						<div class="first">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w_q2.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x_w3.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="yq">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x2.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="b_txt">
+								<p class="num"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/101.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/10_2.png?{$smarty.const.VERSION}" alt="" /></p>
+								<p class="num_txt">人预约</p>
+								<p class="txt"><b class="huizh"></b><span>徽章 X 20 </span>
+								<p class="txt"><b class="laba laba2"></b><span>小喇叭 X 2</span></p>
+							</div>
+						</div>
+						<div class="second">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w_q2.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x_w3.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="yq">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x2.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="b_txt">
+								<p class="num"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/41.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/4_2.png?{$smarty.const.VERSION}" alt="" /></p>
+								<p class="num_txt">人预约</p>
+								<p class="txt"><b class="huizh"></b><span>徽章 X 30</span></p>
+								<p class="txt"><b class="huaduo"></b><span>花朵 X 2</span></p>
+								<p class="txt"><b class="jlb"></b><span>加勒比(恶魔)<br>限时一天</span></p>
+							</div>
+						</div>
+						<div class="third">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w_q2.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x_w3.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="yq">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x2.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="b_txt">
+								<p class="num"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/7.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/71_2.png?{$smarty.const.VERSION}" alt="" /></p>
+								<p class="num_txt">人预约</p>
+								<p class="txt"><b class="huizh"></b><span>徽章 X 30</span></p>
+								<p class="txt"><b class="laba"></b><span>小喇叭 X 2</span></p>
+								<p class="txt"><b class="bkl"></b><span>黄恐龙(天使)<br>限时一天</span></p>
+							</div>
+						</div>
+						<div class="four">
+							<div class="p_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w_q2.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x_w3.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="yq">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/w.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/x2.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<div class="b_txt">
+								<p class="num"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/1.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/11_2.png?{$smarty.const.VERSION}" alt="" /></p>
+								<p class="num_txt">人预约</p>
+								<p class="txt"><b class="huizh"></b><span>徽章 X 50 </span></p>
+								<p class="txt"><b class="huaduo"></b><span>花朵 X 2</span></p>
+								<p class="txt"><b class="shoubiao"></b><span>手表怪兽(人类)<br>限时一天</span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/js/swiper.3.1.7.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var code_url = "{myurl name='commonMethod/get-verify'}";
+		var yy_url="{myurl name='commonMethod/yuyue'}";
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/js/index.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function (){
+			$('.f_close').click(function() {
+				$('body').toggleClass('op');
+				if($('body').hasClass('op')) {
+					$(this).children("img").css("transform","rotate(180deg)");
+				} else {
+					$(this).children("img").css("transform","rotate(0deg)");
+				}
+			});
+		});
+	</script>
+</html>

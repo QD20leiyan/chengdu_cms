@@ -1,0 +1,66 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="n_kv">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+	</div>
+</div>
+<div class="d_body n_body">
+	<div class="top_ul">
+		<div class="tab_ul">
+			<a href="{myurl name='site/index'}" class="d_back">< 返回列表</a>
+			<div class="d_title">
+				<h3>{$content.title}</h3>
+				<p class="d_date">{$content.created_at_formate} 官方录入</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="detail_body">
+	<div class="wrap">
+		<div class="float">
+			<div class="d_float">
+				<div class="c_code">
+					<div class="chengg"></div>
+					<img src="{$global.wx_img}" alt="" />
+				</div>
+				<div class="wx"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/wx.png?{$smarty.const.VERSION}" alt="" />
+					<p>官方二维码</p>
+				</div>
+				<ul class="left_ul">
+					<li>
+						<a href="{$global.wb_url}" target="_blank">
+							<i></i>
+							<p>官方微博</p>
+						</a>
+					</li>
+					<li>
+						<a href="{$global.tb_url}" target="_blank">
+							<i></i>
+							<p>官方贴吧</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" target="_blank">
+							<i></i>
+							<p>官方Q群</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="d_content">
+			{$content.body}
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+</body>
+<script type="text/javascript">
+	$(".r_wx a:nth-child(1)").hover(function (){
+		$(".fl_wx").stop().fadeIn();
+	},function (){
+		$(".fl_wx").stop().fadeOut();
+	});
+</script>
+</html>

@@ -1,0 +1,26 @@
+<div class="nav">
+	<div class="wrap">
+		<img src="{$global.logo_img}" alt="" class="icon" />
+		<div class="n_txt">
+			<p>{$global.title}</p>
+			<p>{$global.sub_title}</p>
+		</div>
+		<ul class="nav_ul">
+			<li class='{if isset($smarty.get.id)} {else}active{/if}'>
+				<a href="/index.html" target="_blank">首 页<b>HOME</b></a>
+			</li>
+			<li class='{if isset($smarty.get.id)}{if $smarty.get.id gte 1904 && $smarty.get.id lte 1907}active{else}{/if}{/if}'>
+				<a href="{myurl name='article/list, id=>1904'}" target="_blank">新闻中心<b>NEWS</b></a>
+			</li>
+			<!--<li>-->
+				<!--<a href="javascript:yx_showTips('敬请期待');" target="_blank">社区论坛<b>FOEUM</b></a>-->
+			<!--</li>-->
+		</ul>
+		<ul class="s_ul">
+			<li></li>
+			<li><a href="{if $global.wb_url&&$global.wb_url != '暂无数据'}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+			<li><a href="{if $global.tb_url&&$global.tb_url != '暂无数据'}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+			<img src="{$global.wx_img}" alt="" class="fl_wx" />
+		</ul>
+	</div>
+</div>

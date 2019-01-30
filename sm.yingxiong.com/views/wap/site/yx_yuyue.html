@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>游戏预约</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		{csrf}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/index.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/common/js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript">
+			(function(win, doc) {
+				if(!win.addEventListener) return;
+				var html = document.documentElement;
+
+				function setFont(cb) {
+					var w = html.clientWidth,
+						h = html.clientHeight;
+					html.style.fontSize = w > h ? w / 1136 * 100 + "px" : w / 640 * 100 + "px";
+					if(cb && typeof(cb) == "function") {
+						cb()
+					}
+				}
+				doc.addEventListener('DOMContentLoaded', setFont, false);
+				win.addEventListener('resize', setFont, false);
+				win.addEventListener('load', setFont, false);
+			})(window, document);
+		</script>
+	</head>
+
+	<body>
+		<section>
+			<div class="login" style="display: block;">
+				<h3>亲爱的小伙伴，请您填写信息进行预约，我们会定期为预约的玩家发放测试邀请邮件</h3>
+				<form action="javascript:;" onsubmit="false">
+					<input class="tel js-phone" type="number" placeholder="输入手机号码">
+					<input class="email js-email" type="email" placeholder="请输入邮箱">
+					<p class="login_p">该邮箱将用于接收测试邀请，请确认信息真实有效</p>
+					<a class="lgyy js-yuyue" href="javascript:;">立即预约</a>
+					<span class="close"></span>
+				</form>
+			</div>
+		</section>
+		<div class="mask" style="display: block;"></div>
+	</body>
+	{download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/js/yuyue.js"></script>
+</html>

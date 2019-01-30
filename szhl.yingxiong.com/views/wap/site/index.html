@@ -1,0 +1,119 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+		{fragment var=video code=index_video size=1}
+		<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}" alt="" /></a>
+		<!-- <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="weibo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wb.png?{$smarty.const.VERSION}" alt="" /></a>
+		<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" class="qzone"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq.png?{$smarty.const.VERSION}" alt="" /></a> -->
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn.png?{$smarty.const.VERSION}" alt="" class="btn c_yuyue" />
+	</div>
+</section>
+<section>
+	<div class="main">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="c_main">
+			<p class="c_txt">被囚禁在游戏世界中的灵魂们，游离在这种虚实之中。面对无尽的未知和恐惧，少年少女们相互慰藉，心怀对自由的向往。他们是被这般庄严的冷漠吞噬，还是成为击破这重冰冷的暖流……</p>
+			<div class="banner">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b_title.png?{$smarty.const.VERSION}" alt="" class="title" />
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/person.png?{$smarty.const.VERSION}" alt="" class="person" />
+				<div class="swiper-container">
+					{fragment var=i_play code=index_banner size=5}
+					<ul class="swiper-wrapper">
+						{if $i_play neq ''}
+	                        {foreach $i_play as $v}
+								<li class="swiper-slide">
+									<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+										<img src="{$v.thumb}" alt="" />
+									</a>
+								</li>
+							{/foreach}
+                        {/if}
+					</ul>
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="last">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="last_main">
+			<div class="chengg"></div>
+			<p>作为一个小型的独立游戏团队，前作《红石遗迹》因为某些原因，止步于半成品阶段。<br />而这次我们重整旗鼓，再次出发。<br />《时之回廊》中将延续红石的核心，剔除冗余设计，重新雕琢玩法。<br />除了地牢模式，《时之回廊》中还将构建更为严谨的动作系统，为扩展PVP对抗模式而准备。<br />希望这次能再次得到各位玩家的认可与支持。</p>
+			<span>——开发团队敬上</span>
+		</div>
+	</div>
+</section>
+<section>
+	<div class="login">
+		<div class="c_login">
+			<i class="close"></i>
+			<div class="chengg"></div>
+			<div class="login_main">
+			    <div class="s_put put_email">
+					<input type="text" placeholder="输入邮箱" class="email" />
+				</div>
+				<div class="s_put">
+					<input type="tel" placeholder="输入手机号码" class="phone" />
+				</div>
+				<div class="s_put">
+					<input type="text" placeholder="请输入图形验证码" class="t_yzm" />
+					<div class="captcha">
+						<img src="" alt="" />
+					</div>
+				</div>
+				<div class="s_put">
+					<input type="number" placeholder="请输入验证码" class="yzm" />
+					<input type="button" value="获取验证码" class="g_code" />
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_btn.png?{$smarty.const.VERSION}" alt="" class="c_btn stat_yy" />
+			</div>
+		</div>
+	</div>
+</section>
+
+		<div class="share_box">
+				<ul>
+					<li>
+						<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq1.png?{$smarty.const.VERSION}" alt="">
+							<p>官方Q群1</p>
+						</a>
+					</li>
+					<li>
+						<a href="{if $global.group_url_two}{$global.group_url_two}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq1.png?{$smarty.const.VERSION}" alt="">
+							<p>官方Q群2</p>
+						</a>
+					</li>
+				</ul>
+				<div class="weixin_box">
+					<img src="{$global.wx_img}" alt="">
+				</div>
+				<ul>
+					<li>
+						<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wb1.png?{$smarty.const.VERSION}" alt="">
+							<p>官方微博</p>
+						</a>
+					</li>
+					<li>
+						<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tb.png?{$smarty.const.VERSION}" alt="">
+							<p>官方贴吧</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript">
+	var y_url = "{myurl name='commonMethod/ajax-yuyue-verify'}";
+	var f_url = "{myurl name='commonMethod/ajax-yuyue'}";
+</script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+
+</html>

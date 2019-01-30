@@ -1,0 +1,88 @@
+{include '../layouts/pc/header.html'}
+    <div class="wrap">
+    {include '../layouts/pc/top.html'}
+		<div class="main">
+		    <a href="/index" class="icon_big"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan"></a>
+		    <div class="boom"></div>
+			<div class="download_board">
+				<div class="ew_code lf">
+					<img src="{$global.wx_img}" alt="" class="">
+					<i>	</i>
+				</div>
+				<ul class="lf">
+					<li><a href="javascript:;" class="andro js_down_andriod stat_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/andriod_03.png?{$smarty.const.VERSION}" alt=""></a></li>
+					<!--<li><a href="javascript:;" class="ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios_03.png?{$smarty.const.VERSION}" alt=""></a></li>-->
+					<li><a href="javascript:;" class="js_down_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios_03.png?{$smarty.const.VERSION}" alt=""></a></li>
+					<li><a href="https://www.taptap.com/app/78174" class="tap stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap_03.png?{$smarty.const.VERSION}" alt=""></a></li>
+				</ul>
+				{fragment var=video code=video size=1}
+				<a href="javascript:;" class=""><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt="" class="play_btn js_video_play"  data-url="{if $video}{$video[0].url}{/if}"></a>
+			</div>
+			<div class="news_ul">
+				{article id="464" size=6 var=zx}
+				{if $zx neq ''}
+				<ul>
+					{foreach $zx as $key=>$v}
+					{if $key >= 0}
+					<li>
+						<a href="{$v.linkUrl}" target="_blank">
+							<span><i>[{$v.name}]</i>【{$v.title}】</span>
+							<span>{$v.created_at|date_format:"%m/%d"}</span>
+						</a>
+					</li>
+					{/if}
+					{/foreach}
+				</ul>
+				{else}
+				<p style="text-align: center;color: #fff;padding-top: 12px;">暂无数据</p>
+				{/if}
+			</div>
+			<div class="d_gallery">
+				<div class="d_banner">
+					{fragment var=index_banner code=banner size=5}
+					<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+						<li class="swiper-slide">
+							<a href="{if $v.url neq ''}{$v.url} {else}javascript:;{/if}" target="_blank"><img src="{$v.thumb}" alt="" /></a>
+						</li>
+						{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-pagination1"></div>
+					<div class="swiper-button-prev1"><i></i></div>
+					<div class="swiper-button-next1"><i></i></div>
+				</div>			
+			</div>
+			<div class="tab_img x_tab">
+    			<div class="light"></div>
+    			<div class="wrap3">
+    			    <div class="tab_pic">
+    			        <ul class="swiper-wrapper">
+    			            <li class="swiper-slide "><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/11.png?{$smarty.const.VERSION}" alt="" /></a></li>
+    			            <li class="swiper-slide "><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/22.png?{$smarty.const.VERSION}" alt="" /></a></li>
+    			            <li class="swiper-slide "><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/33.png?{$smarty.const.VERSION}" alt="" /></a></li>
+    			            <li class="swiper-slide "><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/44.png?{$smarty.const.VERSION}" alt="" /></a></li>
+    			            <li class="swiper-slide "><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/55.png?{$smarty.const.VERSION}" alt="" /></a></li> 
+    			        </ul>
+    			        <div class="swiper-button-next"></div>
+    			    </div>
+    			</div>
+			</div>
+			<div class="tips hidden">
+    			<div class="content">
+        			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/close.png?{$smarty.const.VERSION}" alt="" class="close"/>
+        			<div>
+            			<input type="text" placeholder="请输入您的邮箱地址" class="tel"/>
+        			 	<p class="info">请留下您的常用邮箱，方便给您发送激活邮件</p>
+            			<div class="getcode">
+            				<a href="javascript:;" class="submit"><i></i></a>
+            				<a href="http://wjyx.yingxiong.com/info/2018/0926/5108.html" class="zhinan" target="_blank"><i></i></a>
+            			</div>
+        			</div>
+        		</div>
+    		</div>
+		</div>
+	{video_play}
+	{download}
+{include '../layouts/pc/footer.html'}

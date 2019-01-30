@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/public.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/animate.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/care.css?{$smarty.const.VERSION}" />
+	<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+	<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+</head>
+<body>
+{include file="../../layouts/wap/top.html"}
+	<div class="i_main">
+		<!--top-->
+		<div class="kv">
+			<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_logo.png?{$smarty.const.VERSION}" alt=""/></div>
+			<!--<div class="wrap">-->
+			<div class="gold1"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_gold1.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="gold2"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_gold2.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="img1"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_img1.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="img2 animated rotateInDownLeft"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_img2.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="img3 animated rotateInDownRight"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_img3.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="img4 animated animated1 zoomIn"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_img4.png?{$smarty.const.VERSION}" alt=""/></div>
+			<!--</div>-->
+		</div>
+		<!--介绍-->
+		<div class="info">
+			<div class="wrap">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_tit1.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="txt">
+					<p>一位位革命志士为了保卫祖国和家园，用鲜血和生命换来了今天的岁月静好，国泰民安。如今，抗战英雄和烈士家属几近耄耋之年，却仍然遭受战争遗留下来的身心创伤......</p>
+					<p>关爱抗战老兵，勿忘历史英雄！全球对战TPS海战竞技手游《巅峰战舰》携手龙越慈善基金会共同发起“老兵回家公益计划”，一起致力于老兵公益慈善活动。</p>
+					<p>深圳市龙越慈善基金会于2011年11月11日在深圳市民政局注册成立， 2017 年 1 月 6 日在民政部肯定下，获得深圳市首批慈善组织公开募捐资格。基金会以“抚慰战争创伤，倡导人性关怀”为使命，致力于为战争背景下的个体士兵提供人性关怀，专注于抗战老兵关怀计划、烈士父母关怀等领域，多次得到各级领导的高度肯定。目前基金会服务包括11858位抗战老兵，4000名烈士父母，总善款支出超过 1 亿元。2018年9月获2018中国慈善信用榜TOP30以及其他多项慈善荣誉。</p>
+					<p>即日起，《巅峰战舰》游戏内上线“老兵回家公益礼包”，并将礼包盈利的10%，捐献给龙越慈善基金会，帮助改善抗战老兵及烈士家属的生活条件，让他们安享幸福安康的晚年生活。</p>
+				</div>
+				<div class="title1"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_tit2.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="slider">
+					<div class="swiper-container swiper-container2">
+						<div class="swiper-wrapper">
+							{fragment var=index_banner code=care_banner size=20}
+							{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+							<div class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+								<p>{$v.summary}</p>
+							</div>
+							{/foreach}
+							{/if}
+						</div>
+					</div>
+					<div class="swiper-pagination swiper-pagination2"></div>
+					<div class="swiper-button-prev swiper-button-prev2"></div>
+					<div class="swiper-button-next swiper-button-next2"></div>
+				</div>
+			</div>
+
+		</div>
+		<!--售卖道具-->
+		<div class="sale">
+			<div class="wrap">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_title1.png?{$smarty.const.VERSION}" alt=""/></div>
+				<p class="sub_tit1">《巅峰战舰》&龙越慈善基金合作上线“老兵回家公益礼包” </p>
+				<div class="dj_box">
+					<div class="dj_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_dj1.png?{$smarty.const.VERSION}" alt=""/>
+						<span class="name">爱心公益涂装</span>
+						<p>+0.3公里主火炮射程恒，</p>
+						<p>+400主炮炮弹速度，</p>
+						<p>+0.4公里水上探测范围[-][a6604b]</p>
+						<p>套装属性：+1节最大航速</p>
+					</div>
+					<div class="dj_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_dj2.png?{$smarty.const.VERSION}" alt=""/>
+						<span class="name">爱心公益旗帜</span>
+						<p>+0.3公里鱼雷射程，</p>
+						<p>-0.3秒鱼雷装填时间，</p>
+						<p>+0.4公里水下探测范围[-][a6604b]</p>
+						<p>套装属性：+1节最大航速</p>
+					</div>
+					<div class="dj_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_dj3.png?{$smarty.const.VERSION}" alt=""/>
+						<span class="name">爱心公益贴花</span>
+						<p>+300血量</p>
+						<p>+0.3节最大航速</p>
+						<p>+30加速功率[-][a6604b]</p>
+						<p>套装属性：+1节最大航速</p>
+					</div>
+					<div class="dj_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/ca_dj4.png?{$smarty.const.VERSION}" alt=""/>
+						<span class="name">周边服装</span>
+						<p>凡购买老兵回家</p>
+						<p>公益礼包的玩家，</p>
+						<p>均可获得《巅峰战舰》</p>
+						<p>定制卫衣一件</p>
+					</div>
+				</div>
+				<p class="sub_tit2">备注：礼包盈利的10%将捐赠至龙越慈善基金会，</br>帮助抗战老兵、烈士家属度过一个幸福安康的晚年生活。</p>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+{video_play} {download}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<!--<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/care.js?{$smarty.const.VERSION}"></script>-->
+<script>
+	$(function() {
+		var swiper02 = new Swiper('.swiper-container2', {
+			pagination: '.swiper-pagination2',
+			paginationType : 'fraction',
+			paginationClickable: true,
+			slidesPerView: 1,
+			autoplayDisableOnInteraction : false,
+//			autoplay:3000,
+			loop:true,
+			autoplayDisableOnInteraction: false,
+			prevButton:'.swiper-button-prev2',
+			nextButton:'.swiper-button-next2',
+		});
+	});
+</script>
+<script type="text/javascript">
+	$(".header_tab").click(function() {
+		if($(".h_tab").css("display") == "none") {
+			$(".header_tab span").addClass("active");
+			$(".h_tab").stop().slideDown();
+		} else {
+			$(".header_tab span").removeClass("active");
+			$(".h_tab").stop().slideUp();
+		}
+	});
+	//tap
+	var clicknum = 1;
+	$("header .i_down").click(function() {
+		if(clicknum % 2 !== 0) {
+			$(this).siblings(".nav-content1").slideDown();
+		} else {
+			$(this).siblings(".nav-content1").slideUp();
+		}
+		clicknum++;
+	});
+</script>
+</html>

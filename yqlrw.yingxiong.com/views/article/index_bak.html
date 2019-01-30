@@ -1,0 +1,53 @@
+{include file="../layouts/pc/news_header.html"}
+					<div class="right_news">
+						<div class="top_title">
+							<h3>资讯中心</h3>
+							<p>你的位置：
+								<a href="{myurl name='site/index'}">官网首页</a>-最新资讯</p>
+						</div>
+						<ul class="tab_ul">
+							<li class="{if $id eq 460}active{else} {/if}">
+								<a href="{myurl name='article/list, id=>460'}">最新</a>
+							</li>
+							<li class="{if $id eq 461}active{else} {/if}">
+								<a href="{myurl name='article/list, id=>461'}">新闻</a>
+							</li>
+							<li class="{if $id eq 463}active{else} {/if}">
+								<a href="{myurl name='article/list, id=>463'}">活动</a>
+							</li>
+							<li class="{if $id eq 462}active{else} {/if}">
+								<a href="{myurl name='article/list, id=>462'}">公告</a>
+							</li>
+						</ul>
+						<div class="con_news">
+							{if !empty($data)}
+								<ul class="con_ul">
+									{foreach $data as $v}
+										<li>
+											<a href="{$v.linkUrl}" target="_blank">
+												<i class="{if {$v.category_id}==461}xw{else if {$v.category_id}==463}hd{/if}">{$v.name}</i><span>{$v.title}
+                                                <p>{$v.contentMessage}</p></span><em>{$v.created_at_formate}</em>
+											</a>
+										</li>
+									{/foreach}
+								</ul>
+								{$page}
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{include file="../layouts/pc/footer.html"}
+		<script>
+				var code_url = "{myurl name='commonMethod/ajax-yuyue-verify'}";
+		        var yy_url = "{myurl name='commonMethod/ajax-yuyue'}";
+		        var url = '{myurl name="commonMethod/ajax-get-subscribes"}';
+                var params = {
+                "name":"yqlrw_total",
+                "cms_csrf": $("meta[name='csrf-token']").attr("content")
+            }
+		</script>
+	</body>
+
+</html>

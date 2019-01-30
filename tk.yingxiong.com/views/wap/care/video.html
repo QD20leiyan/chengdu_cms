@@ -1,0 +1,78 @@
+{include '../../layouts/wap/ca_header.html'}
+<div class="i_main">
+	<div class="list">
+		<p class="top_img">
+			<img src="{$smarty.const.STATIC_DOMAIN}care/m/images/ca_logo.png?{$smarty.const.VERSION}" class="logo1">
+		</p>
+		<div class="news_vi_box">
+			<section class="video">
+				<div class="tab_box">
+					<a href="/m/care/index.html" class="go_list go_list1"></a>
+					<p class="qm_title">视频中心</p>
+					<div class="tab_main">
+						<div class="video_infor">
+							<ul data-id="{$id}" class="video-list">
+
+							</ul>
+						</div>
+						<div class="dropload-down">
+							<div class="dropload-noData">上滑加载更多...</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+{include '../../layouts/wap/ca_footer.html'}
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	var page = 1; //页数
+	var id = $(".video-list").attr("data-id");//类型
+	var ajaxUrl = '/commonMethod/ajax-get-list';
+	getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...")
+			getListFu();
+		}
+	}
+	function getListFu(){
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{
+				page:page++,
+				id:id,
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg.length>0){
+//					if(page===1){
+//						$('.news_list').empty();
+//					}
+					var result = '';
+					for(var i = 0; i < data.msg.length; i++) {
+						result += "<li><span class='js_video_play' data-url='"+ data.msg[i].contentMessage+"'><i></i><img src='"+ data.msg[i].thumb+"''></span></li>";
+					}
+					$('.video-list').append(result);
+					videoInit();
+					$(".dropload-noData").html("上滑加载更多<i></i>");
+					isScroll = 1;
+				} else{
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+
+</script>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$global.web_title}</title>
+		<meta name="keywords" content="{$global.web_key}" />
+		<meta name="description" content="{$global.web_desc}" />
+		<link rel="shortcut icon" id="link_href" href="{$global.web_icon}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/colpick.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/css/tc_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_MODULE_DOMAIN}pp/css/news.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_MODULE_DOMAIN}ddd_yy/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+			}
+		</script>
+		<script type="text/javascript">
+			var websiteId = "{$global.website_id}";
+			var FooterConFig = {
+				switch: 1,
+				icp: '',
+				aurl: "javascript:;",
+            	burl: "http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4028c08b4ef125d5014f168559ad49a8.html"
+			}
+		</script>
+	</head>
+
+	<body>
+		{if $global.public_top_js eq 1}
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		{/if}
+		<div class="top" id="bg_top" style="{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{/if}{if $global.nav_background_img neq '暂无数据'}background:url({$global.nav_background_img}) no-repeat center;background-size:100% 100%;{/if}">
+			<div class="wrap">
+				<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+				<div class="header_txt">
+					<p style="{if $global.website_title_style neq '暂无数据'}{$global.website_title_style}{/if}">{if isset($global.website_title)}{$global.website_title}{/if}</p>
+					<p style="{if $global.website_sub_title_style neq '暂无数据'}{$global.website_sub_title_style}{/if}">{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+				</div>
+				{nav var=nav}
+				<ul class="top_ul">
+					{foreach $nav as $key=>$v}
+					<li data-id="{$v.id}" data-href="{$v.target}" class="{if $v.alias eq 'xw'}active{/if}">
+						<a style="{$v.style}" href="{if $v.alias eq 'xw'}{myurl name='article/list, alias=>zonghe'}{else}{$v.url}{/if}" target="{if $v.target eq 1}_blank{else}_self{/if}" style="{if $key eq 0}color:{$global.nav_background_hover_color}{/if}">{$v.name}</a>
+					</li>
+					{/foreach}
+				</ul>
+				<div class="r_wx">
+					<a id="media_weixin" href="javascript:;" style="{if $global.media_wechat_icon neq '暂无数据'}background:url({$global.media_wechat_icon}) no-repeat top;{/if}"></a>
+					<a id="media_sina" {if $global.media_sina_target eq 1}target="_blank" {else}target="_self" {/if} href="{if $global.media_sina_url neq '暂无数据' }{$global.media_sina_url}{/if}" style="{if $global.media_sina_icon neq '暂无数据'}background:url({$global.media_sina_icon}) no-repeat top;{/if}"></a>
+					<a id="media_baidu" {if $global.media_baidu_target eq 1}target="_blank" {else}target="_self" {/if} href="{if $global.media_baidu_url neq '暂无数据'}{$global.media_baidu_url}{/if}" style="{if $global.media_baidu_icon neq '暂无数据'}background:url({$global.media_baidu_icon}) no-repeat top;{/if}"></a>
+				</div>
+				<div class="fl_wx">
+					<img src="{if $global.media_wechat_img neq ''}{$global.media_wechat_img}{/if}" alt="">
+				</div>
+			</div>
+			{if $diy}
+				<div class="pb_tc" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div class="n_kv" style="background:url({if $global.subpagekv_background_img neq '暂无数据'}{$global.subpagekv_background_img}{/if}) no-repeat center;"></div>
+		<div class="d_body n_body">
+			<div class="top_ul">
+				<div class="tab_ul">
+					<a href="{myurl name='article/list, alias=>zonghe'}" class="d_back">< 返回列表</a>
+					<div class="d_title">
+						<h3>{$content.title}</h3>
+						<p class="d_date">{$content.created_at|date_format:"%m/%d"} {$content.sub_title}录入</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="to_top to_top1">
+            <p>关注我们</p>
+            <div class="top_box">
+                <div class="img_code">
+                  <img src="//cdnimg02.yingxiong.com/M00/0D/8E/ChpCl1wEomeESa2dAAAAAK8eaac026.jpg" alt="">
+                  <i></i>
+                </div>
+                <a href="javascript:;"><i></i></a>
+            </div>
+            <label class="q_f_icon show" show=""></label>
+        </div>
+		<div class="detail_body">
+			<div class="wrap">
+				<div class="float">
+					<div class="d_float">
+						<div class="c_code">
+							<div class="chengg"></div>
+							<img src="{if $global.media_wechat_img neq ''}{$global.media_wechat_img}{/if}" alt="" />
+						</div>
+						<div class="wx"><img src="{$smarty.const.STATIC_MODULE_DOMAIN}pp/images/wx.png?1.0.0" alt=""/><p>官方二维码</p></div>
+						<ul class="left_ul">
+							<li>
+								<a href="{if $global.media_sina_url neq '暂无数据' }{$global.media_sina_url}{/if}">
+									<i></i>
+									<p>官方微博</p>
+								</a>
+							</li>
+							<li>
+								<a href="{if $global.media_baidu_url neq '暂无数据'}{$global.media_baidu_url}{/if}">
+									<i></i>
+									<p>官方贴吧</p>
+								</a>
+							</li>
+							<li>
+								<a href="http://pp.yingxiong.com/zh/2018/1204/6036.html">
+									<i></i>
+									<p>官方Q群</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="d_content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+		{if $global.public_button_js eq 1}
+		<script type="text/javascript" src="http://static.dev.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+		{/if}
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			$(".r_wx a:nth-child(1)").hover(function() {
+				$(".fl_wx").stop().fadeIn();
+			}, function() {
+				$(".fl_wx").stop().fadeOut(300);
+			});
+			//点击返回顶部
+			$(".back_top").click(function() {
+				$("html,body").animate({
+					scrollTop: 0
+				}, 500);
+			});
+			$(window).scroll(function() {
+            	var $t = $(this).scrollTop();
+	            if($t > 42) {
+	                $(".top").css({
+	                    top: "0",
+	                    position: 'fixed',
+	                    zIndex: "999999"
+	                });
+	            } else {
+
+	                $(".top").css({
+	                    top: "42px",
+	                    position: 'absolute',
+	                    zIndex: "9"
+	                });
+	            }
+	            var scroll = $(this).scrollTop();
+	            if (scroll < 600) {
+	                $('.to_top2').fadeOut(800);
+	                $('.to_top1').fadeOut(800);
+	            }else{
+	                $('.to_top1').fadeIn(800);
+	                $('.to_top2').fadeIn(800);
+	            }
+	        });
+	        			//返回顶部
+			$(".to_top a").click(function() {
+			    $("html,body").animate({
+			        scrollTop: 0
+			    }, 700);
+			});
+		});
+	</script>
+</html>

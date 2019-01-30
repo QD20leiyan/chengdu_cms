@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />{csrf}
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/news.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:;" class="icon"><img src="{$global.logo_img}" alt="" /></a>
+			<div class="header_txt">
+				<p>{$global.title}</p>
+				<p>{$global.sub_title}</p>
+			</div>
+			<div class="t_yy pub_yy">
+				<canvas class="child"></canvas>
+			</div>
+			<div class="h_nav">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tab.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tab_c.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<ul class="h_ul">
+				<li class="top1">
+					<a href="/m/index.html?first">
+						<p>首页</p>
+						<span>HOME</span>
+					</a>
+				</li>
+				<li class="top0">
+					<a href="/m/index.html?second">
+						<p>重铸</p>
+						<span>RECAST</span>
+					</a>
+				</li>
+				<li class="top2">
+					<a href="/m/index.html?third">
+						<p>世界</p>
+						<span>WORLD</span>
+					</a>
+				</li>
+				<li class="top3">
+					<a href="/m/index.html?four">
+						<p>英雄</p>
+						<span>HERO</span>
+					</a>
+				</li>
+				<li class="top4">
+					<a href="/m/index.html?five">
+						<p>战报</p>
+						<span>WAR NEWS</span>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<section>
+			<div class="big_img">
+				<img src="{$global.wx_img}" alt="" />
+			</div>
+		</section>
+		<!--预约弹窗-->
+		<section>
+			<div class="login">
+				<div class="c_login">
+					<div class="chengg"></div>
+					<i class="close"></i>
+					<ul class="select_ul">
+						<li class="active" data-type="android">
+							<div class="select_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y_h.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<p>Android</p>
+						</li>
+						<li data-type="ios">
+							<div class="select_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y_h.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<p>iOS</p>
+						</li>
+					</ul>
+					<div class="s_put">
+						<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><p>请输入正确的手机号</p></i>
+						<input type="tel" placeholder="请输入手机号" class="phone" />
+					</div>
+					<div class="y_put" style="display: none;">
+						<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><p>请输入正确的图片验证码</p></i>
+						<input type="tel" placeholder="请输入图片验证码" class="t_yzm" />
+						<div class="captcha">
+							<img src="" alt="" />
+						</div>
+					</div>
+					<div class="y_put">
+						<i class="wrong"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wrong.png?{$smarty.const.VERSION}" alt="" /><p>请输入正确的手机验证码</p></i>
+						<input type="tel" placeholder="请输入手机验证码" class="yzm" />
+						<input type="button" value="获取验证码" class="g_code" />
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yy.png?{$smarty.const.VERSION}" alt="" class="tc_yy stat_event_yy_success" />
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="detail_bg">
+				<a href="{myurl name='article/list, id=>2032'}" class="d_back"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/d_back.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</section>
+		<section>
+			<div class="detail_con">
+				<div class="detail_con2"></div>
+				<div class="detail_title">
+					<h3>{$content.title}</h3>
+					<p>{$content.created_at_formate}</p>
+				</div>
+				<div class="detail_body">
+					{$content.body}
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="bottom bottom2">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/back.png?{$smarty.const.VERSION}" alt="" class="back i_back" style="visibility: hidden;"/>-->
+				<ul class="bo_ul">
+					<li class="weixin">
+						<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wx.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<li>
+						<a href="{if $global.wb_url eq '暂无数据'}javascript:yx_showTips('敬请期待');{else}{$global.wb_url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wb.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<li>
+						<a href="{if $global.group_url_one eq '暂无数据'}javascript:yx_showTips('敬请期待');{else}{$global.group_url_one}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<li>
+						<a href="{if $global.tb_url eq '暂无数据'}javascript:yx_showTips('敬请期待');{else}{$global.tb_url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tb.png?{$smarty.const.VERSION}?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	</body>
+	{video_play} {download}
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}1.0/m/";
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/public.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/canvas.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/common/js/statics.js"></script>
+	<script type="text/javascript">
+		var mySwiper = new Swiper(".n_banner", {
+			pagination: ".swiper-pagination",
+		});
+	</script>
+
+</html>

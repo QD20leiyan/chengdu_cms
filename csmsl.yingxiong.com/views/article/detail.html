@@ -1,0 +1,84 @@
+{include file="../layouts/pc/header.html"}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/news.css?{$smarty.const.VERSION}" />
+		<div class="n_banner">
+			{include file="../layouts/pc/header_nav.html"}
+			<div class="z_banner">
+				<ul class="swiper-wrapper">
+					{foreach $top_thumb as $v}
+						<li class="swiper-slide"><a href="{$v.url}" target="_blank"><img src="{$v.thumb}" alt="" /></a></li>
+					{/foreach}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="top_tab1">
+				<div class="wrap">
+					<div class="n_wrap">
+						<div class="detail_title">
+							<a href="{myurl name='article/list, id=>431'}" class="back"><img src="{$smarty.const.STATIC_DOMAIN}images/back.png?{$smarty.const.VERSION}" alt="" /></a>
+							<p class="detail_h">{$content.title}</p>
+							<div class="detail_s">
+								<span class="detail_date">{$content.created_at_formate}</span><span>作者：官方</span>
+								<!-- JiaThis Button BEGIN -->
+								<div class="jiathis_style_24x24">
+									<a class="jiathis_button_qzone"></a>
+									<a class="jiathis_button_tsina"></a>
+									<a class="jiathis_button_tqq"></a>
+									<a class="jiathis_button_weixin"></a>
+									<a class="jiathis_button_renren"></a>
+									<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+									<a class="jiathis_counter_style"></a>
+								</div>
+								<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+								<!-- JiaThis Button END -->
+							</div>
+						</div>
+					</div>
+					<div class="right_con">
+						{include file="../layouts/pc/right.html"}
+					</div>
+				</div>
+			</div>
+			<div class="main_content">
+				<div class="wrap">
+					<div class="n_wrap">
+						<div class="main_con">
+							<div class="chengg"></div>
+							{$content.body}
+							<div class="back_top">返回顶部</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".z_banner",{
+				autoplay: 4000,
+				loop: true,
+				simulateTouch: false,
+				pagination: '.swiper-pagination',
+			});
+			//点击返回顶部
+			$(".back_top").click(function() {
+				$("html,body").animate({
+					scrollTop: 0
+				}, 500);
+			});
+			$(".right_nav a:nth-child(1)").hover(function (){
+			 	$(".t_erweima").stop().fadeIn();
+			 },function (){
+			 	$(".t_erweima").stop().fadeOut(300);
+			 });
+			 $(".last_li").hover(function (){
+				$(".kf_phone").stop().fadeIn();
+			},function (){
+				$(".kf_phone").stop().fadeOut(300);
+			});
+		});
+	</script>
+</html>

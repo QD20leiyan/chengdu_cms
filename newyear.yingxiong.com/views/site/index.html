@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>{csrf}
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/style.css?{$smarty.const.VERSION}">
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/js/setPageRem.js?{$smarty.const.VERSION}"></script>
+    <title>年会活动</title>
+</head>
+<body>
+    <div class="go-container">
+        <!--<img class="top" src="images/bg-top.png">-->
+        <ul>
+            <li class="li1 sign-button"><img class="button" src="{$smarty.const.STATIC_DOMAIN}1.0/images/sign.png?{$smarty.const.VERSION}" alt="">
+                <div class="go">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/go_right.png?{$smarty.const.VERSION}">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/go_right.png?{$smarty.const.VERSION}">
+                </div>
+            </li>
+            <li class="li2"><a href="/site/vote.html"><img class="button" src="{$smarty.const.STATIC_DOMAIN}1.0/images/vote.png?{$smarty.const.VERSION}" alt="">
+                <div class="go">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/go_right.png?{$smarty.const.VERSION}">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/go_right.png?{$smarty.const.VERSION}">
+                </div>
+            </a></li>
+            <li class="li3"><a href="/site/grab.html"><img class="button" src="{$smarty.const.STATIC_DOMAIN}1.0/images/answer.png?{$smarty.const.VERSION}" alt="">
+                <div class="go">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/go_right.png?{$smarty.const.VERSION}">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/go_right.png?{$smarty.const.VERSION}">
+                </div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="mask">
+        <div class="dialog">
+            <span class="close"></span>
+            <p>恭喜你成为第<span id="num"></span>名签到成功的小伙伴，赶快去<span>首座万丽宴会厅签到处</span>领取年会伴手礼吧！</p>
+        </div>
+    </div>
+    <div class="mask2">
+        <div class="dialog" id="error">
+            <h2>服务器繁忙，请稍后重试</h2>
+            <span class="answer-close2"></span>
+        </div>
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
+    <div id="orientLayer_pc" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用手机浏览</div>
+        </div>
+    </div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script>
+    $(function () {
+        //自定义tap
+        $(document).on("touchstart", function(e) {
+            if(!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 0);
+        });
+        $(document).on("touchmove", function(e) {
+            if(!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 1);
+        });
+        $(document).on("touchend", function(e) {
+            if(!$(e.target).hasClass("disable") && $(e.target).data("isMoved") == 0) $(e.target).trigger("tap");
+        });
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+            if(IsPC()){
+                $('#orientLayer_pc').show();
+            }else{
+                $('#orientLayer_pc').hide();
+            }
+        }, false);
+        if(IsPC()){
+            $('#orientLayer_pc').show();
+        }
+        var sta = '{$status}';
+        $('.li1 img.button').animate({
+            marginLeft:'0'
+        },400,function () {
+            $(this).parent().find('div.go').css({
+                opacity:1,
+                right:'0.4rem'
+            })
+        })
+        $('.li2 img.button').animate({
+            marginLeft:'0'
+        },400,function () {
+            $(this).parent().find('div.go').css({
+                opacity:1,
+                right:'0.4rem'
+            })
+        })
+        $('.li3 img.button').animate({
+            marginLeft:'0'
+        },400,function () {
+            $(this).parent().find('div.go').css({
+                opacity:1,
+                right:'0.4rem'
+            })
+        })
+        $('.sign-button').on('tap',function (e) {
+            var tar = $(this);
+            if($('#num').text()){
+                $('.mask').slideDown(500);
+            }else{
+                if(!$(tar).attr('disable')){
+                    $.ajax(
+                        {
+                            url: "/site/ajax-sign.html",
+                            dataType: 'json',
+                            type: 'get',
+                            success: function(data){
+                                $(tar).attr('disable','');
+//                                var data = JSON.parse(data);
+                                if(data.status == 0 || data.status == 1){
+                                    $('#num').text(data.num);
+                                    $('.mask').slideDown(500);
+                                }else{
+                                    $('#error').find('h2').text(data.msg);
+                                    $('.mask2').slideDown(500);
+                                    return;
+                                }
+                            },
+                            error: function (data) {
+                                $(tar).attr('disable','');
+//                                var data = JSON.parse(data);
+                                $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                                $('.mask2').slideDown(500);
+                            }
+                        });
+                }
+                $(tar).attr('disable','disable');
+//                $.get("/site/ajax-sign.html", function(data){
+//                    var data = JSON.parse(data);
+//                    if(data.status == 0 || data.status == 1){
+//                        $('#num').text(data.num);
+//                        $('.mask').slideDown(500);
+//                    }else{
+//                        alert(data.msg);
+//                        return;
+//                    }
+//                })
+            }
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        $('.close').on('tap',function () {
+            $('.mask').slideUp(500);
+        })
+        $('.answer-close2').on('tap',function () {
+            $('.mask2').slideUp(500);
+        })
+    })
+</script>
+</html>

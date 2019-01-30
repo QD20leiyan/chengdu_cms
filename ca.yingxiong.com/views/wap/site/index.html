@@ -1,0 +1,325 @@
+{include '../../layouts/wap/header.html'}
+<header class="nav_header">
+	<ul>
+		<li><a href="{myurl name='wap/site/index'}#" class="active">首页</a></li>
+		<li><a href="{myurl name='wap/site/glzx'}">攻略中心</a></li>
+		<li><a href="{myurl name='wap/site/index'}#athletics">CA竞技</a></li>
+		<li><a href="{myurl name='wap/image/list, id=>350'}">CA档案库</a></li>
+	</ul>
+</header>
+<section class="m_banner">
+	<img class="m_bimg" src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/index.jpg?{$smarty.const.VERSION}" alt="banner"/>
+	<div class="video_box js_video_play" data-url="{$kv_video.url}">
+		<i class="v_ico02"></i>
+	</div>
+	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/logo2.png?{$smarty.const.VERSION}" alt="" class="logo_img">
+	<!--<div class="logo_box">
+		<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/index_logo.png?{$smarty.const.VERSION}" alt="">
+	</div>-->
+</section>
+<section class="in_main in_m1">
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			{foreach key=cid item=v from=$banner}
+			<div class="swiper-slide">
+				<a href="{$v.url}"><img class="images" src="{$v.thumb}" alt=""></a>
+			</div>
+			{/foreach}
+		</div>
+		<div class="swiper-pagination c_style"></div>
+	</div>
+
+</section>
+<section class="news">
+	<div class="tab_box">
+		<p class="qm_title">新闻资讯 <a href="{myurl name='wap/article/list, id=>319'}" class="more"></a></p>
+		<div class="tab_til">
+			<ul>
+				<li class="active"><a href="javascript:">最新</a></li>
+				<li><a href="javascript:">新闻</a></li>
+				<li><a href="javascript:">公告</a></li>
+				<li><a href="javascript:">活动</a></li>
+				<li><a href="javascript:">攻略</a></li>
+			</ul>
+		</div>
+		<div class="tab_main">
+			<div class="news_infor show">
+				<ul>
+					{foreach key=cid item=v from=$zx}
+					<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide">
+				<ul>
+					{foreach key=cid item=v from=$xw}
+					<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide">
+				<ul>
+					{foreach key=cid item=v from=$gg}
+					<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide">
+				<ul>
+					{foreach key=cid item=v from=$hd}
+					<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="news_infor hide">
+				<ul>
+					{foreach key=cid item=v from=$gl}
+					<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="video corlor_bg">
+	<div class="tab_box">
+		<p class="qm_title">视频中心 <a href="{myurl name='wap/video/list, id=>329'}" class="more"></a></p>
+		<div class="tab_til">
+			<ul>
+				<li class="active"><a href="javascript:">最新</a></li>
+				<li><a href="javascript:">官方视频</a></li>
+				<li><a href="javascript:">直播</a></li>
+				<li><a href="javascript:">赛事</a></li>
+				<li><a href="javascript:">武器</a></li>
+				<li><a href="javascript:">新手</a></li>
+				<li><a href="{$qytg.url}" target="_blank">枪友投稿</a></li>
+			</ul>
+		</div>
+		<div class="tab_main">
+			<div class="video_infor show">
+				<ul class="video-list">
+					{foreach key=cid item=v from=$video_zx}
+					<li>
+						  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+							<i></i>
+							<img src="{$v.thumb}">
+						  </span>
+						<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+						<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="video_infor hide">
+				<ul class="video-list">
+					{foreach key=cid item=v from=$video_gf}
+					<li>
+						  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+							<i></i>
+							<img src="{$v.thumb}">
+						  </span>
+						<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+						<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="video_infor hide">
+				<ul class="video-list">
+					{foreach key=cid item=v from=$video_zb}
+					<li>
+						  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+							<i></i>
+							<img src="{$v.thumb}">
+						  </span>
+						<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+						<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="video_infor hide">
+				<ul class="video-list">
+					{foreach key=cid item=v from=$video_ss}
+					<li>
+						  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+							<i></i>
+							<img src="{$v.thumb}">
+						  </span>
+						<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+						<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="video_infor hide">
+				<ul class="video-list">
+					{foreach key=cid item=v from=$video_wq}
+					<li>
+						  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+							<i></i>
+							<img src="{$v.thumb}">
+						  </span>
+						<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+						<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+			<div class="video_infor hide">
+				<ul class="video-list">
+					{foreach key=cid item=v from=$video_xs}
+					<li>
+						  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+							<i></i>
+							<img src="{$v.thumb}">
+						  </span>
+						<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+						<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+					</li>
+					{/foreach}
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="athletics" id="athletics">
+	<div class="tab_box">
+		<p class="qm_title">大神玩家 <a href="#" class="more"></a></p>
+		<a href="javascript:;" class="star"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/star.png?{$smarty.const.VERSION}" alt="" /></a>
+		<!--<div class="tab_til">
+			<ul>
+				<li class="active"><a href="javascript:">职业选手</a></li>
+				<li><a href="javascript:">明星玩家</a></li>
+			</ul>
+		</div>-->
+		<!--<div class="tab_main">
+			<div class="player_infor show">
+				<table class="table">
+					<thead>
+					<tr>
+						<th>头像</th>
+						<th>角色名</th>
+						<th>区服</th>
+						<th>人气值</th>
+					</tr>
+					</thead>
+					<tbody>
+					{foreach key=cid item=v from=$player_xs}
+					<tr>
+						<th class="row row0{$cid+1}"><span data-id="{$v.id}" data-role="{$v.title}" data-qf="{$v.sub_title}" data-rqz="{$v.praise}" data-src="{$v.thumb}"><img src="{$v.thumb}" alt="img"><i></i></span></th>
+						<td class="name">{$v.title}</td>
+						<td class="comp">{$v.sub_title}</td>
+						<td class="num">{$v.praise}</td>
+					</tr>
+					{/foreach}
+					</tbody>
+				</table>
+			</div>
+			<div class="player_infor hide">
+				<table class="table">
+					<thead>
+					<tr>
+						<th>头像</th>
+						<th>角色名</th>
+						<th>区服</th>
+						<th>人气值</th>
+					</tr>
+					</thead>
+					<tbody>
+					{foreach key=cid item=v from=$player_mx}
+					<tr>
+						<th class="row row0{$cid+1}"><span data-id="{$v.id}" data-role="{$v.title}" data-qf="{$v.sub_title}" data-rqz="{$v.praise}" data-src="{$v.thumb}"><img src="{$v.thumb}" alt="img"><i></i></span></th>
+						<td class="name">{$v.title}</td>
+						<td class="comp">{$v.sub_title}</td>
+						<td class="num">{$v.praise}</td>
+					</tr>
+					{/foreach}
+					</tbody>
+				</table>
+			</div>
+		</div>-->
+	</div>
+</section>
+<section class="athletics corlor_bg">
+	<div class="tab_box">
+		<p class="qm_title">往期冠军 <a href="#" class="more"></a></p>
+		<a href="javascript:;" class="pht"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/pht.jpg?{$smarty.const.VERSION}" /></a>
+		<!--<table class="table">
+			<thead>
+			<tr>
+				<th>头像</th>
+				<th>角色名</th>
+				<th>区服</th>
+				<th>人气值</th>
+			</tr>
+			</thead>
+		</table>-->
+		<!--<div class="wrapperout">
+			<div class="wrapperinner">
+				<table class="table">
+					<tbody>
+					{foreach key=cid item=v from=$wqgj}
+					<tr>
+						<th class="row"><span data-qf="{$v.sub_title}" data-role="{$v.title}" data-id="{$v.id}" data-rqz="{$v.praise}" data-src="{$v.thumb}"><img src="{$v.thumb}" alt="img"></span></th>
+						<td class="name">{$v.title}</td>
+						<td class="comp">{$v.sub_title}</td>
+						<td class="num">{$v.praise}</td>
+					</tr>
+					{/foreach}
+					</tbody>
+				</table>
+			</div>
+		</div>-->
+	</div>
+</section>
+<section class="site">
+	<a href="{$role[0].url}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/role_site.png?{$smarty.const.VERSION}" alt="{$role[0].title}"/></a>
+	<a href="{$gun[0].url}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/gun_site.png?{$smarty.const.VERSION}" alt="{$gun[0].title}"/></a>
+</section>
+<!--玩家弹框-->
+<div class="user_tips hidden">
+	<div class="content">
+		<div class="user_head">
+			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/i_icon.png?{$smarty.const.VERSION}" class="src"/>
+		</div>
+		<div class="info">
+			<p><span class="title">角色名</span><span class="sub-info red role">东南天地会</span></p>
+			<p><span class="title">区服</span><span class="sub-info red qf">东南天地会</span></p>
+			<p><span class="title">人气值</span><span class="sub-info rqz">东南天地会</span></p>
+		</div>
+		<div class="praise pbgood">
+			<span><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/user_good.png?{$smarty.const.VERSION}"/>点赞</span>
+		</div>
+		<div class="user_close"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/user_close.png?{$smarty.const.VERSION}" alt=""/></div>
+	</div>
+</div>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script type="text/javascript">
+	var swiper01 = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplayDisableOnInteraction : false,
+		autoplay:2000,
+		loop:true
+	});
+	$(function(){
+		//竞技active显示
+		if(location.hash=="#athletics"){
+			$('.nav_header ul li a').removeClass("active");
+			$('.nav_header ul li:eq(2) a').addClass("active");
+
+		}
+		window.onhashchange=function(){
+			$('.nav_header ul li a').removeClass("active");
+			if(location.hash){
+				$('.nav_header ul li:eq(2) a').addClass("active");
+			}else{
+				$('.nav_header ul li:eq(0) a').addClass("active");
+			}
+		}
+	});
+</script>
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js"></script>
+		{csrf}
+		<script type="text/javascript">
+			(function(win, doc) {
+				if(!win.addEventListener) return;
+				var html = document.documentElement;
+
+				function setFont(cb) {
+					var w = html.clientWidth,
+						h = html.clientHeight;
+					html.style.fontSize = w > h ? w / 1136 * 100 + "px" : w / 640 * 100 + "px";
+					if(cb && typeof(cb) == "function") {
+						cb()
+					}
+				}
+				doc.addEventListener('DOMContentLoaded', setFont, false);
+				win.addEventListener('resize', setFont, false);
+				win.addEventListener('load', setFont, false);
+			})(window, document);
+		</script>
+		<script>
+			//yxhy2017
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?063286b02e5eabecf763ba46a43621e4";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<header class="donload-box">
+			<div class="box-l">
+				<a href="javascript:;"><img src="{$global.logo_img}"></a>
+				<div class="box-l-r">
+					<p>{$global.title}</p>
+					<span>{$global.sub_title}</span>
+				</div>
+			</div>
+			<div class="down-btn order_down">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/download.png?{$smarty.const.VERSION}">
+			</div>
+		</header>
+		<section class="load_tips hidden">
+			<div class="content">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/tipsbg01.png?{$smarty.const.VERSION}" alt="">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/loadtips_close.png?{$smarty.const.VERSION}" alt="" class="loadtips_close">
+				<div>
+					<div class="btn btn-1">
+						<span class="ios"></span>
+						<span class="ad"></span>
+					</div>
+					<div class="load_div  hidden">
+						<p><img src="javascript:;" class="js_jump_img"></p>
+						<!--<h4>预约成功后我们会联系您领取【赤潮全球开服礼包】,更有机会获得精美游戏周边、稀有兵种皮肤等超多奖励!</h4>-->
+					</div>
+					<div class="order_div">
+						<!--<p class="soon">敬请期待!</p>-->
+						<input type="text" placeholder="请输入您的手机号码" class="load_tel">
+						<div class="code">
+							<input type="text" placeholder="请输入验证码" class="codenum">
+							<button class="sendcode">发送验证码</button>
+						</div>
+						<button class="orderbtn">确认提交</button>
+						<h4>预约成功后我们会联系您领取【赤潮全球开服礼包】,更有机会获得精美游戏周边、稀有兵种皮肤等超多奖励!</h4>
+					</div>
+				</div>
+			</div>
+		</section>

@@ -1,0 +1,52 @@
+{include file="../layouts/pc/header.html"}
+        <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/new.css?{$smarty.const.VERSION}" />
+        <div class="n_kv">
+            <div class="wrap">
+            </div>
+        </div>
+        <div class="n_body">
+            <p class="ward_title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/news_tl.png?{$smarty.const.VERSION}" alt=""/></p>
+            <div class="top_ul">
+                <ul class="tab_ul">
+                    <li class="{if $id eq 619}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>619'}">最新</a>
+            </li>
+            <li class="{if $id eq 620}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>620'}">新闻</a>
+            </li>
+            <li class="{if $id eq 621}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>621'}">公告</a>
+            </li>
+            <li class="{if $id eq 622}active{else} {/if}">
+                <a href="{myurl name='article/list, id=>622'}">攻略</a>
+            </li>
+                    <p class="back">当前位置：<a href="{myurl name='site/index'}">官网首页</a> > 新闻资讯</p>
+                </ul>
+            </div>
+            <div class="newslist">
+            {if !empty($data)}
+                <ul>
+                {foreach $data as $v}
+                    <a href="{$v.linkUrl}" target="_blank">
+                        <li>
+                            <div class="newlist_left">
+                                <span class="newlist_time">{$v.created_at|date_format:"%m"}</span>
+                                <span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+                                <span class="newlist_lo"></span>
+                            </div>
+                            <div class="newlist_right">
+                                <span>【{$v.name}】</span><span class="new_tl">{$v.title}</span>
+                            </div>
+                            <a href="{$v.linkUrl}" target="_blank" class="reading"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/reading.png?{$smarty.const.VERSION}" alt=""></a>
+                        </li>
+                    </a>
+                    {/foreach}
+                </ul>
+               {$page}
+                {else}
+                <p style="text-align: center;line-height:50px;">暂无数据</p>
+                {/if}
+            </div>
+        </div>
+        {include file="../layouts/pc/float.html"}
+{include file="../layouts/pc/footer.html"}

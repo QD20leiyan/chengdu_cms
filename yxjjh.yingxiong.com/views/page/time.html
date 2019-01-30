@@ -1,0 +1,42 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="nav_bar">
+			<div class="wrap">
+				<ul>
+					<a href="/p/time.html"><li class="active"><i></i><span>重要事件时间表</span></li></a>
+					<a href="{myurl name='article/list, id=>1975'}"><li><i></i><span>公益资讯</span></li></a>
+					<a href="{myurl name='image/list, id=>1976'}"> <li><i></i><span>公益图集</span></li></a>
+					<a href="{myurl name='video/list, id=>1978'}"> <li><i></i><span>公益视频</span></li></a>
+				</ul>
+			</div>
+		</div>
+		<div class="time_box">
+			<div class="wrap">
+				<h3 class="h3">重要事件时间表</h3>
+				<div class="timezone">
+					{fragment var=index_banner code=time_list size=100}
+					{if $index_banner neq ''}
+					{foreach $index_banner as $v}
+					<div class="time">
+						<h2>{$v.sub_title}</h2>
+						<div>
+							<p>{$v.summary}</p>
+							<img src="{$v.thumb}" alt=""/>
+						</div>
+					</div>
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+
+		</div>
+
+		<!--footer-->
+		{include '../layouts/pc/bottom.html'}
+	</div>
+</div>
+{include '../layouts/pc/footer.html'}

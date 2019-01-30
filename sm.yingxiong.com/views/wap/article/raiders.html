@@ -1,0 +1,61 @@
+{include file="../../layouts/wap/raiderHead.html"}
+{include file="./ajax_get_raiders.html"}
+</body>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery.fittext.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var pageIndex = 1;
+        $('html').fitText(2);
+        var clickNumber = 1;
+        $(".menu").click(function() {
+            if(clickNumber % 2 !== 0) {
+                $(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav_close.png");
+                $(this).siblings(".menu_nav").slideDown();
+            } else {
+                $(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav.png");
+                $(this).siblings(".menu_nav").slideUp();
+            }
+            clickNumber++;
+        });
+        //点击加载更多
+        $("#clickPageMore").click(function(){
+            jz_init();
+            $(".pageMore div").eq(1).show();
+            //发起ajax请求
+            $.ajax({
+                url: '{myurl name="/wap/article/ajax-get-raiders"}',
+                type: "GET",
+                data: {
+                    id: "{$cid}",
+                    page: pageIndex + 1
+                },
+                success: function(data){
+                    jz_init();
+                    var data = JSON.parse(data);
+                    if(data.status == 0){
+                        if(data.msg.length != 0){
+                            $(".pageMore div").eq(0).show();
+                        }else {
+                            $(".pageMore div").eq(2).show();
+                        }
+                    }else {
+                        $(".pageMore div").eq(0).show();
+                        console.log(data);
+                    }
+                },
+                error: function(){
+                    $(".pageMore div").eq(0).show();
+                    alert("网路错误");
+                }
+            });
+        });
+        //初始化加载显示
+        function jz_init(){
+            $(".pageMore div").hide();
+        }
+    })
+</script>
+{click}
+</html>

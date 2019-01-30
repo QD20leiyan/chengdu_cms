@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="shortcut icon" href="{$global.website_icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/common.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/n_index.css?{$smarty.const.VERSION}">
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+				<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m" + window.location.pathname + window.location.search;
+			}
+		</script>
+	</head>
+
+	<body>
+		{fragment var=kv_img code=index_kv_img size=1}
+		<div class="m_body public_kv" style="background:url({if count($kv_img) > 0 && $kv_img neq ''}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{if count($kv_img) > 0 && $kv_img[0].jumpbackend}{$kv_img[0].jumpbackend}{/if}">
+			<div class="czymf_one">
+				<div class="wrap">
+					{fragment var=video code=index_video size=1}
+					<div class="czymf_play {if $video}js_video_play{else}{/if} public_video" data-url="{if $video}{$video[0].url}{/if}" data-video="{$video[0].jumpbackend}"><img src="{if $video}{$video[0].thumb}{/if}"></div>
+				</div>
+			</div>
+			<div class="czymf_two">
+				<div class="czymf_bottom">
+					<div id="slideBox" class="slideBox">
+						<div class="bd">
+							{fragment var=ts_img code=banner_ts size=5}
+							<ul class="public_ts" data-ts="{$ts_img[0].jumpbackend}">
+								{if $ts_img neq ''}
+								    {foreach $ts_img as $v}
+										<li>
+											<a href="{if isset($v.url)}{$v.url}{/if}"><img src="{$v.thumb}" /></a>
+										</li>
+									{/foreach}
+					    		{/if}
+							</ul>
+						</div>
+						<!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+						<a class="prev" href="javascript:void(0)"></a>
+						<a class="next" href="javascript:void(0)"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="public_rule" style="z-index:99999999;">
+			{if $diy}
+			{include file="../../layouts/public.html"}
+			<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{else}
+			<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+			{/if}
+		</div>
+		{video_play}
+		<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery.SuperSlide.2.1.1.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript">
+			jQuery(".slideBox").slide({
+				mainCell: ".bd ul",
+				autoPlay: true,
+				effect: "left",
+			});
+		</script>
+	</body>
+
+</html>

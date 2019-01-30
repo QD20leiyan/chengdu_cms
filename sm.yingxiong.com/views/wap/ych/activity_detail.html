@@ -1,0 +1,69 @@
+{include '../../layouts/wap/ych_header.html'}
+<div class="i_main">
+	<!--top-part-->
+	<div class="top_nav">
+		<a href="/m/ych/activity.html"></a>
+		<span>{$title}</span>
+	</div>
+	<div class="detail_bord">
+		<div class="detail_box">
+			<span class="label hidden" {if isset($px_end_time)}data-pxtime="{$px_end_time}"{/if} {if isset($tg_started_time)}data-tgtime="{$tg_started_time}"{/if} ></span>
+			<h3>{$title}</h3>
+			<p class="detail_content">
+				{$sub_title}
+			</p>
+			<div class="times">
+				{if isset($tg_started_time)&&isset($tg_end_time)}<p>投稿：{$tg_started_time}-{$tg_end_time}</p>{/if}
+				{if isset($px_started_time)&&isset($px_end_time)}<p>评选：{$px_started_time}-{$px_end_time}</p>{/if}
+			</div>
+			<div class="pic">
+				<img src="{$thumb}" alt=""/>
+			</div>
+		</div>
+		<ul class="list_btn">
+			<li class="active"><img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/desc.png?{$smarty.const.VERSION}" alt=""/></li>
+			<li><img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/gift.png?{$smarty.const.VERSION}" alt=""/></li>
+			<li><img src="{$smarty.const.STATIC_DOMAIN}rape_community/m/images/list.png?{$smarty.const.VERSION}" alt=""/></li>
+		</ul>
+		<div class="dashed_box">
+			<div class="dashed_info">{if isset($desc)}{$desc}{/if}</div>
+			<div class="dashed_info hidden">{if isset($prize)}{$prize}{/if}</div>
+			<div class="dashed_info hidden">{if isset($user)}{$user}{/if}</div>
+		</div>
+	</div>
+</div>
+</body>
+{include '../../layouts/wap/ych_footer.html'}
+<script type="text/javascript">
+	var timeUrl = '/ych/get-server-time.html';
+	 getListFu();
+
+	function getListFu(){
+		$.ajax({
+			type:"get",
+			url:timeUrl,
+			data:{},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg){
+					var time=new Date(data.msg*1000);
+					var dom=$(".detail_box .label");
+					var pxtime=new Date(dom.data("pxtime")+" 23:59:59")
+					var tgtime=new Date(dom.data("tgtime")+" 00:00:00");
+					if(tgtime<=time&&time<=pxtime){
+						dom.removeClass("hidden");
+						dom.removeClass("label1").addClass("label");
+						dom.text("活动中");
+					}else if(time&&time>pxtime){
+						dom.removeClass("hidden");
+						dom.removeClass("label").addClass("label1");
+						dom.text("已结束");
+					}
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+</script>

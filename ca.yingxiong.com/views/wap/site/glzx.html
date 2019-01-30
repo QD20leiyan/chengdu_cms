@@ -1,0 +1,174 @@
+{include '../../layouts/wap/header.html'}
+<header class="nav_header">
+	<ul>
+		<li><a href="{myurl name='wap/site/index'}#">首页</a></li>
+		<li><a href="{myurl name='wap/site/glzx'}" class="active">攻略中心</a></li>
+		<li><a href="{myurl name='wap/site/index'}#athletics">CA竞技</a></li>
+		<li><a href="{myurl name='wap/image/list, id=>350'}">CA档案库</a></li>
+	</ul>
+</header>
+<section class="strategy">
+	<section class="in_main in_m1">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				{foreach key=cid item=v from=$banner}
+				<div class="swiper-slide">
+					<a href="{$v.url}"><img class="images" src="{$v.thumb}" alt=""></a>
+				</div>
+				{/foreach}
+			</div>
+			<div class="swiper-pagination c_style"></div>
+		</div>
+
+	</section>
+	<section class="news">
+		<div class="tab_box">
+			<p class="qm_title">新闻资讯 <a href="{myurl name='wap/article/list, id=>324'}" class="more"></a></p>
+			<div class="tab_til">
+				<ul>
+					<li class="active"><a href="javascript:">最新</a></li>
+					<li><a href="javascript:">武器</a></li>
+					<li><a href="javascript:">PVP</a></li>
+					<li><a href="javascript:">PVE</a></li>
+					<li><a href="javascript:">新手</a></li>
+				</ul>
+			</div>
+			<div class="tab_main">
+				<div class="news_infor show">
+					<ul>
+						{foreach key=cid item=v from=$gl_zx}
+						<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="news_infor hide">
+					<ul>
+						{foreach key=cid item=v from=$gl_wq}
+						<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="news_infor hide">
+					<ul>
+						{foreach key=cid item=v from=$gl_pvp}
+						<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="news_infor hide">
+					<ul>
+						{foreach key=cid item=v from=$gl_pve}
+						<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="news_infor hide">
+					<ul>
+						{foreach key=cid item=v from=$gl_xs}
+						<li><a href="{$v.wapLinkUrl}"><i>[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="video corlor_bg">
+		<div class="tab_box">
+			<p class="qm_title">视频中心 <a href="{myurl name='wap/video/list, id=>335'}" class="more"></a></p>
+			<div class="tab_til">
+				<ul>
+					<li class="active"><a href="javascript:">最新</a></li>
+					<li><a href="javascript:">武器</a></li>
+					<li><a href="javascript:">PVP</a></li>
+					<li><a href="javascript:">PVE</a></li>
+					<li><a href="javascript:">新手</a></li>
+				</ul>
+			</div>
+			<div class="tab_main">
+				<div class="video_infor show">
+					<ul class="video-list">
+						{foreach key=cid item=v from=$video_gl_zx}
+						<li>
+							  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+								<i></i>
+								<img src="{$v.thumb}" alt="">
+							  </span>
+							<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+							<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="video_infor hide">
+					<ul class="video-list">
+						{foreach key=cid item=v from=$video_gl_wq}
+						<li>
+							  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+								<i></i>
+								<img src="{$v.thumb}" alt="">
+							  </span>
+							<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+							<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="video_infor hide">
+					<ul class="video-list">
+						{foreach key=cid item=v from=$video_gl_pvp}
+						<li>
+							  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+								<i></i>
+								<img src="{$v.thumb}" alt="">
+							  </span>
+							<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+							<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="video_infor hide">
+					<ul class="video-list">
+						{foreach key=cid item=v from=$video_gl_pve}
+						<li>
+							  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+								<i></i>
+								<img src="{$v.thumb}" alt="">
+							  </span>
+							<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+							<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+				<div class="video_infor hide">
+					<ul class="video-list">
+						{foreach key=cid item=v from=$video_gl_xs}
+						<li>
+							  <span class="js_video_play" data-url="{$v.content_message}" data-id="{$v.id}">
+								<i></i>
+								<img src="{$v.thumb}" alt="">
+							  </span>
+							<p class="summary"><a href="{$v.wapLinkUrl}">{$v.title}</a></p>
+							<p><span class="vi_num">{$v.view_count}</span><span class="vi_date">{$v.created_at|date_format:"%m/%d"}发布</span></p>
+						</li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</section>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script type="text/javascript">
+	var swiper01 = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		slidesPerView: 1,
+		paginationClickable: true,
+		autoplayDisableOnInteraction : false,
+		autoplay:2000,
+		loop:true
+	});
+</script>
+

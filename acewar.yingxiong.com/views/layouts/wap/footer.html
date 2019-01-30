@@ -1,0 +1,121 @@
+<section>
+	<!-- <div class="bottom_down">
+		<div class="chengg"></div>
+		<a href="javascript:;" class="js_wap_down public_down stat_down">立即下载</a>
+	</div> -->
+	<div class="bottom_down yy_btn">
+		<div class="chengg"></div>
+		<a href="javascript:;">立即预约</a>
+	</div>
+	<div class="bottom_media">
+		<div class="chengg"></div>
+		<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="" class="code" />
+		<p class="bottom_p">关注战争公约官方微信</p>
+		<p class="bottom_p1">请搜索微信公众号<span>战争公约</span></p>
+		<p class="bottom_p2">获取更多福利</p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/back.png?{$smarty.const.VERSION}" alt="" class="back" />
+	</div>
+</section>
+<!--预约弹框-->
+    <div class="gg_box yy_box hidden">
+        <div class="wrap">
+            <div>
+                <p class="close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/close_btn.png?{$smarty.const.VERSION}" alt=""/></p>
+                <div class="co_tips co_tips_yy hidden">
+                    <div class="co_con">
+                        <p class="co_tips_title"><i></i>精装部队·抢先登陆<i></i></p>
+                        <div class="co_form">
+                            <div class="co_rdo">
+                                <span class="rdo on " data-id="android">
+                                     <i></i>
+                                    <b>Android</b>
+                                </span>
+                                <span class="rdo" data-id="ios">
+                                    <i></i>
+                                    <b>ios</b>
+                                </span>
+                            </div>
+                            <h2>· 输入手机号领取预约码 :</h2>
+                            <div class="co_input">
+                                <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))|| arguments.callee.caller.arguments[0]" class="co_username" placeholder="请输入手机号码">
+                            </div>
+                            <div class="co_input tupian">
+                                <input type="text" class="captcha" placeholder="请输入图形验证码">
+                                <span class="co_captcha"><img src="" alt=""></span>
+                                <p class="co_imgtxt">点击刷新</p>
+                            </div>
+                            <div class="co_input">
+                                <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))|| arguments.callee.caller.arguments[0]" class="co_codenum1" placeholder="请输入手机验证码"><span class="co_codebtn co_codebtn1">获取验证码</span>
+                            </div>
+                        </div>
+                        <p class="co_tips_btn co_tips_yybtn stat_yy"></p>
+                    </div>
+                </div> 
+                <div class="co_tips co_tips_success hidden">
+                    <div class="co_con">
+                        <div class="co_form">
+                            <div class="ts">你已预约成功</div>
+                            <p class="yy_if">您的礼包码是：</p>
+                            <div class="yy_txt" id="tc10_copyBtnz2"><span></span></div>
+                            <p class="copy" id="copyCode" data-clipboard-action="copy" data-clipboard-target="#tc10_copyBtnz2"></p>
+                            <div class="yy_new">                               <p>礼包使用时间：<span>本次首测期间</span> </p>
+                               <p>礼包兑换方式：<span>在主界面点击左上角人物头像，在指挥官信息页面点击左下角的礼盒图标。输入兑换码后，礼包内容会发送至邮箱</span></p>
+                            </div>
+                            <div class="ewm_box">
+                            	<img src="{if isset($global.wx_img)}{$global.wx_img}{/if}" alt="">
+                            	<p>关注微信了解更多详情</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<section class="ios_tc">
+	<div class="ios_tc_c">
+		<i class="close"></i>
+	</div>
+</section>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+</body>
+{download}
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function (){
+		// var u = navigator.userAgent;
+		// var app = navigator.appVersion;
+		// var type = 0;
+		// var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+		// var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+		// if(isAndroid) {
+		// 	type = 0;
+		// }
+		// if(isIOS) {
+		// 	type = 1;
+		// 	$(".public_down").attr("href", "javascript:;");
+		// 	console.log(1);
+		// }
+		// $(".public_down").click(function() {
+		// 	if(type == 1) {
+		// 		$(this).attr("href","javascript:;")
+		// 		$(".ios_tc").show();
+		// 	}
+		// });
+		$(".back").click(function() {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 500);
+		});
+		$(".close").click(function() {
+			$(".ios_tc").hide();
+		})
+		new Clipboard('.copy');
+		$(".copy").click(function() {
+	        alert("已复制");
+        });
+	});
+</script>

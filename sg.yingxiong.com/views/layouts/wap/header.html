@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{$seo_title}</title>
+        <meta name="keywords" content="{$seo_key}" />
+        <meta name="description" content="{$seo_desc}" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        {csrf}
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if(!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+
+                recalc();
+                //判断是否支持监听事件 ，不支持则停止
+                if(!doc.addEventListener) return;
+                //注册翻转事件
+                win.addEventListener(resizeEvt, recalc, false);
+
+            })(document, window);
+        </script>
+        <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+        <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/style.css?{$smarty.const.VERSION}">
+    </head>
+    <body>
+        <!--header-->
+        <header class="header">
+            <a href="{myurl name='wap/site/index'}" class="logo">
+                <img src="{$global.logo_img}" alt="">
+            </a>
+            <div class="h_text">
+                <p class="h_p01">{$global.title}</p>
+                <p class="h_p02">{$global.sub_title}</p>
+            </div>
+            <div class="header_tab">
+		        <span class="f_span"></span>
+		        <span class="s_span"></span>
+		        <span class="t_span"></span>
+		    </div>
+            <ul class="h_tab">
+		        <li><a href="{myurl name='wap/site/index'}">首页</a></li>
+		        <li><a href="{myurl name='wap/list, id=>571'}">新闻中心</a></li>
+		        <li><a href="{myurl name='wap/list, id=>576'}">攻略中心</a></li>
+		        <li><a href="{myurl name='/wap/video/index, id=>577'}">视频中心</a></li>
+		        <!--<li><a href="/special/match_m">英雄殿堂</a></li>-->
+		        <!--<li><a href="javascript:yx_showTips('敬请期待');">官方客服</a></li>-->
+		        <li><a href="http://bbs.yingxiong.com/t/pc/39">官方社区</a></li>
+		    </ul>
+        </header>

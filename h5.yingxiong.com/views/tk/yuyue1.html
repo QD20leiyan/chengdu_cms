@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>巅峰坦克：装甲战歌</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zjzg/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zjzg/css/index.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}zjzg/js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script>
+			//push 手动上报方法，event 事件触发方法 ，ready js加载完成回调
+			//push 参数，name：页面名称，behavior 行为
+			//event 参数，event：事件名称，args 拓展参数
+			var HLog = {
+				push: function(name, behavior) {},
+				setUser: function() {},
+				event: function(event, args) {},
+				ready: function() {}
+			};
+			HLog.config = {
+				"senseHash": 0, //hash锚点是否进入url统计
+				"senseQuery": 0, //url参数是否进入url统计
+				"ignoreParams": [] //开启url参数上报时，可忽略部分参数拼接上报；
+			};
+			(function() {
+				var hl = document.createElement("script");
+				hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/42/client/1/filter/stat.js";
+				hl.async = "async";
+				var s = document.getElementsByTagName("script")[0];
+				HLog.ready = function() {
+					HLog.push('reflash')
+				};
+				s.parentNode.insertBefore(hl, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<div class="header" data-id="{$id}" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}" style="display: none;">
+			<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+    <div class="h5_data" style="display: none;">{$h5data}</div>
+				<a href="javascript:;" class="icon"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/images/icon.png" alt="" /></a>
+				<div class="header_txt">
+					<p>巅峰坦克：装甲战歌</p>
+					<p>巅峰级立体战争手游</p>
+				</div>
+			</div>
+		</header>
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}zjzg/images/btn.png" alt="" class="btn" />
+			</div>
+		</section>
+		<!--弹窗-->
+		<section>
+			<div class="login">
+				<div class="c_login">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="login_body">
+						<p class="login_title">预约后我们会在游戏上线第一时间通知您！</p>
+						<div class="s_put">
+							<input type="tel" placeholder="输入手机号码" id="phone" />
+							<span id="yuyue"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script>
+	    h5_data=$(".h5_data").html();
+		$(".btn").click(function() {
+			$(".login").show();
+		});
+		$(".close").click(function() {
+			$(".login").hide();
+			$("#phone").val("");
+		});
+		$("#yuyue").click(function() {
+			var phone = $("#phone").val();
+			if(phone == "" || phone == undefined) {
+				alert("请输入手机号码");
+				return;
+			}
+			if(phone.length != 11) {
+				alert("请输入11位手机号");
+				return;
+			}
+			$.post("/tk/yuyue/index.html?h5data="+h5_data, {
+				"phone": phone,
+				"scene": 2,
+			}, function(data) {
+				if(data.status == 0) {
+					alert("预约成功");
+					$(".login").hide();
+					$("#phone").val("");
+				} else {
+					alert(data.msg);
+				}
+			}, "json");
+		});
+	</script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			// 分享接口
+			var share_icon = $(".header").attr("data-icon");
+			var share_title = $(".header").attr("data-title");
+			var share_desc = $(".header").attr("data-desc");
+			var share = {
+				imgUrl: "http:" + share_icon,
+				shareTitle: share_title,
+				descContent: share_desc,
+				lineLink: 'http://h5.yingxiong.com/index/tk/yuyue.html'
+			};
+			wx.config({
+				debug: false,
+				appId: wx_conf.appId,
+				timestamp: wx_conf.timestamp,
+				nonceStr: wx_conf.nonceStr,
+				signature: wx_conf.signature,
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'chooseImage',
+					'previewImage',
+					'uploadImage',
+					'downloadImage'
+				]
+			});
+			wx.ready(function() {
+				wx.onMenuShareAppMessage({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					}
+				});
+				wx.onMenuShareTimeline({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					}
+				});
+
+				wx.onMenuShareQQ({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+			});
+		});
+	</script>
+
+</html>

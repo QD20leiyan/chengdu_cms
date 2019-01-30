@@ -1,0 +1,86 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/list.css?{$smarty.const.VERSION}" />
+<div class="nav public_nav" style="background:url({$global.nav_background_img}) no-repeat center;" data-right="{jumpbackend name='nav_background_img'}">
+	<div class="wrap">
+		<img src="{$global.website_logo_img}" alt="" class="icon" />
+		<div class="n_txt">
+			<p>{$global.website_title}</p>
+			<p>{$global.website_sub_title}</p>
+		</div>
+		<ul class="nav_ul public_ul" data-color="{$global.nav_font_color}" data-hover="{$global.nav_font_hover_color}" data-bg="{$global.nav_background_color}" data-img="{$global.nav_background_img}">
+			<li class='{if $alias eq ' '}active {/if}'>
+				<a href="{myurl name='site/index'}" target="_blank">首页</a>
+			</li>
+			<li class='{if $alias}active {/if}'>
+				<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank">新闻中心</a>
+			</li>
+			<li>
+				<a href="javascript:yx_showTips('敬请期待');" target="_blank">社区论坛</a>
+			</li>
+		</ul>
+		<ul class="s_ul">
+			<li><img src="{$global.nav_wechat_icon}" alt="" /></li>
+			<li>
+				<a href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.nav_wb_icon}" alt="" /></a>
+			</li>
+			<li>
+				<a href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$global.nav_baidu_icon}" alt="" /></a>
+			</li>
+			<div class="fl_wx"><img src="{$global.nav_wechat_ewm}" alt="" /></div>
+		</ul>
+	</div>
+</div>
+{fragment var=kv_img code=index_kv_img size=1}
+<div class="n_kv public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}"></div>
+<div class="d_body n_body">
+	<div class="top_ul">
+		<div class="tab_ul">
+			<a href="{myurl name='article/list, alias=>zonghe'}" class="d_back">< 返回列表</a>
+			<div class="d_title">
+				<h3>{$content.title}</h3>
+				<p class="d_date">发布时间：{$content.created_at_formate}&nbsp;&nbsp;&nbsp;作者：官方</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="detail_body">
+	<div class="wrap">
+		<div class="d_content">
+			{$content.body}
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var fontColor = $(".public_ul").attr("data-color");
+		var hoverColor = $(".public_ul").attr("data-hover");
+		var bgColor = $(".public_ul").attr("data-bg");
+	$(".public_ul li a").css("color", fontColor);
+		$(".public_ul li a").hover(function() {
+			$(this).css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		}, function() {
+			$(this).css({
+				"color": fontColor,
+				"border-bottom-color": "transparent",
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+			$(".public_ul li:nth-child(2) a").css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		});
+		$(".public_ul li:nth-child(2) a").css({
+			"color": hoverColor,
+			"border-bottom-color": hoverColor,
+			"border-bottom-width": "3px",
+			"border-bottom-style": "solid"
+		});
+</script>
+{include file="../layouts/pc/footer.html"}

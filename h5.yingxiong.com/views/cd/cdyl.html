@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>苍天英雄传</title><{csrf}>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+</head>
+<body>
+<div class="top">
+    <div class="topLogo"></div>
+    <div class="topWord">
+        <h5>苍天英雄传</h5>
+        <p>三国玄技无双手游</p>
+    </div>
+</div>
+
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script>
+    $(function(){
+        // initForm();
+        var share = {
+            imgUrl      : 'http://cdnstatic.yingxiong.com/cddzz/h5/huiyuan/images/share_icon.png',
+            shareTitle  :'《吃豆大作战》携手汇源送你iPhoneX！',
+            descContent : '汇聚吃豆源力，赢取iPhoneX！《吃豆大作战》携手汇源送你200万大奖，还有iPhoneX等你拿！',
+            lineLink    : 'http://game.yingxiong.com/h5/cd/draw.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.get('http://game.yingxiong.com/h5/cd/ajax-draw-share.html', {}, function(){
+
+                    });
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+                    $.get('http://game.yingxiong.com/h5/cd/ajax-draw-share.html', {}, function(){
+
+                    });
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    });
+</script>
+
+
+</html>

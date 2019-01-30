@@ -1,0 +1,117 @@
+{include '../../layouts/wap/header.html'}
+		<div class="cont1 fade">
+			<div class="slogan">
+				<div class="boom"></div>
+			</div>
+			{fragment var=video code=video size=1}
+			<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"></div>
+			<div class="download">
+			<a class="down_gf js_wap_down stat_down" href="javascript:;"></a>
+			<a class="tap stat_tap" href="https://www.taptap.com/app/78174" target="_blank"></a>
+			</div>
+			<!-- <div class="dragon"></div> -->
+			
+		</div>
+		<div class="cont2 fade">
+			<div class="swiper1">
+				{fragment var=index_banner code=banner size=5}
+				<div class="swiper-wrapper">
+					{if $index_banner neq ''}
+					{foreach $index_banner as $v}
+					<div class="swiper-slide">
+						<a href="{if $v.url neq ''}{$v.url} {else}javascript:;{/if}">
+							<img src="{$v.thumb}">
+						</a>
+					</div>
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+			<div class="news">
+				<ul class="news-list">
+					<li class="active" data-index="0">最新</li>
+					<li data-index="1">新闻</li>
+					<li data-index="2">公告</li>
+					<a href="{myurl name='wap/article/index, id=>464'}"></a>
+				</ul>
+				<ul class="news-info">
+					<li class="info active">
+						{article id="464" size=6 var=zx}
+						{if $zx neq ''}
+						<ul class="news-info-list">
+							{foreach $zx as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="465" size=6 var=xw}
+						{if $xw neq ''}
+						<ul class="news-info-list">
+							{foreach $xw as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="466" size=6 var=gg}
+						{if $gg neq ''}
+						<ul class="news-info-list">
+							{foreach $gg as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+				</ul>
+			</div>
+		</div>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script>
+    var mySwiper = new Swiper(".swiper1", {
+        autoplay: 5000,
+        pagination : '.swiper-pagination',
+		loop: true
+    });
+    $(".news-list").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+		}
+		var index = parseInt($(this).attr('data-index'));
+        $('.news-list').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news-info').find('li').removeClass('active');
+        $('.news-info').find('li.info').eq(index).addClass('active');
+    });
+</script>
+{include '../../layouts/wap/foot.html'}

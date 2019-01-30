@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link type="text/css" rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/jquery.fullpage.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+</head>
+<body>
+    <script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+	<div class="i_main stat_page_home" id="index" data-src="{$smarty.const.STATIC_DOMAIN}1.0/images/">
+		<div id="fullpage">	
+		<!--kv-->
+			<div class="top section section1 active">
+				<div class="nav">
+					<ul class="nav_ul">
+						<li >
+							<a href="javascript:;" data-id="1">首 页</a>
+							<p>Home</p>
+						</li>
+						<p>▪</p>
+						<li>
+							<a href="javascript:;" data-id="2">重 铸</a>
+							<p>recast</p>
+						</li>
+						<p>▪</p>
+						<li>
+							<a href="javascript:;" data-id="3">世 界</a>
+							<p>world</p>
+						</li>
+						<p>▪</p>
+						<li>
+							<a href="javascript:;" data-id="4">英 雄</a>
+							<p>hero</p>
+						</li>
+						<p>▪</p>
+						<li>
+							<a href="javascript:;" data-id="5">战 报</a>
+							<p>War newspaper</p>
+						</li>
+					</ul>
+					<ul class="s_ul">
+						<li><a href="javascript:;"></a></li>
+						<li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+						<li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+						<img src="{$global.wx_img}" alt="" class="fl_wx">
+					</ul>
+				</div>
+				<div class="wrap">
+				</div>
+				<!-- <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo_sj.png?{$smarty.const.VERSION}" alt="" class="logo_sj"> -->
+				<div class="liyy_btn stat_event_yy">
+					<canvas class="child"></canvas>
+					<a href="javascript:;"></a>
+            	</div>
+            	<div class="down_btn"></div>
+			</div>
+			<!--军团重铸-->
+			<div class="d3_zhch section section2" id="news">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tl1.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="banner ani-item ani-delay">
+				    <h3>《小小军团》3D新版</h3>
+				    <i></i>
+				    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;《小小军团》原班制作团队，倾力打造全新3D画面恢弘战场。延续前作操作手感，畅快体验立体军团作战。经典英雄与兵种3D重铸，共同演绎传奇战役</p>
+				    {fragment var=i_play code=banner_3d size=5}
+				    <ul>
+				      {if $i_play neq ''}
+						{foreach $i_play as $v}
+				    	<li><img src="{$v.thumb}" alt=""></li>
+				    	{/foreach}
+					{/if}
+				    </ul>
+				</div>
+				<div class="down_btn"></div>
+				<div class="liyy_btn stat_event_yy">
+					<canvas class="child"></canvas>
+					<a href="javascript:;"></a>
+        	    </div>
+			</div>
+			<!--黑暗大军-->
+			<div class="p3_hadj section section3" id="yssj">
+		    	<div class="p3_hadj_con">
+					<div class="wrap">
+						<div class="title">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tl2.png?{$smarty.const.VERSION}" alt=""/>
+						</div>
+						<div class="p3_info ani-item ani-delay">
+							<h3>阿尼拉斯大陆新故事 </h3>
+				        	<i></i>
+				        	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;距离对抗黑夜之神奈杰尔的大战已经过去了几百年，阿尼拉斯大陆上的文明取得了空前的繁荣。但平静很快被打破，相传白昼之神巴尔萨的几件圣物流传世间，而将所有圣物集齐之后，就能获得足以改变世界的力量。对力量的渴望趋势着光明与黑暗的势力，新的威胁悄然而至......</p>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/men.gif?{$smarty.const.VERSION}" alt="" class="gif">
+						<div class="down_btn"></div>
+					</div>
+					<div class="liyy_btn stat_event_yy">
+						<canvas class="child"></canvas>
+						<a href="javascript:;"></a>
+            		</div>
+				</div>
+			</div>
+			<!--新势力英雄崛起-->
+			<div class="p4_yxjq section section4" id="ysxd">
+		    	<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tl4.png" alt=""/></div>
+		    	<div class="fix_info">
+		    		<h3>小小英雄再度集结</h3>
+					<i></i>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在“光蚀”事件发生之后，据说教宗阿特拉斯受到启示，使用卡斯特水晶成功召唤了来自异世界的英雄。在此之后几百年，已经有无数的英雄来到了珂尼拉斯世界，如今，英雄们将再度集结，新的冒险即将开始……</p>
+		    	</div>
+		    	<div class="banner_img">
+                	{article id="12038" size=20 var=xsl_role}
+                	{article_custom var=xsl_role alias=xsl_role size=20}
+	        		<ul class="swiper-wrapper">
+	            		{if $xsl_role neq ''}
+                        {foreach $xsl_role as $key=>$v}
+                        {if $key >= 0}
+						<li class="swiper-slide">
+					<a href="javascript:;" style="background: url({$v.sub_title}) no-repeat center;background-size:100% 100%;">
+                        <div class="rule_info">
+                            <img class="xn_pic" src="{$v.thumb}" data-name="{$v.title}">
+                        	<h3>{$v.title}</h3>
+                        	{if isset($v.summary.subname) && $v.summary.subname neq ''}
+                        	<p>{$v.summary.subname}</p>
+                        	{/if}
+                        	<span>关键英雄</span>
+                        </div>
+					</a>
+						</li>
+						{/if}
+            		    {/foreach}
+            		    {/if}
+					</ul>
+					<div class="wj_page">
+						<div class="wj_page2">
+					    <div class="swiper-pagination swiper-pagination5"></div>
+
+					    </div>
+		    			<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+		    		</div>
+					<div class="swiper-pagination"></div>
+		    	</div>
+				<div class="down_btn"></div>
+				<div class="liyy_btn stat_event_yy">
+					<canvas class="child"></canvas>
+					<a href="javascript:;"></a>
+            	</div>
+			</div>
+			<!-- 军团战报 -->
+			<div class="p5_jtzb section section5" id="zygl">
+		   		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tl5.png" alt=""/></div>
+		   		<div class="news_box">
+		   	    	<ul>
+		   	        	{article id="2032" size=6 var=zx} 
+		   	        	{if $zx neq ''} 
+		   	        	{foreach $zx as $key=>$v} 
+		   	        	{if $key >= 0}
+		   	    		<li><a href="{$v.linkUrl}" target="_blank"><img src="{$v.thumb}" alt=""><h3>{$v.title}</h3><p>{$v.sub_title}</p><span>{$v.created_at|date_format:"%y/%m/%d"}</span></a></li>
+		   	    		{/if} 
+		   	    		{/foreach}
+		   	    		{/if}
+		   	    	</ul>
+		   	    	<a href="{myurl name='article/list, id=>2032'}" class="more_btn" target="_blank"></a>
+		   	    	<div class="down_btn"></div>
+		   		</div>
+		    </div>
+		    <div class="p6_footer section section6">
+		    	<div class="liyy_btn stat_event_yy">
+					<canvas class="child"></canvas>
+					<a href="javascript:;"></a>
+		   		</div>
+		    </div>
+		    <div class="section section7 ">
+		    	<div class="footer">
+		   	    <ul>
+		   	    	<li><a href="javascript:;"><img src="{$global.wx_img}" alt=""></a><p>&gt;&gt;官方微信&lt;&lt;</p></li>
+		   	    	<li><a href="{if $global.wb_url&&$global.wb_url != '暂无数据'}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb"></a><p>&gt;&gt;官方微博&lt;&lt;</p></li>
+		   	    	<li><a href="{if $global.group_url_one&&$global.group_url_one != '暂无数据'}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" class="qq"></a><p>&gt;&gt;官方QQ群&lt;&lt;</p></li>
+		   	    </ul>
+		   	    </div>
+		   	    <div class="foot_bottom"></div>
+		   	</div>
+		</div>
+	</div>
+	<div class="float">
+		<ul>
+			<li class="active">
+				<a href="javascript:;" data-id="1"><span>首&nbsp;&nbsp;&nbsp;页</span><em></em></a>
+			</li>
+			<li>
+				<a href="javascript:;" data-id="2"><span>3D画面军团重铸</span><em></em></a>
+			</li>
+			<li>
+				<a href="javascript:;" data-id="3"><span>再度对抗黑暗大军</span><em></em></a>
+			</li>
+			<li>
+				<a href="javascript:;" data-id="4"><span>新势力英雄崛起</span><em></em></a>
+			</li>
+			<li>
+				<a href="javascript:;" data-id="5"><span>军团战报</span><em></em></a>
+			</li>
+		</ul>
+		<a href="javascript:;" class="to_top"></a>
+	</div>
+	<div class="q_float">
+		    <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fl_tl.png" alt="" class="tl_img">
+			<img class="q_f_mark js_jump_img" src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap_ewm.png">
+			<p class="ewm_txt">扫码一起冲锋陷阵</p>
+			<div class="channel_name">
+				<!-- <a class="q_ios js_down_ios" href="" target="_blank"></a>
+				<a class="q_az js_down_andriod" href="" target="_blank"></a> -->
+				<a class="q_tap stat_event_tap" href="https://www.taptap.com/app/149380" target="_blank"></a>
+			</div>
+			<label class="q_f_icon show" show=""></label>
+	</div>
+	{include file="../layouts/pc/footer.html"}
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/canvas.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery.fullpage.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/index.js?{$smarty.const.VERSION}"></script>
+<script>
+	//点击隐藏和显示下载悬浮框
+		function show_hide_down() {
+			$(".q_f_icon").click(function() {
+				var state = $(this).attr("show");
+				if(state) {
+					$(".q_float").animate({
+						"left": "28px"
+					}, 200);
+					$(this).attr({
+						"show": "",
+						"class": "show"
+					});
+				} else {
+					$(".q_float").animate({
+						"left": "-183px"
+					}, 200);
+					$(this).attr({
+						"show": "true",
+						"class": "hide_float"
+					});
+				}
+			})
+		}
+		var clickTap = true;
+		$(".close_float").click(function (){
+			if(clickTap){
+				$(".new_float").addClass("active");
+				clickTap = false;
+			} else {
+				$(".new_float").removeClass("active");
+				clickTap = true;
+			}
+		});
+	$(function(){
+		show_hide_down();
+		var mySwiper = new Swiper(".banner_img",{
+        	// loop: true,
+        	// autoplay: 5000,
+        	effect : 'fade',
+            fade: {
+                crossFade: true,
+            },
+        	autoplayDisableOnInteraction: false,
+        	pagination: '.swiper-pagination5',
+        	paginationClickable: true,
+        	nextButton: '.swiper-button-next',
+	        prevButton: '.swiper-button-prev',
+			observer: true,
+			observeParents: true,
+        	paginationBulletRender: function(swiper, index, className) {
+				var font = new Array();
+				var font2 = new Array();
+				$(".xn_pic").each(function() {
+					font.push($(this).attr("src"));
+					font2.push($(this).data("name"));
+				});
+				return '<span class="' + className + '"><i>'+font2[index]+'</i>' +'<img src="' + font[index] + '" />' +'</span>';
+	        },
+			slideToClickedSlide: true,
+			onTransitionEnd: function(swiper) {
+		
+			},
+
+			onSlideChangeStart: function() {
+				var index = mySwiper.activeIndex;
+				if(index == 3){
+					$(".swiper-pagination5").css("transform","translate3d(-562px, 0px, 0px)");
+	   				$(".swiper-pagination5").css("transition-duration","400ms");
+	   				$(".swiper-button-prev").addClass("on");
+				}
+				var e = $(".swiper-pagination5 .swiper-pagination-bullet-active").index() + 1;
+				g = e - 4;
+				var c = $(".swiper-pagination5 span").width(),
+					i = parseFloat($(".swiper-pagination5 span").css("margin-right")),
+					r = c + i;
+				g > -1 && (
+					m = 0 == g ? "0px" : -1 * parseInt(g * r - 1) + "px", $(".swiper-pagination5").css("margin-left", m)
+		
+				);
+			}
+        });
+        $(".swiper-button-prev").click(function(){
+        	if($(this).hasClass("on")){
+        		$(".swiper-pagination5").css("transform","translate3d(0px, 0px, 0px)");
+	   			$(".swiper-pagination5").css("transition-duration","400ms");
+	   			$(".swiper-button-prev").removeClass("on");
+        	}
+        })
+        var timer = setTimeout(function () {
+        	var html_txt=$(".i-footer").html();
+            if (html_txt != "") {
+                console.log(html_txt);
+                $(".foot_bottom").html(html_txt);
+                $(".foot_bottom").addClass("i-footer");
+                console.log("zx");
+            } else{
+            	console.log("null");
+            }
+        },2000);
+     //    document.addEventListener('DOMContentLoaded', function () {
+     //        		var  video=document.getElementById("video1");
+     //        		var  video2=document.getElementById("video2");
+     //            	video.play();
+     //            	video.onended = function() {
+					// 	$(".top #video1").css("display", "none");
+     //            		video2.play();
+					// 	$(".top #video2").css("display", "block");
+					// }
+        // });
+        $('#fullpage').fullpage({
+			navigation:true,
+			navigationPosition:"right",
+			resize:true,
+			anchors: ['section1', 'section2', 'section3', 'section4','section5','section6','section7'],
+			afterLoad:function(a,i){
+				if(i == 1){
+					$('.float').hide();
+					$("#Hero-bar").show();
+				}
+				if(i == 2){
+					$(".section2").addClass("ani");
+	                $(".section2").addClass("show-ani");
+				}
+				if(i == 3){
+					$(".section3").addClass("ani");
+	                $(".section3").addClass("show-ani");
+				}
+			},
+			afterRender:function(){
+				var video_html='<video src="{$smarty.const.STATIC_DOMAIN}1.0/images/kv2.mp4?{$smarty.const.VERSION}" autoplay="autoplay" id="video1" muted></video>';
+				var video_html2='<video src="{$smarty.const.STATIC_DOMAIN}1.0/images/kv1.mp4?{$smarty.const.VERSION}" autoplay="autoplay" loop="loop" id="video2" muted></video>';
+				$(".section1 .wrap").html(video_html);
+				var video=document.getElementById("video1");
+                video.onended = function(){
+					$(".section1 .wrap").html(video_html2);
+				}
+			},
+			onLeave: function(index, nextIndex, direction) {
+　　              console.log(index, nextIndex, direction);
+　　            	if (index == 1) {
+	                var video_html2='<video src="{$smarty.const.STATIC_DOMAIN}1.0/images/kv1.mp4?{$smarty.const.VERSION}" autoplay="autoplay" loop="loop" id="video2" muted></video>';
+				    $(".section1 .wrap").html(video_html2);
+	                $('.float ul li').removeClass("active");
+	                 $(".section2").addClass("ani");
+	                $(".section2").addClass("show-ani");
+					$('.float ul').find("li a[data-id='2']").parent().addClass('active');
+				 	$('.float').show();
+				 	$("#Hero-bar").hide();
+                }
+                if (index == 2) {
+                	var video_html2='<video src="{$smarty.const.STATIC_DOMAIN}1.0/images/kv1.mp4?{$smarty.const.VERSION}" autoplay="autoplay" loop="loop" id="video2" muted></video>';
+				    $(".section1 .wrap").html(video_html2);
+                	$('.float ul li').removeClass("active");
+                	$(".section3").addClass("ani");
+					$(".section3").addClass("show-ani");
+					$('.float ul').find("li a[data-id='3']").parent().addClass('active');
+				 	$('.float').show();
+                }
+                if (index == 3) {
+                	var video_html2='<video src="{$smarty.const.STATIC_DOMAIN}1.0/images/kv1.mp4?{$smarty.const.VERSION}" autoplay="autoplay" loop="loop" id="video2" muted></video>';
+				    $(".section1 .wrap").html(video_html2);
+                	$('.float ul li').removeClass("active");
+					$('.float ul').find("li a[data-id='4']").parent().addClass('active');
+				 	$('.float').show();
+                }
+                if (index == 4) {
+                	var video_html2='<video src="{$smarty.const.STATIC_DOMAIN}1.0/images/kv1.mp4?{$smarty.const.VERSION}" autoplay="autoplay" loop="loop" id="video2" muted></video>';
+				    $(".section1 .wrap").html(video_html2);
+                	$('.float ul li').removeClass("active");
+					$('.float ul').find("li a[data-id='5']").parent().addClass('active');
+				 	$('.float').show();
+                }
+            }
+		});
+		$(".bottom_wp .ic_top").click(function(){
+			if($(this).closest(".bottom").length>0){
+				$('#fullpage').fullpage.moveTo(1);
+			}
+		});
+     });  
+</script>
+</html>

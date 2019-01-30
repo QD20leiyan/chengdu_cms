@@ -1,0 +1,27 @@
+{if $data|@count neq 0} 
+	{foreach $data as $list} 
+		{if $list.title neq "首页纯图片"}
+			<li>
+				<a href="{$list.linkUrl}">
+					<img src="{$list.thumb}" title="{$list.title}" />
+					<div>
+						<h1>{$list.title}</h1>
+						<p>{$list.summary}</p>
+						<span>{$list.created_at|date_format:"%m/%d"}</span>
+					</div>
+				</a>
+			</li>
+		{/if} 
+	{/foreach} 
+{/if}
+<!--{if $data|@count neq 0}-->
+	<!--{$page}-->
+<!--{/if}-->
+
+{if $language eq en}
+<script>
+	$(".page .first,.page .last").remove();
+	$(".page .prev span").text("Previous");
+	$(".page .next span").text("Next");
+</script>
+{/if}

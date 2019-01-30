@@ -1,0 +1,98 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+    <!--第一部分-->
+    <div class="top">
+        <!--logo-->
+        <div class="logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}">
+        </div>
+        <!--kv_video-->
+        {fragment var=video code=index_video size=1}
+        <div class="videoBtn">
+            <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" class="{if $video}js_video_play{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+        </div>
+        <!--download-->
+        <div class="download ">
+            <div class="wx_img"><img src="{$global.group}" alt=""></div>
+            <div class="down_box">
+                <a href="javascript:;" class="yy_btn ios" data-id="1"></a>
+                <a href="javascript:;" class="yy_btn and" data-id="2"></a>
+            </div>
+            <p class="qrcode_txt"></p>
+        </div>
+    </div>
+    <!--第二部分-->
+    <div class="middle">
+        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/title1.png?{$smarty.const.VERSION}" alt=""/></p>
+        <div class="content">
+            <div class="one">
+                <p>被囚禁在游戏世界中的灵魂们，游离在这种虚实之中。面对无尽的未知和恐惧，少年少女们相互慰藉，心怀对自由的向往。他们是被这般庄严的冷漠吞噬，还是成为击破这重冰冷的暖流……</p>
+            </div>
+            <div class="banner">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {fragment var=i_play code=index_banner size=5}
+                        {if $i_play neq ''}
+                        {foreach $i_play as $v}
+                        <div class="swiper-slide">
+                            <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                        </div>
+                        {/foreach}
+                        {/if}
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <!--第三部分-->
+    <div class="bottom">
+        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/title2.png?{$smarty.const.VERSION}" alt=""/></p>
+        <div class="content">
+            <div class="txt">
+                <p>作为一个小型的独立游戏团队，前作《红石遗迹》因为某些原因，止步于半成品阶段。</p>
+                <p>而这次我们重整旗鼓，再次出发。</p>
+                <p>《时之回廊》中将延续红石的核心，剔除冗余设计，重新雕琢玩法。</p>
+                <p> 除了地牢模式，《时之回廊》中还将构建更为严谨的动作系统，为扩展PVP对抗模式而准备。</p>
+                <p>希望这次能再次得到各位玩家的认可与支持。</p>
+                <p>——开发团队敬上</p>
+            </div>
+        </div>
+        <div class="go_top"></div>
+    </div>
+</div>
+<!--预约弹框-->
+<div class="co_tips co_tips_login hidden">
+    <div class="co_con">
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+
+        <div class="co_form">
+            <p class="co_tips_title"></p>
+             <div class="co_input put_email">
+                <input type="text" class="co_email email" placeholder="请输入邮箱"/>
+                <p class="co_error">邮箱格式错误</p>
+            </div>
+            <div class="co_input">
+                <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+                <p class="co_error">手机号码错误</p>
+            </div>
+            <div class="co_input">
+                <input type="text"  class="captcha" placeholder="请输入验证码"/>
+                <span class="co_captcha"><img src="" alt=""/></span>
+                <p class="co_error">验证码错误</p>
+                <p class="co_imgtxt">点击图片刷新</p>
+            </div>
+            <div class="co_input">
+                <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+                <p class="co_error">验证码错误</p>
+            </div>
+            <p class="co_tips_btn co_tips_yybtn stat_yy"></p>
+        </div>
+    </div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+</html>

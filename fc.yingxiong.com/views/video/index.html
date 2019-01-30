@@ -1,0 +1,91 @@
+{include file="../layouts/pc/header.html"}
+<div class="news-nav">
+    <div class="container ccont clearfix">
+        <div  class="return">
+            <a target="_blank" href='{myurl name="/site/index"}'>
+                <img src="{$smarty.const.STATIC_DOMAIN}3.0/images/jian.png?{$smarty.const.VERSION}" />
+                <span>返回首页</span>
+            </a>
+        </div>
+        <div class="news-ti">
+            <a target="_blank" href='{myurl name="/site/index"}'>首页&nbsp;>&nbsp;</a><a target="_blank">视频中心</a>
+            <span>video center</span>
+        </div>
+    </div>
+</div>
+    <div class="body">
+        <div class="container clearfix conta" style="border-top: 1px solid #e1e9f5;">
+            <div class="news-box clearfix">
+            <div class="news-left clearfix">
+                <div class="s-right">
+                    <div class="min-title clearfix"><p>自助服务</p><a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/add.png?{$smarty.const.VERSION}"></a></div>
+                    <input type="text" placeholder="输入您的问题" class="inp">
+                    <ul class="server clearfix">
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=1">
+                                <i></i>
+                                账号问题
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=6">
+                                <i></i>
+                                充值问题
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=8">
+                                <i></i>
+                                账号查询
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://kf.yingxiong.com/Index/selfService?gid=100&option=4">
+                                <i></i>
+                                我要举报
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+               <div class="imgs imgs-box">
+                {foreach $activity as $k => $v}
+                    <a target="_blank" target="_blank" href="{$v.url}" class="imgs"><img src="{$v.thumb}"></a>
+                {/foreach}
+                </div>
+            </div>
+            <div class="news-right">
+                <ul class="news-tabs video-tabs clearfix">
+                    <li class="{if $data.id eq 202}active{else} {/if}"><a href="{myurl name='article/list, id=>202, cat_dir=>video'}">最新上传</a></li>
+                    <li class="{if $data.id eq 203}active{else} {/if}"><a href="{myurl name='article/list, id=>203, cat_dir=>video'}">推荐视频</a></li>
+                    <li class="{if $data.id eq 204}active{else} {/if}"><a href="{myurl name='article/list, id=>204, cat_dir=>video'}">教学视频</a></li>
+                    <li class="{if $data.id eq 205}active{else} {/if}"><a href="{myurl name='article/list, id=>205, cat_dir=>video'}">趣味视频</a></li>
+                    <li class="{if $data.id eq 206}active{else} {/if}"><a href="{myurl name='article/list, id=>206, cat_dir=>video'}">官方视频</a></li>
+                    <li class="{if $data.id eq 207}active{else} {/if}"><a href="{myurl name='article/list, id=>207, cat_dir=>video'}">热门直播</a></li>
+                </ul>
+                    <ul class="video-box clearfix show">
+                        {foreach $data['data'] as $k => $v}
+                            <li>
+                                <a target="_blank" href="javascript:" >
+                                    <i class="js_video_play" data-url='{$v.contentMessage}'></i>
+                                    <img src="{$v.thumb}" />
+                                    <p>{$v.title}</p>
+                                </a>
+                            </li>
+                        {/foreach}
+                    </ul>
+                <hr width="718px" />
+               {$data.page}
+            </div>
+        </div>
+
+        </div>
+        <div class="bottom"><img src="{$smarty.const.STATIC_DOMAIN}3.0/bottom.png?{$smarty.const.VERSION}" /></div>
+    </div>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/common/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js"></script> 
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+  {video_play}
+  {download}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="list_news">
+	<div class="top_img">
+		<div class="center">
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+			<div class="wrap1">
+				<ul class="nav_ul">
+					<li>
+						<a href="/index.html">
+							官网首页
+							<i>HOME</i>
+						</a>
+					</li>
+					<li class="active">
+						<a href="{myurl name='article/list, id=>480'}">
+							新闻资讯
+							<i>NEWS</i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+		<div class="list_newscon">
+			{include '../layouts/pc/in_float.html'}
+			<div class="detailbox">
+				<div class="article_title">
+					<h3>{$content.title}</h3>
+					<span><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>作者：官方</span></span>
+
+					<div class="bshare-custom co_shareicon">
+						<span>分享到：</span>
+						<a title="分享到新浪微博" class="bshare-sinaminiblog co_wb"></a>
+						<a title="分享到微信" class="bshare-weixin co_wx"></a>
+						<a title="分享到QQ" class="bshare-qqim co_qq"></a>
+						<a title="分享到QQ空间" class="bshare-qzone co_zone"></a>
+					</div>
+					<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=f8a4a53f-438a-4ffa-939f-7f313a7e2b05&amp;pophcol=2&amp;lang=zh"></script>
+					<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+
+				</div>
+				<div class="content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+	</div>
+	{include '../layouts/pc/in_foot.html'}
+	<div class="go_top"></div>
+</div>
+
+{include '../layouts/pc/footer.html'}

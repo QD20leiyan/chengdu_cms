@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{seo name='title'}</title>
+		<meta name="keywords" content="{seo name='keywords'}" />
+		<meta name="description" content="{seo name='description'}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}/4.0/css/swiper.3.1.7.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}/4.0/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}/4.0/css/news.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}/4.0/js/jquery-1.7.1.min.js"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+		<script>
+		    var _hmt = _hmt || [];
+		    (function() {
+		      var hm = document.createElement("script");
+		      hm.src = "https://hm.baidu.com/hm.js?c5056f67f2a864dfc774e882633a7871";
+		      var s = document.getElementsByTagName("script")[0]; 
+		      s.parentNode.insertBefore(hm, s);
+		    })();
+		</script>
+	</head>
+	
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+		<div class="m_con">
+			<div class="wrap">
+				<img src="{$smarty.const.STATIC_DOMAIN}/4.0/images/red.png" alt="" class="red" />
+				<img src="{$smarty.const.STATIC_DOMAIN}/4.0/images/blue.png" alt="" class="blue" />
+				<div class="z_news">
+					<div class="z_con">
+						<ul class="t_title">
+							<li class="active"><a href="{myurl name='/article/list, type=xinwen'}">新闻</a></li>
+							<li><a href="{myurl name='/article/list, type=gonggao'}">公告</a></li>
+							<li><a href="{myurl name='/article/list, type=zhixun'}">资讯</a></li>
+							<li><a href="{myurl name='/article/list, type=huodong'}">活动</a></li>
+						</ul>
+						<div class="n_con">
+							<ul>
+								{foreach $data as $v}
+									<li><a href="{$v.linkUrl}" target="_blank"><i>【{$v.name}】</i>{$v.title}</a><span>[{$v.created_at_formate}]</span></li>
+								{/foreach}
+							</ul>
+						</div>
+					</div>	
+				</div>
+			</div>
+			<div class="ewm-box">
+            <div>
+                <img src="{$smarty.const.STATIC_DOMAIN}/4.0/images/ewm.png" class="js_jump_img" />
+            </div>
+            <h1>扫一扫,下载体验版</h1>
+            <p></p>
+            <label></label>
+			<a href="javascript:alert('敬请期待！');" class="goods"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/goods_2.png?{$smarty.const.VERSION}"></a>
+            <a href="http://cdn.yingxiong.com/dou/dou-hykb-P33074A-0830.apk" class="goods"><img src="{$smarty.const.STATIC_DOMAIN}/4.0/images/goods.png"></a>
+            <label></label>
+            <ul class="cd-gf">
+                <li>
+                    <a href="javascript:">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}/4.0/images/weixin.png">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}/4.0/images/weixin_active.png">
+                        </div>
+                        <p>微信</p>
+                    </a>
+                    <i>
+                        <img src="{$global.wx_img}">
+                    </i>
+                </li>
+                <li>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}/4.0/images/weibo.png">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}/4.0/images/weibo_active.png">
+                        </div>
+                        <p>微博</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{$global.tb_url}" target="_blank">
+                        <div>
+                            <img class="gf1 show" src="{$smarty.const.STATIC_DOMAIN}/4.0/images/tieba.png">
+                            <img class="gf2" src="{$smarty.const.STATIC_DOMAIN}/4.0/images/tieba_active.png">
+                        </div>
+                        <p>贴吧</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+		</div>
+	</body>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	
+</html>

@@ -1,0 +1,362 @@
+{include '../layouts/pc/header.html'}
+<div class="i_main" data-src="{$smarty.const.STATIC_DOMAIN}2.0/images/">
+	{include '../layouts/pc/top.html'}
+
+	<!--kv-->
+	<div class="top" id="index">
+		<div class="wrap">
+			{fragment var=video code=index_video size=1}
+			<div class="videobtn"><a href="{if $video&&$video != '暂无数据'}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a></div>
+
+			<div class="slogan">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_slogan.png?{$smarty.const.VERSION}" alt=""/>
+			</div>
+
+			<div class="download">
+				<div class="con">
+					<div class="code">
+						 <img src="" class="js_jump_img">
+						<!--<img src="http://gamerimage.yingxiong.com/qrcode/jump/wpys_gwyy.png" class="">-->
+						<i></i>
+					</div>
+					<div class="btn">
+						<a href="javascript:;" class=" stat_event_down stat_event_ios"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_ios.png?{$smarty.const.VERSION}" alt=""></a>
+						<a href="javascript:;" class="js_down_andriod stat_event_down stat_event_android" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_and.png?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="ewm_bg">
+				<img class="ios_ewm" src="{$smarty.const.STATIC_DOMAIN}2.0/images/pc_ios_down.jpg?{$smarty.const.VERSION}" >
+			</div>
+		</div>
+		<div class="xz_btn no_channel">
+			<a href="https://www.taptap.com/app/85549" class="tap stat_event_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tap.png?{$smarty.const.VERSION}" alt=""></a>
+			<a href="https://www.3839.com/a/97672.htm" class="hy stat_event_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/hy.png?{$smarty.const.VERSION}" alt=""></a>
+		</div>
+	</div>
+	<!--新闻-->
+	<div class="banner_news" id="news">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_news_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="banner_news_box">
+				<a href="{myurl name='article/list, id=>450'}" class="more" target="_blank"></a>
+				<div class="chengg"></div>
+				<div class="banner">
+					<div class="swiper-container swiper-container1">
+						<div class="swiper-wrapper">
+							{fragment var=index_banner code=banner size=20}
+							{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+							<div class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}" {if $v.url}target="_blank"{else}{/if}><img class="images" src="{$v.thumb}" alt=""></a>
+							</div>
+							{/foreach}
+							{/if}
+						</div>
+					</div>
+					<div class="swiper-pagination swiper-pagination1"></div>
+				</div>
+				<div class="news_box">
+					<div class="hd">
+						<ul>
+							<li class="on">
+								<a>全部</a>
+							</li>
+							<li>
+								<a>新闻</a>
+							</li>
+							<li>
+								<a>公告</a>
+							</li>
+							<li>
+								<a>活动</a>
+							</li>
+							<li>
+								<a>玩家作品</a>
+							</li>
+						</ul>
+					</div>
+					<div class="bd">
+						<ul class="news_info">
+							{article id="450" size=5 var=zx}
+							{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<span>{$v.created_at|date_format:"%m/%d"}</span>
+								<a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p class="noData" style="line-height: 200px;color: #8000E6;text-align: center;font-size: 20px;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="news_info hidden">
+							{article id="451" size=5 var=xw}
+							{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<span>{$v.created_at|date_format:"%m/%d"}</span>
+								<a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p class="noData" style="line-height: 200px;color: #8000E6;text-align: center;font-size: 20px;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="news_info hidden">
+							{article id="452" size=5 var=gg}
+							{if $gg neq ''}
+							{foreach $gg as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<span>{$v.created_at|date_format:"%m/%d"}</span>
+								<a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p class="noData" style="line-height: 200px;color: #8000E6;text-align: center;font-size: 20px;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="news_info hidden">
+							{article id="453" size=5 var=gl}
+							{if $gl neq ''}
+							{foreach $gl as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<span>{$v.created_at|date_format:"%m/%d"}</span>
+								<a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p class="noData" style="line-height: 200px;color: #8000E6;text-align: center;font-size: 20px;">暂无数据...</p>
+							{/if}
+						</ul>
+						<ul class="news_info hidden">
+							{article id="1919" size=5 var=wjzp}
+							{if $wjzp neq ''}
+							{foreach $wjzp as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<span>{$v.created_at|date_format:"%m/%d"}</span>
+								<a target="_blank" href="{$v.linkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a>
+							</li>
+							{/if}
+							{/foreach}
+							{else}
+							<p class="noData" style="line-height: 200px;color: #8000E6;text-align: center;font-size: 20px;">暂无数据...</p>
+							{/if}
+						</ul>
+					</div>
+				</div>
+				<div class="peo1"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_peo1.png?{$smarty.const.VERSION}" alt=""/></div>
+			</div>
+		</div>
+	</div>
+	<!--御史世界-->
+	<div class="ts_play" id="yssj">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_ts_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="banner">
+				<div class="swiper-container swiper-container2">
+					<div class="swiper-wrapper">
+						{fragment var=index_banner code=	game_play size=20}
+						{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-button-prev swiper-button-prev2"></div>
+				<div class="swiper-button-next swiper-button-next2"></div>
+			</div>
+		</div>
+	</div>
+	<!--御史小队-->
+	<div class="ys_team" id="ysxd">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_ys_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="s3_bottom">
+				<div class="s3_peo_head">
+					{article id="1933" size=10 var=ys_roles}
+					{if $ys_roles neq ''}
+					{foreach $ys_roles as $key=>$v}
+					{if $key >= 0}
+					<span class="s_wid118 {if $key eq 0}on{/if}"><img src="{$v.thumb}" alt="img"></span>
+					{/if}
+					{/foreach}
+					{/if}
+				</div>
+				<div class="p_con">
+					{article_custom var=ys_roles alias=ys_roles size=10}
+					{if $ys_roles neq ''}
+					{foreach $ys_roles as $key=>$v}
+					{if $key >= 0}
+					<div class="p {if $key neq 0}hidden{/if}">
+						<div class="p_name">
+							<p class="jn_tit"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_ysjntit.png?{$smarty.const.VERSION}" alt=""/></p>
+							<div class="jineng">
+								{foreach key=k item=s from=$v.summary.skill}
+								<span class="{if $k eq aa}active{/if}"><img src="{if isset($s.src)}{$s.src}{/if}"><i>{$s.name}</i></span>
+								{/foreach}
+							</div>
+							<div class="jineng_des">
+								{foreach key=k item=s from=$v.summary.skill}
+								<span class="{if $k neq aa}hidden{/if}">{$s.desc}</span>
+								{/foreach}
+							</div>
+						</div>
+						<div class="p_peo">
+							<div class="s3_peo">
+								<img src="{$v.summary.imgsrc}" class="s3_img1" alt="s_i1">
+							</div>
+							<div class="p_peoinfo">
+								<span class="p_peoname">{$v.title}<a href="javascript:;" class="p_video js_video_play" data-url="{$v.sub_title}"></a></span>
+								<div class="peo_txt">
+									<h3>{$v.summary.name}</h3>
+									<h4>{$v.summary.info}</h4>
+									<div class="info">
+										<p>{$v.summary.age}</p>
+										<p>{$v.summary.birthday}</p>
+										<p>{$v.summary.constellation}</p>
+										<p>{$v.summary.high}</p>
+										<p>{$v.summary.like}</p>
+										<p>{$v.summary.dislike}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{/if}
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--神兽契约-->
+	<div class="ss_deed">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_ss_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="s3_bottom1">
+				<div class="s3_peo_head">
+					{article id="1951" size=13 var=ssqy_roles}
+					{if $ssqy_roles neq ''}
+					{foreach $ssqy_roles as $key=>$v}
+					{if $key >= 0}
+					<span class="s_wid118 {if $key eq 0}on{/if}"><img src="{$v.thumb}" alt="img"></span>
+					{/if}
+					{/foreach}
+					{/if}
+				</div>
+				<div class="p_con">
+					{article_custom var=ssqy_roles alias=ssqy_roles size=10}
+					{if $ssqy_roles neq ''}
+					{foreach $ssqy_roles as $key=>$v}
+					{if $key >= 0}
+					<div class="p {if $key neq 0}hidden{/if}">
+						<div class="p_peo">
+							<div class="s3_peo">
+								<img src="{$v.summary.imgsrc}" class="s3_img1" alt="s_i1">
+							</div>
+							<div class="p_peoinfo">
+								<span class="p_peoname">{$v.title}<a href="javascript:;" class="p_video play" data-url="{$v.sub_title}"></a></span>
+								<div class="peo_txt">
+									<div class="info">
+										<p>{$v.summary.name}</p>
+										<p>{$v.summary.subname}</p>
+										<p>{$v.summary.painter}</p>
+										<p>{$v.summary.word}</p>
+										<p>{$v.summary.info}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{/if}
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--捉妖攻略-->
+	<div class="zy_strategy" id="zygl">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_zy_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<a href="http://wpys.wiki.yingxiong.com/" class="zy_img" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_zy_img.png?{$smarty.const.VERSION}" alt=""/></a>
+		</div>
+	</div>
+	<!--同人区-->
+	<div class="tr_city">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_tr_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="banner">
+				<div class="swiper-container swiper-container3">
+					<div class="swiper-wrapper">
+						{fragment var=index_banner code=tr_banner size=20}
+						{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+							<p>{$v.title}</p>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-pagination swiper-pagination3"></div>
+			</div>
+			<div class="tr_zp">
+				<h3>热门作品 <a href="{myurl name='article/list, id=>1919'}" class="more1" target="_blank"></a></h3>
+				<div class="slide">
+					{fragment var=index_banner code=tr_zp size=3}
+					{if $index_banner neq ''}
+					{foreach $index_banner as $v}
+					<div class="slide_img">
+						<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+						<p class="mark">{$v.title}</p>
+						<p class="name">{$v.sub_title}</p>
+					</div>
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--御妹后援会-->
+	<div class="ym_support">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/n_ym_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="ym_box">
+				{fragment var=index_banner code=ym_list size=100}
+				{if $index_banner neq ''}
+				{foreach $index_banner as $v}
+				<div class="ym_img hidden">
+					<div class="head"><img class="images" src="{$v.thumb}" alt=""></div>
+					<p class="name">{$v.title}</p>
+					<p class="tag">{$v.sub_title}</p>
+				</div>
+				{/foreach}
+				{/if}
+			</div>
+			<div class="clearfix"></div>
+			<a href="javascript:;" class="more3 hidden"></a>
+		</div>
+	</div>
+
+
+	{include '../layouts/pc/bottom.html'}
+</div>
+<audio src="" id="music1"></audio>
+{include '../layouts/pc/footer.html'}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		{csrf}
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/yuyue.css?{$smarty.const.VERSION}" />
+		<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?bce4ef36b7d104da80d9ff2c4dfbbb52";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	    <script>
+		   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+		   //push 参数，name：页面名称，behavior 行为 
+		   //event 参数，event：事件名称，args 拓展参数 
+		   var HLog={ push:function(name,behavior){},setUser:function(){},event:function(event,args){},ready:function(){} };
+		   HLog.config={
+		       "senseHash":0, //hash锚点是否进入url统计
+		       "senseQuery":0, //url参数是否进入url统计
+		       "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+		   };
+		   (function() {
+		      var hl = document.createElement("script");
+		      hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/52/client/1/filter/stat.js";
+		      hl.async = "async";
+		      var s = document.getElementsByTagName("script")[0];
+		      HLog.ready = function(){
+		        HLog.push('reflash')
+		      };
+		      s.parentNode.insertBefore(hl, s);
+		   })();
+		</script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="header">
+				<img src="{$global.logo_img}" alt="" class="icon" />
+				<div class="header_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<a href="http://wpys.yingxiong.com/m/" class="enter">进入官网</a>
+			</div>
+		</header>
+		<section class="kv">
+			<div class="chengg"></div>
+			<div class="main main1">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y_title.png?{$smarty.const.VERSION}" alt="" class="y_title" />
+				<div class="y_put">
+					<input type="tel" placeholder="请输入手机号码" class="phone" />
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yy.png?{$smarty.const.VERSION}" alt="" class="yuyue" />
+			</div>
+			<div class="main main2">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tl2.png?{$smarty.const.VERSION}" alt="" />
+				<a href="https://itunes.apple.com/cn/app/id1318073121"></a>
+			</div>
+		</section>
+	</body>
+	{video_play}{download}
+	<script type="text/javascript">
+		var type = "";
+	    if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {  //移动端
+	        //给页面下载链接赋值
+	        if ((/iphone|ipad/i.test(navigator.userAgent.toLowerCase()))) {
+	            type = 'ios';
+	        }else{
+	            type = 'android';
+	        }
+	    }
+	     // 设备类型判断
+    function change(){
+        var u = navigator.userAgent,
+            app = navigator.appVersion;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+        var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isIOS) {
+            $(".main").removeClass("active");
+            $(".main2").addClass("active");
+        }
+        if(isAndroid) {
+            $(".main").removeClass("active");
+            $(".main1").addClass("active");
+        }
+    }
+    change();
+	    $(".yuyue").click(function (){
+	    	var phone = $(".phone").val();
+	    	var scene = 10;
+	    	if(phone == "" || phone == undefined){
+	    		alert("手机号码不能为空");
+	    		return;
+	    	}
+	    	if(phone.length != 11){
+	    		alert("手机号不正确");
+	    		return;
+	    	}
+	    	$.post("/common/yuyue-phone-no-check.html" , {
+	    		"type" : type,
+	    		"phone" : phone,
+	    		"scene" : 10
+	    	} , function (data){
+	    		if(data.status == 0){
+	    			alert("预约成功");
+	    			$(".phone").val("");
+	    		} else {
+	    			alert(data.msg);
+	    		}
+	    	},"json");
+	    })
+	</script>
+</html>

@@ -1,0 +1,56 @@
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function() {
+		var clickNumber = 0;
+		var clickNumber2 = 0;
+		$(".h_nav,.h_nav2").on("click", function(e) {
+			$(".down_list").slideUp(400);
+			e.stopPropagation();
+			if(clickNumber % 2 == 0) {
+				$(".d_t_t").addClass("d_t_t_tran");
+				$(".d_t_m").addClass("d_t_m_tran");
+				$(".d_t_b").addClass("d_t_b_tran");
+				$(".header_nav").stop().slideDown();
+			} else {
+				$(".d_t_t").removeClass("d_t_t_tran");
+				$(".d_t_m").removeClass("d_t_m_tran");
+				$(".d_t_b").removeClass("d_t_b_tran");
+				$(".header_nav").stop().slideUp();
+			}
+			clickNumber++;
+			clickNumber2 = 0;
+		});
+		$(".header_nav li,.fade,.header_nav").click(function() {
+			$(".d_t_t").removeClass("d_t_t_tran");
+			$(".d_t_m").removeClass("d_t_m_tran");
+			$(".d_t_b").removeClass("d_t_b_tran");
+			$(".header_nav").stop().slideUp();
+			clickNumber = 0;
+		})
+		$(".news-list li").on("click", function() {
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".news-info li.info").eq(index).removeClass("hide").siblings().addClass("hide");
+		});
+		//游戏下载判断
+		$(".top_yyue").click(function(e) {
+			$(".header_nav").stop().slideUp();
+			$(".d_t_t").removeClass("d_t_t_tran");
+			$(".d_t_m").removeClass("d_t_m_tran");
+			$(".d_t_b").removeClass("d_t_b_tran");
+			e.stopPropagation();
+			if(clickNumber2 % 2 == 0) {
+				$(".down_list").slideDown(400);
+			} else {
+				$(".down_list").slideUp(400);
+			}
+			clickNumber2++;
+			clickNumber = 0;
+		})
+		$(".down_list li,.fade").click(function() {
+			$(".down_list").slideUp(400);
+			clickNumber2 = 0;
+		})
+	})
+</script>

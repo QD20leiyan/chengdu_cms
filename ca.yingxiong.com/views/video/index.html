@@ -1,0 +1,122 @@
+ {include file="../layouts/pc/pageHead.html"}
+<link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}7.0/css/videoList.css?{$smarty.const.VERSION}">
+<div class="q_container">
+	<div class="n_bg"></div>
+	<div class="q_item1">
+		<div class="q1_title">
+			{if $category_id >=329 and $category_id<=334}
+			<h1>视频中心</h1>
+			{else if $category_id>=335 and $category_id<=339}
+			<h1>视频攻略</h1>
+			{/if}
+			<p>
+				{if $category_id >=329 and $category_id<=334}
+				<span>VIDEO</span>
+				<span>CENTER</span>
+				{else if $category_id>=335 and $category_id<=339}
+				<span>VIDEO</span>
+				<span>WALKTHROUGH</span>
+				{/if}
+			</p>
+		</div>
+		<div class="q1_nav">
+			<ul class="nav_style2 nav">
+				{if $category_id >=329 and $category_id<=334}
+				<li {if $category_id == 329} class="active" {/if} data-index="0">
+					<a href="{myurl name='video/list, id=>329'}">最新</a>
+				</li>
+				<li {if $category_id == 330} class="active" {/if} data-index="1">
+					<a href="{myurl name='video/list, id=>330'}">官方视频</a>
+				</li>
+				<li {if $category_id == 331} class="active" {/if} data-index="2">
+					<a href="{myurl name='video/list, id=>331'}">直播</a>
+				</li>
+				<li {if $category_id == 332} class="active" {/if} data-index="3">
+					<a href="{myurl name='video/list, id=>332'}">赛事</a>
+				</li>
+				<li {if $category_id == 333} class="active" {/if} data-index="4">
+					<a href="{myurl name='video/list, id=>333'}">武器</a>
+				</li>
+				<li {if $category_id == 334} class="active" {/if} data-index="5">
+					<a href="{myurl name='video/list, id=>334'}">新手</a>
+				</li>
+				
+				{else if $category_id>=335 and $category_id<=339}
+					
+				<li {if $category_id == 335} class="active" {/if} data-index="0">
+					<a href="{myurl name='video/list, id=>335'}">最新</a>
+				</li>
+				<li {if $category_id == 336} class="active" {/if} data-index="1">
+					<a href="{myurl name='video/list, id=>336'}">武器</a>
+				</li>
+				<li {if $category_id == 337} class="active" {/if} data-index="2">
+					<a href="{myurl name='video/list, id=>337'}">PVP</a>
+				</li>
+				<li {if $category_id == 338} class="active" {/if} data-index="3">
+					<a href="{myurl name='video/list, id=>338'}">PVE</a>
+				</li>
+				<li {if $category_id == 339} class="active" {/if} data-index="4">
+					<a href="{myurl name='video/list, id=>339'}">新手</a>
+				</li>	
+				
+				{/if}	
+			</ul>
+		</div>
+	</div>
+	<div class="v_item v_item2">
+		<div class="v2_content active">
+			<div class="v_i2_banner">
+				<div class="mo-container mo1 mo3">
+					<div class="mo-swipe">
+						{foreach $lunbo as $index => $item}
+						<div class="mo-item">
+							<a href="{$item.url}" target="_blank">
+								<img src="{$item.thumb}">
+							</a>
+						</div>
+						{/foreach}
+						
+					</div>
+					<div class="mo-icon"></div>
+				</div>
+			</div>
+			<ul class="v2_list">
+
+				{foreach $data.data as $index => $item}
+				<li {if $index == 0 or $index == 2} class="v2_list_mar" {/if} staId="{$item.id}">
+					<div>
+						{if $item.thumb}
+						<img src="{$item.thumb}" /> {/if}
+						<div class="js_video_play" data-url="{$item.contentMessage}"></div>
+					</div>
+					<p>{$item.title}</p>
+				</li>
+				{/foreach}		
+				
+			</ul>
+			<div class="q_page">
+				{$data.page}
+			</div>
+		</div>
+	</div>
+{include file="../layouts/pc/get_gift.html"}
+{include file="../layouts/pc/pageFoot.html"}
+<script type="text/javascript">
+	$(function() {
+
+		function init() {
+			page_nav_active(4);
+			addCountVideoClick($(".v2_list > li"));
+			lb_init();
+		}
+
+		function lb_init() {
+			add_move_icon($(".mo1"));
+		}
+
+		init();
+	});
+</script>
+{video_play}
+
+</html>

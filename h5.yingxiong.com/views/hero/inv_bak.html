@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html class="active">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>代号英雄-汉堡王</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="full-screen" content="yes">
+		<meta name="x5-fullscreen" content="true"> {csrf}
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}hero/hbw/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}hero/hbw/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}hero/hbw/css/index.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}hero/hbw/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<style type="text/css">
+			.last_page {
+				width: 100%;
+				height: 100%;
+				background: url(/img/hero/last_page.jpg) no-repeat center;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			
+			.last_page .logo {
+				display: block;
+				width: 14.4375rem;
+				height: 2.71875rem;
+				margin: 1.25rem auto 0;
+			}
+			
+			.last_page .t_price {
+				width: 16.625rem;
+				height: 5.625rem;
+				margin: 1.5625rem auto 0;
+			}
+			
+			.last_page .t_price .l_img {
+				display: block;
+				width: 7.6875rem;
+				height: 5.625rem;
+				float: left;
+			}
+			
+			.last_page .t_price .right_txt {
+				width: 7.875rem;
+				height: 100%;
+				float: right;
+			}
+			
+			.last_page .t_price .right_txt .first_p {
+				font-size: 0.875rem;
+				color: #898d9d;
+			}
+			
+			.last_page .t_price .right_txt .l_tou {
+				width: 100%;
+				height: 1.75rem;
+				margin-top: 0.78125rem;
+			}
+			
+			.last_page .t_price .right_txt .l_tou .last_tou {
+				width: 2rem;
+				height: 1.75rem;
+				background: url(/img/hero/person.png) no-repeat center;
+				background-size: 100% 100%;
+				float: left;
+				position: relative;
+			}
+			
+			.last_page .t_price .right_txt .l_tou .last_tou img {
+				display: block;
+				width: 1.5rem;
+				height: 1.5rem;
+				border-radius: 50%;
+				position: absolute;
+				left: 0.375rem;
+				top: 0.125rem;
+			}
+			
+			.last_page .t_price .right_txt .l_tou p {
+				width: 5.46875rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				font-size: 1.0625rem;
+				color: #fab513;
+				line-height: 1.75rem;
+				float: left;
+				margin-left: 0.3125rem;
+			}
+			
+			.last_page .t_price .right_txt .last_p {
+				font-size: 0.875rem;
+				color: #898d9d;
+				margin-top: 0.625rem;
+			}
+			
+			.last_page .rondom {
+				width: 100%;
+				height: 4.1875rem;
+				background: url(/img/hero/txt_bg.png) no-repeat center;
+				background-size: 100% 100%;
+				margin-top: 0.9375rem;
+			}
+			
+			.last_page .rondom p {
+				font-size: 1.25rem;
+				color: #000001;
+				line-height: 4.1875rem;
+				text-align: center;
+				font-family: "PingFangSC";
+				font-weight: bold;
+			}
+			
+			.last_page .slogan {
+				display: block;
+				width: 13.5rem;
+				height: 7.0625rem;
+				position: absolute;
+				left: 0.5rem;
+				bottom: 1.25rem;
+			}
+			
+			.last_page .c_code {
+				display: block;
+				width: 6.46875rem;
+				height: 7.78125rem;
+				position: absolute;
+				right: 0.46875rem;
+				bottom: 0.625rem;
+			}
+		</style>
+	</head>
+
+	<body class="active">
+		<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+		<div class="h5_data" style="display: none;">{$h5data}</div>
+		<div class="my_page" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+			<div class="kv">
+				<p class="down"><span>奖 品</span><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/sanjiao.png?{$smarty.const.VERSION}" alt="" /><span>列 表</span></p>
+			</div>
+			<div class="second">
+				<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/lp.png?{$smarty.const.VERSION}" alt="" class="lp" />
+				<div class="img_list">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img.png?{$smarty.const.VERSION}" alt="" class="img" />
+					<ul class="pintu">
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_1.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_2.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_3.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_4.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_5.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_6.png?{$smarty.const.VERSION}" alt="" /></li>
+					</ul>
+				</div>
+				<div class="kv_btn">
+					<div class="chance_btn">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/sm.png?{$smarty.const.VERSION}" alt="" />
+						<p><span id="tu_num">0</span><i>/</i>6</p>
+					</div>
+					<div class="invite_btn">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/invite.png?{$smarty.const.VERSION}" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/invite_h.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+					<div class="share_btn">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/share_btn.png?{$smarty.const.VERSION}" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/share_h.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+			</div>
+			<div class="third">
+				<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<ul class="rule_ul">
+					<li><i>1</i>
+						<p>你需要点击分享助力发送本分享页至好友，好友点亮即算一次成功</p>
+					</li>
+					<li><i>2</i>
+						<p>一个账号可集齐拼图一次</p>
+					</li>
+					<li><i>3</i>
+						<p>你可不限次数为不同好友点亮拼图</p>
+					</li>
+					<li><i>4</i>
+						<p>除游戏周边，其余实物奖品发放请咨询当地售卖门店</p>
+					</li>
+					<li><i>5</i>
+						<p>最终解释权归《王牌战争手游》官方所有</p>
+					</li>
+				</ul>
+				<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<div class="d_banner">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner1.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner2.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner3.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner4.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner5.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner6.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="d_game">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/code.png?{$smarty.const.VERSION}" alt="" class="code" />
+					<a href="http://downurl.yingxiong.com/url/hero_wapgw.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="other_page" style="display: none;">
+			<div class="page_two">
+				<div class="touxiang">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/pic.png?{$smarty.const.VERSION}" alt="" class="t_pic" />
+					<div class="t_txt">
+						<p class="w_name">英雄骨少</p>
+						<p class="d_txt">正在收集<span>《王牌战争》X 汉堡王</span>专属福袋，帮他点亮拼图赢得奖励。</p>
+					</div>
+				</div>
+			</div>
+			<div class="second">
+				<div class="img_list">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img.png?{$smarty.const.VERSION}" alt="" class="img" />
+					<ul class="pintu pintu_two">
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_1.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_2.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_3.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_4.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_5.png?{$smarty.const.VERSION}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/li_6.png?{$smarty.const.VERSION}" alt="" /></li>
+					</ul>
+				</div>
+				<div class="btn_list">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/help.png?{$smarty.const.VERSION}" alt="" class="help" />
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/qiang.png?{$smarty.const.VERSION}" alt="" class="qiang" />
+					<div class="clear"></div>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/kuosan.png?{$smarty.const.VERSION}" alt="" class="kuosan" />
+				</div>
+				<div class="price_con">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/label2.png?{$smarty.const.VERSION}" alt="" class="label" />
+					<div class="swiper_price">
+						<div class="z_banner">
+							<ul class="swiper-wrapper">
+								<li class="swiper-slide">
+									<div class="li_one">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img01.png?{$smarty.const.VERSION}" alt="" />
+										<p>DRACONITE帽子</p>
+									</div>
+									<div class="li_two">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img02.png?{$smarty.const.VERSION}" alt="" />
+										<p>电竞鼠标</p>
+									</div>
+								</li>
+								<li class="swiper-slide">
+									<div class="li_one">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img03.png?{$smarty.const.VERSION}" alt="" />
+										<p>游戏礼包码</p>
+									</div>
+									<div class="li_two">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img04.png?{$smarty.const.VERSION}" alt="" />
+										<p>优惠券</p>
+									</div>
+								</li>
+								<li class="swiper-slide">
+									<div class="li_one">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img05.png?{$smarty.const.VERSION}" alt="" />
+										<p>优惠券</p>
+									</div>
+									<div class="li_two">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img06.png?{$smarty.const.VERSION}" alt="" />
+										<p>周边T恤</p>
+									</div>
+								</li>
+								<li class="swiper-slide">
+									<div class="li_one">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img07.png?{$smarty.const.VERSION}" alt="" />
+										<p>moto手机</p>
+									</div>
+									<div class="li_two">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img08.png?{$smarty.const.VERSION}" alt="" />
+										<p>初弎项链</p>
+									</div>
+								</li>
+								<li class="swiper-slide">
+									<div class="li_one">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img09.png?{$smarty.const.VERSION}" alt="" />
+										<p>coexistence单肩包</p>
+									</div>
+									<div class="li_two">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img10.png?{$smarty.const.VERSION}" alt="" />
+										<p>周边空投</p>
+									</div>
+								</li>
+								<li class="swiper-slide">
+									<div class="li_one">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img11.png?{$smarty.const.VERSION}" alt="" />
+										<p>优惠券</p>
+									</div>
+									<div class="li_two">
+										<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img12.png?{$smarty.const.VERSION}" alt="" />
+										<p>优惠券</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</div>
+				</div>
+			</div>
+			<div class="third">
+				<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<ul class="rule_ul">
+					<li><i>1</i>
+						<p>你需要点击分享助力发送本分享页至好友，好友点亮即算一次成功</p>
+					</li>
+					<li><i>2</i>
+						<p>一个账号可集齐拼图一次</p>
+					</li>
+					<li><i>3</i>
+						<p>你可不限次数为不同好友点亮拼图</p>
+					</li>
+					<li><i>4</i>
+						<p>除游戏周边，其余实物奖品发放请咨询当地售卖门店</p>
+					</li>
+					<li><i>5</i>
+						<p>最终解释权归《王牌战争手游》官方所有</p>
+					</li>
+				</ul>
+				<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<div class="d_banner">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner1.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner2.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner3.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner4.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner5.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+						<li class="swiper-slide">
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/banner6.jpg?{$smarty.const.VERSION}" alt="" /><i></i></a>
+						</li>
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="d_game">
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/code.png?{$smarty.const.VERSION}" alt="" class="code" />
+					<a href="http://downurl.yingxiong.com/url/hero_wapgw.html"></a>
+				</div>
+			</div>
+		</div>
+		<div class="last_page" id="last_page" style="display: none;">
+			<img src="" alt="" id="z_img" style="display: block;width:100%;height:100%;position:fixed;z-index:21;" />
+			<div class="chengg"></div>
+			<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+			<div class="t_price">
+				<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img01.png?{$smarty.const.VERSION}" alt="" class="l_img" />
+				<div class="right_txt">
+					<p class="first_p">王牌战争送给</p>
+					<div class="l_tou">
+						<div class="last_tou"><img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/pic.png?{$smarty.const.VERSION}" alt="" /></div>
+						<p></p>
+					</div>
+					<p class="last_p">一个礼物</p>
+				</div>
+			</div>
+			<div class="rondom">
+				<p></p>
+			</div>
+			<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+			<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/c_code.png?{$smarty.const.VERSION}" alt="" class="c_code" />
+		</div>
+		<!--分享图-->
+		<img id="share_img" src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/share_bg.png?{$smarty.const.VERSION}" alt="" style="display: none;width:100%;height:100%;position:fixed;left:0;top:0;z-index:100;" />
+		<!--弹窗-->
+		<!--实物弹窗-->
+		<div class="dizhi">
+			<div class="c_dizhi">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="dizhi_body">
+					<p class="d_title"><span></span>恭喜你获得</p>
+					<div class="gift_name">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img01.png?{$smarty.const.VERSION}" alt="" class="gift_pic" id="sw_img" />
+						<div class="g_name">
+							<p class="g_p" id="sw_name">游戏周边</p>
+						</div>
+					</div>
+					<div class="d_tip">
+						<p>请您务必详细贴写一月内您可收到的地址，</p>
+						<p>以便您能正确收货，我们会替您严格保密所有信息</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/d_btn.png?{$smarty.const.VERSION}" alt="" class="d_btn tianxie" />
+				</div>
+			</div>
+		</div>
+		<!--优惠券弹窗-->
+		<div class="y_dizhi">
+			<div class="c_dizhi">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="dizhi_body">
+					<p class="d_title"><span></span>恭喜你获得</p>
+					<div class="gift_name">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img01.png?{$smarty.const.VERSION}" alt="" class="gift_pic" id="yh_img" />
+						<div class="g_name">
+							<p class="g_p" id="yh_name"></p>
+						</div>
+					</div>
+					<div class="d_tip">
+						<p>请咨询您当前门店领取</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/sure.png?{$smarty.const.VERSION}" alt="" class="d_btn make_sure" />
+				</div>
+			</div>
+		</div>
+		<!--口令弹窗-->
+		<div class="k_dizhi">
+			<div class="c_dizhi">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="dizhi_body">
+					<p class="d_title"><span></span>恭喜你获得</p>
+					<div class="gift_name">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img01.png?{$smarty.const.VERSION}" alt="" class="gift_pic" id="kl_img" />
+						<div class="g_name">
+							<p class="g_p" id="kl_name"></p>
+						</div>
+					</div>
+					<div class="d_tip">
+						<p>复制此淘口令<span id="tc11_copyTextz" class="kl_txt"></span>后</p>
+						<p>打开手机淘宝领取专享优惠券</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/fuzhi.png?{$smarty.const.VERSION}" alt="" class="d_btn" id="tc11_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc11_copyTextz" />
+				</div>
+			</div>
+		</div>
+		<!--游戏兑换码弹窗-->
+		<div class="x_dizhi">
+			<div class="c_dizhi">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="dizhi_body">
+					<p class="d_title"><span></span>恭喜你获得</p>
+					<div class="gift_name">
+						<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/img01.png?{$smarty.const.VERSION}" alt="" class="gift_pic" id="wp_img" />
+						<div class="g_name">
+							<p class="g_p" id="wp_name"></p>
+						</div>
+					</div>
+					<p class="dhm">兑换码：<span id="tc12_copyTextz" class="wp_code"></span></p>
+					<div class="d_tip">
+						<p>请下载《王牌战争》点击<span>【活动-礼包码-输入礼包码】</span>进行使用。包小品质好，吃鸡更有料！我们东风空投等你来炸！</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/fuzhi.png?{$smarty.const.VERSION}" alt="" class="d_btn" id="tc12_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc12_copyTextz" />
+				</div>
+			</div>
+		</div>
+		<!--填写地址弹窗-->
+		<div class="address">
+			<div class="c_address">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="address_body">
+					<div class="s_put">
+						<input type="text" placeholder="收件人姓名" class="name" id="name" />
+						<input type="tel" placeholder="收件人手机" class="phone" id="phone" />
+					</div>
+					<div class="s_put">
+						<textarea placeholder="详细收货地址..." id="address"></textarea>
+					</div>
+					<div class="d_tip">
+						<p>请您务必详细贴写一月内您可收到的地址，</p>
+						<p>以便您能正确收货，我们会替您严格保密所有信息</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/sure.png?{$smarty.const.VERSION}" alt="" class="d_btn" id="add_sure" />
+				</div>
+			</div>
+		</div>
+		<!--未全部点亮拼图提示弹窗-->
+		<div class="fail">
+			<div class="c_fail">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="fail_body">
+					<p>您目前还未集齐全部拼图，</p>
+					<p>赶快去<span>邀请好友</span>来助力吧！</p>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/now.png?{$smarty.const.VERSION}" alt="" class="now make_sure" />
+				</div>
+			</div>
+		</div>
+		<!--信息提示弹框-->
+		<div class="message">
+			<div class="c_message">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="message_body">
+					<p>您目前还未集齐全部拼图，</p>
+					<img src="{$smarty.const.STATIC_DOMAIN}hero/hbw/images/sure.png?{$smarty.const.VERSION}" alt="" class="sure make_sure" />
+				</div>
+			</div>
+		</div>
+		<!--遮罩层-->
+		<div id='loading10' style="position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+			<div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+				<p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+			</div>
+		</div>
+	</body>
+	{include '../h5-common/h5_data.html'}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}hero/hbw/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}hero/hbw/js/canvas2image.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}hero/hbw/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}hero/hbw/";
+		var c_number = "?{$smarty.const.VERSION}";
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}hero/hbw/js/index.js?{$smarty.const.VERSION}"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+	</script>
+	<script type="text/javascript">
+		$(function() {
+			// 分享接口
+			var share_icon = $(".my_page").attr("data-icon");
+			var share_title = $(".my_page").attr("data-title");
+			var share_desc = $(".my_page").attr("data-desc");
+			var share = {
+				imgUrl: "http:" + share_icon,
+				shareTitle: share_title,
+				descContent: share_desc,
+				lineLink: share_url
+			};
+			wx.config({
+				debug: false,
+				appId: wx_conf.appId,
+				timestamp: wx_conf.timestamp,
+				nonceStr: wx_conf.nonceStr,
+				signature: wx_conf.signature,
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'chooseImage',
+					'previewImage',
+					'uploadImage',
+					'downloadImage'
+				]
+			});
+			wx.ready(function() {
+				wx.onMenuShareAppMessage({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					}
+				});
+				wx.onMenuShareTimeline({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					}
+				});
+
+				wx.onMenuShareQQ({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+			});
+		});
+	</script>
+
+</html>

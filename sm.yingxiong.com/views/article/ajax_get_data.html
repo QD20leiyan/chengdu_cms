@@ -1,0 +1,275 @@
+<div class="right_txt">
+	{if $data} {if $category_id==117}
+	<div class="tab active">
+		<div class="title_bg">
+			<ul>
+				{foreach from=$data item=val key=key} {if $key==0}
+				<li class="active">
+					<a href="#page0{$key+1}">{$val.name}</a>
+				</li>
+				{else}
+				<li class="">
+					<a href="#page0{$key+1}">{$val.name}</a>
+				</li>
+				{/if} {/foreach}
+			</ul>
+		</div>
+		<div class="title_txt">
+			{foreach from=$data item=val key=key}
+			<div id="page0{$key+1}">
+				<div class="title_txt01"><img src="{$val.thumb}" />{$val.name}</div>
+				{if $val.sub_cat}
+				<div class="tab_qh">
+					{foreach from=$val.sub_cat item=val key=key} {if $key==0}
+					<div class="tab01 active">
+						<p>{$val.name}</p>
+					</div>
+					{else}
+					<div class="tab01">
+						<p>{$val.name}</p>
+					</div>
+					{/if} {/foreach}
+				</div>
+				<div class="tab_qh01">
+					{foreach from=$val.sub_cat item=val key=key} {if $key==0}
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li class="">
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{else}
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li class="">
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if} {/foreach}
+				</div>
+				{else}
+				<div class="tab_qh01">
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+				</div>
+				{/if}
+
+			</div>
+			{/foreach}
+		</div>
+	</div>
+	{else if $category_id==118}
+	<div class="tab active">
+		<div class="title_bg">
+			<ul>
+				{foreach from=$data item=val key=key} {if $key==0}
+				<li class="active">
+					<a href="#page0{$key+1}">{$val.name}</a>
+				</li>
+				{else}
+				<li class="">
+					<a href="#page0{$key+1}">{$val.name}</a>
+				</li>
+				{/if} {/foreach}
+			</ul>
+		</div>
+		<div class="title_txt">
+			{foreach from=$data item=val key=key}
+			<div id="page01">
+				<div class="title_txt01"><img src="{$val.thumb}" />{$val.name}</div>
+				{if $val.sub_cat}
+
+				<div class="tab_qh">
+					{foreach from=$val.sub_cat item=val key=key} {if $key==0}
+					<div class="tab01 active">
+						<p>{$val.name}</p>
+					</div>
+					{else}
+					<div class="tab01">
+						<p>{$val.name}</p>
+					</div>
+					{/if} {/foreach}
+				</div>
+				<div class="tab_qh01">
+					{foreach from=$val.sub_cat item=val key=key} {if $key==0}
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li class="">
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{else}
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li class="">
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if} {/foreach}
+				</div>
+				{else}
+				<div class="tab_qh01">
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+				</div>
+				{/if}
+
+			</div>
+			{/foreach}
+		</div>
+	</div>
+	{else if $category_id==119}
+	<div class="tab active">
+		<div class="tab_ul">
+			<div class="tab_ul_title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/kl.png" />魔法体系</div>
+			<div class="dl_scroll">
+				{foreach from=$data item=val key=key}
+				<dl>
+					<dt><a target="_blank" href="{$val.linkUrl}"><img src="{$val.thumb}" /></a></dt>
+					<dd>{$val.title}</dd>
+				</dl>
+				{/foreach}
+			</div>
+			{$page}
+		</div>
+	</div>
+	{else if $category_id==120}
+	<div class="tab active">
+		<div class="tab_ul">
+			<div class="tab_ul_title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/kl.png" title="" alt="" />生物体系</div>
+			<div class="dl_scroll">
+				{foreach from=$data item=val key=key}
+				<dl>
+					<dt><a target="_blank" href="{$val.linkUrl}"><img src="{$val.thumb}" title="" alt="" /></a></dt>
+					<dd>{$val.title}</dd>
+				</dl>
+				{/foreach}
+			</div>
+			{$page}
+		</div>
+	</div>
+	{else if $category_id==121}
+	<div class="tab active">
+		<div class="title_bg">
+			<ul>
+				{foreach from=$data item=val key=key} {if $key==0}
+				<li class="active">
+					<a href="#page0{$key+1}">{$val.name}</a>
+				</li>
+				{else}
+				<li class="">
+					<a href="#page0{$key+1}">{$val.name}</a>
+				</li>
+				{/if} {/foreach}
+			</ul>
+		</div>
+		<div class="title_txt">
+			{foreach from=$data item=val key=key}
+			<div id="page0{$key+1}">
+				<div class="title_txt01"><img src="{$val.thumb}" />{$val.name}</div>
+				{if $val.sub_cat}
+				<div class="tab_qh">
+					{foreach from=$val.sub_cat item=val key=key} {if $key==0}
+					<div class="tab01 active">
+						<p>{$val.name}</p>
+					</div>
+					{else}
+					<div class="tab01">
+						<p>{$val.name}</p>
+					</div>
+					{/if} 
+				{/foreach}
+				</div>
+				<div class="tab_qh01">
+					{foreach from=$val.sub_cat item=val key=key} {if $key==0}
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li class="">
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{else}
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li class="">
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+					{/if} {/foreach}
+				</div>
+				{else}
+				<div class="tab_qh01">
+					<ul class="active">
+						{foreach from=$val.sub_content item=val key=key} {if $key==0}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{else}
+						<li>
+							<a target="_blank" href="{$val.linkUrl}">{$val.title}</a>
+						</li>
+						{/if} {/foreach}
+					</ul>
+				</div>
+				{/if}
+
+			</div>
+			{/foreach}
+		</div>
+	</div>
+	{/if} 
+		{else}
+			<div class="right_kong">
+			<p></p>
+		</div>
+		{/if}
+
+</div>

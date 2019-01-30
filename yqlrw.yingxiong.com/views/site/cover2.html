@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{csrf}
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/common.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/cover.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/yx.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+	</head>
+
+	<body class="op">
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="kv list1" id="go1">
+			<div class="wrap">
+				<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/logo.png?{$smarty.const.VERSION}" alt="" /></div>
+				<a href="{myurl name='site/index'}" class="enter" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/enter.png?{$smarty.const.VERSION}" alt="" /></a>
+                <div class="disney"></div>
+				{fragment var=video code=cover_video size=1}
+				<div style="opacity: 0;filter:alpha(opacity=0);" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"></div>
+				<div class="c_yy pub_btn"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yy.png?{$smarty.const.VERSION}" alt="" /></div>
+				<video src="{$smarty.const.STATIC_DOMAIN}2.0/images/kv.mp4?{$smarty.const.VERSION}" class="kv_video" autoplay="autoplay" loop="loop"></video>
+				<div class="video_bg"></div>
+			    <div class="cc_bg"></div>
+			</div>
+		</div>
+		<div class="d_bg">
+			<div class="f_gift list1" id="go2">
+				<div class="wrap">
+					<div class="chengg"></div>
+					<!--<div class="label"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/label.png?{$smarty.const.VERSION}" alt="" /></div>-->
+					<!--<div class="m_gift">-->
+						<!--<ul class="tab_i">-->
+							<!--<li><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/gift1.png?{$smarty.const.VERSION}" alt="" /></li>-->
+							<!--<li><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/gift2.png?{$smarty.const.VERSION}" alt="" /></li>-->
+							<!--<li><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/gift4.png?{$smarty.const.VERSION}" alt="" /></li>-->
+							<!--<li><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/gift3.png?{$smarty.const.VERSION}" alt="" /></li>-->
+						<!--</ul>-->
+						<!--<div class="t_con_bg">	-->
+						<!--<div class="t_con">-->
+							<!--<ul>-->
+								<!--<li>-->
+									<!--<div class="tc_img"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tc.png?{$smarty.const.VERSION}" alt="" /></div>-->
+								<!--</li>-->
+								<!--<li class="">-->
+									<!--<h3>积分商城</h3>-->
+									<!--<div class="f_l_txt">-->
+										<!--<p>关注官方微信公众号：一起来热舞，绑定手机，参加互动活动，可换取独家周边，精美礼品，游戏福利</p>-->
+										<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/wx_code.jpg?{$smarty.const.VERSION}" alt="" />-->
+									<!--</div>-->
+								<!--</li>-->
+								<!--<li class="">-->
+									<!--<h3>现金红包</h3>-->
+									<!--<div class="f_l_txt">-->
+										<!--<p>活动时间： 4月26日至4月30日<br />活动期间：加入玩家QQ群（550753755），每天不定时发放现金红包。</p>-->
+										<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/q_code.jpg?{$smarty.const.VERSION}" alt="" />-->
+									<!--</div>-->
+								<!--</li>-->
+								<!--<li class="">-->
+									<!--<h3>问卷调查</h3>-->
+									<!--<p class="jkp">活动时间：4月26日至4月30日<br />活动介绍：参与《一起来热舞》问卷调查，将随机抽选20位玩家赠送精美周边实物奖励，<br />同时所有参与问卷的玩家都将获得下次删档付费测试专属礼包码奖励。</p>-->
+									<!--<a href="https://www.wjx.cn/jq/21837292.aspx" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/canjia.png" alt="" /></a>-->
+								<!--</li>-->
+							<!--</ul>-->
+						<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="btn1 pub_btn"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/btn1.png?{$smarty.const.VERSION}" alt="" /></div>-->
+                    <p class="yueBox">当前预约人数<span class="yueNum"></span>人</p>
+                    <div class="giftList"></div>
+                    <div class="btn1 pub_btn"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/btn1.png?{$smarty.const.VERSION}" alt="" /></div>
+                    <div class="yue-list">
+                        <div class="shop">
+                            <div class="tip shop-tip">
+                                <h3>积分商城</h3>
+                                <div class="f_l_txt">
+                                    <p>关注官方微信公众号：一起来热舞，绑定手机，参加互动活动，可换取独家周边，精美礼品，游戏福利</p>
+                                    <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/wx_code.jpg?{$smarty.const.VERSION}" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="money">
+                            <div class="tip money-tip">
+                                <h3>现金红包</h3>
+                                <div class="f_l_txt">
+                                    <p class="jkp">活动时间： 4月26日至4月30日<br />活动期间：加入玩家QQ群（550753755），每天不定时发放现金红包。</p>
+                                    <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/q_code.jpg?{$smarty.const.VERSION}" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="join">
+                            <div class="tip join-tip">
+                                <h3>问卷调查</h3>
+                                <p class="jkp">活动时间：4月28日至5月02日<br />活动介绍：参与《一起来热舞》问卷调查，将随机抽选20位玩家赠送精美周边实物奖励，<br />同时所有参与问卷的玩家都将获得下次删档付费测试专属礼包码奖励。</p>
+                            </div>
+                        </div>
+                        <a class="canjia" href="https://www.wjx.cn/jq/21837292.aspx" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/canjia.png?{$smarty.const.VERSION}" alt="" /></a>
+                    </div>
+				</div>
+			</div>
+			<div class="t_play list1" id="go3">
+				<div class="wrap">
+					<div class="chengg"></div>
+					<!--<div class="label1"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tese.png?{$smarty.const.VERSION}" alt="" /></div>-->
+					<div class="d_galleryBox">
+                        <div class="d_gallery">
+                            {fragment var=banner_play code=	pc_banner_cov size=5}
+                            <ul class="swiper-wrapper">
+                                {if $banner_play neq ''}
+                                    {foreach $banner_play as $v}
+                                        <li class="swiper-slide">
+                                            <a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+                                                <img src="{$v.thumb}" alt="" />
+                                            </a>
+                                        </li>
+                                    {/foreach}
+                                {/if}
+                            </ul>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="r_qudao">
+			<div class="wrap">
+				<ul>
+					<li>
+						<div class="bg_img">
+							<img src="{$global.wb_img}" alt="" />
+						</div>
+						<div class="bg_txt">
+							<h3 class="b_title">新浪微博</h3>
+							<p class="first_p">扫描二维码</p>
+							<p>立即关注微博</p>
+						</div>
+					</li>
+					<li>
+						<div class="bg_img">
+							<img src="{$global.wx_img}" alt="" />
+						</div>
+						<div class="bg_txt">
+							<h3 class="b_title">微信公众号</h3>
+							<p class="first_p">扫描二维码 关注官方微信</p>
+							<p>官方微信号：</p>
+							<div>yqlrewu</div>
+						</div>
+					</li>
+					<li>
+						<div class="bg_img">
+							<img src="{$global.group}" alt="" />
+						</div>
+						<div class="bg_txt">
+							<h3 class="b_title">QQ群服务</h3>
+							<p class="first_p">官方QQ群</p>
+							<div><a href="https://jq.qq.com/?_wv=1027&k=5Cdz254" target="_blank">{$global.group_num}</a></div>
+							<div><a href="https://jq.qq.com/?_wv=1027&k=5InEFf9" target="_blank">{$global.group_two_num}</a></div>
+							<p class="f_l_p">BUG反馈 游戏问题</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="r_nav">
+			<div class="chengg"></div>
+			<ul class="nav_ul">
+				<li class="active sy" data-to="go1">
+					<a href="javascript:;">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg" />-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/sy.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>01&nbsp;&nbsp;预约首页</p>
+						</div>
+					</a>
+				</li>
+				<li data-to="go2" class="jl">
+					<a href="javascript:;">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg" />-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/xw.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>02&nbsp;&nbsp;四大奖励</p>
+						</div>
+					</a>
+				</li>
+				<li data-to="go3" class="ts">
+					<a href="javascript:;">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg" />-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yx.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>03&nbsp;&nbsp;游戏特色</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="http://bbs.yingxiong.com/t/pc/19.html" target="_blank">
+						<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/f_bg.png?{$smarty.const.VERSION}" alt="" class="f_bg" />-->
+						<div class="li_con">
+							<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/lt.png?{$smarty.const.VERSION}" alt="" />-->
+							<p>04&nbsp;&nbsp;官方论坛</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<div class="f_download">
+				<a href="javascript:;" class="pub_btn1" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/app.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="javascript:;" class="js_down_andriod stat_android "><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<div class="x_code">
+				<div class="code_img">
+					<img src="" alt="" class="js_jump_img"/>
+				</div>
+				<p>游戏下载二维码</p>
+			</div>
+			<div class="fw">
+				<a href="javascript:;" class="t_code"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/wexin.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="https://jq.qq.com/?_wv=1027&k=5Cdz254" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/num.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<div class="back">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/top1.png?{$smarty.const.VERSION}" alt="" />
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/top2.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="xf_code">
+				<div class="xf_img">
+					<img src="{$global.wx_img}" alt="" />
+				</div>
+				<p>扫一扫关注公众号</p>
+			</div>
+			<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/k_close.png?{$smarty.const.VERSION}" alt="" class="float_btn" />
+		</div>
+		<div class="yuyue1">
+			<div class="yy_con">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/nv.png?{$smarty.const.VERSION}" alt="" class="nv" />-->
+				<i class="c_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/close.png?{$smarty.const.VERSION}" alt="" /></i>
+				<div class="con_yy">
+					<ul class="type_select">
+						<li class="active" type="ios">
+							<i></i>苹果 iOS
+						</li>
+						<li type="android">
+							<i></i>安卓平台
+						</li>
+					</ul>
+					<h2>iOS预约下载</h2>
+					<ul class="s_and">
+						<li>
+							<div class="chuxian">
+								<div class="e_mail">
+									<input type="email" placeholder="请输入邮箱" class="mail" />
+								</div>
+								<p class="t_p"><span>注：</span>为了保证您能成功接收本次封测信息和测试安装包，请如实填写</p>
+							</div>
+							<div class="s_phone">
+								<input type="tel" placeholder="请输入手机号" class="phone" />
+							</div>
+							<div class="s_put">
+								<input type="text" placeholder="请输入图形验证码" class="t_yzm" />
+								<div class="captcha">
+									<img src="" alt="" />
+								</div>
+							</div>
+							<div class="s_put">
+								<input type="text" placeholder="请输入手机验证码" class="i_code" />
+								<input type="button" value="发送验证码" class="g_code" />
+							</div>
+							<div class="submit">
+								<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/submit.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	</body>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	{download}
+	{video_play}
+	<script type="text/javascript">
+		var code_url = "{myurl name='commonMethod/ajax-yuyue-verify'}";
+		var yy_url = "{myurl name='commonMethod/ajax-yuyue'}";
+		$(function() {
+			
+			$("body").removeClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k.png?{$smarty.const.VERSION}");
+					click = true;
+			var mySwiper01 = new Swiper(".d_gallery", {
+				loop: true,
+				autoplay:3000,
+                pagination : '.swiper-pagination',
+                paginationClickable :true,
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				autoplayDisableOnInteraction: false,
+				coverflow: {
+					rotate: 50,
+					stretch: -200,
+					depth: 400,
+					modifier: 1,
+					slideShadows: true
+				},
+				observer: true,
+				observeParents: true,
+				//				simulateTouch: false,
+			});
+            var url = '{myurl name="commonMethod/ajax-get-subscribes"}';
+            var params = {
+                "name":"yqlrw_total",
+                "cms_csrf": $("meta[name='csrf-token']").attr("content")
+            }
+            $.post(url,params,function (data){
+                var num = data.msg;
+                if(num == null || num == 'null'){
+                    num = 0;
+                }
+                $('.yueNum').text(num);
+            })
+        $(window).on("scroll",function(){
+			e=$(window).scrollTop();
+			h=$(window).height();
+			$(".list1").each(function(i,n){
+				var top=$(n).offset().top;
+				if((top-h/2)<e){
+					$(".nav_ul li").removeClass("active");
+					$(".nav_ul li").eq(i).addClass("active");
+				}
+			});
+
+		});
+			var click = false;
+			var click1 = true;
+            $(window).scroll(function() {
+				var scroHei = $(window).scrollTop(); //滚动的高度
+				if(scroHei > 560 && !click  && click1) {
+					$("body").addClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k_close.png?{$smarty.const.VERSION}");
+				}else if(scroHei < 560 && click1){
+					$("body").removeClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k.png?{$smarty.const.VERSION}");
+				}
+			});
+			$(".float_btn").click(function() {
+				if($("body").hasClass("op")){
+					$("body").removeClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k.png?{$smarty.const.VERSION}");
+					click = true;
+				}else{
+					click1 = false;
+					$("body").addClass("op");
+					$(".float_btn").attr("src","{$smarty.const.STATIC_DOMAIN}2.0/images/k_close.png?{$smarty.const.VERSION}");
+				}
+	        });
+		})
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/cover.js?{$smarty.const.VERSION}"></script>
+</html>

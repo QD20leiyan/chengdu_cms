@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}">
+		<meta name="description" content="{$seo_desc}">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/public.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/newyear.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+				// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+						};
+	
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if (!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+	
+			})(document, window);
+		</script>
+		{assign var="version" value="1"} 
+	</head>
+	
+	<body>
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_logo.png?{$version}" alt="" class="logo" />
+				<a href="/index.html" class="enter"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_enter.png?{$version}" alt="" /></a>
+			</div>
+		</section>
+		<section>
+			<div class="second">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_label.png?{$version}" alt="" class="label" />
+				<div class="m_tab">
+					<ul class="m_ul">
+						<li class="active"><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab1.png?{$version}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab1_h.png?{$version}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab2.png?{$version}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab2_h.png?{$version}" alt="" /></li>
+						<li><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab3.png?{$version}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}7.0/images/n_tab3_h.png?{$version}" alt="" /></li>
+					</ul>
+					<div class="tab_div">
+						<div class="active js_video_play" data-url="http://video.yingxiong.com/hd/d514f5f16c634e71bd24b2a00eedd21f.mp4">
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_gun1.png?{$version}" alt="" class="gun" />
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_play.png?{$version}" alt="" class="n_play" />
+						</div>
+						<div class="js_video_play" data-url="http://video.yingxiong.com/hd/6edc55e440a944fd8ef8b2053bc64839.mp4">
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_gun2.png?{$version}" alt="" class="gun" />
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_play.png?{$version}" alt="" class="n_play" />
+						</div>
+						<div class="js_video_play" data-url="http://video.yingxiong.com/hd/4a8d1059f4ad45e6a6002e04906399d0.mp4">
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_gun3.png?{$version}" alt="" class="gun" />
+							<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_play.png?{$version}" alt="" class="n_play" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="last">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_label1.png?{$version}" alt="" class="label"/>
+				<p class="last_p">枪友可在指定活动时间，进入庆生主播所在的直播间，与主播进行游戏互动，主播将创建无密码的房间，进行枪王爆破模式6v6，除主播外，每位参与的玩家将根据成绩，获得超值福利</p>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/rule.png?{$version}" alt="" class="rule" />
+				<p class="number_p"><i>01</i><span>活动时间9月8日-9月12日</span></p>
+				<p class="number_p"><i>02</i><span>活动将在每个整点开始</span></p>
+				<p class="number_p"><i>03</i><span>庆生主播名单请关注<em>[全民枪战公众号]</em></span></p>
+			</div>
+		</section>
+	</body>
+	{video_play}
+	{download}
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js?{$version}"></script>
+	<script type="text/javascript">
+		$(function (){
+			$(".m_ul li").click(function (){
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_div>div").eq(index).addClass("active").siblings().removeClass("active");
+			})
+		});
+	</script>
+</html>

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/footer/css/style.css" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/common/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}4.0/m/css/cover0121.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?cd3c5f317e3f5ced9e323d594c3eb7b3";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:;" class="icon">
+				<img src="{$global.logo_img}" alt="" />
+			</a>
+			<div class="header_txt">
+				<p>{$global.title}</p>
+				<p>{$global.sub_title}</p>
+			</div>
+			<a href="/m/index.html" class="enter">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/iner.png?{$smarty.const.VERSION}" alt="" />
+			</a>
+		</header>
+		<section>
+			<div class="kv stat_page_cover">
+				{fragment var=index_video code=video size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_play.png?{$smarty.const.VERSION}" alt="" class="play js_video_play" data-url="{if $index_video}{$index_video[0].url}{/if}" />
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+				<div class="download no_channel">
+					<a href="http://downurl.yingxiong.com/url/czymf_wapcov.html" class="js_wap_down stat_event_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_gf.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="https://www.taptap.com/app/51645" class="stat_event_cover_tap"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_tap.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="http://www.3839.com/a/88284.htm" class="stat_event_cover_hy"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_hy.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+				<div class="download channel" style="display: none;">
+					<a href="http://downurl.yingxiong.com/url/czymf_wapcov.html" class="js_wap_down stat_event_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_gf.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+				<!--<div class="danmu">
+
+				</div>-->
+			</div>
+		</section>
+		<section>
+			<div class="second">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_label.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<div class="per">
+					<div class="jdt"><i class="jd_xs"></i></div>
+					<ul class="jd_ul">
+						<li class="">
+							<div class="jd_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/lz.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/lz_h.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<i class="jd_y"></i>
+							<p class="jd_p">30W</p>
+						</li>
+						<li class="">
+							<div class="jd_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/lz.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/lz_h.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<i class="jd_y"></i>
+							<p class="jd_p">100W</p>
+						</li>
+						<li class="">
+							<div class="jd_img">
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/lz.png?{$smarty.const.VERSION}" alt="" />
+								<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/lz_h.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+							<i class="jd_y"></i>
+							<p class="jd_p">300W</p>
+						</li>
+					</ul>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/jd_gift.png?{$smarty.const.VERSION}" alt="" class="jd_gift" />
+				<p class="jd_number"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/light.png?{$smarty.const.VERSION}" alt="" /><span>{if isset($data.total_praise_num)}{$data.total_praise_num}{/if}</span></p>
+				<div class="jd_btn stat_event_dianliang" id="f_btn">
+					<div class="chengg"></div>
+					<p>点亮祝福</p>
+					<span>今日剩余点亮次数<i id="z_number">1</i>次</span>
+				</div>
+				<div class="user">
+					<div class="">
+						<div class="before_denglu active"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p>用户登录</p>
+						</div>
+						<div class="after_denglu"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p class="g_phone">欢迎您，<span></span></p><i class="zhuxiao">注销</i></div>
+					</div>
+					<div id="f_shuoming"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/hd.png?{$smarty.const.VERSION}" alt="" />
+						<p>活动说明</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="third">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_label1.png?{$smarty.const.VERSION}" alt="" class="label1" />
+				<div class="t_banner">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+							<p class="t_title">欢乐相伴礼包</p>
+							<p class="t_subtitle">2018年7月13日后注册的玩家</p>
+							<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/t_img1.png?{$smarty.const.VERSION}" alt="" />
+						</li>
+						<li class="swiper-slide">
+							<p class="t_title">忠实玩家礼包</p>
+							<p class="t_subtitle t_line">2018年2月6日至<br />2018年7月12日注册的玩家</p>
+							<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/t_img2.png?{$smarty.const.VERSION}" alt="" />
+						</li>
+						<li class="swiper-slide">
+							<p class="t_title">骨灰级重聚礼包</p>
+							<p class="t_subtitle">2018年2月6日前注册的玩家</p>
+							<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/t_img3.png?{$smarty.const.VERSION}" alt="" />
+						</li>
+					</ul>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="t_btn stat_event_fuli">领取福利</div>
+				<div class="user">
+					<div class="">
+						<div class="before_denglu active"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p>用户登录</p>
+						</div>
+						<div class="after_denglu"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p class="g_phone">欢迎您，<span></span></p><i class="zhuxiao">注销</i></div>
+					</div>
+					<div id="er_gift"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/jp.png?{$smarty.const.VERSION}" alt="" />
+						<p>我的奖励</p>
+					</div>
+					<div id="t_shuoming"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/hd.png?{$smarty.const.VERSION}" alt="" />
+						<p>活动说明</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="four">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_label2.png?{$smarty.const.VERSION}" alt="" class="label2" />
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/f_img.png?{$smarty.const.VERSION}" alt="" class="f_img" />
+				<div class="jd_btn stat_event_yqhy" id="invite_fir">
+					<div class="chengg"></div>
+					<p>邀请好友</p>
+					<span>已邀请人数<i id="invite_num">0</i>人</span>
+				</div>
+				<div class="user">
+					<div class="">
+						<div class="before_denglu active"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p>用户登录</p>
+						</div>
+						<div class="after_denglu"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p class="g_phone">欢迎您，<span></span></p><i class="zhuxiao">注销</i></div>
+					</div>
+					<div id="th_gift"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/jp.png?{$smarty.const.VERSION}" alt="" />
+						<p>我的奖励</p>
+					</div>
+					<div id="s_shuoming"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/hd.png?{$smarty.const.VERSION}" alt="" />
+						<p>活动说明</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="five">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_label3.png?{$smarty.const.VERSION}" alt="" class="label3" />
+				<div class="c_tiger">
+					<div class="price_con">
+						<ul>
+                            {if isset($data.all_gift_log)  && $data.all_gift_log}
+                            {foreach $data.all_gift_log as $k => $v}
+                            <li><i>{$v.phone}</i><em>获得了</em><span>{$v.name}</span></li>
+                            {/foreach}
+                            {/if}
+						</ul>
+					</div>
+					<div class="tiger_box">
+						<div class="container">
+							<div class="lottery lottery1">
+								<div class="lottery-img"></div>
+								<div class="lottery-img"></div>
+							</div>
+							<div class="lottery lottery2">
+								<div class="lottery-img"></div>
+								<div class="lottery-img"></div>
+							</div>
+							<div class="lottery lottery3">
+								<div class="lottery-img"></div>
+								<div class="lottery-img"></div>
+							</div>
+						</div>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_start.png?{$smarty.const.VERSION}" alt="" class="c_start stat_event_lottery" />
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_share1.png?{$smarty.const.VERSION}" alt="" class="c_share1" />
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_ainima.png?{$smarty.const.VERSION}" alt="" class="c_ani" />
+				</div>
+				<p class="price_number">剩余抽奖次数<span>0</span>次</p>
+				<div class="user">
+					<div class="">
+						<div class="before_denglu active"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p>用户登录</p>
+						</div>
+						<div class="after_denglu"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/yonghu.png?{$smarty.const.VERSION}" alt="" />
+							<p class="g_phone">欢迎您，<span></span></p><i class="zhuxiao">注销</i></div>
+					</div>
+					<div id="five_check"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/jp.png?{$smarty.const.VERSION}" alt="" />
+						<p>我的奖励</p>
+					</div>
+					<div id="i_shuoming"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/hd.png?{$smarty.const.VERSION}" alt="" />
+						<p>活动说明</p>
+					</div>
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/g_title.png?{$smarty.const.VERSION}" alt="" class="g_title" />
+				<div class="all_ul">
+					<div class="f_big_gift">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/dbx.png?{$smarty.const.VERSION}" alt="" class="dbx" />
+						<ul>
+							<li data-id="489"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/switch.png?{$smarty.const.VERSION}" alt="" />
+								<p>switch*<i>{if isset($data.all_residue_num)}{$data.all_residue_num[489]}{/if}</i></p>
+							</li>
+							<li data-id="488"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/ipad.png?{$smarty.const.VERSION}" alt="" />
+								<p>iPAD*<i>{if isset($data.all_residue_num)}{$data.all_residue_num[488]}{/if}</i></p>
+							</li>
+							<li data-id="482"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/hongbao.png?{$smarty.const.VERSION}" alt="" />
+								<p>¥50话费*<i>{if isset($data.all_residue_num)}{$data.all_residue_num[482]}{/if}</i></p>
+							</li>
+						</ul>
+					</div>
+					<div class="gift_list">
+						<ul>
+							<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/sp.png?{$smarty.const.VERSION}" alt="" />
+								<p>兽皮、珍珠奶茶</p>
+							</li>
+							<li data-id="478"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/xx.png?{$smarty.const.VERSION}" alt="" />
+								<p>星星法杖*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[478]}{/if}</i></li>
+							<li data-id="479"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/jy.png?{$smarty.const.VERSION}" alt="" />
+								<p>金鱼昊昊*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[479]}{/if}</i></li>
+							<li data-id="480"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/xl.png?{$smarty.const.VERSION}" alt="" />
+								<p>雪狼王*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[480]}{/if}</i></li>
+						</ul>
+						<ul>
+							<li data-id="481"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/fz.png?{$smarty.const.VERSION}" alt="" />
+								<p>周年限量法杖*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[481]}{/if}</i></li>
+							<li data-id="483"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/s_hb.png?{$smarty.const.VERSION}" alt="" />
+								<p>10元话费*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[483]}{/if}</i></li>
+							<li data-id="487"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/zd.png?{$smarty.const.VERSION}" alt="" />
+								<p>限量蛋糕炸弹*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[487]}{/if}</i></li>
+							<li data-id="486"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/dg.png?{$smarty.const.VERSION}" alt="" />
+								<p>限量蛋糕烟花*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[486]}{/if}</i></li>
+						</ul>
+						<ul>
+							<li data-id="484"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/dl.png?{$smarty.const.VERSION}" alt="" />
+								<p>灯笼龟*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[484]}{/if}</i></li>
+							<li data-id="485"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/jl.png?{$smarty.const.VERSION}" alt="" />
+								<p>鎏金龙*</p><i>{if isset($data.all_residue_num)}{$data.all_residue_num[485]}{/if}</i></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="last">
+				<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_label4.png?{$smarty.const.VERSION}" alt="" class="label4" />
+				<ul>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_b1.png?{$smarty.const.VERSION}" alt="" />
+						<a class="stat_event_douyin" href="http://v.douyin.com/L28Y4P/"></a>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_b2.png?{$smarty.const.VERSION}" alt="" />
+						<a class="stat_event_kuaishou" href="http://www.gifshow.com/s/UruXgb2n"></a>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_b3.png?{$smarty.const.VERSION}" alt="" />
+						<a class="stat_event_weibo" href="https://weibo.com/u/6293873121"></a>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_b4.png?{$smarty.const.VERSION}" alt="" />
+						<img src="{$global.wx_img}" alt="" class="ewm" />
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<footer id="Hero-bar">
+				<div class="f_t">
+					<ul>
+						<li>
+							<a href="//kf.yingxiong.com/Mobile/checkOption?Gid=126" id="kefu">客服中心</a>
+						</li>
+						<li>
+							<a href="//bbs.yingxiong.com/T/M/17" id="community">游戏社区</a>
+						</li>
+					</ul>
+				</div>
+				<p class="f_txt">版权所有：北京卓越晨星科技有限公司</p>
+				<p class="f_txt">京ICP备15026730号-2</p>
+				<p class="f_txt">COPY RIGHT @2015-2019 ALL RIGHTS RESERVED</p>
+				<p class="f_txt" style="margin-bottom:10px;">联系方式：010-50948585</p>
+				<p class="f_link">
+					<a href="//sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 京网文[2015]0629-259号</a>
+				</p>
+				<p class="f_txt">
+					<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/gameNetTag/2c94c08c5f6b1133015f6bd45057094c">文网游备字〔2017〕M-RPG 1549 号 新广出审[2017]8939号
+					</a>
+				</p>
+			</footer>
+		</section>
+		<!--登录-->
+		<section>
+			<div class="login">
+				<div class="c_login">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="c_body">
+						<div class="s_put">
+							<input type="text" placeholder="请输入角色名" class="c_id" />
+						</div>
+						<div class="s_put">
+							<select id="qufu">
+								<option>请选择区服</option>
+								<option data-type="180">和平服(180)</option>
+								<option data-type="179">混战服(179)</option>
+								<option data-type="176">混战服(176)</option>
+								<option data-type="173">和平服(173)</option>
+								<option data-type="172">混战服(172)</option>
+								<option data-type="171">和平服(171)</option>
+								<option data-type="170">混战服(170)</option>
+								<option data-type="169">和平服(169) </option>
+								<option data-type="168">混战服(168)</option>
+								<option data-type="167">和平服(167)</option>
+								<option data-type="166">混战服(166)</option>
+								<option data-type="165">和平服(165)</option>
+								<option data-type="164">混战服(164)</option>
+								<option data-type="163">和平服(163)</option>
+								<option data-type="162">混战服(162)</option>
+								<option data-type="161">混战服(161)</option>
+								<option data-type="160">和平服(160)</option>
+								<option data-type="159">混战服(159)</option>
+								<option data-type="158">和平服(158)</option>
+								<option data-type="157">混战服(157)</option>
+								<option data-type="156">混战服(156)</option>
+								<option data-type="155">和平服(155)</option>
+								<option data-type="154">混战服(154)</option>
+								<option data-type="152">和平服(152)</option>
+								<option data-type="151">混战服(151)</option>
+								<option data-type="150">和平服(150)</option>
+								<option data-type="149">和平服(149)</option>
+								<option data-type="148">混战服(148)</option>
+								<option data-type="147">和平服(147)</option>
+								<option data-type="146">和平服(146)</option>
+								<option data-type="145">混战服(145)</option>
+								<option data-type="144">和平服(144)</option>
+								<option data-type="143">和平服(143)</option>
+								<option data-type="142">混战服(142)</option>
+								<option data-type="141">和平服(141)</option>
+								<option data-type="140">和平服(140)</option>
+								<option data-type="139">混战服(139)</option>
+								<option data-type="138">和平服(138)</option>
+								<option data-type="137">和平服(137)</option>
+								<option data-type="136">混战服(136)</option>
+								<option data-type="135">和平服(135)</option>
+								<option data-type="134">和平服(134)</option>
+								<option data-type="131">应用宝混战服(131)</option>
+								<option data-type="130">应用宝和平服(130)</option>
+								<option data-type="127">混战服(127)</option>
+								<option data-type="126">和平服(126)</option>
+								<option data-type="125">混战服(125)</option>
+								<option data-type="124">和平服(124)</option>
+								<option data-type="121">混战服(121)</option>
+								<option data-type="120">和平服(120)</option>
+								<option data-type="119">混战服(119)</option>
+								<option data-type="118">和平服(118)</option>
+								<option data-type="115">混战服(115)</option>
+								<option data-type="114">和平服(114)</option>
+								<option data-type="112">和平服(112)</option>
+								<option data-type="113">和平服(113)</option>
+								<option data-type="111">混战服(111)</option>
+								<option data-type="110">混战服(110)</option>
+								<option data-type="109">适配测试</option>
+								<option data-type="104">和平服(104)</option>
+								<option data-type="108">混战服(108)</option>
+								<option data-type="107">和平服(107)</option>
+								<option data-type="105">热更测试服（新）</option>
+								<option data-type="106">iOS和平服</option>
+								<option data-type="103">混战测试服</option>
+								<option data-type="102">先锋测试服</option>
+								<option data-type="10043">新版本狂欢03</option>
+								<option data-type="10042">新版本狂欢02</option>
+								<option data-type="10041">新版本狂欢01</option>
+								<option data-type="10040">天空岛来啦~~</option>
+								<option data-type="10039">游乐场来啦~~~</option>
+								<option data-type="10038">视频团</option>
+								<option data-type="10037">为爱battle</option>
+								<option data-type="10036">郁金香建筑团</option>
+								<option data-type="10035">秘密花园</option>
+								<option data-type="10033">筑梦团大本营</option>
+								<option data-type="10007">官方测试私服</option>
+								<option data-type="1028">1028房</option>
+								<option data-type="1027">1027房</option>
+								<option data-type="1026">1026房</option>
+								<option data-type="1025">1025房</option>
+								<option data-type="1024">1024房</option>
+								<option data-type="1023">1023房</option>
+								<option data-type="1022">1022房</option>
+								<option data-type="1021">1021房</option>
+								<option data-type="1020">1020房</option>
+								<option data-type="1019">1019房</option>
+								<option data-type="1018">1018房</option>
+								<option data-type="1017">1017房</option>
+								<option data-type="1016">1016房</option>
+								<option data-type="1015">1015房</option>
+								<option data-type="1014">1014房</option>
+								<option data-type="1013">1013房</option>
+								<option data-type="1012">1012房</option>
+								<option data-type="2010">2010房</option>
+								<option data-type="2009">2009房</option>
+								<option data-type="2008">2008房</option>
+								<option data-type="2007">2007房</option>
+								<option data-type="2006">2006房</option>
+								<option data-type="2005">2005房</option>
+								<option data-type="2004">2004房</option>
+								<option data-type="2003">2003房</option>
+								<option data-type="2002">2002房</option>
+								<option data-type="2001">2001房</option>
+								<option data-type="1011">1011房</option>
+								<option data-type="1010">1010房</option>
+								<option data-type="1009">1009房</option>
+								<option data-type="1008">1008房</option>
+								<option data-type="1007">1007测试房</option>
+								<option data-type="1001">1001房</option>
+								<option data-type="1002">1002房</option>
+								<option data-type="1003">1003房</option>
+								<option data-type="1004">1004房</option>
+								<option data-type="1005">1005房</option>
+								<option data-type="1006">1006房</option>
+							</select>
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入手机号" class="c_phone" />
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="c_tyzm" />
+							<div class="captcha">
+								<!--<img src="images/kv.jpg?{$smarty.const.VERSION}?{$smarty.const.VERSION}" alt="" />-->
+								<p>点击刷新</p>
+							</div>
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="c_yzm" />
+							<input type="button" value="获取验证码" class="g_code" />
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="好友邀请码" class="c_code" />
+						</div>
+					</div>
+					<div class="sure" id="login_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--活动说明1-->
+		<section>
+			<div class="explain_one">
+				<div class="one_body p_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="s_body">
+						<p><i>·</i><span>点亮祝福，每天每个IP可参与1次。</span></p>
+						<p><i>·</i><span>活动奖励将于2019年2月12号后7天内全服发放，届时请登陆游戏查收。</span></p>
+					</div>
+					<div class="sure shuo_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--活动说明2-->
+		<section>
+			<div class="explain_two">
+				<div class="two_body p_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="s_body">
+						<p><i>·</i><span>登陆游戏账号，并手机验证，即可获得礼包。</span></p>
+						<p><i>·</i><span>单个角色名 （及其对应手机号），只可参与一次。</span></p>
+						<p><i>·</i><span>请妥善保管你的兑换码，如若丢失，将不补发。</span></p>
+						<p><i>·</i><span>兑换码只可使用一次，同类兑换码，一个账号只可兑换一个。</span></p>
+					</div>
+					<div class="sure shuo_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--活动说明3-->
+		<section>
+			<div class="explain_three">
+				<div class="three_body p_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="s_body a_body">
+						<div class="body_auto">
+							<p><i>·</i><span>玩家登陆后，可生成专属邀请链接，邀请好友登录本活动页，即可获得更多周年庆福利！</span></p>
+							<p><i>·</i><span>被邀请好友也有专属礼包，是不是很赞~</span></p>
+							<p><i>·</i><span>被邀请好友，仅限于尚未登陆过周年庆活动的玩家，同时：最近登录时间在2019年1月16号前，或最近登录时间在2019年1月22号后的探险家。</span></p>
+							<p><i>·</i><span>符合要求的被邀请人通过专属链接，登陆活动页，即算集结成功。</span></p>
+							<p><i>·</i><span>单个角色名（及其对应手机号），只可被邀请一次。</span></p>
+							<p><i>·</i><span>请妥善保管你的兑换码，如若丢失，将不补发。</span></p>
+							<p><i>·</i><span>兑换码只可使用一次，同类兑换码，一个账号只可兑换一个。</span></p>
+							<p><i>·</i><span>副本小队，集结礼包内容：</span></p>
+							<p><i>·</i><span>邀请人数超2人：独角兽体验卡1天、金锭20、红烧带鱼20。</span></p>
+							<p><i>·</i><span>邀请人数超4人：青鸟体验卡7天、水晶20、文艺虾20。</span></p>
+							<p><i>·</i><span>邀请人数超6人：周年限量法杖1、蓝莲5、红菇大虾包20。</span></p>
+							<p><i>·</i><span>被邀请礼包：蛋糕烟花5、独角兽3天体验、棒棒糖10。</span></p>
+						</div>
+					</div>
+					<div class="sure shuo_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--活动说明4-->
+		<section>
+			<div class="explain_four">
+				<div class="four_body p_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="s_body">
+						<p><i>·</i><span>每日首次登录赠送1次参与机会； </span></p>
+						<p><i>·</i><span>分享页面，即可获得1次参与机会，每日最多可分享1次；</span></p>
+						<p><i>·</i><span>副本小队活动，邀请超过6人，可额外获得3次抽奖机会；</span></p>
+						<p><i>·</i><span>话费奖品：将于2019年2月12日后7个工作日内自动充值，请认真填写你的手机号码，如因填写错误影响到账，将不予补发；</span></p>
+						<p><i>·</i><span>实物奖品：将于2019年2月12日后7个工作日内快递，请认真填写你的地址，如因填写错误影响收货，将不予补发；</span></p>
+						<p><i>·</i><span>请妥善保管你的兑换码，如若丢失，将不补发。</span></p>
+						<p><i>·</i><span>兑换码只可使用一次，同类兑换码，一个账号只可兑换一个。</span></p>
+					</div>
+					<div class="sure shuo_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--礼包码类奖品弹窗-->
+		<section>
+			<div class="gift_tc">
+				<div class="gift_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="gift_con">
+						<p>恭喜获得<span></span></p>
+						<div class="gift_code"></div>
+					</div>
+					<div class="sure" id="g_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--实物类奖励弹窗-->
+		<section>
+			<div class="real_gift">
+				<div class="real_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="c_real c_address_real">
+						<p>恭喜您获得<span></span></p>
+						<p>请填写正确的收货地址以方便我们及时给您送达奖品</p>
+					</div>
+					<div class="sure" id="tx_address"></div>
+				</div>
+			</div>
+		</section>
+		<!--实物类奖励弹窗-->
+		<section>
+			<div class="real_gift_phone">
+				<div class="c_real_body">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="c_real c_real_phone">
+						<p>恭喜您获得<span></span></p>
+						<p class="phone_text">话费将于2月12日后7个工作日内自动充值到您登陆使用的手机号上，请注意查收。</p>
+					</div>
+					<div class="sure" id="phone_sure"></div>
+				</div>
+			</div>
+		</section>
+		<!--填写地址弹窗-->
+		<section>
+			<div class="address">
+				<div class="c_address">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="address_body">
+						<p>请填写正确的收货地址以方便我们及时给您送达奖品</p>
+						<div class="a_put">
+							<input type="text" placeholder="姓名" class="a_name" />
+							<input type="tel" placeholder="邮编" class="a_youbian" />
+						</div>
+						<div class="a_put">
+							<input type="tel" placeholder="电话号码" class="a_phone" />
+						</div>
+						<div class="a_put">
+							<textarea class="tail_address" placeholder="详细地址"></textarea>
+						</div>
+					</div>
+					<div class="sure" id="sure_address"></div>
+				</div>
+			</div>
+		</section>
+		<!--查看我的奖品-->
+		<section>
+			<div class="check">
+				<div class="c_check">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="check_body">
+						<div class="top_tit">
+							<span>奖品名称</span>
+							<span>礼包码</span>
+							<span></span>
+						</div>
+						<div class="huadong">
+							<ul>
+								<!--<li>
+									<span>邀请2人礼包</span>
+									<span>ASOIDJIO</span>
+									<i>复制</i>
+								</li>-->
+							</ul>
+						</div>
+					</div>
+					<div class="sure" id="check_gift"></div>
+				</div>
+			</div>
+		</section>
+		<!--邀请好友弹窗-->
+		<section>
+			<div class="invite">
+				<div class="c_invite">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="invite_body">
+						<p class="tit_p">成功邀请好友登录本活动页，即可获得更多周年庆福利！</p>
+						<div class="invite_code">
+							<p>您的邀请码</p><span id="tc11_copyTextz"></span><i id="tc11_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc11_copyTextz">复制邀请码</i></div>
+						<div class="invite_con">
+							<p>被邀请好友满足条件也有专属礼包哦~</p>
+							<p>链接地址<span id="tc12_copyTextz"></span></p>
+							<p>发送该链接给好友，系统将自动在好友登录界面填写您的邀请码。</p>
+						</div>
+					</div>
+					<div class="sure" id="tc12_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc12_copyTextz"></div>
+				</div>
+			</div>
+		</section>
+		<!--分享弹窗-->
+		<section>
+			<div class="share">
+				<div class="c_share">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="invite_body">
+						<p class="tit_p">复制链接分享页面到微信、微博或者QQ即可获得额外抽奖机会哦~</p>
+						<div class="invite_code">
+							<p>您的邀请码</p><span id="tc14_copyTextz"></span><i id="tc14_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc14_copyTextz">复制邀请码</i></div>
+						<div class="invite_con">
+							<p>被邀请好友满足条件也有专属礼包哦~</p>
+							<p>链接地址<span id="tc13_copyTextz"></span></p>
+							<p>发送该链接给好友，系统将自动在好友登录界面填写您的邀请码。</p>
+						</div>
+					</div>
+					<div class="sure" id="tc13_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc13_copyTextz"></div>
+				</div>
+			</div>
+		</section>
+		<!--信息提示弹窗-->
+		<section>
+			<div class="tip">
+				<div class="c_tip">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<p></p>
+					<div class="sure tip_sure"></div>
+				</div>
+			</div>
+		</section>
+		{video_play}
+		<!--<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>-->
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/common/js/statics.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/common/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/m/js/cover0121.js?1564894"></script>
+		<script>
+		   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+		   //push 参数，name：页面名称，behavior 行为 
+		   //event 参数，event：事件名称，args 拓展参数 
+		   var HLog={ push:function(name,behavior) { },setUser:function(){ },event:function(event,args) { },ready:function(){ } };
+		   HLog.config={
+		       "senseHash":0,  //hash锚点是否进入url统计
+		       "senseQuery":0,  //url参数是否进入url统计
+		       "ignoreParams":[]  //开启url参数上报时，可忽略部分参数拼接上报；
+		   };
+		   (function() {
+		      var hl = document.createElement("script");
+		 if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+		                 hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/44/client/2/filter/stat.js";
+		}else{
+		                    hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/44/client/1/filter/stat.js";
+		}
+		      hl.async = "async";
+		      var s = document.getElementsByTagName("script")[0];
+		      HLog.ready = function(){
+		      HLog.push('reflash')
+		      };
+		      s.parentNode.insertBefore(hl, s);
+		   })();
+		</script>
+		<script type="text/javascript">
+			//拉取下载链接
+			$(function() {
+				var new_url = window.location.href;
+				if(new_url.indexOf("part") >= 0) {
+					var url = '/downloadLink.html';
+					$.getJSON(url, function(result) {
+						if((/iphone|ipad/i.test(navigator.userAgent.toLowerCase()))) {
+							$(".js_wap_down").attr('href', result.ios_url_out);
+						} else {
+							$(".js_wap_down").attr('href', result.android_url_out);
+						}
+						$(".js_wap_android_down").attr('href', result.android_url_out);
+						$(".js_wap_ios_down").attr('href', result.ios_url_out);
+
+						$(".js_down_andriod").attr('href', result.android_url_out);
+
+						$(".js_down_ios").attr('href', result.ios_url_out);
+
+						$(".js_down_ios_special").attr('href', result.ios_special_url_out);
+
+						$(".js_down_andriod_img").attr('src', result.android_img_out);
+						$(".js_down_ios_img").attr('src', result.ios_img_out);
+						$(".js_down_ios_special_img").attr('src', result.ios_special_img_out);
+						$(".js_jump_img").attr('src', result.jump_img_out);
+						$(".js_jump2_img").attr('src', result.jump_img2_out);
+					});
+					$('.channel').css('display', 'flex');
+					$('.no_channel').css('display', 'none');
+				} else {
+					$('.channel').css('display', 'none');
+					$('.no_channel').css('display', 'flex');
+				}
+			})
+		</script>
+		<script type="text/javascript">
+			var mySwiper = new Swiper(".t_banner", {
+				loop: true,
+				autoplay: 3500,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				pagination: '.swiper-pagination',
+			});
+		</script>
+	</body>
+
+</html>

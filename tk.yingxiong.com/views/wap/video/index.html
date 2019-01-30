@@ -1,0 +1,94 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="list">
+	<div class="top_img">
+		<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_logo.png?{$smarty.const.VERSION}" alt="" /></div>
+		<div class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/slogan.png?{$smarty.const.VERSION}" alt="" /></div>
+	</div>
+	<div class="list_news">
+		<div class="video">
+			<!--<a href="" class="go_home"></a>-->
+			<p class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_vi_tit.png?{$smarty.const.VERSION}" alt=""/></p>
+			<div class="type" data-id="{$id}">
+				<span {if $id==632}class="active" {/if}>
+					<a href="{myurl name='wap/video/list, id=>632'}">最新视频</a>
+				</span>
+				<span {if $id==633}class="active" {/if}>
+					<a href="{myurl name='wap/video/list, id=>633'}">教学视频</a>
+				</span>
+				<span {if $id==634}class="active" {/if}>
+					<a href="{myurl name='wap/video/list, id=>634'}">大神推荐</a>
+				</span>
+				<span {if $id==635}class="active" {/if}>
+					<a href="{myurl name='wap/video/list, id=>635'}">趣味集锦</a>
+				</span>
+				<span {if $id==636}class="active" {/if}>
+					<a href="{myurl name='wap/video/list, id=>636'}">精彩赛事</a>
+				</span>
+			</div>
+			<div class="tab_main">
+				<div class="video_infor ">
+					<ul class="video-list">
+
+					</ul>
+					<div class="dropload-down">
+						<div class="dropload-noData">上滑加载更多...</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	var page = 1; //页数
+	var id = $(".video .type").attr("data-id");//类型
+	var ajaxUrl = '/commonMethod/ajax-get-list';
+	getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...")
+			getListFu();
+		}
+	}
+	function getListFu(){
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{
+				page:page++,
+				id:id,
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg.length>0){
+//					if(page===1){
+//						$('.news_list').empty();
+//					}
+					var result = '';
+					for(var i = 0; i < data.msg.length; i++) {
+						result+= "<li><span class='js_video_play' data-url='"+ data.msg[i].video.media_url+"' data-id='"+ data.msg[i].id+"'><i></i><img src="+ data.msg[i].thumb +"></span>"+
+								"<p class='summary'><a href="+data.msg[i].wapLinkUrl+">"+ data.msg[i].title+"</a></p>";
+					}
+					$(".js_video_play").unbind("click");
+					$('.video-list').append(result);
+					$(".dropload-noData").html("上滑加载更多<i></i>");
+					videoInit();
+					isScroll = 1;
+				} else{
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+</script>

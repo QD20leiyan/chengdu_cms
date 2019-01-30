@@ -1,0 +1,462 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/cover.css?{$smarty.const.VERSION}" />
+<div class="top">
+	<div class="top_con">
+		{fragment var=video code=index_video size=1}
+		<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt=""></div>
+		<!--<div class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" alt="" /></div>-->
+		<!-- <div class="btn">
+			<div class="l_yuyue yue_btn"></div>
+			<!-- <p class="y_number"></p> -->
+			<!-- <img src="{$smarty.const.STATIC_DOMAIN}1.0/images/hongbao.png?{$smarty.const.VERSION}" alt="" class="hongbao"/>
+		</div> -->
+		<div class="download2">
+			<div class="con">
+				<div class="code">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_code.png?{$smarty.const.VERSION}" class="js_jump_img">
+					<i></i>
+				</div>
+				<div class="btn">
+					<a href="javascript:;" class="js_down_ios stat_event_cover_down stat_event_cover_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_ios.png?{$smarty.const.VERSION}" alt=""></a>
+					<a href="javascript:;" class="stat_event_cover_yy js_down_andriod"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_and2.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<!--<p style="color: #fff;position: absolute;bottom: 75px;width: 1200px;margin-left: -600px;text-align: center;left: 50%;">现在为预下载状态，12月26日10:00正式开服</p>-->
+		<div class="download">
+			<a href="" class="js_down_ios stat_ios ios" target="_blank"></a>
+			<a href="" class="js_down_andriod stat_android android" target="_blank"></a>
+		</div>
+	</div>
+	<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo1.png?{$smarty.const.VERSION}" alt="" /></div>
+	<div class="bussinessman"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/hzf.png?{$smarty.const.VERSION}" alt=""></div>
+	<!--<div class="plane"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/plane.png?{$smarty.const.VERSION}" alt="" /></div>-->
+</div>
+<div class="second">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="m_tent">
+			<div class="left_banner">
+				{fragment var=index_banner code=index_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="right_news">
+				<ul class="top_ul">
+					<li class="active">最新</li>
+					<li>资讯</li>
+					<li>公告</li>
+					<li>活动</li>
+					<!--<li>攻略</li>-->
+					<a href="{myurl name='article/list, id=>637'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+				</ul>
+				<div class="news_div">
+					<ul class="active">
+						{article id="637" size=5 var=zx}
+						{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+							{/foreach}
+						{else}
+						<p style="font-size:30px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+						{/if}
+					</ul>
+					
+					<ul>
+						{article id="638" size=5 var=xw}
+						{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+							{/foreach}
+						{else}
+						<p style="font-size:30px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+						{/if}
+					</ul>
+					
+					<ul>
+						{article id="639" size=5 var=gg}
+						{if $gg neq ''}
+							{foreach $gg as $key=>$v}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+							{/foreach}
+						{else}
+						<p style="font-size:30px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+						{/if}
+					</ul>
+					
+					<ul>
+						{article id="640" size=5 var=hd}
+						{if $hd neq ''}
+							{foreach $hd as $key=>$v}
+								<li>
+									<a href="{$v.linkUrl}" target="_blank">
+										<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>
+									</a>
+								</li>
+							{/foreach}
+						{else}
+						<p style="font-size:30px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+						{/if}
+					</ul>
+					
+					<!--<ul>-->
+						<!--{article id="641" size=5 var=gl}-->
+						<!--{if $gl neq ''}-->
+							<!--{foreach $gl as $key=>$v}-->
+								<!--<li>-->
+									<!--<a href="{$v.linkUrl}" target="_blank">-->
+										<!--<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i>-->
+									<!--</a>-->
+								<!--</li>-->
+							<!--{/foreach}-->
+						<!--{else}-->
+						<!--<p style="font-size:30px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>-->
+						<!--{/if}-->
+					<!--</ul>-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="third">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label2.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<ul class="tab_car">
+			<li class="active">坦克</li>
+			<li>直升机</li>
+			<li>装甲车</li>
+		</ul>
+		<div class="tab_img">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/car1.png?{$smarty.const.VERSION}" alt="" class="active" />
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/car2.png?{$smarty.const.VERSION}" alt="" />
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/car3.png?{$smarty.const.VERSION}" alt="" />
+		</div>
+	</div>
+</div>
+<div class="five">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/lable.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="five_banner">
+            {fragment var=banner_ts code=banner_ts size=5}
+			<ul class="swiper-wrapper">
+			{if $banner_ts neq ''}
+				{foreach $banner_ts as $v}
+				<li class="swiper-slide">
+					<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+				</li>
+				{/foreach}
+			{/if}
+			</ul>
+		</div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+		<div class="swiper-pagination01"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/airplane.png?{$smarty.const.VERSION}" alt="" class="airplay2">
+	</div>
+</div>
+<div class="four">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label3.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="v_body">
+			<ul class="v_ul">
+				<li class="active">最新视频</li>
+				<li>教学视频</li>
+				<li>大神推荐</li>
+				<li>趣味集锦</li>
+				<li>精彩赛事</li>
+			</ul>
+			<div class="v_list">
+				<ul class="active">
+				{article id="632" size=6 var=v_zx} 
+					{if $v_zx neq ''}
+						{foreach $v_zx as $key=>$v}
+							<li class="active">
+								<div class="v_img">
+									<img src="{$v.thumb}" alt="" />
+									<i></i>
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.video.media_url}"/>
+								</div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach}
+						{else}
+						<p style="font-size:24px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+					{/if}
+				</ul>
+				
+				<ul>
+				{article id="633" size=6 var=v_jx} 
+					{if $v_jx neq ''}
+						{foreach $v_jx as $key=>$v}
+							<li class="active">
+								<div class="v_img">
+									<img src="{$v.thumb}" alt="" />
+									<i></i>
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.video.media_url}"/>
+								</div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach}
+						{else}
+						<p style="font-size:24px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+					{/if}
+				</ul>
+				
+				<ul>
+				{article id="634" size=6 var=v_ds} 
+					{if $v_ds neq ''}
+						{foreach $v_ds as $key=>$v}
+							<li class="active">
+								<div class="v_img">
+									<img src="{$v.thumb}" alt="" />
+									<i></i>
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.video.media_url}"/>
+								</div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach}
+						{else}
+						<p style="font-size:24px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+					{/if}
+				</ul>
+				
+				<ul>
+				{article id="635" size=6 var=v_qw} 
+					{if $v_qw neq ''}
+						{foreach $v_qw as $key=>$v}
+							<li class="active">
+								<div class="v_img">
+									<img src="{$v.thumb}" alt="" />
+									<i></i>
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.video.media_url}"/>
+								</div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach}
+						{else}
+						<p style="font-size:24px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+					{/if}
+				</ul>
+				
+				<ul>
+				{article id="636" size=6 var=v_jc} 
+					{if $v_jc neq ''}
+						{foreach $v_jc as $key=>$v}
+							<li class="active">
+								<div class="v_img">
+									<img src="{$v.thumb}" alt="" />
+									<i></i>
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/v_play.png?{$smarty.const.VERSION}" alt="" class="v_play js_video_play" data-url="{$v.video.media_url}"/>
+								</div>
+								<p>{$v.title}</p>
+							</li>
+						{/foreach}
+						{else}
+						<p style="font-size:24px;color:#98978a;text-align: center;line-height:50px;">暂无内容~</p>
+					{/if}
+				</ul>
+			</div>
+			<a href="{myurl name='video/list, id=>632'}" class="v_more" target="_blank"><span>＋</span>查看更多</a>
+		</div>
+	</div>
+</div>
+<!-- 浮窗 -->
+		<div class="float_box">
+		<!-- 有奖征集入口 -->
+		<a href="{myurl name='/p/collect'}" target="_blank" class="yj_cl"></a>
+		<div class="q_float">
+			<div class="ewm_box"><img class="q_f_mark" src="http://gamerimage.yingxiong.com/qrcode/jump_tk_pcgw.png"></div>
+			<div class="no_channel">
+				
+				<!--<a class="q_az js_down_andriod stat_android" href=""></a>-->
+				<!--<a class="q_ios stat_ios" href="javascript:;" target="_blank"></a>-->
+				<a class="q_ios1 js_down_ios stat_ios" href="javascript:;" target="_blank"></a>
+				<a class="q_az stat_andriod js_down_andriod" href="javascript:;"></a>
+				<a class="q_tap stat_tap" href="https://www.taptap.com/app/80072" target="_blank "></a>
+				<a href="javascript:;" class="go_top"></a>
+			</div>
+			<div class="channel_name" style="display:none;">
+				
+				<!--<a class="q_az js_down_andriod" href=""></a>-->
+				<!--<a class="q_ios stat_ios" href="javascript:;" target="_blank"></a>-->
+				<a class="q_ios1 js_down_ios stat_ios" href="javascript:;" target="_blank"></a>
+				<a class="q_az stat_yy" href="javascript:;"></a>
+				<a href="javascript:;" class="go_top"></a>
+			</div>
+			<label class="q_f_icon show" show=""></label>
+		</div>
+		</div>
+<!--登录弹框-->
+<div class="co_tips co_tips_login hidden">
+	<div class="co_con">
+		<p class="co_tips_title co_tips_yytitle"></p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+			<div class="co_input">
+				<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+				<p class="co_error">手机号码错误</p>
+			</div>
+			<div class="co_input">
+				<input type="text"  class="captcha" placeholder="请输入验证码"/>
+				<span class="co_captcha"></span>
+				<p class="co_error">验证码错误</p>
+				<p class="co_imgtxt">点击图片刷新</p>
+			</div>
+			<div class="co_input">
+				<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+				<p class="co_error">验证码错误</p>
+			</div>
+		</div>
+		<p class="co_tips_btn co_tips_yybtn"></p>
+	</div>
+</div>
+<!--预约类型选择弹框-->
+<div class="co_tips co_tips_type hidden">
+	<div class="co_con">
+		<p class="co_tips_title"></p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+			<!--<p>请选择预约平台</p>-->
+			<!--<span class="rdo on" data-id="1">iOS</span>-->
+			<span class="rdo on" data-id="2">安卓</span>
+			<p>注：iOS已首发可前往App Store下载体验哦~</p>
+		</div>
+		<p class="co_tips_btn co_tips_yybtn stat_yy"></p>
+	</div>
+</div>
+<!--预约成功弹框-->
+<div class="co_tips co_tips_success hidden">
+	<div class="co_con">
+		<p class="co_tips_title"></p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+			<p class="tips_txt">恭喜您</p>
+			<p class="success">预约成功</p>
+		</div>
+		<p class="co_tips_btn co_tips_surebtn"></p>
+	</div>
+</div>
+<!-- 预约成功ios弹窗 -->
+		<div class="co_tips co_tips_ios hidden">
+			<div class="co_con">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ewm_bor.png?{$smarty.const.VERSION}" alt="" class="ewm_bode">
+				<p class="co_tips_btn co_tips_surebtn"></p>
+			</div>
+		</div>
+{include file="../layouts/pc/video_tips.html"}
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/index.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+    //点击隐藏和显示下载悬浮框
+		function show_hide_down() {
+			$(".q_f_icon").click(function() {
+				var state = $(this).attr("show");
+				if(state) {
+					$(".float_box").animate({
+						"right": "5px"
+					}, 200);
+					$(this).attr({
+						"show": "",
+						"class": "show"
+					});
+				} else {
+					$(".float_box").animate({
+						"right": "-186px"
+					}, 200);
+					$(this).attr({
+						"show": "true",
+						"class": "hide_float"
+					});
+				}
+			})
+		}
+		show_hide_down();
+		//返回顶部
+	$(".go_top").click(function(){
+		var a;
+		function back(){
+			a=setInterval(go_top,5);
+		}
+		function go_top(){
+			if(window.scrollY<=0){
+				clearInterval(a);
+			}else{
+				scrollTo(0,window.scrollY-50);
+			}
+		}
+		back();
+	});
+	var mySwiper = new Swiper(".left_banner", {
+		loop:true,
+		autoplay : 4000,
+		paginationClickable :true,
+		autoplayDisableOnInteraction : false,
+		pagination: '.swiper-pagination',
+	});
+	$(".tab_car li").click(function() {
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".tab_img img").eq(index).addClass("active").siblings().removeClass("active");
+	});
+	$(".top_ul li").click(function (){
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".news_div ul").eq(index).addClass("active").siblings().removeClass("active");
+	});
+	$(".v_ul li").click(function (){
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".v_list ul").eq(index).addClass("active").siblings().removeClass("active");
+	});
+	var mySwiper01 = new Swiper(".five_banner", {
+		effect: "coverflow",
+		autoplay:4000,
+		speed: 800,
+		prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+		pagination: '.swiper-pagination01',
+		centeredSlides: !0,
+		slidesPerView: 3,
+		loop: !0,
+		observer: !0,
+		observeParents: !0,
+		slideToClickedSlide: !0,
+		simulateTouch : false,
+		paginationClickable: true,
+        autoplayDisableOnInteraction : false,
+		coverflow: {
+			rotate: 0,
+			stretch: -130,
+			depth: 600,
+			modifier: 1,
+			slideShadows: true
+		},
+	});
+</script>
+
+</html>

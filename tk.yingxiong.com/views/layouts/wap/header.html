@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no">
+		{csrf}
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/common.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index1.css?{$smarty.const.VERSION}">
+		<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	</head>
+	<body>
+	{include file="./top.html"}
+
+		<!-- 这是弹窗 -->
+		<div class="login">
+			<div class="c_login">
+				<a href="javascript:;" class="close">
+				</a>
+				<div class="login_form">
+					<input class="phone" type="text" name="phone" placeholder="请输入手机号" onkeyup="value=value.replace(/[^0-9_]/g,'')" maxlength="11">
+					<p class="err err1">*请输入手机号</p>
+					<div>
+						<input class="captcha" type="text" name="captcha" placeholder="请输入图形验证码" onkeyup="value=value.replace(/[^a-z0-9_]/g,'')">
+						<button id="getMarkBtn1"><img src="" alt=""/></button>
+						<p class="co_imgtxt">点击图片刷新</p>
+					</div>
+					<p class="err err2">*请输入图形验证码</p>
+					<div>
+						<input class="mark" type="text" name="mark" placeholder="请输入验证码" onkeyup="value=value.replace(/[^0-9_]/g,'')">
+						<input type="button" class="g_code" value="获取验证码" />
+					</div>
+					<p class="err err3">*请输入验证码</p>
+				</div>
+				<a href="javascript:;" class="yyue stat_yy">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn2.png?{$smarty.const.VERSION}" alt="">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn3.png?{$smarty.const.VERSION}" alt="" />
+				</a>
+			</div>
+		</div>
+		<div class="yuyue">
+			<div class="c_yuyue">
+				<i class="close"></i>
+				<div class="r_type">
+					<div class="r_ios lf " data-id="ios" style="display: none;">
+						<div class="r_img">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b1.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b_on.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>iOS</p>
+					</div>
+					<div class="r_android active" data-id="android">
+						<div class="r_img rt">
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b1.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b_on.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>安卓</p>
+					</div>
+				</div>
+				<p style="font-size:0.75rem;color:#fff;text-align: center;padding-top:11.5rem;">注：iOS已首发可前往App Store下载体验哦~</p>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/btn2.png?{$smarty.const.VERSION}" alt="" class="l_yuyue" />
+			</div>
+		</div>

@@ -1,0 +1,27 @@
+{include '../../layouts/wap/header.html'}
+    <div class="listBg">
+        <div class="back"><a href="{myurl name='wap/site/index'}"></a></div>
+    </div>
+    <div class="art_til">
+        <h3>{$content.title}</h3>
+        <p class="new_information_time"><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span></p>
+    </div>
+    <div class="art_m">
+        <p>{$content.body}</p>
+    </div>
+<script type="text/javascript">
+	var u = navigator.userAgent,
+        app = navigator.appVersion;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if(isAndroid) {
+        // var href = $('.js_wap_down').attr('href');
+        // location.href = href;
+        $(".gw_down").addClass("js_down_andriod");
+    }
+    if(isIOS) {
+    	$(".gw_down").removeClass("js_down_andriod");
+        $(".gw_down").attr("href", "javascript:yx_showTips('敬请期待<br>本次为安卓删档测试');")
+    }
+</script>
+{include '../../layouts/wap/footer.html'}

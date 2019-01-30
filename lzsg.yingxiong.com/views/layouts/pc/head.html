@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{$seo_title}</title>
+        <meta name="description" content="{$seo_desc}" />
+    <meta name="keywords" content="{$seo_key}" />
+        <link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+        <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+        <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+        <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/public.css?{$smarty.const.VERSION}" />
+        <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+        <script data-fixed="true">
+        if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+                location.href = "/m/";
+            }
+    </script>
+    </head>
+    <body>
+        <script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+        <div class="nav">
+            <div class="wrap">
+                <a href="/index.html"><img src="{$global.logo_img}" alt="" class="icon" /></a>
+                <div class="n_txt">
+                    <p>{$global.title}</p>
+                    <p>{$global.sub_title}</p>
+                </div>
+                <ul class="nav_ul">
+                    <li class='{if isset($smarty.get.id)} {else}active{/if}'>
+                        <a href="{myurl name='site/index'}" target="_blank">首页</a>
+                    </li>
+                    <li class="{if isset($smarty.get.id)}active{/if}">
+                        <a href="/info/list_650_1.html" target="_blank">新闻</a>
+                    </li>
+                    <li>
+                        <a href="http://bbs.yingxiong.com/t/Pc/26/index" target="_blank">社区</a>
+                    </li>
+                </ul>
+                <ul class="s_ul">
+                    <li></li>
+                    <li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+                    <li><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+                    <img src="{$global.wx_img}" alt="" class="fl_wx"/>
+                </ul>
+            </div>
+        </div>

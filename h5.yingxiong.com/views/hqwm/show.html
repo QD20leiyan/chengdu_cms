@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>火器文明</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}hqwm/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}hqwm/css/index.css?{$smarty.const.VERSION}" />
+		<script src="{$smarty.const.STATIC_DOMAIN}hqwm/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<section>
+			<div class="kv" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+			    <div class="h5_wx" style="display: none;">{$is_warrant}</div>
+                <div class="h5_data" style="display: none;">{$h5data}</div>
+				<a href="http://cdn.yingxiong.com/hqwm/hqwm-gdt-P34389A-0712.apk" class="download"><img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/down.png?{$smarty.const.VERSION}" alt="" /></a>
+				
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/video.png?{$smarty.const.VERSION}" alt="" class="video js_video_play" data-url="http://video.yingxiong.com/hd/e1cd2f01c9c04747ab447f8537ee0f17.mp4" />
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/active1.png?{$smarty.const.VERSION}" alt="" class="pic" />
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/active2.png?{$smarty.const.VERSION}" alt="" class="pic" />
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/active3.png?{$smarty.const.VERSION}" alt="" class="pic" />
+				<img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/active4.png?{$smarty.const.VERSION}" alt="" class="pic" />
+				<a href="http://cdn.yingxiong.com/hqwm/hqwm-gdt-P34389A-0712.apk" class="c_down"><img src="{$smarty.const.STATIC_DOMAIN}hqwm/images/down1.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</section>
+	</body>
+	{video_play}
+	<!--微信分享-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script>
+    $(function(){
+        var share_icon=$(".kv").attr("data-icon");
+        var share_title=$(".kv").attr("data-title");
+        var share_desc=$(".kv").attr("data-desc");
+        // initForm();
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/jws/ball.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    });
+</script>
+</html>

@@ -1,0 +1,192 @@
+ {include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news_raiders.css" />
+<div class="main_content">
+	<div class="news_data">
+		<div class="left_data">
+			<ul>
+				<li data="0" class="{if $top_category_id eq 132}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>132,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu01.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu01_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="1" class="{if $top_category_id eq 135}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>135,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu02.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu02_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="2" class="{if $top_category_id eq 138}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>138,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu03.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu03_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="3" class="{if $top_category_id eq 139}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>139,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu04.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu04_1.png" title="" alt="" />
+					</a>
+				</li>
+				<li data="4" class="{if $top_category_id eq 140}active{else} {/if}">
+					<a href='{myurl name="article/list, id=>140,cat_dir=>info/raiders"}'>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu05.png" title="" alt="" />
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/menu05_1.png" title="" alt="" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="right_data">
+			<div class="right_xq">
+				<div class="txt_title">
+					<a href='{myurl name="article/list, id=>{$top_category_id},cat_dir=>info/raiders"}'>{$name}</a>>
+					<a href="javascript:;">{$title}</a>
+				</div>
+				<div class="txt_img">
+					<img src="{$thumb}" title="" alt="" />
+				</div>
+				<span class="body_txt">{$body}</span>
+			</div>
+			<div class="zan">
+				<div class="dianzan">
+					<div class="zanyizan praise" newid='{$content_id}'>
+						<p><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/zan.png" title="" alt="" /><i>点赞</i></p><em>+1</em></div>
+						<div class="praise_num"></div>
+					<i class="fenge"></i>
+					<div class="caiyicai step" newid='{$content_id}'>
+						<p><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/caiyicai.png" title="" alt="" /><i>踩一踩</i></p>
+					</div>
+				</div>
+				<!-- JiaThis Button BEGIN -->
+			<div class="jiathis_style_24x24">
+				<span style="float:left;">分享到:</span>
+				<a class="jiathis_button_weixin share_count"></a>
+				<a class="jiathis_button_qzone share_count"></a>
+				<a class="jiathis_button_tsina share_count"></a>
+				<a class="jiathis_button_cqq share_count"></a>
+				<!--<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>-->
+				<!--<a class="jiathis_counter_style"></a>-->
+			</div>
+			<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+			</div>
+			
+			<!-- JiaThis Button END -->
+			<div id="SOHUCS" sid="raiders_{$id}"></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var test = window.location.href;
+				var bb = test.indexOf("info/");
+				var cc = test.substring(parseInt(bb) + 4);
+				console.log(test.substring(parseInt(bb) + 4))
+				if(cc.indexOf('raiders') != -1) {
+					$(".link li").eq(3).addClass("active");
+				};
+				$(".link li").hover(function() {
+						$(this).addClass("active");
+						$(this).siblings().removeClass("active");
+				}, function() {
+					
+				});
+	(function() {
+		var appid = 'cytabnKPM'; 
+		var conf = 'prod_503baa9b42108135704d9864141b7116';
+		var width = window.innerWidth || document.documentElement.clientWidth;
+		if(width < 960) {
+			window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+		} else {
+			var loadJs = function(d, a) {
+				var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+				var b = document.createElement("script");
+				b.setAttribute("type", "text/javascript");
+				b.setAttribute("charset", "UTF-8");
+				b.setAttribute("src", d);
+				if(typeof a === "function") {
+					if(window.attachEvent) {
+						b.onreadystatechange = function() {
+							var e = b.readyState;
+							if(e === "loaded" || e === "complete") {
+								b.onreadystatechange = null;
+								a()
+							}
+						}
+					} else {
+						b.onload = a
+					}
+				}
+				c.appendChild(b)
+
+				var content = '';
+				var timer = setInterval(function() {
+					content = $('#cy-cmt-list').html();
+					if(content && content.trim()) {
+						clearInterval(timer);
+						$('.cont-head-gw .head-img-gw').find('a[node-type="photo"]').attr('node-type', '');
+					}
+				}, 50);
+
+			};
+			loadJs("http://changyan.sohu.com/upload/changyan.js", function() {
+				window.changyan.api.config({
+					appid: appid,
+					conf: conf,
+					title: '{$title}'
+				})
+			});
+		}
+	})();
+</script>
+{click}
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+<script type="text/javascript">
+	$(function (){
+		var id = {$content_id};
+		getClickData(id);
+		$(".jiathis_style_24x24 .share_count").on("click" , function (){
+			clickShare(id);
+		})
+	})
+	$(".txt_title a").eq(0).click(function() {
+		$(".right_detail").hide();
+		$(".right_data").show();
+	});
+	$(".praise").click(function() {
+		var hh = $(this).attr("newid");
+		var pp = getChangeData(hh, 'praise', function(data) {
+			if(data.status == -1) {
+				alert("您已经赞过了哦！");
+			}
+		});
+		$(this).css({
+			"background-color": "#999999"
+		});
+		$(this).find("i").html("已点赞");
+		$(this).find("em").addClass("active");
+	});
+	$(".left_data li").on("click", function() {
+		$(this).addClass("active").siblings().removeClass("active");
+	});
+	$(".step").hover(function() {
+		$(this).find("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/images/caiyicai_xz.png");
+		$(this).find("i").css("color", "#fd7e04");
+	}, function() {
+		$(this).find("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/images/caiyicai.png");
+		$(this).find("i").css("color", "#999999");
+	});
+
+	$(".step").click(function() {
+		var tt = $(this).attr("newid");
+		$(this).find("i").html("已踩");
+		$(this).find("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/images/caiyicai.png");
+		$(this).find("i").css("color", "#999999");
+		var yy = getChangeData(tt, 'step', function(data) {
+			if(data.status == 0) {
+				console.log(data.status);
+			} else if(data.status == -1) {
+				alert("您已经踩过了哦！");
+			}
+		});
+	})
+</script>

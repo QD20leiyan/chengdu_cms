@@ -1,0 +1,25 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="kv"></div>
+<div class="content">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<div class="n_list">
+			<div class="t_top_ul">
+				<a href="{myurl name='article/list, id=>523'}" class="n_back"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/w_sanjiao.png?{$smarty.const.VERSION}" alt="" /><span>返回<br />列表</span></a>
+				<div class="d_title">
+					<h3>{if isset($content.title)}{$content.title}{/if}</h3>
+					<p><span>{if isset($content.created_at_formate)}{$content.created_at_formate}{/if}</span>官方录入</p>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div class="news_detail_body">
+				<div class="news_body">
+					{if isset($content.body)}{$content.body}{/if}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/footer.html"}
+</html>

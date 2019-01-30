@@ -1,0 +1,198 @@
+{include '../../layouts/wap/header_new.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+</head>
+<body>
+    <div class="i_main">
+        <!--top-->
+        <div class="loading">
+            <div class="wrap">
+                <i class="ic_mouse"></i>
+                <div class="heart_li">
+                     <div class="heart_line"></div>
+                </div>
+                <p id="loading-txt">Loading<span></span></p>
+            </div>
+        </div>
+        <div class="kv">
+            <div class="bg_img"></div>
+            <div class="wrap">
+                <div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt=""/></div>
+                <div class="yy_box">
+                    <div class="yy_numtl"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yy_numtl.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <div class="yy_num">
+                        <p class="num"></p>
+                        <span class="time"><i class="month"></i> / <i class="day"></i> / <i class="year"></i></span>
+                    </div>
+                    <div class="yy_btn"></div>
+                </div>
+                <!-- 菜单 -->
+                <div class="top_menu">
+                    <div class="menu_tl"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tl1.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <ul>
+                        <li data-index="1">预约奖励</li>
+                        <li data-index="2">构造体档案</li>
+                        <li data-index="3">故事开始</li>
+                    </ul>
+                </div>
+                <!-- 视频 -->
+                <div class="videoBox">
+                    <div class="video_tl"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tl2.png?{$smarty.const.VERSION}" alt=""/></div>
+                    {fragment var=video code=video_index size=1}
+                    <div class="videoBtn">
+                        <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+                            <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!--情报资讯-->
+                <div class="banner_news">
+                    <div class="news_tl"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tl3.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <a href="{myurl name='wap/article/list, id=>1908'}" class="more"></a>
+                    <div class="news_box">
+                        <div class="bd">
+                            <ul class="news_info">
+                                {article id="1908" size=4 var=zx}
+                                {if $zx neq ''}
+                                {foreach $zx as $key=>$v}
+                                {if $key >= 0}
+                                <li>
+                                    <a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                                </li>
+                                {/if}
+                                {/foreach}
+                                {else}
+                                <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                                {/if}
+                            </ul>
+                            <ul class="news_info hidden">
+                                {article id="1909" size=4 var=xw}
+                                {if $xw neq ''}
+                                {foreach $xw as $key=>$v}
+                                {if $key >= 0}
+                                <li>
+                                     <a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                                </li>
+                                {/if}
+                                {/foreach}
+                                {else}
+                                <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                                {/if}
+                            </ul>
+                            <ul class="news_info hidden">
+                                {article id="1910" size=4 var=gg}
+                                {if $gg neq ''}
+                                {foreach $gg as $key=>$v}
+                                {if $key >= 0}
+                                <li>
+                                    <a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                                </li>
+                                {/if}
+                                {/foreach}
+                                {else}
+                                <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                                {/if}
+                            </ul>
+                            <ul class="news_info hidden">
+                                {article id="1911" size=4 var=gl}
+                                {if $gl neq ''}
+                                {foreach $gl as $key=>$v}
+                                {if $key >= 0}
+                                <li>
+                                    <a href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.name}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                                </li>
+                                {/if}
+                                {/foreach}
+                                {else}
+                                <p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                            {/if}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- 自媒体 -->
+                <div class="share_box">
+                    <div class="share_tl"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tl4.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <a href="javascript:;" class="wx_btn"></a>
+                    <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb_btn"></a>
+                    
+                </div>
+            </div>
+        </div>
+        <!--预约-->
+        <div class="page_yy hidden">
+        <!--预约奖励-->
+            <div class="yy_gift">
+                <div class="wrap">
+                    <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/title1.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <div class="info">截止游戏公测时间，预约总数达到指定档位既可以解锁对应奖励，并在开测后发放给首周注册登录游戏的全服玩家</div>
+                    <div class="gift_img">
+                        <span class="dc1"></span>
+                        <span class="dc2"></span>
+                        <span class="dc3"></span>
+                        <span class="dc4"></span>
+                    </div>
+                </div>
+            </div>
+        <!--构造体档案-->
+            <div class="file">
+                <div class="wrap">
+                    <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/title2.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <div class="slider">
+                        <div class="swiper-container swiper-container1">
+                            <div class="swiper-wrapper">
+                                {fragment var=banner code=banner_gzt size=20}
+                                {if $banner neq ''}
+                                {foreach $banner as $v}
+                                <div class="swiper-slide">
+                                    <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                                    <div class="con">
+                                        <div class="name">
+                                            <i></i>
+                                            <span>{$v.title}</span>
+                                            <span>{$v.sub_title}</span>
+                                        </div>
+                                        <div class="info">{$v.summary}</div>
+                                    </div>
+                                </div>
+                                {/foreach}
+                                {/if}
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev swiper-button-prev1"></div>
+                        <div class="swiper-button-next swiper-button-next1"></div>
+                        <div class="type swiper-pagination swiper-pagination1">
+                        {fragment var=banner2 code=page_gzt size=20}
+                        {if $banner2 neq ''}
+                        {foreach $banner2 as $v}
+                        <span class="swiper-pagination-bullet"><img src="{$v.thumb}" alt=""/></span>
+                        {/foreach}
+                        {/if}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--故事开始-->
+            <div class="story">
+                <div class="wrap">
+                    <div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/title3.png?{$smarty.const.VERSION}" alt=""/></div>
+                    <div class="slider1">
+                        <div class="swiper-container swiper-container2">
+                            <div class="swiper-wrapper">
+                            {fragment var=banner3 code=banner_gs size=20}
+                            {if $banner3 neq ''}
+                            {foreach $banner3 as $v}
+                                <div class="swiper-slide">
+                                    <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                                    <p>{$v.summary}</p>
+                                </div>
+                            {/foreach}
+                            {/if}  
+                            </div>
+                        </div>
+                        <div class="swiper-pagination swiper-pagination2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {include '../../layouts/wap/footer_new.html'}
+       

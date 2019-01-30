@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$global.web_name}</title>
+		<meta name="keywords" content="{$global.web_keywords}" />
+		<meta name="description" content="{$global.web_description}" />
+		<link rel="shortcut icon" id="link_href" href="{$global.web_icon}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/colpick.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/tc_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/n_public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ddd_yy/css/n_index_new.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		
+	</head>
+
+	<body>
+		{if $global.public_top_js eq 1}
+			<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		{/if}
+		<div class="module_top">
+			<div class="wrap">
+				<div class="tab_module tab_mb">
+					<p>切换模板</p><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="mu_ul" id="mu_ul">
+						<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>预约模板</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/kv.jpg?{$smarty.const.VERSION}" alt="" />
+								<p>官网模板</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab_pc tab_module">
+					<p>电脑端</p><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/dui.png?{$smarty.const.VERSION}" alt="" class="t_jiao" />
+					<ul class="pc_ul" id="pc_ul">
+						<li>
+							<a href="javascript:yx_showTips('敬请期待');">
+								<p>手机端</p>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<p>电脑端</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<p class="module_name">
+					<img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/user.png?{$smarty.const.VERSION}" alt="" />
+					<span class="before_denglu active">请登录</span>
+					<span class="after_denglu"></span>
+				</p>
+				<a class="baocun" href="javascript:yx_showTips('保存成功');">保存</a>
+				<a class="yulan" href="/" target="_blank">预览</a>
+			</div>
+		</div>
+		
+		<div id="bg_top" class="top" style="{if $global.public_top_js eq 1}margin-top:0{else}margin-top:48px;{/if}{if $global.nav_background_color neq '暂无数据'}background-color:{$global.nav_background_color}{else}background:url({$global.nav_background_img}) no-repeat center{/if}">
+			<div class="wrap">
+				<img src="{if isset($global.website_logo_img)}{$global.website_logo_img}{/if}" alt="" class="icon" />
+				<div class="header_txt">
+					<p>{if isset($global.website_title)}{$global.website_title}{/if}</p>
+					<p>{if isset($global.website_sub_title)}{$global.website_sub_title}{/if}</p>
+				</div>
+				<div class="r_wx">
+					<a id="media_weixin" href="javascript:;" style="{if $global.media_wechat_icon neq '暂无数据'}background:url({$global.media_wechat_icon}) no-repeat top;{/if}"></a>
+					<a id="media_sina" {if $global.media_sina_target eq 1}target="_blank"{else}target="_self"{/if} href="{if $global.media_sina_url neq '暂无数据' }{$global.media_sina_url}{/if}" style="{if $global.media_sina_icon neq '暂无数据'}background:url({$global.media_sina_icon}) no-repeat top;{/if}"></a>
+					<a id="media_baidu" {if $global.media_baidu_target eq 1}target="_blank"{else}target="_self"{/if} href="{if $global.media_baidu_url neq '暂无数据'}{$global.media_baidu_url}{/if}" style="{if $global.media_baidu_icon neq '暂无数据'}background:url({$global.media_baidu_icon}) no-repeat top;{/if}"></a>
+				</div>
+				<div class="fl_wx">
+					<img src="{if $global.media_wechat_img neq ''}{$global.media_wechat_img}{/if}" alt="">
+				</div>
+			</div>
+			{if $diy}
+			<div class="pb_tc" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+
+		<div id="bg_kv" class="kv" style="background:url({if $global.kv_background_img neq '暂无数据'}{$global.kv_background_img}{/if}) no-repeat center;">
+			<div class="wrap">
+				<div class="slogan">
+					<img id="kv_video" src="{if isset($global.kv_video_button_img)}{$global.kv_video_button_img}{/if}" alt="" class="play {if isset($global.kv_video_button_img)}js_video_play{/if}" data-url="{if isset($global.kv_video_url)}{$global.kv_video_url}{/if}" />
+				</div>
+				<a href="javascript:;" class="yy_btn btn" id="kv_yuyue"><img src="{if isset($global.kv_yuyue_module_botton_img)}{$global.kv_yuyue_module_botton_img}{/if}" alt="" /></a>
+			</div>
+			{if $diy}
+			<div class="pb_kv" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div class="content" style="background:url({if $global.progress_background_img neq '暂无数据'}{$global.progress_background_img}{/if}) no-repeat center;">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<p class="label"><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/label_tl.png" alt=""></p>
+				<p class="label_info">{if isset($global.progress_background_summary)}{$global.progress_background_summary}{/if}</p>
+				<a href="javascript:;" class="yy_btn" id="jd_yy"><img src="{if isset($global.progress_yuyue_botton_img)}{$global.progress_yuyue_botton_img}{/if}" alt=""></a>
+				<p class="yyue_num2 text_number" id="yy_number"></p>
+				<p class="yuyue_text">目前官网已预约人数</p>
+				<div class="z_line">
+					<div class="line" style="background:url({if $global.progress_bar_background_img neq '暂无数据'}{$global.progress_bar_background_img}{/if}) no-repeat center;background-size:100% 100%;"></div>
+					<i class="jdt" style="background:url({if $global.progress_bar_fill_img neq '暂无数据'}{$global.progress_bar_fill_img}{/if}) no-repeat center;background-size:100% 100%;" ></i>
+					<div class="xianshi">
+						<div class="first">
+							<div class="p_img">
+								<img src="{if isset($global.progress_node_1_img)}{$global.progress_node_1_img}{/if}" alt="">
+							</div>
+							<div class="info">
+								<!--<p>金币*888</p>
+								<p>初级强化石*10</p>-->
+								{if isset($global.progress_node_1_summary)}{$global.progress_node_1_summary}{/if}
+							</div>
+						</div>
+						<div class="second">
+							<div class="p_img">
+								<img src="{if isset($global.progress_node_2_img)}{$global.progress_node_2_img}{/if}" alt="">
+							</div>
+							<div class="info">
+								<!--<p>宝物召唤券*2</p>
+								<p>金币*1888</p>-->
+								{if isset($global.progress_node_2_summary)}{$global.progress_node_2_summary}{/if}
+							</div>
+						</div>
+						<div class="third">
+							<div class="p_img">
+								<img src="{if isset($global.progress_node_3_img)}{$global.progress_node_3_img}{/if}" alt="">
+							</div>
+							<div class="info">
+								<!--<p>宠物召唤券*2</p>
+								<p>宠物修炼手册*2</p>-->
+								{if isset($global.progress_node_3_summary)}{$global.progress_node_3_summary}{/if}
+							</div>
+						</div>
+						<div class="four">
+							<div class="p_img">
+								<img src="{if isset($global.progress_node_4_img)}{$global.progress_node_4_img}{/if}" alt="">
+							</div>
+							<div class="info">
+								<!--<p>宠物祝福石*3</p>
+								<p>祝福石*3</p>
+								<p>钻石*128</p>-->
+								{if isset($global.progress_node_4_summary)}{$global.progress_node_4_summary}{/if}
+							</div>
+						</div>
+						<div class="five">
+							<div class="p_img">
+								<img src="{if isset($global.progress_node_5_img)}{$global.progress_node_5_img}{/if}" alt="">
+							</div>
+							<div class="info">
+								<!--<p>装扮：经典方框墨镜*1（永久）</p>-->
+								{if isset($global.progress_node_5_summary)}{$global.progress_node_5_summary}{/if}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{if $diy}
+			<div class="pb_con" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		<div class="last" style="background:url({if count($global.tese_background_img) > 0 && $global.tese_background_img neq ''}{$global.tese_background_img}{/if}) no-repeat center;">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<div class="m_play">
+					<div class="d_play">
+						{fragment var=ts_img code=tese size=5} {if $ts_img neq ''}
+						<ul class="swiper-wrapper">
+							{foreach $ts_img as $v}
+							<li class="swiper-slide"><img src="{$v.thumb}" alt="" /><i></i></li>
+							{/foreach}
+						</ul>
+						{/if}
+						<div class="swiper-pagination1"></div>
+						<div class="swiper-button-prev1"></div>
+						<div class="swiper-button-next1"></div>
+					</div>
+				</div>
+			</div>
+			{if $diy}
+			<div class="pb_ts" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+
+		<div class="zj_footer">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<ul>
+					<li>
+						<img src="{if isset($global.bottommedia_download_ewm)}{$global.bottommedia_download_ewm}{/if}" alt="" id="down_ewm" />
+						<div class="zj_txt">
+							<p class="zj_txt1">下载游戏</p>
+							<p class="zj_txt2" id="d_title01">{if isset($global.bottommedia_download_title)}{$global.bottommedia_download_title}{/if}</p>
+							<p class="zj_txt3" id="d_title02">{if isset($global.bottommedia_download_sub_title)}{$global.bottommedia_download_sub_title}{/if}</p>
+						</div>
+					</li>
+					<li>
+						<img src="{if isset($global.bottommedia_wechat_ewm)}{$global.bottommedia_wechat_ewm}{/if}" alt="" id="w_ewm" />
+						<div class="zj_txt">
+							<p class="zj_txt1">微信公众号</p>
+							<p class="zj_txt2" id="w_title01">{if isset($global.bottommedia_wechat_title)}{$global.bottommedia_wechat_title}{/if}</p>
+							<p class="zj_txt3" id="w_title02">{if isset($global.bottommedia_wechat_sub_title)}{$global.bottommedia_wechat_sub_title}{/if}</p>
+						</div>
+					</li>
+					<li>
+						<img src="{if isset($global.bottommedia_qq_ewm)}{$global.bottommedia_qq_ewm}{/if}" alt="" id="q_ewm" />
+						<div class="zj_txt">
+							<p class="zj_txt1">官方QQ</p>
+							<p class="zj_txt2" id="q_title01">{if isset($global.bottommedia_qq_title)}{$global.bottommedia_qq_title}{/if}</p>
+							<p class="zj_txt3" id="q_title02">{if isset($global.bottommedia_qq_sub_title)}{$global.bottommedia_qq_sub_title}{/if}</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			{if $diy}
+			<div class="pb_footer" style="border:1px dashed #1e50ae;display:none;width:80%;height:80%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);-webkit-transform:translate(-50%,-50%);z-index:90;font-size:16px;color:#fff;cursor: pointer;"><i style="font-style: normal;right:0;bottom:0;position:absolute;left: 18%;top: 10%;width:100px;height: 50px;background-color: #fff;display: block;border-radius: 24px;text-align: center;color: #000;line-height: 50px;">编辑模块</i></div>
+			{/if}
+		</div>
+		{if $global.public_button_js eq 1}
+			<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+		{/if}
+		<div class="login">
+			<div class="c_login" style="background:url({if count($global.kv_yuyuepopup_background_img) > 0 && $global.kv_yuyuepopup_background_img neq ''}{$global.kv_yuyuepopup_background_img}{/if}) no-repeat center;">
+				<div class="chengg"></div>
+				<i class="close"></i>
+				<div class="login_main">
+					<ul class="c_yuyue">
+						<li class="active" data-id="ios">
+							<i><img class="wx_icon" src="{if isset($global.kv_yuyuepopup_platform_no_select_icon)}{$global.kv_yuyuepopup_platform_no_select_icon}{/if}" alt="" /><img class="yx_icon" src="{if isset($global.kv_yuyuepopup_platform_select_icon)}{$global.kv_yuyuepopup_platform_select_icon}{/if}" alt="" /></i><span class="ios_text">{if isset($global.kv_yuyuepopup_platform_ios)}{$global.kv_yuyuepopup_platform_ios}{/if}</span>
+						</li>
+						<li data-id="android">
+							<i><img class="wx_icon" src="{if isset($global.kv_yuyuepopup_platform_no_select_icon)}{$global.kv_yuyuepopup_platform_no_select_icon}{/if}" alt="" /><img class="yx_icon" src="{if isset($global.kv_yuyuepopup_platform_select_icon)}{$global.kv_yuyuepopup_platform_select_icon}{/if}" alt="" /></i><span class="and_text">{if isset($global.kv_yuyuepopup_platform_android)}{$global.kv_yuyuepopup_platform_android}{/if}</span>
+						</li>
+					</ul>
+					<div class="s_put" data-id="ios">
+						<input type="tel" placeholder="请输入手机号" class="phone" />
+					</div>
+					<div class="s_put">
+						<input type="text" placeholder="请输入图形验证码" class="t_yzm" />
+						<div class="captcha">
+							<i>点击刷新</i>
+							<img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/kv.jpg" />
+						</div>
+					</div>
+					<div class="s_put">
+						<input type="tel" placeholder="请输入验证码" class="yzm" />
+						<input type="button" value="获取验证码" class="g_code" />
+					</div>
+				</div>
+				<img src="{if isset($global.kv_yuyuepopup_botton_img)}{$global.kv_yuyuepopup_botton_img}{/if}" alt="" class="denglu" />
+			</div>
+		</div>
+		<!--页面公共设置-->
+		<div class="page_set">
+			<div id="page_set_one">页面设置</div>
+			<div id="page_set_two">公共组件</div>
+		</div>
+		<!--导航弹窗-->
+		<div class="nav_tc">
+			<div class="tc_wrap">
+				<p class="tc_title"><span>编辑导航</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">站点信息</li>
+							<li>导航</li>
+							<li>自媒体</li>
+						</ul>
+					</div>
+					<div class="r_con">
+						<div class="r_con_div active">
+							<div class="s_put s_none">
+								<p id="website_name">游戏名</p>
+								<input type="text" class="form_put" placeholder="请输入游戏名" id="game_title" />
+							</div>
+							<div class="s_put ">
+								<p id="website_title">游戏定位</p>
+								<input type="text" class="form_put" placeholder="请输入游戏定位，8个字符最佳" id="game_sub_title" />
+							</div>
+							<div class="s_put ">
+								<p>游戏icon</p>
+								<div class="put_file">
+									<input class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;" id="file">
+									<a href="javascript:;" class="put_link">点击上传游戏icon，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="img_ul"></ul>
+							<a href="javascript:;" class="put_sure" id="t_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>导航背景:</p>
+								<div class="put_file">
+									<input id="put_dh" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 1920px*120px</a>
+								</div>
+								<div class="choose_color fr" id="choose1">选择颜色</div>
+								<input type="hidden" name="nav_background_color" value="" />
+								<div class="xs_color"></div>
+							</div>
+							<p class="tip_dh">上传背景图后背景颜色将会被替换</p>
+							<ul class="img_ul" id="dimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="d_sure" style="margin-top:220px;">确定</a>
+						</div>
+						<div class="r_con_div">
+							<ul class="b_table">
+								<li><span>名称</span><span>图片</span><span>链接</span><span>操作</span></li>
+								<li id="wx_tc" data-type="bj"><span>微信</span><span><img id="wx_ex" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/nav_c.png" alt="" /><p>查看图片实例</p></span><span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/erweima.png" alt="" id="w_icon" /></span><span class="bj">编辑</span></li>
+								<li data-type="bj"><span>新浪</span><span><img id="xl_ex" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/nav_c.png" alt="" /><p>查看图片实例</p></span><span><a href="javascript:;" id="xl_url">www.baidu.com</a></span><span class="bj">编辑</span></li>
+								<li data-type="bj"><span>百度</span><span><img id="bd_ex" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/nav_c.png" alt="" /><p>查看图片实例</p></span><span><a href="javascript:;" id="baidu_url">www.baidu.com</a></span><span class="bj">编辑</span></li>
+							</ul>
+							<a href="javascript:;" class="put_sure m175" id="cl_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--导航编辑弹窗-->
+		<div class="dh_tc" id="dh_tc">
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑自媒体信息</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="wx_body">
+					<div class="s_put">
+						<p>微信icon:</p>
+						<div class="put_file">
+							<input id="wx_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="cimg_ul"></ul>
+					<div class="s_put">
+						<p>二维码图片:</p>
+						<div class="put_file">
+							<input id="ewm_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="aimg_ul"></ul>
+					<a href="javascript:;" class="put_sure m38" id="wx_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑自媒体信息</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="wx_body xn_body">
+					<div class="s_put">
+						<p>新浪icon</p>
+						<div class="put_file">
+							<input id="xn_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="eimg_ul"></ul>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input id="xn_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" />
+					</div>
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul id="se_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m38" id="xn_sure">确定</a>
+				</div>
+			</div>
+			<div class="dh_wrap">
+				<p class="tc_title"><span>编辑自媒体信息</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="wx_body xn_body">
+					<div class="s_put">
+						<p>贴吧icon</p>
+						<div class="put_file">
+							<input id="bd_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+							<a href="javascript:;" class="put_link">点击上传icon 120px*120px最佳</a>
+						</div>
+					</div>
+					<ul class="img_ul" id="fimg_ul"></ul>
+					<div class="s_put">
+						<p>跳转链接</p>
+						<input id="bd_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" />
+					</div>
+					<div class="s_put">
+						<div class="chengg"></div>
+						<p>打开方式</p>
+						<ul id="bd_ul">
+							<li class="active" data-href="0">
+								<span><i></i></span>
+								<p>当前窗口</p>
+							</li>
+							<li data-href="1">
+								<span><i></i></span>
+								<p>新窗口</p>
+							</li>
+						</ul>
+					</div>
+					<a href="javascript:;" class="put_sure m38" id="bd_sure">确定</a>
+				</div>
+			</div>
+		</div>
+		<!--编辑KV弹窗-->
+		<div class="kv_tc">
+			<div class="dh_wrap active w900">
+				<p class="tc_title"><span>编辑KV</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">KV背景图</li>
+							<li>视频按钮</li>
+							<li>预约模块</li>
+							<li>预约弹窗</li>
+						</ul>
+					</div>
+					<div class="r_kv r_auto">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="kv_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图 1920px*800px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="qimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38" id="kv_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮图</p>
+								<div class="put_file">
+									<input id="video_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，138px*146px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="wimg_ul"></ul>
+							<div class="t_put">
+								<p>播放链接</p>
+								<input id="video_url" type="text" placeholder="外链请录入完整地址，如：http://www.baidu.com；内网地址需录入：/aaa.html;" class="a_link" />
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="video_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>预约按钮</p>
+								<div class="put_file">
+									<input id="yy_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，391px*174px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="oimg_ul"></ul>
+							<div class="t_put">
+								<p>参数设置</p>
+							</div>
+							<div class="t_put">
+								<p>人数基数</p>
+								<input type="text" placeholder="" class="p_num" id="yy_count" />
+							</div>
+							<div class="t_put">
+								<p>随机范围</p>
+								<input type="text" placeholder="" class="s_num" id="yy_min" />
+								<p class="zhi">至</p>
+								<input type="text" placeholder="" class="s_num" id="yy_max" />
+								<p class="zhi">人，每分钟自动递增；</p>
+							</div>
+							<a href="javascript:;" class="put_sure m38" id="yy_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="bg_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，517px*586px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="pimg_ul"></ul>
+							<div class="t_put">
+								<p>提交按钮</p>
+								<div class="put_file">
+									<input id="tj_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，397px*97px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="kimg_ul"></ul>
+							<div class="t_put w760">
+								<div class="n_put fl">
+									<p>平台选中icon</p>
+									<div class="put_file">
+										<input id="x_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+										<a href="javascript:;" class="put_link">35px*35px最佳</a>
+									</div>
+									<ul class="img_ul" id="h_icon"></ul>
+								</div>
+								<div class="n_put fl l45">
+									<p>平台未选中icon</p>
+									<div class="put_file">
+										<input id="w_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+										<a href="javascript:;" class="put_link">35px*35px最佳</a>
+									</div>
+									<ul class="img_ul" id="y_icon"></ul>
+								</div>
+							</div>
+							<div class="t_put w760">
+								<div class="n_put fl">
+									<p>平台文案1</p>
+									<input type="text" placeholder="ios" class="n_num ios_text" id="ios_text" />
+								</div>
+								<div class="n_put fl l45">
+									<p>平台文案2</p>
+									<input type="text" placeholder="ios" class="n_num and_text" id="and_text" />
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="y_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑进度条弹窗-->
+		<div class="jd_tc">
+			<div class="jd_wrap">
+				<p class="tc_title"><span>编辑进度</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>预约按钮</li>
+							<li>进度条</li>
+							<li>节点设置</li>
+						</ul>
+					</div>
+					<div class="r_kv r_auto">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="i_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，1920px*1177px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="nimg_ul"></ul>
+							<div class="t_put h_auto">
+								<p>介绍文案</p>
+								<textarea class="conduct" id="conduct"></textarea>
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="jd_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>按钮图</p>
+								<div class="put_file">
+									<input id="m_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传按钮图，424px*104px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="rimg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="bt_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="j_bg" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传游戏icon，1232px*108px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="zimg_ul"></ul>
+							<div class="t_put">
+								<p>填充图</p>
+								<div class="put_file">
+									<input id="j_tc" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传填充图，任意宽*56px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="ximg_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ti_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<p class="title_p">节点1</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="fr_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="fi_ul"></ul>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="fr_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="fr_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点2</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="se_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="si_ul"></ul>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="se_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put"id="se_num"  oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点3</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="th_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="th_ul"></ul>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="th_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="th_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点4</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="fo_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="fo_ul"></ul>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="fo_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="fo_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<p class="title_p">节点5</p>
+							<div class="t_put m15">
+								<div class="put_file t_put_file">
+									<input id="fi_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传节点图，154px*149px最佳</a>
+								</div>
+								<ul class="img_ul" id="ve_ul"></ul>
+								<div class="put_content">
+									<p>奖励内容</p>
+									<input type="text" class="price_put" id="ve_value" /><br />
+									<p class="auto">以符号"&ltbr /&gt"换行</p>
+								</div>
+								<div class="put_content put_tion">
+									<p>节点人数</p>
+									<input type="text" class="price_put" id="fi_num" oninput="value=value.replace(/[^\d]/g,'')" /><br />
+									<p class="auto">仅能输入数字</p>
+								</div>
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="jie_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑游戏特色-->
+		<div class="ts_tc">
+			<div class="ts_wrap">
+				<p class="tc_title"><span>编辑游戏特色</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">背景图</li>
+							<li>轮播图</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>背景图</p>
+								<div class="put_file">
+									<input id="te_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传背景图，1920px*940px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="te_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="ts_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>添加图片</p>
+								<div class="put_file">
+									<input id="ad_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，337px*562px最佳</a>
+								</div>
+							</div>
+							<ul id="lb_ul"></ul>
+							<a href="javascript:;" class="put_sure m38 b25" id="lb_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--底部自媒体-->
+		<div class="me_tc">
+			<div class="me_wrap">
+				<p class="tc_title"><span>编辑底部自媒体</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="m_wrap">
+					<div class="l_menu">
+						<ul>
+							<li class="active">下载游戏</li>
+							<li>微信公众号</li>
+							<li>官方Q群</li>
+						</ul>
+					</div>
+					<div class="r_kv">
+						<div class="r_con_div active">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="tit_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="d_ul"></ul>
+							<div class="t_put">
+								<p>标题</p>
+								<input type="text" class="price_put" id="f_title01" />
+							</div>
+							<div class="t_put">
+								<p>副标题</p>
+								<input type="text" class="text_con" id="f_title02" />
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="d1_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="tit1_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="s_ul"></ul>
+							<div class="t_put">
+								<p>标题</p>
+								<input type="text" class="price_put" id="s_title01" />
+							</div>
+							<div class="t_put">
+								<p>副标题</p>
+								<input type="text" class="text_con" id="s_title02" />
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="d2_sure">确定</a>
+						</div>
+						<div class="r_con_div">
+							<div class="t_put">
+								<p>二维码</p>
+								<div class="put_file">
+									<input id="tit2_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+									<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+								</div>
+							</div>
+							<ul class="img_ul" id="t_ul"></ul>
+							<div class="t_put">
+								<p>标题</p>
+								<input type="text" class="price_put" id="l_title01" />
+							</div>
+							<div class="t_put">
+								<p>副标题</p>
+								<input type="text" class="text_con" id="l_title02" />
+							</div>
+							<a href="javascript:;" class="put_sure m38 b25" id="d3_sure">确定</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--编辑模块登录-->
+		<div class="tc_login">
+			<div class="tc_body">
+				<div class="chengg"></div>
+				<p>用户登录</p>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/use.png" alt="" />
+					<input type="text" placeholder="请输入账号" id="u_count"/>
+				</div>
+				<div class="tc_put">
+					<img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/mi.png" alt="" />
+					<input type="password" placeholder="请输入密码" id="u_password"/>
+				</div>
+				<div class="tc_dl">登录</div>
+			</div>
+		</div>
+		<!--编辑页面公共属性-->
+		<div class="tc_property">
+			<div class="ty_body">
+				<p class="tc_title"><span>编辑属性</span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/close.png" alt="" class="t_close" /></p>
+				<div class="add_ul">
+					<ul id="add_ul">
+						<li class="active">页面设置</li>
+						<li>公共组件</li>
+					</ul>
+				</div>
+				<div class="pr_con" id="pr_con">
+					<div class="pr_con_div">
+						<div class="pr_put">
+							<p>浏览器标题</p>
+							<input type="text" placeholder="标题建议十个字符以内" id="web_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面关键词</p>
+							<input type="text" placeholder="标点符号建议用半角" id="key_name" />
+						</div>
+						<div class="pr_put">
+							<p>页面简介</p>
+							<textarea placeholder="标点符号建议用半角" id="des_name" style="height:135px;"></textarea>
+						</div>
+						<div class="pr_put">
+							<p>浏览器icon</p>
+							<div class="put_file">
+								<input id="li_file" class="selectbtn" type="file" name="fileselect[]" multiple="" accept="jpg,png,exe,gif,GIF,JPG,PNG" style="opacity: 0;">
+								<a href="javascript:;" class="put_link">点击上传图片，120px*120px最佳</a>
+							</div>
+						</div>
+						<ul class="img_ul" id="pa_ul"></ul>
+						<a href="javascript:;" class="put_sure m38 b25" id="p_sure">确定</a>
+					</div>
+					<div class="pr_con_div active">
+						<div class="pr_put">
+							<div class="se_pub" data-type="0">
+								<span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共头部</em>
+								<a href="javascript:;" target="_blank" id="yl_tb">预览</a>
+							</div>
+							<div class="se_pub pb" data-type="0">
+								<span><img src="{$smarty.const.STATIC_DOMAIN}ddd_yy/images/gougou.png" alt="" /></span>
+								<em>公共底部</em>
+								<a href="javascript:;" target="_blank" id="yl_db">预览</a>
+							</div>
+						</div>
+						<div class="pr_put mar">
+							<p>统计代码</p>
+							<textarea placeholder="标点符号建议用半角" id="pub_dm"></textarea>
+						</div>
+						<a href="javascript:;" class="put_sure m38 b25" id="g_sure">确定</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="big_img">
+			<div class="small_img">
+				<img src="" alt="" />
+			</div>
+		</div>
+	</body>
+	{video_play}
+
+	<script type="text/javascript">
+		var alt = "{module_api_domain}/";
+		var alt01 = "{$smarty.const.STATIC_DOMAIN}ddd_yy/";
+		var alt02 = "{$smarty.const.STATIC_DOMAIN}czymf_gw/";
+	</script>
+	<script src="//cdnstatic.zhengyuetech.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/colpick.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/wangEditor.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+
+			var mySwiper01 = new Swiper(".d_play", {
+				loop: true,
+				autoplay: 4500,
+				pagination: '.swiper-pagination1',
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev1',
+				nextButton: '.swiper-button-next1',
+				autoplayDisableOnInteraction: false,
+				coverflow: {
+					rotate: 0,
+					stretch: -166,
+					depth: 400,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+				//				simulateTouch: false,
+			});
+			$(".right_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_rule>div").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			$(".news_ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+			$(".s_put input").focus(function() {
+				$(this).addClass("active");
+			});
+			$(".s_put input").blur(function() {
+				$(this).removeClass("active");
+			});
+			$(".close").click(function() {
+				$(this).parent().parent().hide();
+			});
+			$(".c_yuyue ul li").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".r_wx a:nth-child(1)").hover(function() {
+				$(".fl_wx").stop().fadeIn();
+			}, function() {
+				$(".fl_wx").stop().fadeOut();
+			});
+			
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/tc_public.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}ddd_yy/js/index_new.js?{$smarty.const.VERSION}"></script>
+
+
+</html>

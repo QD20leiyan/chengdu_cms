@@ -1,0 +1,231 @@
+{include file="../../layouts/wap/new_header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/rune.css?{$smarty.const.VERSION}" />
+<section style="font-size:0;">
+			<div class="fw">
+				<ul class="fw1">
+					<li data-type="1"><img src="" alt="" /></li>
+					<li data-type="1"><img src="" alt="" /></li>
+				</ul>
+				<ul class="fw2">
+					<li data-type="2"><img src="" alt="" /></li>
+					<li data-type="2"><img src="" alt="" /></li>
+				</ul>
+				<ul class="fw3">
+					<li data-type="3"><img src="" alt="" /></li>
+					<li data-type="3"><img src="" alt="" /></li>
+				</ul>
+				<ul class="fw4">
+					<li data-type="4"><img src="" alt="" /></li>
+				</ul>
+			</div>
+			<div class="fw_tit">
+				<p><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/damond.png?{$smarty.const.VERSION}" />符文属性</p>
+			</div>
+			<div class="nature">
+				<ul>
+					<li>
+						<p></p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+					<li>
+						<p></p>
+					</li>
+				</ul>
+				<div class="nature_bo"></div>
+			</div>
+		</section>
+		<section>
+			<div class="fw_tab">
+				<ul class="rune_tab">
+					<li class="active" rune-type="1">红色符文</li>
+					<li rune-type="2">蓝色符文</li>
+					<li rune-type="3">绿色符文</li>
+					<li rune-type="4">高级符文</li>
+				</ul>
+				<div class="rune_con">
+					<ul class="active">
+						
+					</ul>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<ul class="c_footer">
+				<li>
+					<a href="{myurl name='wap/site/index'}">
+						<div class="b_img">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f1.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f11.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>官网首页</p>
+					</a>
+				</li>
+				<li>
+					<a href="{myurl name='wap/article/datum'}">
+						<div class="b_img">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f2.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f22.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>种族技能</p>
+					</a>
+				</li>
+				<li>
+					<a href="{myurl name='wap/article/army'}">
+						<div class="b_img">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f3.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f33.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>兵种介绍</p>
+					</a>
+				</li>
+				<li class="active">
+					<a href="{myurl name='wap/article/rune'}">
+						<div class="b_img">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f4.png?{$smarty.const.VERSION}" alt="" />
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_f44.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<p>符文模拟器</p>
+					</a>
+				</li>
+			</ul>
+		</footer>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			var type = 1;
+			ajaxInit(type);
+			$(".rune_tab li").on("click", function() {
+				type = $(this).attr("rune-type");
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".rune_con ul").html("");
+				ajaxInit(type);
+			});
+
+			function ajaxInit(curid) {
+				$.ajax({
+					type: "get",
+					url: '{myurl name="wap/article/rune"}',
+					data: {
+						type: curid
+					},
+					success: function(res) {
+						var res = JSON.parse(res);
+						if(res.data.length > 0) {
+							var dom = '';
+							for(var i = 0; i < res.data.length; i++) {
+								var _a = '<li data-id="'+res.data[i].id+'" data-type="' + res.data[i].type + '" data-grade="' + res.data[i].grade + '" data-attr="' + res.data[i].attribute + '">' +
+									'<div class="rune_img"><img src="' + res.data[i].thumb + '" alt="" /></div>' +
+									'<div class="rune_p" attr-type="' + res.data[i].attribute + '">' +
+									'<p>' + res.data[i].title + '</p>' +
+									'<p class="c_body">' + res.data[i].body + '</p>' +
+									'</div>' +
+									'<div class="level"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/level.png" alt="" /></div>' +
+									'</li>';
+								dom += _a;
+							}
+							$(".rune_con ul").html(dom);
+						}
+						$(".rune_con ul li").on("click", function() {
+							//获取点击符文的类型,等级
+							var type = $(this).attr("data-type");
+							var grade = $(this).attr("data-grade");
+							var id = $(this).attr("data-id");
+							if($(".fw ul li[data-id='" + id + "']").length > 0) {
+								alert("已经存在!");
+								return;
+							}
+							//获取对应类别空位的dom
+							var bor = $(".fw ul li[data-type='" + type + "']:not([data-id])");
+							//如果对应类别无空位，或对应类别所有dom
+							if(bor.length == 0) {
+								bor = $(".fw ul li[data-type='" + type + "']");
+							}
+							//设置对应数据
+							bor.eq(0).attr("data-grade", grade);
+							bor.eq(0).attr("data-body", $(this).find(".rune_p .c_body").text());
+							bor.eq(0).attr("data-attr", $(this).attr("data-attr"));
+							bor.eq(0).attr("data-id", id);
+							bor.eq(0).find("img").attr("src", $(this).find(".rune_img img").attr("src"));
+							jsfw();
+						});
+						//点击清除符文
+						$(".fw ul li").click(function() {
+							$(this).removeAttr("data-grade").removeAttr("data-body")
+								.removeAttr("data-id").removeAttr("data-attr").find("img").attr("src", "");
+
+							jsfw()
+						});
+
+						//计算符文文案
+						function jsfw() {
+							//获取所有选择的符文
+							var choose = $(".fw ul li[data-grade]");
+							var bodyarr = [];
+							choose.each(function(i, n) {
+								var bodyObj = {};
+								bodyObj.body = $(n).attr("data-body") || ""; //文案
+								bodyObj.type = $(n).attr("data-type") || ""; //类型
+								bodyObj.attr = $(n).attr("data-attr") || ""; //属性字符串
+								bodyObj.arr = bodyObj.attr.split(","); //属性数组
+								//去掉属性的文案
+								var body_noattr = bodyObj.body;
+								for(var j in bodyObj.arr) {
+									body_noattr = body_noattr.replace(bodyObj.arr[j], ""); //去掉属性
+								}
+								bodyObj.body_noattr = body_noattr;
+								for(var j in bodyarr) {
+									if(bodyarr[j].body_noattr == body_noattr&&bodyarr[j].type==bodyObj.type) { //判断去掉属性的文案是否相同
+										//相同文案加属性值
+										//alert("相同属性");
+										for(var n in bodyObj.arr) {
+											var add_1 = parseFloat(bodyarr[j].arr[n]); //属性字符串转小数
+											var add_2 = parseFloat(bodyObj.arr[n]); //属性字符串转小数
+											var add = (add_1 + add_2).toFixed(2);
+											//相加后新的属性值转成字符串
+											var newVal = add >= 0 ? "+" + add : "" + add;
+											newVal+=bodyarr[j].arr[n].replace(/[\+\-\w\.]*/g,"");
+											bodyarr[j].body = bodyarr[j].body.replace(bodyarr[j].arr[n], newVal); //文案中原属性值替换为新的属性值
+											bodyarr[j].arr[n] = newVal; //属性数组中原属性值替换为新的属性值
+										}
+										return;
+									}
+								}
+								//没有相同文案则新增
+								bodyarr.push(bodyObj);
+							});
+							//清除文案
+							$(".nature ul li:lt(7)>p").html("");
+							for(var i in bodyarr) {
+								var str = bodyarr[i].body;
+								for(var j in bodyarr[i].arr) {
+									str = str.replace(bodyarr[i].arr[j], "<em>" + bodyarr[i].arr[j] + "</em>"); //给属性加上i标签
+								}
+								$(".nature>ul>li:eq(" + i + ")>p").html(str);
+
+							}
+						}
+					},
+					error: function(data) {
+
+					}
+				});
+			}
+
+		})
+	</script>
+{include file="../../layouts/wap/footer.html"}
+</html>

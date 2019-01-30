@@ -1,0 +1,93 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="list">
+	<div>
+		<p class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/image_tit.png?{$smarty.const.VERSION}" alt=""/></p>
+		<ul class="p_ul" id="p_ul" data-id="564">
+
+		</ul>
+		<div class="dropload-down">
+			<div class="dropload-noData">上滑加载更多...</div>
+		</div>
+	</div>
+
+
+</div>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script type="text/javascript">
+	$(function (){
+		$(".p_ul li").on("click" , function (){
+			var img = $(this).children(".li_top").find(".pic").attr("src");
+			$(".z_img").attr("src",img);
+			$(".b_img").stop().fadeIn();
+		});
+		$(".b_img").click(function() {
+			$(this).stop().fadeOut();
+		});
+
+
+		//图库加载
+		var isScroll = 1;//是否可以滚动
+		var page = 1; //页数
+		var id = $(".p_ul").attr("data-id");//类型
+		var ajaxUrl = '/commonMethod/ajax-get-list';
+			getListFu();
+		window.onscroll=function(){
+			var winH = window.innerHeight; //屏幕高度
+			var allH = document.body.scrollHeight; //总高度
+			var topH = window.pageYOffset; //滚动高度
+			if((allH - (winH
+					+ topH)<10) && isScroll == 1){
+				isScroll = 0;
+				$(".dropload-noData").html("数据加载中...")
+			getListFu();
+			}
+		}
+		function getListFu(){
+			$.ajax({
+				type:"get",
+				url:ajaxUrl,
+				data:{
+					page:page++,
+					id:id,
+				},
+				success:function(data){
+					var data = JSON.parse(data);
+					if(data.status == 0&& data.msg.length>0){
+//					if(page===1){
+//						$('.news_list').empty();
+//					}
+						var result = '';
+						for(var i = 0; i < data.msg.length; i++) {
+							result += "<li class='box'><div class='li_top'><img src=" + data.msg[i].thumb+" class='pic' /><div class='li_tx'><p>" + data.msg[i].title+"</p><b class='from'>"+ data.msg[i].sub_title+"</b><span>" + data.msg[i].sort+"</span></div></div></li>";
+
+						}
+						result=$(result);
+						$(result).on("click" , function (){
+							var img = $(this).children(".li_top").find(".pic").attr("src");
+							$(".z_img").attr("src",img);
+							$(".b_img").stop().fadeIn();
+						});
+						$('.p_ul').append(result);
+						var $container = $('#p_ul');
+						$container.imagesLoaded(function() {
+							$container.masonry({
+								itemSelector: '.box',
+								gutter: 15,
+								isAnimated: true,
+							});
+						});
+						$(".dropload-noData").html("上滑加载更多<i></i>");
+						isScroll = 1;
+					} else{
+						$(".dropload-noData").html("没有更多信息了");
+					}
+				},
+				error:function(data){
+					console.log(data);
+				}
+			});
+		}
+	})
+</script>

@@ -1,0 +1,84 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="top">
+	<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+	<ul class="top_ul">
+		<li class="">
+			<a href="{myurl name='site/index'}" target="_blank"><span>官网首页</span><i></i></a>
+		</li>
+		<li class="active">
+			<a href="javascript:;"><span>游戏新闻</span><i></i></a>
+		</li>
+		<li>
+			<a href="/index.html?id=zhenying" target="_blank"><span>阵营介绍</span><i></i></a>
+		</li>
+	</ul>
+</div>
+<div class="kv"></div>
+<div class="news_body">
+	<div class="news_ul">
+		<ul>
+			<li class="{if $id eq 1843}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>1843'}">最新</a>
+			</li>
+			<li class="{if $id eq 1844}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>1844'}">新闻</a>
+			</li>
+			<li class="{if $id eq 1845}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>1845'}">公告</a>
+			</li>
+			<li class="{if $id eq 1899}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>1899'}">活动</a>
+			</li>
+			<li class="{if $id eq 1900}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>1900'}">攻略</a>
+			</li>
+		</ul>
+	</div>
+	<div class="newslist">
+		<div class="wrap">
+			{if !empty($data)}
+			<ul>
+				{foreach $data as $v}
+				<li>
+					<a href="{$v.linkUrl}" target="_blank">
+						<div class="newlist_left">{$v.name}</div>
+						<div class="newlist_right">
+							<h3>{$v.title}</h3>
+							<p>{$v.contentMessage}</p>
+						</div>
+						<i>{$v.created_at|date_format:"%Y-%m-%d"}</i>
+					</a>
+				</li>
+				{/foreach}
+			</ul>
+			{$page}
+			{/if}
+		</div>
+
+	</div>
+</div>
+<div class="float">
+	<div class="ewm">
+		<div class="chengg"></div>
+		<img src="" alt="" class="js_jump_img" />
+		<i></i>
+	</div>
+	<p>扫一扫下载游戏</p>
+	<a href="javascript:;" class=" stat_ios show_iostips"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="javascript:;" target="_blank" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="https://www.taptap.com/app/151830" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+	<a href="{myurl name='site/index'}" class="fanhui"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/fanhui.png?{$smarty.const.VERSION}" alt="" /></a>
+</div>
+<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/back.png?{$smarty.const.VERSION}" alt="" class="back" />
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(".back").click(function (){
+		$("html,body").animate({
+				scrollTop: 0
+			}, 500);
+	});
+</script>
+</body>
+
+</html>

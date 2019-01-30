@@ -1,0 +1,32 @@
+{include '../../layouts/wap/header.html'}
+	<!--内容-->
+	<div class="list">
+		<div class="top_img">
+			<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_logo.png?{$smarty.const.VERSION}" alt="" /></div>
+			<div class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/slogan.png?{$smarty.const.VERSION}" alt="" /></div>
+		</div>
+		<div class="list_news">
+			<div class="detailbox">
+			<div class="article_title">
+				{if $content.category_id==637}
+				<a href="{myurl name='wap/article/list, id=>637'}" class="go_list"></a>
+				{else if $content.category_id==638}
+				<a href="{myurl name='wap/article/list, id=>638'}" class="go_list"></a>
+				{else if $content.category_id==639}
+				<a href="{myurl name='wap/article/list, id=>639'}" class="go_list"></a>
+				{else if $content.category_id==640}
+				<a href="{myurl name='wap/article/list, id=>640'}" class="go_list"></a>
+				{else if $content.category_id==641}
+				<a href="{myurl name='wap/article/list, id=>641'}" class="go_list"></a>
+				{/if}
+				<h3>{$content.title}</h3>
+				<span><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>来源：本网站</span></span>
+			</div>
+			<div class="content">
+				{$content.body}
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+{include '../../layouts/wap/foot.html'}

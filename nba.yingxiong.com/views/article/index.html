@@ -1,0 +1,49 @@
+{include '../layouts/pc/header.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="n_kv">
+    <div class="wrap">
+        <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+        <div class="news_list">
+            <p class="n_back">
+                <a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+            <ul>
+                <li class="{if $id eq 705}active{else} {/if}">
+                    <a href="{myurl name='article/list, id=>705'}">新闻公告</a>
+                </li>
+                <li class="{if $id eq 703}active{else} {/if}">
+                    <a href="{myurl name='article/list, id=>703'}">热辣活动</a>
+                </li>
+                <li class="{if $id eq 702}active{else} {/if}">
+                    <a href="{myurl name='article/list, id=>702'}">球场指南</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="news_body">
+    {if !empty($data)}
+    <ul class="newslist">
+        {foreach $data as $v}
+        <a href="{$v.linkUrl}" target="_blank">
+            <li>
+                <div class="newlist_left">
+                    <span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+                    <span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+                </div>
+                <div class="newlist_img"><img src="{if $v.thumb}{$v.thumb}{else}{$smarty.const.STATIC_DOMAIN}2.0/images/default_img.png?{$smarty.const.VERSION}{/if}" alt="" /></div>
+                <div class="newlist_right">
+                    <h3>{$v.title}</h3>
+                    <p>{$v.contentMessage}</p>
+                </div>
+                <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/l_hover.png?{$smarty.const.VERSION}" alt="" class="l_hover" />
+            </li>
+        </a>
+        {/foreach}
+    </ul>
+    {$page}
+    {else}
+    <p style="font-size:24px;color:#fff;text-align: center;line-height:50px;">暂无内容~</p>
+    {/if}
+</div>
+</body>
+{include '../layouts/pc/foot.html'}

@@ -1,0 +1,264 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="i_main fade">
+	<!--第一部分-->
+	<div class="top">
+		<!--logo-->
+		<div class="logo1">
+			<img src="{$smarty.const.STATIC_DOMAIN}/m/images/logo1.png?{$smarty.const.VERSION}">
+		</div>
+		<!--slogan-->
+		<div class="slogan">
+			<img src="{$smarty.const.STATIC_DOMAIN}/m/images/slogan.png?{$smarty.const.VERSION}">
+		</div>
+		<!--kv_video-->
+		<div class="videoBtn">
+			<a target="_blank" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/play.png?{$smarty.const.VERSION}" class="js_video_play" data-url="{$video.content_message}"></a>
+		</div>
+		<!--预约信息-->
+		<div class="yy_info">
+			<!--<a href="javascript:;" class="and js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/and.png?{$smarty.const.VERSION}" alt=""/></a>-->
+			<span class="qrcode_bg"><img src="" alt="" class="js_jump_img"/></span>
+			<!--<div class="code_info">-->
+				<!--<p>安卓精英测试</p>-->
+				<!--<p>扫码开启下载</p>-->
+			<!--</div>-->
+			<!--<a href="/m/cover" class="same_btn order_btn1"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/order_btn1.png?{$smarty.const.VERSION}" alt=""/></a>-->
+			<a href="javascript:;" class="same_btn down js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/down_btn.png?{$smarty.const.VERSION}" alt=""/></a>
+			{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcwap','stwap','jpcwap','sp1','sp2'])}
+			<a href="http://l.taptap.com/d0cdBvCX" class="same_btn tap stat_tap" style="display: none;" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/tap2.png?{$smarty.const.VERSION}" alt=""/></a>
+			{else}
+			<a href="http://l.taptap.com/d0cdBvCX" class="same_btn tap stat_tap"  target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/tap2.png?{$smarty.const.VERSION}" alt=""/></a>
+			{/if}
+			<!--<div class="num">-->
+				<!--<span>已经有</span>-->
+				<!--<span class="num_txt"></span>-->
+				<!--<span>人预约</span>-->
+			<!--</div>-->
+		</div>
+	</div>
+	<!--第二部分-->
+	<div class="banner_news">
+		<div class="banner">
+			<div class="swiper-container swiper-container1">
+				<div class="swiper-wrapper">
+					{foreach key=cid item=v from=$banner}
+					<div class="swiper-slide">
+						<a href="{$v.url}"><img class="images" src="{$v.thumb}" alt=""></a>
+						<span class="banner_txt">{$v.title}</span>
+					</div>
+					{/foreach}
+				</div>
+				<div class="swiper-pagination swiper-pagination1"></div>
+			</div>
+		</div>
+		<div class="news_box">
+			<a href="{myurl name='wap/article/list, id=>431'}" class="more"></a>
+			<div class="hd">
+				<ul>
+					<li class="on">
+						<a>最新</a>
+					</li>
+					<li>
+						<a>新闻</a>
+					</li>
+					<li>
+						<a>公告</a>
+					</li>
+					<li>
+						<a>攻略</a>
+					</li>
+					<li>
+						<a>活动</a>
+					</li>
+				</ul>
+			</div>
+			<div class="bd">
+				<ul class="news_info">
+					{foreach key=cid item=v from=$zx} {if $cid eq 0}
+					<div class="first">
+						<h2>{$v.title}</h2>
+						{if $v.seo_description !=null}
+						<p>{$v.seo_description}</p>
+						<span class="line"></span>
+						{/if}
+					</div>
+					{/if} {/foreach}
+					{foreach key=cid item=v from=$zx} {if $cid neq 0}
+					<li>
+						<a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				<ul class="news_info hidden">
+					{foreach key=cid item=v from=$xw} {if $cid eq 0}
+					<div class="first">
+						<h2>{$v.title}</h2>
+						{if $v.seo_description !=null}
+						<p>{$v.seo_description}</p>
+						<span class="line"></span>
+						{/if}
+					</div>
+					{/if} {/foreach}
+					{foreach key=cid item=v from=$xw} {if $cid neq 0}
+					<li>
+						<a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				<ul class="news_info hidden">
+					{foreach key=cid item=v from=$gg} {if $cid eq 0}
+					<div class="first">
+						<h2>{$v.title}</h2>
+						{if $v.seo_description !=null}
+						<p>{$v.seo_description}</p>
+						<span class="line"></span>
+						{/if}
+					</div>
+					{/if} {/foreach}
+					{foreach key=cid item=v from=$gg} {if $cid neq 0}
+					<li>
+						<a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				<ul class="news_info hidden">
+					{foreach key=cid item=v from=$gl} {if $cid eq 0}
+					<div class="first">
+						<h2>{$v.title}</h2>
+						{if $v.seo_description !=null}
+						<p>{$v.seo_description}</p>
+						<span class="line"></span>
+						{/if}
+					</div>
+					{/if} {/foreach}
+					{foreach key=cid item=v from=$gl} {if $cid neq 0}
+					<li>
+						<a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				<ul class="news_info hidden">
+					{foreach key=cid item=v from=$hd} {if $cid eq 0}
+					<div class="first">
+						<h2>{$v.title}</h2>
+						{if $v.seo_description !=null}
+						<p>{$v.seo_description}</p>
+						<span class="line"></span>
+						{/if}
+					</div>
+					{/if} {/foreach}
+					{foreach key=cid item=v from=$hd} {if $cid neq 0}
+					<li>
+						<a target="_blank" href="{$v.wapLinkUrl}"><i class="small_ti">[{$v.categoryName}]</i>{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+					</li>
+					{/if} {/foreach}
+				</ul>
+			</div>
+		</div>
+		<div class="ts_play">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}/m/images/title_1.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="slider">
+				<div class="swiper-container swiper-container2">
+					<div class="swiper-wrapper">
+						{foreach key=cid item=v from=$play}
+						<div class="swiper-slide">
+							<a><img class="images" src="{$v.thumb}" alt=""></a>
+						</div>
+						{/foreach}
+					</div>
+				</div>
+				<div class="swiper-pagination swiper-pagination2"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</div>
+		<div class="official">
+			<a href="https://jq.qq.com/?_wv=1027&k=5DiyXYe" class="qq1"></a>
+			<a href="https://jq.qq.com/?_wv=1027&k=5q8cYgW" class="qq2"></a>
+			<a href="{$global.wb_url}" class="wb"></a>
+			<a href="http://bbs.yingxiong.com/html/Pc3.0/23.html?ADTAG=fc&share_path=%2F#/talk/312" class="lt"></a>
+            <span class="gzh">
+                <img src="{$global.wx_img}" alt=""/>
+            </span>
+		</div>
+	</div>
+	<!--第三部分-底部-->
+	<div class="bottom">
+		<img src="{$global.logo_img}" alt="" />
+		<p class="logo_p">{$global.title}</p>
+		<p>{$global.sub_title}</p>
+	</div>
+	<div class="go_top">
+		<img src="{$smarty.const.STATIC_DOMAIN}/m/images/go_top.png?{$smarty.const.VERSION}" alt=""/>
+	</div>
+</div>
+<div class="mask2 fade">
+    <div class="mask2_con">
+        <div class="mask2_board">
+            <a href="javascript:;" class="m2_close"></a>
+            <a href="javascript:;" class="js_video_play m2_video" data-url="http://video.yingxiong.com/hd/1f2c63db3aed441f8fea0bc5bef4931c.mp4">
+            	<img src="{$smarty.const.STATIC_DOMAIN}/m/images/video_btn.png?{$smarty.const.VERSION}" alt=""> 
+            </a>
+            <ul>
+                <li>
+                    <h4>100张</h4>
+                    <p>北京国安</p>
+                    <p>主场球票</p>
+                </li>
+                <li>
+                    <h4>30张</h4>
+                    <p>国安球星</p>
+                    <p>签名海报</p>
+                </li>
+                <li>
+                    <h4>30条</h4>
+                    <p>国安球星</p>
+                    <p>签名围巾</p>
+                </li>
+            </ul>
+            <div style="clear:both;"></div>
+            <a href="http://csmsl.yingxiong.com/info/2018/0418/3708.html" class="m2_btn"></a>
+        </div>
+    </div>
+</div>
+<!-- <div class="m2_fix fade">
+    <img src="{$smarty.const.STATIC_DOMAIN}/m/images/shou_tc.png?{$smarty.const.VERSION}" alt="">
+</div> -->
+</body>
+{include '../../layouts/wap/foot.html'}
+<script>
+	$(function(){
+		var swiper01 = new Swiper('.swiper-container1', {
+			pagination: '.swiper-pagination1',
+			slidesPerView: 1,
+			paginationClickable: true,
+			autoplayDisableOnInteraction : false,
+			autoplay:2000,
+			loop:true
+		});
+		var swiper02 = new Swiper('.swiper-container2',{
+			loop:true,
+			pagination: '.swiper-pagination2',
+			paginationType : 'fraction',
+			paginationClickable: true,
+			slidesPerView:1,
+			autoplay:2000,
+			effect : 'fade',
+			fade: {
+				crossFade: true,
+			},
+			prevButton:'.swiper-button-prev',
+			nextButton:'.swiper-button-next',
+		});
+		
+                // 足球活动弹窗
+        // $(".m2_close").click(function(){
+        //     $(".mask2").hide();
+        //     $(".m2_fix").show();
+        // })
+        // $(".m2_fix").click(function(){
+        //     $(".mask2").show();
+        // })
+	});
+</script>

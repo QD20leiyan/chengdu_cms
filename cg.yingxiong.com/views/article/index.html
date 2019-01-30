@@ -1,0 +1,131 @@
+{include file="../layouts/pc/header.html"}
+	<body>
+		<div class="active">
+	    	<ul class="active-lie">
+	    		{foreach $data.data as $k => $h}
+	    		<li class="active-list">
+	    			<a href="{$h.linkUrl}" class="subject">
+	    				<img src="{$h.thumb}" class="big-img"/>
+	    			</a>
+	    			<div class="info">
+	    				<a href="{$h.linkUrl}" target="_self" class="active-wd">{$h.title}</a>
+	    				<span>{$h.sub_title}</span>
+	    				<div class="zan">
+	    					<a href="javascript:;" data-index='{$k}' data-id='{$h.id}'>
+	    						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mark.png?{$smarty.const.VERSION}" /> 
+	    					</a>   
+    						<span class="praise">{$h.praise}</span>
+	    				</div>
+	    			</div>
+	    		</li>
+	    		{/foreach}
+	    	</ul>
+	    	<div style="clear:both;"></div>
+	    	<div class="loading">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/load.gif?{$smarty.const.VERSION}" />	
+			</div>
+			<p class="to-bottom">已经到底啦！</p>
+	    </div>
+	
+	<!--克隆-->
+	<li class="active-list active-clone">
+		<a href="" class="subject to">
+			<img src="" class="big-img"/>
+		</a>
+		<div class="info">
+			<a href="" target="_self" class="active-wd info1"></a>
+			<span class="info2"></span>
+			<div class="zan">
+				<a href="javascript:;" data-index='{$k}' data-id='{$h.id}'>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/mark.png?{$smarty.const.VERSION}" /> 
+				</a>   
+				<span class="praise"></span>
+			</div>
+		</div>
+	</li>
+	{click}
+	</body>
+	<script>
+	$(".zan a").click(function(){
+		var id=$(this).attr("data-id");
+		var _this=$(this);
+		getChangeData(id, 'praise', callBack);
+		function callBack(res) {
+			console.log(res)
+			if(res.status == '-1'){
+				alert(res.msg.msg);
+			} else{
+				var praise = _this.next(".praise");
+				praise.text( Number(praise.text())+1);
+			}
+		}
+	});
+	var page = 2;
+	var is_load = 1;
+	var is_last_page = 0;
+	$(window).scroll(function(){
+		var winH = $(window).height();
+		var scrH = $(document).height();
+		var htmH = $(document).scrollTop();
+//		return false;
+		if (htmH >= scrH - winH){
+
+		if (is_load == 0) {
+		    console.log(1);
+			return false;
+		};
+		if (is_last_page == 1) {
+		    return false
+		}
+	is_load = 0;
+	$(".loading").css("display","block");	
+    $.get('/article/ajax-get-list.html', { page: page }, function(data){
+    	
+        if (data.status == 0) {
+            if (data.msg.length == 0) {
+				is_last_page = 1;
+				is_load = 0;
+				$(".to-bottom").css("display","block");
+				$(".loading").css("display","none");
+            }
+            is_load = 1; 		
+            setTimeout(function(){         	
+                for (var i = 0; i < data.msg.length; i++) {
+                    console.log(data.msg[i]['id']);
+                    var xx={
+                        xx1:data.msg[i]['linkUrl'],
+                        xx2:data.msg[i]['thumb'],
+                        xx3:data.msg[i]['title'],
+                        xx4:data.msg[i]['sub_title'],
+                        xx5:data.msg[i]['praise'],
+                        xx6:data.msg[i]['id']
+                    }
+                    var clone = $(".active-clone").clone(true);
+                    clone.removeClass("active-clone");
+                    clone.find('.to').attr('href',xx.xx1);
+                    clone.find('.big-img').attr('src',xx.xx2);
+                    clone.find('.info1').text(xx.xx3);
+                    clone.find('.info1').attr('href',xx.xx1);
+                    clone.find('.info2').text(xx.xx4);
+                    clone.find('.praise').text(xx.xx5);
+                    clone.find(".zan a").attr("data-id",xx.xx6);
+                    console.log(clone);
+                    $(".active-lie").append(clone);
+                   
+				}
+            },500);
+            $(".zan a").click(function(){
+			  var str=$(this).attr("data-index");
+	          var id=$(this).attr("data-id");
+			});
+            page++;
+		} else {
+            alert(data.msg);
+		}
+
+    }, 'JSON');
+   }
+	});
+
+	</script>
+</html>

@@ -1,0 +1,25 @@
+{video_play} {download}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/js/public.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(".header_tab").click(function() {
+		if($(".h_tab").css("display") == "none") {
+			$(".header_tab span").addClass("active");
+			$(".h_tab").stop().slideDown();
+		} else {
+			$(".header_tab span").removeClass("active");
+			$(".h_tab").stop().slideUp();
+		}
+	});
+	//tap
+	var clicknum = 1;
+	$("header .i_down").click(function() {
+		if(clicknum % 2 !== 0) {
+			$(this).siblings(".nav-content1").slideDown();
+		} else {
+			$(this).siblings(".nav-content1").slideUp();
+		}
+		clicknum++;
+	});
+</script>

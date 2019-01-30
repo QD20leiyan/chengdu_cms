@@ -1,0 +1,324 @@
+<section>
+    <div class="bottom">
+        <div class="chengg"></div>
+        <div class="erweima">
+            <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wx_code.png?{$smarty.const.VERSION}" alt="">
+        </div>
+        <div class="code_txt">
+            <p>扫描二维码关注<span>明日决胜！</span>官方微信</p>
+            <p>获取更多活动礼包</p>
+            <p><span>玩家QQ群：689772061</span></p>
+        </div>
+        <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/back.png?{$smarty.const.VERSION}" class="back">
+        <div class="f_bottom">
+            <div class="f_a">游戏预约</div>
+        </div>
+    </div>
+</section>
+
+<footer id="Hero-bar">
+        <div class="f_t">
+           <label></label>
+           <ul>
+              <li><a href="http://zhengyuetech.com/category/58.html" target="_blank">关于我们</a></li>
+              <li><a href="http://zhengyuetech.com/category/61.html" target="_blank">企业文化</a></li>
+              <li><a href="http://zhengyuetech.com/category/42.html" target="_blank">人才招聘</a></li>
+              <li><a href="http://zhengyuetech.com/category/50.html" target="_blank">商务合作</a></li>
+              <li><a href="http://zhengyuetech.com/category/57.html" target="_blank">客服中心</a></li>
+            </ul>
+        </div><p class="f_link">Copyright©2015 成都正越科技有限公司 版权所有 </p><p>蜀ICP备18011081号-1</p><p>公司地址：成都高新区肖家河环三巷2号9幢1层</p>
+            <p class="f_txt">此游戏适合18岁以上，抵制不良游戏，拒绝盗版游戏，<br>注意自我保护，谨防受骗上当，适度游戏，<br>合理安排时间，享受健康生活</p>
+</footer>
+	</body>
+	{video_play}
+    {download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+    <script src="//cdnstatic.zhengyuetech.com/common/js/yx.js"></script>
+	<script>
+        var fgw_wap_down='';
+var fgw_wap_tap='';
+var fgw_wap_hy='';
+var fgw_wap_down1='';
+var fgw_wap_tap1='';
+var fgw_wap_hy1='';
+var wap_xz = $(".stat_down").length; 
+var wap_tap_xz = $(".stat_tap").length; 
+var wap_hy_xz = $(".stat_hy").length; 
+var wap_cover_xz = $(".stat_cover_down").length; 
+var wap_cover_tap_xz = $(".stat_cover_tap").length; 
+var wap_cover_hy_xz = $(".stat_cover_hy").length; 
+	    var clickNumber2 = 0;
+        var mySwiper1 = new Swiper(".swiper1", {
+            autoplay: 3500,
+            pagination : '.swiper-pagination1',
+            autoplayDisableOnInteraction: false,
+            paginationClickable: true,
+            paginationType : 'bullets',
+            loop: true
+        });
+        var mySwiper2 = new Swiper(".swiper2", {
+                loop: true,
+				effect: 'coverflow',
+				// autoplay: 3500,
+                autoplayDisableOnInteraction: false,
+				slidesPerView: 2,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev1',
+				nextButton: '.swiper-button-next1',
+				coverflow: {
+					rotate: 0,
+					stretch: -100,
+					depth:200,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+        });
+        $(".swiper2 .swiper-slide").click(function (){
+			var src = $(this).find("img").attr("src");
+			$(".z_img").attr("src" , src);
+			$(".big_img").stop().fadeIn();
+		});
+        var mySwiper3 = new Swiper(".video_box", {
+                loop: true,
+				effect: 'coverflow',
+				autoplay: 3500,
+                autoplayDisableOnInteraction: false,
+				slidesPerView: 2,
+				centeredSlides: true,
+				coverflow: {
+					rotate: 0,
+					stretch: -100,
+					depth:200,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+        });
+        $(".close").click(function (){
+        	$(".z_img").attr("src" , "");
+			$(".big_img").hide();
+        });
+        $('.c_download').click(function () {
+    	if(clickNumber2 % 2 == 0) {
+		$('.l_download').slideDown(500);
+	} else {
+        $('.l_download').slideUp(500);
+	}
+	clickNumber2++;
+    })
+         $('.l_download a').click(function () {
+             $('.l_download').slideUp(500);
+             clickNumber2=0;
+         })
+        $(".news-list").find('li').click(function() {
+            if($(this).hasClass('active')){
+                return;
+            }
+            var index = parseInt($(this).attr('data-index'));
+            $('.news-list').find('li').removeClass('active');
+            $(this).addClass('active');
+            $('.news-info').find('li').removeClass('active');
+            $('.news-info').find('li.info').eq(index).addClass('active');
+        });
+        $(".img-list").find('li').click(function() {
+            if($(this).hasClass('active')){
+                return;
+            }
+            var index = parseInt($(this).attr('data-index'));
+            $('.img-list').find('li').removeClass('active');
+            $(this).addClass('active');
+            $('.img_box').find('li').removeClass('active');
+            $('.img_box').find('li.info').eq(index).addClass('active');
+        });
+        $('.jobList').find('li').click(function () {
+            $('.jobList').find('li').removeClass('active');
+            $(this).addClass('active');
+            var index=$(".jobList li").index(this);
+            var num = $('.sexList li.active').index();
+            if(index == 3){
+                $('.sexList').find('li:nth-child(1)').hide();
+                $('.sexList').find('li:nth-child(1)').removeClass('active');
+                $('.sexList').find('li:nth-child(2)').addClass('active');
+                num = 1;
+            }else{
+                $('.sexList').find('li:nth-child(1)').show();
+            }
+            showJobx(index,num);
+        })
+        $('.sexList').find('li').click(function () {
+            $('.sexList').find('li').removeClass('active');
+            $(this).addClass('active');
+            var index=$(".jobList li.active").index();
+            var num = $('.sexList li.active').index();
+            showJobx(index,num);
+        })
+        function showJobx(index,num) {
+            var target = $('.job_person');
+            $('.job_person').removeClass();
+            $(target).addClass('job_person');
+            $('.sexList').find('li').eq(0).find('.peo').hide();
+            $('.sexList').find('li').eq(0).find('.peo').eq(index).show();
+            $('.sexList').find('li').eq(1).find('.peo').hide();
+            $('.sexList').find('li').eq(1).find('.peo').eq(index).show();
+            if(num == 0){
+                switch (index){
+                    case 0 : $(target).addClass('job1_man');$('.job_information').hide();$('.job_information1').show();
+                        $('.play2').hide();$('#play1').show();break;
+                    case 1 : $(target).addClass('job2_man');$('.job_information').hide();$('.job_information2').show();
+                        $('.play2').hide();$('#play2').show();break;
+                    case 2 : $(target).addClass('job3_man');$('.job_information').hide();$('.job_information3').show();
+                        $('.play2').hide();$('#play3').show();break;
+                    case 3 : $(target).addClass('job4_man');$('.job_information').hide();$('.job_information4').show();
+                        $('.play2').hide();$('#play4').show();break;
+                }
+            }else{
+                switch (index){
+                    case 0 : $(target).addClass('job1_female');$('.job_information').hide();$('.job_information1').show();
+
+                        $('.play2').hide();$('#play1').show();break;
+                    case 1 : $(target).addClass('job2_female');$('.job_information').hide();$('.job_information2').show();
+                        $('.play2').hide();$('#play2').show();break;
+                    case 2 : $(target).addClass('job3_female');$('.job_information').hide();$('.job_information3').show();
+                        $('.play2').hide();$('#play3').show();break;
+                    case 3 : $(target).addClass('job4_female');$('.job_information').hide();$('.job_information4').show();
+                        $('.play2').hide();$('#play4').show();break;
+                }
+            }
+        }
+        // 设备类型判断
+function change(){
+  var u = navigator.userAgent,
+      app = navigator.appVersion;
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+  var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+  var url = window.location.href;
+  var  url_id=window.location.href.split('cover')[1];
+  console.log(url_id);
+  if(isIOS) {
+    $(".l_download .gf,.yy_box").removeClass("js_wap_down");
+    $(".l_download .gf,.yy_box").attr("href", "javascript:yx_showTips('抱歉,iOS暂时还未上架，请使用安卓设备下载体验');");
+    $(".down_box").removeClass("js_wap_down");
+    $(".down_box").attr("href", "javascript:yx_showTips('抱歉,iOS暂时还未上架，请使用安卓设备下载体验');");
+  }
+  if(isAndroid) {
+    $(".l_download .gf,.yy_box").addClass("js_wap_down");
+    $(".l_download .gf,.yy_box").addClass("stat_down");
+    $(".l_download .gf,.yy_box").attr("href", "javascript:;");
+    $(".down_box").addClass("js_wap_down");
+    $(".down_box").addClass("stat_down");
+    $(".down_box").attr("href", "javascript:;");
+  }
+}
+//change();
+if(wap_xz > 0) {
+   $('.stat_down').click(function(){
+    HLog.event('stat_down')
+});
+}
+if(wap_tap_xz>0){
+    $('.stat_tap').click(function(){
+        HLog.event('stat_tap')
+    });
+}
+if(wap_hy_xz>0){
+    $('.stat_hy').click(function(){
+        HLog.event('stat_hy')
+});
+}
+if(wap_cover_xz > 0) {
+   $('.stat_cover_down').click(function(){
+    HLog.event('stat_cover_down')
+});
+}
+if(wap_cover_tap_xz>0){
+    $('.stat_cover_tap').click(function(){
+        HLog.event('stat_cover_tap')
+    });
+}
+if(wap_cover_hy_xz>0){
+    $('.stat_cover_hy').click(function(){
+        HLog.event('stat_cover_hy')
+    });
+}
+//图片验证
+        $(".back").click(function() {
+            $("html,body").animate({
+                scrollTop: 0
+            }, 500);
+        });
+        //点击微信弹出二维码
+        
+$(".server-box a:nth-child(1)").click(function() {
+	$(".bigImg").stop().fadeIn();
+});
+$(".bigImg").click(function() {
+	$(this).stop().fadeOut();
+});
+$(".more").click(function(){
+            $(".list-info .list-article").css("height","auto");
+            $(this).hide();
+            $(".noData").hide();
+         })
+var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var id = $(".list-article-title").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            // $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                var result = '';
+                if(data.status == 0&& data.msg.length>0){
+//                  if(page===1){
+//                      $('.news_list').empty();
+//                  }
+                    for(var i = 0; i < data.msg.length; i++) {
+                        result += "<li><a href=" + data.msg[i].wapLinkUrl+"><span><i>" +data.msg[i].name+"</i>"+data.msg[i].title+"</span><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    if(data.msg.length<9){
+                         $(".list-info .list-article").css("height","auto");
+                         $(".more").hide();
+                    }
+
+                    $('.list-article').append(result);
+//                    $(".dropload-noData").html("<span class='loadMore'>上滑加载更多</span><i></i>");
+                    // $(".dropload-noData").html("上滑加载更多<i></i>");
+                    isScroll = 1;
+                } else{
+                    result += "<li class=\"noData\">没有更多信息了</li>";
+                    $(".list-info .list-article").css("height","auto");
+                         $(".more").hide();
+                    $('.list-article').append(result);
+                    // $(".dropload-noData").html("没有更多信息了");
+                    $("more").hide();
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+
+	</script>
+</html>

@@ -1,0 +1,108 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+	<meta name="baidu-site-verification" content="4QTWrEt07K" />
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/common.css?{$smarty.const.VERSION}">
+	
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/index.css?{$smarty.const.VERSION}">
+</head>
+<body>
+	{include '../../layouts/wap/header_bak.html'}
+	<div class="top_H"></div>
+	<div class="n_t"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_25.png?{$smarty.const.VERSION}"></div>
+	<div class="nd_header">
+		<div class="nd_h">{$data['title']}</div>
+		<div class="nd_small">{#fby#} {$data['created_at']|date_format:"%Y/%m/%d" }</div>
+	</div>
+	<div class="nd_con">
+		{$data['body']}
+		<!-- <h3>【全服帮派论剑 刀锋所向挑战整个江湖】</h3>
+		<p>作为新版本的核心，全服帮派论剑将跨越彼此服务器的场地局限，将整个大唐天下的群英荟萃于点将台上一决高下想参加这代表至高荣耀的“帮派论剑”，首先需要加入一个心仪的帮派当屏幕右侧出现“论剑大会”的提示时，即可点击进入点将台点将台的地面和墙壁上可以明显看到代表论剑的标志。玩家在点将台可以等待进行跨服帮派的对决。</p>
+		<img src="./images/pic_01.png?{$smarty.const.VERSION}">
+		<div>破空斩：天煞的基本攻击技能，对敌人进行五连击，给目标造成巨大的火伤害。</div>
+		<p>怒火燎原：小范围的AOE技能，在3秒内，对周围敌人造成火伤害，使用技能时可移动，并免疫不良状态。</p>
+		<p>横戈一击：对身前敌人造成火伤害，若命中敌人将获得5点怒气。</p>
+		<p>横扫千军：使身前小范围敌人定身，<img src="./images/pic_01.png?{$smarty.const.VERSION}">定身效果不可被解除，消耗所有的怒气，在3秒内对目标造成持</p> -->
+	</div>
+	<div class="top_nav">
+		<div class="shouye">
+			<a href="{myurl name='wap/site/index'}">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/index_a.png?{$smarty.const.VERSION}">-->
+			</a>
+			<a href="{myurl name='wap/site/index'}">{#shouye#}</a>
+		</div>
+		<div class="huodong">
+			<a href="{myurl name="m/info/xinwen/list_1"}">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/activity.png?{$smarty.const.VERSION}">-->
+			</a>
+			<a href="{myurl name="m/info/xinwen/list_1"}">{#houdong#}</a>
+		</div>
+		<div class="gonglue">
+			<a href="{myurl name="m/info/gonglue/list_1"}">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/raiders.png?{$smarty.const.VERSION}">-->
+			</a>
+			<a href="{myurl name="m/info/gonglue/list_1"}">{#gonglue#}</a>
+		</div>
+		{if $language eq en}
+		<div class="shuju shuju_en">
+			<a>
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/life.png?{$smarty.const.VERSION}">-->
+			</a>
+			<a>{#shuju#}</a>
+		</div>
+		{else}
+		<div class="shuju">
+			<a href="javascript:alert('{#waiting#}');">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/life.png?{$smarty.const.VERSION}">-->
+			</a>
+			<a href="javascript:alert('{#waiting#}');">{#shuju#}</a>
+		</div>
+		{/if}
+	</div>
+	<div class="bottom_H"></div>
+	<!--邮件发送弹框-->
+		<div class="email_tips hidden">
+			<div class="content">
+				<h2 class="service">CUSTOMER SERVICE</h2>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/i_img2.png?{$smarty.const.VERSION}" alt="" class="emailtips_close">
+				<div class="show_email">
+					<p>BUSINESS CONTACT </p>
+					<p>herogame@yingxiong.com</p>
+				</div>
+				<div class="show_email">
+					<p>CUSTOMER SERVICE</p>
+					<p>support@redtides.vip</p>
+				</div>
+			</div>
+		</div>
+	<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+</body>
+</html>

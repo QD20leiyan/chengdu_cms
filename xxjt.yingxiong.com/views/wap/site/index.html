@@ -1,0 +1,253 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/index.css?{$smarty.const.VERSION}" />
+<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/footer/css/style.css">
+<div class="swiper-container1 stat_page_home" id="fullpage">
+	<!--<div class="swiper-wrapper">-->
+	<div class="kv section1 section">
+		<div class="kv_con">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/slogan.png?{$smarty.const.VERSION}" alt="" />
+			<div class="liyy_btn pub_yy stat_event_yy">
+				<canvas class="child"></canvas>
+			</div>
+		</div>
+	</div>
+	<div class="second section2 section" id="part0">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/title.png?{$smarty.const.VERSION}" alt="" class="title" />
+		<p class="s_info">&nbsp;&nbsp;《小小军团》原班制作团队，倾力打造全新3D画面恢弘战场。延续前作操作手感，畅快体验立体军团作战。经典英雄与兵种3D重铸，共同演绎传奇战役。</p>
+		<ul class="second_ul">
+			{fragment var=i_play code=banner_3d_wap size=4} {if $i_play neq ''} {foreach $i_play as $v}
+			<li><img src="{$v.thumb}" alt="" /></li>
+			{/foreach} {/if}
+		</ul>
+	</div>
+	<div class="third section section3" id="part2">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/t_label.png?{$smarty.const.VERSION}" alt="" class="t_label" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/third_txt.png?{$smarty.const.VERSION}" alt="" class="third_txt" />
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/men.gif?{$smarty.const.VERSION}" alt="" class="gif">
+	</div>
+	<div class="four section4 section" id="part3">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/lable1.png?{$smarty.const.VERSION}" alt="" class="label1" />
+		<div class="swiper_rule">
+			<div class="swiper_box">
+				{article id="2039" size=5 var=xsl_role_wap}
+				<ul class="swiper-wrapper">
+					{if $xsl_role_wap neq ''} {foreach $xsl_role_wap as $key=>$v}
+					<li class="swiper-slide xn_pic" data-src="{$v.thumb}" data-title="{$v.title}"><img src="{$v.sub_title}" alt="" /></li>
+					{/foreach} {/if}
+				</ul>
+			</div>
+			<div class="swiper_page">
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+	</div>
+	<div class="five section section5" id="part4">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/zb.png?{$smarty.const.VERSION}" alt="" class="zb" />
+		<div class="f_banner">
+			<div class="fi_ul">
+				{article id="2032" size=4 var=zx}
+				<ul class="swiper-wrapper">
+					{if $zx neq ''} {foreach $zx as $key=>$v}
+					<li class="swiper-slide">
+						<a href="{$v.wapLinkUrl}">
+							<img src="{$v.thumb}" alt="" />
+						</a>
+					</li>
+					{/foreach} {/if}
+				</ul>
+			</div>
+			<div class="swiper-pagination1"></div>
+		</div>
+		<div class="banner_news">
+			{article id="2032" size=2 var=zx}
+			<ul>
+				{if $zx neq ''} {foreach $zx as $key=>$v}
+				<li>
+					<a href="{$v.wapLinkUrl}">
+						<div class="left_con">
+							<h3>{$v.title}</h3>
+							<p>{$v.sub_title}</p>
+							<span>{$v.created_at|date_format:"%y.%m.%d"}</span>
+						</div>
+						<img src="{$v.thumb}" alt="" class="right_img" />
+					</a>
+				</li>
+				{/foreach} {/if}
+			</ul>
+		</div>
+		<a href="{myurl name='article/list, id=>2032'}" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+	<div class="last section6 section">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label1.png?{$smarty.const.VERSION}" alt="" class="last_label" />
+		<div class="last_yy pub_yy stat_event_yy">
+			<canvas class="child"></canvas>
+		</div>
+		<div class="bottom">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/back.png?{$smarty.const.VERSION}" alt="" class="back i_back" />
+			<ul class="bo_ul">
+				<li class="weixin">
+					<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wx.png?{$smarty.const.VERSION}" alt="" /></a>
+				</li>
+				<li>
+					<a href="{if $global.wb_url eq '暂无数据'}javascript:yx_showTips('敬请期待');{else}{$global.wb_url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wb.png?{$smarty.const.VERSION}" alt="" /></a>
+				</li>
+				<li>
+					<a href="{if $global.group_url_one eq '暂无数据'}javascript:yx_showTips('敬请期待');{else}{$global.group_url_one}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq.png?{$smarty.const.VERSION}" alt="" /></a>
+				</li>
+				<li>
+					<a href="{if $global.tb_url eq '暂无数据'}javascript:yx_showTips('敬请期待');{else}{$global.tb_url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tb.png?{$smarty.const.VERSION}?{$smarty.const.VERSION}" alt="" /></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="bottom_sl section section7">
+		<footer id="Hero-bar">
+			<div class="f_t">
+				<ul>
+					<li style="visibility: hidden;">
+						<a href="javascript:alert('敬请期待!')" id="kefu">客服中心</a>
+					</li>
+					<li style="visibility: hidden;">
+						<a href="javascript:alert('敬请期待!')" id="community">游戏社区</a>
+					</li>
+				</ul>
+			</div>
+			<p class="f_txt">版权所有：北京卓越晨星科技有限公司</p>
+			<p class="f_txt">京ICP备15026730号-2</p>
+			<p class="f_txt">COPY RIGHT @2015-2019 ALL RIGHTS RESERVED</p>
+			<p class="f_txt" style="margin-bottom:10px;">联系方式：010-50948585</p>
+			<p class="f_link">
+				<a href="//sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 京网文[2015]0629-259号</a>
+			</p>
+		</footer>
+	</div>
+	<!--</div>-->
+</div>
+</body>
+{video_play} {download}
+<script type="text/javascript">
+	var alt = "{$smarty.const.STATIC_DOMAIN}1.0/m/";
+</script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery.fullpage.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/canvas.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/public.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/common/js/statics.js"></script>
+<script type="text/javascript">
+	var mySwiper = new Swiper(".swiper_box", {
+		//			autoplay: 3000,
+		//			loop: true,
+		preventClicks: false,
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		prevButton: '.swiper-button-prev',
+		nextButton: '.swiper-button-next',
+		autoplayDisableOnInteraction: false,
+		paginationBulletRender: function(swiper, index, className) {
+			var font = new Array();
+			var name = new Array();
+			$(".xn_pic").each(function() {
+				font.push($(this).attr("data-src"));
+				name.push($(this).attr("data-title"));
+			});
+			return '<li class="' + className + '"><img src=' + font[index] + ' /><p>' + name[index] + '</p></li>';
+		},
+		onSlideChangeStart: function() {
+			var e = $(".swiper-pagination .swiper-pagination-bullet-active").index() + 1;
+			g = e - 4;
+			var c = $(".swiper-pagination li").width(),
+				i = parseFloat($(".swiper-pagination li").css("margin-right")),
+				r = c + i;
+			g > -1 && (
+				m = 0 == g ? "0px" : -1 * parseInt(g * r - 1) + "px", $(".swiper-pagination").css("margin-left", m)
+
+			);
+		}
+	});
+	var mySwiper01 = new Swiper(".fi_ul", {
+		pagination: '.swiper-pagination1',
+	});
+	var url = window.location.href;
+	$('#fullpage').fullpage({
+		navigation: true,
+		navigationPosition: "right",
+		resize: true,
+		anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+//		afterLoad: function(a, i) {
+//			if(url.indexOf("first") >= 0) {
+//				$.fn.fullpage.moveTo('section1', 0);
+//			} else if(url.indexOf("second") >= 0) {
+//				$.fn.fullpage.moveTo('section2', 0);
+//			} else if(url.indexOf("third") >= 0) {
+//				$.fn.fullpage.moveTo('section3', 0);
+//			} else if(url.indexOf("four") >= 0) {
+//				$.fn.fullpage.moveTo('section4', 0);
+//			} else if(url.indexOf("five") >= 0) {
+//				$.fn.fullpage.moveTo('section5', 0);
+//			}
+//		},
+	});
+	//	var mySwiper02 = new Swiper(".swiper-container1", {
+	//		direction : 'vertical',
+	//		observer: true,
+	//		observeParents: true,
+	//		simulateTouch : false,
+	//		onInit:function (swiper){
+	//				var index = swiper.activeIndex;
+	//				if(index == 0){
+	//					swiper.lockSwipeToPrev();
+	//				} else {
+	//					swiper.unlockSwipeToNext();
+	//				}
+	//			},
+	//			onSlideChangeStart:function (swiper){
+	//				var index = swiper.activeIndex;
+	//				if(index == 6){
+	//					swiper.lockSwipeToNext();
+	//				} else if(index == 0){
+	//					swiper.lockSwipeToPrev();
+	//				} else {
+	//					swiper.unlockSwipeToNext();
+	//					swiper.unlockSwipeToPrev();
+	//				}
+	//				if(index == 2){
+	//                  $(".third").addClass("ani");
+	//	                $(".third").addClass("show-ani");
+	//				}
+	//			}
+	//	});
+	var timer = setTimeout(function() {
+		var html_txt = $("#Hero-bar").html();
+		if(html_txt != "") {
+			console.log(html_txt);
+			$(".bottom_sl footer").html(html_txt);
+			$(".bottom_sl footer .f_t").css("margin-top", "3rem");
+			$("#Hero-bar").hide();
+		} else {}
+	}, 2000);
+	$(".h_ul li").click(function() {
+		var index = $(this).index();
+		mySwiper02.slideTo(index, 1000, false);
+	});
+	$(".i_back").click(function() {
+		mySwiper02.slideTo(0, 1000, false);
+	});
+	
+	if(url.indexOf("first") >= 0) {
+		$.fn.fullpage.moveTo('section1', 0);
+	} else if(url.indexOf("second") >= 0) {
+		$.fn.fullpage.moveTo('section2', 0);
+	} else if(url.indexOf("third") >= 0) {
+		$.fn.fullpage.moveTo('section3', 0);
+	} else if(url.indexOf("four") >= 0) {
+		$.fn.fullpage.moveTo('section4', 0);
+	} else if(url.indexOf("five") >= 0) {
+		$.fn.fullpage.moveTo('section5', 0);
+	}
+</script>
+
+</html>

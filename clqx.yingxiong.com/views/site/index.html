@@ -1,0 +1,266 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/index.css?{$smarty.const.VERSION}" />
+<div class="kv">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+		{fragment var=video code=index_video size=1}
+		<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/play.png?{$smarty.const.VERSION}" alt="" />
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/s_play.png?{$smarty.const.VERSION}" alt="" />
+		</div>
+		<div class="download">
+			<div class="code">
+				<img src="" alt="" class="js_jump_img" />
+			</div>
+			<div class="btn">
+				<a href="javascript:yx_showTips('敬请期待');" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/down.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="javascript:yx_showTips('敬请期待');" target="_blank" class="js_down_ios stat_ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/yuyue.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="second">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="second_con">
+			<div class="left_banner">
+				{fragment var=banner code=index_banner size=5}
+				<ul class="swiper-wrapper">
+					{if $banner neq ''}
+						{foreach $banner as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+			</div>
+			<div class="swiper-pagination"></div>
+			<div class="right_news">
+				<div class="chengg"></div>
+				<ul class="top_ul">
+					<li class="active">最新</li>
+					<li>资讯</li>
+					<li>公告</li>
+					<li>活动</li>
+					<li>攻略</li>
+					<a href="{myurl name='article/list, id=>709'}" target="_blank" class="more"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/more.png?{$smarty.const.VERSION}" alt="" /></a>
+				</ul>
+				<div class="news_ul">
+					<ul class="active">
+						{article id="709" size=4 var=zx}
+						{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="710" size=4 var=xw}
+						{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="711" size=4 var=gg}
+						{if $gg neq ''}
+							{foreach $gg as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="712" size=4 var=hd}
+						{if $hd neq ''}
+							{foreach $hd as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+					
+					<ul class="">
+						{article id="713" size=4 var=gl}
+						{if $gl neq ''}
+							{foreach $gl as $key=>$v}
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank"><em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m/%d"}</i></a>
+									</li>
+								{/if}
+							{/foreach}
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="third">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label1.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="t_play">
+			<div class="swiper-wrapper">
+				{if $role neq ""}
+					{foreach key=cid item=v from=$role}
+						<div class="swiper-slide">
+							<img src="{$v.thumb}" alt="" class="b_img" />
+							<p class="jineng">[技能介绍]</p>
+							<ul class="li_div">
+								{if $v.sub neq ''}
+									{foreach $v.sub as $k=>$b}
+										<li class="{if $k eq 0}active{/if}">
+											<div class="li_img">
+												<div class="chengg"></div>
+												<img src="{$b.img}" alt="" />
+											</div>
+											<p>{$b.title}</p>
+										</li>
+									{/foreach}
+								{/if}
+							</ul>
+						</div>
+					{/foreach}
+				{/if}
+			</div>
+		</div>
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+	</div>
+</div>
+<div class="four">
+	<div class="wrap">
+		<div class="chengg"></div>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/label2.png?{$smarty.const.VERSION}" alt="" class="label" />
+		<div class="game_play">
+			{fragment var=actor_banner code=index_play size=10}
+			<ul class="swiper-wrapper">
+				{if $actor_banner neq ''}
+					{foreach $actor_banner as $v}
+						<li class="swiper-slide">
+							<img src="{$v.thumb}" alt="" />
+							<i></i>
+						</li>
+					{/foreach}
+				{/if}
+			</ul>
+			<div class="swiper-pagination01"></div>
+			<div class="wgam_prev s_prev"></div>
+			<div class="wgam_next s_next"></div>
+			<div class="wgam_prev t_prev"></div>
+			<div class="wgam_next t_next"></div>
+		</div>
+	</div>
+</div>
+<div class="five">
+	<div class="wrap">
+		<ul>
+			<li>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/erweima.png?{$smarty.const.VERSION}" alt="" class="js_jump_img"/>
+				<div class="five_txt">
+					<p>下载游戏</p>
+					<p>扫描二维码，立即下载游戏</p>
+					<p>多元养成卡牌手游</p>
+				</div>
+			</li>
+			<li>
+				<img src="{$global.wx_img}" alt="" />
+				<div class="five_txt">
+					<p>微信公众号</p>
+					<p>扫描二维码关注官方微信</p>
+					<p>官方微信号：<span>苍蓝前线</span></p>
+				</div>
+			</li>
+			<li>
+				<img src="{$global.group}" alt="" />
+				<div class="five_txt">
+					<p>官方Q群</p>
+					<p>苍蓝前线官方群</p>
+					<p>官方Q群：<span>{$global.group_num}</span></p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	var mySwiper = new Swiper(".left_banner", {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+	});
+	var mySwiper01 = new Swiper(".t_play", {
+		loop: true,
+		prevButton: '.swiper-button-prev',
+		nextButton: '.swiper-button-next',
+		paginationClickable: true,
+	});
+	var mySwiper02 = new Swiper(".game_play", {
+		effect: "coverflow",
+		speed: 1500,
+		prevButton: ".wgam_prev",
+		nextButton: ".wgam_next",
+		pagination: '.swiper-pagination01',
+		paginationClickable: true,
+		loopAdditionalSlides: 2,
+		centeredSlides: !0,
+		slidesPerView: 3,
+		loop: !0,
+		observer: !0,
+		observeParents: !0,
+		slideToClickedSlide: !0,
+		simulateTouch: false,
+		autoplayDisableOnInteraction: false,
+		coverflow: {
+			rotate: 50,
+			stretch: 50,
+			depth: 350,
+			modifier: 1,
+			slideShadows: false
+		},
+	});
+	$(".top_ul li").click(function (){
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".news_ul ul").eq(index).addClass("active").siblings().removeClass("active");
+	});
+	$(".li_div li").hover(function (){
+		$(this).addClass("active").siblings().removeClass("active");
+	},function (){
+
+	});
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/list.css?{$smarty.const.VERSION}" />
+<div class="n_kv">
+	<div class="wrap">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/n_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+	</div>
+</div>
+<div class="eff1"></div>
+<div class="n_body">
+	<div class="top_ul">
+		<ul class="tab_ul">
+			<li class="{if $id eq 528}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>528'}">综合</a>
+			</li>
+			<li class="{if $id eq 529}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>529'}">新闻</a>
+			</li>
+			<li class="{if $id eq 530}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>530'}">公告</a>
+			</li>
+			<li class="{if $id eq 531}active{else} {/if}">
+				<a href="{myurl name='article/list, id=>531'}">活动</a>
+			</li>
+			<p class="back">
+				<a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+		</ul>
+	</div>
+	<div class="newslist">
+		{if !empty($data)}
+		<ul>
+			{foreach $data as $v}
+				<a href="{$v.linkUrl}" target="_blank">
+					<li>
+						<div class="newlist_left">
+							<span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+							<span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+						</div>
+						<div class="newlist_img"><img src="{$v.thumb}" alt="" /></div>
+						<div class="newlist_right">
+							<h3>{$v.title}</h3>
+							<p>{$v.contentMessage}</p>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_hover.png" alt="" class="l_hover" />
+					</li>
+				</a>
+			{/foreach}
+		</ul>
+		{/if}
+	</div>
+</div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+</body>
+<script type="text/javascript">
+	$(".s_ul li:nth-child(1)").hover(function (){
+		$(".fl_wx").stop().fadeIn();
+	},function (){
+		$(".fl_wx").stop().fadeOut();
+	});
+</script>
+</html>

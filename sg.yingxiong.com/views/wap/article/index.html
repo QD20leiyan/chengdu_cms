@@ -1,0 +1,91 @@
+{include '../../layouts/wap/header.html'}
+<section class="mine-banner">
+    <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/imin_banner01.jpg?{$smarty.const.VERSION}">
+</section>
+<section class="news-wrapper news-content">
+    {if $id >= 571 and $id <= 574}
+    <aside class="news-title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/news-title.png?{$smarty.const.VERSION}"></aside>
+    {else}
+    <aside class="news-title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/gonglve_title.png?{$smarty.const.VERSION}"></aside>
+    {/if}
+    <article class="news-box">
+        <aside class="tab-wrapper">
+            <div class="clearfix">
+                <a href="{myurl name='wap/site/index'}" class="icon"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/icon.png?{$smarty.const.VERSION}"></a>
+                {if $id >= 571 and $id <= 574}
+                <ul class="newlist-nav clearfix tab-menu" data-id="{$id}">
+                    <li {if $id==571}class="curr"{/if}><a href="{myurl name='wap/article/list, id=>571'}">最新</a></li>
+                    <li {if $id==572}class="curr"{/if}><a href="{myurl name='wap/article/list, id=>572'}">新闻</a></li>
+                    <li {if $id==573}class="curr"{/if}><a href="{myurl name='wap/article/list, id=>573'}">公告</a></li>
+                    <li {if $id==574}class="curr"{/if}><a href="{myurl name='wap/article/list, id=>574'}">活动</a></li>
+                </ul>
+                {else}
+                <p class="gonglue" data-id="{$id}">攻略中心</p>
+                {/if}
+            </div>
+            <div class="tab-content">
+                <div class="news-list newslist">
+<!--                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>-->
+               </div>
+            </div>
+            <div class="loadmore">
+                	上拉加载更多...
+            </div>
+        </aside>
+    </article>
+</section>
+</body>
+{include '../../layouts/wap/footer.html'}
+<script>
+    $(function(){
+		var isScroll = 1;//是否可以滚动
+	    var page = 1; //页数
+	    {if $id >= 571 and $id <= 574}
+	    var id = $(".tab-menu").attr("data-id");//类型
+	    {else}
+        var id = $(".gonglue").attr("data-id");//类型
+        {/if}
+	    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+	    getListFu();
+	    window.onscroll=function(){
+	        var winH = window.innerHeight; //屏幕高度
+	        var allH = document.body.scrollHeight; //总高度
+	        var topH = window.pageYOffset; //滚动高度
+	        if((allH - (winH
+	                + topH)<10) && isScroll == 1){
+	            isScroll = 0;
+	            $(".loadmore").html("数据加载中...")
+	            getListFu();
+	        }
+	    }
+	    function getListFu(){
+	        $.ajax({
+	            type:"get",
+	            url:ajaxUrl,
+	            data:{
+	                page:page++,
+	                id:id,
+	            },
+	            success:function(data){
+	                var data = JSON.parse(data);
+	                var result = '';
+	                if(data.status == 0 && data.msg.length>0){
+	                    for(var i = 0; i < data.msg.length; i++) {
+	                        result += "<a href=" + data.msg[i].wapLinkUrl+"><span>【" +data.msg[i].name+"】"+data.msg[i].title+"</span><label>"+data.msg[i].created_at+"</label></a>";
+	                    }
+	                    $('.tab-content .newslist').html(null).append(result);
+	//                    $(".dropload-noData").html("<span class='loadMore'>上滑加载更多</span><i></i>");
+	                    $(".loadmore").html("上滑加载更多");
+	                    isScroll = 1;
+	               } else{
+	                    $(".loadmore").html("没有更多信息了");
+	                }
+	            },
+	            error:function(data){
+	                console.log(data);
+	            }
+	        });
+	    }
+    });
+</script>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D即时制团战手游泡泡联盟预约开启，限时送壕礼</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="http://cdnstatic.yingxiong.com/footer/css/style.css" rel="stylesheet" />
+    <link href="{$smarty.const.STATIC_DOMAIN}ddd/luodiye1114/css/index.css" rel="stylesheet" />
+    <script src="{$smarty.const.STATIC_DOMAIN}ddd/luodiye1114/js/jquery-1.11.2.min.js"></script>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    {csrf}
+</head>
+<body>
+<section class="bg pplmbg" data-id="{$id}" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+    <div class="h5_data" style="display: none;">{$h5data}</div>
+    <div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}ddd/luodiye1114/images/logo.png" alt=""/></div>
+    <div class="slogan"><img src="{$smarty.const.STATIC_DOMAIN}ddd/luodiye1114/images/slogan.png" alt=""/></div>
+    <div class="peo animated1 fadeInRight"><img src="{$smarty.const.STATIC_DOMAIN}ddd/luodiye1114/images/peo.png" alt=""/></div>
+    <div class="yy_btn"><img src="{$smarty.const.STATIC_DOMAIN}ddd/luodiye1114/images/btn.png" alt=""/></div>
+
+    <div class="co_tips co_tips_login hidden">
+        <div class="co_con">
+            <i class="co_tips_close"></i>
+            <div class="co_form">
+                <div class="rdo_box">
+                    <span class="rdo on" data-id="ios">iOS</span>
+                    <span class="rdo " data-id="android"> 安卓平台</span>
+                </div>
+                <div class="co_input">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码">
+                    <p class="co_error">手机号码错误</p>
+                </div>
+            </div>
+            <p class="co_tips_btn co_tips_loginbtn "></p>
+        </div>
+    </div>
+</section>
+
+<footer id="Hero-bar">
+    <div class="f_t">
+        <ul style="display:none">
+            <li style="visibility: hidden;"><a href="javascript:alert('敬请期待!')" id="kefu">客服中心</a></li>
+            <li><a href="//bbs.yingxiong.com/T/M/31" id="community">游戏社区</a></li>
+        </ul>
+    </div>
+    <p class="f_txt">版权所有：北京卓越晨星科技有限公司</p>
+    <p class="f_txt">京ICP备15026730号-2</p>
+    <p class="f_txt">COPY RIGHT   @2015-2018  ALL RIGHTS RESERVED</p>
+    <p class="f_txt" style="margin-bottom:10px;">联系方式：010-50948585</p>
+    <p class="f_link"><a href="//sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 京网文[2015]0629-259号</a></p>
+</footer>
+</body>
+<script>
+    h5_data=$(".h5_data").html();
+    $(".yy_btn").click(function(){
+        HLog.event('ddd_pplm_yybtn');
+        $(".co_tips_login").removeClass("hidden");
+    });
+    $(".rdo").click(function(){
+        $(this).addClass("on").siblings().removeClass("on");
+    });
+
+    $(".co_tips_close").click(function(){
+        HLog.event('ddd_pplm_yyclose');
+        $(".co_tips").addClass("hidden");
+    });
+
+    $('.co_tips_loginbtn').click(function(){
+        HLog.event('ddd_pplm_yylogin');
+        var my_phone = $(".co_username").val();
+        var type_id=$(".rdo.on").attr("data-id");
+        $.post("/h5-common/yuyue-no-yzm.html?h5data="+h5_data, {
+            phone:my_phone,
+            type:type_id
+        }, function(data){
+            if(data.code == 0) {
+                HLog.event('ddd_pplm_yysuccess');
+                alert("预约成功");
+                $(".co_tips").addClass("hidden");
+                $(".co_username").val("");
+            } else {
+                alert(data.msg);
+            }
+        });
+    });
+</script>
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+</script>
+<script type="text/javascript">
+    $(function() {
+        // 分享接口
+        var share_icon = $(".pplmbg").attr("data-icon");
+        var share_title = $(".pplmbg").attr("data-title");
+        var share_desc = $(".pplmbg").attr("data-desc");
+        var share = {
+            imgUrl: "http:" + share_icon,
+            shareTitle: share_title,
+            descContent: share_desc,
+            lineLink: 'http://h5.yingxiong.com/index/pplm/ts.html'
+        };
+        wx.config({
+            debug: false,
+            appId: wx_conf.appId,
+            timestamp: wx_conf.timestamp,
+            nonceStr: wx_conf.nonceStr,
+            signature: wx_conf.signature,
+            jsApiList: [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function() {
+            wx.onMenuShareAppMessage({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success: function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success: function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success: function() {
+
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        });
+    });
+</script>
+</html>

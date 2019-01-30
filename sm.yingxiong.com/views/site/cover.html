@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge">
+	<title>{$seo_title}</title>
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		{csrf}
+    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}"/>
+    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/head/css/head.css?10.0">
+	<link href="{$smarty.const.STATIC_DOMAIN}4.0/css/common.css?{$smarty.const.VERSION}" rel="stylesheet">
+	<link href="{$smarty.const.STATIC_DOMAIN}4.0/css/cover0121.css?{$smarty.const.VERSION}" rel="stylesheet">
+	<link href="{$smarty.const.STATIC_DOMAIN}4.0/css/cover0121.css?{$smarty.const.VERSION}" rel="stylesheet">
+<script src="{$smarty.const.STATIC_DOMAIN}4.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+	<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?cd3c5f317e3f5ced9e323d594c3eb7b3";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script>
+			
+		   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+		   //push 参数，name：页面名称，behavior 行为 
+		   //event 参数，event：事件名称，args 拓展参数 
+		   var HLog={ push:function(name,behavior) { },setUser:function(){ },event:function(event,args) { },ready:function(){ } };
+		   HLog.config={
+		       "senseHash":0,  //hash锚点是否进入url统计
+		       "senseQuery":0,  //url参数是否进入url统计
+		       "ignoreParams":[]  //开启url参数上报时，可忽略部分参数拼接上报；
+		   };
+		   (function() {
+		      var hl = document.createElement("script");
+		 if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+		                 hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/44/client/2/filter/stat.js";
+		}else{
+		                    hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/44/client/1/filter/stat.js";
+		}
+		      hl.async = "async";
+		      var s = document.getElementsByTagName("script")[0];
+		      HLog.ready = function(){
+		      HLog.push('reflash')
+		      };
+		      s.parentNode.insertBefore(hl, s);
+		   })();
+		
+		</script>
+</head>
+<body>
+	<div class="yincang" style="display: none"></div>
+<!-- header -->
+<!-- <script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>  -->
+<div id="Hero-bar"><div class="hero_head"><a class="hero_logo" href="http://yingxiong.com"></a><div class="hero_middle"><span class="hero_title">一切以玩家乐趣为依归</span></div><a id="top_banner_a"><img id="top_middle_img" style="" class="middle_pic" src="//cdnimg01.yingxiong.com/M00/0E/6B/ChpCl1xG2KeEdCyNAAAAALfdsao507.png" alt=""></a><a target="_blank" class="middle_big_img" style="display: none" href="http://sm.yingxiong.com"><img src="//cdnimg02.yingxiong.com/M00/0E/6B/ChpCl1xG2KuEIxJNAAAAANoIQAA350.png" alt=""></a><div class="game_list_bar"><span>游戏列表<i></i></span><div class="game_list_box"><div class="box_bar"><span class="hotest"><i></i>热门推荐</span><span class="lastest"><i></i>最新推荐</span></div><ul><li class="active1"><a href="http://ca.yingxiong.com" target="_blank">全民枪战2<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1 active2"><a href="http://lszt.yingxiong.com" target="_blank">绿色征途<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://fc.yingxiong.com" target="_blank">一起来飞车<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1 active2"><a href="http://tk.yingxiong.com" target="_blank">巅峰坦克：装甲战歌<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://dfzj.yingxiong.com" target="_blank">巅峰战舰<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://nba.yingxiong.com" target="_blank">NBA LIVE<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1 active2"><a href="http://csmsl.yingxiong.com" target="_blank">超杀默示录<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://hero.yingxiong.com" target="_blank">王牌战争：代号英雄<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://rw.yingxiong.com" target="_blank">一起来热舞<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://hqwm.yingxiong.com" target="_blank">火器文明<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://sm.yingxiong.com" target="_blank">创造与魔法<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://cd.yingxiong.com" target="_blank">吃豆大作战<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://cc.yingxiong.com" target="_blank">战争艺术：赤潮<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://yqlmx.yingxiong.com" target="_blank">一起来冒险<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://jws.yingxiong.com" target="_blank">极无双<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://wctt.yingxiong.com" target="_blank">一起来跳舞<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active1"><a href="http://zzyzf.yingxiong.com" target="_blank">战争与征服<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active2"><a href="http://zhs.yingxiong.com" target="_blank">我是召唤师<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active2"><a href="http://xq.yingxiong.com" target="_blank">抢个星球当领主<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active2"><a href="http://pp.yingxiong.com" target="_blank">泡泡联盟<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class="active2"><a href="http://kok.yingxiong.com" target="_blank">两座城池<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://y.yingxiong.com" target="_blank">影之刃2<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://qtdl.yingxiong.com" target="_blank">抢滩登陆3D<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://xm.yingxiong.com" target="_blank">夏目的美丽日记<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://acewar.yingxiong.com" target="_blank">战争公约<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://qyzz.yingxiong.com" target="_blank">群英之战<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://zq.yingxiong.com" target="_blank">绿茵风云<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li><li class=""><a href="http://mxhy.yingxiong.com" target="_blank">梦想花语<i class="hot_icon_yl"></i><i class="new_icon_yl"></i></a></li></ul></div></div><div class="hero_right"><a class="hero_user" href="http://i.yingxiong.com/" target="_blank"><i></i>账号中心</a><a class="hero_help" href="http://kf.yingxiong.com/" target="_blank"><i></i>客服中心</a></div></div></div>
+<!-- 第一部分 -->
+<div class="co_top co_b stat_page_cover">
+	<div class="danmu"></div>
+	<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/sm_logo.png?{$smarty.const.VERSION}" alt=""></div>
+	<ul class="s_ul">
+		<li><a href="javascript:;"></a></li>
+		<li><a href="{$global.wb_url}" target="_blank"></a></li>
+		<li><a href="{if $global.tb_url&&$global.tb_url != '暂无数据'}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a></li>
+		<img src="{$global.wx_img}" alt="" class="fl_wx">
+	</ul>
+	<a href="http://sm.yingxiong.com/index.html" class="co_home" target="_blank"></a>
+	{fragment var=index_video code=video size=1}
+	<a href="javascript:;" class="video js_video_play" data-url="{if $index_video}{$index_video[0].url}{/if}"></a>
+	<div class="co_warp">
+		<div class="co_img">
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_slogan.png?{$smarty.const.VERSION}" class="co_sologan"/>
+			<div class="download">
+				<div class="code">
+					<img src="http://gamerimage.yingxiong.com/qrcode/jump/czymf_pccov.png" class="js_jump_img">
+					<i></i>
+				</div>
+				<div class="btn">
+					<a href="http://downurl.yingxiong.com/ios/czymf_pccov.html" class="js_down_ios stat_event_cover_ios"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_ios.png?{$smarty.const.VERSION}" alt=""></a>
+					<a href="http://downurl.yingxiong.com/android/czymf_pccov.html" class="js_down_andriod stat_event_cover_android" ><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_btnaz.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+				<div class="btn btn2 no_channel">
+					<a href="https://www.taptap.com/app/51645" class=" stat_event_cover_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_tap.png?{$smarty.const.VERSION}" alt=""></a>
+					<a href="http://www.3839.com/a/88284.htm" class=" stat_event_cover_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/btn_hy.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+			</div>
+		</div>
+		<div class="co_weal">
+			<div class="co_progress" data-num=""><i class="jdt"></i></div>
+
+			<div class="xianshi">
+				<div class="first">
+					<div class="p_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_lz2.png?{$smarty.const.VERSION}" alt="">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_lz1.png?{$smarty.const.VERSION}" alt="">
+					</div>
+					<i class="num_limt"></i>
+					<p class="pro_num">30W</p>
+					<div class="info">
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico01.png?{$smarty.const.VERSION}" alt=""></i>水晶*5</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico02.png?{$smarty.const.VERSION}" alt=""></i>魔晶*5</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico03.png?{$smarty.const.VERSION}" alt=""></i>牛筋*5</p>
+					</div>
+				</div>
+				<div class="second">
+					<div class="p_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_lz2.png?{$smarty.const.VERSION}" alt="">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_lz1.png?{$smarty.const.VERSION}" alt="">
+					</div>
+					<i class="num_limt"></i>
+					<p class="pro_num">100W</p>
+					<div class="info">
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico04.png?{$smarty.const.VERSION}" alt=""></i>精炼煤*15</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico05.png?{$smarty.const.VERSION}" alt=""></i>精炼橡胶*15</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico06.png?{$smarty.const.VERSION}" alt=""></i>蒸汽石*15</p>
+					</div>
+				</div>
+				<div class="third">
+					<div class="p_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_lz2.png?{$smarty.const.VERSION}" alt="">
+						<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_lz1.png?{$smarty.const.VERSION}" alt="">
+					</div>
+					<i class="num_limt"></i>
+					<p class="pro_num">300W</p>
+					<div class="info">
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico04.png?{$smarty.const.VERSION}" alt=""></i>精炼煤*20</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico05.png?{$smarty.const.VERSION}" alt=""></i>精炼橡胶*20</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico06.png?{$smarty.const.VERSION}" alt=""></i>蒸汽石*20</p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico07.png?{$smarty.const.VERSION}" alt=""></i>蜜汁烤羊排*20</p>
+					</div>
+				</div>
+			</div>
+			<div class="dl_txt">
+				<p><i>已经点亮</i><span id="dl_num">{if isset($data.total_praise_num)}{$data.total_praise_num}{/if}</span></p>
+				<a href="javascript:;" class="btn_dlzf light_btn stat_event_dianliang"><p style="display: block !important">今日剩余点亮次数
+					<span id="yq_num">1</span> 次</p></a>
+				<ul class="pk1_login">
+					<li class="user_login user_login1"><i></i>用户登录</li>
+					<li class="user_login user_login2"><i></i><span></span><a href="javascript:;" class="zhuxiao">【注销】</a></li>
+					<!-- <li class="my_lift"><i></i>我的奖励</li> -->
+					<li class="rule1" id="rule1"><i></i>活动说明</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="co_ym co_bb">
+	<div>
+		<!-- 第二部分 -->
+		<div class="co_login">
+			<div class="co_warp">
+				<div class="co_invite">
+					<p class="co_title"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_tl2.png?{$smarty.const.VERSION}" alt=""/></p>
+					<div class="co_userinfo">
+                         <div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 第三部分 -->
+		<div class="co_login co_more">
+			<div class="co_warp">
+				<div class="co_invite">
+					<p class="co_title co_title2"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_tl4.png?{$smarty.const.VERSION}" alt=""/></p>
+					<ul class="gift_box">
+						<li class="gift_bor1">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico08.png?{$smarty.const.VERSION}" alt=""><p>限量蛋糕烟花5</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico09.png?{$smarty.const.VERSION}" alt=""><p>宠物粮15</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico10.png?{$smarty.const.VERSION}" alt=""><p>兽皮15</p></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gift_bor2">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico30.png?{$smarty.const.VERSION}" alt=""><p>限量蛋糕炸弹10</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico11.png?{$smarty.const.VERSION}" alt=""><p>大鸡排15</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico12.png?{$smarty.const.VERSION}" alt=""><p>皮革15</p></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gift_bor3">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico13.png?{$smarty.const.VERSION}" alt=""><p>周年限量法杖1</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico08.png?{$smarty.const.VERSION}" alt=""><p>限量蛋糕烟花10</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico30.png?{$smarty.const.VERSION}" alt=""><p>限量蛋糕炸弹10</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico14.png?{$smarty.const.VERSION}" alt=""><p>棒棒糖15</p></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+					<div class="dl_txt dl_txt2">
+						<a href="javascript:;" class="btn_dlzf stat_event_fuli" id="lqfl_btn"></a>
+						<ul>
+							<li class="user_login user_login1"><i></i>用户登录</li>
+					        <li class="user_login user_login2"><i></i><span></span><a href="javascript:;" class="zhuxiao">【注销】</a></li>
+							<li class="my_lift" id="fl_btn1"><i></i>我的奖励</li>
+							<li class="rule1" id="rule2"><i></i>活动说明</li>
+						</ul>
+					</div>		
+				</div>
+			</div>
+		</div>
+		<!-- 第四部分 -->
+		<div class="co_rules">
+			<div>
+				<p class="co_title co_title3"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_tl1.png?{$smarty.const.VERSION}" alt=""></p>
+				<ul class="gift_box">
+						<li class="gift_bor1">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico15.png?{$smarty.const.VERSION}" alt=""><p>独角兽体验卡1天</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico16.png?{$smarty.const.VERSION}" alt=""><p>金锭20</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico17.png?{$smarty.const.VERSION}" alt=""><p>红烧带鱼20</p></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gift_bor2">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico18.png?{$smarty.const.VERSION}" alt=""><p>青鸟体验卡7天</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico01.png?{$smarty.const.VERSION}" alt=""><p>水晶20</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico19.png?{$smarty.const.VERSION}" alt=""><p>文艺虾20</p></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gift_bor3">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico13.png?{$smarty.const.VERSION}" alt=""><p>周年限量法杖1</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico20.png?{$smarty.const.VERSION}" alt=""><p>蓝莲5</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/co_show2.png?{$smarty.const.VERSION}" alt=""><p>红菇大虾包20</p></li>
+								</ul>
+							</div>
+						</li>
+						<li class="gift_bor4">
+							<div class="img_bor">
+								<ul>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico08.png?{$smarty.const.VERSION}" alt=""><p>蛋糕烟花5</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico15.png?{$smarty.const.VERSION}" alt=""><p>独角兽3天体验</p></li>
+									<li><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico14.png?{$smarty.const.VERSION}" alt=""><p>棒棒糖10</p></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+					<div class="dl_txt dl_txt3">
+						<a href="javascript:;" class="btn_dlzf stat_event_yqhy" id="yqhy_btn"><p>我已经邀请<span id="ylyq_num"></span> 人</p></a>
+						<ul>
+							<li class="user_login user_login1"><i></i>用户登录</li>
+							<li class="user_login user_login2"><i></i><span></span><a href="javascript:;" class="zhuxiao">【注销】</a></li>
+							<li class="my_lift" id="p4_gift"><i></i>我的奖励</li>
+							<li class="rule1" id="rule3"><i></i>活动说明</li>
+						</ul>
+					</div>	
+			</div>
+		</div>
+		<!-- 第5部分 -->
+		<div class="co_lottery">
+			<div>
+				<p class="co_title co_title4"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_tl3.png?{$smarty.const.VERSION}" alt=""></p>
+				<div class="lhj_box">
+					<img src="{$smarty.const.STATIC_DOMAIN}4.0/images/gain_cj.png?{$smarty.const.VERSION}" alt="" class="lhj_txt">
+					<a href="javascript:;" class="lhj_share"></a>
+					<div class="lhj_bor">
+						<div class="lhj_borlist">
+							<ul class="lottery_list">
+                                {if isset($data.all_gift_log)  && $data.all_gift_log}
+                                    {foreach $data.all_gift_log as $k => $v}
+                                        <li><span>{$v.phone}</span>获得<i>{$v.name}</i></li>
+                                    {/foreach}
+                                {/if}
+					        </ul>
+						</div>
+						<div class="lottery_div">
+                    		<div class="lottery_box">
+                        		<div class="container">
+                        		    <div class="lottery lottery1">
+                        		        <div class="lottery-img"></div>
+                        		        <div class="lottery-img"></div>
+                        		    </div>
+                        		    <div class="lottery lottery2">
+                        		        <div class="lottery-img"></div>
+                        		        <div class="lottery-img"></div>
+                        		    </div>
+                        		    <div class="lottery lottery3">
+                        		        <div class="lottery-img"></div>
+                        		        <div class="lottery-img"></div>
+                        		    </div>
+                        		</div>
+                        		<div class="light"></div>
+                   			</div>
+                		</div>
+                		<a href="javascript:;" class="start_lottery stat_event_lottery"></a>
+                		<p class="btn_ltnum">剩余抽奖次数<span id="lottery_sy"></span>次</p>
+                		<div class="btn_sel">
+                			<ul class="">
+							<li class="user_login user_login1"><i></i>用户登录</li>
+							<li class="user_login user_login2"><i></i><span></span><a href="javascript:;" class="zhuxiao">【注销】</a></li>
+							<li class="my_lift" id="lhj_jl"><i></i>我的奖励</li>
+							<li class="rule1" id="rule4"><i></i>活动说明</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="gidt_zs">
+					<div class="gift_bg">
+						<ul>
+							<li class="gift1">switch *<span class="li"  data-id="489"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[489]}{/if}</b></span></li>
+							<li class="gift2">iPAD *<span class="li"  data-id="488"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[488]}{/if}</b></span></li>
+							<li class="gift3" >¥50话费 *<span class="li" data-id="482"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[482]}{/if}</b></span></li>
+						</ul>
+					</div>
+					<div class="gift_name">
+					<div class="info">
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico28.png?{$smarty.const.VERSION}" alt=""></i>兽皮5、珍珠奶茶<span class="li" data-id="477"><b></b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico22.png?{$smarty.const.VERSION}" alt=""></i>星星法杖*<span class="li" data-id="478"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[478]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico23.png?{$smarty.const.VERSION}" alt=""></i>金鱼昊昊*<span class="li" data-id="479"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[479]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico24.png?{$smarty.const.VERSION}" alt=""></i>雪狼王*<span class="li" data-id="480"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[480]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico13.png?{$smarty.const.VERSION}" alt=""></i>周年限量法杖*<span class="li" data-id="481"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[481]}{/if}</b></span></p>
+					</div>
+					<div class="info">
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico26.png?{$smarty.const.VERSION}" alt=""></i>10元话费*<span class="li" data-id="483"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[483]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico25.png?{$smarty.const.VERSION}" alt=""></i>灯笼龟*<span class="li" data-id="484"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[484]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico27.png?{$smarty.const.VERSION}" alt=""></i>鎏金龙*<span class="li" data-id="485"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[485]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico08.png?{$smarty.const.VERSION}" alt=""></i>限量蛋糕烟花*<span class="li" data-id="486"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[486]}{/if}</b></span></p>
+						<p><i><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/ico30.png?{$smarty.const.VERSION}" alt=""></i>限量蛋糕炸弹*<span class="li" data-id="487"><b>{if isset($data.all_residue_num)}{$data.all_residue_num[487]}{/if}</b></span></p>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<!-- 第6部分 -->
+		<div class="co_zmt_box">
+			<div>
+				<p class="co_title co_title5"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_tl5.png?{$smarty.const.VERSION}" alt=""></p>
+				<ul class="zmt_share">
+					<li class="dy"><div><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/sm_douyin.png?{$smarty.const.VERSION}" alt="" class="ewm"></div><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/share_ico2.png?{$smarty.const.VERSION}" alt="" class="ico_bg"><a href="http://v.douyin.com/L28Y4P/" class="focus_btn stat_event_douyin" target="_blank"></a></li>
+					<li class="ks"><div><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/sm_ks.png?{$smarty.const.VERSION}" alt="" class="ewm"></div><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/share_ico3.png?{$smarty.const.VERSION}" alt="" class="ico_bg ico_bg2"><a href="http://www.gifshow.com/s/UruXgb2n" class="focus_btn stat_event_kuaishou" target="_blank"></a></li>
+					<li class="wx"><div><img src="{$global.wx_img}" alt="" class="ewm"></div><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/share_ico4.png?{$smarty.const.VERSION}" alt="" class="ico_bg ico_bg2"><a href="javascript:;" class="focus_btn focus_btn2"></a></li>
+					<li class="wb"><div><img src="{$global.wb_img}" alt="" class="ewm "></div><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/share_ico1.png?{$smarty.const.VERSION}" alt="" class="ico_bg"><a href="{$global.wb_url}" class="focus_btn stat_event_weibo" target="_blank"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+ <!-- 浮窗  -->
+<div class="float">
+	<ul>
+		<li class="fl_li1" data-id="1"><div></div></li>
+		<li class="fl_li2" data-id="2"><div></div></li>
+		<li class="fl_li3" data-id="3"><div></div></li>
+		<li class="fl_li4" data-id="4"><div></div></li>
+		<li class="fl_li5" data-id="5"><div></div></li>
+	</ul>
+	<div class="fl_ewm">
+		<img src="http://gamerimage.yingxiong.com/qrcode/jump/czymf_pccov.png" alt="" class="js_jump_img">
+		<div class="fl_btn">
+			<a href="http://downurl.yingxiong.com/ios/czymf_pccov.html" class="ios js_down_ios stat_event_cover_ios"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_btnios.png?{$smarty.const.VERSION}" alt=""></a>
+			<a href="http://downurl.yingxiong.com/android/czymf_pccov.html" class="az js_down_andriod stat_event_cover_android"><img src="{$smarty.const.STATIC_DOMAIN}4.0/images/yl_az.png?{$smarty.const.VERSION}" alt=""></a>
+		</div>
+	</div>
+</div>
+<!-- 登录弹框 -->
+<div class="co_tips co_tips_login hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<div class="co_form">
+				<div class="co_input">
+					<input type="text" class="co_id" placeholder="请输入角色名"/>
+				</div>
+				<div class="co_input">
+					<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+				</div>
+				<div class="co_input">
+					<i></i>
+					<select class="qufu" id="qu_ul">
+						<option>请选择区服</option><option data-type="180">和平服(180)</option><option data-type="179">混战服(179)</option><option data-type="176">混战服(176)</option><option data-type="173">和平服(173)</option><option data-type="172">混战服(172)</option><option data-type="171">和平服(171)</option><option data-type="170">混战服(170)</option><option data-type="169">和平服(169) 	</option><option data-type="168">混战服(168)</option><option data-type="167">和平服(167)</option><option data-type="166">混战服(166)</option><option data-type="165">和平服(165)</option><option data-type="164">混战服(164)</option><option data-type="163">和平服(163)</option><option data-type="162">混战服(162)</option><option data-type="161">混战服(161)</option><option data-type="160">和平服(160)</option><option data-type="159">混战服(159)</option><option data-type="158">和平服(158)</option><option data-type="157">混战服(157)</option><option data-type="156">混战服(156)</option><option data-type="155">和平服(155)</option><option data-type="154">混战服(154)</option><option data-type="152">和平服(152)</option><option data-type="151">混战服(151)</option><option data-type="150">和平服(150)</option><option data-type="149">和平服(149)</option><option data-type="148">混战服(148)</option><option data-type="147">和平服(147)</option><option data-type="146">和平服(146)</option><option data-type="145">混战服(145)</option><option data-type="144">和平服(144)</option><option data-type="143">和平服(143)</option><option data-type="142">混战服(142)</option><option data-type="141">和平服(141)</option><option data-type="140">和平服(140)</option><option data-type="139">混战服(139)</option><option data-type="138">和平服(138)</option><option data-type="137">和平服(137)</option><option data-type="136">混战服(136)</option><option data-type="135">和平服(135)</option><option data-type="134">和平服(134)</option><option data-type="131">应用宝混战服(131)</option><option data-type="130">应用宝和平服(130)</option><option data-type="127">混战服(127)</option><option data-type="126">和平服(126)</option><option data-type="125">混战服(125)</option><option data-type="124">和平服(124)</option><option data-type="121">混战服(121)</option><option data-type="120">和平服(120)</option><option data-type="119">混战服(119)</option><option data-type="118">和平服(118)</option><option data-type="115">混战服(115)</option><option data-type="114">和平服(114)</option><option data-type="112">和平服(112)</option><option data-type="113">和平服(113)</option><option data-type="111">混战服(111)</option><option data-type="110">混战服(110)</option><option data-type="109">适配测试</option><option data-type="104">和平服(104)</option><option data-type="108">混战服(108)</option><option data-type="107">和平服(107)</option><option data-type="105">热更测试服（新）</option><option data-type="106">iOS和平服</option><option data-type="103">混战测试服</option><option data-type="102">先锋测试服</option><option data-type="10043">新版本狂欢03</option><option data-type="10042">新版本狂欢02</option><option data-type="10041">新版本狂欢01</option><option data-type="10040">天空岛来啦~~</option><option data-type="10039">游乐场来啦~~~</option><option data-type="10038">视频团</option><option data-type="10037">为爱battle</option><option data-type="10036">郁金香建筑团</option><option data-type="10035">秘密花园</option><option data-type="10033">筑梦团大本营</option><option data-type="10007">官方测试私服</option><option data-type="1028">1028房</option><option data-type="1027">1027房</option><option data-type="1026">1026房</option><option data-type="1025">1025房</option><option data-type="1024">1024房</option><option data-type="1023">1023房</option><option data-type="1022">1022房</option><option data-type="1021">1021房</option><option data-type="1020">1020房</option><option data-type="1019">1019房</option><option data-type="1018">1018房</option><option data-type="1017">1017房</option><option data-type="1016">1016房</option><option data-type="1015">1015房</option><option data-type="1014">1014房</option><option data-type="1013">1013房</option><option data-type="1012">1012房</option><option data-type="2010">2010房</option><option data-type="2009">2009房</option><option data-type="2008">2008房</option><option data-type="2007">2007房</option><option data-type="2006">2006房</option><option data-type="2005">2005房</option><option data-type="2004">2004房</option><option data-type="2003">2003房</option><option data-type="2002">2002房</option><option data-type="2001">2001房</option><option data-type="1011">1011房</option><option data-type="1010">1010房</option><option data-type="1009">1009房</option><option data-type="1008">1008房</option><option data-type="1007">1007测试房</option><option data-type="1001">1001房</option><option data-type="1002">1002房</option><option data-type="1003">1003房</option><option data-type="1004">1004房</option><option data-type="1005">1005房</option><option data-type="1006">1006房</option>
+					</select>
+				</div>
+				<div class="co_input">
+					<input type="text"  class="captcha" placeholder="请输入验证码"/>
+					<span class="co_captcha">点击刷新</span>
+				</div>	
+				<div class="co_input">
+					<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+				</div>
+				<div class="co_input">
+					<input type="text" class="co_invite" placeholder="请输入邀请码"/>
+				</div>
+				<div class="co_tips_btn1"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 活动说明 -->
+<div class="co_tips co_rule co_rule1 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<p><i>·</i>点亮祝福，每天每个IP可参与1次。</p>
+			<p><i>·</i>活动奖励将于2019年2月12号后7天内全服发放，届时请登陆游戏查收。</p>
+		</div>
+		<a href="javascript:;" class="copy_btn"></a>
+	</div>
+</div>
+<div class="co_tips co_rule co_rule2 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<p><i>·</i>登陆游戏账号，并手机验证，即可获得礼包。</p>
+			<p><i>·</i>单个角色名 （及其对应手机号），只可参与一次。</p>
+			<p><i>·</i>请妥善保管你的兑换码，如若丢失，将不补发。</p>
+			<p><i>·</i>兑换码只可使用一次，同类兑换码，一个账号只可兑换一个。</p>
+		</div>
+		<a href="javascript:;" class="copy_btn"></a>
+	</div>
+</div>
+<div class="co_tips co_rule co_rule3 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<div class="ru3">
+			<div class="ru3_info">
+			<p><i>·</i>玩家登陆后，可生成专属邀请链接或者邀请码，邀请好友登录本活动页，即可获得更多周年庆福利！</p>
+			<p><i>·</i>被邀请好友也有专属礼包，是不是很赞~</p>
+			<p><i>·</i>被邀请好友，仅限于尚未登陆过周年庆活动的玩家，同时：最近登录时间在2019年1月16号前，或最近登录时间在2019年1月22号后的探险家。</p>
+			<p><i>·</i>符合要求的被邀请人通过专属链接或者输入好友邀请码，登陆活动页，即算集结成功。</p>
+			<p><i>·</i>单个角色名（及其对应手机号），只可被邀请一次。</p>
+			<p><i>·</i>请妥善保管你的兑换码，如若丢失，将不补发。</p>
+			<p><i>·</i>兑换码只可使用一次，同类兑换码，一个账号只可兑换一个。</p>
+			<p><i>·</i>副本小队，集结礼包内容：</p>
+			<p><i>·</i>邀请人数超2人：独角兽体验卡1天、金锭20、红烧带鱼20</p>
+			<p><i>·</i>邀请人数超4人：青鸟体验卡7天、水晶20、文艺虾20</p>
+			<p><i>·</i>邀请人数超6人：周年限量法杖1、蓝莲5、红菇大虾包20</p>
+			<p><i>·</i>被邀请礼包：蛋糕烟花5、独角兽3天体验、棒棒糖10</p>
+			</div>
+			</div>
+		</div>
+		<a href="javascript:;" class="copy_btn"></a>
+	</div>
+</div>
+<div class="co_tips co_rule co_rule4 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<p><i>·</i>每日首次登录赠送1次参与机会； </p>
+			<p><i>·</i>分享页面，即可获得1次参与机会，每日最多可分享1次；</p>
+			<p><i>·</i>副本小队活动，邀请超过6人，可额外获得3次抽奖机会；</p>
+			<p><i>·</i>话费奖品：将于2019年2月12日后7个工作日内自动充值，请认真填写你的手机号码，如因填写错误影响到账，将不予补发；</p>
+			<p><i>·</i>实物奖品：将于2019年2月12日后7个工作日内快递，请认真填写你的地址，如因填写错误影响收货，将不予补发；</p>
+			<p><i>·</i>请妥善保管你的兑换码，如若丢失，将不补发。</p>
+			<p><i>·</i>兑换码只可使用一次，同类兑换码，一个账号只可兑换一个。</p>
+		</div>
+		<a href="javascript:;" class="copy_btn"></a>
+	</div>
+</div>
+<!-- 邀请好友弹框 -->
+<div class="co_tips co_tips_yq co_tips_yq1 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<p id="invited"></p><a href="javascript:;" class="copycode_btn copy" id="tc5_copyBtn" data-clipboard-action="copy" data-clipboard-target="#invited"></a>
+			<p class="info">被邀请好友满足条件也有专属礼包哦~<br>链接地址<span id="tc1_copyText"></span><br>发送该链接给好友，系统将自动在好友登录界面填写您的邀请码。</p>
+		</div>
+        <a href="javascript:;" class="copy_btn copy" id="tc1_copyBtn" data-clipboard-action="copy" data-clipboard-target="#tc1_copyText"></a>
+	</div>
+</div>
+<div class="co_tips co_tips_yq co_tips_yq2 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<p id="invited" class="yq2_invited"></p><a href="javascript:;" class="copycode_btn copy" id="tc5_copyBtn" data-clipboard-action="copy" data-clipboard-target="#invited"></a>
+			<p class="info">被邀请好友满足条件也有专属礼包哦~<br>链接地址<span id="tc3_copyText"></span><br>发送该链接给好友，系统将自动在好友登录界面填写您的邀请码。</p>
+		</div>
+        <a href="javascript:;" class="copy_btn copy" id="tc3_copyBtn" data-clipboard-action="copy" data-clipboard-target="#tc3_copyText"></a>
+	</div>
+</div>
+<!-- 收货地址 -->
+<div class="co_tips co_tips_address hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<div class="content_box">
+    			<p class="input1"><input type="text" placeholder="姓名" class="name_input" value=""><input type="text" placeholder="邮编" class="qq_num"></p>
+    			<p class="input2"><input type="text" placeholder="请输入电话号码" class="tel_num"></p>
+    			<textarea type="text" placeholder="详细地址..." class="address"></textarea>
+    		</div>
+		</div>
+        <a href="javascript:;" class="add_submit"></a>
+	</div>
+</div>
+<!-- 礼包弹窗 -->
+<div class="co_tips co_tips_gift hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<div class="tc_info">
+					<div class="g_price">
+                    <div class="price_div">
+                        <span>奖励名称</span>
+                        <span>礼包码</span>
+                        <span></span>
+                    </div>
+                    <div class="g_price2">
+                    	<ul class="price_ul">
+                    		
+                    	</ul>
+                    </div>
+                    </div>
+				</div>
+			</div>
+
+		<a href="javascript:;" class="sure_btn"></a>	
+		</div>
+	</div>
+</div>
+<!-- 恭喜弹窗 -->
+<div class="co_tips co_tips_gx co_tips_gx1 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<h3>恭喜你获得<span></span>!!!</h3>
+			<p>请填写正确的收货地址以方便我们几十给您送达奖品</p>
+		</div>
+        <a href="javascript:;" class="address_btn"></a>
+	</div>
+</div>
+<div class="co_tips co_tips_gx co_tips_gx3 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<h3>恭喜你获得<span></span>!!!</h3>
+			<p>话费将于2月12日后7个工作日内自动充值到您登陆使用的手机号上，请注意查收。</p>
+		</div>
+        <a href="javascript:;" class="sure_btn"></a>
+	</div>
+</div>
+<!-- 恭喜弹窗 -->
+<div class="co_tips co_tips_gx2 hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<h3>恭喜你获得<span></span></h3>
+			<p class="code"></p>
+		</div>
+        <a href="javascript:;" class="sure_btn"></a>
+	</div>
+</div>
+<!-- 提示弹窗 -->
+<div class="co_tips co_tips_tsh hidden">
+	<div class="co_con">
+		<a href="javascript:;" class="co_tips_close"></a>
+		<div>
+			<p></p>
+		</div>
+        <a href="javascript:;" class="sure_btn"></a>
+	</div>
+</div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+</body>
+{video_play}
+<!-- {download} -->
+<script src="http://cdnstatic.yingxiong.com/common/js/statics.js" type="text/javascript"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}4.0/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}4.0/js/cover0121.js?8.0" type="text/javascript"></script>
+
+<script>
+    //拉取下载链接
+    $(function() {
+    	var new_url = window.location.href;
+		if(new_url.indexOf("part") >= 0) {
+        var url = '/downloadLink.html';
+        $.getJSON(url, function (result) {
+                if ((/iphone|ipad/i.test(navigator.userAgent.toLowerCase()))) {
+                    $(".js_wap_down").attr('href', result.ios_url_out);
+                }else{
+                    $(".js_wap_down").attr('href', result.android_url_out);
+                }
+                $(".js_wap_android_down").attr('href', result.android_url_out);
+                $(".js_wap_ios_down").attr('href', result.ios_url_out);
+                $(".js_down_andriod").attr('href', result.android_url_out);
+                $(".js_down_ios").attr('href', result.ios_url_out); 
+                    $(".js_down_ios_special").attr('href', result.ios_special_url_out);
+                $(".js_down_andriod_img").attr('src', result.android_img_out);
+                $(".js_down_ios_img").attr('src', result.ios_img_out);
+                $(".js_down_ios_special_img").attr('src', result.ios_special_img_out);
+                $(".js_jump_img").attr('src', result.jump_img_out);
+                $(".js_jump2_img").attr('src', result.jump_img2_out);
+        });
+        $('.channel_name').css('display', 'block');
+		$('.no_channel').css('display', 'none');
+        }else {
+			$('.channel_name').css('display', 'none');
+			$('.no_channel').css('display', 'block');
+		}
+    })
+	</script>
+<script>
+	// 公共头部hover
+	function mouse_over_style1(ele1, ele2) {
+    ele1.hover(function() {
+        ele2.css({
+            display: "block"
+        });
+        setTimeout(function() {
+            ele2.addClass("show");
+        }, 10);
+    }, function() {
+        ele2.removeClass("show");
+        setTimeout(function() {
+            ele2.css({
+                display: "none"
+            });
+        }, 200);
+    });
+}
+    mouse_over_style1($(".game_list_bar"), $(".game_list_box"));
+    $("#top_banner_a").mouseover(function() {
+        $(this).hide();
+        $(".middle_big_img").show();
+    });
+    $(".middle_big_img").mouseout(function() {
+        $(this).hide();
+        $("#top_banner_a").show();
+    })
+    var clickTap = true;
+	$(".s_ul li:eq(0)").hover(function() {
+        $(".fl_wx").stop().fadeIn();
+    }, function() {
+        $(".fl_wx").stop().fadeOut();
+    });
+    //弹幕
+//下拉选择届数
+			$(".s_input").click(function (){
+				if(clickTap){
+					$(this).addClass("active");
+					$("#qu_ul").stop().slideDown();
+					$(".co_tips .co_con i").addClass("active");
+					clickTap = false;
+
+				} else {
+					$(this).removeClass("active");
+					$(".co_tips .co_con i").removeClass("active");
+					$("#qu_ul").stop().slideUp();
+					clickTap = true;
+				}
+			});
+			
+		$(".co_tips_close").click(function (){
+			$(this).parent().parent().addClass("hidden");	
+		});
+		$("#rule1").click(function(){
+			$(".co_tips").addClass("hidden");
+			$(".co_tips.co_rule1").removeClass("hidden");
+		});	
+		$("#rule2").click(function(){
+			$(".co_tips").addClass("hidden");
+			$(".co_tips.co_rule2").removeClass("hidden");
+		});
+		$("#rule3").click(function(){
+			$(".co_tips").addClass("hidden");
+			$(".co_tips.co_rule3").removeClass("hidden");
+		});
+		$("#rule4").click(function(){
+			$(".co_tips").addClass("hidden");
+			$(".co_tips.co_rule4").removeClass("hidden");
+		});
+		$(".sure_btn").click(function(){
+			$(".co_tips").addClass("hidden");
+		});
+		
+</script>
+</html>

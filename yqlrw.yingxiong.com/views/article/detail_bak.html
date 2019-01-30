@@ -1,0 +1,30 @@
+{include file="../layouts/pc/news_header.html"}
+					<div class="detail_right">
+						<div class="top_title">
+							<h3>资讯中心</h3>
+							<p>你的位置：<a href="{myurl name='site/index'}">官网首页</a>-资讯详情</p>
+						</div>
+						<div class="m_detail">
+							<div class="m_title">
+								<h3>{$content.title}</h3>
+								<p>发布于<span>{$content.created_at_formate}</span></p>
+							</div>
+							<div class="m_body">
+								{$content.body}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{include file="../layouts/pc/footer.html"}
+		
+		<script>
+				var code_url = "{myurl name='commonMethod/ajax-yuyue-verify'}";
+		        var yy_url = "{myurl name='commonMethod/ajax-yuyue'}";
+		        var url = '{myurl name="commonMethod/ajax-get-subscribes"}';
+                var params = {
+                "name":"yqlrw_total",
+                "cms_csrf": $("meta[name='csrf-token']").attr("content")
+            }
+		</script>

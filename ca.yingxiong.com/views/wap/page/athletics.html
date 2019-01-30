@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/swiper-3.4.2.min.css">
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/css/public.css?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/athletics.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+		 {csrf}
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:;" class="icon"><img src="{$global.logo_img}" alt="" /></a>
+			<div class="header_txt">
+				<p>{$global.title}</p>
+				<p>{$global.sub_title}</p>
+			</div>
+			<a href="{myurl name='wap/site/index'}" class="enter" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_enter.png?{$smarty.const.VERSION}" alt="" /></a>
+		</header>
+		
+		<div class="kv">
+		{fragment var=video code=kv_video size=1}
+		    <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="video_btn {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+			<div class="download">
+				<a href="javascript::" class="stat_down js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_down1.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="https://www.taptap.com/app/34763" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_down_tap.png?{$smarty.const.VERSION}" alt="" /></a>
+				<a href="http://www.3839.com/a/87894.htm" class="stat_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/co_down_hy.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			</div>
+		
+		
+		    <div class="part1">
+            <div class="title">
+            	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_tl1.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_p1.png?{$smarty.const.VERSION}" alt="" class="logo_img">
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_txt1.png?{$smarty.const.VERSION}" alt="" class="logo_imgp1_txt">
+            </div>
+        
+		
+		    <div class="part2">
+            <div class="title">
+            	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_tl2.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_p2.png?{$smarty.const.VERSION}" alt="" class="logo_img">
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_txt3.png?{$smarty.const.VERSION}" alt="" class="logo_imgp1_txt">
+            </div>
+		
+		
+		    <div class="part3">
+            <div class="title">
+            	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_tl3.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_slider.png?{$smarty.const.VERSION}" alt="" class="sl_banner">
+            <p>游戏更新全新手册系统，枪友们将通过完成任务等手段，获得免费枪械和道具了~超多超值福利就等你来领取哦~</p>
+            </div>
+		
+		
+		    <div class="part4">
+            <div class="title">
+            	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_tl4.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/p4_logo.png?{$smarty.const.VERSION}" alt="" class="logo_img">
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_txt4.png?{$smarty.const.VERSION}" alt="" class="logo_imgp1_txt">
+            </div>
+		
+		
+		    <div class="part5">
+			<div class="title">
+            	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_tl5.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <div class="sel_box">
+            	<ul class="sel1">
+            		<li class="active">
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban1.png?{$smarty.const.VERSION}" alt="" class="d1">
+            			<p>感恩节沙鹰</p>
+            		</li>
+            		<li>
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban2.png?{$smarty.const.VERSION}" alt="" class="d2">
+            			<p>掠食者</p>
+            		</li>
+            		<li>
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban3.png?{$smarty.const.VERSION}" alt="" class="d3">
+            			<p>貂蝉·佳人M93R</p>
+            		</li>
+            		<li>
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban4.png?{$smarty.const.VERSION}" alt="" class="d4">
+            			<p>恶魔魂</p>
+            		</li>
+            	</ul>
+            	<ul class="sel2">
+            		<li class="active">
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban11.png?{$smarty.const.VERSION}" alt="" class="d1">
+            		</li>
+            		<li>
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban22.png?{$smarty.const.VERSION}" alt="" class="d2">
+            		</li>
+            		<li>
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban33.png?{$smarty.const.VERSION}" alt="" class="d3">
+            		</li>
+            		<li>
+            			<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_ban44.png?{$smarty.const.VERSION}" alt="" class="d4">
+            		</li>
+            	</ul>
+            </div>
+            </div>
+		    <div class="part6">
+			<div class="title">
+            	<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_tl6.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_p6.png?{$smarty.const.VERSION}" alt="" class="logo_img">
+            <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/del_txt6.png?{$smarty.const.VERSION}" alt="" class="logo_imgp1_txt">
+            </div>
+		
+		{video_play}
+		{download}
+		<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+		<script>
+            $(".part5 .sel_box .sel2 li").click(function(){
+	   			var index=$(this).index();
+	   			$(this).addClass("active").siblings().removeClass("active");
+	   			$(".part5 .sel_box .sel1 li").eq(index).addClass("active").siblings(".part5 .sel_box .sel1 li").removeClass("active");
+	        });
+		</script>
+	</body>
+
+</html>

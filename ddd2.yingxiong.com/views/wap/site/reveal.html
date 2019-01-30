@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ldy/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}ldy/m/css/index.css?{$smarty.const.VERSION}">
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e896a013f613cc56bef66f4d4f67c5ff";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="main">
+    <p class="logo"><img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/logo_info.png?{$smarty.const.VERSION}" alt=""/></p>
+    <p class="btn"><a href="" class="js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/btn.png?{$smarty.const.VERSION}" alt=""/></a></p>
+    <p class="down_info">(仅限Android下载，AppStore敬请期待)</p>
+    <p class="txt">
+        <span>预警！<i>《弹弹岛2》竟是一款“一人封神，冒险吃鸡”的游戏！1V5绝地冒险，毒雾来袭，奇谋迭起，不敢眨眼！一己之力打破层层压制，转瞬坑杀反面！放眼望去，举目皆敌，如何用操作+头脑杀出重围！</i></span>
+    </p>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" >
+                <img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/img1.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/img2.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/img3.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/img4.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+            <div class="swiper-slide">
+                <img src="{$smarty.const.STATIC_DOMAIN}ldy/m/images/img5.png?{$smarty.const.VERSION}" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}ldy/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}ldy/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        slidesPerView : 3,
+        spaceBetween : 35,
+        loop:true
+    });
+</script>
+{download}
+</html>

@@ -1,0 +1,34 @@
+<!--视频弹框-->
+<div class="cd-m-floor cd-image-float-floor">
+	{fragment var=video code=yl_tips_wap size=1}
+	<a href="javascript:;" class="cd-float-image">
+		<img class="J_floatImage" src="{$video[0].thumb}">
+		<video class="video" src="{$video[0].url}" id="video2" preload="load" loop="loop" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait"></video>
+		<i class="vi_zz"> <i class="vi_play"></i></i>
+		<img class="cd-float-close" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yl_close.png?{$smarty.const.VERSION}">
+	</a>
+</div>
+<script>
+	$(function(){
+
+		$(".cd-m-floor .cd-float-close").click(function(){
+			$(".cd-m-floor.cd-image-float-floor").removeClass("cd-float-show");
+			myVid1.pause();
+		});
+
+		var  myVid1=document.getElementById("video2");
+		$(".cd-m-floor .vi_zz").click(function(){
+			myVid1.play();
+			$(this).addClass("hidden");
+		});
+
+
+		var links=['/part/m/tkmt.html','/part/m/tkmt7.html','/part/m/tkmt10.html','/part/m/ppcwap.html','/part/m/stwap.html','/part/m/jpcwap.html','/part/m/360wap.html','/part/m/smwap.html','/part/m/sgwap.html','/part/m/wappz.html'];
+		if(links.indexOf(location.pathname)>-1){
+			// 是links里面的页面
+		}else{
+			$(".cd-m-floor.cd-image-float-floor").addClass("cd-float-show");
+		}
+
+	});
+</script>

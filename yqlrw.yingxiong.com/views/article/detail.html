@@ -1,0 +1,67 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="left_fixed">
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/n_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+	<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/xian.png?{$smarty.const.VERSION}" alt="" class="xian" />
+	<p class="saoma"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/sj.png?{$smarty.const.VERSION}" alt="" /><span>扫码下载游戏</span></p>
+	<div class="fixed_code">
+		<img src="" alt="" class="js_jump_img"/>
+	</div>
+	<div class="fixed_download">
+		<a href="javascript:yx_showTips('抱歉，ios暂时还未上架，请使用安卓设备下载体验');"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_ios.png?{$smarty.const.VERSION}" alt="" /></a>
+		<a href="javascript:;" target="_blank" class="js_down_andriod stat_android"><img src="{$smarty.const.STATIC_DOMAIN}3.0/images/f_and.png?{$smarty.const.VERSION}" alt="" /></a>
+	</div>
+</div>
+<div class="right_content">
+	<div class="right_nav">
+		<a href="javascript:;"></a>
+		<a href="{$global.wb_url}" target="_blank"></a>
+		<a href="http://bbs.yingxiong.com/t/pc/19.html" target="_blank"></a>
+		<a href="https://jq.qq.com/?_wv=1027&k=5Cdz254" target="_blank"></a>
+		<div class="right_code">
+			<img src="{$global.wx_img}" alt="" />
+		</div>
+	</div>
+	<div class="n_content">
+		<ul class="n_ul">
+			<li>
+				<a href="{myurl name='site/index'}"><span>官网首页</span><i></i></a>
+			</li>
+			<li class="{if $content.category_id >= 460 and $content.category_id <= 463}active{else}{/if}">
+				<a href="{myurl name='article/list, id=>460'}"><span>新闻资讯</span><i></i></a>
+			</li>
+			<li class="{if $content.category_id >= 561 and $content.category_id <= 563}active{else}{/if}">
+				<a href="{myurl name='article/list, id=>561'}"><span>游戏资料</span><i></i></a>
+			</li>
+			<li class="{if isset($smarty.get.id)}{else}active{/if}">
+				<a href="/image/index"><span>热舞图库</span><i></i></a>
+			</li>
+			<li class="{if $content.category_id == 560}active{else}{/if}">
+				<a href="{myurl name='article/list, id=>560'}"><span>原创音乐</span><i></i></a>
+			</li>
+			<li class="{if $content.category_id >= 557 and $content.category_id <= 559}active{else}{/if}">
+				<a href="{myurl name='video/list, id=>557'}"><span>精彩视频</span></a>
+			</li>
+		</ul>
+<p class="detail_nav">当前位置：
+	<a href="{myurl name='site/index'}">官网首页</a>><span>新闻资讯</span></p>
+<div class="detail_body">
+    <h1 class="title">{$content.title}</h1>
+	<span class="data_time"><span>发布时间：{$content.created_at|date_format:"%m/%d"}</span><span>作者：官方</span></span>
+	{$content.body}
+</div>
+</div>
+</div>
+</body>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	$(function() {
+		$(".right_nav a:nth-child(1)").hover(function() {
+			$(".right_code").stop().fadeIn();
+		}, function() {
+			$(".right_code").stop().fadeOut();
+		});
+	});
+</script>
+
+</html>

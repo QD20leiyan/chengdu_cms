@@ -1,0 +1,184 @@
+{include '../../layouts/wap/header.html'}
+{include '../../layouts/wap/top.html'}
+<div class="i_main">
+    <!--kv-->
+    <div class="top">
+        <div class="banner">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                    {fragment var=index_banner code=index_banner size=20}
+                    {if $index_banner neq ''}
+                    {foreach $index_banner as $v}
+                    <div class="swiper-slide">
+                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+        </div>
+    </div>
+    <!--新闻-->
+    <div class="banner_news">
+        <div class="news_box">
+            <div class="title">公益资讯</div>
+            <div class="bd">
+                <ul class="news_info">
+                    {article id="1975" size=5 var=zx}
+                    {if $zx neq ''}
+                    {foreach $zx as $key=>$v}
+                    {if $key >= 0}
+                    <li>
+                        <a target="_blank" href="{$v.wapLinkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+                    </li>
+                    {/if}
+                    {/foreach}
+                    {else}
+                    <p class="noData" style="line-height: 10rem;color: #CBB487;text-align: center;font-size: .9375rem;">暂无数据...</p>
+                    {/if}
+                </ul>
+            </div>
+            <a href="{myurl name='wap/list, id=>1975'}" class="more"></a>
+        </div>
+        <div class="banner">
+            <div class="title">图片新闻</div>
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    {fragment var=index_banner code=news_banner size=20}
+                    {if $index_banner neq ''}
+                    {foreach $index_banner as $v}
+                    <div class="swiper-slide">
+                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                        <p class="info"><span>{$v.sub_title}</span></p>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+            <div class="swiper-pagination swiper-pagination2"></div>
+        </div>
+    </div>
+    <!--公益图集-->
+    <div class="img_box">
+        <div class="title">公益图集</div>
+        <a href="{myurl name='wap/image/list, id=>1976'}" class="more"></a>
+        <div class="img_list">
+            {article id="1976" size=4 var=gytj}
+            {if $gytj neq ''}
+            {foreach $gytj as $key=>$v}
+            {if $key >= 0}
+            <div class="img_li" data-id="{$v.id}">
+                <span><img src="{$v.thumb}" alt=""/></span>
+                <p>{$v.title}</p>
+            </div>
+            {/if}
+            {/foreach}
+            {else}
+            <p class="noData" style="line-height: 10rem;color: #CBB487;text-align: center;font-size: .9375rem;">暂无数据...</p>
+            {/if}
+        </div>
+    </div>
+    <!--公益信息与视频-->
+    <div class="video_box">
+        <div class="title">公益视频</div>
+        <a href="{myurl name='wap/video/list, id=>1978'}" class="more"></a>
+        <div class="img_list">
+            {article id="1978" size=4 var=gysp}
+            {if $gysp neq ''}
+            {foreach $gysp as $key=>$v}
+            {if $key >= 0}
+            <div class="img_li" data-url="{$v.video.media_url}">
+                <span><img src="{$v.thumb}" alt=""/></span>
+                <p>{$v.title}</p>
+                <i class="play"></i>
+            </div>
+            {/if}
+            {/foreach}
+            {else}
+            <p class="noData" style="line-height: 10rem;color: #CBB487;text-align: center;font-size: .9375rem;">暂无数据...</p>
+            {/if}
+        </div>
+    </div>
+    <!--第五部分-->
+    <div class="addr">
+        <div class="title">联系我们</div>
+        <div class="link-li-box link-li-box1">
+            <span class="link-li-box-img"><i></i></span>
+            <div class="link-li-info">
+                <h3 class="link-li-h3">地址</h3>
+                <p class="link-li-p">深圳市罗湖区文锦南路森威大厦雍景园19楼1911</p>
+            </div>
+        </div>
+        <div class="link-li-box link-li-box2">
+            <span class="link-li-box-img"><i></i></span>
+            <div class="link-li-info">
+                <h3 class="link-li-h3">电话</h3>
+                <p class="link-li-p">0755-86952478</p>
+            </div>
+        </div>
+        <div class="link-li-box link-li-box3">
+            <span class="link-li-box-img"><i></i></span>
+            <div class="link-li-info">
+                <h3 class="link-li-h3">邮箱</h3>
+                <p class="link-li-p">2892325207@qq.com</p>
+
+            </div>
+        </div>
+    </div>
+    <!--第六部分-->
+    <div class="webturn">
+        <a class="gn_info" href="/m/p/about.html">
+            <div>
+                <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/icon6.png?{$smarty.const.VERSION}" alt=""/></span>
+                <h3>关于我们</h3>
+            </div>
+        </a>
+        <a class="gn_info" href="/m/p/information.html">
+            <div>
+                <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/icon7.png?{$smarty.const.VERSION}" alt=""/></span>
+                <h3>信息公开</h3>
+            </div>
+        </a>
+        <a class="gn_info" href="/m/p/charity.html">
+            <div>
+                <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/icon8.png?{$smarty.const.VERSION}" alt=""/></span>
+                <h3>慈善项目</h3>
+            </div>
+        </a>
+        <a class="gn_info" href="/m/p/time.html">
+            <div>
+                <span class="round"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/icon9.png?{$smarty.const.VERSION}" alt=""/></span>
+                <h3>社会影响</h3>
+            </div>
+        </a>
+    </div>
+    <!--footer-->
+    {include '../../layouts/wap/bottom.html'}
+</div>
+{include '../../layouts/wap/footer.html'}
+<script>
+    $(function(){
+        //kv大图初始化
+        var swiper01 = new Swiper('.swiper-container1', {
+            effect : 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+//			autoplay:2000,
+            loop:true
+        });
+        var swiper02 = new Swiper('.swiper-container2', {
+            pagination: '.swiper-pagination2',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+    });
+</script>

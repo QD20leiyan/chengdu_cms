@@ -1,0 +1,86 @@
+{include '../../layouts/wap/header.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/new.css?{$smarty.const.VERSION}" />
+<!--内容-->
+<div class="i_main i_main1">
+    <div class="list">
+        <div class="wrap">
+            <!--情报资讯-->
+            <p class="top_img"><a href="/m/index.html" class="return"></a></p>
+            <div class="banner_news">
+                <div class="wrap">
+                    <div class="news_box">
+                        <div class="hd2">
+                            <ul data-id="{$id}">
+                                <li class="{if $id==1904}active{/if}">
+                                    <a href="{myurl name='wap/article/list, id=>1904'}">
+                                    <a>全部</a>
+                                </li>
+                                <li class="{if $id==1905}active{/if}" >
+                                    <a href="{myurl name='wap/article/list, id=>1905'}">
+                                    <a>新闻</a>
+                                </li>
+                                <li class="{if $id==1906}active{/if}" >
+                                    <a href="{myurl name='wap/article/list, id=>1906'}">
+                                    <a>公告</a>
+                                </li>
+                                <li class="{if $id==1907}active{/if}" >
+                                    <a href="{myurl name='wap/article/list, id=>1907'}">
+                                    <a>攻略</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bd">
+                            <ul class="news_info">
+                            </ul>
+                            <a href="javascript:;" class="more"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{include '../../layouts/wap/foot.html'}
+<script>
+        var page = 1; //页数
+        var id = $(".news_box ul").attr("data-id");//类型
+        function getListFu(){
+        $.ajax({
+            type:"get",
+            url:'{myurl name="commonMethod/ajax-get-list"}',
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                var result = '';
+                if(data.status == 0&& data.msg.length>0){
+                    for(var i = 0; i < data.msg.length; i++) {
+                        result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i class='small_ti'>" +data.msg[i].name+"</i><p>"+data.msg[i].title+"</p><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    if(data.msg.length<5){
+                         $(".i_main1 .news_info").css("height","auto");
+                         $(".more").hide();
+                    }
+                    $('.i_main1 .news_info').append(result);
+                } else{
+                    result += "<li class='noData'>暂无数据~</li>";
+                    $(".i_main1 .news_info").css("height","auto");
+                         $(".more").hide();
+                    $('.i_main1 .news_info').append(result);
+                    $("more").hide();
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+    getListFu();
+        $(".more").click(function(){
+            $(".i_main1 .news_info").css("height","auto");
+            $(this).hide();
+            $(".noData").hide();
+        })
+    </script>

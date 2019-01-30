@@ -1,0 +1,196 @@
+{include file="../layouts/pc/header.html"} {fragment var=kv_img code=index_kv_img size=1}
+<div class="kv public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}">
+	<div class="wrap">
+		{fragment var=video code=index_video size=1}
+		<div style="z-index:10;" class="play {if $video}js_video_play{/if} public_video" data-url="{if $video}{$video[0].url}{/if}" data-video="{if $video}{$video[0].jumpbackend}{/if}">
+			<img src="{if $video}{$video[0].thumb}{/if}" alt="" />
+			<div class="main_play" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑视频</i></div>
+		</div>
+		<div class="kv_con">
+			<div class="kv_left public_icon" data-icon="{jumpbackend name='website_title'}">
+				<img src="{$global.website_logo_img}" alt="" class="icon" />
+				<div class="kv_txt">
+					<p class="kv_tit">{$global.website_title}</p>
+					<p class="k_tit">{$global.website_sub_title}</p>
+				</div>
+			</div>
+			<div class="kv_right public_nav" data-right="{jumpbackend name='download_android_background_img'}">
+				<div class="kv_down">
+					<a href="{if $global.download_android_url}{$global.download_android_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/and.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="{if $global.download_ios_url}{$global.download_ios_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="{if $global.download_tap_url}{$global.download_tap_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+				<div class="kv_code" style="background:url({$global.download_ewm_background_img}) no-repeat center;">
+					<img src="{$global.nav_wechat_ewm}" alt="" />
+				</div>
+				{if $diy}
+					<div class="main_nav" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+				{/if}
+			</div>
+		</div>
+		{if $diy}
+			<div class="main_kv" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑KV</i></div>
+		{/if}
+	</div>
+</div>
+<div class="content public_second" style="{if $global.news_background_img neq ''}background:url({$global.news_background_img}) no-repeat center;{elseif $global.news_background_color neq ''}background-color:{$global.news_background_color}{/if}" data-second="{jumpbackend name='tese_background_img'}">
+	<div class="wrap">
+		<div class="con" style="z-index:10;">
+			<div class="left_banner banner_ng">
+				{fragment var=index_banner code=banner size=5} {if $index_banner neq ''}
+				<ul class="swiper-wrapper public_banner banner_ng" data-banner="{$index_banner[0].jumpbackend}">
+					{foreach $index_banner as $v}
+					<li class="swiper-slide">
+						<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+					</li>
+					{/foreach}
+				</ul>
+				{/if}
+				<div class="swiper-pagination1"></div>
+				{if $diy}
+					<div class="main_banner" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+				{/if}
+			</div>
+			<div class="right_news art-news">
+				<div class="right_con">
+					<ul class="top_ul public_news_title news-nav" data-color="{$global.news_nav_hover_color}" data-news="{jumpbackend name='news_nav_hover_color'}">
+						<li class="active" style="color:#fff;background:{$global.news_nav_hover_color}">最新</li>
+						<li>新闻</li>
+						<li>攻略</li>
+					</ul>
+					<div class="con_news">
+						{article alias="zonghe" size=4 var=zh}
+						<ul class="active">
+						{if isset($zh) && $zh neq ""} 
+							{foreach $zh as $key=>$v} 
+								{if $key >= 0}
+									<li>
+										<a href="{$v.linkUrl}" target="_blank">
+											<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+										</a>
+									</li>
+								{/if} 
+							{/foreach} 
+						{else}
+							<p class="noData">暂无数据...</p>
+							{/if}
+						</ul>
+						{article alias="xinwen" size=4 var=xw}
+						<ul class="">
+							{if isset($xw) && $xw neq ""} {foreach $xw as $key=>$v} {if $key >= 0}
+							<li>
+								<a href="{$v.linkUrl}" target="_blank">
+									<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+								</a>
+							</li>
+							{/if} {/foreach} {else}
+							<p class="noData">暂无数据...</p>
+							{/if}
+						</ul>
+						{article alias="gonglue" size=4 var=gl}
+						<ul class="">
+							{if isset($gl) && $gl neq ""} {foreach $gl as $key=>$v} {if $key >= 0}
+							<li>
+								<a href="{$v.linkUrl}" target="_blank">
+									<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+								</a>
+							</li>
+							{/if} {/foreach} {else}
+							<p class="noData">暂无数据...</p>
+							{/if}
+						</ul>
+					</div>
+				</div>
+				{if $diy}
+					<div class="main_news" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑模块</i></div>
+				{/if}
+			</div>
+		</div>
+		<div class="bottom_con" style="z-index:10;">
+			<div class="bottom_banner cont">
+				{fragment var=ts_img code=banner_ts size=5} {if $ts_img neq ''}
+				<ul class="swiper-wrapper public_ts" data-ts="{$ts_img[0].jumpbackend}">
+					{foreach $ts_img as $v}
+					<li class="swiper-slide">
+						<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /><i></i></a>
+					</li>
+					{/foreach}
+				</ul>
+				{/if}
+				<div class="swiper-pagination"></div>
+				{if $diy}
+					<div class="main_tese" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+				{/if}
+			</div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+		{if $diy}
+			<div class="main_second" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);;">点击编辑模块</i></div>
+		{/if}
+	</div>
+</div>
+<div class="public_rule" style="z-index:99999999;">
+	{if $diy} {include file="../../layouts/public.html"}
+	<a href="/"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yulan.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/yulan_h.png?{$smarty.const.VERSION}" alt="" /></a>
+	{else}
+	<a href="/?diy=yes"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bianji.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bianji_h.png?{$smarty.const.VERSION}" alt="" /></a>
+	{/if}
+</div>
+</body>
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".left_banner", {
+			loop: true,
+			autoplay: 5000,
+			pagination: '.swiper-pagination1',
+			autoplayDisableOnInteraction: false,
+			observer: true,
+			observeParents: true,
+		});
+		var mySwiper = new Swiper('.bottom_banner', {
+			loop: true,
+			pagination: '.swiper-pagination',
+			effect: 'coverflow',
+			slidesPerView: 5,
+			centeredSlides: true,
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			coverflow: {
+				rotate: 0,
+				stretch: -40,
+				depth: 200,
+				modifier: 1,
+				slideShadows: false
+			},
+			observer: true,
+			observeParents: true,
+		});
+		var nColor = $(".news-nav").attr("data-color");
+		$(".news-nav li").hover(function() {
+			var index = $(this).index();
+			$(this).css({
+				"color": "#fff",
+				"background": nColor
+			});
+			$(this).siblings().css({
+				"color": "#000",
+				"background": "none"
+			});
+			$(".con_news ul").eq(index).css({
+				"display": "block"
+			}).siblings("ul").css({
+				"display": "none"
+			});
+		}, function() {
+			$(this).css({
+				"color": "#fff",
+				"background": nColor
+			});
+		});
+	});
+</script>
+</html>

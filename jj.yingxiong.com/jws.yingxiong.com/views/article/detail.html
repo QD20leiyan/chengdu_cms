@@ -1,0 +1,51 @@
+{include '../layouts/pc/header.html'}
+{include '../layouts/pc/header_bar.html'}
+<!--内容-->
+<div class="i_main list">
+    <div class="top_banner top_banner1"></div>
+    <div class="content">
+        <!--第一部分-->
+        <div class="list_news">
+            <div class="qrcode">
+                <p>
+                    <a><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_qrcode.png?{$smarty.const.VERSION}" class="code_img js_jump_img"/></a>
+                <div class="channel_tap_name" style="display: none">
+                    <a href="http://cdn.yingxiong.com/jws/jws-taptap-P31956A-0317.apk" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                </div>
+                <div class="channel_name" style="display: none">
+                </div>
+                <div class="no_channel">
+                    <a href="" class="js_down_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="" class="js_down_andriod" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <a href="http://cdn.yingxiong.com/jws/jws-taptap-P31956A-0317.apk" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>
+                    <!--<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                </div>
+
+                    <!--{if $channel_name=='t'}-->
+                    <!--<a href="http://cdn.yingxiong.com/jws/jws-taptap-P31956A-0317.apk" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--{else}-->
+                    <!--<a href="" class="js_down_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_ios.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--<a href="" class="js_down_andriod" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_android.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--<a href="http://cdn.yingxiong.com/jws/jws-taptap-P31956A-0317.apk" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>-->
+                    <!--&lt;!&ndash;<a href="javascript:alert('敬请期待');"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_tap.png?{$smarty.const.VERSION}" alt=""/></a>&ndash;&gt;-->
+                    <!--{/if}-->
+                </p>
+            </div>
+            <div class="detailbox">
+                <div class="bn">您的位置: <a href="/index">首页</a>><span>新闻资讯</span>><span>{$data.name}</span></div>
+                <div class="article_title">
+                    <h3>{$data.title}</h3>
+                    <span>发布时间：<span>{$data.created_at|date_format:"%m/%d"}</span> 来源：<span>官方</span></span>
+                </div>
+                <div class="content">
+                    {$data.body}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+
+</html>

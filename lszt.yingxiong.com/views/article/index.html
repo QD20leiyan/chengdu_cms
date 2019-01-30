@@ -1,0 +1,72 @@
+{include '../layouts/pc/in_header.html'}
+<!--内容-->
+<div class="list">
+	<div class="top_img">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/i_topimg.jpg?{$smarty.const.VERSION}" class="list_img"/>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+		<div class="wrap1">
+			<ul class="nav_ul">
+				<li>
+					<a href="/index.html">
+						官网首页
+						<i>HOME</i>
+					</a>
+				</li>
+				<li class="active">
+					<a href="{myurl name='article/list, id=>643'}">
+						新闻资讯
+						<i>NEWS</i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="list_news">
+			{include '../layouts/pc/in_float.html'}
+			<div class="news_box">
+				<div class="hd">
+					<ul>
+						<li {if $id==643}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>643'}">最新</a>
+						</li>
+						<li {if $id==644}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>644'}">新闻</a>
+						</li>
+						<li {if $id==648}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>648'}">公告</a>
+						</li>
+						<li {if $id==649}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>649'}">活动</a>
+						</li>
+						<li {if $id==715}class="on" {/if}>
+						<a href="{myurl name='article/list, id=>715'}">攻略</a>
+						</li>
+					</ul>
+				</div>
+				<div class="bd">
+					<ul class="news_info">
+						{if !empty($data)}
+						{foreach $data as $v}
+							<li>
+								<a target="_blank" href="{$v.linkUrl}">
+									<i class="small_ti">{$v.name}</i>
+									<div class="con">
+										<span class="title">{$v.title}</span>
+										<span class="sub">{$v.sub_title}</span>
+									</div>
+									<span>{$v.created_at_formate}</span>
+								</a>
+							</li>
+						{/foreach}
+						{$page}
+						{else}
+						<p class="noData" style="line-height: 200px;color: #98854F;text-align: center;font-size: 16px;">暂无数据...</p>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{include '../layouts/pc/in_footer.html'}

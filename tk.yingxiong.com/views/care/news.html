@@ -1,0 +1,39 @@
+{include file="../layouts/pc/ca_header.html"}
+<div class="i_main">
+	<div class="list">
+		<p class="top_img">
+			<img src="{$smarty.const.STATIC_DOMAIN}care/images/ca_logo2.png?{$smarty.const.VERSION}" class="logo1">
+		</p>
+		<div class="news_vi_box">
+			<section class="news">
+				<div class="tab_box">
+					<p class="qm_title">新闻资讯</p>
+					<div class="tab_main">
+						<div class="news_infor">
+							{if !empty($data)}
+							<ul>
+								{foreach $data as $v}
+								<li>
+									<a href="{$v.linkUrl}">
+										<span class="img"><img src="{$v.thumb}" alt=""></span>
+										<div class="fl_info">
+											<b class="fl_tit">{$v.title}</b>
+											<b class="fl_subtit">{$v.sub_title}</b>
+										</div>
+									</a>
+								</li>
+								{/foreach}
+							</ul>
+							{$page}
+							{else}
+							<p style="text-align: center">暂无数据</p>
+							{/if}
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+{include file="../layouts/pc/ca_footer.html"}
+</html>

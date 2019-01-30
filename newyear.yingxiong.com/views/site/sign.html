@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/style.css?{$smarty.const.VERSION}">
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/js/setPageRem.js?{$smarty.const.VERSION}"></script>
+    <title>签到</title>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="{$smarty.const.STATIC_DOMAIN}1.0/images/logo.png?{$smarty.const.VERSION}" />
+        <img class="slogan" src="{$smarty.const.STATIC_DOMAIN}1.0/images/slogan.png?{$smarty.const.VERSION}" />
+        <div class="bottom"></div>
+        <img class="button" src="{$smarty.const.STATIC_DOMAIN}1.0/images/button.png?{$smarty.const.VERSION}" />
+    </div>
+    <div class="mask">
+        <div class="dialog">
+            <span class="close"></span>
+            <p>恭喜你成为<span>第125位</span>签到成功 的小伙伴，赶快去<span>首座万丽宴会厅签到处</span>领取年会伴手礼吧！</p>
+        </div>
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
+</body>
+
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script>
+    $(function(){
+        var data= {
+
+        };
+        $('.logo').animate({
+            marginTop:'1.95rem'
+        },500, function () {
+                $('.slogan').css({
+                    opacity:1,
+                    transform:'rotateX(0deg)',
+                    webkitTransform:'rotateY(0deg)',
+                    oTransform:'rotateY(0deg)',
+                    mozTransform:'rotateY(0deg)',
+                    msTransform:'rotateY(0deg)'
+                })
+        })
+    })
+    $('.button').click(function () {
+        $('.mask').slideDown(500);
+    })
+    $('.close').click(function () {
+        $('.mask').slideUp(500);
+    })
+</script>
+</html>

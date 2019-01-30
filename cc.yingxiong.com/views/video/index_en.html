@@ -1,0 +1,114 @@
+ {if $language eq zh_cn} {config_load file="../layouts/pc/cc_zh.conf"}
+ {else} 
+ {config_load file="../layouts/pc/cc_en.conf"} {/if}
+ {include '../layouts/pc/header.html'} 
+{include '../layouts/pc/header.html'}
+    <link href="{$smarty.const.STATIC_DOMAIN}2.0/css/video_center.css?{$smarty.const.VERSION}" rel="stylesheet">
+</head>
+<body>
+{include '../layouts/pc/top.html'}
+{include '../layouts/pc/nav.html'}
+<!-- 这是轮播图 -->
+<?php echo 123;exit;?>
+<div class="v_banner page_lb">
+    <ul>
+    	{foreach $banner as $v}
+        <li><img src="{$v.thumb}" alt=""/></li>
+        {/foreach}
+    </ul>
+    <label class="qh prev"></label>
+    <label class="qh next"></label>
+</div>
+<!-- 这是视频列表 -->
+<div class="v_content">
+    <div class="v_c_title">
+        <h1>{#videoCenter#}</h1>
+        <p>
+            <a href="{myurl name="site/index"}">{#index#}</a>
+            <span>></span>
+            <span>{#videoCenter#}</span>
+        </p>
+    </div>
+    <div class="v_c_item i1">
+        <h1><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/v_icon1.png?{$smarty.const.VERSION}"><span>{#OfficialVideos#}</span></h1>
+        <ul>
+            {foreach $xuanchuan as $index=> $v}
+            <li class="{if ($index+1)%4 eq 0}no-mar-right{/if} js_video_play" data-url="{$v.content_message}">
+                <div>
+                    <img src="{$v.thumb}" alt="{$v.seo_title}">
+                    <div class="v_c_hcover">
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_sp_picon.png?{$smarty.const.VERSION}">
+                    </div>
+                    
+                </div>
+                <p>{$v.title}</p>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    <div class="v_c_item i2" style="display:none;">
+        <h1><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/v_icon2.png?{$smarty.const.VERSION}"><span>{#eSports#}</span></h1>
+        <ul>
+        	{foreach $jingcai as $v}
+            <li class="js_video_play" data-url="{$v.content_message}">
+                <div>
+                    <img src="{$v.thumb}" alt="{$v.seo_title}">
+                    <div class="v_c_hcover">
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_sp_picon.png?{$smarty.const.VERSION}">
+                    </div>
+                    
+                </div>
+                <p>{$v.title}</p>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    <div class="v_c_item i3" style="display:none;">
+        <h1><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/v_icon3.png?{$smarty.const.VERSION}"><span>{#hottestUnits#}</span></h1>
+        <ul>
+            {foreach $hot as $v}
+            <li class="js_video_play" data-url="{$v.content_message}">
+                <div>
+                    <img src="{$v.thumb}" alt="{$v.seo_title}">
+                    <div class="v_c_hcover">
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_sp_picon.png?{$smarty.const.VERSION}">
+                    </div>
+                    
+                </div>
+                <p>{$v.title}</p>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+    <div class="v_c_item i4">
+        <h1><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/v_icon4.png?{$smarty.const.VERSION}"><span>{#Commentary#}</span></h1>
+        <ul>
+           {foreach $jieshuo as $v}
+            <li class="js_video_play" data-url="{$v.content_message}">
+                <div>
+                    <img src="{$v.thumb}" alt="{$v.seo_title}">
+                    <div class="v_c_hcover">
+                        <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_sp_picon.png?{$smarty.const.VERSION}">
+                    </div>
+                    
+                </div>
+                <p>{$v.title}</p>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+</div>
+<!--这是回到顶部icon-->
+{include '../layouts/pc/goTop.html'}
+<!-- 这是弹窗播放器 -->
+<!--<div class="page_video_box">-->
+    <!--<div id="my_video" class="my_video">       -->
+        <!--<label class="v_close"></label>-->
+    <!--</div>-->
+<!--</div>-->
+</body>
+{include '../layouts/pc/public_js.html'}
+{include '../layouts/pc/foot.html'}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}2.0/js/video_center.js?{$smarty.const.VERSION}"></script>
+</html>
+{video_play}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9" />
+		<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/common/js/yx.js"></script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				location.href = "/m/";
+			}
+		</script>
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+		<div class="nav">
+			<div class="wrap">
+				<img src="{$global.logo_img}" alt="" class="icon" />
+				<div class="top_txt">
+					<p>{$global.title}</p>
+					<p>{$global.sub_title}</p>
+				</div>
+				<ul class="top_ul">
+					<li class="{if isset($smarty.get.id)} {else}active{/if}"><a href="{myurl name='site/index'}">首页</a></li>
+					<li class="{if isset($smarty.get.id)}active{else} {/if}"><a href="{myurl name='article/list, id=>442'}">新闻</a></li>
+					<li><a href="http://bbs.yingxiong.com/t/pc/28" target="_blank">社区</a></li>
+				</ul>
+				<div class="r_float">
+					<a href="javascript:;" class="c_wx"></a>
+					<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="c_wb" target="_blank"></a>
+					<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="c_bd" target="_blank"></a>
+					<div class="fl_wx"><img src="{$global.wx_img}" alt=""/></div>
+				</div>
+			</div>
+		</div>

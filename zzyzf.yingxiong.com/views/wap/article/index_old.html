@@ -1,0 +1,40 @@
+{include '../../layouts/wap/header.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/news.css?{$smarty.const.VERSION}" />
+{include '../../layouts/wap/top.html'}
+<section class="main2 fade">
+            <div class="left_lunbo">
+				<div class="news_box">
+                   <!--  <div class="text_tab_more">
+                        <a href="{myurl name='wap/article/index, id=>481'}" class="more" target="_blank"></a>
+                    </div> -->	
+				    <div class="art-news">
+						<ul class="news-nav list-article-title clearfix" data-id="{$id}">
+                            <li {if $id==480}class="curr" {/if}><a href="{myurl name='wap/article/list, id=>480'}">最新</a></li>
+                            <li {if $id==481}class="curr" {/if}><a href="{myurl name='wap/article/list, id=>481'}">新闻</a></li>
+                            <!-- <li {if $id==482}class="curr" {/if}><a href="{myurl name='wap/article/index, id=>482'}">公告</a></li> -->
+                            <li {if $id==483}class="curr" {/if}><a href="{myurl name='wap/article/list, id=>483'}">攻略</a></li>
+                        </ul>
+                        <div class="tab-cont">
+							<ul class="ul">
+							</ul>
+						</div>
+						<div class="dropload-down">
+                		    <div class="dropload-noData">上滑加载更多信息</div>
+            		    </div>
+                    </div>
+				</div>
+			</div>
+
+		<section>
+			<div class="rw_info">
+			<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+			<a href="javascript:;" class="weixin_btn"></a>
+			<a href="{$global.group_url_one}"></a>
+			<div class="wechat hidden">
+				<img src="{$global.wx_img}" alt="">
+			</div>
+		</div>
+		</section>
+		</section>
+		{include '../../layouts/wap/footer_bottom.html'}
+		{include '../../layouts/wap/footer.html'}

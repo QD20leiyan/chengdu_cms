@@ -1,0 +1,150 @@
+  <!-- 下拉菜单 -->
+        <div class="header hidden">
+            <div class="h_nav">
+                <span class="d_t_t"></span>
+                <span class="d_t_m"></span>
+                <span class="d_t_b"></span>
+            </div>
+            <ul class="header_nav">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="">
+                <p class="menu_tl">MENU</p>
+                <li>
+                    <a href="/m/index.html?id=0">首页</a>
+                </li>
+                <li>
+                    <a href="/m/index.html?id=1">预约奖励</a>
+                </li>
+                <li>
+                    <a href="/m/index.html?id=2">构造体档案</a>
+                </li>
+                <li>
+                    <a href="/m/index.html?id=3">故事开始</a>
+                </li>
+                <li>
+                    <a href="{myurl name='wap/article/list, id=>1908'}">新闻资讯</a>
+                </li>
+                <div class="ewm_box">
+                    <div class="ewm_weixin">
+                        <a href="javascript:;" class="wx_btn"></a>
+                        <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb_btn"></a>
+                    </div>
+                </div>
+                <div class="change">
+                    <h2>广州库洛科技游戏公司</h2>
+                </div>
+            </ul>
+        </div>
+  {include file="./bottom.html"}
+    </div>
+    <!--预约弹窗-->
+    <div class="co_tips co_tips_login hidden">
+        <div class="co_con">
+            <span class="co_tips_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/co_close.png?{$smarty.const.VERSION}"></span>
+            <div class="co_form">
+                <div class="chengg"></div>
+                <div class="co_title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/co_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+                <div class="rdo_box">
+                    <span class="rdo on and" data-id="android"><i></i></span>
+                    <span class="rdo ios" data-id="ios"><i></i></span>
+
+                </div>
+                <div class="co_input">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码">
+                    <p class="co_error">手机号码错误</p>
+                </div>
+                <div class="co_input">
+                    <input type="text" class="captcha" placeholder="请输入验证码">
+                    <span class="co_captcha">点击刷新</span>
+                    <p class="co_error">验证码错误</p>
+                </div>
+                <div class="co_input">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"><span class="co_codebtn co_codebtn1">发 送</span>
+                    <p class="co_error">验证码错误</p>
+                </div>
+
+                <p class="co_tips_btn co_tips_yybtn"></p>
+            </div>
+
+        </div>
+    </div>
+    <!-- 微信弹窗 -->
+    <div class="wx_tc co_tips hidden">
+        <div class="co_wx">
+            <span class="co_tips_close2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/close2.png?{$smarty.const.VERSION}"></span>
+            <div class="ewm_box">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qrcode.png?{$smarty.const.VERSION}" class="ewm_img">
+                <p class="changan_txt">长按保存图片到相册</p>
+                <p class="changan_txt2">微信进入“扫一扫” <br>并在“相册”内打开图片 <br>识别关注公众号</p>   
+            </div>
+            <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/serve_img.jpg?{$smarty.const.VERSION}" alt="" class="serve_img">
+        </div>
+    </div>
+</body>
+<!-- {download} -->
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/statics.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+<script>
+ //百分比进度条
+        var loadingTxt = 15;
+        var timer,timer1 = null;
+        var widthNum = 15;
+        var clickNumber = 0;
+        var bar = $(".heart_line").css("width",widthNum+"%");
+        var swiper02 = new Swiper('.swiper-container2', {
+        pagination: '.swiper-pagination2',
+        paginationClickable: true,
+        slidesPerView: 1,
+        autoplayDisableOnInteraction : false,
+        autoplay:3000,
+        loop:true,
+        observer: true,
+        observeParents: true,
+        slideToClickedSlide: true
+        });
+        function time_jd(){
+            timer=setInterval(function(){
+            widthNum++;
+            loadingTxt++;
+            $(".heart_line").css("width",widthNum+"%");
+            $("#loading-txt span").html(".  .  .  .  .  .  "+loadingTxt+"%")
+            if(widthNum>=0 && loadingTxt==100){
+                clearInterval(timer);
+                widthNum == 100;
+                $(".loading").addClass("hidden");
+            }
+            },50)
+        }
+        time_jd();
+        $(".wx_btn").click(function(){
+            $(".wx_bg").removeClass("hidden");
+        })
+        $(".h_nav").on("click", function(e) {
+        e.stopPropagation();
+        if(clickNumber % 2 == 0) {
+            $(".d_t_t").addClass("d_t_t_tran");
+            $(".d_t_m").addClass("d_t_m_tran");
+            $(".d_t_b").addClass("d_t_b_tran");
+            $(".header_nav").stop().slideDown();
+            $('.down_list').slideUp(500);
+        } else {
+            $(".d_t_t").removeClass("d_t_t_tran");
+            $(".d_t_m").removeClass("d_t_m_tran");
+            $(".d_t_b").removeClass("d_t_b_tran");
+            $(".header_nav").stop().slideUp();
+            $('.down_list').slideUp(500);
+        }
+        clickNumber++;
+    });
+    $(".header_nav li,.header_nav").click(function() {
+        $(".d_t_t").removeClass("d_t_t_tran");
+        $(".d_t_m").removeClass("d_t_m_tran");
+        $(".d_t_b").removeClass("d_t_b_tran");
+        $(".header_nav").stop().slideUp();
+        clickNumber = 0;
+    })
+
+</script>
+</html>

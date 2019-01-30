@@ -1,0 +1,140 @@
+{include '../../layouts/wap/header.html'}
+		<section>
+			<div class="kv fade">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				{fragment var=video code=index_video size=1}
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/video.png?{$smarty.const.VERSION}" alt="" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"/>
+				<!-- <div class="data_time"></div> -->
+				<div class="download">
+					<!-- <a href="javascript:;" class="down_btn js_wap_down stat_down""></a>
+					<a href="https://www.taptap.com/app/134939"class="stat_tap" target="_blank"></a> -->
+					<a href="javascript:;" class="down_btn"></a>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="cont2 fade">
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/news_tl.png?{$smarty.const.VERSION}" alt="" class="new_tl">
+			<div class="swiper1">
+			{fragment var=act_banner code=new_banner size=5}
+				<div class="swiper-wrapper">
+				{if $act_banner neq ''}
+					{foreach $act_banner as $v}
+					<div class="swiper-slide">
+						<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+							<img src="{$v.thumb}">
+						</a>
+					</div>
+					{/foreach}
+					{/if}
+				</div>
+				<div class="swiper-pagination1"></div>
+			</div>
+			<div class="news fade">
+				<ul class="news-list">
+					<li class="active" data-index="0"><span></span></li>
+					<li data-index="1"><span></span></li>
+					<li data-index="2"><span></span></li>
+					<li data-index="3"><span></span></li>
+					<li class="more"><a href="{myurl name='wap/article/list, id=>619'}"><span></span></a></li>
+				</ul>
+				<ul class="news-info">
+					<li class="info active">
+					     {article id="619" size=4 var=zx}
+						{if $zx neq ''}
+						<ul class="news-info-list">
+						    {foreach $zx as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</li>
+					<li class="info">
+					    {article id="620" size=4 var=xw}
+						{if $xw neq ''}
+						<ul class="news-info-list">
+						    {foreach $xw as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</li>
+					<li class="info">
+					    {article id="621" size=4 var=gg}
+						{if $gg neq ''}
+						<ul class="news-info-list">
+						    {foreach $gg as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</li>
+					<li class="info">
+					    {article id="622" size=4 var=gl}
+						{if $gl neq ''}
+						<ul class="news-info-list">
+						    {foreach $gl as $key=>$v}
+							{if $key >= 0}
+							<li><a href="{$v.wapLinkUrl}"><i>[{$v.name}]</i><span>{$v.title}</span><span>{$v.created_at|date_format:"%Y-%m-%d"}</span></a></li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据...</p>
+						{/if}
+					</li>
+				</ul>
+			</div>
+		</div>
+		</section>
+		<section>
+			<div class="last fade">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/label1.png?{$smarty.const.VERSION}" alt="" class="label1" />
+				<div class="s_play">
+				{fragment var=banner code=index_wap_banner size=5}
+					<ul class="swiper-wrapper">
+					{if $banner neq ''}
+							{foreach $banner as $v}
+						<li class="swiper-slide">
+									<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+										<img src="{$v.thumb}" alt="" />
+										<span></span>
+									</a>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+				<ul class="bottom">
+					<li class="t_weixin">
+						<a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wx.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<li>
+						<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<li>
+						<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wb.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<li>
+						<a href="http://bbs.yingxiong.com/t/pc/33/index" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/lt.png?{$smarty.const.VERSION}" alt="" /></a>
+					</li>
+					<div class="f_weixin"><img src="{$global.wx_img}" alt="" /></div>
+				</ul>
+			</div>
+		</section>
+		{include '../../layouts/wap/footer.html'}

@@ -1,0 +1,50 @@
+{include '../../layouts/wap/header.html'}
+{include '../../layouts/wap/top.html'}
+<!--内容-->
+<div class="i_main">
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="rules">
+			<div class="title">规章制度</div>
+			<div class="budget">
+				<div class="budget_box">
+					{fragment var=index_banner code=rules_list size=1}
+					{if $index_banner neq ''}
+					{foreach $index_banner as $key=>$v}
+					{if $key eq 0}
+					<a href="{$v.url}" target="_blank">
+						<div class="down">
+							<span class="down_img"><img src="{$v.thumb}" alt=""/></span>
+							<div class="txt">
+								<span class="name1">{$v.title}</span>
+								<span class="name2">{$v.sub_title}</span>
+							</div>
+						</div>
+					</a>
+					{/if}
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+
+			<div class="rules_info">
+				{fragment var=index_banner code=rules_list size=30}
+				{if $index_banner neq ''}
+				{foreach $index_banner as $key=>$v}
+				{if $key neq 0}
+				<div>
+					<span class="title1">{$v.title}</span>
+					<div class="sm_info">
+						{$v.summary}
+					</div>
+				</div>
+				{/if}
+				{/foreach}
+				{/if}
+			</div>
+		</div>
+	</div>
+	<!--footer-->
+	{include '../../layouts/wap/bottom.html'}
+</div>
+{include '../../layouts/wap/footer.html'}

@@ -1,0 +1,362 @@
+{include '../../layouts/wap/header.html'}
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/slogan.png?{$smarty.const.VERSION}" class="slogan" />
+				{fragment var=video code=video size=1}
+				<div class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}">
+		        	<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}"/>
+		        	<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/b_play.png?{$smarty.const.VERSION}" class="b_play " >
+		        </div>
+				<div class="juxing">
+					<!--<div class="seeCode"></div>-->
+					<!--<img class="code2" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/code2.png?{$smarty.const.VERSION}">-->
+					<!--<div class="downBox">-->
+						<!--<a class="js_down_ios"><img class="ios" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/ios.png?{$smarty.const.VERSION}"></a>-->
+						<!--<a class="js_down_android"><img class="android" src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/android.png?{$smarty.const.VERSION}"></a>-->
+					<!--</div>-->
+					<!--<a href="{myurl name='site/cover'}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yuyue2.png?{$smarty.const.VERSION}" alt="" class="c_yuyue yxyy" /></a>-->
+					<a href="{myurl name='/m/cover'}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_bigBtn.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+				<p class="person">当前预约人数<span id="yueNum"></span>人</p>
+			</div>
+		</section>
+		<div class="cont2">
+			<div class="news">
+				<ul class="news-list">
+					<li class="active" data-index="0">最新</li>
+					<li data-index="1">新闻</li>
+					<li data-index="2">公告</li>
+					<li data-index="3">活动</li>
+					<li data-index="4">攻略</li>
+					<a href="{myurl name='wap/article/index, id=>473'}"></a>
+				</ul>
+				<div class="swiper1">
+					{fragment var=banner code=banner size=5}
+					<div class="swiper-wrapper">
+						{if $banner neq ''}
+						{foreach $banner as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url neq ''}{$v.url} {else}javascript:;{/if}">
+								<img src="{$v.thumb}">
+							</a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-pagination1"></div>
+				<ul class="news-info">
+					<li class="active info">
+						{article id="473" size=4 var=zx}
+						{if $zx neq ''}
+						<ul class="news-info-list">
+							{foreach $zx as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="474" size=4 var=xw}
+						{if $xw neq ''}
+						<ul class="news-info-list">
+							{foreach $xw as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="475" size=4 var=gg}
+						{if $gg neq ''}
+						<ul class="news-info-list">
+							{foreach $gg as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="476" size=4 var=hd}
+						{if $hd neq ''}
+						<ul class="news-info-list">
+							{foreach $hd as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+					<li class="info">
+						{article id="478" size=4 var=gl}
+						{if $gl neq ''}
+						<ul class="news-info-list">
+							{foreach $gl as $key=>$v}
+							{if $key >= 0}
+							<li>
+								<a href="{$v.wapLinkUrl}">
+									<span><i>[{$v.name}]</i>{$v.title}</span>
+									<span>{$v.created_at|date_format:"%m/%d"}</span>
+								</a>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData">暂无数据</p>
+						{/if}
+					</li>
+				</ul>
+			</div>
+			<div class="tree"></div>
+		</div>
+		<div class="cont3">
+			<div class="title"></div>
+			<div class="jobBox">
+				<ul class="jobList">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="job_person_box">
+					<div class="job_person job1_female">
+
+					</div>
+				</div>
+				<ul class="sexList">
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job1_nan.png?{$smarty.const.VERSION}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job2_nan.png?{$smarty.const.VERSION}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job3_nan.png?{$smarty.const.VERSION}">
+					</li>
+					<li class="active">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job1_nv.png?{$smarty.const.VERSION}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job2_nv.png?{$smarty.const.VERSION}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job3_nv.png?{$smarty.const.VERSION}">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job4_nv.png?{$smarty.const.VERSION}">
+					</li>
+					<!--<li><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/man.png?{$smarty.const.VERSION}"></li>-->
+					<!--<li class="active"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/female.png?{$smarty.const.VERSION}"></li>-->
+				</ul>
+				<div class="play2 js_video_play" id="play1" data-url="http://video.zhengyuetech.com/sd/1acbc6ffd13a4b80be67f72ede638c57.mp4"></div>
+				<div class="play2 js_video_play" id="play2" data-url="http://video.zhengyuetech.com/sd/70594eb6680d4fe8bb31ea25ceab8345.mp4"></div>
+				<div class="play2 js_video_play" id="play3" data-url="http://video.zhengyuetech.com/sd/4b1357b491b64daea6d91ae2d3c8e86f.mp4"></div>
+				<div class="play2 js_video_play" id="play4" data-url="http://video.zhengyuetech.com/sd/ace2de00e1f140edb1fe0b2946302bf9.mp4"></div>
+			</div>
+			<div class="job_information job_information1" style="display: block">
+				<h2><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job.png?{$smarty.const.VERSION}" alt="">浪客</h2>
+				<p class="p1">“战以止戈，方为武道！”</p>
+				<p>浪客是由一群流浪武士组成的团体，他们自称剑术来源于武神之星的庇护。
+					他们因各种原因无家可归、失去亲友，因此，近乎偏执地守护秩序与和平。</p>
+			</div>
+			<div class="job_information job_information2">
+				<h2><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job.png?{$smarty.const.VERSION}" alt="">灵士</h2>
+				<p class="p1">“日落星辰，东升西落，此乃天道”</p>
+				<p>灵士借助星辰的灵力幻化法术，他们总在黑暗中凝视星空，在他们脚下，一个巨大星盘在缓缓转动。
+					他们沉默寡言，却似乎在用目光告诉世人，世事的变幻尽在繁星的图画中。</p>
+			</div>
+			<div class="job_information job_information3">
+				<h2><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job.png?{$smarty.const.VERSION}" alt="">鬼影</h2>
+				<p class="p1">“吾所欲者，唯自由尔。”</p>
+				<p>鬼影因乱世而生，他们曾远赴东瀛，将忍术发展成独特的刺杀技巧。
+					他们遁于黑暗，似是恶鬼，却只为了在乱世中，寻找一片没有政治的“桃花源”。</p>
+			</div>
+			<div class="job_information job_information4">
+				<h2><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/job.png?{$smarty.const.VERSION}" alt="">妙手</h2>
+				<p class="p1">“浮生若梦，为欢几何？”</p>
+				<p>妙手感应天地万物之灵，幻化梦境，治愈世人。
+					在他们眼中，世事荒诞、世人悲苦，人无法心安理得地生存在荒诞之中，因此需要梦境。</p>
+			</div>
+		</div>
+		<div class="cont4">
+			<div class="cont4_container">
+				<div class="cont4_title title1">时装展示</div>
+				<div class="swiper2">
+					{fragment var=banner2 code=banner2 size=5}
+					<div class="swiper-wrapper">
+						{if $banner2 neq ''}
+						{foreach $banner2 as $v}
+						<div class="swiper-slide">
+							<a href="javascript:;">
+								<img src="{$v.thumb}">
+							</a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<!--<div class="swiper-scrollbar"></div>-->
+				<div class="swiper-pagination2"></div>
+				<div class="cont4_title title2">精彩瞬间</div>
+				<div class="video_box">
+					<ul class="videoList">
+						{article id="479" size=4 var=sp}
+						{if $sp neq ''}
+							{foreach $sp as $key=>$v}
+							{if $key >= 0}
+								<li style="background-image: url('{$v.thumb}')"><a class="js_video_play" data-url="{$v.video.media_url}"><span></span></a></li>
+							{/if}
+							{/foreach}
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+{video_play}
+{download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+	<script>
+	$(function(){
+		var u = navigator.userAgent,
+        app = navigator.appVersion;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    if(isAndroid) {
+        // var href = $('.js_wap_down').attr('href');
+        // location.href = href;
+        $(".gw_down").addClass("js_down_andriod");
+    }
+    if(isIOS) {
+    	$(".gw_down").removeClass("js_down_andriod");
+        $(".gw_down").attr("href", "javascript:yx_showTips('敬请期待<br>本次为安卓删档测试');")
+    }
+                  $(".gw_down").click(function() {
+        $(".l_download").stop().fadeOut();
+        clickTap = true;
+});
+	})
+        var mySwiper1 = new Swiper(".swiper1", {
+            autoplay: 5000,
+            pagination : '.swiper-pagination1',
+            paginationType : 'bullets',
+            loop: true,
+			paginationClickable :true,
+			autoplayDisableOnInteraction : false,
+        });
+        var mySwiper2 = new Swiper(".swiper2", {
+            autoplay: 5000,
+            pagination : '.swiper-pagination2',
+            paginationType : 'progress',
+//            scrollbar:'.swiper-scrollbar',
+//            scrollbarHide : false,
+//            scrollbarDraggable : true ,
+//            scrollbarSnapOnRelease : true ,
+            loop: true
+        });
+        $(".news-list").find('li').click(function() {
+            if($(this).hasClass('active')){
+                return;
+            }
+            var index = parseInt($(this).attr('data-index'));
+            $('.news-list').find('li').removeClass('active');
+            $(this).addClass('active');
+            $('.news-info').find('li').removeClass('active');
+            $('.news-info').find('li.info').eq(index).addClass('active');
+        });
+        $('.jobList').find('li').click(function () {
+            $('.jobList').find('li').removeClass('active');
+            $(this).addClass('active');
+            var index=$(".jobList li").index(this);
+            var num = $('.sexList li.active').index();
+            if(index == 3){
+                $('.sexList').find('li:nth-child(1)').hide();
+                $('.sexList').find('li:nth-child(1)').removeClass('active');
+                $('.sexList').find('li:nth-child(2)').addClass('active');
+                num = 1;
+			}else{
+                $('.sexList').find('li:nth-child(1)').show();
+			}
+            showJobx(index,num);
+        })
+        $('.sexList').find('li').click(function () {
+            $('.sexList').find('li').removeClass('active');
+            $(this).addClass('active');
+            var index=$(".jobList li.active").index();
+            var num = $('.sexList li.active').index();
+            showJobx(index,num);
+        })
+		function showJobx(index,num) {
+            var target = $('.job_person');
+            $('.job_person').removeClass();
+            $(target).addClass('job_person');
+            $('.sexList').find('li').eq(0).find('img').hide();
+            $('.sexList').find('li').eq(0).find('img').eq(index).show();
+            $('.sexList').find('li').eq(1).find('img').hide();
+            $('.sexList').find('li').eq(1).find('img').eq(index).show();
+			if(num == 0){
+			    switch (index){
+					case 0 : $(target).addClass('job1_man');$('.job_information').hide();$('.job_information1').show();
+						     $('.play2').hide();$('#play1').show();break;
+					case 1 : $(target).addClass('job2_man');$('.job_information').hide();$('.job_information2').show();
+                        	 $('.play2').hide();$('#play2').show();break;
+					case 2 : $(target).addClass('job3_man');$('.job_information').hide();$('.job_information3').show();
+                        	 $('.play2').hide();$('#play3').show();break;
+					case 3 : $(target).addClass('job4_man');$('.job_information').hide();$('.job_information4').show();
+                        	 $('.play2').hide();$('#play4').show();break;
+				}
+			}else{
+                switch (index){
+                    case 0 : $(target).addClass('job1_female');$('.job_information').hide();$('.job_information1').show();
+							 $('.play2').hide();$('#play1').show();break;
+                    case 1 : $(target).addClass('job2_female');$('.job_information').hide();$('.job_information2').show();
+                         	 $('.play2').hide();$('#play2').show();break;
+                    case 2 : $(target).addClass('job3_female');$('.job_information').hide();$('.job_information3').show();
+                        	 $('.play2').hide();$('#play3').show();break;
+                    case 3 : $(target).addClass('job4_female');$('.job_information').hide();$('.job_information4').show();
+                        	 $('.play2').hide();$('#play4').show();break;
+                }
+			}
+        }
+	</script>
+	<script>
+		var url = '/common/get-yuyue-count.html';
+		$(function () {
+		    var params = {
+				'name':'fwy_total',
+                "cms_csrf": $("meta[name='csrf-token']").attr("content")
+			}
+            $.post(url,params,function(data){
+                    if(data.status == 0){
+                        $('#yueNum').text(data.msg);
+                    }
+			},'json');
+        })
+	</script>
+{include '../../layouts/wap/footer.html'}

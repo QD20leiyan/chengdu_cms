@@ -1,0 +1,522 @@
+{include '../../layouts/wap/header.html'}
+<section class="kv-box">
+	{fragment var=video code=index_video size=1}
+    <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/play.png?{$smarty.const.VERSION}"></a>
+    <!--<aside class="btn-yuyue"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/btn_yuyue.png?{$smarty.const.VERSION}"></aside>-->
+    <aside class="down-ico"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/down_ico.png?{$smarty.const.VERSION}"></aside>
+	<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/yuyue.png?{$smarty.const.VERSION}" alt="" class="yuyue p_yuyue" />
+	<a href="javascript:;" class="ce js_wap_down stat_down"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/ce.png?{$smarty.const.VERSION}" alt="" /></a>
+    
+</section>
+<section>
+			<div class="login">
+				<div class="c_login">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="c_main">
+						<ul>
+							<li class="active" data-type="ios"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/ios.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/ios_h.png?{$smarty.const.VERSION}" alt="" /></li>
+							<li data-type="android"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/and.png?{$smarty.const.VERSION}" alt="" /><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/and_h.png?{$smarty.const.VERSION}" alt="" /></li>
+						</ul>
+						<input type="tel" placeholder="请输入手机号" class="phone" />
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="t_yzm" />
+							<div class="captcha">
+								<img src="" alt="" />
+							</div>
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="yzm" />
+							<input type="button" value="获取验证码" class="g_code" />
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yuyue.png?{$smarty.const.VERSION}" alt="" class="l_yuyue" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="success">
+				<div class="c_success">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<p class="s_p">恭喜您预约成功</p>
+					<p class="m_p">您已成功预约《三国演义：最强武将传》 我们将在开测第一天为您带来最新资讯</p>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/sure.png?{$smarty.const.VERSION}" alt="" class="sure" />
+				</div>
+			</div>
+		</section>
+<section class="news-wrapper">
+    <article class="banner-box">
+        <div class="slider">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                {fragment var=banner code=home_banner size=5}
+                    {if $banner neq ''}
+	                    {foreach $banner as $v}
+		                    <div class="swiper-slide">
+		                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""></a>
+		                    </div>
+	                    {/foreach}
+                    {/if}
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+        </div>
+    </article>
+    <article class="news-box">
+        <aside class="nav tab-wrapper">
+            <ul class="clearfix tab-menu">
+                <li class="curr">最新</li>
+                <li>新闻</li>
+                <li>公告</li>
+                <li>活动</li>
+                <a href="{myurl name='wap/list, id=>571'}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/more_icon.png?{$smarty.const.VERSION}"></a>
+            </ul>
+            <div class="tab-content">
+                <div class="news-list">
+                	{article id="571" size=4 var=zx}
+	                {if $zx neq ''}
+	                	{foreach $zx as $key=>$v}
+		                	{if $key >= 0}
+		                    <a href="{$v.wapLinkUrl}"><span>【{$v.name}】{$v.title}</span><label>{$v.created_at|date_format:"%m/%d"}</label></a>
+		                    {/if}
+						{/foreach}
+					{else}
+						<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+					{/if}
+                </div>
+                <div class="news-list">
+                	{article id="572" size=4 var=xw}
+                	{if $xw neq ''}
+						{foreach $xw as $key=>$v}
+							{if $key >= 0}
+                   			<a href="{$v.wapLinkUrl}"><span>【{$v.name}】{$v.title}</span><label>{$v.created_at|date_format:"%m/%d"}</label></a>
+                   			{/if}
+						{/foreach}
+					{else}
+						<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+					{/if}
+                </div>
+                <div class="news-list">
+                	{article id="573" size=4 var=gg}
+                	{if $gg neq ''}
+						{foreach $gg as $key=>$v}
+							{if $key >= 0}
+                    		<a href="{$v.wapLinkUrl}"><span>【{$v.name}】{$v.title}</span><label>{$v.created_at|date_format:"%m/%d"}</label></a>
+                    		{/if}
+						{/foreach}
+					{else}
+						<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+					{/if}
+                </div>
+                <div class="news-list">
+                    {article id="574" size=4 var=hd}
+                	{if $hd neq ''}
+						{foreach $hd as $key=>$v}
+							{if $key >= 0}
+                    		<a href="{$v.wapLinkUrl}"><span>【{$v.name}】{$v.title}</span><label>{$v.created_at|date_format:"%m/%d"}</label></a>
+                    		{/if}
+						{/foreach}
+					{else}
+						<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+					{/if}
+                </div>
+            </div>
+        </aside>
+    </article>
+    <article class="news-box newest-box">
+        <aside class="nav">
+            <ul class="clearfix">
+                <li>攻略中心<span>/&nbsp;STRATEGY</span></li>
+                <a href="{myurl name='wap/list, id=>576'}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/more_icon.png?{$smarty.const.VERSION}"></a>
+            </ul>
+        </aside>
+        <div class="news-list">
+        	{article id="576" size=4 var=gl}
+        	{if $gl neq ''}
+				{foreach $gl as $key=>$v}
+					{if $key >= 0}
+            		<a href="{$v.wapLinkUrl}"><span>【{$v.name}】{$v.title}</span><label>{$v.created_at|date_format:"%m/%d"}</label></a>
+            		{/if}
+				{/foreach}
+			{else}
+				<p class="noData" style="line-height: 2.65625rem;color: #ad886d;text-align: center;">暂无数据...</p>
+			{/if}
+        </div>
+    </article>
+    <article class="news-box newest-box video-box">
+        <aside class="nav">
+            <ul class="clearfix">
+                <li>视频中心<span>/&nbsp;VIDEO</span></li>
+                <a href="{myurl name='/wap/video/index, id=>577'}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/more_icon.png?{$smarty.const.VERSION}"></a>
+            </ul>
+        </aside>
+        <aside class="video-wrapper">
+            <ul class="clearfix">
+            	{article id="577" size=4 var=sp}
+            	{if $sp neq ''}
+	            	{foreach $sp as $key=>$v}
+						{if $key >= 0}
+			                <li>
+			                    <img src="{$v.thumb}">
+			                    <p>{$v.title}</p>
+			                    <i class="js_video_play" data-url="{$v.video.media_url}"></i>
+			                </li>
+		                {/if}
+					{/foreach}
+				{/if}
+            </ul>
+        </aside>
+    </article>
+    <!--<article class="news-box newest-box" style="height: 2rem;">
+        <aside class="nav">
+            <ul class="clearfix">
+                <li>英雄殿堂<span>/&nbsp;HERO</span></li>
+                <a href="#"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/more_icon.png?{$smarty.const.VERSION}"></a>
+            </ul>
+        </aside>
+    </article>-->
+    <!--<article class="news-box hero-box">
+        <aside class="nav tab-wrapper ">
+            <ul class="clearfix tab-menu">
+                <li class="curr">弓兵</li>
+                <li>骑兵</li>
+                <li>枪兵</li>
+                <li>壁纸</li>
+            </ul>
+            <div class="tab-content">
+                <div class="news-list">
+                    <ul class="hero-nav clearfix lists-nav">
+                        <li class="curr">魏</li>
+                        <li>蜀</li>
+                        <li>吴</li>
+                        <li>群</li>
+                    </ul>
+                    <div class="hero-list l_inf show">
+                        <div class="swiper-container swiper-container2">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <ul class="clearfix hero-li">
+                                        <li>
+                                            <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                            <p>董卓</p>
+                                        </li>
+                                        <li>
+                                            <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                            <p>董卓</p>
+                                        </li>
+                                        <li>
+                                            <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                            <p>董卓</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <ul class="clearfix hero-li">
+                                            <li>
+                                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                                <p>董卓</p>
+                                            </li>
+                                            <li>
+                                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                                <p>董卓</p>
+                                            </li>
+                                            <li>
+                                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                                <p>董卓</p>
+                                            </li>
+                                        </ul>
+                                </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="swiper-slide">
+                                        <ul class="clearfix hero-li">
+                                            <li>
+                                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                                <p>董卓</p>
+                                            </li>
+                                            <li>
+                                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                                <p>董卓</p>
+                                            </li>
+                                            <li>
+                                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                                <p>董卓</p>
+                                            </li>
+                                        </ul>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-list l_inf hide">
+                        <ul class="clearfix hero-li">
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                        </ul>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    
+                    <div class="hero-list l_inf hide">
+                        <ul class="clearfix hero-li">
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                        </ul>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    
+                    <div class="hero-list l_inf hide">
+                        <ul class="clearfix hero-li">
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                            <li>
+                                <img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/img2.png?{$smarty.const.VERSION}" alt="">
+                                <p>董卓</p>
+                            </li>
+                        </ul>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    
+                </div>
+                <div class="news-list">
+                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>
+                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>
+                </div>
+                <div class="news-list">
+                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>
+                </div>
+                <div class="news-list">
+                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>
+                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>
+                    <a href=""><span>【新闻】《三国演义》10月9日新服开启月9日新服开启</span><label>05/06</label></a>
+                </div>
+            </div>
+        </aside>
+    </article>-->
+
+</section>
+<section class="game-wrapper">
+    <aside class="game-title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/game-title.png?{$smarty.const.VERSION}"></aside>
+    <div class="slider">
+        <div class="swiper-container swiper-container3">
+        	{fragment var=banner code=index_banner size=5}
+            <div class="swiper-wrapper">
+            	{if $banner neq ''} 
+	            	{foreach $banner as $v}
+		                <div class="swiper-slide">
+		                    <li class="game-list">
+		                        <img src="{$v.thumb}" alt="">
+		                    </li>
+		                </div>
+	                {/foreach} 
+                {/if}
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination swiper-pagination3"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        
+    </div>
+</section>
+<section class="channel-wrapper">
+    <article class="news-box newest-box">
+        <aside class="nav">
+            <ul class="clearfix">
+                <li>官方渠道<span>/&nbsp;CHANNEL</span></li>
+            </ul>
+        </aside>
+        <div class="official">
+            <a href="https://jq.qq.com/?_wv=1027&amp;k=5DiyXYe" class="qq1"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/q1.png?{$smarty.const.VERSION}" alt="" /></a>
+            <a href="https://jq.qq.com/?_wv=1027&amp;k=5q8cYgW" class="qq2"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/q2.png?{$smarty.const.VERSION}" alt="" /></a>
+            <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="wb"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/wb.png?{$smarty.const.VERSION}" alt="" /></a>
+            <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="lt"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/tbpng.png?{$smarty.const.VERSION}" alt="" /></a>
+            <span class="gzh">
+                <img src="{$global.wx_img}" alt="">
+            </span>
+        </div>
+    </article>
+</section>
+{include '../../layouts/wap/footer.html'}
+<script>
+var srf = $("meta[name='csrf-token']").attr("content");
+function stop() {
+	$("html,body").css({
+		"overflow": "hidden",
+		"width": "100%",
+		"height": "100%"
+	});
+};
+
+function move() {
+	$("html,body").css({
+		"overflow": "visible",
+		"width": "100%",
+		"height": "auto"
+	});
+};
+//60s倒计时验证
+var countdown = 60;
+
+function sendemail() {
+	var obj = $(".g_code");
+	settime(obj);
+};
+
+function settime(obj) { //发送验证码倒计时
+	if(countdown == 0) {
+		obj.attr('disabled', false);
+		obj.val("获取验证码");
+		countdown = 60;
+		return;
+	} else {
+		obj.attr('disabled', true);
+		obj.val("重新发送(" + countdown + ")");
+		countdown--;
+	}
+	setTimeout(function() {
+		settime(obj)
+	}, 1000)
+};
+//图片验证码
+function load_captcha() {
+	var imgUrl = "{myurl name='commonMethod/captcha,refresh=>1'}";
+	$.get(imgUrl, {}, function(data) {
+		$(".captcha img").attr("src", data.url);
+	}, 'json');
+}
+$(function(){
+	load_captcha();
+    var swiper01 = new Swiper('.swiper-container1',{
+        pagination: '.swiper-pagination1',
+        autoplay:3000
+    });
+    var swiper02 = new Swiper('.swiper-container2',{
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+    });
+    $(".p_yuyue").on("click", function() {
+		$(".login").show();
+		stop();
+	});
+	$(".g_code").click(function() {
+				var phone = $(".phone").val();
+				var t_yzm = $(".t_yzm").val();
+				var type = $(".c_main ul li.active").attr("data-type");
+				if(phone == "" || phone == undefined) {
+					alert("手机号不能为空");
+					return;
+				}
+				if(phone.length != 11) {
+					alert("手机号不正确");
+					return;
+				}
+				if(t_yzm == "" || t_yzm == undefined) {
+					alert("图片验证码不能为空");
+					return;
+				}
+				$.post("{myurl name='commonMethod/ajax-yuyue-verify'}", {
+					"phone": phone,
+					"captcha": t_yzm,
+					"type": type,
+					"cms_csrf": srf
+				}, function(data) {
+					if(data.status == 0) {
+						sendemail();
+					} else {
+						load_captcha()
+						alert(data.msg);
+					}
+				}, "json");
+			});
+			$(".c_main ul li").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".l_yuyue").click(function() {
+                fgw_yy_wap();
+				var phone = $(".phone").val();
+				var yzm = $(".yzm").val();
+				var type = $(".c_main ul li.active").attr("data-type");
+				if(phone == "" || phone == undefined) {
+					alert("手机号不能为空");
+					return;
+				}
+				if(phone.length != 11) {
+					alert("手机号不正确");
+					return;
+				}
+				if(yzm == "" || yzm == undefined) {
+					alert("验证码不正确");
+					return;
+				}
+				$.post("{myurl name='commonMethod/ajax-yuyue'}", {
+					"phone": phone,
+					"yzm": yzm,
+					"type": type,
+					"cms_csrf": srf
+				}, function(data) {
+					if(data.status == 0) {
+                        fgw_yy_wap_success();
+						$(".login").hide();
+						$(".success").show();
+						move();
+					} else {
+						load_captcha()
+						alert(data.msg);
+					}
+				}, "json");
+			});
+			$(".close").click(function() {
+				$(this).parent().parent().hide();
+				move();
+			});
+			$(".sure").click(function() {
+				$(".success").hide();
+				move();
+			})
+			$(".captcha").click(function() {
+				load_captcha();
+			});
+    var swiper03 = new Swiper('.swiper-container3',{
+        loop:true,
+        pagination: '.swiper-pagination3',
+        autoplay:2000,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+    });
+});
+</script>

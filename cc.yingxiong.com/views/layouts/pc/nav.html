@@ -1,0 +1,214 @@
+{if $language eq zh_cn}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?{$smarty.const.VERSION}"></script>
+{else}
+{include './header_bar.html'}
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/public/jquery-1.7.1.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/js/index.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+{/if}
+<div class="i_head" name="{$style}">
+	<div class="i_h_content">
+		<ul {if $language eq zh_cn}class="i_h_nav"{else} class="i_h_nav_en"{/if}>
+		<li>
+			<a href='{myurl name="site/index"}'>
+				{#navName1#}
+				{if $language eq zh_cn}
+						<span>
+                            HOME
+                        </span>
+				{/if}
+			</a>
+		</li>
+		{if $style eq 'xinwen' or $style eq 'zhanzheng' or $style eq 'faq'}
+		<li class="active">
+			{else}
+		<li>
+			{/if}
+			<a href="{myurl name='article/index,type=>xinwen,page=>1'}">
+			<!--<a href="">-->
+			{#navName3#}
+			{if $language eq zh_cn}
+						<span>
+                            NEWS
+                        </span>
+			{/if}
+			</a>
+		</li>
+		{if $style eq 'video'}
+		<li class="active">
+			<a href='javascript:'>
+				{else}
+				<li>
+					<!-- href='{myurl name="video/index"}' target="_blank" -->
+					<a href="{myurl name='video/index'}">
+						{/if}
+						{#navName2#}
+						{if $language eq zh_cn}
+						<span>
+                            MEDIA
+                        </span>
+						{/if}
+					</a>
+				</li>
+				<li class="i_logo">
+				</li>
+				{if $style eq 'gonglue'}
+				<li class="active">
+					{else}
+				<li>
+					{/if}
+					<a href="{myurl name='article/index,type=>gonglue,page=>1'}">
+						{#navName4#}
+						{if $language eq zh_cn}
+						<span>
+                            GAME GUIDE
+                        </span>
+						{/if}
+					</a>
+				</li>
+				<li {if $language eq zh_cn}{else}class="theData hidden"{/if}>
+				<a href="javascript:alert('{#jqqd#}')">
+					{#navName5#}
+					{if $language eq zh_cn}
+						<span>
+                            STATS STATISTICS
+                        </span>
+					{/if}
+				</a>
+		</li>
+		<li class="no_margin" id="i_gfqd">
+			<a href="javascript:">
+				{#navName6#}
+				{if $language eq zh_cn}
+						<span>
+                            COMMUNITY
+                        </span>
+				{/if}
+			</a>
+		</li>
+		</ul>
+		<div id="topNav" class="i_h_ginf">
+			<div>
+				<ul {if $language eq zh_cn}{else}class="sj_en"{/if}>
+					<li class="no_margin_left">
+						{if $language eq zh_cn}
+						<a href="http://bbs.yingxiong.com/t/pc/15.html" target="_blank">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_gflt.png?{$smarty.const.VERSION}">
+								<span>
+                                {#lt#}
+                            </span>
+						</a>
+						{else}
+						<a href="https://www.facebook.com/redtides.mobile/?tsid=0.7278705859292902&source=result" target="_blank">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/facebook_en.png?{$smarty.const.VERSION}">
+								<span>
+                                {#lt#}
+                            </span>
+						</a>
+						{/if}
+					</li>
+					<li>
+						{if $language eq zh_cn}
+						<a href="{$global.tb_url}" target="_blank">
+							<img src="{$global.tb_img}">
+							<span>
+							{#tb#}
+							</span>
+						</a>
+						{else}
+						<a href="https://www.youtube.com/channel/UC-maiOYUEXdHJoRgEyCss8w" target="_blank">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/tube_en.png?{$smarty.const.VERSION}">
+							<span>
+							{#tb#}
+							</span>
+						</a>
+						{/if}
+					</li>
+					<li>
+						{if $language eq zh_cn}
+						<a href="{$global.wb_url}" target="_blank">
+							<div>
+								<img src="{$global.wb_img}">
+							</div>
+							<span>
+							{#wb#}
+							</span>
+						</a>
+						{else}
+						<a href="https://www.facebook.com/groups/1943608089188419/?ref=pages_groups_card&source_id=1896331897282413" target="_blank">
+							<div style="border:none;">
+								<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/facebook_en.png?{$smarty.const.VERSION}">
+							</div>
+							<span>
+							{#wb#}
+							</span>
+						</a>
+						{/if}
+					</li>
+					<li class="no_margin_right no_border">
+						{if $language eq zh_cn}
+						<div>
+							<img src="{$global.wx_img}">
+
+						</div>
+						<span>
+						{#weixin#}
+						</span>
+						{else}
+						<a href="https://forum.gamer.com.tw/A.php?bsn=32971" target="_blank">
+							<div style="border:none;">
+								<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/bhmt_en.png?{$smarty.const.VERSION}">
+							</div>
+							<span>
+							{#weixin#}
+							</span>
+						</a>
+						{/if}
+					</li>
+					{if $language eq zh_cn}
+					<li class="no_margin_right no_border c_qq">
+						<div>
+							<img src="{$global.group_num}">
+						</div>
+							<span>
+                            {#qqGroup#}
+                            </span>
+						<div class="i_h_qq">
+							<span>
+								365057262(iOS{#Group1#})
+							</span>
+							<span>
+								479578417(iOS{#Group2#})
+							</span>
+							<span>
+								413576671(iOS{#Group3#})
+							</span>
+						</div>
+					</li>
+					{/if}
+					{if $language eq zh_cn}
+					<li class="no_margin_right no_border">
+						<div class="bordern" style="border:none;">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_kf.png?{$smarty.const.VERSION}">
+						</div>
+								<span>
+								{#qf#}
+								</span>
+						<div class="i_h_qq bordern" style="border:none;">
+								<span>
+									客服服务电话:
+								</span>
+								<span style="color:#A74241;">
+									4009393333
+								</span>
+								<span>
+									BUG反馈，游戏问题
+								</span>
+						</div>
+					</li>
+					{/if}
+				</ul>
+				<img {if $language eq zh_cn}class="sj_icon"{else}class="sj_icon_en"{/if} src="{$smarty.const.STATIC_DOMAIN}2.0/images/c_icon2.png?{$smarty.const.VERSION}">
+			</div>
+		</div>
+	</div>
+</div>

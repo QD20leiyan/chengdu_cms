@@ -1,0 +1,115 @@
+{include '../layouts/pc/header.html'}
+<div class="header">
+	<div class="logo_box"></div>
+	<div class="right_box">
+		<ul class="nav_list">
+			<li><a class="" href="/">首页<i class="ic_line"></i></a></li>
+			<li><a href="http://hero.doc.sdksrv.com/#!usdk/index.md" target="_blank">SDK下载<i class="ic_line"></i></a></li>
+			<li><a href="http://usdk.yingxiong.com/huadmin">进入控制台<i class="ic_line"></i></a></li>
+		</ul>
+	</div>
+</div>
+<div class="wrap">
+	<div class="hero-usdk">
+		<div class="list">
+			<div class="list_box">
+				<div>
+					<div class="type">
+						<span class="active type1">支持渠道列表</span>
+						<span class="type2">支持插件列表</span>
+					</div>
+					<div class="list_info">
+						<table class="table table1 " border="0" cellpadding="0" cellspacing="0">
+							<thead>
+							<tr>
+								<th>渠道ID</th>
+								<th>渠道名称 </th>
+								<th>版本号</th>
+								<th>渠道后台</th>
+							</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+						<table class="table table2 hidden" border="0" cellpadding="0" cellspacing="0">
+							<thead>
+							<tr>
+								<th>插件ID</th>
+								<th>插件名称 </th>
+								<th>版本号</th>
+								<th>插件描述</th>
+							</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}
+<script>
+	var qd_url='http://usdk.yingxiong.com/huadmin/admin/api/channelList';//渠道列表
+	var cj_url='http://usdk.yingxiong.com/huadmin/admin/api/plugList';//插件列表
+	$(function(){
+		var search=location.search;
+		if(search=="?jc"){
+			$(".list_info .table1").removeClass("hidden");
+			$(".list_info .table2").addClass("hidden");
+			$(".type1").addClass("active").siblings().removeClass("active");
+		}else if(search=="?gj"){
+			$(".list_info .table1").addClass("hidden");
+			$(".list_info .table2").removeClass("hidden");
+			$(".type2").addClass("active").siblings().removeClass("active");
+		}
+
+		//列表切换
+		$(".list_box .type>span").click(function(){
+			var index=$(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".list_info .table").eq(index).removeClass("hidden").siblings(".list_info .table").addClass("hidden");
+		});
+
+		//渠道获取
+		$.ajax({
+			'url':qd_url,
+			'data':{},
+			'type':'GET',
+			'dataType':'Json',
+			success:function(data){
+				if(data.data.length>0){
+					var result = '';
+					for(var i = 0; i < data.data.length; i++) {
+						result += "<tr><td>"+data.data[i].id+"</td><td>"+data.data[i].name+"</td><td>"+data.data[i].sdkVerName+"</td><td><a  target='_blank' href=' "+(data.data[i].home?data.data[i].home:"")+"' class='link "+(data.data[i].home?"link1":"")+"'>"+(data.data[i].home?"查看":"暂无")+"</a></td></tr>";
+					}
+					$('.table1 tbody').append(result);
+				}else{
+//					$(".price_no").removeClass("hidden");
+				}
+			}
+		});
+		//插件获取
+		$.ajax({
+			'url':cj_url,
+			'data':{},
+			'type':'GET',
+			'dataType':'Json',
+			success:function(data){
+				if(data.data.length>0){
+					var result = '';
+					for(var i = 0; i < data.data.length; i++) {
+						result += "<tr><td>"+data.data[i].id+"</td><td>"+data.data[i].name+"</td><td>"+data.data[i].verName+"</td><td><a class='link'>"+data.data[i].desc+"</a></td></tr>";
+					}
+					$('.table2 tbody').append(result);
+				}else{
+//					$(".price_no").removeClass("hidden");
+				}
+			}
+		});
+	});
+</script>

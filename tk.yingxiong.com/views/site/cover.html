@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/cover1212.css?{$smarty.const.VERSION}" />
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+	<script data-fixed="true">
+		if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+</head>
+<body class="stat_page_cover">
+<!--header-->
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js?10.0"></script>
+
+<!--内容-->
+<div class="i_main">
+	<div class="login_info hidden">
+		<!--登录前-->
+		<p class="co_before ">HI，请
+			<span class="co_loginbtn">【登录】</span>
+			<span class="co_info">已成功邀请<i class="friend">0</i>人</span>
+		</p>
+		<!--登录后-->
+		<p class="co_after hidden">HI，
+			<span class="user_phone">15520817601</span>
+			<span class="logout">注销</span>
+			<span class="co_info">已成功邀请<i class="friend">0</i>人</span>
+		</p>
+	</div>
+	<!--kv-->
+	<div class="top">
+		<div class="logo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_logo.png?{$smarty.const.VERSION}" alt="" /></div>
+		<div class="nav_inter">
+			<ul>
+				<li><a href="/index.html" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_nav1.png?{$smarty.const.VERSION}" alt=""/></a></li>
+				<li><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_nav2.png?{$smarty.const.VERSION}" alt=""/></a></li>
+				<li><a href="/p/active.html" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_nav3.png?{$smarty.const.VERSION}" alt=""/></a></li>
+			</ul>
+		</div>
+		<div class="wrap">
+			<div class="slogan">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_slogan.png?{$smarty.const.VERSION}" alt=""/>
+				{fragment var=video code=index_video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"></a>
+			</div>
+			<div class="download">
+				<div class="con">
+					<div class="code">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_code.png?{$smarty.const.VERSION}" class="js_jump_img">
+						<i></i>
+					</div>
+					<div class="btn">
+						<a href="javascript:;" class="js_down_ios stat_event_cover_down stat_event_cover_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_ios.png?{$smarty.const.VERSION}" alt=""></a>
+						<!-- <a href="javascript:;" class="stat_event_cover_yy yue_btn" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_and
+						.png?{$smarty.const.VERSION}" alt=""></a> -->
+						<a href="javascript:;" class="stat_event_cover_andriod js_down_andriod stat_event_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_and2.png?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<!-- <p style="color: #fff;position: absolute;bottom: 190px;width: 1200px;margin-left: -600px;text-align: center;left: 50%;">现在为预下载状态，12月26日10:00正式开服</p> -->
+
+		</div>
+		<video class="video" src="{$smarty.const.STATIC_DOMAIN}1.0/video/video1.mp4" id="video1" autoplay="autoplay" loop="loop" muted=""></video>
+	</div>
+	<!--module1-->
+	<div class="module1">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_tit1.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="newgift">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_newgift1.png?{$smarty.const.VERSION}" alt=""/>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_newgift2.png?{$smarty.const.VERSION}" alt=""/>
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_newgift3.png?{$smarty.const.VERSION}" alt=""/>
+			</div>
+		</div>
+	</div>
+	<!--module2-->
+	<div class="module2">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_tit2.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="sixbox">
+				<div class="six six1"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six1.png?{$smarty.const.VERSION}" alt=""></div>
+				<div class="six six2"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six2.png?{$smarty.const.VERSION}" alt=""></div>
+				<div class="six six3"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six3.png?{$smarty.const.VERSION}" alt=""></div>
+				<div class="six six4"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six4.png?{$smarty.const.VERSION}" alt=""></div>
+				<div class="six six5"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six5.png?{$smarty.const.VERSION}" alt=""></div>
+				<div class="six six6"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six6.png?{$smarty.const.VERSION}" alt=""></div>
+				<div class="six six7"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_six7.png?{$smarty.const.VERSION}" alt=""></div>
+			</div>
+		</div>
+	</div>
+	<!--module3-->
+	<div class="module3">
+		<div class="wrap">
+			<div class="chengg"></div>
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_tit3.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="jt"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_jt.png?{$smarty.const.VERSION}" alt=""/></div>
+		</div>
+	</div>
+	<!--视听盛宴-->
+	<div id="st_sy" class="st_sy">
+		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/audio_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+		<div class="st_audio">
+			<div class="swiper-container swiper-container3">
+				<div class="swiper-wrapper">
+					{article id="642" size=50 var=audio}
+					{if $audio neq ''}
+					{foreach $audio as $key=>$v}
+					{if $key >= 0}
+					<div class="swiper-slide" data-url="{$v.sub_title}">
+						<!--<div class="cdbox"><i></i><img class="images" src="{if $v.thumb}{$v.thumb}{else}{$smarty.const.STATIC_DOMAIN}1.0/images/co_cdimg.png?{$smarty.const.VERSION}{/if}" alt=""></div>-->
+						<div class="cdbox"><i></i><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/images/co_cdimg.png?{$smarty.const.VERSION}" alt=""></div>
+						<div class="lightbox"><div class="light"><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/images/light1.png?{$smarty.const.VERSION}" alt=""></div></div>
+						<div class="shaft"><img class="images" src="{$smarty.const.STATIC_DOMAIN}1.0/images/shaft.png?{$smarty.const.VERSION}" alt=""></div>
+					</div>
+					{/if}
+					{/foreach}
+					{/if}
+				</div>
+			</div>
+			<div class="bigplaybtn"></div>
+			<div class="swiperbox">
+				<div class="swiper-container swiper-container4">
+					<div class="swiper-wrapper">
+						{article id="642" size=50 var=audio}
+						{if $audio neq ''}
+						{foreach $audio as $key=>$v}
+						{if $key >= 0}
+						<div class="swiper-slide {if $key == 0}active{/if}">
+							<div class="album">
+								<span class="audio_name">{$v.title}</span>
+								<span class="audio_play"><i class="playbtn"></i><i class="audio_time">{$v.contentMessage}</i></span>
+								<img class="images" src="{$v.thumb}" alt="">
+							</div>
+						</div>
+						{/if}
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-button-prev swiper4_prev"></div>
+				<div class="swiper-button-next swiper4_next"></div>
+			</div>
+		</div>
+		<audio src="" id="music1"></audio>
+	</div>
+	<!--底部-->
+	<div class="f_main">
+		<div class="wrap">
+			<div class="main3_board">
+				<div class="left fl">
+					<p class="tittle_sm"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/title.png?{$smarty.const.VERSION}" class="title2"></p>
+					<ul class="act_info">
+						<li>
+							<i>1</i><p>新手好礼：在游戏内创建新角色的玩家均可在游戏内获取新手福利一份，每个帐号限领取一次；</p>
+						</li>
+						<li>
+							<i>2</i><p>成长好礼：玩家达到相应等级均可获得相应等级奖励一份（奖励将在角色升级时自动获得）。</p>
+						</li>
+						<li>
+							<i>3</i><p>七日登录礼：玩家累计登录1/2/3/4/5/6/7天均可获取相应登录奖励一份（奖励可在七日活动界面领取，玩家需领取完当前登录奖励才可领取下一天登录奖励），每个帐号限领取一次。</p>
+						</li>
+						<li>
+							<i>4</i><p>若因不可抗拒的因素，比如网络、作弊等非公司原因导致活动出现异常情况，英雄互娱有权暂停或调整规则，活动最终解释权归英雄互娱所有。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="right fr">
+					<div class="relate_us">
+						<div class="qq_con">
+							<img src="{if $global.group}{$global.group}{else}javascript:yx_showTips('敬请期待');{/if}" alt="">
+							<p><a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">官方QQ群1</a></p>
+						</div>
+						<div class="qq_con">
+							<img src="{if $global.tb_img}{$global.tb_img}{else}javascript:yx_showTips('敬请期待');{/if}" alt="">
+							<p><a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">百度贴吧</a></p>
+							<!--<p><a href="https://jq.qq.com/?_wv=1027&k=5p92IlK" target="_blank">官方QQ群2</a></p>-->
+						</div>
+						<ul>
+							<li><a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">官方微博</a></li>
+							<li><a href="javascript:yx_showTips('敬请期待');">官方客服</a></li>
+							<li><a href="http://bbs.yingxiong.com/t/pc/45/index" target="_blank">官方论坛</a></li>
+						</ul>
+					</div>
+					<div class="down_box">
+						<a href="javascript:;" class="ios js_down_ios stat_event_cover_down stat_event_cover_ios" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ios.png?{$smarty.const.VERSION}" alt="" /></a>
+						<a href="javascript:;" class="stat_event_cover_andriod js_down_andriod stat_event_cover_down and" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/an2.png?{$smarty.const.VERSION}" alt="" /></a>
+						<a href="https://www.taptap.com/app/80072" target="_blank" class="tap no_channel stat_event_cover_down stat_event_cover_tap"><img src="{$smarty.const.STATIC_DOMAIN}1.0/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--登录弹框-->
+<div class="co_tips co_tips_login hidden">
+	<div class="co_con">
+		<p class="co_tips_title co_tips_logintitle"></p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+			<div class="co_input">
+				<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+				<p class="co_error">手机号码错误</p>
+			</div>
+			<div class="co_input">
+				<input type="text"  class="captcha" placeholder="请输入验证码"/>
+				<span class="co_captcha">点击图片刷新</span>
+				<p class="co_error">验证码错误</p>
+				<!--<p class="co_imgtxt">点击图片刷新</p>-->
+			</div>
+			<div class="co_input">
+				<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+				<p class="co_error">验证码错误</p>
+			</div>
+		</div>
+		<p class="co_tips_btn co_tips_loginbtn stat_event_cover_yy_success"></p>
+	</div>
+</div>
+<!--预约类型选择弹框-->
+<div class="co_tips co_tips_type hidden">
+	<div class="co_con">
+		<p class="co_tips_title"></p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+			<!--<p>请选择预约平台</p>-->
+			<!--<span class="rdo on" data-id="1">iOS</span>-->
+			<span class="rdo on" data-id="2">安卓</span>
+			<p>注：iOS已首发可前往App Store下载体验哦~</p>
+		</div>
+		<p class="co_tips_btn co_tips_yybtn stat_cover_yy"></p>
+
+	</div>
+</div>
+<!--预约成功弹框-->
+<div class="co_tips co_tips_success hidden">
+	<div class="co_con">
+		<p class="co_tips_title"></p>
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+			<p class="tips_txt">恭喜您</p>
+			<p class="success">预约成功</p>
+		</div>
+		<p class="co_tips_btn co_tips_surebtn"></p>
+	</div>
+</div>
+<!-- 预约成功ios弹窗 -->
+<div class="co_tips co_tips_ios hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/ewm_bor.png?{$smarty.const.VERSION}" alt="" class="ewm_bode">
+		<p class="co_tips_btn co_tips_surebtn"></p>
+	</div>
+</div>
+<div class="go_top"></div>
+{include file="../layouts/pc/video_tips.html"}
+</body>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/statics.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/js/cover1212.js?{$smarty.const.VERSION}"></script>
+{download}
+{video_play}
+<script>
+	$(function(){
+		var url_fgw = window.location.href;
+            var url_id=window.location.href.split('/part/')[1];
+        if(url_id=="pcpz.html"){
+            $(".nav_inter").hide();
+        }
+        if(url_fgw.indexOf("second") >= 0){
+        	$('html,body').animate({
+				scrollTop: $('.module1').offset().top + 100
+			}, 500);
+        }
+		var swiper03 = new Swiper(".swiper-container3", {
+			observer: true,
+			observeParents: true,
+			slideToClickedSlide: true,
+			simulateTouch: false,
+			effect : 'fade',
+			fade: {
+				crossFade: false,
+			},
+			onTransitionEnd: function(swiper) {
+
+			},
+			onSlideChangeEnd: function(swiper){
+				swiper04.slideTo(swiper.activeIndex);
+				$(swiper04.slides).removeClass("active");
+				var slide=$(swiper04.slides[swiper.activeIndex]);
+				slide.addClass("active");
+				$(".playbtn").removeClass("play1");
+				if(autopaly){
+					//播放过 切换 自动播放
+					//大播放按钮播放
+					$(".bigplaybtn").addClass("bigplay");
+					slide.find(".playbtn").addClass("play1");
+					var slide=$(swiper.slides[swiper.activeIndex]);
+					$(slide).find(".lightbox").addClass("fadeIn").removeClass("fadeOut");
+					clearInterval(audiotimer);
+					audiotimer=setInterval(function(){
+						var t=20; //CD转一圈的时间（秒）
+						var cd=$(slide).find(".cdbox i");
+						var deg=eval('get'+cd.css('transform'))||0;
+						deg+=36/t;
+						if(deg>360) deg-=360;
+						cd.css({ 'transform':'rotate('+deg+'deg)' });
+//							var light=$(slide).find(".light");
+//							var deg=eval('get'+light.css('transform'))||0;
+//							deg+=36/t;
+//							if(deg>358) deg=358;
+//							light.css({ 'transform':'rotate('+deg+'deg)' });
+					},100);
+					$(slide).find(".shaft").addClass("play1");
+					var audiourl=slide.data('url');
+					console.log(audiourl);
+					$("#music1").attr("src",audiourl);
+					$("#music1")[0].play();
+				}else{
+					$("#music1")[0].pause();
+					//大播放按钮暂停
+					$(".bigplaybtn").removeClass("bigplay");
+//						$(this).removeClass("play1");
+					clearInterval(audiotimer);
+					$(slide).find(".shaft").removeClass("play1");
+				}
+				$(swiper.slides).filter(":not(.swiper-slide-active)").css("opacity","0").find(".shaft").removeClass("play1");
+				$(swiper.slides).filter(":not(.swiper-slide-active)").find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+			}
+		});
+		var swiper04 = new Swiper(".swiper-container4", {
+//				prevButton:'.swiper4_prev',
+//				nextButton:'.swiper4_next',
+			slidesPerView: 2,
+			observer: true,
+			observeParents: true,
+			slideToClickedSlide: true,
+			direction : 'vertical',
+			onClick: function(swiper){
+				autopaly=true;
+				$(swiper.slides).removeClass("active");
+				var slide=$(swiper.slides[swiper.clickedIndex]);
+				slide.addClass("active");
+				swiper03.slideTo(swiper.clickedIndex);
+			}
+		});
+		$('.swiper4_prev').click(function(){
+			var index=$(".swiper-container4 .swiper-slide.active").prev(".swiper-slide").index();
+			if(index==-1){
+				index=swiper04.slides.length-1;
+			}
+			var slide=$(swiper04.slides[index]);
+			$(swiper04.slides).removeClass("active");
+			slide.addClass("active");
+			swiper03.slideTo(index);
+			swiper04.slideTo(index);
+		});
+		$('.swiper4_next').click(function(){
+			var index=$(".swiper-container4 .swiper-slide.active").next(".swiper-slide").index();
+			var slide=$(swiper04.slides[index]||swiper04.slides[0]);
+			$(swiper04.slides).removeClass("active");
+			slide.addClass("active");
+			swiper03.slideTo(index);
+			swiper04.slideTo(index);
+		});
+		autopaly=false;
+		audiotimer=null;
+		//获取旋转角度
+		function getmatrix(a,b,c,d,e,f){
+			var aa=Math.round(180*Math.asin(a)/ Math.PI);
+			var bb=Math.round(180*Math.acos(b)/ Math.PI);
+			var cc=Math.round(180*Math.asin(c)/ Math.PI);
+			var dd=Math.round(180*Math.acos(d)/ Math.PI);
+			var deg=0;
+			if(aa==bb||-aa==bb){
+				deg=dd;
+			}else if(-aa+bb==180){
+				deg=180+cc;
+			}else if(aa+bb==180){
+				deg=360-cc||360-dd;
+			}
+			return deg>=360?0:deg;
+			//return (aa+','+bb+','+cc+','+dd);
+		}
+
+		//音乐播放
+		$(".playbtn").click(function(){
+			var slide=$(swiper03.slides[swiper03.activeIndex]);
+			var audio=document.getElementById('music1');
+			var audio_src=$(slide).attr("data-url");
+			if($("#music1").attr("src")!=audio_src){
+				$("#music1").attr("src",audio_src);
+			}
+			if($(this).hasClass("play1")){
+				audio.pause();
+				//大播放按钮暂停
+				$(".bigplaybtn").removeClass("bigplay");
+				$(this).removeClass("play1");
+				clearInterval(audiotimer);
+				$(slide).find(".shaft").removeClass("play1");
+				$(slide).find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+				$(swiper03.slides).filter(":not(.swiper-slide-active)").css("opacity","0");
+			}else{
+				autopaly=true;
+				$(".playbtn").removeClass("play1");
+				$(this).addClass("play1");
+				//大播放按钮播放
+				$(".bigplaybtn").addClass("bigplay");
+				$(slide).find(".lightbox").addClass("fadeIn").removeClass("fadeOut");
+				if($(this).closest(".swiper-slide").hasClass("active")){
+					audio.play();
+					clearInterval(audiotimer);
+					audiotimer=setInterval(function(){
+						var t=20; //CD转一圈的时间（秒）
+						var cd=$(slide).find(".cdbox i");
+						var deg=eval('get'+cd.css('transform'))||0;
+						deg+=36/t;
+						if(deg>360) deg-=360;
+						cd.css({ 'transform':'rotate('+deg+'deg)' });
+					},100);
+					$(slide).find(".shaft").addClass("play1");
+				}
+			}
+		});
+		//音乐播放完毕
+		$("#music1")[0]&&$("#music1")[0].addEventListener('ended', function () {
+			var slide=$(swiper03.slides[swiper03.activeIndex]);
+			$(".playbtn").removeClass("play1");
+			//大播放按钮暂停
+			$(".bigplaybtn").removeClass("bigplay");
+			clearInterval(audiotimer);
+			$(slide).find(".shaft").removeClass("play1");
+			$(slide).find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+		});
+		//大按钮音乐播放
+		$(".bigplaybtn").click(function(){
+			var slide=$(swiper03.slides[swiper03.activeIndex]);
+			var audio=document.getElementById('music1');
+			var audio_src=$(slide).attr("data-url");
+			if($("#music1").attr("src")!=audio_src){
+				$("#music1").attr("src",audio_src);
+			}
+			if($(this).hasClass("bigplay")){
+				audio.pause();
+				//小播放按钮暂停
+				$(".swiper-container4 .active .playbtn").removeClass("play1");
+				$(this).removeClass("bigplay");
+				clearInterval(audiotimer);
+				$(slide).find(".shaft").removeClass("play1");
+				$(slide).find(".lightbox").removeClass("fadeIn").addClass("fadeOut");
+//					$(swiper03.slides).filter(":not(.swiper-slide-active)").css("opacity","0");
+			}else{
+				autopaly=true;
+				//小播放按钮播放
+				$(".swiper-container4 .playbtn").removeClass("play1");
+				$(".swiper-container4 .active .playbtn").addClass("play1");
+				$(this).addClass("bigplay");
+				$(slide).find(".lightbox").addClass("fadeIn").removeClass("fadeOut");
+				audio.play();
+				clearInterval(audiotimer);
+				audiotimer=setInterval(function(){
+					var t=20; //CD转一圈的时间（秒）
+					var cd=$(slide).find(".cdbox i");
+					var deg=eval('get'+cd.css('transform'))||0;
+					deg+=36/t;
+					if(deg>360) deg-=360;
+					cd.css({ 'transform':'rotate('+deg+'deg)' });
+				},100);
+				$(slide).find(".shaft").addClass("play1");
+			}
+		});
+
+
+		//点击nav跳转对应版块
+		$('.top .nav_inter li:eq(1)').click(function() {
+			$("html,body").animate({
+				scrollTop: 1122
+			}, 500);
+		});
+
+		$(window).scroll(function(){
+			var $t = $(this).scrollTop();
+			if($t > 350){
+				$(".go_top").stop().fadeIn();
+			}else{
+				$(".go_top").stop().fadeOut();
+			}
+		});
+
+		//返回顶部
+		$(".go_top").click(function(){
+			var a;
+			function back(){
+				a=setInterval(go_top,5);
+			}
+			function go_top(){
+				if(window.scrollY<=0){
+					clearInterval(a);
+				}else{
+					scrollTo(0,window.scrollY-50);
+				}
+			}
+			back();
+		});
+	});
+</script>
+</html>

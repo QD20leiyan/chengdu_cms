@@ -1,0 +1,176 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/news.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="kv"></div>
+</section>
+<section>
+	<div class="n_con">
+		<div class="chengg"></div>
+		<div class="news_body">
+			<div class="top_ul">
+				<p class="v_title">游戏视频</p>
+				<a href="{myurl name='wap/site/index'}" class="back"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sanjiao.png?{$smarty.const.VERSION}" alt="" /></a>
+			</div>
+			<div class="v_body" data-id="{$id}" id="t_id">
+				<ul>
+					<!--<li>
+						<img src="images/img.jpg" alt="" class="v_img" />
+						<img src="images/vd_play.png" alt="" class="vd_play" />
+					</li>-->
+				</ul>
+				<div class="dropload-down">
+					<div class="dropload-noData">上滑加载更多信息</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+</body>
+<script type="text/javascript">
+	var isScroll = 1; //是否可以滚动
+	var page = 1; //页数
+	var id = $("#t_id").attr("data-id"); //类型
+	var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+	getListFu();
+	window.onscroll = function() {
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH +
+				topH) < 10) && isScroll == 1) {
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...")
+			getListFu();
+		}
+	}
+    var wap_xz = $(".stat_down").length; 
+var wap_tap_xz = $(".stat_tap").length; 
+var wap_hy_xz = $(".stat_hy").length; 
+if(wap_xz > 0) {
+ $('.stat_down').click(function(){ HLog.event('stat_down') });
+}
+if(wap_tap_xz>0){
+    $('.stat_tap').click(function(){ HLog.event('stat_tap') });
+}
+if(wap_hy_xz>0){
+    $('.stat_hy').click(function(){ HLog.event('stat_hy') });
+}
+
+	function getListFu() {
+		$.ajax({
+			type: "get",
+			url: ajaxUrl,
+			data: {
+				page: page++,
+				id: id,
+			},
+			success: function(data) {
+				var data = JSON.parse(data);
+				var result = '';
+				if(data.status == 0 && data.msg.length > 0) {
+					for(var i = 0; i < data.msg.length; i++) {
+						result += "<li><img src=" + data.msg[i].thumb + " class='v_img' /><img src='{$smarty.const.STATIC_DOMAIN}3.0/m/images/vd_play.png' class='vd_play js_video_play' data-url='" + data.msg[i].contentMessage + "' /><i></i></li>";
+					}
+					$('.v_body ul').append(result);
+					//                    $(".dropload-noData").html("<span class='loadMore'>上滑加载更多</span><i></i>");
+					$(".dropload-noData").html("上滑加载更多");
+					isScroll = 1;
+				} else {
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error: function(data) {
+				console.log(data);
+			}
+		});
+	}
+	var player = '';
+	var default_height = '';
+	if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+		$('body').append("<link rel='stylesheet' href='//cdnstatic.yingxiong.com/common/css/video_m.css'/>");
+		default_height = '10.125rem';
+	} else {
+		$('body').append("<link rel='stylesheet' href='//cdnstatic.yingxiong.com/common/css/video.css'/>");
+		default_height = '400px';
+	}
+	$(function() {
+		$.getScript('//cdnstatic.yingxiong.com/common/js/prism.js');
+		$('body').append("<link rel='stylesheet' href='https://g.alicdn.com/de/prismplayer/1.9.9/skins/default/index.css'/>");
+		$('head').append('<meta http-equiv="x-ua-compatible" content="IE=edge">');
+		videoInit();
+	});
+
+	function videoInit() {
+		$('.v_body ul').on('click','li .js_video_play', function(e) {
+			$('body').append("<div id='video_play'><div id='video_mask'></div><div id='video_tc'><div id='video_player'><div id='video_close'></div><div class='prism-player' id='J_prismPlayer'></div></div></div></div>");
+			var url = $(this).attr('data-url');
+			var cover = $(this).attr('data-img');
+			$("#video_tc").show();
+			$("#video_mask").show();
+			videoPlay(url, cover);
+
+		})
+		$("#video_close").click(function() {
+			$('#J_prismPlayer').html('');
+			$("#video_tc").hide();
+			$("#video_mask").hide();
+			$('#video_play').remove();
+			$('#mask').hide();
+		});
+	}
+
+	function videoPlay(url, cover, height, autoplay, container) {
+		if(autoplay == undefined || autoplay == '' || !autoplay) {
+			autoplay = true;
+		}
+		if(height == undefined || height == '') {
+			height = default_height;
+		}
+		if(container == undefined || container == '') {
+			container = 'J_prismPlayer';
+		}
+		$.get('/videoPlay.html', {
+			url: url,
+			img: cover
+		}, function(data) {
+			if(data.status == 0) {
+				var player = new prismplayer({
+					useH5Prism: true,
+					id: container,
+					autoplay: autoplay,
+					source: data.msg,
+					cover: data.img, //默认图片
+					height: height,
+				});
+			} else {
+				$('#J_prismPlayer').html('');
+				$("#video_tc").hide();
+				$("#video_mask").hide();
+				$('#video_play').remove();
+				alert('亲，视频已经丢失，请联系客服^_^');
+			}
+			$("#video_close").click(function() {
+				$('#J_prismPlayer').html('');
+				$("#video_tc").hide();
+				$("#video_mask").hide();
+				$('#video_play').remove();
+			});
+
+		}, 'json');
+	}
+</script>
+{download}
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(".header_tab").click(function() {
+		if($(".h_tab").css("display") == "none") {
+			$(".header_tab span").addClass("active");
+			$(".h_tab").stop().slideDown();
+		} else {
+			$(".header_tab span").removeClass("active");
+			$(".h_tab").stop().slideUp();
+		}
+	});
+</script>
+
+</html>

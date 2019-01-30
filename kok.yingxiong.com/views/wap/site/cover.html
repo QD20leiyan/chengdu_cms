@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta charset="utf-8" />
+	    <title>{$seo_title}</title>
+        <meta name="keywords" content="{$seo_key}" />
+        <meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/cover.css?{$smarty.const.VERSION}">
+		<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script>
+    	(function (doc, win) {
+    	    var docEl = doc.documentElement,
+    	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+    	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    	            recalc = function () {
+    	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+    	                var clientWidth = docEl.clientWidth;
+    	                if (!clientWidth) return;
+    	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+    	            };
+
+    	    recalc();
+    	    //判断是否支持监听事件 ，不支持则停止
+    	    if (!doc.addEventListener) return;
+    	    //注册翻转事件
+    	    win.addEventListener(resizeEvt, recalc, false);
+    	})(document, window);
+    </script>
+</head>
+<body>
+        <header class="index1_header">
+			<a href="/m" class="index1_logo"><img src="{$global.logo_img}" alt=""></a>
+			<div class="header_txt">
+				<p class="h_p_01">{$global.title}</p>
+				<p class="h_p_02">{$global.sub_title}</p>
+			</div>
+			<a href="javascript:;" class="download js_wap_down stat_cover_down">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/down.png?{$smarty.const.VERSION}" alt="">
+			</a>
+		</header>
+	<div class="wrap">
+		<div class="wrap_con">
+        {fragment var=video code=cover_video size=1}
+            <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" data-url="{if $video}{$video[0].url}{/if}" class="{if $video}js_video_play play{else}play{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play.png?{$smarty.const.VERSION}" alt=""></a>
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+			<div class="peo_box">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/left.png?{$smarty.const.VERSION}" alt="" class="left slideInLeft animated">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/right.png?{$smarty.const.VERSION}" alt="" class="right slideInRight animated">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/battle.png?{$smarty.const.VERSION}" alt="" class="battle zoomIn animated">
+        		<a href="javascript:;" class="load_btn js_wap_down stat_cover_down"></a>
+			</div>
+		</div>
+		<div class="shop_img">
+		    <div class="title"></div>
+			  <div class="slider">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                    {fragment var=banner code=cover_banner size=5}
+                    {if $banner neq ''}
+                    {foreach $banner as $v}
+                    <div class="swiper-slide">
+                        <i></i><a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+            <div class="swiper-button-prev swiper-button-prev1"></div>
+            <div class="swiper-button-next swiper-button-next1"></div>
+        </div>
+		</div>
+	</div>
+    </body>
+{download}
+{video_play}
+    <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+    <script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	$(function() {
+        wap_cover();
+		var swiper01 = new Swiper('.swiper-container1',{
+        prevButton:'.swiper-button-prev1',
+        nextButton:'.swiper-button-next1',
+        paginationClickable: true,
+        effect : 'coverflow',
+        slidesPerView: 3,
+        centeredSlides: false,
+        loop:true,
+        speed: 1000,
+        autoplay:2500,
+        autoplayDisableOnInteraction: false,
+        coverflow: {
+          rotate:60,
+          stretch:-37,
+          depth:500,
+          modifier:1,
+          slideShadows : false
+        }
+  });
+			
+	});
+	</script>
+</html>

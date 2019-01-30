@@ -1,0 +1,114 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/n_news.css?{$smarty.const.VERSION}" />
+<div class="nav public_nav" style="background-color:{$global.nav_background_color}" data-right="{jumpbackend name='nav_font_color'}">
+	<div class="wrap">
+		<img src="{$global.website_logo_img}" alt="" class="icon" />
+		<div class="n_txt">
+			<p>{$global.website_title}</p>
+			<p>{$global.website_sub_title}</p>
+		</div>
+		<ul class="nav_ul public_ul" data-color="{$global.nav_font_color}" data-hover="{$global.nav_font_hover_color}" data-bg="{$global.nav_background_color}" data-img="{$global.nav_background_img}">
+			<li class='{if $alias eq ' '}active {/if}'>
+				<a href="{myurl name='site/index'}" target="_blank">首页</a>
+			</li>
+			<li class='{if $alias}active {/if}'>
+				<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank">新闻中心</a>
+			</li>
+			<li>
+				<a href="javascript:yx_showTips('敬请期待');" target="_blank">社区论坛</a>
+			</li>
+		</ul>
+		<ul class="s_ul">
+			<li></li>
+			<li>
+				<a href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a>
+			</li>
+			<li>
+				<a href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank"></a>
+			</li>
+			<img src="{$global.bottommedia_wechat_ewm}" alt="" class="fl_wx" />
+		</ul>
+	</div>
+</div>
+{fragment var=kv_img code=index_kv_img size=1}
+<div class="kv public_kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{$kv_img[0].jumpbackend}"></div>
+<div class="n_body">
+	<div class="top_ul">
+		<ul class="tab_ul">
+			<li class="{if $alias eq zonghe}active{else} {/if}">
+				<a href="{myurl name='article/list, alias=>zonghe'}">综合</a>
+			</li>
+			<li class="{if $alias eq xinwen}active{else} {/if}">
+				<a href="{myurl name='article/list, alias=>xinwen'}">新闻</a>
+			</li>
+			<li class="{if $alias eq gonggao}active{else} {/if}">
+				<a href="{myurl name='article/list, alias=>gonggao'}">公告</a>
+			</li>
+			<li class="{if $alias eq huodong}active{else} {/if}">
+				<a href="{myurl name='article/list, alias=>huodong'}">活动</a>
+			</li>
+			<p class="back"><a href="{myurl name='site/index'}">首页</a> > 新闻中心</p>
+		</ul>
+	</div>
+	<div class="newslist">
+		{if !empty($data)}
+		<ul>
+			{foreach $data as $v}
+			<a href="{$v.linkUrl}" target="_blank">
+				<li>
+					<div class="newlist_left">
+						<span class="newlist_title">{$v.created_at|date_format:"%d"}</span>
+						<span class="newlist_time">{$v.created_at|date_format:"%Y-%m"}</span>
+					</div>
+					<div class="newlist_img"><img src="{$v.thumb}" alt="" /></div>
+					<div class="newlist_right">
+						<h3>{$v.title}</h3>
+						<p>{$v.contentMessage}</p>
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/l_hover.png?{$smarty.const.VERSION}" alt="" class="l_hover" />
+				</li>
+			</a>
+			{/foreach}
+		</ul>
+		{else}
+		<p class="noData">暂无数据...</p>
+		{/if}
+	</div>
+</div>
+{include file="../layouts/pc/footer.html"}
+<script type="text/javascript">
+	var fontColor = $(".public_ul").attr("data-color");
+		var hoverColor = $(".public_ul").attr("data-hover");
+		var bgColor = $(".public_ul").attr("data-bg");
+	$(".public_ul li a").css("color", fontColor);
+		$(".public_ul li a").hover(function() {
+			$(this).css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		}, function() {
+			$(this).css({
+				"color": fontColor,
+				"border-bottom-color": "transparent",
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+			$(".public_ul li:nth-child(2) a").css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		});
+		$(".public_ul li:nth-child(2) a").css({
+			"color": hoverColor,
+			"border-bottom-color": hoverColor,
+			"border-bottom-width": "3px",
+			"border-bottom-style": "solid"
+		});
+</script>
+</body>
+
+</html>

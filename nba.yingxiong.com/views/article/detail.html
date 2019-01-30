@@ -1,0 +1,62 @@
+{include '../layouts/pc/header.html'}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/news.css?{$smarty.const.VERSION}" />
+<div class="news_kv">
+    <div class="wrap"> <img src="{$smarty.const.STATIC_DOMAIN}2.0/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" /></div>
+</div>
+<div class="n_body">
+    <div class="top_ul">
+        <div class="tab_ul" data-id="{$content.category_id}">
+            {if $content.category_id==705||$content.category_id==706||$content.category_id==707}
+            <a href="{myurl name='article/list, id=>705'}" class="d_back">< 返回列表</a>
+            {else if $content.category_id==703}
+            <a href="{myurl name='article/list, id=>703'}" class="d_back">< 返回列表</a>
+            {else if $content.category_id==702}
+            <a href="{myurl name='article/list, id=>702'}" class="d_back">< 返回列表</a>
+            {/if}
+            <div class="d_title">
+                <h3>{$content.title}</h3>
+                <p class="d_date">{$content.created_at_formate} 官方录入</p>
+            </div>
+        </div>
+    </div>
+    <div class="detail_body">
+        <div class="wrap">
+            <div class="float">
+                <div class="d_float">
+                    <div class="c_code">
+                        <div class="chengg"></div>
+                        <img src="{$global.wx_img}" alt="" />
+                    </div>
+                    <div class="wx"><img src="{$smarty.const.STATIC_DOMAIN}2.0/images/i_wx.png?{$smarty.const.VERSION}" alt="" />
+                        <p>官方二维码</p>
+                    </div>
+                    <ul class="left_ul">
+                        <li>
+                            <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+                                <i></i>
+                                <p>官方微博</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+                                <i></i>
+                                <p>官方贴吧</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}" target="_blank">
+                                <i></i>
+                                <p>官方Q群</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d_content">
+                {$content.body}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{include '../layouts/pc/foot.html'}

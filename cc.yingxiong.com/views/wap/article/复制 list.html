@@ -1,0 +1,289 @@
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<meta name="baidu-site-verification" content="4QTWrEt07K" />
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+		<link href="{$smarty.const.STATIC_DOMAIN}2.0/images/favico.ico.ico" rel="SHORTCUT ICON">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/common.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/dropload.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/index.css?{$smarty.const.VERSION}">
+	</head>
+
+	<body>
+		{include '../../layouts/wap/header.html'}
+		<div class="top_H"></div>
+		<div class="n_t"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/pic_24.png?{$smarty.const.VERSION}"></div>
+		<ul class="c_news_detail news_bar1">
+			<a href="{myurl name='m/info/xinwen/list_1'}">
+				<li class="c_news_detail01" detail-type="xinwen">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/news_tab01.png?{$smarty.const.VERSION}" alt=""/><i>{#index_news#}</i>
+				</li>
+			</a>
+			<a href="{myurl name='m/info/gg/list_1'}">
+				<li class="c_news_detail02" detail-type="gg">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/gg_tab01.png?{$smarty.const.VERSION}" alt=""/><i>{#index_bulletin#}</i>
+				</li>
+			</a>
+		</ul>
+		<ul class="c_news_detail news_bar2">
+			<a href="{myurl name='m/info/gonglue/list_1'}">
+				<li class="c_news_detail03" detail-type="gonglue">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/news_tab01.png?{$smarty.const.VERSION}" alt=""/><i>{#index_gonglue1#}</i>
+				</li>
+			</a>
+			<a href="{myurl name='m/info/xsgl/list_1'}">
+				<li class="c_news_detail04" detail-type="xsgl">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/gg_tab01.png?{$smarty.const.VERSION}" alt=""/><i>{#index_gonglue2#}</i>
+				</li>
+			</a>
+			<a href="{myurl name='m/info/jjgl/list_1'}">
+				<li class="c_news_detail05" detail-type="jjgl">
+					<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/gg_tab01.png?{$smarty.const.VERSION}" alt=""/><i>{#index_gonglue3#}</i>
+				</li>
+			</a>
+		</ul>
+		<div class="n_news_lists">
+			<div class="loading_enter"></div>
+			<ul class="n_news_list">
+				{if $data|@count neq 0} {foreach $data as $list} {if $list.title neq "首页纯图片"}
+				<li linkUrl="{$list.linkUrl}" class='opacity'>
+					<span>{$list.title}</span>
+					<i>{$list.time}</i>
+				</li>
+				{/if} {/foreach} {/if}
+			</ul>
+		</div>
+		<div class="top_nav">
+			<div class="shouye">
+				<a href="{myurl name='wap/site/index'}">
+					<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/index_a.png?{$smarty.const.VERSION}">-->
+				</a>
+				<a href="{myurl name='wap/site/index'}">{#shouye#}</a>
+			</div>
+			<div class="huodong">
+				<a href="{myurl name="m/info/xinwen/list_1"}">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/activity.png?{$smarty.const.VERSION}">-->
+				</a>
+				<a href="{myurl name="m/info/xinwen/list_1"}">{#houdong#}</a>
+			</div>
+			<div class="gonglue">
+				<a href="{myurl name="m/info/gonglue/list_1"}">
+				<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/raiders.png?{$smarty.const.VERSION}">-->
+				</a>
+				<a href="{myurl name="m/info/gonglue/list_1"}">{#gonglue#}</a>
+			</div>
+			{if $language eq en}
+			<div class="shuju shuju_en">
+				<a>
+					<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/life.png?{$smarty.const.VERSION}">-->
+				</a>
+				<a>{#shuju#}</a>
+			</div>
+			{else}
+			<div class="shuju">
+				<a href="javascript:alert('{#waiting#}');">
+					<!--<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/life.png?{$smarty.const.VERSION}">-->
+				</a>
+				<a href="javascript:alert('{#waiting#}');">{#shuju#}</a>
+			</div>
+			{/if}
+		</div>
+		<div class="bottom_H"></div>
+		<!--邮件发送弹框-->
+		<div class="email_tips hidden">
+			<div class="content">
+				<h2 class="service">CUSTOMER SERVICE</h2>
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/images/i_img2.png?{$smarty.const.VERSION}" alt="" class="emailtips_close">
+				<div class="show_email">
+					<p>BUSINESS CONTACT </p>
+					<p>herogame@yingxiong.com</p>
+				</div>
+				<div class="show_email">
+					<p>CUSTOMER SERVICE</p>
+					<p>support@redtides.vip</p>
+				</div>
+			</div>
+		</div>
+		<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+		<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/dropload.min.js?{$smarty.const.VERSION}"></script>
+		{download}
+		<script>
+			var page = 1;
+			//var type = getParam("type");http://cc.dev.yingxiong.com/m/info/xinwen/list_1.html
+			var a = window.location.href;
+			var b = "xinwen";
+			var c = "gg";
+			var res = /info\/(\w+)/igm;
+			var type = a.match(res).join().substring(5);
+			var isfirst = true;
+			var obj = '';
+			$(".c_news_detail li").on("click", function() {
+				page = 1;
+				type = $(this).attr("detail-type");
+				$(".dropload-noData").text("");
+//				$(this).addClass("active").siblings().removeClass("active");
+				$(".n_news_list").html("");
+//				newAjax(obj);
+			});
+
+			if(location.href.indexOf('xinwen')>-1){
+				$(".c_news_detail01").addClass("active");
+			}else if(location.href.indexOf('gg')>-1){
+				$(".c_news_detail02").addClass("active");
+			}else if(location.href.indexOf('gonglue')>-1){
+				$(".c_news_detail03").addClass("active");
+			}else if(location.href.indexOf('xsgl')>-1){
+				$(".c_news_detail04").addClass("active");
+			}else if(location.href.indexOf('jjgl')>-1){
+				$(".c_news_detail05").addClass("active");
+			}
+			
+			clickOn();
+			ajaxList();
+			newDetail();
+
+			function newDetail() {
+				if(a.indexOf(b) > 0||a.indexOf(c) > 0) {
+					$(".news_bar1").css("display", "block");
+					$(".huodong").addClass("active");
+					$(".gonglue").removeClass("active");
+					$(".news_bar2").css("display", "none");
+				} else {
+					$(".news_bar2").css("display", "block");
+					$(".news_bar1").css("display", "none");
+					$(".gonglue").addClass("active");
+					$(".huodong").removeClass("active");
+				}
+			}
+
+			function getParam(paramName) {
+				paramValue = "", isFound = !1;
+				if(this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+					arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+					while(i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+				}
+				return paramValue == "" && (paramValue = null), paramValue
+			};
+
+			function newAjax(me) {
+				$.ajax({
+					type: 'GET',
+					url: '{myurl name="wap/article/ajax"}?type=' + type + '&page=' + page,
+					dataType: 'json',
+					success: function(data) {
+						if(data.status === 0) {
+							me.noData(false);
+							me.unlock();
+							if(data.msg.length) {
+								isfirst = false;
+								page++;
+								var result = '';
+								for(var i = 0; i < data.msg.length; i++) {
+									result += "<li linkUrl=" + data.msg[i].wapLinkUrl + " class='opacity'><span>" + data.msg[i].title + "</span><i>" + data.msg[i].created_at + "</i></li>";
+								}
+								// 为了测试，延迟1秒加载
+								setTimeout(function() {
+									$('.n_news_list').append(result);
+									// 每次数据加载完，必须重置
+									clickOff();
+									clickOn();
+									me.resetload();
+									isfixed();
+								}, 0);
+							} else {
+								// 锁定
+								me.lock();
+//								// 无数据
+								me.noData(true);
+								me.resetload();
+								if(!isfirst) {
+									{if $language eq en}
+									$(".dropload-noData").text("over");
+									{else}
+									$(".dropload-noData").text("数据加载完毕");
+									{/if}
+								} else {
+									$(".dropload-noData").text("数据加载中");
+								}
+								isfixed()
+								return 0;
+							}
+						}
+					},
+					error: function(xhr, type) {
+						// 即使加载出错，也得重置
+						//						me.resetload();
+						console.log(1111);
+					}
+				});
+			}
+
+			function ajaxList() {
+				$('.n_news_lists').dropload({
+					scrollArea: window,
+					loadDownFn: function(me) {
+						obj = me
+						console.log(obj);
+						newAjax(me);
+					}
+				});
+			}
+
+			function clickOn() {
+				$(".n_news_list li").on("click", function(e) {
+					e.stopPropagation();
+					var a = $(this).attr("linkUrl")
+					location.href = a;
+				})
+			};
+
+			function clickOff() {
+				$(".n_news_list li").off()
+			}
+
+			function isfixed() {
+				var h = $(window).innerHeight();
+				var h1 = $(".top_H").innerHeight();
+				var h2 = $(".n_t").innerHeight();
+				var h3 = $(".n_news_lists").innerHeight();
+				var h4 = $("#Hero-bar").outerHeight();
+				if(h - h1 - h2 - h3 - h4 > 0) {
+					$("#Hero-bar").addClass("fixedB");
+				} else {
+					$("#Hero-bar").removeClass("fixedB");
+				}
+
+				console.log(h - h1 - h2 - h3 - h4);
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,470 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/index.css?{$smarty.const.VERSION}" />
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}css/style.css?{$smarty.const.VERSION}" />
+<div class="kv">
+    <div class="nav">
+        <div class="wrap">
+            <ul class="nav_ul">
+                <div class="nav_div">
+                    <img src="{$global.logo_img}" alt="" />
+                    <p>
+                        <span>{$global.title}</span>
+                        <span>{$global.sub_title}</span>
+                    </p>
+                </div>
+                <div class="kf_phone">
+                    4009393333
+                </div>
+                <div class="right_nav">
+                    <a href="javascript:;" target="_blank">
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/weixin.png?{$smarty.const.VERSION}" alt="" />
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/weixin_h.png?{$smarty.const.VERSION}" alt="" />
+                    </a>
+                    <a href="{$global.wb_url}" target="_blank">
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/weibo.png?{$smarty.const.VERSION}" alt="" />
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/weibo_h.png?{$smarty.const.VERSION}" alt="" />
+                    </a>
+                    <a href="{$global.tb_url}" target="_blank">
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/baidu.png?{$smarty.const.VERSION}" alt="" />
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/baidu_h.png?{$smarty.const.VERSION}" alt="" />
+                    </a>
+                    <img src="{$global.wx_img}" alt="" class="t_erweima"/>
+                </div>
+                <div class="gowebsite">
+                    <a href="/index.html" target="_blank"></a>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="wrap">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+        <img src="{$smarty.const.STATIC_DOMAIN}images/play.png?{$smarty.const.VERSION}" alt="" class="play js_video_play" data-url="{$video.content_message}"/>
+        <div class="main_btn">
+            <div class="code">
+                <img src="{$smarty.const.STATIC_DOMAIN}images/erweima.png?{$smarty.const.VERSION}" alt="" class="js_jump_img"/>
+                <!--<div class="code_info">-->
+                    <!--<p>安卓精英测试</p>-->
+                    <!--<p>扫码开启下载</p>-->
+                <!--</div>-->
+            </div>
+            <!--<div class="newBtn"><a class="js_down_andriod stat_android" href="javascript;"></a></div>-->
+            <div id="yuyue_btn" class="yuyue">
+                <!--<a href="/site/cover.html" class="order">-->
+                <!--<img src="{$smarty.const.STATIC_DOMAIN}images/yuyue.png?{$smarty.const.VERSION}" alt="" />-->
+                <!--<img src="{$smarty.const.STATIC_DOMAIN}images/yuyue_h.png?{$smarty.const.VERSION}" alt="" />-->
+                <!--</a>-->
+                <a href="" class="ios js_down_ios stat_ios" target="_blank">
+                    <img src="{$smarty.const.STATIC_DOMAIN}images/ios_btn.png?{$smarty.const.VERSION}" alt="" />
+                </a>
+                <a href="" class="andriod js_down_andriod stat_android" target="_blank">
+                    <img src="{$smarty.const.STATIC_DOMAIN}images/and_btn.png?{$smarty.const.VERSION}" alt="" />
+                </a>
+               {if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcpc','stpc','jpcpc'])}
+                        <a href="http://l.taptap.com/d0cdBvCX" class="tap stat_tap" target="_blank" style="display: none;">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/tap.png?{$smarty.const.VERSION}" alt="" />
+                        </a>
+                        {else}
+                        <a href="http://l.taptap.com/d0cdBvCX" class="tap stat_tap" target="_blank" style="display: block;">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/tap.png?{$smarty.const.VERSION}" alt="" />
+                        </a>
+                        {/if}
+            </div>
+            <!--<div class="yuyue_number">-->
+                <!--<p>已经有</p>-->
+                <!--<p class="text_number"></p>-->
+                <!--<p>人预约</p>-->
+            <!--</div>-->
+            <!--<div class="chance">-->
+                <!--<p>立即预约，</p>-->
+                <!--<p>即可有机会获得</p>-->
+                <!--<img src="{$smarty.const.STATIC_DOMAIN}images/x_group.png?{$smarty.const.VERSION}" alt="">-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="banner x_banner">
+    <div class="wrap">
+        <img class="yaoTitle" src="{$smarty.const.STATIC_DOMAIN}images/x_yaoTitle.png?{$smarty.const.VERSION}" alt="">
+        <div class="userInfo">
+            <p>欢迎您，请 <span id="login_btn">【登录】</span> </p>
+            <p>欢迎您，<span id="userPhone"></span><span id="logout">【注销】</span>
+                已成功邀请<span id="userFriends">0</span>位好友  剩余<span id="userChance">0</span>次参与机会</p>
+        </div>
+        <ul class="giftBox">
+            <li data-index="1" class="ward1">
+                <span class="giftTitle"></span>
+                <ul class="giftList">
+                    <li><span>战魂*10</span></li>
+                    <li><span>金币*20</span></li>
+                    <li><span>灵银*20</span></li>
+                </ul>
+                <div class="open"></div>
+                <div class="chanceBox">剩余<span class="userChance" id="userChance2">0</span>次机会</div>
+                <p class="chanceGet">有概率获得以下物品</p>
+                <p class="giftWord">战魂*10，金币*20w ，灵银*20 </p>
+            </li>
+            <li data-index="2" class="ward2">
+                <span class="giftTitle"></span>
+                <ul class="giftList">
+                    <li><span>2级食材篮*5</span></li>
+                    <li><span>金币*60w</span></li>
+                    <li><span>超杀抱枕*1</span></li>
+                    <li><span>左慈人偶U盘</span></li>
+                </ul>
+                <div class="open"></div>
+                <div class="chanceBox">剩余<span class="userChance" id="userChance3">0</span>次机会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好友援助<span class="friendsHelp">0</span>次</div>
+                <p class="chanceGet">有概率获得以下物品</p>
+                <p class="giftWord">左慈人偶U盘, 2级食材篮*5, 金币*40w, </br>灵银*40等神秘大礼</p>
+            </li>
+            <li data-index="3" class="ward3">
+                <span class="giftTitle"></span>
+                <ul class="giftList">
+                    <li><span>648游戏充值</span></li>
+                    <li><span>金币*80w</span></li>
+                    <li><span>iPhone X</span></li>
+                    <li><span>超杀鼠标垫*1</span></li>
+                </ul>
+                <div class="open"></div>
+                <div class="chanceBox">剩余<span class="userChance" id="userChance4">0</span>次机会&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好友援助<span class="friendsHelp">0</span>次</div>
+                <p class="chanceGet">有概率获得以下物品</p>
+                <p class="giftWord">烈战魂*20, 草人*10, 648游戏充值*1,</br> 超杀鼠标垫*1等神秘大礼</p>
+            </li>
+        </ul>
+        <div class="buttonGroup">
+            <span id="giftBtn">查看我的奖品</span>
+            <img id="getMore" src="{$smarty.const.STATIC_DOMAIN}images/x_getMore.png?{$smarty.const.VERSION}" alt="">
+            <span><a href="http://csmsl.yingxiong.com/info/2018/0316/3355.html" target="_blank">福利领取指南</a></span>
+        </div>
+        <div class="rules">
+            <ul class="rulesWord">
+                <li><span>1</span>活动时间：2018年3月2日至公测开启当天0点结束。</li>
+                <li><span>2</span>活动期间，成功邀请好友数量达到相应条件，可在对应奖池赢取福利，1号奖池仅可参与一次，2号、3号奖池可以重复参加。</li>
+                <li><span>3</span>当邀请人数达到相应条件后（3人/5人），超过的邀请人数算做好友援助，每邀请一人预约，即可获得1次参与机会。</li>
+                <li><span>4</span>活动期间，单个账号抽奖次数每日上限10次，总上限400次。</li>
+                <li><span>5</span>所有奖品均在不删档测试开启后30个工作日内发放，游戏道具请在“我的奖品”中查收，实物请在活动结束前填写收货信息，逾期视为无效。</li>
+            </ul>
+        </div>
+        <div class="prise">
+            <div class="priseHidden">
+                <ul class="priseWord">
+                    <!--<li>恭喜 <i>159****2121</i> 获得 <span>曹操碎片X1</span></li>-->
+                    <!--<li>恭喜 159****2121 获得 <span>蓝宝石X1</span></li>-->
+                    <!--<li>恭喜 159****2121 获得 <span>超级礼包X1</span></li>-->
+                    <!--<li>恭喜 159****2121 获得 <span>曹操碎片X1</span></li>-->
+                    <!--<li>恭喜 159****2121 获得 <span>468元礼包X1</span></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab_img x_tab">
+    <div class="wrap">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/label.png?{$smarty.const.VERSION}" alt="" class="label" />
+        <div class="tab_pic">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide"><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}images/1.png?{$smarty.const.VERSION}" alt="" /></a></li>
+                <li class="swiper-slide"><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}images/2.png?{$smarty.const.VERSION}" alt="" /></a></li>
+                <li class="swiper-slide"><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}images/3.png?{$smarty.const.VERSION}" alt="" /></a></li>
+                <li class="swiper-slide"><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}images/4.png?{$smarty.const.VERSION}" alt="" /></a></li>
+                <li class="swiper-slide"><a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}images/5.png?{$smarty.const.VERSION}" alt="" /></a></li>
+            </ul>
+            <div class="tab_con">
+                <div class="swiper-pagination1"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom x_bottom">
+    <div class="wrap">
+        <ul class="b_ul">
+            <li>
+                <img src="{$smarty.const.STATIC_DOMAIN}images/qq.png?{$smarty.const.VERSION}" alt="" class="pic"/>
+                <p>官方Q群1</p>
+                <a href="javascript:;" target="_blank">点击加群</a>
+            </li>
+            <li>
+                <img src="{$smarty.const.STATIC_DOMAIN}images/qq.png?{$smarty.const.VERSION}" alt="" class="pic"/>
+                <p>官方Q群2</p>
+                <a href="javascript:;" target="_blank">点击加群</a>
+            </li>
+            <li class="li_wx">
+                <img src="{$global.wx_img}" alt="" />
+            </li>
+            <li>
+                <img src="{$smarty.const.STATIC_DOMAIN}images/wb.png?{$smarty.const.VERSION}" alt="" class="pic"/>
+                <p>官方微博</p>
+                <a href="{$global.wb_url}" target="_blank">点击跳转</a>
+            </li>
+            <li>
+                <img src="{$smarty.const.STATIC_DOMAIN}images/luntan.png?{$smarty.const.VERSION}" alt="" class="pic"/>
+                <p>官方论坛</p>
+                <a href="javascript:;" target="_blank">点击跳转</a>
+            </li>
+        </ul>
+        <div class="b_logo">
+            <img src="{$smarty.const.STATIC_DOMAIN}images/b_logo.png?{$smarty.const.VERSION}" alt="" />
+            <p class="logo_p">超杀默示录</p>
+            <p>国漫风激斗手游</p>
+        </div>
+    </div>
+</div>
+
+<div class="mask">
+    <div class="dialog dialogBox" id="dialog_yuyue">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="dialogCode">
+            <img src="{$smarty.const.STATIC_DOMAIN}images/erweima.png?{$smarty.const.VERSION}" alt="">
+            <p>扫码下载</p><p>锁定全新资讯动态</p>
+            <img class="denglong" src="{$smarty.const.STATIC_DOMAIN}images/x_denglong.png?{$smarty.const.VERSION}" alt="">
+        </div>
+        <div class="dialogWord">
+            <p>专属奖励等你领</p>
+            <h4 class="text_number"></h4>
+            <p>人已经成功预约</p>
+            <img class="login_btn2" src="{$smarty.const.STATIC_DOMAIN}images/x_yuyue.png?{$smarty.const.VERSION}" alt="">
+            <!--<img class="login_btn2" src="{$smarty.const.STATIC_DOMAIN}images/loginBtn.png?{$smarty.const.VERSION}" alt="" />-->
+        </div>
+        <div class="jindu">
+            <img class="item_list" src="{$smarty.const.STATIC_DOMAIN}images/x_item_list.png?{$smarty.const.VERSION}" alt="">
+            <div class="line">
+                <img src="{$smarty.const.STATIC_DOMAIN}images/x_line_active.png?{$smarty.const.VERSION}" alt="">
+            </div>
+            <ul class="item_word">
+                <li>
+                    <span></span>
+                    <p>5W人预约</p>
+                    <p>金币X100W</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>10W人预约</p>
+                    <p>战魂X50</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>18W人预约</p>
+                    <p>搜魂卷X5</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>38W人预约</p>
+                    <p>烈战魂X50</p>
+                </li>
+                <li>
+                    <span></span>
+                    <p>68W人预约</p>
+                    <p>角色赵芸X1</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="login">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">登录</div>
+        <div class="r_main">
+            <div class="form_put">
+                <div class="p_put">
+                    <div class="put_yzm">
+                        <div class="put_img">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/p_b.png?{$smarty.const.VERSION}" alt="" />
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/p_bg.png?{$smarty.const.VERSION}" alt="" />
+                        </div>
+                        <input type="tel" placeholder="请输入手机号码" class="phone"  onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"/>
+                    </div>
+                </div>
+                <div class="t_put">
+                    <div class="put_yzm">
+                        <div class="put_img">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/y.png?{$smarty.const.VERSION}" alt="" />
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/y_h.png?{$smarty.const.VERSION}" alt="" />
+                        </div>
+                        <input type="tel" placeholder="请输入图形验证码" class="t_yzm" />
+                    </div>
+                    <div class="captcha">
+                        {$captcha_img}
+                    </div>
+                </div>
+                <div class="y_put">
+                    <div class="put_yzm">
+                        <div class="put_img">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/y.png?{$smarty.const.VERSION}" alt="" />
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/y_h.png?{$smarty.const.VERSION}" alt="" />
+                        </div>
+                        <input type="tel" placeholder="请输入验证码" class="yzm"  onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"/>
+                    </div>
+                    <div class="get_yzm">
+                        <input type="tel" value="获取验证码" class="g_code" readonly="readonly" />
+                    </div>
+                </div>
+                <div id="type_btn" class="yxyy">
+                    <!--<img src="{$smarty.const.STATIC_DOMAIN}images/yy.png?{$smarty.const.VERSION}" alt="" />-->
+                    <img src="{$smarty.const.STATIC_DOMAIN}images/loginBtn.png?{$smarty.const.VERSION}" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="type">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">选择预约平台</div>
+        <div class="r_main">
+            <div class="r_type">
+                <div class="r_ios active" data-date="ios">
+                    <div class="r_img">
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/yuan.png?{$smarty.const.VERSION}" alt="" />
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/yuan_h.png?{$smarty.const.VERSION}" alt="" />
+                    </div>
+                    <p>iOS平台</p>
+                </div>
+                <div class="r_android" data-date="android">
+                    <div class="r_img">
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/yuan.png?{$smarty.const.VERSION}" alt="" />
+                        <img src="{$smarty.const.STATIC_DOMAIN}images/yuan_h.png?{$smarty.const.VERSION}" alt="" />
+                    </div>
+                    <p>安卓平台</p>
+                </div>
+            </div>
+            <img class="type_save" src="{$smarty.const.STATIC_DOMAIN}images/yy.png?{$smarty.const.VERSION}" alt="" />
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="success">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">预约成功</div>
+        <div class="r_main">
+            <p>恭喜您</p>
+            <h4>预约成功</h4>
+            <img class="successBtn" src="{$smarty.const.STATIC_DOMAIN}images/x_sure.png?{$smarty.const.VERSION}" alt="" />
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="priseBox">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">我的奖品</div>
+        <div class="bigDialog">
+            <div class="table_container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>兑换码</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!--<tr>-->
+                        <!--<td>奖品123</td>-->
+                        <!--<td>ABCDSFGDDDDDDDDDDD</td>-->
+                        <!--<td><span class="tableCopy">复制</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>奖品123</td>-->
+                        <!--<td>ABCDSFG</td>-->
+                        <!--<td><span class="tableCopy">复制</span></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>奖品123</td>-->
+                        <!--<td>ABCDSFG</td>-->
+                        <!--<td><span class="tableCopy">复制</span></td>-->
+                    <!--</tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div class="giftWord">
+                <p>获得游戏实物周边的小伙伴，记得留下你的收件地址哦！</p>
+                <p>虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+            </div>
+            <img class="addressBtn" src="{$smarty.const.STATIC_DOMAIN}images/x_address.png?{$smarty.const.VERSION}" alt="" />
+            <img class="addressBtn editBtn" src="{$smarty.const.STATIC_DOMAIN}images/editAddress.png?{$smarty.const.VERSION}" alt="" />
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="getPriseBox">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">恭喜您获得</div>
+        <div class="bigDialog">
+            <div class="myGift">
+                <span></span>
+            </div>
+            <div class="duiCode">
+                <span>兑换码</span>
+                <span id="copyCodeText"></span>
+                <span id="copyCode" data-clipboard-action="copy" data-clipboard-target="#copyCodeText">复制</span>
+            </div>
+            <p class="thanks">谢谢参与</p>
+            <div class="giftWord">
+                <p>获得游戏实物周边的小伙伴，记得留下你的收件地址哦！</p>
+                <p>虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+            </div>
+            <img class="addressBtn" src="{$smarty.const.STATIC_DOMAIN}images/x_address.png?{$smarty.const.VERSION}" alt="" />
+            <img class="addressBtn editBtn" src="{$smarty.const.STATIC_DOMAIN}images/editAddress.png?{$smarty.const.VERSION}" alt="" />
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="address">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">游戏周边收货地址</div>
+        <div class="r_main">
+            <div class="address_from">
+                <div class="tempBox">
+                    <div class="p_put">
+                        <div class="put_yzm">
+                            <div class="put_img">
+                                <img src="{$smarty.const.STATIC_DOMAIN}images/p_b.png?{$smarty.const.VERSION}" alt="" />
+                                <img src="{$smarty.const.STATIC_DOMAIN}images/p_bg.png?{$smarty.const.VERSION}" alt="" />
+                            </div>
+                            <input type="name" placeholder="姓名" class="address_name" />
+                        </div>
+                    </div>
+                    <div class="p_put">
+                        <div class="put_yzm">
+                            <div class="put_img">
+                                <img src="{$smarty.const.STATIC_DOMAIN}images/p_b.png?{$smarty.const.VERSION}" alt="" />
+                                <img src="{$smarty.const.STATIC_DOMAIN}images/p_bg.png?{$smarty.const.VERSION}" alt="" />
+                            </div>
+                            <input type="number" placeholder="收件人邮编" class="address_num" />
+                        </div>
+                    </div>
+                </div>
+                <div class="p_put address_phone_box">
+                    <div class="put_yzm">
+                        <div class="put_img">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/p_b.png?{$smarty.const.VERSION}" alt="" />
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/p_bg.png?{$smarty.const.VERSION}" alt="" />
+                        </div>
+                        <input type="phone" placeholder="收件人电话" class="address_phone" />
+                    </div>
+                </div>
+                <div class="p_put address_info_box">
+                    <div class="put_yzm">
+                        <div class="put_img">
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/p_b.png?{$smarty.const.VERSION}" alt="" />
+                            <img src="{$smarty.const.STATIC_DOMAIN}images/p_bg.png?{$smarty.const.VERSION}" alt="" />
+                        </div>
+                        <textarea type="text" placeholder="收件人详细地址" class="address_info"></textarea>
+                    </div>
+                </div>
+                <div><img class="address_btn" src="{$smarty.const.STATIC_DOMAIN}images/x_sure.png?{$smarty.const.VERSION}" alt="" /></div>
+            </div>
+        </div>
+    </div>
+    <div class="login_yy dialogBox" id="getFriends">
+        <img src="{$smarty.const.STATIC_DOMAIN}images/x_close.png?{$smarty.const.VERSION}" alt="" class="close">
+        <div class="loginTitle">邀请好友</div>
+        <div class="bigDialog">
+            <p>分享您的专属链接，发送给好友，获得更多参加活动机会！</p>
+            <h5>您的邀请码：<span id="my_invite">123456</span></h5>
+            <div class="getFriends_link">
+                <p>点击复制您的专属链接，发送给好友，可获得更多抽奖机会</br>页面地址：</p>
+                <p id="my_share_url"></p>
+            </div>
+            <img id="copyLink" data-clipboard-action="copy" data-clipboard-target="#my_share_url" class="copyBtn" src="{$smarty.const.STATIC_DOMAIN}images/x_copyBtn.png?{$smarty.const.VERSION}" alt="">
+        </div>
+    </div>
+</div>
+</body>
+{download}
+{video_play}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}js/cover.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+</html>

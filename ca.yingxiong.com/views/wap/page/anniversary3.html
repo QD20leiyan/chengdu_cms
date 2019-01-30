@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+	    <meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/common.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}7.0/m/css/act_city3.css" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript">
+			(function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+		</script>
+		{assign var="version" value="1"} 
+	</head>
+
+	<body>
+	     <header class="index1_header">
+			<a href="{myurl name='/wap/site/index'}" class="index1_logo" target="_blank"><img src="{$global.logo_img}" alt=""></a>
+			<div class="header_txt">
+				<p class="h_p_01">{$global.title}</p>
+				<p class="h_p_02">{$global.sub_title}</p>
+			</div>
+			<a href="{myurl name='/wap/site/index'}" class="ent_gw" target="_blank">
+				<span>进入官网</span>
+			</a>
+		</header>
+		<section>
+			<div class="page1">
+				<!--<a href="javascript:;" class="down js_wap_down stat_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/downt.png?{$version}" alt=""></a>-->
+				<a href="http://downurl.yingxiong.com/url/qmqz_pccov.html" class="down stat_cover_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/downt.png?{$version}" alt=""></a>
+				<a href="/m/p/gold.html" class="n_down"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/n_down.png?{$version}" alt=""></a>
+				 <ul class="city_list">
+				 	<li><a href="/m/p/anniversary1.html" class="city1"></a></li>
+				 	<li><a class="city2"  href="/m/p/anniversary2.html"></a></li>
+				 	<li><a class="city3 active"></a></li>
+				 	<li><a href="/m/p/anniversary4.html" class="city4"></a></li>
+				 	
+				 </ul>
+			</div>
+		</section>
+		<section>
+			<div class="page2">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/tl_21.png?{$version}" alt="" class="title1">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/ct_bg3.png?{$version}" alt="" class="ct_img">
+				<p class="info">2018《全民枪战2》四周年庆典·成都站盛大开幕！成都站作为"实战"专场，特别选择了西南地区最大的镭战联盟作为活动场地。现场经过布置后极具CA特色，仿佛将游戏场景搬到了现实中，让人一踏入场地便热血沸腾，燃起熊熊战意。</p>
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/tl_22.png?{$version}" alt="" class="title2">
+				<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/tl_23.png?{$version}" alt="" class="title3">
+				<div class="cult_content">
+					<div class="slider">
+                    	<div class="swiper-container swiper-container2">
+                    	{fragment var=index_banner code=banner_cd size=32}
+                    	    <div class="swiper-wrapper">
+                    	    {if $index_banner neq ''}
+						{foreach $index_banner as $v}
+                    	        <div class="swiper-slide">
+                    	            <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt=""></a>
+                    	        </div>
+                    	        {/foreach}
+                    	        {/if}
+                    	    </div>
+                    	</div>
+                    	<div class="swiper-button-prev"></div>
+                    	<div class="swiper-button-next"></div>
+                    </div>
+
+                <div class="swiper-pagination2"></div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="page3">
+                <img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/tl_24.png?{$version}" alt="" class="title4">
+                {fragment var=cover1_video code=cover3_video size=1}
+                <div class="i_video">
+					<a href="{if $cover1_video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $cover1_video}js_video_play{else}{/if}" data-url="{if $cover1_video}{$cover1_video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/play_sm3.png?{$version}" alt="" class="v_play js_video_play"></a>
+					<img src="{$v.thumb}" alt="" class="v_img">
+					<i></i>
+				</div>
+				<div class="down_box">
+					<!--<a href="javascript:;" class="js_wap_down stat_cover_down">-->
+					<!--<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/down4.png?{$version}" alt="">-->
+					<!--</a>-->
+					<a href="http://downurl.yingxiong.com/url/qmqz_pccov.html" class="stat_cover_down">
+						<img src="{$smarty.const.STATIC_DOMAIN}7.0/m/images/down4.png?{$version}" alt="">
+					</a>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$version}"></script>
+	</body>
+	{download}
+	{video_play}
+	<script src="{$smarty.const.STATIC_DOMAIN}7.0/m/js/swiper-3.4.0.min.js?{$version}" type="text/javascript"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$version}"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper2= new Swiper('.swiper-container2',{
+            loop:true,
+            paginationType : 'fraction',
+            pagination: '.swiper-pagination2',
+            paginationClickable: true,
+            slidesPerView:1,
+            // autoplay:2000,
+            effect : 'fade',
+            fade: {
+                crossFade: true,
+            },
+            slideToClickedSlide: true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            mode: 'horizontal',
+			freeMode:false,
+			touchRatio:0.5,
+			longSwipesRatio:0.1,
+			threshold:1,
+			followFinger:false,
+			observer: true,
+			observeParents: true,
+        });
+		});
+	</script>
+
+</html>

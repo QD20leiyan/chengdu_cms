@@ -1,0 +1,78 @@
+<!--footer-->
+<div class="footer_bottom">
+	<div class="footer_info">
+		<p>地址：深圳市罗湖区文锦南路森威大厦雍景园19楼1911</p>
+		<p>邮箱：2892325207@qq.com</p>
+		<p>电话：0755-86952478</p>
+		<p>备案/许可证编号：粤ICP备18116724号</p>
+	</div>
+</div>
+
+<!--视频弹窗-->
+<div class="co_tips co_tips_video hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="co_form">
+                <span class="tips_url js_video_play" data-url="">
+                    <img src=""  class="tips_img">
+                    <i></i>
+                </span>
+			<div class="tips_tit"></div>
+		</div>
+	</div>
+</div>
+
+<!--图片弹窗-->
+<div class="co_tips co_tips_img hidden">
+	<div class="co_con">
+		<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+		<div class="swiper-container swiper-container3">
+			<div class="swiper-wrapper">
+				{article id="1976" size=100 var=gytj}
+				{if $gytj neq ''}
+				{foreach $gytj as $key=>$v}
+				{if $key >= 0}
+				<div class="co_form swiper-slide" data-index="{$key}" data-id="{$v.id}">
+					<span><img src="{$v.thumb}"></span>
+					<div>{$v.title}</div>
+				</div>
+				{/if}
+				{/foreach}
+				{/if}
+			</div>
+		</div>
+		<div class="swiper-pagination swiper-pagination3"></div>
+		<div class="swiper-button-next swiper-button-prev3"></div>
+		<div class="swiper-button-next swiper-button-next3"></div>
+	</div>
+</div>
+
+<script>
+	$(function(){
+		swiper03 = new Swiper('.swiper-container3', {
+			pagination: '.swiper-pagination3',
+			paginationType : 'fraction',
+			paginationClickable: true,
+			slidesPerView: 1,
+			autoplayDisableOnInteraction : false,
+//			autoplay:3000,
+			loop:true,
+			autoplayDisableOnInteraction: false,
+			prevButton:'.swiper-button-prev3',
+			nextButton:'.swiper-button-next3',
+		});
+
+
+		//图片弹窗显示
+		$(".i_main .img_box .img_li").click(function(){
+			var tips_id=$(this).attr("data-id");
+			$(".co_tips_img").removeClass("hidden");
+			var slide=$(".co_tips_img .swiper-container3").find("[data-id='"+tips_id+"']");
+			console.log(slide.data('index'));
+			swiper03.update();
+			swiper03.slideTo(slide.data('index')-(-1));
+		});
+
+
+	});
+</script>

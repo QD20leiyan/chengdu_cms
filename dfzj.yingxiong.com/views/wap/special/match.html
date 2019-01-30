@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{$seo_title}</title>
+	<meta name="keywords" content="{$seo_key}" />
+	<meta name="description" content="{$seo_desc}" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/public.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/m/css/match1109.css?{$smarty.const.VERSION}">
+	<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+	{csrf}
+</head>
+<body>
+{include file="../../layouts/wap/top.html"}
+
+	<!--kv-->
+	<div class="con1">
+		<div class="wrap">
+			<div class="logo1"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_logo1.png" alt=""/></div>
+			<div class="login hidden">
+				<p class="co_before "><span class="co_loginbtn">点击登录</span></p>
+				<p class="co_after hidden">您好<span class="user_phone"></span>,<span class="logout">[注销]</span></p>
+			</div>
+		</div>
+	</div>
+	<!--赛事直击-->
+	<div class="video_play">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_lable1.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="zb_box">
+				<div class="zb_left">
+					<a href="https://chushou.tv/room/84305423.htm"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_zbimg.png?{$smarty.const.VERSION}" alt=""/></a>
+				</div>
+				<div class="zb_right">
+					<a class="zb_room" href="https://chushou.tv/room/84305423.htm">
+						<div >
+							<i class="zb_icon"></i>
+							<span class="zb_name">非酋躺赢战队<b>主播：帝皇</b></span>
+							<span class="zb_state no_live"><i>正在直播</i></span>
+						</div>
+					</a>
+					<a class="zb_room" href="https://chushou.tv/room/53845359.htm">
+						<div >
+							<i class="zb_icon"></i>
+							<span class="zb_name">心之远航战队<b>主播：无心</b></span>
+							<span class="zb_state no_live"><i>正在直播</i></span>
+						</div>
+					</a>
+					<a class="zb_room" href="http://www.huya.com/16727583">
+						<div >
+							<i class="zb_icon"></i>
+							<span class="zb_name">天降正义战队<b>主播：小三</b></span>
+							<span class="zb_state no_live"><i>正在直播</i></span>
+						</div>
+					</a>
+					<a class="zb_room" href="https://chushou.tv/room/62697084.htm">
+						<div >
+							<i class="zb_icon"></i>
+							<span class="zb_name">毁灭打击战队<b>主播：瓜皮</b></span>
+							<span class="zb_state no_live"><i>正在直播</i></span>
+						</div>
+					</a>
+					<div class="clearfix"></div>
+					<p class="zb_txt1">11月17日-11月18日 <span>20:00-22:00</span></p>
+					<p class="zb_txt2">直播间送海量福利</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--对阵表-->
+	<div class="rule">
+		<div class="wrap">
+			<div class="rule-left">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_lable2.png?{$smarty.const.VERSION}" alt=""/></div>
+				<ul>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name1.png?{$smarty.const.VERSION}" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png?{$smarty.const.VERSION}" class="coin"/>
+						<span>参赛队伍成员</br>每人40000金币</span>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name2.png?{$smarty.const.VERSION}" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png?{$smarty.const.VERSION}" class="coin"/>
+						<span>参赛队伍成员</br>每人20000金币</span>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name3.png?{$smarty.const.VERSION}" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png?{$smarty.const.VERSION}" class="coin"/>
+						<span>参赛队伍成员</br>每人15000金币</span>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name4.png?{$smarty.const.VERSION}" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png?{$smarty.const.VERSION}" class="coin"/>
+						<span>参赛队伍成员</br>每人10000金币</span>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name5.png" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png" class="coin"/>
+						<span>赛事人头最多者</br>每人10000金币</span>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name6.png?{$smarty.const.VERSION}" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png?{$smarty.const.VERSION}" class="coin"/>
+						<span>赛事伤害最高者</br>每人10000金币</span>
+					</li>
+					<li>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_name7.png?{$smarty.const.VERSION}" class="name"/>
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_coin.png?{$smarty.const.VERSION}" class="coin"/>
+						<span>赛事MVP获得者</br>每人10000金币</span>
+					</li>
+				</ul>
+				<!--查看详情-->
+				<div class="detail">
+					<a href="http://dfzj.yingxiong.com/m/info/2018/1113/5892.html" target="_blank"></a>
+				</div>
+			</div>
+			<div class="rule-right">
+				<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_lable3.png?{$smarty.const.VERSION}" alt=""/></div>
+				<div class="rule-info">
+					<p><i>1</i><span>海选阶段，玩家可以通过游戏内主界面【助手】-【赛事按钮】进行报名参加海选。海选标准为天梯积分赛，积分排名前50人（替补14人）即为参与最终决赛的玩家。</span></p>
+					<p><i>2</i><span>11月17日-11月18日晚8点-10点，是《巅峰战舰》星路联赛决赛时间。通过海选的比赛选手，轮流选择神秘导师，随机匹配队员分为4小组进行参赛。</span></p>
+					<p><i>3</i><span>比赛方式为10V10天梯赛、常规赛。4支队伍采取一对一比拼赛，将天梯赛及常规赛比赛结果叠加累计最高者，为最终优胜队伍。</span></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!--导师-->
+	<div class="teacher">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_lable4.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="banner1">
+				<div class="swiper-container swiper-container1">
+					<div class="swiper-wrapper">
+						{fragment var=sc_teacher_wap code=sc_teacher_wap size=100}
+						{if $sc_teacher_wap neq ''}
+						{foreach $sc_teacher_wap as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}"></a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="swiper-button-prev swiper-button-prev1"></div>
+				<div class="swiper-button-next swiper-button-next1"></div>
+			</div>
+		</div>
+	</div>
+	<!--赛事预测-->
+	<div class="frocecast">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_lable5.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="atonce">
+				<div class="atonce_rule">
+					<p><i>1</i><span>点击投票按钮，为喜欢的战队投票；</span></p>
+					<p><i>2</i><span>比赛结束后，投票的战队成为最终冠军队伍，即可获得金币礼包，并随机抽取四十个名额赠送统一实物奖品</span></p>
+				</div>
+				<div class="detail1">
+					<a href="http://dfzj.yingxiong.com/m/info/2018/1113/5893.html" target="_blank">点击了解活动详情</a>
+				</div>
+				<ul class="yc_code">
+					<li>
+						<p class="title">正确预测冠军战队奖励</p>
+						<ul>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift8.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>军需6折劵*1(限时3天)</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift9.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>改建配件任选箱*2</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift3.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>金币*300</p>
+								</div>
+							</li>
+							<div class="m_line"></div>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift4.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>满汉大餐1</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift5.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>老坛酸菜牛肉面</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<p class="title">预测参与奖</p>
+						<ul>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift1.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>双倍银币卡*1(3天)</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift6.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>银币*88888</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift7.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>限时塔什干1天</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<span><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_gift2.png?{$smarty.const.VERSION}" alt=""></span>
+									<p>燃油*66</p>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="yc_bg">
+					<div class="yc_btn">
+						<a href="javascript:;" class="lj_yuce" style="display: block;">立即投票</a>
+						<a href="javascript:;" class="sc_stop">赛事已结束</a>
+						<p class="info"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_yctxt.png?{$smarty.const.VERSION}" alt=""/></p>
+						<p>预测有效时间截止至11月17日23：00</p>
+						<span class="my_gift"></span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--精彩回顾-->
+	<div class="back">
+		<div class="wrap">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_lable6.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="audio">
+				{fragment var=event_review code=event_review size=1}
+				{if $event_review neq ''}
+				{foreach $event_review as $key=>$v}
+				<div class="audio1 {if $v.url neq 'null'}js_video_play{else}{/if}" data-url="{$v.url}">
+					<a href="{if $v.url neq 'null'}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play-img">
+						<img src="{$v.thumb}" />
+						<div class="play-bg">
+							<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_play2.png?{$smarty.const.VERSION}" />
+						</div>
+					</a>
+				</div>
+				{/foreach}
+				{/if}
+
+				<ul>
+					{fragment var=event_review code=event_review size=5}
+					{if $event_review neq ''}
+					{foreach $event_review as $key=>$v}
+					{if $key neq 0 }
+					<li>
+						<div class="audio2 {if $v.url neq 'null'}js_video_play{else}{/if}" data-url="{$v.url}">
+							<a href="{if $v.url neq 'null'}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play-img">
+								<img src="{$v.thumb}" />
+								<div class="play-sm">
+									<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_play1.png?{$smarty.const.VERSION}">
+								</div>
+							</a>
+						</div>
+					</li>
+					{/if}
+					{/foreach}
+					{/if}
+				</ul>
+			</div>
+			<a href="javascript:yx_showTips('敬请期待');" class="m_more" target="_blank"></a>
+		</div>
+	</div>
+
+
+	<!--直播登陆-->
+	<div class="co_tips order-to hidden">
+		<div class="tips_center">
+			<div class="tips_head">
+				<span>手机登录</span>
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_close.png?{$smarty.const.VERSION}" /></i>
+			</div>
+			<div class="inp-box">
+				<div class="inp">
+					<input type="tel" placeholder="请输入手机号码" class="co_username">
+					<p class="co_error">手机号码错误</p>
+				</div>
+				<div class="inp inp1">
+					<input type="text"  class="captcha" placeholder="请输入验证码">
+					<div class="get-code co_captcha">点击刷新</div>
+					<p class="co_error">手机号码错误</p>
+				</div>
+				<div class="inp inp1">
+					<input type="number" placeholder="请输入验证码" class="co_codenum1">
+					<div class="get-code co_codebtn1">获取验证码</div>
+					<p class="co_error">手机号码错误</p>
+				</div>
+			</div>
+			<div class="co_tipsbtn co_tips_loginbtn">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_loginbtn.png?{$smarty.const.VERSION}" />
+			</div>
+		</div>
+	</div>
+	<!--预测弹窗-->
+	<div class="co_tips yc_tips hidden">
+		<div class="tips_center">
+			<div class="tips_head">
+				<span>参与投票</span>
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_close.png?{$smarty.const.VERSION}" /></i>
+			</div>
+			<div class="inp-box">
+				<p class="tips_info">选择您心中会获得本次的冠军的战队</p>
+				<div class="choose">
+					<div data-id="1"><i></i>非酋躺赢战队</div>
+					<div data-id="2"><i></i>心之远航战队</div>
+					<div data-id="3"><i></i>天降正义战队</div>
+					<div data-id="4"><i></i>毁灭打击战队</div>
+				</div>
+
+			</div>
+			<div class="co_tipsbtn co_ycbtn" data-id="">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_tpbtn.png?{$smarty.const.VERSION}" />
+			</div>
+		</div>
+	</div>
+	<!--提示弹窗-->
+	<div class="co_tips forecast-suc hidden">
+		<div class="tips_center">
+			<div class="tips_head">
+				<span>温馨提示</span>
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_close.png?{$smarty.const.VERSION}" /></i>
+			</div>
+			<div class="inp-box">
+				<p class="tips_info">恭喜您投票成功！</p>
+			</div>
+			<div class="co_tipsbtn co_surebtn">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_surebtn.png?{$smarty.const.VERSION}" />
+			</div>
+		</div>
+	</div>
+	<!--我的礼包-->
+	<div class="co_tips gift_tips hidden">
+		<div class="tips_center">
+			<div class="tips_head">
+				<span>我的礼包码</span>
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_close.png?{$smarty.const.VERSION}" /></i>
+			</div>
+			<div class="inp-box">
+				<div class="gift_txt gift_txt1">
+					<p class="gift_name">参与奖励</p>
+					<p class="gift_code gift_code1"></p>
+					<div class="copy-btn copy copy_link1"  data-clipboard-text="">复制礼包码</div>
+				</div>
+				<div class="gift_txt gift_txt2">
+					<p class="gift_name">预测成功奖励</p>
+					<p class="gift_code gift_code2"></p>
+					<div class="copy-btn copy copy_link2"  data-clipboard-text="">复制礼包码</div>
+				</div>
+			</div>
+			<div class="co_tipsbtn co_surebtn">
+				<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/m_surebtn.png?{$smarty.const.VERSION}" />
+			</div>
+		</div>
+	</div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}2.0/m/js/match1109.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+{include file="../../layouts/wap/footer.html"}
+</html>

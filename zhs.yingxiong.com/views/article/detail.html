@@ -1,0 +1,36 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/new.css?{$smarty.const.VERSION}" />
+		<div class="n_kv">
+		</div>
+		<div class="eff1">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}1.0/images/eff1.png?{$smarty.const.VERSION}" alt="" />-->
+		</div>
+		<p class="ward_title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/{$smarty.const.STATIC_DOMAIN}1.0/images/news_tl.png?{$smarty.const.VERSION}?{$smarty.const.VERSION}" alt=""/></p>
+		<div class="d_body n_body">
+		    <div class="top_ul">
+                <ul class="tab_ul">
+                    <li class=""><a href="{myurl name='article/list, id=>619'}" target="_blank">最新</a></li>
+                    <li class="{if $content.category_id eq 620}active{else} {/if}"><a href="{myurl name='article/list, id=>620'}" target="_blank">新闻</a></li>
+                    <li class="{if $content.category_id eq 621}active{else} {/if}"><a href="{myurl name='article/list, id=>621'}" target="_blank">公告</a></li>
+                    <li class="{if $content.category_id eq 622}active{else} {/if}"><a href="{myurl name='article/list, id=>622'}" target="_blank">攻略</a></li>
+                    <p class="back">当前位置：<a href="{myurl name='site/index'}">官网首页</a> > 新闻资讯</p>
+                </ul>
+            </div>
+			<div class="top_ul2">
+				<div class="tab_ul2">
+					<div class="d_title">
+						<h3>{$content.title}</h3>
+						<!-- <p class="d_date">{$content.created_at_formate} 官方录入</p> -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="detail_body">
+			<div class="wrap">
+				<div class="d_content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+		{include file="../layouts/pc/float.html"}
+{include file="../layouts/pc/footer.html"}

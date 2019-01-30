@@ -1,0 +1,142 @@
+{video_play}
+{download}
+</body>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/yx.js?{$smarty.const.VERSION}"></script>
+<script>
+    var clickNumber2 = 0;
+    var clickNumber = 0;
+    var mySwiper = new Swiper(".swiper1", {
+        autoplay: 5000,
+        pagination : '.swiper-pagination',
+		loop: true,
+		paginationClickable :true,
+		autoplayDisableOnInteraction:false,
+    });
+    var mySwiper = new Swiper(".swiper2", {
+        autoplay: 5000,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+		loop: true,
+		effect : 'fade',
+		fade: {
+            crossFade: true,
+        },
+        paginationType : 'fraction'
+    });
+    $('.top-list li').click(function(){
+        $('.mask').slideUp(500);
+        $('.top-list').toggle(500);
+    })
+    $(".fade").click(function(){
+    	// $('.mask').slideUp(500);
+        $('.top-list').slideUp(500);
+        $('.down_list').slideUp(500);
+        if($(".top-btn").hasClass('close')){
+        	$(".top-btn").removeClass('close');
+        }
+	    clickNumber2=0;
+    })
+    $(".news-list").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+		}
+		var index = parseInt($(this).attr('data-index'));
+        $('.news-list').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news-info').find('li').removeClass('active');
+        $('.news-info').find('li.info').eq(index).addClass('active');
+    });
+    $('.top-down').click(function () {
+    	if(clickNumber2 % 2 == 0) {
+		$('.down_list').slideDown(500);
+		$('.top-list').slideUp(500);
+		$(".header_nav").stop().slideUp();
+		$(".d_t_t").removeClass("d_t_t_tran");
+		$(".d_t_m").removeClass("d_t_m_tran");
+		$(".d_t_b").removeClass("d_t_b_tran");
+		clickNumber=0;
+	} else {
+        $('.down_list').slideUp(500);
+	}
+	clickNumber2++;
+    })
+    $(".h_nav,.h_nav2").on("click", function(e) {
+		e.stopPropagation();
+		if(clickNumber % 2 == 0) {
+			$(".d_t_t").addClass("d_t_t_tran");
+			$(".d_t_m").addClass("d_t_m_tran");
+			$(".d_t_b").addClass("d_t_b_tran");
+			$(".header_nav").stop().slideDown();
+			$('.down_list').slideUp(500);
+			clickNumber2 = 0;
+		} else {
+			$(".d_t_t").removeClass("d_t_t_tran");
+			$(".d_t_m").removeClass("d_t_m_tran");
+			$(".d_t_b").removeClass("d_t_b_tran");
+			$(".header_nav").stop().slideUp();
+			$('.down_list').slideUp(500);
+			clickNumber2 = 0;
+		}
+		clickNumber++;
+	});
+	$(".header_nav li,.header_nav").click(function() {
+		$(".d_t_t").removeClass("d_t_t_tran");
+		$(".d_t_m").removeClass("d_t_m_tran");
+		$(".d_t_b").removeClass("d_t_b_tran");
+		$(".header_nav").stop().slideUp();
+		clickNumber = 0;
+		clickNumber2 = 0;
+		$('.down_list').slideUp(500);
+	})
+	$(".news-list li").on("click", function() {
+		var index = $(this).index();
+		$(this).addClass("active").siblings().removeClass("active");
+		$(".news-info li.info").eq(index).removeClass("hide").siblings().addClass("hide");
+	});
+	var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var id = $(".list-article-title").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                if(data.status == 0&& data.msg.length>0){
+                    var result = '';
+                    for(var i = 0; i < data.msg.length; i++) {
+                       result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i>[" +data.msg[i].name+"]</i><span>"+data.msg[i].title+"</span><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    $('.list-article').append(result);
+                    $(".dropload-noData").html("上拉加载更多...<i></i>");
+                    isScroll = 1;
+                } else{
+                    $(".dropload-noData").html("没有更多信息了...");
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,192 @@
+{include file="../../layouts/wap/dataHead.html"}
+<section>
+    <div class="main_content">
+        <div id="top_menu" class="top_menu" name="{$category_id}">
+            <ul>
+                <li {if $top_category_id eq 117} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>117"}'>生存与制造</a>
+                </li>
+                <li {if $top_category_id eq 118} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>118"}'>烹饪体系</a>
+                </li>
+                <li {if $top_category_id eq 119} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>119"}'>魔法体系</a>
+                </li>
+                <li {if $top_category_id eq 120} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>120"}'>生物体系</a>
+                </li>
+                <li {if $top_category_id eq 121} class="active" {/if}>
+                <a href='{myurl name="/wap/article/data, id=>121"}'>益趣玩法</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<div id="zlxq" class="zlxq">
+    <div class="zlxq_title">
+        {if $thumb}<img src="{$thumb}" title="" alt="">{/if}
+        {if $category_id eq 119 or $category_id eq 120}
+        <a href="javascript:;">{$title}</a>
+        {else}
+        <a href="javascript:;">{$name}</a>&gt;
+        <a href="javascript:;">{$title}</a>
+        {/if}
+    </div>
+    {if $thumb}
+    <div class="main_pic">
+        <img src="{$thumb}">
+    </div>
+    {/if}
+    <p>{$body}</p>
+    <div class="thePraise">
+        <div class="theZan praise" pageID="{$content_id}">
+            <img class="show" src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/zan_be.png">
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/zan_ing.png">
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/zan_end.png">
+            <p class="praise_num"></p>
+        </div>
+        <label></label>
+        <div class="theCai step" pageID="{$content_id}">
+            <img class="show" src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/cai_be.png">
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/cai_ing.png">
+            <img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/cai_end.png">
+            <p class="step_num"></p>
+        </div>
+    </div>
+</div>
+<div class="jiathis_style_24x24">
+    <span>分享到：</span>
+    <a class="jiathis_button_qzone"></a>
+    <a class="jiathis_button_tsina"></a>
+    <a class="jiathis_button_cqq"></a>
+    <a class="jiathis_button_weixin"></a>
+</div>
+<div id="SOHUCS" sid="data_{$id}" ></div>
+<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/jiaThis.css" />
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery.fittext.js"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/pl.js"></script>
+{click}
+<script type="text/javascript">
+
+    $(function() {
+
+        //文章ID
+        var pageId =  "{$content_id}";
+
+        $('html').fitText(2);
+        var clickNumber = 1;
+        $(".menu").click(function() {
+            if(clickNumber % 2 !== 0) {
+                $(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav_close.png");
+                $(this).siblings(".menu_nav").slideDown();
+            } else {
+                $(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav.png");
+                $(this).siblings(".menu_nav").slideUp();
+            }
+            clickNumber++;
+        });
+
+        $(document).on("click",".top_menu li",function(){
+            var isClick = $(this).attr("isClick");
+            if(isClick){
+                return;
+            }
+            var myThis = $(this);
+            var id = $(this).attr("id");
+            //设置isClick为true，防止重复点击
+            myThis.attr("isClick","true");
+            $.ajax({
+                url: '{myurl name="/wap/article/ajax-get-data"}',
+                data: {
+                    id: id
+                },
+                type: 'GET',
+                success: function(data){
+                    changeLi(myThis);
+                    $("#middle_menu").remove();
+                    $(".main_content").after(data);
+                    myThis.attr("isClick","");
+                },
+                error: function(data){
+                    myThis.attr("isClick","");
+                    alert("网络异常,请检查您的网络");
+                }
+            });
+            function changeLi(myThis){
+                var index = myThis.index();
+                myThis.addClass("active").siblings().removeClass("active");
+                $(".middle_menu .tab").eq(index).addClass("active");
+                $(".middle_menu .tab").eq(index).siblings().removeClass("active");
+            }
+        });
+
+        $(document).on("click",".title_bg li",function(){
+            var id = $(this).attr("name");
+            $(this).addClass("active").siblings().removeClass("active");
+            changeDataDatail("data");
+            scrollTo($("#"+id),300);
+        });
+
+        $(document).on("click",".jiathis_style_24x24 a",function(){
+            clickShare(pageId);
+        });
+
+        //点赞，踩
+        isPageGoodBad(".theZan",1);
+        isPageGoodBad(".theCai",0);
+
+        //文章踩或者赞方法 type：0代表踩，1代表赞
+        function isPageGoodBad(eleName,type){
+
+            $(document).on("touchstart",eleName,function(){
+                var name = $(this).attr("name");
+                if(name){
+                    return true;
+                }
+                var img = $(this).children("img");
+                img.attr("class","");
+                img.eq(1).attr("class","show");
+            });
+
+            $(document).on("touchend",eleName,function(){
+                var myThis = $(this);
+                var myNumberBox = myThis.children("p");
+                var myNumber = parseInt(myNumberBox.html());
+                var name = $(this).attr("name");
+                if(name){
+                    return true;
+                }
+                //获取文章ID
+                var pageID = $(this).attr("pageID");
+                var myType = "";
+                var myText = "";
+                if(type == 0){
+                    myType = "step";
+                    myText = "您已经点踩过啦";
+                }else if(type == 1){
+                    myType = "praise";
+                    myText = "您已经点赞过啦";
+                }
+                getChangeData(pageID,myType,function(inf){
+                    var img = myThis.children("img");
+                    img.attr("class","");
+                    img.eq(2).attr("class","show");
+                    myThis.attr("name","true");
+                    // console.log(inf);
+                    var status = inf.status;
+                    if(status == -1){
+                        alert(myText);
+                    }else {
+                        myNumberBox.html(myNumber+1);
+                    }
+                });
+            });
+        }
+        //获取点赞和踩人数
+        getClickData(pageId);
+    }); 
+</script>
+

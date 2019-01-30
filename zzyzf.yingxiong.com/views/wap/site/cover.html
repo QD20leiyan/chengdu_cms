@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+		<meta name="format-detection" content="telephone=no">
+		<!-- 关键词及描述 -->
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="shortcut icon" href="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/favicon.ico?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/common/css/common.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/common/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/css/cover.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+			});
+		</script>
+		<script data-fixed="true">
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			}else{
+				var href=window.location.pathname+window.location.search;
+				console.log(href);
+				if(href.substr(0,4)=="/wap"){
+					location.href=href.substr(4);
+				}
+			}
+		</script>
+		<script>
+        	(function (doc, win) {
+        	    var docEl = doc.documentElement,
+        	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+        	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	            recalc = function () {
+        	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+        	                var clientWidth = docEl.clientWidth;
+        	                if (!clientWidth) return;
+        	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+        	            };
+
+        	    recalc();
+        	    //判断是否支持监听事件 ，不支持则停止
+        	    if (!doc.addEventListener) return;
+        	    //注册翻转事件
+        	    win.addEventListener(resizeEvt, recalc, false);
+        	})(document, window);
+    	</script>
+    	{csrf}
+	</head>
+	<body>
+		<header class="index1_header">
+			<a href="/m/index.html" class="index1_logo"><img src="{$global.logo_img}" alt=""></a>
+			<div class="header_txt">
+				<p class="h_p_01">{$global.title}</p>
+				<p class="h_p_02">{$global.sub_title}</p>
+			</div>
+			<a href="javascript:;" class="ent_yy yy" target="_blank">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/yuyue1.png?{$smarty.const.VERSION}" alt="">
+			</a>
+		</header>
+		<section class="main1">
+			<div class="main">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+				{fragment var=video code=video size=1}
+				<a href="javascript:;" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/play.png?{$smarty.const.VERSION}" alt=""></a>
+				<a href="javascript:;" class="yyue yy"></a>
+				<p class="peo_num">已经预约<span>9999</span>人</p>
+			</div>
+		</section>
+		<section class="main2">
+			<div class="gift1">
+				<p class="gf1_info">预约人数达成后，将在开测后获得对应奖励</p>
+				<ul>
+					<li class="g1">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/mn1.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p></p>
+						<div class="mn_num">
+							<span>????</span>
+						</div>
+					</li>
+					<li class="g2">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/mn2.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p></p>
+						<div class="mn_num">
+							<span>????</span>
+						</div>
+					</li>
+					<li class="g3">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/mn3.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p></p>
+						<div class="mn_num">
+							<span>????</span>
+						</div>
+					</li>
+					<li class="g4">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/mn4.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p></p>
+						<div class="mn_num">
+							<span>????</span>
+						</div>
+					</li>
+					<li class="g5">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/mn5.png?{$smarty.const.VERSION}" alt="" class="money" style="height: 4.86rem;width: 4.86rem;">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p></p>
+						<div class="mn_num">
+							<span>????</span>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<div class="gift2">
+				<p class="gf2_info">邀请好友注册并成功预约，即可开测后获得对应邀请奖励</p>
+				<div class="log_bf">
+					<p class="user_id">请先登录游戏帐号</p>
+					<a class="login" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/login.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+				<div class="log_af hide" data-url="">
+					<p class="user_id">游戏：<span>疯狂坦克小王</span></p>
+					<div class="code">我的邀请码  <span>888888</span></div>
+					<p class="sec_num">已成功邀请<span>0</span> 位好友</p>
+				</div>
+				<ul class="box box1">
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf1.png?{$smarty.const.VERSION}" alt="" class="gf_box">
+					        <span>一箱子钱X1</span>
+					        <p>1</p>
+						</div>
+					</li>
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf2.png?{$smarty.const.VERSION}" alt="" class="gf_box">
+					        <span>一箱子钱X1</span>
+					        <p>2</p>
+						</div>
+					</li>
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf3.png?{$smarty.const.VERSION}" alt="" class="gf_box gf_bg">
+					        <span>一箱子钱X1</span>
+					        <p>4</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="box box2">
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf4.png?{$smarty.const.VERSION}" alt="" class="gf_box gf_bg">
+					        <span>一箱子钱X1</span>
+					        <p>6</p>
+						</div>
+					</li>
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf5.png?{$smarty.const.VERSION}" alt="" class="gf_box gf_bg gf_bg3">
+					        <span>一箱子钱X1</span>
+					        <p>10</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/tanke.png?{$smarty.const.VERSION}" alt="" class="tanke">
+			<a href="javascript:;" class="yaoq"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/yaoq.png?{$smarty.const.VERSION}" alt=""></a>
+		</section>
+		<section class="main3">
+			<div class="z_banner">
+			{fragment var=banner_img_wap code=banner_img_wap size=5}
+				<ul class="swiper-wrapper">
+				{if $banner_img_wap neq ''}
+					{foreach $banner_img_wap as $v}
+					<li class="swiper-slide">
+						<a href="{$v.url}" target="_blank">
+							<img src="{$v.thumb}" alt="" />
+						</a>
+					</li>
+					{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="swiper-button-prev">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/r.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="swiper-button-next">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/r.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+		</section>
+		<section class="login_board hide">
+			<div class="login_tel">
+				<p class="title">登  录</p>
+				<a href="javascript:;" class="close close1"></a>
+				<div class="login_con">	
+					<p class="phone_ent">
+						<input type="number" class="tel" id="login_code1" placeholder="请输入手机号码">
+					</p>
+					<p class="co_error err1">* 手机号格式不正确喔~</p>
+					<p class="yanzhen_code">
+						<input type="text" class="codimg" id="check_code2" placeholder="图片验证码">
+						<a href="javascript:;" class="code_img">
+							<img id="captcha-img" src="{myurl name="commonMethod/captcha"}" alt="" title="换一个" style="cursor:pointer;">
+						</a>
+					</p>
+					<p class="co_error err3">* 图片验证码不正确喔~</p>
+					<p class="shuaxin">点击图片刷新</p>
+					<p class="yanzhen">
+						<input type="number" class="check_code" id="check_code1" placeholder="手机验证码">
+						<a href="javascript:;" class="gain gain1">获取验证码</a>
+					</p>
+					<p class="co_error err2">* 短信验证码不正确喔~</p>
+					<a href="javascript:;" class="login_next">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/btn1.png?{$smarty.const.VERSION}" alt="">
+					</a>
+				</div>
+			</div>
+		</section> 
+		<section class="yuyue_board hide">
+			<div class="yyue_con">
+				<p class="title tl2">预约信息</p>
+				<a href="javascript:;" class="close"></a>
+				<div class="yy_t">
+					<div class="yuyue_tel">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/yuyue_info.png?{$smarty.const.VERSION}" alt="" class="yuyue_info">
+						<form action="" class="yuyue_form">
+							<div class="xitong">
+								<span class="rdo on fl" data-id="1">iOS</span>
+								<span class="rdo fr" data-id="2"> Android</span>
+							</div>
+							<div class="clear"></div>
+							<p class="inv_hav" >
+								<span>是否有好友邀请？</span>
+								<span class="rdo3 no">否</span>
+								<span class="rdo3 active yes">是</span>
+								<input type="number" class="inv" id="invite_code" placeholder="请输入邀请码">
+							</p>
+							<p class="co_error err3">* 邀请码不正确喔~</p>
+							<a href="javascript:;" class="yuyue_next"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/co_btn4.png?{$smarty.const.VERSION}" alt=""></a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="invite_board hide">
+			<div class="invite_con">
+				<p class="title tl3">邀请好友快来玩</p>
+				<a href="javascript:;" class="close"></a>
+				<div class="inv_con">
+					<img src="" alt="" class="invite_tl">
+					<div class="inv_code">
+						<p>我的邀请码</p>
+						<p class="inv_num">	123456</p>
+					</div>
+					<p class="info">长按分享页面邀请好友</p>
+					<ul class="share">
+						<li><a href="javascript:sharefn(event,0)"  class="co_wx" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/33.png?{$smarty.const.VERSION}" alt=""></a></li>
+						<li><a href="javascript:sharefn(event,1);" class="co_qq"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/22.png?{$smarty.const.VERSION}" alt=""></a></li>
+						<li><a href="javascript:sharefn(event,2);" class="co_wb"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/11.png?{$smarty.const.VERSION}" alt=""></a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js?<?= VERSION;?>#style=-1"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/common/js/jquery-1.11.3.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/common/js/jquery.fittext.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/common/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/js/cover.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="http://cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('html').fitText(3);
+			var mySwiper = new Swiper('.z_banner', {
+				loop: true,
+				simulateTouch: false,
+				autoplay: 3000,
+				pagination: '.swiper-pagination',
+				paginationClickable: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+			});
+		});
+		//分享
+		function sharefn(e,i){
+			var url=$(".log_af").attr("data-url");
+			var arr=['weixin','qzone','sinaminiblog'];
+			bShare.addEntry({
+				title: "战争与征服官方网站",
+				url: url,
+				summary: "每一个梦想 都将在这里实现",//分享的文本摘要，默认为页面Meta标签中description的内容或者用户高亮的内容
+				pic: "http://static.dev.yingxiong.com/zzyzf/4.0/{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/nav_top_bg.png?{$smarty.const.VERSION}"   //指定分享的图片的链接，目前支持新浪微博，QQ空间，搜狐微博，网易微博，人人网， 嘀咕，腾讯微博和做啥。
+			});
+			bShare.share(e, arr[i]);
+		}
+	</script>
+	{video_play}
+</html>

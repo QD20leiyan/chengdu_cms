@@ -1,0 +1,279 @@
+{include file="../layouts/pc/header.html"}
+
+<body>
+	{fragment var=kv_img code=index_kv_img size=1}
+	<div class="bg public_kv" style="background:url({if count($kv_img) > 0 && $kv_img neq ''}{$kv_img[0].thumb}{/if}) no-repeat center;" data-kv="{if count($kv_img) > 0 && $kv_img[0].jumpbackend}{$kv_img[0].jumpbackend}{/if}">
+		{if $diy}
+			<div class="main_kv" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑KV</i></div>
+		{/if}
+		<section>
+			<div class="i_top public_nav" style="{if count($global.nav_background_color) > 0 && $global.nav_background_color neq ''}background-color:{$global.nav_background_color}"{else}background:url({$global.nav_background_img}) no-repeat center{/if} {if count($global.nav_background_color) > 0 && $global.nav_background_color neq ''}data-right="{jumpbackend name='nav_font_color'}"{/if}>
+				<div class="cont">
+					<div class="i_topcon clearfix">
+						<div class="i_icon public_icon" data-icon="{jumpbackend name='website_title'}">
+							<img src="{$global.website_logo_img}" alt="icon">
+						</div>
+						<div class="i_top_title public_icon">
+							<h3>{$global.website_title}</h3>
+							<p>{$global.website_sub_title}</p>
+						</div>
+						<div class="i_nav">
+							<ul class="public_ul" data-color="{$global.nav_font_color}" data-hover="{$global.nav_font_hover_color}" data-bg="{$global.nav_background_color}" data-img="{$global.nav_background_img}">
+								<li class='{if $alias eq ' '}active {/if}'>
+									<a href="{myurl name='site/index'}">首 页</a>
+								</li>
+								<li class="{if $alias}active{/if}">
+									<a href="{myurl name='article/list, alias=>zonghe'}" target="_blank">新闻资讯</a>
+								</li>
+								<li>
+									<a href="javascript:yx_showTips('敬请期待');">论坛</a>
+								</li>
+							</ul>
+						</div>
+						<div class="i_share clearfix">
+							<a href="{if $global.nav_wb_url}{$global.nav_wb_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="i_share_wb" title="微博" target="_blank"><img src="{$global.nav_wb_icon}" /></a>
+							<a href="javascript:" class="i_share_wx" title="微信"><img src="{$global.nav_wechat_icon}" /></a>
+							<a href="{if $global.nav_baidu_url}{$global.nav_baidu_url}{else}javascript:yx_showTips('敬请期待');{/if}" class="i_share_bd" title="百度" target="_blank"><img src="{$global.nav_baidu_icon}" /></a>
+							<div class="i_share_weixin">
+								<div class="ewm">
+									<img src="{$global.nav_wechat_ewm}" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{if $diy}
+					<div class="main_nav" style="width:100%;cursor:pointer;height:80%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑导航</i></div>
+				{/if}
+			</div>
+		</section>
+		<section>
+			<article class="art art-1 cont">
+				{fragment var=video code=index_video size=1}
+				<i style="width:102px;height:102px;" class="i_play public_video {if $video}js_video_play{/if}" data-url="{if $video}{$video[0].url}{/if}" data-video="{if $video}{$video[0].jumpbackend}{/if}">
+					<img src="{if $video}{$video[0].thumb}{/if}" alt="" />
+					<div class="main_play" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑视频</i></div>
+				</i>
+			</article>
+		</section>
+		<div class="sec">
+			<section class="clearfix">
+				<article class="art-banner swiper-container banner_ng">
+					{fragment var=index_banner code=banner size=5} {if $index_banner neq ''} {foreach $index_banner as $v}
+					<div class="swiper-wrapper public_banner" data-banner="{$index_banner[0].jumpbackend}">
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}" target="_blank"><img src="{$v.thumb}" alt="" /></a>
+						</div>
+						{/foreach} {/if}
+					</div>
+					{if $diy}
+						<div class="main_banner" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑模块</i></div>
+					{/if}
+					<div class="swiper-pagination"></div>
+				</article>
+				<article class="art-news" style="position:relative">
+					<ul class="news-nav clearfix public_news_title" data-color="{$global.news_nav_hover_color}" data-news="{jumpbackend name='news_nav_hover_color'}">
+						<li class="active" style="color:#fff;background:{$global.news_nav_hover_color}">最新</li>
+						<li>资讯</li>
+						<li>公告</li>
+						<li>活动</li>
+						<li>攻略</li>
+						<div class="text_tab_more">
+							<a href="{myurl name='article/list, alias=>zonghe'}" class="more" target="_blank"></a>
+							<a href="{myurl name='article/list, alias=>zonghe'}" class="more-h" target="_blank"></a>
+						</div>
+					</ul>
+					{article alias="zonghe" size=4 var=zh} 
+					<div class="news-cont show">
+						{if isset($zh) && $zh neq ""}
+						<p class="title public_news_con" data-con="{$zh[0].jumpbackend}">{$zh[0].title}</p>
+						<div class="brief">{$zh[0].contentMessage}</div>
+						<ul class="news-list">
+							{foreach $zh as $key=>$v} 
+								{if $key > 0}
+									<li>
+										<a href="{if isset($v.linkUrl)}{$v.linkUrl}{/if}" target="_blank">{$v.title}</a><span>[{$v.created_at|date_format:"%m/%d"}]</span>
+									</li>
+								{/if} 
+							{/foreach}
+						</ul>
+						{else}
+						<p class="noData" style="font-size:16px;color:#333;margin-top:20px;text-align: center;">暂无数据...</p>
+						{/if}
+					</div>
+					{article alias="xinwen" size=4 var=xw} 
+					<div class="news-cont hide " style="display: none;">
+						{if isset($xw) && $xw neq ""}
+						<p class="title public_news_con" data-con="{$xw[0].jumpbackend}">{$xw[0].title}</p>
+						<div class="brief">{$xw[0].contentMessage}</div>
+						<ul class="news-list">
+							{foreach $xw as $key=>$v} {if $key > 0}
+							<li>
+								<a href="{if isset($v.linkUrl)}{$v.linkUrl}{/if}" target="_blank">{$v.title}</a><span>[{$v.created_at|date_format:"%m/%d"}]</span>
+							</li>
+							{/if} {/foreach}
+						</ul>
+						{else}
+						<p class="noData" style="font-size:16px;color:#333;margin-top:20px;text-align: center;">暂无数据...</p>
+						{/if}
+					</div>
+					{article alias="gonggao" size=4 var=gg} 
+					<div class="news-cont hide "  style="display: none;">
+						{if isset($gg) && $gg neq ""}
+						<p class="title public_news_con" data-con="{$gg[0].jumpbackend}">{$gg[0].title}</p>
+						<div class="brief">{$gg[0].contentMessage}</div>
+						<ul class="news-list">
+							{foreach $gg as $key=>$v} {if $key > 0}
+							<li>
+								<a href="{if isset($v.linkUrl)}{$v.linkUrl}{/if}" target="_blank">{$v.title}</a><span>[{$v.created_at|date_format:"%m/%d"}]</span>
+							</li>
+							{/if} {/foreach}
+						</ul>
+						{else}
+						<p class="noData" style="font-size:16px;color:#333;margin-top:20px;text-align: center;">暂无数据...</p>
+						{/if}
+					</div>
+					{article alias="huodong" size=4 var=hd}
+					<div class="news-cont hide" style="display: none;">
+						{if isset($hd) && $hd neq ""}
+						<p class="title public_news_con"  data-con="{$hd[0].jumpbackend}">{$hd[0].title}</p>
+						<div class="brief">{$hd[0].contentMessage}</div>
+						<ul class="news-list">
+							{foreach $hd as $key=>$v} {if $key > 0}
+							<li>
+								<a href="{if isset($v.linkUrl)}{$v.linkUrl}{/if}" target="_blank">{$v.title}</a><span>[{$v.created_at|date_format:"%m/%d"}]</span>
+							</li>
+							{/if} {/foreach}
+						</ul>
+						{else}
+						<p class="noData" style="font-size:16px;color:#333;margin-top:20px;text-align: center;">暂无数据...</p>
+						{/if}
+					</div>
+					
+					{article alias="gonglue" size=4 var=gl} 
+					
+					<div class="news-cont hide "  style="display: none;">
+						{if isset($gl) && $gl neq ""}
+						<p class="title public_news_con" data-con="{$gl[0].jumpbackend}">{$gl[0].title}</p>
+						<div class="brief">{$gl[0].contentMessage}</div>
+						<ul class="news-list">
+							{foreach $gl as $key=>$v} {if $key > 0}
+							<li>
+								<a href="{if isset($v.linkUrl)}{$v.linkUrl}{/if}" target="_blank">{$v.title}</a><span>[{$v.created_at|date_format:"%m/%d"}]</span>
+							</li>
+							{/if} {/foreach}
+						</ul>
+						{else}
+						<p class="noData" style="font-size:16px;color:#333;margin-top:20px;text-align: center;">暂无数据...</p>
+						{/if}
+					</div>
+					
+					
+					{if $diy}
+						<div class="main_news" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑模块</i></div>
+					{/if}
+				</article>
+
+			</section>
+			<section class="sec1">
+				<div class="cont">
+					{fragment var=ts_img code=banner_ts size=5}
+					<article class="game-banner swiper-container">
+						{if $ts_img neq ''} 
+						<div class="swiper-wrapper public_ts" data-ts="{$ts_img[0].jumpbackend}">
+							{foreach $ts_img as $v}
+							<div class="swiper-slide"><img src="{$v.thumb}" /></div>
+							{/foreach} 
+						</div>
+						{/if}
+						<div class="swiper-pagination"></div>
+					</article>
+					{if $diy}
+						<div class="main_tese" style="z-index:2;cursor:pointer;width:100%;height:100%;border:1px dashed #0012d7;font-size:20px;color:#000;position:absolute;left:0;top:0;display: none;"><i style="position:absolute;right:10px;top:10px;font-style: normal;background-color: rgba(255,255,255,.8);">点击编辑模块</i></div>
+					{/if}
+				</div>
+			</section>
+		</div>
+	</div>
+	{include file="../layouts/pc/footer.html"} 
+	<script type="text/javascript">
+		var mySwiper1 = new Swiper('.swiper-container ', {
+			loop: true,
+			autoplay: 2000,
+			// // 如果需要分页器
+			pagination: '.swiper-pagination',
+			speed: 300,
+			paginationClickable: true,
+			// // 如果需要前进后退按钮
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			// // 如果需要滚动条
+			// scrollbar: '.swiper-scrollbar',
+		});
+		var mySwiper1 = new Swiper('.game-banner', {
+			loop: true,
+			autoplay: 2000,
+			// // 如果需要分页器
+			pagination: '.swiper-pagination',
+			speed: 300,
+			paginationClickable: true,
+			// // 如果需要前进后退按钮
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			// // 如果需要滚动条
+			// scrollbar: '.swiper-scrollbar',
+		});
+		var fontColor = $(".public_ul").attr("data-color");
+		var hoverColor = $(".public_ul").attr("data-hover");
+		var bgColor = $(".public_ul").attr("data-bg");
+		$(".public_ul li a").css("color", fontColor);
+		$(".public_ul li a").hover(function() {
+			$(this).css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		}, function() {
+			$(this).css({
+				"color": fontColor,
+				"border-bottom-color": "transparent",
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+			$(".public_ul li:nth-child(1) a").css({
+				"color": hoverColor,
+				"border-bottom-color": hoverColor,
+				"border-bottom-width": "3px",
+				"border-bottom-style": "solid"
+			});
+		});
+		$(".public_ul li:nth-child(1) a").css({
+			"color": hoverColor,
+			"border-bottom-color": hoverColor,
+			"border-bottom-width": "3px",
+			"border-bottom-style": "solid"
+		});
+		var nColor = $(".news-nav").attr("data-color");
+		$(".news-nav li").hover(function() {
+			var index = $(this).index();
+			$(this).css({
+				"color": "#fff",
+				"background": nColor
+			});
+			$(this).siblings().css({
+				"color": "#000",
+				"background": "none"
+			});
+			$(".news-cont").eq(index).css( { "display":"block" } ).siblings(".news-cont").css( { "display":"none" } );
+		}, function() {
+			$(this).css({
+				"color": "#fff",
+				"background": nColor
+			});
+		});
+		
+	</script>
+</body>
+
+</html>

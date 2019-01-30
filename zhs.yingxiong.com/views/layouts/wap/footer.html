@@ -1,0 +1,156 @@
+<section>
+			<div class="yuyue">
+				<div class="c_yuyue">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="y_main">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yy.png?{$smarty.const.VERSION}" alt="" class="y_title" />
+						 <ul class="type_ul">
+                <li class="active" data-type="ios">
+                    <p><span class="ios_txt"></span><em><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y.png?{$smarty.const.VERSION}" alt=""/><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y_h.png?{$smarty.const.VERSION}" alt="" /></em></p>
+                </li>
+                <li data-type="android">
+                    <p><span class="and_txt"></span><em><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y.png?{$smarty.const.VERSION}" alt=""/><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/y_h.png?{$smarty.const.VERSION}" alt="" /></em></p>
+                </li>
+            </ul>
+						<div class="s_put">
+							<div class="p_put">
+								<input type="tel" placeholder="请输入手机号码" class="phone" />
+							</div>
+						</div>
+						<div class="s_put">
+							<div class="o_put">
+								<input type="text" placeholder="请输入验证码" class="t_yzm" />
+								<div class="captcha2">
+									<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/kv.jpg" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="s_put">
+							<div class="i_put">
+								<div class="y_put">
+									<input type="text" placeholder="请输入验证码" class="yzm" />
+								</div>
+								<div class="b_put">
+									<input type="button" value="获取验证码" class="g_code" />
+								</div>
+							</div>
+						</div>
+						<div class="l_yuyue stat_yy"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/l_yuyue.png?{$smarty.const.VERSION}" alt="" /></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{video_play}
+	{download}
+	</body>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper('.s_play', {
+				loop: true,
+                autoplay: 3000,
+				pagination: '.swiper-pagination',
+				effect: 'coverflow',
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 40,
+					stretch: -5,
+					depth: 350,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+                autoplayDisableOnInteraction: false
+			});
+			var swiper01 = new Swiper('.swiper1',{
+            loop:true,
+            autoplay: 3000,
+            effect : 'fade',
+            fade: {
+                crossFade: true,
+            },
+            pagination: '.swiper-pagination1',
+            paginationClickable: true,
+            prevButton:'.swiper-button-prev',
+            nextButton:'.swiper-button-next',
+            autoplayDisableOnInteraction: false
+        });
+			$(".lottery li").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			})
+			//点击筛选类型
+    $(".type_ul li").click(function(){
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+    // $(".down_btn").click(function(){
+    //   $(".yuyue").show();
+    // });
+    var clickNum = true;
+    $(".t_weixin").click(function (){
+        if(clickNum){
+            $('.f_weixin').show();
+            clickNum = false;
+        } else {
+            $('.f_weixin').hide();
+            clickNum = true;
+        }
+    })
+    var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var id = $(".list-article-title").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                id:id,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                if(data.status == 0&& data.msg.length>0){
+                 // if(page===1){
+                 //     $('.news_list').empty();
+                 // }
+                    var result = '';
+                    for(var i = 0; i < data.msg.length; i++) {
+                       result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i>[" +data.msg[i].name+"]</i><span>"+data.msg[i].title+"</span><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    $('.list-article').append(result);
+                    $(".dropload-noData").html("上拉加载更多...<i></i>");
+                    isScroll = 1;
+                } else{
+                    $(".dropload-noData").html("没有更多信息了...");
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+		});
+
+	</script>
+
+</html>

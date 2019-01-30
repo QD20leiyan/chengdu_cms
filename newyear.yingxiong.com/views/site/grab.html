@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>{csrf}
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/public.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/css/style.css?{$smarty.const.VERSION}">
+    <script src="{$smarty.const.STATIC_DOMAIN}1.0/js/setPageRem.js?{$smarty.const.VERSION}"></script>
+    <title>答题</title>
+</head>
+<body>
+    <div class="answer-container" id="host" style="display: none">
+        <div class="circle-box" id="start"></div>
+        <div class="circle-box" id="start2"></div>
+        <img class="host-button" id="true" src="{$smarty.const.STATIC_DOMAIN}1.0/images/true.png?{$smarty.const.VERSION}" alt="">
+        <img class="host-button" id="true2" src="{$smarty.const.STATIC_DOMAIN}1.0/images/true_dis.png?{$smarty.const.VERSION}" alt="">
+        <img class="host-button" id="false" src="{$smarty.const.STATIC_DOMAIN}1.0/images/false.png?{$smarty.const.VERSION}" alt="">
+        <img class="host-button" id="false2" src="{$smarty.const.STATIC_DOMAIN}1.0/images/false_dis.png?{$smarty.const.VERSION}" alt="">
+        <p class="host-bottom"><span id="host-department"></span><span id="host-name"></span></p>
+    </div>
+    <div class="answer-container" id="person">
+        <div class="circle-box" id="ready">
+            <!--<div class="circle-box1">-->
+                <!--<div class="circle-box2">-->
+                    <!--<div class="circle-box3"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <ul class="small-circle">
+                <li></li>
+                <li class="active"></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="circle-box" id="time3"></div>
+        <div class="circle-box" id="time2"></div>
+        <div class="circle-box" id="time1"></div>
+        <div class="circle-box" id="steal"></div>
+        <div class="circle-box" id="show_name">
+            <p id="department_name"></p>
+            <h5 id="user_name"></h5>
+            <p class="bottom">恭喜抢到答题资格</p>
+        </div>
+    </div>
+    <div class="mask">
+        <div class="dialog" id="get_answer">
+            <span class="answer-close"></span>
+        </div>
+        <div class="dialog" id="noget_answer">
+            <span class="answer-close"></span>
+        </div>
+    </div>
+    <div class="mask2">
+        <div class="dialog" id="error">
+            <h2>服务器繁忙，请稍后重试</h2>
+            <span class="answer-close2"></span>
+        </div>
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
+    <div id="orientLayer_pc" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用手机浏览</div>
+        </div>
+    </div>
+</body>
+
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script>
+    $(function () {
+        //自定义tap
+        $(document).on("touchstart", function(e) {
+            if(!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 0);
+        });
+        $(document).on("touchmove", function(e) {
+            if(!$(e.target).hasClass("disable")) $(e.target).data("isMoved", 1);
+        });
+        $(document).on("touchend", function(e) {
+            if(!$(e.target).hasClass("disable") && $(e.target).data("isMoved") == 0) $(e.target).trigger("tap");
+        });
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+            if(IsPC()){
+                $('#orientLayer_pc').show();
+            }else{
+                $('#orientLayer_pc').hide();
+            }
+        }, false);
+        if(IsPC()){
+            $('#orientLayer_pc').show();
+        }
+        var is_admin = '{$is_admin}';
+        var select_answer = '{$select_answer}';
+//        var is_admin = 0;
+        if(is_admin == 1){
+            if(select_answer == 1){
+                $('.circle-box').hide();
+                $('#start').hide();
+                $('#start2').show();
+                $('#true2').hide();
+                $('#true').show();
+                $('#false2').hide();
+                $('#false').show();
+            }
+            $('#person').hide();
+            $('#host').show();
+            var hostStartTimer = setInterval(function () {
+                $.ajax(
+                    {
+                        url: "/site/ajax-get-time.html",
+                        dataType: 'json',
+                        type: 'get',
+                        success: function(data){
+                            if(data.status == 0){
+                                $('#host-department').text('');
+                                $('#host-name').text('');
+                                return;
+                            }else if(data.status == 1){
+                                $('#host-department').text(data.department_name);
+                                $('#host-name').text(data.user_name);
+                            }
+                        },
+                        error: function (data) {
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+            },1000)
+            $('#start').on('tap',function (e) {
+                $('#host-department').text('');
+                $('#host-name').text('');
+                $.ajax(
+                    {
+                        url: "/site/ajax-start-grab.html",
+                        dataType: 'json',
+                        type: 'get',
+                        success: function(data){
+//                            var data = JSON.parse(data);
+                            if(data.status == 0){
+                                $('.circle-box').hide();
+                                $('#start').hide();
+                                $('#start2').show();
+                                $('#true2').hide();
+                                $('#true').show();
+                                $('#false2').hide();
+                                $('#false').show();
+                            }else{
+                                $('#error').find('h2').text(data.msg);
+                                $('.mask2').slideDown(500);
+                            }
+                        },
+                        error: function (data) {
+//                            var data = JSON.parse(data);
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+//                $.get("/site/ajax-start-grab.html", function(data){
+//                    var data = JSON.parse(data);
+//                    if(data.status == 0){
+//                        $('.circle-box').hide();
+//                        $('#start').hide();
+//                        $('#start2').show();
+//                        $('#true2').hide();
+//                        $('#true').show();
+//                        $('#false2').hide();
+//                        $('#false').show();
+//                    }else{
+//                        alert(data.msg);
+//                    }
+//                })
+                e.stopPropagation();
+                e.preventDefault();
+            })
+            $('#true').on('tap',function (e) {
+                $.ajax(
+                    {
+                        url: "/site/ajax-right.html",
+                        dataType: 'json',
+                        type: 'get',
+                        success: function(data){
+//                            var data = JSON.parse(data);
+                            if(data.status == 0){
+                                $('#true').hide();
+                                $('#true2').show();
+                                $('#false').hide();
+                                $('#false2').show();
+                                $('.circle-box').hide();
+                                $('#start2').hide();
+                                $('#start').show();
+//                                $('#host-department').text('');
+//                                $('#host-name').text('');
+                            }else{
+                                $('#error').find('h2').text(data.msg);
+                                $('.mask2').slideDown(500);
+                            }
+//                            window.clearTimeout(hostStartTimer);
+                        },
+                        error: function (data) {
+//                            var data = JSON.parse(data);
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+//                $.get("/site/ajax-right.html", function(data) {
+//                    var data = JSON.parse(data);
+//                    if(data.status == 0){
+//                        $('#true').hide();
+//                        $('#true2').show();
+//                        $('#false').hide();
+//                        $('#false2').show();
+//                        $('.circle-box').hide();
+//                        $('#start2').hide();
+//                        $('#start').show();
+//                    }else{
+//                        alert(data.msg);
+//                    }
+//                })
+                $('#host-department').text('');
+                $('#host-name').text('');
+                e.stopPropagation();
+                e.preventDefault();
+            })
+            $('#false').on('tap',function (e) {
+
+                $.ajax(
+                    {
+                        url: "/site/ajax-error.html",
+                        dataType: 'json',
+                        type: 'get',
+                        success: function(data){
+//                            var data = JSON.parse(data);
+                            if(data.status == 0){
+                                $('#true').hide();
+                                $('#true2').show();
+                                $('#false').hide();
+                                $('#false2').show();
+                                $('.circle-box').hide();
+                                $('#start2').hide();
+                                $('#start').show();
+//                                $('#host-department').text('');
+//                                $('#host-name').text('');
+                            }else{
+                                $('#error').find('h2').text(data.msg);
+                                $('.mask2').slideDown(500);
+                            }
+//                            window.clearTimeout(hostStartTimer);
+                        },
+                        error: function (data) {
+//                            var data = JSON.parse(data);
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+//                $.get("/site/ajax-error.html", function(data) {
+//                    var data = JSON.parse(data);
+//                    if(data.status == 0){
+//                        $('#true').hide();
+//                        $('#true2').show();
+//                        $('#false').hide();
+//                        $('#false2').show();
+//                        $('.circle-box').hide();
+//                        $('#start2').hide();
+//                        $('#start').show();
+//                    }else{
+//                        alert(data.msg);
+//                    }
+//                })
+                $('#host-department').text('');
+                $('#host-name').text('');
+                e.stopPropagation();
+                e.preventDefault();
+            })
+        }
+        else{
+            start(1);
+        }
+        var smallTime = setInterval(function () {
+            var tar = $('.small-circle').find('.active');
+            $('.small-circle').find('li').removeClass('active');
+            if($(tar).next().length > 0){
+                $(tar).next().addClass('active');
+            }else{
+                $('.small-circle').children("li:first-child").addClass('active');
+            }
+        },1000)
+
+        function timer(time) {
+            var djs_timer = setInterval(function() {
+                if(time == 3){
+                    $('.circle-box').hide();
+                    $('#time3').show();
+                }
+                if(time == 2){
+                    $('.circle-box').hide();
+                    $('#time2').show();
+                }
+                if(time == 1){
+                    $('.circle-box').hide();
+                    $('#time1').show();
+                }
+                if(time <= 0) {
+                    clearInterval(djs_timer);
+                    $('#department_name').text('');
+                    $('#user_name').text('');
+                    start(0);
+                    $('.circle-box').hide();
+                    $('#steal').show();
+                    return;
+                }
+                time--;
+            }, 1000);
+        }
+        function start(start) {
+            if(start == 1){
+                $('.circle-box').hide();
+                $('#ready').show();
+            }
+
+            var startTimer = setInterval(function () {
+                $.ajax(
+                    {
+                        url: "/site/ajax-get-time.html",
+                        dataType: 'json',
+                        type: 'get',
+                        success: function(data){
+//                            var data = JSON.parse(data);
+                            if(data.status == 0){
+                                timer(data.time);
+                                clearInterval(startTimer);
+                                $('#steal').attr('disable','');
+                                $('.mask').hide();
+                                return;
+                            }else if(data.status == 1){
+                                $('#department_name').text(data.department_name);
+                                $('#user_name').text(data.user_name);
+                                $('.circle-box').hide();
+                                $('#show_name').show();
+                            }
+                            else{
+                                $('.circle-box').hide();
+                                $('#ready').show();
+                            }
+                        },
+                        error: function (data) {
+//                            var data = JSON.parse(data);
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+//                $.get("/site/ajax-get-time.html", function(data){
+//                    var data = JSON.parse(data);
+//                    if(data.status == 0){
+//                        timer(data.time);
+//                        clearInterval(startTimer);
+//                        return;
+//                    }else if(data.status == 1){
+//                        $('#department_name').text(data.department_name);
+//                        $('#user_name').text(data.user_name);
+//                        $('.circle-box').hide();
+//                        $('#show_name').show();
+//                    }
+//                    else{
+//                        $('.circle-box').hide();
+//                        $('#ready').show();
+//                    }
+//                })
+            },1000)
+        }
+
+//        var turn = true;
+        $('#steal').on('tap',function (e) {
+            var tar = $(this);
+            if(!$(tar).attr('disable')){
+                $.ajax(
+                    {
+                        url: "/site/ajax-grab.html",
+                        dataType: 'json',
+                        type: 'get',
+                        success: function(data){
+                                if(data.status == 0){
+                                    $('#get_answer').show();
+                                    $('.mask').slideDown(500);
+                                }else if(data.status == -1){
+                                    $('#noget_answer').show();
+                                    $('.mask').slideDown(500);
+                                }
+//                            var data = JSON.parse(data);
+                        },
+                        error: function (data) {
+//                            var data = JSON.parse(data);
+                            $(tar).attr('disable','');
+                            $('#error').find('h2').text('服务器繁忙，请稍后重试');
+                            $('.mask2').slideDown(500);
+                        }
+                    });
+            }
+            $(tar).attr('disable','disable');
+//            $.get("/site/ajax-grab.html", function(data) {
+//                var data = JSON.parse(data);
+//                if(data.status == 0){
+//                    $('#get_answer').show();
+//                    $('.mask').slideDown(500);
+//                }else if(data.status == -1){
+//                    $('#noget_answer').show();
+//                    $('.mask').slideDown(500);
+//                }
+//            })
+//            $('.circle-box').hide();
+//            $('#show_name').show();
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        $('.answer-close').on('tap',function () {
+            $('.mask').slideUp(500);
+        })
+        $('.answer-close2').on('tap',function () {
+            $('.mask2').slideUp(500);
+        })
+    })
+</script>
+</html>

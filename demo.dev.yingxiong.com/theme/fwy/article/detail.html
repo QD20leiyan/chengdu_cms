@@ -1,0 +1,58 @@
+{include file="../layouts/pc/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}2.0/css/list.css?{$smarty.const.VERSION}" />
+		<div class="n_kv">
+			{if $diy}
+			<p style="font-size:50px;color:#000;font-weight:bold;text-align: center;">推荐位：详情页code=detail_kv(尺寸：1920*688)</p>
+			{else}
+				{fragment var=kv code=detail_kv size=1}
+				{if $kv}
+				<img src="{$kv[0].thumb}" alt="" />
+				{/if}
+			{/if}
+		</div>
+		<div class="eff1">
+			<!--<img src="images/eff1.png" alt="" />-->
+		</div>
+		<div class="d_body n_body">
+			<div class="top_ul">
+				<div class="tab_ul">
+					<a href="{myurl name='site/index'}" class="d_back">< 返回列表</a>
+					<div class="d_title">
+					<h3>{$content.title}</h3>
+					<p class="d_date">发布时间：{$content.created_at_formate}&nbsp;&nbsp;&nbsp;作者：官方</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="detail_body">
+			<div class="wrap">
+				<div class="float">
+					<div class="d_float">
+						<div class="c_code">
+							<div class="chengg"></div>
+							<img src="" alt="" class="js_jump_img"/>
+							<i></i>
+						</div>
+						<p class="xz">扫描下载游戏</p>
+						<ul class="left_ul">
+							<li>
+								<a href="javascript:;" class="and js_down_andriod" target="_blank">
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="ios js_down_ios" target="_blank">
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="tap" target="_blank">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="d_content">
+					{$content.body}
+				</div>
+			</div>
+		</div>
+{include file="../layouts/pc/footer.html"}

@@ -1,0 +1,87 @@
+{include file="../../layouts/wap/header.html"}
+<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/news.css?{$smarty.const.VERSION}" />
+<section>
+	<div class="n_main">
+		<div class="n_title"><img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/n_title.png?{$smarty.const.VERSION}" alt="" /></div>
+		<ul class="v_tab">
+			<li class="{if $data.type == 'zx'}active{/if}">
+				<a href="{myurl name='wap/article/list,type=>zx,page=>1'}">综合</a>
+			</li>
+			<li class="{if $data.type == 'xw'}active{/if}">
+				<a href="{myurl name='wap/article/list,type=>xw,page=>1'}">新闻</a>
+			</li>
+			<li class="{if $data.type == 'gg'}active{/if}">
+				<a href="{myurl name='wap/article/list,type=>gg,page=>1'}">公告</a>
+			</li>
+			<li class="{if $data.type == 'hd'}active{/if}">
+				<a href="{myurl name='wap/article/list,type=>hd,page=>1'}">活动</a>
+			</li>
+			<li class="{if $data.type == 'gl'}active{/if}">
+				<a href="{myurl name='wap/article/list,type=>gl,page=>1'}">攻略</a>
+			</li>
+		</ul>
+		<div class="v_t_con">
+			<ul class="active">
+				{foreach $data.data as $k=>$v}
+					<li>
+						<a href="{$v.linkUrl}">
+							<em>
+								【{$v.name}】
+							</em><span>{$v.title}</span></a>
+						<i>{$v.time}</i>
+					</li>
+				{/foreach}
+			</ul>
+		</div>
+	</div>
+</section>
+<div class="loading-box">没有更多信息了</div>
+{include file="../../layouts/wap/footer.html"} 
+{download}
+<script type="text/javascript">
+	var isScroll = 1;
+	var page = 2;
+	window.onscroll = function() {
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH +
+				topH) < 10) && isScroll == 1) {
+			isScroll = 0;
+			$(".loading-box").text("数据加载中...")
+			getListFu();
+		}
+	}
+
+	function getListFu() {
+		$.ajax({
+			type: "get",
+			url: '{myurl name="wap/article/ajax-list"}',
+			data: {
+				page: page++,
+				type: '{$data.type}',
+			},
+			success: function(res) {
+				var res = JSON.parse(res);
+				if(res.status == 0 && res.msg.length > 0) {
+					var dom = '';
+					for(var i = 0; i < res.msg.length; i++) {
+						var _a = '<li><a href="' + res.msg[i].wapLinkUrl + '"><em>【'+res.msg[i].name+'】</em><span>' + res.msg[i].title + '</span></a><i>' + res.msg[i].created_at + '</i></li>';
+						dom += _a;
+					}
+					$(".v_t_con ul").append(dom);
+					$(".loading-box").text("上滑加载更多信息");
+					isScroll = 1;
+				} else {
+					$(".loading-box").text("没有更多信息了");
+				}
+			},
+			error: function(res) {
+				console.log(res);
+				//							isScroll = 1;
+			}
+		});
+	}
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+{include '../../layouts/wap/header.html'}
+	<div class="container">
+		<img class="logo" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/logo.png?{$smarty.const.VERSION}">
+		<img class="slogan" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/slogan2.png?{$smarty.const.VERSION}">
+        <img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/cd1.png?{$smarty.const.VERSION}" alt="" class="cd1">
+        <img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/cd2.png?{$smarty.const.VERSION}" alt="" class="cd2">
+        <img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/cd3.png?{$smarty.const.VERSION}" alt="" class="cd3">
+		<img class="video js_video_play" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/c_play.png?{$smarty.const.VERSION}" data-url="{$video.url}">
+		<!-- <a href="" class="activity"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/active.png?{$smarty.const.VERSION}"></a> -->
+		<img class="yue" src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/anzhuo2.png?{$smarty.const.VERSION}">
+		<div class="swiper-box">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					{foreach key=cid item=v from=$banner}
+					<div class="swiper-slide">
+						<a href="{if $v.url}{$v.url} {else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+					</div>
+					{/foreach}
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="news-list-box">
+			<div class="news-list">
+				<div class="news-title">
+					<ul>
+						<li class="active"><a href="javascript:">新闻</a></li>
+						<li><a href="javascript:">公告</a></li>
+						<li><a href="javascript:">资讯</a></li>
+						<li><a href="javascript:">活动</a></li>
+						<li><a href="{myurl name='wap/list, type=>xinwen ,page=>1'}"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/add.png?{$smarty.const.VERSION}"></a></li>
+					</ul>
+				</div>
+				<div class="news-main">
+					<ul class="active">
+						{foreach $xw as $v}
+						<li><a href="{$v.wapLinkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+					<ul>
+						{foreach $gg as $v}
+						<li><a href="{$v.wapLinkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+					<ul>
+						{foreach $zx as $v}
+						<li><a href="{$v.wapLinkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+					<ul>
+						{foreach $hd as $v}
+						<li><a href="{$v.wapLinkUrl}">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span></li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="bottom">
+			<ul>
+				<li id="weixin-button">
+					<img src="{$global.wx_img}" alt="">
+					<p class="wechat"><img src="{$global.tb_url}"></p>
+				</li>
+				<li><a href="{$global.wb_url}"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/weibo.png?{$smarty.const.VERSION}" alt=""></a></li>
+				<li><a href="{$global.tb_url}"><img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/tieba.png?{$smarty.const.VERSION}" alt=""></a></li>
+			</ul>
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/bottom-left.png?{$smarty.const.VERSION}" alt="" class="bottom-left">
+			<img src="{$smarty.const.STATIC_DOMAIN}4.0/m/images/bottom-right.png?{$smarty.const.VERSION}" alt="" class="bottom-right">
+		</div>
+	</div>
+
+	<p id="user_all" style="display: none;opacity: 0">{$user_all}</p>
+</body>
+{include '../../layouts/wap/foot.html'}
+</html>

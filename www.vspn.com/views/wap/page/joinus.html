@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="keywords" content="量子体育VSPN 乐竞文化传媒（上海）有限公司 量子体育VSPN首页 量子体育VSPN电竞商业化 量子体育VSPN赛事运营 量子体育VSPN节目制作">
+        <meta name="description" content="量子体育VSPN（Versus Programming Network）运营国内顶级职业赛事，制作水准超越传统体育；打造游戏、电竞泛娱乐内容，引领行业发展新思路">
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/common.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/public.css?{$smarty.const.VERSION}">
+        <link rel="stylesheet" type="text/css" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/join-us.css?{$smarty.const.VERSION}">
+        <title>加入我们</title>
+        <script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if(!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+
+                recalc();
+                //判断是否支持监听事件 ，不支持则停止
+                if(!doc.addEventListener) return;
+                //注册翻转事件
+                win.addEventListener(resizeEvt, recalc, false);
+
+            })(document, window);
+        </script>
+    </head>
+    <body>      
+		<div id="main" class="top_content">
+            {include '../../layouts/wap/header.html'}
+            <div class="part_con">
+                <div class="logo_img">
+                </div>
+            </div>
+			<div id="container">
+
+                <div id="job-filter">
+                    <ul>
+                        <li class="focused">全部</li>
+                        <li>运营管理类</li>
+                        <li>内容编辑类</li>
+                        <li>设计包装类</li>
+                        <li>商务执行类</li>
+                        <li>市场推广类</li>
+                        <li>主播类</li>
+                        <li>其他类</li>
+                    </ul>
+                </div>
+	    		<table id="job-table" class="table table-hover" style="text-align:center">
+					<thead>
+						<tr>
+							<td class="center nameW">职位名称</td>
+							<td class="center typeW">职位类别</td>
+                            <td class="center numW">招聘人数</td>
+							<td class="center cityW">工作地点</td>
+						</tr>
+					</thead>
+					<tbody id="record">
+					</tbody>
+				</table>
+				<div id='page' class="right"></div>
+			</div>
+		</div>
+        {include '../../layouts/wap/footer.html'}
+    </body>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/joblist.js?{$smarty.const.VERSION}"></script>
+    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/laypage/laypage.js?{$smarty.const.VERSION}"></script>
+
+    <script type="text/javascript">
+         var clickNumber=0;
+        $(".h_nav").on("click", function(e) {
+        e.stopPropagation();
+        if(clickNumber % 2 == 0) {
+            $(".d_t_t").addClass("d_t_t_tran");
+            $(".d_t_b").addClass("d_t_b_tran");
+            $(".header_nav").stop().slideDown();
+        } else {
+            $(".d_t_t").removeClass("d_t_t_tran");
+            $(".d_t_b").removeClass("d_t_b_tran");
+            $(".header_nav").stop().slideUp();
+        }
+        clickNumber++;
+    });
+    $(".header_nav li,.fade,.header_nav").click(function() {
+        $(".d_t_t").removeClass("d_t_t_tran");
+        $(".d_t_m").removeClass("d_t_m_tran");
+        $(".d_t_b").removeClass("d_t_b_tran");
+        $(".header_nav").stop().slideUp();
+        clickNumber = 0;
+    })
+    
+    	var job_list_JSA = new Array();
+        job_list_JSA = jobListArr.concat();
+        var leftSpanW = $('#job-filter span').width();
+        // 计算职位类别右侧宽度用于换行
+        var ul_width = 1200 - leftSpanW - 15;
+        $('#job-filter ul').width(ul_width);
+        // 职位类别 click 筛选
+        $('#job-filter > ul > li').click(function(){
+            $('#job-filter > ul > li').removeClass('focused');
+            $(this).addClass('focused');
+            curJobType = $(this).index();
+            if (curJobType == 0) {
+                updateJobList(job_list_JSA);
+            }else{
+                var new_job_filter_array = new Array();
+                for(var i = 0; i < job_list_JSA.length; i++){
+                    if (job_list_JSA[i]['jobTypeNum'] == curJobType) {
+                        var tempObject = jobListArr[i];
+                        new_job_filter_array.push(tempObject);
+                    }
+                }
+                updateJobList(new_job_filter_array);
+            }
+            if (job_list_JSA.length > pageSize) {
+                Paging(1);
+            }else{
+                Paging(0);
+            }
+        });
+    	var RankInfo = document.getElementById('record');
+    	var totalPage; //= RankInfo.rows.length; //总条数  ;
+        var pageSize = 6;//每页显示条数 
+        var pageNumber; //总页数  
+
+    	function updateJobList(arr){
+            totalPage = arr.length;
+            pageNumber = Math.ceil(totalPage/pageSize);
+            var tableInner = '';
+            for(var i=0;i<arr.length;i++){
+
+                tableInner += '<tr onclick="jobDetailClick(this)" id="jobItem'+ arr[i].jobID +'"><td class="activeColor">'+arr[i].jobName+'</td><td class="center">'+arr[i].jobType+'</td><td class="center">'+ arr[i].headcount +'<td class="center">'+arr[i].address+'</tr>';
+            }
+            // RankInfo.innerHTML = tableInner;
+            $(RankInfo).html(tableInner);
+        }
+        updateJobList(job_list_JSA);
+
+
+    	function Paging(index){  
+            
+            var currentPage = index;//当前页数  
+            var start_row = (currentPage-1)*pageSize;//开始显示的行  
+            var end_row = currentPage*pageSize;//结束显示的行  
+                end_row = (end_row > totalPage) ? totalPage : end_row;  
+            for(var i=0;i<totalPage;i++){  
+                var irow = RankInfo.rows[i];  
+                if(i>=start_row && i<end_row){  
+                    irow.style.display = 'table-row';  
+                }else {  
+                    irow.style.display = 'none';  
+                }  
+            }
+
+            //调用分页
+			laypage({
+			    cont: 'page',
+			    pages: pageNumber,
+			    curr: currentPage,
+			    last: false, //将尾页显示为总页数。若不显示，设置false即可
+			    prev: '上一页', //若不显示，设置false即可
+			    next: '下一页', //若不显示，设置false即可
+                groups: 0,
+			    jump: function(obj, first){
+			       if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+			                    // demo(obj.curr);
+			                     Paging(obj.curr);
+			        }
+			    }
+			})
+        }      
+  
+   		Paging(1);
+
+   		function jobDetailClick(o){
+   			var id = o.id.substring(7);
+   			window.location.href = 'joinusdetail.html?id=' + id;
+   		}
+    </script>
+</html>

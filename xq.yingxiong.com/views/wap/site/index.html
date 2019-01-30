@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	   <title>{$seo_title}</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css"/>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/style.css?{$smarty.const.VERSION}">
+	    <script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>{csrf}
+	<script>
+    	(function (doc, win) {
+    	    var docEl = doc.documentElement,
+    	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+    	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    	            recalc = function () {
+    	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+    	                var clientWidth = docEl.clientWidth;
+    	                if (!clientWidth) return;
+    	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+    	            };
+
+    	    recalc();
+    	    //判断是否支持监听事件 ，不支持则停止
+    	    if (!doc.addEventListener) return;
+    	    //注册翻转事件
+    	    win.addEventListener(resizeEvt, recalc, false);
+    	})(document, window);
+    </script>
+</head>
+<body>
+        <header class="index1_header">
+			<a href="/m/index.html" class="index1_logo"><img src="{$global.logo_img}" alt=""></a>
+			<div class="header_txt">
+				<p class="h_p_01">{$global.title}</p>
+				<p class="h_p_02">{$global.sub_title}</p>
+			</div>
+			<a href="javascript:;" class="download stat_down">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/yy_btn.png?{$smarty.const.VERSION}" alt="">
+			</a>
+		</header>
+	<div class="wrap">
+		<div class="wrap_con">
+		    {fragment var=video code=cover_video size=1}
+            <a class="play {if $video}js_video_play play{else}play{/if}" href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" data-url="{if $video}{$video[0].url}{/if}">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/paly1.png?{$smarty.const.VERSION}" alt="" class="big_img" />
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/play2.png?{$smarty.const.VERSION}" alt="" class="s_img" />
+			</a>
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo ani bounceInDown">
+			<div class="peo_box">
+        		<a href="javascript:;" class="load_btn stat_down"></a>
+			</div>
+		</div>
+		<div class="shop_img">
+
+	    <div class="ufo"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/ufo.png?{$smarty.const.VERSION}" alt=""></div>
+		    <div class="title"></div>
+			  <div class="slider">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                 {fragment var=banner code=cover_banner size=5}
+                    {if $banner neq ''}
+                    {foreach $banner as $v}
+                    <div class="swiper-slide">
+                        <a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+                    </div>
+                    {/foreach}
+                    {/if}
+                </div>
+            </div>
+            <div class="swiper-button-prev swiper-button-prev1"></div>
+            <div class="swiper-button-next swiper-button-next1"></div>
+        </div>
+		</div>
+	</div>
+	<div class="share_box">
+				<ul>
+					<li>
+						<a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq.png?{$smarty.const.VERSION}" alt="">
+							<p>官方Q群1</p>
+						</a>
+					</li>
+					<li>
+						<a href="{if $global.group_url_two}{$global.group_url_two}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/qq.png?{$smarty.const.VERSION}" alt="">
+							<p>官方Q群2</p>
+						</a>
+					</li>
+				</ul>
+				<div class="weixin_box">
+					<img src="{$global.wx_img}" alt="">
+				</div>
+				<ul>
+					<li>
+						<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/wb.png?{$smarty.const.VERSION}" alt="">
+							<p>官方微博</p>
+						</a>
+					</li>
+					<li>
+						<a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tb.png?{$smarty.const.VERSION}" alt="">
+							<p>官方贴吧</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 预约弹窗 -->
+		<div class="co_tips order-to hidden">
+			<div class="tips_center">
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/close.png"></i>
+				<div class="co_form">
+					<div class="inp-box">
+						<div class="inp">
+							<input type="tel" placeholder="手机号码" class="co_username">
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="inp inp1">
+							<input type="text" class="captcha" placeholder="验证码">
+							<div class="get-code co_captcha">点击刷新</div>
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="inp inp1">
+							<input type="number" placeholder="手机验证码" class="co_codenum1">
+							<div class="get-code co_codebtn1">获取验证码</div>
+							<p class="co_error">手机号码错误</p>
+						</div>
+					</div>
+				</div>
+				<div class="co_tipsbtn co_tips_loginbtn stat_yy">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/ljyy.png">
+				</div>
+			</div>
+		</div>
+	    <!-- 提示弹窗 -->
+	    <div class="co_tips forecast-suc hidden">
+	        <div class="tips_center">
+				<i class="tips_close"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/close.png"></i>
+				<div class="co_form">
+					<div class="inp-box">
+						<p class="tips_info"></p>
+					</div>
+				</div>
+				<div class="co_tipsbtn co_surebtn">
+					<img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/sure.png">
+				</div>
+			</div>
+		</div>
+       <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+</body>
+    {download}
+    {video_play}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/index.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+	$(function() {
+		var swiper01 = new Swiper('.swiper-container1',{
+  		  prevButton:'.swiper-button-prev1',
+  		  nextButton:'.swiper-button-next1',
+  		  slidesPerView: 1,
+  		  loop:true,
+  		  autoplay:2500,
+  		  autoplayDisableOnInteraction: false,
+  		});
+  		$(window).scroll(function(){
+				var $t = $(this).scrollTop();
+				if($t > 300){
+					$(".title").stop().fadeIn();
+					$(".title").addClass("animated");
+					$(".title").addClass("fadeInDown");
+				}
+		});
+	});
+	</script>
+</html>

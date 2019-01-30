@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+        <title>{$seo_title}</title>
+        <meta name="Keywords" content="{$seo_key}">
+        <meta name="Description" content="{$seo_desc}">
+	    <meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/public.css?{$smarty.const.VERSION}" />
+        <link href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" rel="stylesheet">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/m/css/active.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}6.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+
+		})(document, window);
+	</script>
+	{csrf}
+	</head>
+	<body>
+		<div class="cont1">
+			<img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/lable1.png?{$smarty.const.VERSION}" alt="" class="title">
+			<div class="select">
+				<div class="s_input">
+					<span id="z_txt" data-id="1"  data-name="2">第1届跨服3V3已结束</span>
+					<div class="right_sanjiao">
+						<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/sanjiao.png?{$smarty.const.VERSION}" alt="" />
+					</div>
+				</div>
+				<ul id="qu_ul">
+					{foreach key=cid item=v from=$num}
+						<li data-id="{$cid}" data-name="{if $v.status eq 1}1{else}2{/if}">第{$cid}届跨服3V3{if $v.status eq 1}火热进行中{else}已结束{/if}</li>
+					{/foreach}
+				</ul>
+			</div>
+			<a href="/index.html" class="enter"><img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/enter.png?{$smarty.const.VERSION}" alt=""></a>
+		</div>
+		{if isset($num[1])}
+		<div class="cont2 {if $num[1].status eq 1}{else}active{/if}">
+			<div class="area_sel">
+					<div class="sel_box">
+					    <p class="sel_names">天下会武一区<i></i></p>
+						<a href="javascript:;" class="sel_btn"></a>
+					</div>
+					<div class="sel_list">
+					   <ul>	</ul>
+					</div>
+			</div>
+
+			<div class="name_list list1 {if $num[1].status eq 1}{else}hidden{/if}">
+				<p class="label">8强名单</p>
+				<div class="new_ul">
+					<ul class="rend_list">
+						{foreach key=cid item=v from=$team}
+							<li>
+								<h3>{$v.team_name}</h3>
+								<span>队长</span>
+								<p>{$v.captain}</p>
+								<span>队员</span>
+								<p>{$v.member|regex_replace:"/,/":"<br/>"}</p>
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+			</div>
+			<div class="name_list list2 {if $num[1].status eq 1}hidden{else}{/if}">
+				<div class="rend_list1" data-id="{$cid+1}">
+					<p class="label label_e">第1-3名</p>
+					<div class="h_banner">
+						<ul class="swiper-wrapper" id="ul_one">
+							{foreach key=cid item=v from=$team}
+								{if $cid lt 3}
+									<li class="swiper-slide slide{$cid+1}">
+										<div>
+											<h3>{$v.team_name}</h3>
+											<span>队长</span>
+											<p>{$v.captain}</p>
+											<span>队员</span>
+											<p>{$v.member|regex_replace:"/,/":"<br/>"}</p>
+										</div>
+									</li>
+								{/if}
+							{/foreach}
+						</ul>
+					</div>
+					<p class="label label_s">第4-8名</p>
+					<div class="g_banner">
+						<ul class="swiper-wrapper" id="ul_two">
+							{foreach key=cid item=v from=$team}
+							{if $cid gt 2 && $cid lt 8}
+							<li class="swiper-slide">
+								<div>
+									<h3>{$v.team_name}</h3>
+									<span>队长</span>
+									<p>{$v.captain}</p>
+									<span>队员</span>
+									<p>{$v.member|regex_replace:"/,/":"<br/>"}</p>
+								</div>
+							</li>
+							{/if}
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		{/if}
+		<div class="cont3">
+			    <div class="rule_box">
+			    	<div class="rule_left">
+			    		<h3 class="lable">活动规则</h3>
+			    		<div class="question">
+						<p class="qu"><i></i>“天下会武”比赛每4周为一个赛季，每个赛季只能使用限定国籍主将参加比赛，具体活动规则点击<a href="http://jws.yingxiong.com/m/info/2018/0806/4883.html" target="_blank">查看详情</a></p>
+						<p class="qu"><i></i>每赛季各跨服大区前8强将入驻名人堂，8强在游戏内可获得丰富的排名奖励。</p>
+						<p class="qu"><i></i>跨区分组规则请点击<a href="http://jws.yingxiong.com/m/huodong/2018/0806/4884.html" target="_blank">查看详情</a></p>
+						<p class="qu"><i></i>极无双官方在法律许可范围内对以上说明享有最终解释的权利。</p>
+						</div>
+			   		</div>
+			    	<div class="rule_gift">
+			    		<img src="{$smarty.const.STATIC_DOMAIN}6.0/m/images/lihui.png?{$smarty.const.VERSION}" alt="" />
+			    	</div>
+			    </div>
+		</div>
+	</body>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}6.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var num = 1;
+		var server_id = 0;
+		var cilck=true;
+		var result="";
+		var clickTap = true;
+		var status="";
+		var sta_name="";
+		$(function (){
+			
+			var mySwiper01 = new Swiper('.h_banner', {
+				loop: true,
+				autoplay: 4000,
+				slideToClickedSlide:true,
+				autoplayDisableOnInteraction : false,
+				effect: 'coverflow',
+				slidesPerView: 1.5,
+				centeredSlides: true,
+				coverflow: {
+					rotate: 50,
+					stretch: -20,
+					depth: 300,
+					modifier: 1,
+					slideShadows: true
+				},
+				observer: true,
+				observeParents: true,
+			});
+			var mySwiper02 = new Swiper('.g_banner', {
+				loop: true,
+				autoplay: 5000,
+				slideToClickedSlide:true,
+				autoplayDisableOnInteraction : false,
+				effect: 'coverflow',
+				slidesPerView: 2.5,
+				centeredSlides: true,
+				coverflow: {
+					rotate: 55,
+					stretch: 10,
+					depth: 100,
+					modifier: 1,
+					slideShadows: true
+				},
+				observer: true,
+				observeParents: true,
+			});
+			//下拉框显示
+			
+			$(".sel_names,.sel_btn").click(function(){
+				    if($("#qu_ul li").hasClass("on")){
+					   num3=$("#qu_ul li.on").data("id");
+				    }else{
+				    	num3=1;
+				    }
+					console.log(num3);
+				if(cilck){
+					$(".sel_list").addClass("active");
+					cilck=false;
+					$.post("/site/get-mrt.html" , {
+					"num" : num3,
+					"server_id" : 0
+				} , function (data){
+					if(data.status == 0){
+						console.log(num);
+						var len=0;
+						for(var m in data.servers){
+                    	   len++;
+                        }
+						if(len > 0){
+							var html2 = "";
+							var html3 = "";
+							for(var i in data.servers){
+                               var qf_id1=data.servers[i];
+                                	html3 +="<li data-id='" + i + "'>" + qf_id1 +"<i></i></li>";
+                                	$(".sel_list ul").html(null).append(html3);
+                            }	
+						} 
+					}
+
+				},"json");
+				}else{
+                    $(".sel_list").removeClass("active");
+                    cilck=true;
+				}
+				
+			});
+			//下拉框选择
+			$(".sel_list").on("click","li",function(){
+				server_id = $(this).attr("data-id");
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".sel_list").removeClass("active");
+				cilck=true;
+				result=$(".sel_list li.active").html();
+				$(".sel_names").html(result);
+				$(".sel_names").attr("data-id" , server_id);
+				$.post("/site/get-mrt.html" , {
+					"num" : num,
+					"server_id" : server_id
+				} , function (data){
+					if(data.status == 0){
+						if(status == 1){
+							var html = "";
+							for(var i = 0; i< data.msg.length; i++){
+								var cx = data.msg[i].member;
+								var ss = cx.split(",");
+								var aa = ss[0];
+								var bb = ss[1];
+								var index = i + 1;
+								html += 	'<li>'+
+											    '<h3>'+data.msg[i].team_name+'</h3>'+
+											    '<span>队长</span>'+
+											    '<p>'+data.msg[i].captain+'</p>'+
+											    '<span>队员</span>'+
+											    '<p>'+aa+'<br/>'+bb+'</p>'+
+										    '</li>'
+									    
+							};
+							$(".new_ul .rend_list").html(null).append(html);
+							$(".list2").addClass("hidden");
+							$(".list1").removeClass("hidden");
+						} else {
+							var str1 = "";
+							var str2 = "";
+							for(var i = 0; i< data.msg.length; i++){
+								var cx = data.msg[i].member;
+								var ss = cx.split(",");
+								var aa = ss[0];
+								var bb = ss[1];
+								var index = i + 1;
+								if(i <= 2 ){
+									str1 += '<li class="swiper-slide slide'+index+'">'+
+											    '<div>'+
+												    '<h3>'+data.msg[i].team_name+'</h3>'+
+												    '<span>队长</span>'+
+												    '<p>'+data.msg[i].captain+'</p>'+
+												    '<span>队员</span>'+
+												    '<p>'+aa+'<br/>'+bb+'</p>'+
+											    '</div>'+
+											'</li>'
+								} else if(i > 2){
+									str2 += '<li class="swiper-slide">'+
+												'<div>'+
+													'<h3>'+data.msg[i].team_name+'</h3>'+
+													'<span>队长</span>'+
+												    	'<p>'+data.msg[i].captain+'</p>'+
+												    	'<span>队员</span>'+
+												    '<p>'+aa+'<br/>'+bb+'</p>'+
+											    '</div>'+
+											'</li>'
+								};
+							};
+							$("#ul_one").html(null).append(str1);
+							$("#ul_two").html(null).append(str2);
+							var mySwiper01 = new Swiper('.h_banner', {
+								loop: true,
+								autoplay: 4000,
+								slideToClickedSlide:true,
+								autoplayDisableOnInteraction : false,
+								effect: 'coverflow',
+								slidesPerView: 1.5,
+								centeredSlides: true,
+								coverflow: {
+									rotate: 50,
+									stretch: -20,
+									depth: 300,
+									modifier: 1,
+									slideShadows: true
+								},
+								observer: true,
+								observeParents: true,
+							});
+							var mySwiper02 = new Swiper('.g_banner', {
+								loop: true,
+								autoplay: 5000,
+								slideToClickedSlide:true,
+								autoplayDisableOnInteraction : false,
+								effect: 'coverflow',
+								slidesPerView: 2.5,
+								centeredSlides: true,
+								coverflow: {
+									rotate: 55,
+									stretch: 10,
+									depth: 100,
+									modifier: 1,
+									slideShadows: true
+								},
+								observer: true,
+								observeParents: true,
+							});
+							$(".cont2").addClass("active");
+							$(".list1").addClass("hidden");
+							$(".list2").removeClass("hidden");
+						}
+					}
+				},"json");
+			});
+			
+			//下拉选择届数
+			$(".s_input").click(function (){
+				if(clickTap){
+					$(this).addClass("active");
+					$("#qu_ul").stop().slideDown();
+					clickTap = false;
+				} else {
+					$(this).removeClass("active");
+					$("#qu_ul").stop().slideUp();
+					clickTap = true;
+				}
+			});
+			$("#qu_ul li").on("click" , function (){
+				var html = $(this).html();
+				num = $(this).attr("data-id");
+				$(this).addClass("on").siblings().removeClass("on");
+				sta_name = $("#qu_ul li.on").attr("data-name");
+				$("#z_txt").html(html);
+				$(".s_input").removeClass("active");
+				$("#z_txt").attr("data-id" , num);
+				$("#z_txt").attr("data-name" , sta_name);
+				$("#qu_ul").stop().slideUp();
+				status = $("#z_txt").data("name");
+				$.post("/site/get-mrt.html" , {
+					"num" : num,
+					"server_id" : server_id
+				} , function (data){
+					if(data.status == 0){
+						console.log(num);
+						var len=0;
+						for(var m in data.servers){
+                    	   len++;
+                        }
+						if(len > 0){
+							var html2 = "";
+							var html3 = "";
+							for(var i in data.servers){
+                               var qf_id1=data.servers[i];
+                                	html3 +="<li data-id='" + i + "'>" + qf_id1 +"<i></i></li>";
+                                	$(".sel_list ul").html(null).append(html3);
+                            }	
+						}
+						if(status == 1){
+							var html = "";
+							for(var i = 0; i< data.msg.length; i++){
+								var cx = data.msg[i].member;
+								var ss = cx.split(",");
+								var aa = ss[0];
+								var bb = ss[1];
+								var index = i + 1;
+								html +=	'<li>'+
+										    '<h3>'+data.msg[i].team_name+'</h3>'+
+										    '<span>队长</span>'+
+										    '<p>'+data.msg[i].captain+'</p>'+
+										    '<span>队员</span>'+
+										    '<p>'+aa+'<br/>'+bb+'</p>'+
+										'</li>'
+									    
+							};
+							$(".new_ul .rend_list").html(null).append(html);
+							$(".cont2").removeClass("active");
+							$(".list2").addClass("hidden");
+							$(".list1").removeClass("hidden");
+						} else {
+							var str1 = "";
+							var str2 = "";
+							for(var i = 0; i< data.msg.length; i++){
+								var cx = data.msg[i].member;
+								var ss = cx.split(",");
+								var aa = ss[0];
+								var bb = ss[1];
+								var index = i + 1;
+								if(i <= 2 ){
+									str1 += '<li class="swiper-slide slide'+index+'">'+
+											    '<div>'+
+												    '<h3>'+data.msg[i].team_name+'</h3>'+
+												    '<span>队长</span>'+
+												    '<p>'+data.msg[i].captain+'</p>'+
+												    '<span>队员</span>'+
+												    '<p>'+aa+'<br/>'+bb+'</p>'+
+											    '</div>'+
+											'</li>'
+								} else if(i > 2){
+									str2 += '<li class="swiper-slide">'+
+												'<div>'+
+													'<h3>'+data.msg[i].team_name+'</h3>'+
+													'<span>队长</span>'+
+												    	'<p>'+data.msg[i].captain+'</p>'+
+												    	'<span>队员</span>'+
+												    '<p>'+aa+'<br/>'+bb+'</p>'+
+											    '</div>'+
+											'</li>'
+								};
+							};
+							$("#ul_one").html(null).append(str1);
+							$("#ul_two").html(null).append(str2);
+							var mySwiper01 = new Swiper('.h_banner', {
+								loop: true,
+								autoplay: 4000,
+								slideToClickedSlide:true,
+								autoplayDisableOnInteraction : false,
+								effect: 'coverflow',
+								slidesPerView: 1.5,
+								centeredSlides: true,
+								coverflow: {
+									rotate: 50,
+									stretch: -20,
+									depth: 300,
+									modifier: 1,
+									slideShadows: true
+								},
+								observer: true,
+								observeParents: true,
+							});
+							var mySwiper02 = new Swiper('.g_banner', {
+								loop: true,
+								autoplay: 5000,
+								slideToClickedSlide:true,
+								autoplayDisableOnInteraction : false,
+								effect: 'coverflow',
+								slidesPerView: 2.5,
+								centeredSlides: true,
+								coverflow: {
+									rotate: 55,
+									stretch: 10,
+									depth: 100,
+									modifier: 1,
+									slideShadows: true
+								},
+								observer: true,
+								observeParents: true,
+							});
+							$(".cont2").addClass("active");
+							$(".list1").addClass("hidden");
+							$(".list2").removeClass("hidden");
+						}
+					}
+				},"json");
+			});
+		});
+	</script>
+</html>

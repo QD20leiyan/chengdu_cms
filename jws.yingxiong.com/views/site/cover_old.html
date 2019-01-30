@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		<meta name="Keywords" content="{$seo_key}">
+		<meta name="Description" content="{$seo_desc}">
+		<link rel="shortcut icon" href="{$smarty.const.STATIC_DOMAIN}6.0/images/favicon.ico?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}6.0/css/n_cover.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}6.0/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m"+window.location.pathname+window.location.search;
+		}
+	</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "//hm.baidu.com/hm.js?ad567e4b9746e4c328221ee5aa0aa602";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+			<script>
+   //push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+   //push 参数，name：页面名称，behavior 行为 
+   //event 参数，event：事件名称，args 拓展参数 
+   var HLog={ 
+   	push: function(name,behavior){},
+    setUser:function(){},
+    event:function(event,args){},
+    ready:function(){}
+    };
+   HLog.config={
+       "senseHash":0, //hash锚点是否进入url统计
+       "senseQuery":0, //url参数是否进入url统计
+       "ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+   };
+   (function() {
+      var hl = document.createElement("script");
+      hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/47/client/1/filter/stat.js";
+      hl.async = "async";
+      var s = document.getElementsByTagName("script")[0];
+      HLog.ready = function(){
+        HLog.push('reflash')
+      };
+      s.parentNode.insertBefore(hl, s);
+   })();
+</script>
+	</head>
+	
+	<body>
+		<div class="cover">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/c_logo.png?{$smarty.const.VERSION}" alt="" class="logo"/>
+				<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/c_play.png?{$smarty.const.VERSION}" alt="" class="c_play js_video_play" data-url="{$cover_video[0].url}"/>
+				<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/c_slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+				<div class="float">
+					<a href="{myurl name='site/index'}" class="enter"></a>
+					<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/in_code1.png?{$smarty.const.VERSION}" alt="" class="code js_jump_img"/>
+				</div>
+				<div class="bling">
+					<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/bling.png?{$smarty.const.VERSION}" alt="" />
+					<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/light.png?{$smarty.const.VERSION}" alt="" />
+				</div>
+				<div class="c_btn">
+
+					<div class="channel_tap_name" style="display: none">
+						<a href="https://www.taptap.com/app/23420" class="tap stat_tap" target="_blank"></a>
+					</div>
+					<div class="channel_name" style="display: none">
+					</div>
+					<div class="no_channel">
+						<a href="javascript:;" class="ios js_down_ios stat_ios" target="_blank"></a>
+						<a href="javascript:;" class="and js_down_andriod stat_android" target="_blank"></a>
+						<a href="https://www.taptap.com/app/23420" class="tap stat_tap" target="_blank"></a>
+						<!--<a href="javascript:alert('敬请期待');" class="tap stat_tap" target="_blank"></a>-->
+					</div>
+
+					<!--{if $channel_name=='t'}-->
+					<!--<a href="https://www.taptap.com/app/23420" class="tap stat_tap" target="_blank"></a>-->
+					<!--{else}-->
+					<!--<a href="javascript:;" class="ios js_down_ios stat_ios" target="_blank"></a>-->
+					<!--<a href="javascript:;" class="and js_down_andriod stat_android" target="_blank"></a>-->
+					<!--<a href="https://www.taptap.com/app/23420" class="tap stat_tap" target="_blank"></a>-->
+					<!--&lt;!&ndash;<a href="javascript:alert('敬请期待');" class="tap stat_tap" target="_blank"></a>&ndash;&gt;-->
+					<!--{/if}-->
+				</div>
+				<div class="content">
+					<div class="j_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide" data-type="1"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/banner01.png?{$smarty.const.VERSION}" alt=""/></li>
+							<li class="swiper-slide" data-type="2"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/banner02.png?{$smarty.const.VERSION}" alt=""/></li>
+							<li class="swiper-slide" data-type="3"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/banner03.png?{$smarty.const.VERSION}" alt=""/></li>
+							<li class="swiper-slide" data-type="4"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/banner04.png?{$smarty.const.VERSION}" alt=""/></li>
+							<li class="swiper-slide" data-type="5"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/banner05.png?{$smarty.const.VERSION}" alt=""/></li>
+							<li class="swiper-slide" data-type="6"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/banner06.png?{$smarty.const.VERSION}" alt=""/></li>
+						</ul>
+						<div class="num">
+							<span class="num_span">1</span>/<span class="d_span">6</span>
+						</div>
+						<div class="swiper-button-next"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/c_prev.png?{$smarty.const.VERSION}" alt="" /></div>
+						<div class="swiper-button-prev"><img src="{$smarty.const.STATIC_DOMAIN}6.0/images/c_prev.png?{$smarty.const.VERSION}" alt="" /></div>
+					</div>
+					<ul class="swiper-pagination"></ul>
+					<img src="{$smarty.const.STATIC_DOMAIN}6.0/images/effect.png?{$smarty.const.VERSION}" class="effect" />
+				</div>
+			</div>
+		</div>
+	</body>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}6.0/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".j_banner",{
+				loop:true,
+				simulateTouch : false,
+				prevButton:'.swiper-button-prev',
+				nextButton:'.swiper-button-next',
+				pagination : '.swiper-pagination',
+				observer:true,
+				observeParents:true,
+				paginationClickable :true,
+				paginationBulletRender: function (swiper,index, className){
+                    var font = ["{$smarty.const.STATIC_DOMAIN}6.0/images/con1.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/con2.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/con3.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/con4.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/con5.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/con6.png?{$smarty.const.VERSION}"];
+                   	var size = ["{$smarty.const.STATIC_DOMAIN}6.0/images/tab1.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/tab2.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/tab3.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/tab4.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/tab5.png?{$smarty.const.VERSION}","{$smarty.const.STATIC_DOMAIN}6.0/images/tab6.png?{$smarty.const.VERSION}"];
+                   	var c_index = index+1;
+                    return '<li class="' + className + '"><img src='+font[index]+' /><img src='+size[index]+' /></li>';
+                }
+			});
+			$(".swiper-button-next").click(function (){
+				var num = $(".swiper-slide-active").attr("data-type");
+				$(".num_span").html(num);
+			});
+			$(".swiper-button-prev").click(function (){
+				var num = $(".swiper-slide-active").attr("data-type");
+				$(".num_span").html(num);
+			});
+			$(".swiper-pagination").on("click",".swiper-pagination-bullet",function(){
+				var num = $(".swiper-slide-active").attr("data-type");
+				$(".num_span").html(num);
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,124 @@
+{include file="../../layouts/wap/header.html"}
+<section>
+	{fragment var=kv_img code=index_kv_img_wap size=1}
+	<div class="kv" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;background-size:100% 100%;">
+		{fragment var=video code=index_video size=1}
+		<img src="{if $video}{$video[0].thumb}{/if}" alt="" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}" />
+		<p class="download">
+			<a href="{if isset($global.bottommedia_download_url)}{$global.bottommedia_download_url}{/if}" class="download1"><img src="{if isset($global.download_img_wap)}{$global.download_img_wap}{/if}" alt="" /></a>
+			<a href="{if isset($global.download_tap_url)}{$global.download_tap_url}{/if}" class="download2"><img src="{if isset($global.download_tap_background_img_wap)}{$global.download_tap_background_img_wap}{/if}" alt="" /></a>
+		</p>
+	</div>
+</section>
+<section>
+	<div class="content" style="{if $global.tese_background_img_wap}background:url({$global.tese_background_img_wap}) no-repeat center;{elseif $global.tese_background_color}background-color:{$global.tese_background_color}{/if}background-size:100% 100%;">
+		<div class="top_banner">
+			{fragment var=index_banner code=banner size=5}
+			<ul class="swiper-wrapper">
+				{if $index_banner neq ''} {foreach $index_banner as $v}
+				<li class="swiper-slide">
+					<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /></a>
+				</li>
+				{/foreach} {/if}
+			</ul>
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="news">
+			<ul class="top_ul">
+				<li class="active">最新</li>
+				<li>新闻</li>
+				<li>攻略</li>
+			</ul>
+			<div class="con_ul">
+				{article alias="zonghe" size=3 var=zh}  {if isset($zh) && $zh neq ""}
+				<ul class="active">
+					{foreach $zh as $key=>$v} {if $key >= 0}
+					<li>
+						<a href="{$v.wapLinkUrl}">
+							<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+						</a>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				{/if}
+				
+				{article alias="xinwen" size=3 var=xw}  {if isset($xw) && $xw neq ""}
+				<ul class="">
+					{foreach $xw as $key=>$v} {if $key >= 0}
+					<li>
+						<a href="{$v.wapLinkUrl}">
+							<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+						</a>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				{/if}
+				
+				{article alias="gonglue" size=4 var=gl}  {if isset($gl) && $gl neq ""}
+				<ul class="">
+					{foreach $gl as $key=>$v} {if $key >= 0}
+					<li>
+						<a href="{$v.wapLinkUrl}">
+							<em>【{$v.name}】</em><span>{$v.title}</span><i>{$v.created_at|date_format:"%m-%d"}</i>
+						</a>
+					</li>
+					{/if} {/foreach}
+				</ul>
+				{/if}
+			</div>
+		</div>
+		<div class="bottom_con">
+			<div class="bottom_banner">
+				{fragment var=ts_img code=banner_ts size=5}
+				<ul class="swiper-wrapper">
+					{if $ts_img neq ''}
+						{foreach $ts_img as $v}
+							<li class="swiper-slide">
+								<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img src="{$v.thumb}" alt="" /><i></i></a>
+							</li>
+						{/foreach}
+					{/if}
+				</ul>
+			</div>
+			<div class="swiper-pagination1"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+		</div>
+	</div>
+</section>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript">
+	$(function() {
+		var mySwiper = new Swiper(".top_banner", {
+			loop: true,
+			pagination: '.swiper-pagination',
+		});
+		var mySwiper = new Swiper('.bottom_banner', {
+			loop: true,
+			pagination: '.swiper-pagination1',
+			effect: 'coverflow',
+			slidesPerView: 3,
+			centeredSlides: true,
+			prevButton: '.swiper-button-prev',
+			nextButton: '.swiper-button-next',
+			coverflow: {
+				rotate: 0,
+				stretch: -40,
+				depth: 200,
+				modifier: 1,
+				slideShadows: false
+			},
+			observer: true,
+			observeParents: true,
+		});
+		$(".top_ul li").click(function (){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".con_ul ul").eq(index).addClass("active").siblings().removeClass("active");
+		});
+	})
+</script>
+
+</html>

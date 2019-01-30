@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$seo_title}</title>
+		{csrf}
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/swiper-3.4.0.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/public.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/c_cover.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+	
+	<body>
+		<section>
+			<div class="kv">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_logo.png?{$smarty.const.VERSION}" alt="" class="logo" />
+				<a href="{myurl name='wap/site/index'}" class="c_enter"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_enter.png?{$smarty.const.VERSION}" alt="" /></a>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_slogan.png?{$smarty.const.VERSION}" alt="" class="slogan" />
+				{fragment var=video code=kv_video size=1}
+				<a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="play {if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_play.png?{$smarty.const.VERSION}" alt="" /></a>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/active1.png?{$smarty.const.VERSION}" alt="" class="active1" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/active2.png?{$smarty.const.VERSION}" alt="" class="active2" />
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/active3.png?{$smarty.const.VERSION}" alt="" class="active3" />
+				<div class="c_download">
+					<a href="javascript:;" class="js_wap_down stat_down "><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gf.png?{$smarty.const.VERSION}" alt="" /></a>
+					{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcwap','stwap','jpcwap','tycwap'])}
+		            {else}
+					<a href="https://www.taptap.com/app/68030" class="stat_tap" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tap.png?{$smarty.const.VERSION}" alt="" /></a>
+					<a href="http://www.3839.com/a/91790.htm" class="stat_hy" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/haoyou.png?{$smarty.const.VERSION}" alt="" /></a>
+					{/if}
+				</div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/jiantou.png?{$smarty.const.VERSION}" alt="" class="jiantou" />
+			</div>
+		</section>
+		<section>
+			{if isset($smarty.session.channel_name) && in_array($smarty.session.channel_name,['ppcwap','stwap','jpcwap','tycwap'])}
+			<div class="top_bar 11">
+				<a href="http://hero.yingxiong.com/m/index.html"></a>
+			</div>
+		    {else}
+			{/if}
+		</section>
+		<section>
+			<div class="part_one">
+				<div class="chengg"></div>
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/title_one.png?{$smarty.const.VERSION}" alt="" class="title_one" />
+				<p class="one_tip">您必须有账号才能参加活动</p>
+				<div class="isLogin">
+					<div class="before_denglu active">欢迎您，请<span class="f_denglu">【登录】</span></div>
+					<div class="after_denglu">欢迎您，<span class="t_phone"></span><i class="zhuxiao">注销</i></div>
+				</div>
+				<p class="check_price"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_gift.png?{$smarty.const.VERSION}" alt="" /><span class="f_check">查看我的奖品</span></p>
+				<div class="gift_con">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/one_label.png?{$smarty.const.VERSION}" alt="" class="one_label" />
+					<div class="gift_list">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/lq.png?{$smarty.const.VERSION}" alt="" class="left_title" />
+						<ul class="gift_ul">
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift1.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_sign.png?{$smarty.const.VERSION}" alt="" class="c_sign" />
+								<p>专属伞面</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift2.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>6888金币</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift8.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>绝版恐龙服（半身）</p>
+							</li>
+						</ul>
+					</div>
+					<div class="gift_list s_gift_list">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/y_lq.png?{$smarty.const.VERSION}" alt="" class="left_title" />
+						<ul class="gift_ul">
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift3.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_sign.png?{$smarty.const.VERSION}" alt="" class="c_sign" />
+								<p>专属时装</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift4.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>688钻石</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift5.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>时装三选一</p>
+							</li>
+						</ul>
+					</div>
+					<div class="btn_list">
+						<div class="btn_one btn_lingqu"></div>
+						<div class="btn_two btn_lb"></div>
+					</div>
+					<a class="btn_three js_wap_down stat_down" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/btn_three.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="part_two">
+				<div class="gift_con">
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/two_label.png?{$smarty.const.VERSION}" alt="" class="one_label" />
+					<div class="gift_list">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/lq.png?{$smarty.const.VERSION}" alt="" class="left_title" />
+						<ul class="gift_ul">
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift6.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_sign.png?{$smarty.const.VERSION}" alt="" class="c_sign" />
+								<p>专属伞面</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift2.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>6888金币</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift8.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>绝版恐龙服（半身）</p>
+							</li>
+						</ul>
+					</div>
+					<div class="gift_list s_gift_list">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/y_lq.png?{$smarty.const.VERSION}" alt="" class="left_title" />
+						<ul class="gift_ul">
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift3.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_sign.png?{$smarty.const.VERSION}" alt="" class="c_sign" />
+								<p>专属时装</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift4.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>688钻石</p>
+							</li>
+							<li>
+								<div class="li_img">
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift7.png?{$smarty.const.VERSION}" alt="" />
+								</div>
+								<p>时装三选一</p>
+							</li>
+						</ul>
+					</div>
+					<div class="btn_list">
+						<div class="btn_one btn_lingqu"></div>
+						<div class="btn_two btn_lb"></div>
+					</div>
+					<a class="btn_three js_wap_down stat_down" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/btn_three.png?{$smarty.const.VERSION}" alt="" /></a>
+				</div>
+				<div class="faq">
+					<div class="faq_list">
+						<div class="faq_main">
+							<p><span>Q</span><i>我没有id等级怎么参加活动？我的id怎么看？</i></p>
+							<p><span>A</span><i>没有id的用户，先进入官网下载游戏。进入游戏后点击左上角人物头像，查看自己的id等级，输入即可参与。</i></p>
+						</div>
+						<div class="faq_main">
+							<p><span>Q</span><i>我如何知道自己是新兵还是老兵啊？</i></p>
+							<p><span>A</span><i>系统会根据你的登录信息自行判断哦～在2018年7月5日 11:00公测前注册的acer将会被判定为老兵。反之将会判定为新兵。</i></p>
+						</div>
+						<div class="faq_main">
+							<p><span>Q</span><i>上线领什么意思？我如何领取呢？</i></p>
+							<p><span>A</span><i>上线领取的福利是指你登录游戏参与活动即可领取，其余将会以礼包的方式发到你的奖品库中，请点击你的中奖纪录查看。礼包码在游戏中主界面点击活动-礼包码-进行兑换。</i></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="part_three">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/title_two.png?{$smarty.const.VERSION}" alt="" class="title_two" />
+				<p class="data_time">活动时间：7月5日-8月1日</p>
+				<div class="isLogin">
+					<div class="before_denglu active">欢迎您，请<span class="s_denglu">【登录】</span></div>
+					<div class="after_denglu">欢迎您，<span class="t_phone"></span><i class="zhuxiao">注销</i></div>
+				</div>
+				<div class="part_btn">
+					<p class="check_part"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_gift.png?{$smarty.const.VERSION}" alt="" /><span>查看我的奖品</span></p>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/want.png?{$smarty.const.VERSION}" alt="" class="want" />
+				</div>
+				<div class="tiger_play">
+					<div class="show_gift">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/show_gift.png?{$smarty.const.VERSION}" alt="" class="show_title" />
+						<div class="show_main">
+							<ul>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift9.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>venque定制徽章</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift10.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>venque定制徽章</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift11.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>venque定制徽章</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift12.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>手机支架/p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift13.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>四洲牛奶</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift14.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>四洲抽奖机会</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift8.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>绝版恐龙服（裤子）</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift15.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>绝版恐龙服（一套）</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift16.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>蒙面大侠头饰</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift2.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>2000金币</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift17.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>1500金币+200钻石</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift2.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>1000金币</p>
+								</li>
+								<li>
+									<div class="li_img">
+										<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift18.png?{$smarty.const.VERSION}" alt="" />
+									</div>
+									<p>王牌战争定制体恤</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="m_tiger">
+						<div class="tiger_box">
+							<div class="container">
+								<div class="lottery lottery1"><div class="lottery-img"></div><div class="lottery-img"></div></div>
+								<div class="lottery lottery2"><div class="lottery-img"></div><div class="lottery-img"></div></div>
+								<div class="lottery lottery3"><div class="lottery-img"></div><div class="lottery-img"></div></div>
+							</div>
+						</div>
+						<div class="start">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/start.png?{$smarty.const.VERSION}" alt="" />
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/cishu.png?{$smarty.const.VERSION}" alt="" class="cishu" />
+						<p class="s_cishu"><span>0</span>次</p>
+					</div>
+					<div class="naibi">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/naibi.png?{$smarty.const.VERSION}" alt="" class="naibi_btn" />
+						<p class="s_naibi">剩余<span>0</span>枚奶币</p>
+					</div>
+				</div>
+				<div class="mingdan">
+					<div class="price_con">
+						<ul>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="rule_con">
+					<div class="rule_list">
+						<div class="rule_man">
+							<p><i>1</i><span>登录即可获得【1枚奶币】，成功邀请1位好友可获得【1枚奶币】</span></p>
+						</div>
+						<div class="rule_man">
+							<p><i>2</i><span>【2枚奶币】可抽1次奖，2次抽奖会加送1次抽奖机会，一天最多抽9次。</span></p>
+						</div>
+						<div class="rule_man">
+							<p><i>3</i><span>实物奖励将会在60个工作日内寄出，我们会为你严格保密，请您务必填写正确信息，如有地址变更请联系官方玩家群：骨科医生。</span></p>
+						</div>
+						<div class="rule_man">
+							<p><i>4</i><span>礼包兑换：游戏中主界面点击活动-礼包码-进行兑换。</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="last">
+				<div class="banner">
+					{fragment var=index_banner code=index_w_banner size=5}
+					<ul class="swiper-wrapper">
+						{if $index_banner neq ''}
+							{foreach $index_banner as $v}
+								<li class="swiper-slide">
+									<a href="{if $v.url}{$v.url}{else}javascript:;{/if}">
+										<img src="{$v.thumb}" alt="" />
+									</a>
+								</li>
+							{/foreach}
+						{/if}
+					</ul>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="c_qudao">
+					<div class="c_q_main">
+						<div class="left_qudao">
+							<a href="https://jq.qq.com/?_wv=1027&k=5nZ1s1F">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_qq.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方Q群1</p>
+							</a>
+							<a href="https://jq.qq.com/?_wv=1027&k=51qn4Rv">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_qq.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方Q群2</p>
+							</a>
+						</div>
+						<div class="center_qudao">
+							<img src="{$global.wx_img}" alt="" />
+						</div>
+						<div class="right_qudao">
+							<a href="https://buluo.qq.com/mobile/barindex.html?_bid=128&_wv=1027&bid=405805">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_bolo.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方兴趣部落</p>
+							</a>
+							<a href="{$global.wb_url}">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_wb.png?{$smarty.const.VERSION}" alt="" />
+								<p>官方微博</p>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="login">
+				<div class="c_login">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="login_body">
+						<div class="s_put">
+							<input type="tel" placeholder="请输入手机号码" class="phone" />
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="t_yzm" />
+							<div class="captcha">
+								{$captcha_img}
+							</div>
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="yzm" />
+							<input type="button" value="获取验证码" class="g_code l_code" />
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_lq.png?{$smarty.const.VERSION}" alt="" class="lingqu" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="share">
+				<div class="s_share">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="share_body">
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/s_title.png?{$smarty.const.VERSION}" alt="" class="share_title" />
+						<p class="share_tip">您的好友必须点击链接并登录才算分享成功哦</p>
+						<div class="bshare-custom">
+							<p class="share_t">分享你的邀请链接，邀请好友预约获得参与机会。<br />链接地址：</p>
+							<a class="share_url" id="tc9_copyTextz" href="javascript:;"></a>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/btn_f.png?{$smarty.const.VERSION}" alt="" class="btn_f" id="tc9_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc9_copyTextz"/>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="congra">
+				<div class="c_congra">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="congra_body">
+						<p class="congra_title">恭喜您获得</p>
+						<div class="g_gift">
+							<div class="gift_bg">
+								<div class="icon_bg">
+									<div class="chengg"></div>
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift2.png?{$smarty.const.VERSION}" alt="" class="icon_img1"/>
+								</div>
+								<p class="icon_txt1">6888金币</p>
+							</div>
+							<div class="gift_bg">
+								<div class="icon_bg">
+									<div class="chengg"></div>
+									<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/gift8.png?{$smarty.const.VERSION}" alt="" class="icon_img2"/>
+								</div>
+								<p class="icon_txt2">绝版恐龙服（半身）</p>
+							</div>
+						</div>
+						<div class="dhm">
+							<div class="c_dhm j_dhm" id="tc10_copyTextz">
+								
+							</div>
+							<div class="fuzhi" id="tc10_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc10_copyTextz">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/fuzhi.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+						</div>
+						<div class="dhm">
+							<div class="c_dhm k_dhm" id="tc11_copyTextz">
+								
+							</div>
+							<div class="fuzhi" id="tc11_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc11_copyTextz">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/fuzhi.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="denglu">
+				<div class="denglu_main">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="m_denglu">
+						<div class="s_put">
+							<input type="text" placeholder="请输入ID号" class="user_id p_put" />
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入昵称" class="user_name p_put" />
+						</div>
+						<div class="s_put">
+							<input type="tel" placeholder="请输入手机号" class="user_phone p_put" />
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="user_t_yzm c_put" />
+							<div class="captcha">
+								{$captcha_img}
+							</div>
+						</div>
+						<div class="s_put">
+							<input type="text" placeholder="请输入验证码" class="u_t_yzm c_put" />
+							<input type="button" value="获取验证码" class="user_yzm g_code" />
+						</div>
+						<div class="pub_btn">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_lingqu.png?{$smarty.const.VERSION}" alt="" class="c_lingqu" />
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/with.png?{$smarty.const.VERSION}" alt="" class="with_out" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="my_price">
+				<div class="c_my_price">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="price_body">
+						<div class="top_title">
+							<span>奖励名称</span>
+							<span>兑换码</span>
+						</div>
+						<div class="huadong">
+							<ul>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="new_congra">
+				<div class="c_new_congra">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="new_congra_body">
+						<div class="sizhou_code">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/sizhou.png?{$smarty.const.VERSION}" alt="" />
+							<p>扫一扫即刻抽奖</p>
+						</div>
+						<p class="congra_title">恭喜您获得</p>
+						<div class="gift_bg new_gift_bg">
+							<div class="icon_bg">
+								<div class="chengg"></div>
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/c_zuanshi.png?{$smarty.const.VERSION}" alt="" class="new_icon" />
+							</div>
+							<p></p>
+						</div>
+						<div class="dhm cc_dhm">
+							<div class="c_dhm dd_dhm" id="tc12_copyTextz">
+								
+							</div>
+							<div class="fuzhi" id="tc12_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc12_copyTextz">
+								<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/fuzhi.png?{$smarty.const.VERSION}" alt="" />
+							</div>
+						</div>
+						<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/t_dizhi.png?{$smarty.const.VERSION}" alt="" class="t_dizhi" />
+						<p class="shuoming">获得游戏实物周边的小伙伴，记得留下你的收件地址哦！虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="address">
+				<div class="c_address">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<div class="c_gao"></div>
+					<div class="r_put">
+						<input type="text" placeholder="请输入收件人姓名" class="s_name" />
+					</div>
+					<div class="r_put">
+						<input type="number" placeholder="请输入收件人邮编" class="youbian" />
+					</div>
+					<div class="r_put">
+						<input type="tel" placeholder="请输入收件人电话" class="m_phone" />
+					</div>
+					<div class="r_put">
+						<input type="text" placeholder="请输入收件人地址" class="s_address" />
+					</div>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/a_sure.png?{$smarty.const.VERSION}" alt="" class="a_sure" />
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="message">
+				<div class="c_message">
+					<i class="close"></i>
+					<div class="chengg"></div>
+					<p></p>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/m_sure.png?{$smarty.const.VERSION}" alt="" class="m_sure" />
+				</div>
+			</div>
+		</section>
+	</body>
+	{download}
+	{video_play}
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/swiper-3.4.0.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/clipboard.min.js?{$smarty.const.VERSION}"></script>
+	<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var alt = "{$smarty.const.STATIC_DOMAIN}3.0/m/";
+	</script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/c_cover.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".banner" , {
+				pagination: '.swiper-pagination',
+			});
+			getWidth();
+			function getWidth(){
+				var length = $(".show_main ul li").length;
+				var width = length * 154;
+				var c_width = width / 32 +"rem";
+				$(".show_main ul").css("width" , c_width);
+			}
+		})
+	</script>
+<!--微信分享-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	document.write('<script src="http://game.yingxiong.com/common/herowx/herojs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+</script>
+<script type="text/javascript">
+	$(function() {
+
+		var share = {
+			imgUrl: 'http://cdnstatic.yingxiong.com/hero/3.0/m/images/share_icon.png',
+			shareTitle: '【王牌战争：代号英雄】心跳公测',
+			descContent: '送金币送钻石！更有六重专属福利让你心跳一夏！',
+			lineLink: 'http://hero.yingxiong.com/m/'
+		};
+		wx.config({
+			debug: false,
+			appId: wx_conf.appId,
+			timestamp: wx_conf.timestamp,
+			nonceStr: wx_conf.nonceStr,
+			signature: wx_conf.signature,
+			jsApiList: [
+				'onMenuShareTimeline',
+				'onMenuShareAppMessage',
+				'chooseImage',
+				'previewImage',
+				'uploadImage',
+				'downloadImage'
+			]
+		});
+		wx.ready(function() {
+			wx.onMenuShareAppMessage({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				}
+			});
+			wx.onMenuShareTimeline({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				},
+			});
+
+			wx.onMenuShareQQ({
+				title: share.shareTitle,
+				desc: share.descContent,
+				link: share.lineLink,
+				imgUrl: share.imgUrl,
+				success: function() {
+					//                  $.get('//game.yingxiong.com/h5/fc/ajax-ten-share.html', {}, function(){
+					//
+					//                  });
+				},
+				cancel: function() {
+					// 用户取消分享后执行的回调函数
+				}
+			});
+		})
+         $(window).scroll(function() {
+			var $t = $(this).scrollTop();
+			if($t > 50) {
+				$(".top_bar").css({
+					display: 'block'
+				});
+			} else {
+				$(".top_bar").css({
+					display: 'none'
+				});
+			}
+		});
+	});
+</script>
+</html>

@@ -1,0 +1,50 @@
+{include '../layouts/pc/header.html'}
+<!--内容-->
+<div class="i_main">
+	{include '../layouts/pc/top.html'}
+	<div class="list">
+		<div class="top_img"></div>
+		<div class="nav_bar">
+			<div class="wrap">
+				<ul>
+					<a href="/p/time.html"><li><i></i><span>重要事件时间表</span></li></a>
+					<a href="{myurl name='article/list, id=>1975'}"><li  class="active"><i></i><span>公益资讯</span></li></a>
+					<a href="{myurl name='image/list, id=>1976'}"><li><i></i><span>公益图集</span></li></a>
+					<a href="{myurl name='video/list, id=>1978'}"><li><i></i><span>公益视频</span></li></a>
+				</ul>
+			</div>
+		</div>
+		<section class="news">
+			<div class="tab_box">
+				<div class="tab_main">
+					<div class="news_infor">
+						<ul>
+							{if !empty($data)}
+							{foreach $data as $v}
+							<li>
+								<a target="_blank" href="{$v.linkUrl}">
+									<span class="img"><img src="{$v.thumb}"></span>
+									<div class="fl_info">
+										<b class="fl_tit">{$v.title}</b>
+										<b class="fl_subtit">{$v.sub_title}</b>
+									</div>
+									<span class="time">{$v.created_at_formate}</span>
+								</a>
+							</li>
+							{/foreach}
+							{else}
+							<p class="noData" style="line-height: 350px;color: #CBB487;text-align: center;font-size: 24px;">暂无数据...</p>
+							{/if}
+						</ul>
+
+						{$page}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--footer-->
+		{include '../layouts/pc/bottom.html'}
+	</div>
+</div>
+{include '../layouts/pc/footer.html'}

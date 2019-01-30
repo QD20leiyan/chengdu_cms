@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="google" value="notranslate"/>
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>一周年的约定，等你</title>
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}sm/yy/css/swiper.min.css">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}sm/yy/css/style.css">
+	<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+	<div class="index-wrap wrap" data-id="{$id}"  data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+		<section class="section1">
+			<div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide swiper-no-swiping">
+                        <div class="video-box">
+                        	<video src="http://video.yingxiong.com/hd/09380a54677f42cdbae1173aabc2cb14.mp4" id="video"  webkit-playsinline="true" playsinline="true" x5-playsinline="true" poster="{$smarty.const.STATIC_DOMAIN}sm/yy/images/video-bg.jpg"></video>
+                        	<i class="video-btn"></i>
+                        	<span class="skip">跳过</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="landing-box">
+                        	<a href="javascript:;" class="logo">
+                        		<img src="{$smarty.const.STATIC_DOMAIN}sm/yy/images/logo.png" alt="">
+                        	</a>
+                        	<a href="http://sm.yingxiong.com"><div class="finish-btn"></div></a>
+                        	<div class="again-btn"></div>
+                        	<div class="share-btn"></div>
+                        </div>
+                        <div class="share-mask">
+                        	<div class="icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 如果需要分页器 -->
+                <!-- <div class="swiper-pagination"></div> -->
+                
+                <!-- 如果需要导航按钮 -->
+                <!-- <div class="swiper-button-prev"></div> -->
+                <!-- <div class="swiper-button-next"></div> -->
+                
+                <!-- 如果需要滚动条 -->
+                <!-- <div class="swiper-scrollbar"></div> -->
+            </div>
+		</section>
+	</div>
+	<script src="{$smarty.const.STATIC_DOMAIN}sm/yy/js/jquery.min.js"></script>
+   	<script src="{$smarty.const.STATIC_DOMAIN}sm/yy/js/swiper.min.js"></script>
+   	<!--微信分享-->
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+	    document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+	</script>
+   	<script>
+   		var mySwiper = new Swiper ('.swiper-container', {
+            direction: 'vertical', 
+            loop: false, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+              el: '.swiper-pagination',
+            },
+            slideChange: function(){
+                $("video").trigger('pause');
+            },
+            // 如果需要前进后退按钮
+            // navigation: {
+            //   nextEl: '.swiper-button-next',
+            //   prevEl: '.swiper-button-prev',
+            // },
+            
+            // 如果需要滚动条
+            // scrollbar: {
+            //   el: '.swiper-scrollbar',
+            // },
+        })   
+        $(".finish-btn").click(function(){
+            HLog.event("sm_yy_finish-btn");
+        }) 
+        $(".share-btn").click(function(){
+        	$(".share-mask").show();
+            HLog.event("sm_yy_share-btn");
+        })
+        $(".again-btn").click(function(){
+            HLog.event("sm_yy_again-btn");
+        })
+        $(".share-mask").click(function(e){
+        	if(e.target != $(".share-mask .icon")[0]){
+        		$(".share-mask").hide();
+        	}
+        })
+        $(".skip").click(function(){
+        	mySwiper.slideNext();
+            $("video").trigger('pause');
+        })
+        $(".again-btn").click(function(){
+        	mySwiper.slidePrev();
+            document.getElementById('video').currentTime = 0;
+            $("video").trigger('play');
+        })
+        $(".video-btn").click(function(){
+        	$(this).hide();
+        	$("video").trigger('play');
+        })
+        document.getElementById('video').addEventListener('ended', function () {  
+            mySwiper.slideNext();
+        }, false);
+        // 微信信息
+		    function wx_o(){
+		        var share_url='http://h5.yingxiong.com/index/sm/yy.html';
+		        var share_icon= $(".wrap").attr("data-icon");
+		        var share_title=$(".wrap").attr("data-title");
+		        var share_desc=$(".wrap").attr("data-desc");
+		        var share = {
+		            imgUrl      : "http:"+share_icon,
+		            shareTitle  : share_title,
+		            descContent : share_desc,
+		            lineLink    : share_url
+		        };
+		        wx.config({
+		            debug     : false,
+		            appId     : wx_conf.appId,
+		            timestamp : wx_conf.timestamp,
+		            nonceStr  : wx_conf.nonceStr,
+		            signature : wx_conf.signature,
+		            jsApiList : [
+		                'onMenuShareTimeline',
+		                'onMenuShareAppMessage',
+		                'chooseImage',
+		                'previewImage',
+		                'uploadImage',
+		                'downloadImage'
+		            ]
+		        });
+		        wx.ready(function(){
+		            wx.onMenuShareAppMessage({
+		                title   : share.shareTitle,
+		                desc    : share.descContent,
+		                link    : share.lineLink,
+		                imgUrl  : share.imgUrl,
+		                success : function() {
+		                     // dfzj_inv_share();
+		                }
+		            });
+		            wx.onMenuShareTimeline({
+		                title   : share.shareTitle,
+		                desc    : share.descContent,
+		                link    : share.lineLink,
+		                imgUrl  : share.imgUrl,
+		                success : function() {
+		                    // dfzj_inv_share();
+		                }
+		            });
+
+		            wx.onMenuShareQQ({
+		                title: share.shareTitle,
+		                desc: share.descContent,
+		                link: share.lineLink,
+		                imgUrl: share.imgUrl,
+		                success : function() {
+		                    // dfzj_inv_share();
+		                },
+		                cancel: function () {
+		                    // 用户取消分享后执行的回调函数
+		                }
+		            });
+		        })
+	        }
+			wx_o();
+   	</script>
+</body>
+</html>

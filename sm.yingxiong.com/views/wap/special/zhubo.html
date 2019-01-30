@@ -1,0 +1,285 @@
+	{include file="../../layouts/wap/dataHead.html"}
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery-1.11.2.min.js"></script>
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/common/css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}3.0/m/css/vote.css" />
+		<section>
+			<div class="star_zb">
+				<div class="m_star">
+					<p class="s_tit">明星主播</p>
+					<div class="z_banner">
+						<ul class="swiper-wrapper">
+							{if $lunbo neq ''}
+								{foreach $lunbo as $v}
+									<li class="swiper-slide">
+										<a href="{$v.redirect_url}"><img src="{$v.content_message}" alt="" /></a>
+									</li>
+								{/foreach}
+							{/if}
+						</ul>
+						<div class="pagination01"></div>
+					</div>
+					<p class="m_tit">精彩活动</p>
+					<div class="m_banner">
+						<div class="swiper-wrapper">
+							{if $act neq ''}
+								{foreach $act as $k=>$b}
+								{if $k%2 ==0}
+									<ul class="swiper-slide">
+								{/if}		
+										<li>
+											<a href="{$b.wapLinkUrl}">
+												<img src="{$b.thumb}" alt="" />
+											</a>
+											<div class="m_b_t">
+												<p>{$b.title}</p>
+												<p>{$b.summary}</p>
+												<p>{$b.sub_title}</p>
+											</div>
+										</li>
+									{if $k%2 == 1 || $k == (count($act)-1)}
+									</ul>
+									{/if}
+								{/foreach}
+							{/if}
+						</div>
+						<div class="pagination02"></div>
+					</div>
+					<p class="c_tit">魔法主播</p>
+					<div class="b_ul">
+						<ul class="b_c_ul">
+							<li class="active"><em>触手</em></li>
+							<li><em>虎牙</em></li>
+							<li><em>企鹅电竞</em></li>
+							<li><em>游拍</em></li>
+							<li><em>其他</em></li>
+						</ul>
+					</div>
+					<div class="t_banner">
+						<div class="p_banner active">
+							<div class="p_c_banner swiper-wrapper">
+								{if $cs neq ''}
+									{foreach $cs as $k=>$v}
+										{if $k%6 ==0}
+											<ul class="p_c_ul swiper-slide">
+										{/if}	
+											<li>
+												<a href="{$v.content_message}">
+													<img src="{$v.thumb}" alt="" />
+												</a>
+												<p class="p_c_p">{$v.title}</p>
+												<p>{$v.sub_title}</p>
+											</li>
+										{if $k%6 == 5 || $k == (count($cs)-1)}
+											</ul>
+										{/if}
+									{/foreach}
+									{else}
+						<p class="noData">暂无数据...</p>
+								{/if}
+							</div>
+							<div class="pagination03"></div>
+						</div>
+						
+						<div class="p_banner">
+						<div class="p_c_banner swiper-wrapper">
+							{if $hy neq ''}
+								{foreach $hy as $k=>$v}
+										{if $k%6 ==0}
+											<ul class="p_c_ul swiper-slide">
+										{/if}	
+											<li>
+												<a href="{$v.content_message}">
+													<img src="{$v.thumb}" alt="" />
+												</a>
+												<p class="p_c_p">{$v.title}</p>
+												<p>{$v.sub_title}</p>
+											</li>
+										{if $k%6 == 5 || $k == (count($hy)-1)}
+											</ul>
+										{/if}
+								{/foreach}
+								{else}
+						<p class="noData">暂无数据...</p>
+							{/if}
+						</div>
+						<div class="pagination03"></div>
+					</div>
+						
+						<div class="p_banner">
+						<div class="p_c_banner swiper-wrapper">
+							{if $dj neq ''}
+								{foreach $dj as $k=>$v}
+										{if $k%6 ==0}
+											<ul class="p_c_ul swiper-slide">
+										{/if}	
+											<li>
+												<a href="{$v.content_message}">
+													<img src="{$v.thumb}" alt="" />
+												</a>
+												<p class="p_c_p">{$v.title}</p>
+												<p>{$v.sub_title}</p>
+											</li>
+										{if $k%6 == 5 || $k == (count($dj)-1)}
+											</ul>
+										{/if}
+								{/foreach}
+								{else}
+						<p class="noData">暂无数据...</p>
+							{/if}
+						</div>
+						<div class="pagination03"></div>
+					</div>
+
+						<div class="p_banner">
+							<div class="p_c_banner swiper-wrapper">
+								{if $yp neq ''}
+									{foreach $yp as $k=>$v}
+									{if $k%6 ==0}
+									<ul class="p_c_ul swiper-slide">
+										{/if}
+										<li>
+											<a href="{$v.content_message}">
+												<img src="{$v.thumb}" alt="" />
+											</a>
+											<p class="p_c_p">{$v.title}</p>
+											<p>{$v.sub_title}</p>
+										</li>
+										{if $k%6 == 5 || $k == (count($yp)-1)}
+									</ul>
+									{/if}
+									{/foreach}
+									{else}
+						            <p class="noData">暂无数据...</p>
+								{/if}
+							</div>
+							<div class="pagination03"></div>
+						</div>
+
+						<div class="p_banner">
+							<div class="p_c_banner swiper-wrapper">
+								{if $qt|@count neq 0}
+									{foreach $qt as $k=>$v}
+										{if $k%6 ==0}
+											<ul class="p_c_ul swiper-slide">
+												{/if}
+												<li>
+													<a href="{$v.content_message}">
+														<img src="{$v.thumb}" alt="" />
+													</a>
+													<p class="p_c_p">{$v.title}</p>
+													<p>{$v.sub_title}</p>
+												</li>
+												{if $k%6 == 5 || $k == (count($qt)-1)}
+											</ul>
+										{/if}
+									{/foreach}
+								{else}
+						        <p class="noData">暂无数据...</p>
+								{/if}
+							</div>
+							<div class="pagination03"></div>
+						</div>
+					</div>
+					
+					<p class="d_tit">成为魔法主播吧</p>
+					<div class="be_zb">
+						<a href="http://sm.yingxiong.com/info/2017/0919/1160.html">
+							<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/be_zb.jpg" alt="" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="bg"></section>
+		<section class="sect bottom-box">
+			<section class="b-box">
+				<a href="javascript:;" class="js_wap_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/img/b_btn.png"/></a>
+			</section>
+		</section>
+		<section class="weixin">
+			<aside class="wx clearfix">
+				<div class="lef"><img src="{$global.wx_img}"></div>
+				<div class="rig">
+					<p class="tit">微信公众号</p>
+					<p class="p1">扫描二维码关注官方微信</p>
+					<p class="p2">官方微信号<a href="#">创造与魔法手游</a></p>
+				</div>
+			</aside>
+		</section>
+		<section class="weibo">
+			<aside class="wx clearfix">
+				<div class="lef"><img src="{$global.wb_img}"></div>
+				<div class="rig">
+					<p class="tit">微博</p>
+					<p class="p1">扫描二维码关注微博</p>
+					<p class="p2">微博<a href="{$global.wb_url}">创造与魔法</a></p>
+				</div>
+			</aside>
+		</section>
+		<section class="qq">
+			<aside class="wx clearfix">
+				<div class="lef"><img src="{$global.group}"></div>
+				<div class="rig">
+					<p class="tit">QQ群</p>
+					<p class="p1">好玩乐趣手游等你加入</p>
+					<p class="p2">QQ群号<a href="https://jq.qq.com/?_wv=1027&k=4BcLfPN">{$global.group_num}</a></p>
+				</div>
+			</aside>
+		</section>
+		<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+		<div style="height: 3.85625rem;">
+
+		</div>
+	</body>
+	{download}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/jquery.fittext.js"></script>
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/common/js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('html').fitText(2);
+			var clickNumber = 1;
+			$(".menu").click(function() {
+				if(clickNumber % 2 !== 0) {
+					$(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav_close.png");
+					$(this).siblings(".menu_nav").slideDown();
+				} else {
+					$(this).children("img").attr("src", "{$smarty.const.STATIC_DOMAIN}3.0/m/img/nav.png");
+					$(this).siblings(".menu_nav").slideUp();
+				}
+				clickNumber++;
+			});
+
+			var mySwiper = new Swiper('.z_banner', {
+				loop: true,
+				pagination: '.pagination01',
+			});
+
+			var mySwiper01 = new Swiper('.m_banner', {
+				//				loop:true,
+				pagination: '.pagination02',
+			});
+			$(".b_c_ul li").on("click", function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".t_banner .p_banner").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			var mySwiper02 = new Swiper('.p_banner', {
+				//				loop:true,
+				pagination: '.pagination03',
+				paginationClickable: true,
+				observer: true,
+				observeParents: true,
+			});
+			$(window).scroll(function(){
+				var winH = $(window).height();
+				var topH = $(window).scrollTop();
+				if(topH > winH){
+					$(".bottom-box").fadeIn();
+				} else{
+					$(".bottom-box").fadeOut();
+				}
+			});
+		})
+	</script>
+
+</html>

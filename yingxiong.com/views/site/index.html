@@ -1,0 +1,154 @@
+{include '../layouts/pc/header.html'}
+<div class="wrap">
+	<!--banner-->
+	<div class="banner">
+		<div class="swiper-container swiper-container1">
+			<div class="swiper-wrapper">
+				{fragment var=index code=new_banner size=6}
+				{if $index neq ''}
+				{foreach $index as $v}
+				<div class="swiper-slide">
+					<a href="{$v.url}" target="_blank">
+						<img class="images" src="{$v.thumb}">
+						<div class="banner_info">
+							<div><i>查看详情</i></div>
+						</div>
+					</a>
+				</div>
+				{/foreach}
+				{/if}
+				<div class="banner_pagination">
+					<div class="swiper-pagination swiper-pagination1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--banner_news-->
+	<div class="banner_news">
+		{fragment var=index1 code=left_index_banner size=1}
+		{if $index1 neq ''}
+		{foreach $index1 as $v}
+		<div class="tj_img_left">
+			<a href="{$v.url}" target="_blank"><img src="{$v.thumb}"/></a>
+		</div>
+		{/foreach}
+		{/if}
+		<div class="news_box">
+			<div class="hd">
+				<span class="title_name">新闻</span>
+				<a href="{myurl name='article/list, id=>242'}" target="_blank" class="more">更多</a>
+			</div>
+			<div class="bd">
+				{article id="242" size=1 var=sp}
+				{if $sp neq ''}
+				{foreach key=cid item=v from=$sp} {if $cid eq 0}
+				<a href="{$v.linkUrl}" target="_blank"><h2>{$v.title}</h2><p>{$v.contentMessage}</p></a>
+				{/if}{/foreach}
+				{/if}
+			</div>
+			<ul class="news_info">
+				{article id="242" size=7 var=sp1}
+				{if $sp1 neq ''}
+				{foreach key=cid item=v from=$sp1} {if $cid neq 0}
+				<li><a target="_blank" href="{$v.linkUrl}">{$v.title}</a><span class="time">{$v.created_at|date_format:"%m/%d"}</span></li>
+				{/if}{/foreach}
+				{/if}
+			</ul>
+		</div>
+		<div class="tj_img_right">
+		{fragment var=index2 code=right_index_banner size=2}
+		{if $index2 neq ''}
+		{foreach $index2 as $v}
+			<a href="{$v.url}" target="_blank"><img src="{$v.thumb}"/></a>
+		{/foreach}
+		{/if}
+		</div>
+	</div>
+	<!--three_moudle-->
+	<div class="three_moudle">
+		<div class="link-li-box link-li-box1">
+			<a href="{myurl name='page/index, id=>join'}" target="_blank">
+				<span class="link-li-box-img"></span>
+				<h3 class="link-li-h3">招聘信息</h3>
+				<p class="link-li-p">用英雄的待遇匹配英雄</p>
+			</a>
+		</div>
+		<div class="link-li-box link-li-box2" >
+			<a href="{myurl name='page/index, id=>about'}" target="_blank">
+				<span class="link-li-box-img"></span>
+				<h3 class="link-li-h3">商务合作</h3>
+				<p class="link-li-p">既成大事，何不与英雄携手同行</p>
+			</a>
+		</div>
+		<div class="link-li-box link-li-box3">
+			<a href="{myurl name='page/index, id=>about'}#contact" target="_blank">
+				<span class="link-li-box-img"></span>
+				<h3 class="link-li-h3">联系我们</h3>
+				<p class="link-li-p">没有态度，不成品牌</p>
+			</a>
+		</div>
+	</div>
+	<!--about_us-->
+	<div class="about_us">
+		<div class="about_left fl">
+			<h2 class="title_name">便捷服务</h2>
+			<a class="count" href="http://i.yingxiong.com" target="_blank"><i></i>账号中心</a>
+			<a class="service" href="http://kf.yingxiong.com/" target="_blank"><i></i>客服中心</a>
+			<a class="community" href="http://gamer.yingxiong.com/index/share" target="_blank"><i></i>英雄社区</a>
+			<span class="qrcode_img">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/in-wxcode.png?{$smarty.const.VERSION}" alt="英雄互娱官方公众号"/>
+				<i><b>英雄互娱</b>官方公众号</i>
+			</span>
+			<span class="qrcode_img fr">
+				<img src="{$smarty.const.STATIC_DOMAIN}3.0/images/in-kfcode.png?{$smarty.const.VERSION}" alt="英雄客服官方公众号"/>
+				<i><b>英雄客服</b>官方公众号</i>
+			</span>
+		</div>
+		<div class="about_right fr">
+			<h2 class="title_name">快速链接</h2>
+			<div class="hero_link fl">
+				<h3>产品中心</h3>
+				<a href="/site/product.html#hot" target="_blank">热门游戏</a>
+				<a href="/site/product.html#new" target="_blank">最新上架</a>
+				<a href="/site/product.html#test" target="_blank">测试游戏</a>
+			</div>
+			<div class="hero_link fl">
+				<h3>加入英雄</h3>
+				<a href="{myurl name='page/index, id=>join'}#fldy" target="_blank">福利待遇</a>
+				<a href="{myurl name='page/index, id=>join'}#yxfc" target="_blank">英雄风采</a>
+				<a href="{myurl name='page/index, id=>join'}#ygfz" target="_blank">员工发展</a>
+				<a href="{myurl name='page/index, id=>join'}#zpgw" target="_blank">招聘岗位</a>
+			</div>
+			<div class="hero_link fl">
+				<h3>关于英雄</h3>
+				<span>
+					<a href="{myurl name='page/index, id=>about'}#intro" target="_blank">公司简介</a>
+					<a href="{myurl name='page/index, id=>about'}#course" target="_blank">发展历程</a>
+					<a href="{myurl name='page/index, id=>about'}#honor" target="_blank">获得荣誉</a>
+					<a href="{myurl name='page/index, id=>about'}#team" target="_blank">高管团队</a>
+				</span>
+				<span>
+					<a href="{myurl name='page/index, id=>about'}#cult" target="_blank">公司文化</a>
+					<a href="{myurl name='page/index, id=>about'}#contact" target="_blank">联系我们</a>
+					<a href="{myurl name='article/list, id=>242'}" target="_blank">公司动态</a>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+{include '../layouts/pc/foot.html'}
+<script>
+	var swiper01 = new Swiper('.swiper-container1',{
+		loop:true,
+		pagination: '.swiper-pagination1',
+		paginationClickable: true,
+		autoplayDisableOnInteraction : false,
+		slidesPerView:1,
+		autoplay:5000,
+		effect : 'fade',
+		fade: {
+			crossFade: true,
+		}
+	});
+</script>
+</html>

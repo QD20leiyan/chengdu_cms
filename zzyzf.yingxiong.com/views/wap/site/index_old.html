@@ -1,0 +1,316 @@
+{include '../../layouts/wap/header.html'}
+{include '../../layouts/wap/top.html'}
+		<section class="main1 fade">
+			<div class="main">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/logo.png?{$smarty.const.VERSION}" alt="" class="logo">
+				{fragment var=video code=video size=1}
+				<a href="javascript:;" class="play js_video_play" data-url="{if $video}{$video[0].url}{/if}"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/play.png?{$smarty.const.VERSION}" alt=""></a>
+				<a href="javascript:;" class="yyue yy"></a>
+			    <p class="peo_num">已经预约<span>9999</span>人</p>
+			</div>
+			<!-- <div class="main_btn">
+            	<div class="yuyue fr">
+            	    <a href="javascript:;" target="_blank" class="js_wap_down"><img class="ioc" src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/buttun2.png?{$smarty.const.VERSION}" alt=""></a>
+            	</div>
+            </div> -->
+		</section>
+		<section class="main2 fade">
+		    <div class="left_lunbo">
+				<div class="m_banner">
+				{fragment var=banner code=banner size=5}
+					<ul class="swiper-wrapper">
+						{if $banner neq ''}
+						{foreach $banner as $v}
+						<li class="swiper-slide">
+							<a href="{$v.url}">
+								<img src="{$v.thumb}" alt="" />
+							</a>
+						</li>
+						{/foreach}
+						{/if}
+					</ul>
+				    <div class="swiper-pagination swiper-pagination1"></div>
+			    </div>
+				<div class="news_box">
+                    <div class="text_tab_more">
+                        <a href="{myurl name='wap/article/list, id=>480'}" class="more" target="_blank"></a>
+                    </div>	
+				    <div class="art-news">
+						<ul class="news-nav clearfix">
+                            <li class="curr" data-index="0">最新</li>
+                            <li data-index="1">新闻</li>
+                            <!-- <li data-index="2">公告</li> -->
+                            <li data-index="3">攻略</li>
+                        </ul>
+                        <div class="tab-cont">
+							<ul class="ul">
+
+							{article id="480" size=6 var=zx}
+							{if $zx neq ''}
+							{foreach $zx as $key=>$v}
+							{if $key >= 0}
+								<li><i>[{$v.name}] </i>
+									<a href="{$v.wapLinkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+							</ul>
+							<ul class="ul hide">
+								{article id="481" size=6 var=xw}
+							{if $xw neq ''}
+							{foreach $xw as $key=>$v}
+							{if $key >= 0}
+								<li><i>[{$v.name}] </i>
+									<a href="{$v.wapLinkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+							</ul>
+							<ul class="ul hide">
+								{article id="482" size=6 var=gg}
+							{if $gg neq ''}
+							{foreach $gg as $key=>$v}
+							{if $key >= 0}
+								<li><i>[{$v.name}] </i>
+									<a href="{$v.wapLinkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+							</ul>
+							<ul class="ul hide">
+								{article id="483" size=6 var=gl}
+							{if $gl neq ''}
+							{foreach $gl as $key=>$v}
+							{if $key >= 0}
+								<li><i>[{$v.name}] </i>
+									<a href="{$v.wapLinkUrl}" target="_blank">{$v.title}</a><span>{$v.created_at|date_format:"%m/%d"}</span>
+								</li>
+								{/if}
+										{/foreach}
+									{else}
+									<p>暂无数据~</p>
+									{/if}
+							</ul>
+						</div>
+                    </div>
+				</div>
+			</div>
+			<div class="gift1">
+				<p class="gf1_info">预约人数达成后，将在开测后获得对应奖励</p>
+				<ul>
+					<li class="g1">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/mn11.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p>钢铁*2000</p>
+						<div class="mn_num">
+							<span>10,000</span>
+						</div>
+					</li>
+					<li class="g2">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/mn22.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p>美钞*3000</p>
+						<div class="mn_num">
+							<span>20,000</span>
+						</div>
+					</li>
+					<li class="g3">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/mn33.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p>玛格达·马科维奇</p>
+						<div class="mn_num">
+							<span>50,000</span>
+						</div>
+					</li>
+					<li class="g4">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/mn44.png?{$smarty.const.VERSION}" alt="" class="money">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p>金砖*200</p>
+						<div class="mn_num">
+							<span>100,000</span>
+						</div>
+					</li>
+					<li class="g5">
+						<img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/mn55.png?{$smarty.const.VERSION}" alt="" class="money" style="height: 4.86rem;width: 4.86rem;">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/dach.png?{$smarty.const.VERSION}" alt="" class="dach hide">
+						<p>神秘大礼</p>
+						<div class="mn_num">
+							<span>200,000</span>
+						</div>
+					</li>
+
+				</ul>
+			</div>
+			<div class="gift2">
+				<p class="gf2_info">邀请好友注册并成功预约，即可开测后获得对应邀请奖励</p>
+				<div class="log_bf">
+					<p class="user_id">请先登录游戏帐号</p>
+					<a class="login" href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/login.png?{$smarty.const.VERSION}" alt=""></a>
+				</div>
+				<div class="log_af hide" data-url="">
+					<p class="user_id">游戏：<span>疯狂坦克小王</span></p>
+					<div class="code">我的邀请码  <span>888888</span></div>
+					<p class="sec_num">已成功邀请<span>0</span> 位好友</p>
+				</div>
+				<ul class="box box1">
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf1.png?{$smarty.const.VERSION}" alt="" class="gf_box">
+					        <span>一箱子钱X1</span>
+					        <p>1</p>
+						</div>
+					</li>
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf2.png?{$smarty.const.VERSION}" alt="" class="gf_box">
+					        <span>一箱子钱X1</span>
+					        <p>2</p>
+						</div>
+					</li>
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf3.png?{$smarty.const.VERSION}" alt="" class="gf_box gf_bg">
+					        <span>一箱子钱X1</span>
+					        <p>4</p>
+						</div>
+					</li>
+				</ul>
+				<ul class="box box2">
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf4.png?{$smarty.const.VERSION}" alt="" class="gf_box gf_bg">
+					        <span>一箱子钱X1</span>
+					        <p>6</p>
+						</div>
+					</li>
+					<li>
+						<div class="box_con">
+					        <img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/gf5.png?{$smarty.const.VERSION}" alt="" class="gf_box gf_bg gf_bg3">
+					        <span>一箱子钱X1</span>
+					        <p>10</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/tanke.png?{$smarty.const.VERSION}" alt="" class="tanke">
+			<a href="javascript:;" class="yaoq"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/yaoq.png?{$smarty.const.VERSION}" alt=""></a>
+		</section>
+		<section class="main3 fade">
+			<div class="z_banner">
+			{fragment var=banner_img_wap code=banner_img_wap size=5}
+				<ul class="swiper-wrapper">
+				{if $banner_img_wap neq ''}
+					{foreach $banner_img_wap as $v}
+					<li class="swiper-slide">
+						<a href="{$v.url}" target="_blank">
+							<img src="{$v.thumb}" alt="" />
+						</a>
+					</li>
+					{/foreach}
+					{/if}
+				</ul>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="swiper-button-prev">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/r.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+			<div class="swiper-button-next">
+				<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/r.png?{$smarty.const.VERSION}" alt="" />
+			</div>
+		</section>
+		<section>
+			<div class="rw_info">
+			<a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+			<a href="javascript:;" class="weixin_btn"></a>
+			<a href="{$global.group_url_one}"></a>
+			<div class="wechat hidden">
+				<img src="{$global.wx_img}" alt="">
+			</div>
+		</div>
+		</section>
+		<section class="bot_box"></section>
+		<!-- <section class="yyue_bg"><a href="javascript:;" class="yyue_btn yy"></a></section> -->
+		<section class="login_board hide fade">
+			<div class="login_tel">
+				<p class="title">登  录</p>
+				<a href="javascript:;" class="close close1"></a>
+				<div class="login_con">	
+					<p class="phone_ent">
+						<input type="number" class="tel" id="login_code1" placeholder="请输入手机号码">
+					</p>
+					<p class="co_error err1">* 手机号格式不正确喔~</p>
+					<p class="yanzhen_code">
+						<input type="text" class="codimg" id="check_code2" placeholder="图片验证码">
+						<a href="javascript:;" class="code_img">
+							<img id="captcha-img" src="{myurl name="commonMethod/captcha"}" alt="" title="换一个" style="cursor:pointer;">
+						</a>
+					</p>
+					<p class="co_error err3">* 图片验证码不正确喔~</p>
+					<p class="shuaxin">点击图片刷新</p>
+					<p class="yanzhen">
+						<input type="number" class="check_code" id="check_code1" placeholder="手机验证码">
+						<a href="javascript:;" class="gain gain1">获取验证码</a>
+					</p>
+					<p class="co_error err2">* 短信验证码不正确喔~</p>
+					<a href="javascript:;" class="login_next">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/btn1.png?{$smarty.const.VERSION}" alt="">
+					</a>
+				</div>
+			</div>
+		</section> 
+		<section class="yuyue_board hide fade">
+			<div class="yyue_con">
+				<p class="title tl2">预约信息</p>
+				<a href="javascript:;" class="close"></a>
+				<div class="yy_t">
+					<div class="yuyue_tel">
+						<img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/yuyue_info.png?{$smarty.const.VERSION}" alt="" class="yuyue_info">
+						<form action="" class="yuyue_form">
+							<div class="xitong">
+								<span class="rdo on fl" data-id="1">iOS</span>
+								<span class="rdo fr" data-id="2"> Android</span>
+							</div>
+							<div class="clear"></div>
+							<p class="inv_hav" >
+								<span>是否有好友邀请？</span>
+								<span class="rdo3 no">否</span>
+								<span class="rdo3 active yes">是</span>
+								<input type="number" class="inv" id="invite_code" placeholder="请输入邀请码">
+							</p>
+							<p class="co_error err3">* 邀请码不正确喔~</p>
+							<a href="javascript:;" class="yuyue_next"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/co_btn4.png?{$smarty.const.VERSION}" alt=""></a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="invite_board hide fade">
+			<div class="invite_con">
+				<p class="title tl3">邀请好友快来玩</p>
+				<a href="javascript:;" class="close"></a>
+				<div class="inv_con">
+					<img src="" alt="" class="invite_tl">
+					<div class="inv_code">
+						<p>我的邀请码</p>
+						<p class="inv_num">	123456</p>
+					</div>
+					<p class="info">长按分享页面邀请好友</p>
+					<ul class="share">
+						<li><a href="javascript:;"  class="co_wx" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/33.png?{$smarty.const.VERSION}" alt=""></a></li>
+						<li><a href="javascript:sharefn(event,1);" class="co_qq"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/22.png?{$smarty.const.VERSION}" alt=""></a></li>
+						<li><a href="javascript:sharefn(event,2);" class="co_wb"><img src="{$smarty.const.STATIC_DOMAIN}1.0/cover/m/images/11.png?{$smarty.const.VERSION}" alt=""></a></li>
+						<p class="co_wx_img"><img src="//cdnimg02.yingxiong.com/M00/0B/52/ChpCl1r7qHWEETWAAAAAAK9s1fU851.png" alt=""></p>
+					</ul>
+				</div>
+			</div>
+		</section>
+{include '../../layouts/wap/footer.html'}

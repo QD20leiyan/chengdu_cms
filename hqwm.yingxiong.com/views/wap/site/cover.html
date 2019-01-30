@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    {csrf}
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+    <link rel="stylesheet" href="http://cdnstatic.yingxiong.com/common/css/yx.css?{$smarty.const.VERSION}" />
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}1.0/m/css/cover.css?{$smarty.const.VERSION}">
+</head>
+<body>
+<!--header-->
+<header class="header">
+    <a href="/m/cover" class="logo" target="_blank">
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_logo.png?{$smarty.const.VERSION}" alt="">
+    </a>
+    <div class="h_text">
+        <p class="h_p01">{$global.title}</p>
+        <p class="h_p02">{$global.sub_title}</p>
+    </div>
+    <div class="header_a">
+        <a href="/m/index" class="inter"></a>
+    </div>
+</header>
+<!--内容-->
+<div class="i_main">
+    <!--第一部分-->
+    <div class="top">
+        <!--kv_video-->
+        <div class="videoBtn">
+            {fragment var=video code=index_video size=1}
+            <a href="{if $video}javascript:;{else}javascript:yx_showTips('敬请期待');{/if}" class="{if $video}js_video_play{else}{/if}" data-url="{if $video}{$video[0].url}{/if}">
+                <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_play.png?{$smarty.const.VERSION}">
+            </a>
+        </div>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/tuijian.png?{$smarty.const.VERSION}" alt="" class="tuijian" />
+        <!--&lt;!&ndash;预约按钮&ndash;&gt;-->
+        <!--<div class="order"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_order_btn1.png?{$smarty.const.VERSION}"></div>-->
+        <!--安卓下载-->
+        <a href="javascript:;" class="and1 stat_down"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/and1.png?{$smarty.const.VERSION}" alt="" /></a>
+        <!--微信二维码-->
+        
+        <div class="wx"><img src="{$global.wx_img}"></div>
+    </div>
+    <!--第二部分-->
+    <div class="ward_box">
+        <p class="ward_title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_title_2.png?{$smarty.const.VERSION}" alt=""/></p>
+        <!--登录前-->
+        <p class="co_before ">欢迎您，请 <span class="co_loginbtn">【登录】</span></p>
+        <!--登录后-->
+        <p class="co_after hidden">欢迎您，<span class="user_phone">15520817601</span><span class="logout">注销</span></p>
+        <p class="ward_yq hidden">已成功邀请<span class="friend">3</span>位人&nbsp;&nbsp;&nbsp;剩余<span class="count_all">3</span>次抽奖机会</p>
+        <div class="ward_con">
+            <div class="co_share"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_share_btn.png?{$smarty.const.VERSION}" alt=""/></div>
+            <div class="btn">
+                <span class="check_ward" data-id="2"></span>
+                <a href="http://hqwm.yingxiong.com/hd/2018/0614/4510.html" class="get_btn"></a>
+            </div>
+        </div>
+        <div class="info_bg">
+            <span>预约成功即可参与活动，<i>分享个人专属链接邀请好友助力， 获取参与机会，</i>每位用户每日最多可有3次参与机会。</span>
+        </div>
+        <!--抽奖转盘-->
+        <div class="hm-cj" id="lottery">
+            <ul>
+                <li class="lottery-unit lottery-unit-0">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">6000铁*3</span>
+                </li>
+                <li class="lottery-unit lottery-unit-1">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">1W粮食*1</span>
+                </li>
+                <li class="lottery-unit lottery-unit-2">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">1W木材*1</span>
+                </li>
+                <li class="lottery-unit lottery-unit-7">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">150银*1</span>
+                </li>
+                <li class="lottery-unit click_btn">
+                    <p class="leave">剩余<span class="count_all"> 0 </span>次</p>
+                </li>
+                <li class="lottery-unit lottery-unit-3">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">5分钟加速*5</span>
+                </li>
+                <li class="lottery-unit lottery-unit-6">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img07.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">Switch</span>
+                </li>
+                <li class="lottery-unit lottery-unit-5">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img08.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">iPad</span>
+                </li>
+                <li class="lottery-unit lottery-unit-4">
+                    <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img09.png?{$smarty.const.VERSION}" alt="">
+                    <span class="name">JD卡</span>
+                </li>
+            </ul>
+        </div>
+        <div class="two_part">
+            <div>
+                <div class="type">
+                    <span class="active md">中奖名单</span>
+                    <span class="rules">活动规则</span>
+                </div>
+                <div class="list_box">
+                    <div class="price_con">
+                        <ul>
+
+                        </ul>
+                        <p class="price_no hidden">暂无相关数据</p>
+                    </div>
+                </div>
+                <div class="ward_rules hidden">
+                    <ul>
+                        <li><i>1</i><span>活动时间：2018年6月15日——7月12日18：00</span></li>
+                        <li><i>2</i><span>活动期间，玩家完成预约，即可成功获得一次抽奖机会；单账号仅限领取1次；</span></li>
+                        <li><i>3</i><span>	玩家邀请相应数量的好友在本页面成功预约，每成功邀请一位好友完成预约，即可再获1次抽奖机会，单个帐号每日仅限抽3次；</span></li>
+                        <li><i>4</i><span>礼包领取请关注游戏内公告提示；实物奖品发放将在活动结束2个月内完成发放，实物获奖玩家将有工作人员联系，无法取得联系的将视为无效；</span></li>
+                        <li><i>5</i><span>如使用外挂、作弊器以及其他不正当的方式参加本活动的，将取消用户参与资格、获奖资格。</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--第三部分-->
+    <div class="sign_box">
+        <p class="sign_title"><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_title_3.png?{$smarty.const.VERSION}" alt=""/></p>
+        <p class="ts co_before">每日<span class="co_loginbtn">&nbsp;【登录】&nbsp;</span>官网签到 领取千元累计福利</p>
+        <p class="ts co_after hidden">登录成功 您已累计签到&nbsp;<span class="sign_num"></span>&nbsp;天</p>
+        <p class="check_ward" data-id="1"></p>
+        <div class="rules">
+            <span class="tit">活动规则</span>
+            <p>1. 活动时间：2018年6月15日——7月14日24：00</p>
+            <p>2. 每天单个账号在《火器文明》预约官网点击当日奖励图标完成签到，即可领取当日福利；</p>
+            <p>3. 每日累计签到即可领取当前奖励；</p>
+            <p>4. 累计签到7天、15天、30天即可额外获得惊喜礼包一份。</p>
+        </div>
+        <div class="sign">
+            <p class="ts1">欧气释放，签到豪礼助力称霸欧洲！ </p>
+            <p class="ts2">累计签到7天、15天、30天即可获得额外惊喜礼包！</p>
+            <div class="slide">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1W粮食*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第1天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1W木材*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第2天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>5分钟加速*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第3天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>6000铁*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第4天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>100VIP经验*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第5天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>荣誉旗帜*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第6天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide receive">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>150银*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第7天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img12.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>命运之石*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第8天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img13.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>骠骑星石*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第9天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img14.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1天建造队列*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第10天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img15.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>幸运火枪币*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第11天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1W粮食*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第12天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1W木材*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第13天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>5分钟加速*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第14天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide receive">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>100VIP经验*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第15天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>荣誉旗帜*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第16天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>150银*3</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第17天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img16.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>15W粮食*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第18天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img17.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>2小时强化进攻*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第19天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img18.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>2小时强化防御*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第20天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img19.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>2小时保护盾*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第21天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>6000铁*3</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第22天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>100VIP经验*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第23天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>荣誉旗帜*5</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第24天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1W粮食*5</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第25天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>1W木材*5</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第26天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>5分钟加速*5</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第27天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>150银*1</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第28天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>100VIP经验*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第29天</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide receive">
+                            <div class="card">
+                                <a><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img20.png?{$smarty.const.VERSION}" alt=""></a>
+                                <p>8小时加速*2</p>
+                            </div>
+                            <div class="signbtn">
+                                <p>第30天</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gift_list">
+                <p>签到礼包奖品列表</p>
+                <p class="table_title">
+                    <span>天数</span>
+                    <span>奖品</span>
+                </p>
+                <div class="table_list">
+                    <p class="table_info">
+                        <span>第一天</span>
+                        <span class="table_code">1W粮食*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二天</span>
+                        <span class="table_code">1W木材*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第三天</span>
+                        <span class="table_code">5分钟加速*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第四天</span>
+                        <span class="table_code">6000铁*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第五天</span>
+                        <span class="table_code">100VIP经验*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第六天</span>
+                        <span class="table_code">荣誉旗帜*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第七天</span>
+                        <span class="table_code">150银*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第八天</span>
+                        <span class="table_code">命运之石*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第九天</span>
+                        <span class="table_code">骠骑星石*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十天</span>
+                        <span class="table_code">1天建造队列*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十一天</span>
+                        <span class="table_code">幸运火枪币*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十二天</span>
+                        <span class="table_code">1W粮食*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十三天</span>
+                        <span class="table_code">1W木材*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十四天</span>
+                        <span class="table_code">5分钟加速*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十五天</span>
+                        <span class="table_code">100VIP经验*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十六天</span>
+                        <span class="table_code">荣誉旗帜*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十七天</span>
+                        <span class="table_code">150银*3</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十八天</span>
+                        <span class="table_code">15W粮食*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第十九天</span>
+                        <span class="table_code">2小时强化进攻*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十天</span>
+                        <span class="table_code">2小时强化防御*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十一天</span>
+                        <span class="table_code">2小时保护盾*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十二天</span>
+                        <span class="table_code">6000铁*3</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十三天</span>
+                        <span class="table_code">100VIP经验*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十四天</span>
+                        <span class="table_code">荣誉旗帜*5</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十五天</span>
+                        <span class="table_code">1W粮食*5</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十六天</span>
+                        <span class="table_code">1W木材*5</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十七天</span>
+                        <span class="table_code">5分钟加速*5</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十八天</span>
+                        <span class="table_code">150银*1</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第二十九天</span>
+                        <span class="table_code">100VIP经验*2</span>
+                    </p>
+                    <p class="table_info">
+                        <span>第三十天</span>
+                        <span class="table_code">8小时加速*2</span>
+                    </p>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!--第四部分-->
+    <div class="peo"></div>
+</div>
+
+<!--登录弹框-->
+<div class="co_tips co_tips_login hidden">
+    <div class="co_con">
+        <p class="co_tips_title co_tips_logintitle"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <div class="co_input">
+                <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/>
+                <p class="co_error">手机号码错误</p>
+            </div>
+            <div class="co_input">
+                <input type="text"  class="captcha" placeholder="请输入验证码"/>
+                <span class="co_captcha">{$captcha_img}</span>
+                <p class="co_error">验证码错误</p>
+                <p class="co_imgtxt">点击图片刷新</p>
+            </div>
+            <div class="co_input">
+                <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+                <p class="co_error">验证码错误</p>
+            </div>
+        </div>
+        <p class="co_tips_btn co_tips_loginbtn "></p>
+    </div>
+</div>
+<!--邀请好友弹框-->
+<div class="co_tips co_tips_yq hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <p class="tips_txt">分享你的专属链接，获得更多参与机会，千元 游戏礼包等你领!</p>
+            <!--<p class="yq_code">您的邀请码 : <span class="yq_num">123456</span></p>-->
+            <div class="my_link">
+                <p>点击复制链接按钮，复制个人专属链接，分享给你的好友预约，即可参加活动；链接地址:</p>
+                <p class="my_url">http://666.qq.com/act/a20170629order/index.html?inviteCode=1234</p>
+            </div>
+        </div>
+        <p class="co_tips_btn co_tips_copybtn copy copy_link" data-clipboard-text="527995"></p>
+    </div>
+</div>
+<!--预约成功弹框-->
+<div class="co_tips co_tips_success hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <p class="tips_txt">恭喜您</p>
+            <p class="success">预约成功</p>
+        </div>
+        <p class="co_tips_btn co_tips_surebtn"></p>
+    </div>
+</div>
+<!--抽奖奖品弹框-->
+<div class="co_tips co_tips_ward co_tips_ward1 hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <p class="txt">恭喜您获得</p>
+            <p class="show_gift show_gift0"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt=""></span><i>6000铁*3</i></p>
+            <p class="show_gift show_gift1 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></span><i>1W粮食*1</i></p>
+            <p class="show_gift show_gift2 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></span><i>1W木材*1</i></p>
+            <p class="show_gift show_gift7 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></span><i>150银*1</i></p>
+            <p class="show_gift show_gift3 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></span><i>5分钟加速*5</i></p>
+            <p class="show_gift show_gift6 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img07.png?{$smarty.const.VERSION}" alt=""></span><i>Switch</i></p>
+            <p class="show_gift show_gift5 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img08.png?{$smarty.const.VERSION}" alt=""></span><i>iPad</i></p>
+            <p class="show_gift show_gift4 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img09.png?{$smarty.const.VERSION}" alt=""></span><i>JD卡</i></p>
+            <p class="tips_num">兑换码<span class="lottery_code"></span><i class="copy copy1" data-clipboard-text="527995">复制</i></p>
+            <p class="ts">获得游戏实物周边的小伙伴，记得留下你的收件地址哦!虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+        </div>
+        <p class="co_tips_btn co_tips_addbtn"></p>
+        <p class="co_tips_btn co_tips_newbtn hidden"></p>
+    </div>
+</div>
+<!--签到奖品弹框-->
+<div class="co_tips co_tips_ward co_tips_ward2 hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <p class="txt">恭喜您获得签到礼物</p>
+            <p class="show_gift show_gift0"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></span><i>1W粮食*1</i></p>
+            <p class="show_gift show_gift1 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></span><i>1W木材*1</i></p>
+            <p class="show_gift show_gift2 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></span><i>5分钟加速*1</i></p>
+            <p class="show_gift show_gift3 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt=""></span><i>6000铁*1</i></p>
+            <p class="show_gift show_gift4 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></span><i>100VIP经验*1</i></p>
+            <p class="show_gift show_gift5 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></span><i>荣誉旗帜*2</i></p>
+            <p class="show_gift show_gift6 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></span><i>150银*1</i></p>
+            <p class="show_gift show_gift7 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img12.png?{$smarty.const.VERSION}" alt=""></span><i>命运之石*2</i></p>
+            <p class="show_gift show_gift8 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img13.png?{$smarty.const.VERSION}" alt=""></span><i>骠骑星石*2</i></p>
+            <p class="show_gift show_gift9 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img14.png?{$smarty.const.VERSION}" alt=""></span><i>1天建造队列*1</i></p>
+            <p class="show_gift show_gift10 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img15.png?{$smarty.const.VERSION}" alt=""></span><i>幸运火枪币*1</i></p>
+            <p class="show_gift show_gift11 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></span><i>1W粮食*2</i></p>
+            <p class="show_gift show_gift12 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></span><i>1W木材*2</i></p>
+            <p class="show_gift show_gift13 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></span><i>5分钟加速*2</i></p>
+            <p class="show_gift show_gift14 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></span><i>100VIP经验*2</i></p>
+            <p class="show_gift show_gift15 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></span><i>荣誉旗帜*2</i></p>
+            <p class="show_gift show_gift16 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></span><i>150银*3</i></p>
+            <p class="show_gift show_gift17 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img16.png?{$smarty.const.VERSION}" alt=""></span><i>15W粮食*1</i></p>
+            <p class="show_gift show_gift18 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img17.png?{$smarty.const.VERSION}" alt=""></span><i>2小时强化进攻*1</i></p>
+            <p class="show_gift show_gift19 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img18.png?{$smarty.const.VERSION}" alt=""></span><i>2小时强化防御*1</i></p>
+            <p class="show_gift show_gift20 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img19.png?{$smarty.const.VERSION}" alt=""></span><i>2小时保护盾*1</i></p>
+            <p class="show_gift show_gift21 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img01.png?{$smarty.const.VERSION}" alt=""></span><i>6000铁*3</i></p>
+            <p class="show_gift show_gift22 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></span><i>100VIP经验*2</i></p>
+            <p class="show_gift show_gift23 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></span><i>荣誉旗帜*5</i></p>
+            <p class="show_gift show_gift24 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img02.png?{$smarty.const.VERSION}" alt=""></span><i>1W粮食*5</i></p>
+            <p class="show_gift show_gift25 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img03.png?{$smarty.const.VERSION}" alt=""></span><i>1W木材*5</i></p>
+            <p class="show_gift show_gift26 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img06.png?{$smarty.const.VERSION}" alt=""></span><i>5分钟加速*5</i></p>
+            <p class="show_gift show_gift27 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img04.png?{$smarty.const.VERSION}" alt=""></span><i>150银*1</i></p>
+            <p class="show_gift show_gift28 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img10.png?{$smarty.const.VERSION}" alt=""></span><i>100VIP经验*2</i></p>
+            <p class="show_gift show_gift29 hidden"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img20.png?{$smarty.const.VERSION}" alt=""></span><i>8小时加速*2</i></p>
+            <p class="tips_num">兑换码<span></span><i class="copy copy1" data-clipboard-text="527995">复制</i></p>
+        </div>
+        <p class="co_tips_btn co_tips_surebtn"></p>
+    </div>
+</div>
+<!--中奖记录弹框-->
+<div class="co_tips co_tips_record hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <p class="table_title">
+                <span>奖励名称</span>
+                <span>兑换码</span>
+                <span></span>
+            </p>
+            <div class="table_list">
+
+            </div>
+            <p class="ts">获得游戏实物周边的小伙伴，记得留下你的收件地址哦!虚拟道具需要下载官方游戏，并在公测开启之后方可兑换使用。</p>
+        </div>
+        <div class="type1 hidden">
+            <p class="co_tips_btn co_tips_surebtn"></p>
+        </div>
+        <div class="type2 hidden">
+            <p class="co_tips_btn co_tips_addbtn"></p>
+            <p class="co_tips_btn co_tips_newbtn hidden"></p>
+        </div>
+    </div>
+</div>
+<!--地址弹框-->
+<div class="co_tips co_tips_addr hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <div class="co_input">
+                <input type="text" class="u_name" placeholder="收件人姓名"/>
+                <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="u_yb" placeholder="收件人邮编"/>
+                <p class="co_error">收件人姓名不能为空哦</p>
+            </div>
+            <div class="co_input">
+                <input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="u_tel" placeholder="收件人电话"/>
+                <p class="co_error">收件人电话不能为空哦</p>
+            </div>
+            <div class="co_input">
+                <textarea name="" id="" cols="30" rows="10" placeholder="收件人详细地址" class="u_madd"></textarea>
+                <p class="co_error">收件人电话不能为空哦</p>
+            </div>
+        </div>
+        <p class="co_tips_btn co_tips_addsure"></p>
+    </div>
+</div>
+<!--预约成功-->
+<div class="co_tips co_tips_yy hidden">
+    <div class="co_con">
+        <p class="co_tips_title"></p>
+        <img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/c_close.png?{$smarty.const.VERSION}" alt="" class="co_tips_close">
+        <div class="co_form">
+            <p class="tips_txt">分享你的专属链接，获得更多参与机会，千元 游戏礼包等你领!</p>
+            <div class="my_link">
+                <p>点击复制链接按钮，复制个人专属链接，分享给你的好友预约，即可参加活动；链接地址:</p>
+                <p class="my_url">http://666.qq.com/act/a20170629order/index.html?inviteCode=1234</p>
+                <span class="copy copy_link" data-clipboard-text="527995">复制链接</span>
+            </div>
+            <p class="tips_num">兑换码<span class="yy_dhm"></span><i class="copy copy1" data-clipboard-text="527995">复制</i></p>
+            <div class="gift_box">
+                <div class="show_gift"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img11.png?{$smarty.const.VERSION}" alt=""></span><i >荣誉旗帜*25</i></div>
+                <div class="show_gift"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img21.png?{$smarty.const.VERSION}" alt=""></span><i class="two">初级领主经验值（5000）*5</i></div>
+                <div class="show_gift"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img22.png?{$smarty.const.VERSION}" alt=""></span><i class="two">中级飞艇经验值（5000）*10</i></div>
+                <div class="show_gift"><span><img src="{$smarty.const.STATIC_DOMAIN}1.0/m/images/hm-jp-img23.png?{$smarty.const.VERSION}" alt=""></span><i>60分钟加速*3</i></div>
+            </div>
+        </div>
+        <p class="co_tips_btn co_tips_surebtn"></p>
+    </div>
+</div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/clipboard.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+{download}
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/cover.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+    $(function(){
+        var swiper = new Swiper('.swiper-container',{
+            slidesPerView: 3,
+            centeredSlides: true,
+        });
+    });
+</script>
+</html>

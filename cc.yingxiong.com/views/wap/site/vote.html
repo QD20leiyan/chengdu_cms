@@ -1,0 +1,214 @@
+<!--头部-->
+{if $language eq zh_cn} {config_load file="../../config/cc_zh.conf"} {else} {config_load file="../../config/cc_en.conf"} {/if}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>赤潮主播挑战赛正式打响，争夺最强主播之位！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="baidu-site-verification" content="4QTWrEt07K" />
+    <meta name="keywords" content="战争艺术赤潮，赤潮，赤潮主播，赤潮直播，赤潮比赛" />
+    <meta name="description" content="《战争艺术：赤潮》主播挑战赛正式打响，多平台主播决一高下，谁才是赤潮最强主播？" />
+    <script>
+        //yxhy2017
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?063286b02e5eabecf763ba46a43621e4";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+    {csrf}
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+    <link href="{$smarty.const.STATIC_DOMAIN}vote/images/favico.ico.ico" rel="SHORTCUT ICON">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}vote/m/css/common.css?{$smarty.const.VERSION}">
+    <link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}vote/m/css/index.css?{$smarty.const.VERSION}">
+</head>
+<body>
+
+<!--顶部-->
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="anchor_contnet">
+    <div class="anchor_banner">
+        <img src="{$smarty.const.STATIC_DOMAIN}vote/m/images/anchor_img01.jpg" alt=""/>
+        <a href="#">9-29 主播报名招募<i>查看活动进程</i></a>
+    </div>
+    <div class="anchor_activity">
+        <div class="anchor_right">
+            <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/anchor_title01.png" alt=""/></p>
+            <p>星域战场持续扩大，在这又一大批新手指挥官涌入战场之时，我们认为，是时候部署更多的明星指挥官了。  </p>
+            <div>
+                <h2>我们为什么需要明星指挥官？</h2>
+                <p>源源不断的新血液才是这个游戏生命得以不断延续的根源，而你，指挥部的门面，无疑会为我们带来更多的“小菜鸟”，并带领他们一步步长成足以独当一面的参天大树。</p>
+            </div>
+            <div>
+                <h2>我们需要什么样的<i>明星指挥官？</i></h2>
+                <p>“烈酒”娜塔丽的美貌无疑是战场上的一抹亮色，而对于指挥官而言，智慧的展现则更具有战略意义。无论如何，你就是你，具有高辨识度与某个方面的独特专精，能帮助你从人群中脱颖而出。</p>
+            </div>
+        </div>
+    </div>
+    <div class="anchor_top">
+        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}vote/m/images/anchor_title02.png" alt=""/></p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>名次</th>
+                <th>主播名字</th>
+                <th>平台</th>
+                <th>人气值</th>
+            </tr>
+            <tr></tr>
+            </thead>
+            <tbody>
+            {foreach key=cid item=v from=$rank}
+            <tr>
+                <th class="row row{$cid+1}"><span></span><i></i></th>
+                <td class="name">{$v.userName}</td>
+                <td class="comp">{$v.userTerrace}</td>
+                <td class="num">{$v.popValue}</td>
+            </tr>
+            {/foreach}
+            </tbody>
+        </table>
+        <p class="bottom_img"><img src="{$smarty.const.STATIC_DOMAIN}vote/m/images/anchor_img03.png" alt=""/></p>
+    </div>
+    <div class="anchor_vote">
+        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}vote/m/images/anchor_title03.png" alt=""/></p>
+        <div class="vote_box">
+            {foreach key=cid item=v from=$vote}
+             <div class="vote_peo">
+                <div class="boxF">
+                    <div class="boxS">
+                        <div class="boxT">
+                            <div class="innerboxF">
+                                <div class="innerboxS">
+                                    <div class="innerboxT">
+                                        <img src="{$v.portrait}" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <span class="vote_name">{$v.userName}</span>
+                <span class="vote_from">{$v.userTerrace}</span>
+                <span class="vote_num">{$v.popValue}</span>
+                {if isset($smarty.session.vote_phone)}
+                <span class="vote_act vote_click" data-id="{$v.id}"><i><b>投票</b></i></span>
+                {else}
+                <span class="vote_act vote_login" data-id="{$v.id}"><i><b>投票</b></i></span>
+                {/if}
+            </div>
+            {/foreach}
+        </div>
+        {if isset($smarty.session.vote_phone)}
+        <div class="vote_change" data-user="{$smarty.session.vote_phone}"><span class="change_btn">换一批主播</span></div>
+        {else}
+        <div class="vote_change"><span class="change_btn">换一批主播</span></div>
+        {/if}
+    </div>
+    <div class="anchor_info">
+        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}vote/m/images/anchor_title04.png" alt=""/></p>
+        <p><i class="num">1</i><span>我们将从众多报名的主播中筛选前10名人气主播，前10名主播将获得官方渠道曝光资源。</span></p>
+        <p><i class="num">2</i><span>连续2个月人气都在前10名的主播，将成为官方认证主播，将有机会成为“赤潮”赛事的官方解说。</span></p>
+        <p><i class="num">3</i><span>玩家可以为自己喜欢的主播投票，如果你支持的主播是人气主播中的前3名，你将有机会参与官方活动，获得与官方主播一起玩游戏的机会。</span></p>
+    </div>
+    <div class="anchor_time">
+        <p class="title"><img src="{$smarty.const.STATIC_DOMAIN}2.0/m/images/anchor_title05.png" alt=""/></p>
+        <div>
+            <div class="time_box ti_l">
+                <span class="tb_1">主播报名招募</span>
+                <span class="time" data-date="2017-10-23">10.23日</span>
+                <span class="time_line"></span>
+            </div>
+            <div class="time_box ti_r">
+                <span class="time" data-date="2017-10-24">10.24日</span>
+                <span class="tb_2">投票开启Round 1</span>
+                <span class="time_line"></span>
+            </div>
+            <div class="time_box ti_l">
+                <span class="tb_1">结果公布</span>
+                <span class="time" data-date="2017-10-25">10.25日</span>
+                <span class="time_line"></span>
+            </div>
+            <div class="time_box ti_r ">
+                <span class="time" data-date="2017-10-26">10.26日</span>
+                <span class="tb_2">投票开启Round 2</span>
+                <span class="time_line"></span>
+            </div>
+            <div class="time_box ti_l ">
+                <span class="tb_1">结果公布</span>
+                <span class="time" data-date="2017-10-27">10.27日</span>
+                <span class="time_line"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--登录弹框-->
+<div class="anchorld_tips hidden">
+    <div class="content">
+        <img src="{$smarty.const.STATIC_DOMAIN}vote/m/images/anchor_close.png" alt="" class="anchor_close">
+        <div class="order_div">
+            <input type="text" placeholder="请输入正确的手机号码" class="anchor_tel">
+            <p class="error hidden">手机号码错误</p>
+            <div class="code">
+                <input type="text" placeholder="请输入验证码" class="anchor_code">
+                <button class="">获取验证码</button>
+            </div>
+            <p>输入手机号和验证码登录，立即投票</p>
+            <button class="anchor_btn">马上登陆</button>
+        </div>
+    </div>
+</div>
+<script src="{$smarty.const.STATIC_DOMAIN}vote/m/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/clipboard.min.js"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/common.js?{$smarty.const.VERSION}"></script>
+<script src="{$smarty.const.STATIC_DOMAIN}vote/m/js/common.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js?{$smarty.const.VERSION}"></script>
+<script>
+    // 下载统计
+            var wap_xz = $(".stat_down").length; 
+            var wap_tap_xz = $(".stat_tap").length; 
+            var wap_hy_xz = $(".stat_hy").length; 
+            if(wap_xz > 0) {
+             $('.stat_down').click(function(){
+                HLog.event('stat_down')
+             });
+            }
+            if(wap_tap_xz>0){
+                $('.stat_tap').click(function(){
+                    HLog.event('stat_tap')
+                });
+            }
+            if(wap_hy_xz>0){
+                $('.stat_hy').click(function(){
+                    HLog.event('stat_hy')
+                });
+            }
+</script>
+</body>
+</html>

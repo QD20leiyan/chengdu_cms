@@ -1,0 +1,33 @@
+{include '../layouts/pc/header.html'}
+    <div class="wrap2">
+    {include '../layouts/pc/top.html'}
+		<div class="new_main">
+			<div class="main_content">
+			    <div class="news-bg"> 
+            		<div class="news-list clearfix">
+                		<p class="min-menu">当前位置:  <a href="{myurl name='site/index'}">首页</a>>新闻中心</p>
+                		 <ul class="news-nav news-menu clearfix" data-id="{$id}">
+                		    <li class="{if $id eq 464}curr{else} {/if}"><a href="{myurl name='article/list, id=>464'}">全部</a></li>
+                		    <li class="{if $id eq 465}curr{else} {/if}"><a href="{myurl name='article/list, id=>465'}">新闻</a></li>
+                		    <li class="{if $id eq 466}curr{else} {/if}"><a href="{myurl name='article/list, id=>466'}">公告</a></li>
+                		</ul>
+                		<div class="lis">
+                            <div class="con_new">
+                            <!--<div class="light2"></div>-->
+                			{if !empty($data)}
+                			<ul class="news-li-1">
+                				{foreach $data as $v}
+                				<li><a href="{$v.linkUrl}"  target="_blank"><i>【{$v.name}】</i>{$v.title}</a><span>{$v.created_at_formate}</span></li>
+                		    	{/foreach}
+                			</ul>
+							{$page}
+						{else}
+						<p style="text-align: center">暂无数据</p>
+						{/if}
+                		</div>
+                        </div>
+            		</div>
+        		</div>
+			</div>
+		</div>
+{include '../layouts/pc/footer.html'}

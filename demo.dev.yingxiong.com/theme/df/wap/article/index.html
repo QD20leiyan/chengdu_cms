@@ -1,0 +1,83 @@
+{include file="../../layouts/wap/header.html"}
+{fragment var=kv_img code=index_kv_img_wap size=1}
+<div class="listBg" style="background:url({if $kv_img}{$kv_img[0].thumb}{/if}) no-repeat center;background-size:100% 100%;"></div>
+<div class="news-info">
+	<div class="news-info-box">
+		<div class="list-info">
+			<div class="back">
+				<a href="{myurl name='/wap/site/index'}"></a>
+			</div>
+			<ul class="list-article-title" data-id="{$alias}">
+				<li class="{if $alias eq zonghe}active{else} {/if}">
+					<a href="{myurl name='article/list, alias=>zonghe'}">综合</a>
+				</li>
+				<li class="{if $alias eq xinwen}active{else} {/if}">
+					<a href="{myurl name='article/list, alias=>xinwen'}">新闻</a>
+				</li>
+				<li class="{if $alias eq gonggao}active{else} {/if}">
+					<a href="{myurl name='article/list, alias=>gonggao'}">公告</a>
+				</li>
+				<li class="{if $alias eq huodong}active{else} {/if}">
+					<a href="{myurl name='article/list, alias=>huodong'}">活动</a>
+				</li>
+			</ul>
+			<ul class="list-article">
+				<!--<li>
+					<a><span><i>[资讯]</i>《漂移车神》跨服战“问鼎九州”</span><span>01/02</span></a>
+				</li>-->
+			</ul>
+			<div class="dropload-down">
+	            <div class="dropload-noData">下拉加载更多...</div>
+	        </div>
+		</div>
+	</div>
+</div>
+</body>
+{include file="../../layouts/wap/footer.html"}
+<script>
+	var isScroll = 1;//是否可以滚动
+    var page = 1; //页数
+    var alias = $(".list-article-title").attr("data-id");//类型
+    var ajaxUrl = '{myurl name="commonMethod/ajax-get-list"}';
+    getListFu();
+    window.onscroll=function(){
+        var winH = window.innerHeight; //屏幕高度
+        var allH = document.body.scrollHeight; //总高度
+        var topH = window.pageYOffset; //滚动高度
+        if((allH - (winH
+                + topH)<10) && isScroll == 1){
+            isScroll = 0;
+            $(".dropload-noData").html("数据加载中...")
+            getListFu();
+        }
+    }
+    function getListFu(){
+        $.ajax({
+            type:"get",
+            url:ajaxUrl,
+            data:{
+                page:page++,
+                alias:alias,
+            },
+            success:function(data){
+                var data = JSON.parse(data);
+                if(data.status == 0&& data.msg.length>0){
+                    var result = '';
+                    for(var i = 0; i < data.msg.length; i++) {
+                       result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i>[" +data.msg[i].name+"]</i><span>"+data.msg[i].title+"</span><span>"+data.msg[i].created_at+"</span></a></li>";
+                    }
+                    $('.list-article').append(result);
+                    $(".dropload-noData").html("上拉加载更多...<i></i>");
+                    isScroll = 1;
+                } else{
+                    $(".dropload-noData").html("没有更多信息了...");
+                }
+            },
+            error:function(data){
+                console.log(data);
+            }
+        });
+    }
+</script>
+
+</html>

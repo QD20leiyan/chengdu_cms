@@ -1,0 +1,109 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="list fade">
+	<div class="banner">
+		<div class="swiper-container swiper-container1">
+			<div class="swiper-wrapper">
+				{foreach key=cid item=v from=$top_thumb}
+				<div class="swiper-slide">
+					<a href="{$v.url}"><img class="images" src="{$v.thumb}" alt=""></a>
+				</div>
+				{/foreach}
+			</div>
+			<div class="swiper-pagination swiper-pagination1"></div>
+		</div>
+	</div>
+	<div class="news_box">
+		<p class="title">新闻中心</p>
+		<div class="hd">
+			<ul data-id="{$id}">
+				<li {if $id==431}class="on" {/if}>
+					<a href="{myurl name='wap/article/list, id=>431'}">最新</a>
+				</li>
+				<li {if $id==432}class="on" {/if}>
+					<a href="{myurl name='wap/article/list, id=>432'}">新闻</a>
+				</li>
+				<li {if $id==433}class="on" {/if}>
+					<a href="{myurl name='wap/article/list, id=>433'}">公告</a>
+				</li>
+				<li {if $id==434}class="on" {/if}>
+					<a href="{myurl name='wap/article/list, id=>434'}">攻略</a>
+				</li>
+				<li {if $id==435}class="on" {/if}>
+					<a href="{myurl name='wap/article/list, id=>435'}">活动</a>
+				</li>
+			</ul>
+		</div>
+		<div class="bd">
+			<ul class="news_info">
+
+			</ul>
+			<div class="dropload-down">
+				<div class="dropload-noData">上滑加载更多信息</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script>
+	$(function(){
+		var swiper01 = new Swiper('.swiper-container1', {
+			pagination: '.swiper-pagination1',
+			slidesPerView: 1,
+			paginationClickable: true,
+			autoplayDisableOnInteraction : false,
+			autoplay:2000,
+			loop:true
+		});
+	});
+</script>
+<script type="text/javascript">
+	var isScroll = 1;//是否可以滚动
+	var page = 1; //页数
+	var id = $(".hd ul").attr("data-id");//类型
+	var ajaxUrl = '/wap/article/ajax-list.html';
+	getListFu();
+	window.onscroll=function(){
+		var winH = window.innerHeight; //屏幕高度
+		var allH = document.body.scrollHeight; //总高度
+		var topH = window.pageYOffset; //滚动高度
+		if((allH - (winH
+				+ topH)<10) && isScroll == 1){
+			isScroll = 0;
+			$(".dropload-noData").html("数据加载中...")
+			getListFu();
+		}
+	}
+	function getListFu(){
+		$.ajax({
+			type:"get",
+			url:ajaxUrl,
+			data:{
+				page:page++,
+				id:id,
+			},
+			success:function(data){
+				var data = JSON.parse(data);
+				if(data.status == 0&& data.msg.length>0){
+//					if(page===1){
+//						$('.news_list').empty();
+//					}
+					var result = '';
+					for(var i = 0; i < data.msg.length; i++) {
+						result += "<li><a href=" + data.msg[i].wapLinkUrl+"><i class='small_ti'>[" +data.msg[i].name+"]</i>"+data.msg[i].title+"</a><span>"+data.msg[i].created_at+"</span></li>";
+					}
+					$('.news_info').append(result);
+					$(".dropload-noData").html("上滑加载更多<i></i>");
+					isScroll = 1;
+				} else{
+					$(".dropload-noData").html("没有更多信息了");
+				}
+			},
+			error:function(data){
+				console.log(data);
+			}
+		});
+	}
+
+</script>

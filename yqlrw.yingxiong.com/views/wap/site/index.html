@@ -1,0 +1,351 @@
+{include '../../layouts/wap/header.html'}
+<!--内容-->
+<div class="i_main">
+	<div class="loading">
+		<i class="ic_mouse"></i>
+	</div>
+	<!--第一部分-->
+	<div class="top">
+		<!--canvas视频-->
+		<div class="canvasbox">
+			<canvas id="child" data-src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/canvas1.png?{$smarty.const.VERSION}" width="640" height="1032"></canvas>
+		</div>
+		<!--slogan-->
+		<div class="slogan">
+			<!--<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/slogan.png?{$smarty.const.VERSION}">-->
+			<!--kv_video-->
+			{fragment var=video code=index_video size=1}
+			<div class="videoBtn js_video_play" data-url="{if $video}{$video[0].url}{/if}">
+				<i class="i-video-01"></i>
+				<i class="i-video-02"></i>
+			</div>
+			<!--&lt;!&ndash;预约按钮&ndash;&gt;-->
+			<div class="order"><a href="/m" class="stat_down"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/order_btn1.png?{$smarty.const.VERSION}"></a></div>
+			<!--icon1-->
+			<div class="icon1"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/top_icon1.png?{$smarty.const.VERSION}"></div>
+			<!--icon2-->
+			<div class="icon2"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/top_icon2.png?{$smarty.const.VERSION}"></div>
+			<div class="disney"></div>
+		</div>
+		<!--news-->
+		<div class="banner_news">
+			<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/news_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+			<div class="banner">
+				<div class="swiper-container swiper-container1">
+					<div class="swiper-wrapper">
+						{fragment var=index_banner code=banner size=5}
+						{if $index_banner neq ''}
+						{foreach $index_banner as $v}
+						<div class="swiper-slide">
+							<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>
+						</div>
+						{/foreach}
+						{/if}
+					</div>
+					<div class="swiper-pagination swiper-pagination1"></div>
+				</div>
+			</div>
+			<div class="news_box">
+				<div class="hd">
+					<ul>
+						<li class="on">
+							<a>全部</a>
+						</li>
+						<li>
+							<a>新闻</a>
+						</li>
+						<li>
+							<a>公告</a>
+						</li>
+						<li>
+							<a>活动</a>
+						</li>
+					</ul>
+					<a href="{myurl name='wap/list, id=>460'}" class="more"></a>
+				</div>
+				<div class="bd">
+					<ul class="news_info">
+						{article id="460" size=4 var=qb}
+						{if $qb neq ''}
+						{foreach $qb as $key=>$v}
+						{if $key >= 0}
+						<li>
+							<span>{$v.created_at|date_format:"%m/%d"}</span>
+							<a target="_blank" href="{$v.wapLinkUrl}">{$v.title}</a>
+						</li>
+						{/if}
+						{/foreach}
+						{else}
+						<p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+						{/if}
+					</ul>
+					<ul class="news_info hidden">
+						{article id="461" size=4 var=xw}
+						{if $xw neq ''}
+						{foreach $xw as $key=>$v}
+						{if $key >= 0}
+						<li>
+							<span>{$v.created_at|date_format:"%m/%d"}</span>
+							<a target="_blank" href="{$v.wapLinkUrl}">{$v.title}</a>
+						</li>
+						{/if}
+						{/foreach}
+						{else}
+						<p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+						{/if}
+					</ul>
+					<ul class="news_info hidden">
+						{article id="462" size=4 var=gg}
+						{if $gg neq ''}
+						{foreach $gg as $key=>$v}
+						{if $key >= 0}
+						<li>
+							<span>{$v.created_at|date_format:"%m/%d"}</span>
+							<a target="_blank" href="{$v.wapLinkUrl}">{$v.title}</a>
+						</li>
+						{/if}
+						{/foreach}
+						{else}
+						<p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+						{/if}
+					</ul>
+					<ul class="news_info hidden">
+						{article id="463" size=4 var=hd}
+						{if $hd neq ''}
+						{foreach $hd as $key=>$v}
+						{if $key >= 0}
+						<li>
+							<span>{$v.created_at|date_format:"%m/%d"}</span>
+							<a target="_blank" href="{$v.wapLinkUrl}">{$v.title}</a>
+						</li>
+						{/if}
+						{/foreach}
+						{else}
+						<p class="noData" style="line-height: 4rem;color: #ad886d;text-align: center;font-size: .9375rem;">暂无数据...</p>
+						{/if}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--第二部分-->
+	<div id="data" class="data">
+		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/data_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+		<div class="link_box">
+			<div class="link_top">
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4478.html" class="link link1"></a>
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4483.html" class="link link2"></a>
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4481.html" class="link link3"></a>
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4479.html" class="link link4"></a>
+				<a href="{myurl name='wap/list, id=>562'}" class="link link5"></a>
+			</div>
+			<div class="link_bottom">
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4480.html" class="link link6"></a>
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4484.html" class="link link7"></a>
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4485.html" class="link link8"></a>
+				<a href="http://rw.yingxiong.com/xw/2018/0607/4482.html" class="link link9"></a>
+				<a href="http://rw.yingxiong.com/rw/2018/0607/4486.html" class="link link10"></a>
+			</div>
+		</div>
+	</div>
+	<!--第三部分-->
+	<div id="ts_play" class="ts_play">
+		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/play_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+		<div class="slider">
+			<div class="swiper-container swiper-container2">
+				<div class="swiper-wrapper">
+					<!--{fragment var=banner_play code=banner_te size=5}-->
+					<!--{if $banner_play neq ''}-->
+					<!--{foreach $banner_play as $v}-->
+					<!--<div class="swiper-slide">-->
+						<!--<a href="{if $v.url}{$v.url}{else}javascript:;{/if}"><img class="images" src="{$v.thumb}" alt=""></a>-->
+					<!--</div>-->
+					<!--{/foreach}-->
+					<!--{/if}-->
+					<div class="swiper-slide">
+						<a><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_1.jpg?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_5.jpg?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_4.jpg?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_3.jpg?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+					<div class="swiper-slide">
+						<a><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_2.jpg?{$smarty.const.VERSION}" alt=""></a>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-pagination swiper-pagination2"></div>
+			<div class="swiper-button-prev swiper-button-prev2"></div>
+			<div class="swiper-button-next swiper-button-next2"></div>
+		</div>
+		<p class="txt-img">
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_txt1.png?{$smarty.const.VERSION}" alt="" class="hidden"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_txt2.png?{$smarty.const.VERSION}" alt="" class="hidden"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_txt3.png?{$smarty.const.VERSION}" alt="" class="hidden"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_txt4.png?{$smarty.const.VERSION}" alt="" class="hidden"/>
+			<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/si_txt5.png?{$smarty.const.VERSION}" alt="" class="hidden"/>
+		</p>
+	</div>
+	<!--第四部分-->
+	<div id="mj_ty" class="mj_ty">
+		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/mj_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+		<div class="mj_box">
+			<div class="mj_type">
+				<span class="mj_type1 active"><i></i></span>
+				<span class="mj_type3"><i></i></span>
+				<span class="mj_type2"><i></i></span>
+				<span class="mj_type4"><i></i></span>
+			</div>
+			<div class="video_img">
+				<div  class="video_box video_box1 js_video_play" data-url="http://video.yingxiong.com/hd/7dcad1e5270046a3b1c1047af4a2cd1d.mp4">
+					<p class="mj_txt"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/mj_img1_3.png?{$smarty.const.VERSION}" alt=""/></p>
+					<p class="video_bg"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/vi_img1.png?{$smarty.const.VERSION}" alt=""/><i></i></p>
+				</div>
+				<div  class="video_box video_box3 js_video_play hidden" data-url="http://video.yingxiong.com/hd/feb5850ae1c64e5c9a7df7bd9a036fab.mp4">
+					<p class="mj_txt"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/mj_img3_3.png?{$smarty.const.VERSION}" alt=""/></p>
+					<p class="video_bg"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/vi_img2.png?{$smarty.const.VERSION}" alt=""/><i></i></p>
+				</div>
+				<div  class="video_box video_box2 js_video_play hidden" data-url="http://video.yingxiong.com/hd/7b81439695a0401aa0ecc34119c4460f.mp4">
+					<p class="mj_txt"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/mj_img2_3.png?{$smarty.const.VERSION}" alt=""/></p>
+					<p class="video_bg"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/vi_img3.png?{$smarty.const.VERSION}" alt=""/><i></i></p>
+				</div>
+				<div  class="video_box video_box4 js_video_play hidden" data-url="http://video.yingxiong.com/hd/e13b8a17450a44febd6708f3463c89aa.mp4">
+					<p class="mj_txt"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/mj_img4_3.png?{$smarty.const.VERSION}" alt=""/></p>
+					<p class="video_bg"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/vi_img4.png?{$smarty.const.VERSION}" alt=""/><i></i></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--第五部分-->
+	<div id="rw_tk" class="rw_tk">
+		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/rw_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+		<div class="tk_box">
+			<div class="tk_imgbox">
+				<p class="title1">玩家风采</p>
+				<p class="tk_img">
+					<span class="big_img"></span>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tk_img1.png?{$smarty.const.VERSION}" alt=""/>
+					<a class="more" href="/m/image/index"></a>
+				</p>
+			</div>
+			<div class="tk_imgbox">
+				<p class="title2">游戏截图</p>
+				<p class="tk_img">
+					<span class="big_img"></span>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tk_img2.png?{$smarty.const.VERSION}" alt=""/>
+					<a class="more1" href="/m/image/index"></a>
+				</p>
+			</div>
+			<div class="tk_imgbox">
+				<p class="title1">壁纸插画</p>
+				<p class="tk_img">
+					<span class="big_img"></span>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tk_img4.jpg?{$smarty.const.VERSION}" alt=""/>
+					<a class="more" href="/m/image/index"></a>
+				</p>
+			</div>
+			<div class="tk_imgbox">
+				<p class="title2">同人创作</p>
+				<p class="tk_img">
+					<span class="big_img"></span>
+					<img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/tk_img3.jpg?{$smarty.const.VERSION}" alt=""/>
+					<a class="more1" href="/m/image/index"></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<!--第六部分-->
+	<div id="st_sy" class="st_sy">
+		<div class="title"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/st_tit.png?{$smarty.const.VERSION}" alt=""/></div>
+		<div class="st_type">
+			<span class="st_type1 active"><em>原创歌曲</em><i>Music</i></span>
+			<span class="st_type2"><em>游戏视频</em><i>Vidio</i></span>
+		</div>
+		<div class="st_box">
+			<div class="st_audio st_box1">
+				<div class="swiper-container swiper-container3">
+					<div class="swiper-wrapper">
+						{article id="560" size=50 var=audio}
+						{if $audio neq ''}
+						{foreach $audio as $key=>$v}
+						{if $key >= 0}
+						<div class="swiper-slide" data-url="{$v.sub_title}">
+							<div class="cdbox"><img class="images" src="{$v.thumb}" alt=""></div>
+							<div class="lightbox"><div class="light"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/light1.png?{$smarty.const.VERSION}" alt=""></div></div>
+							<div class="shaft"><img class="images" src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/shaft.png?{$smarty.const.VERSION}" alt=""></div>
+						</div>
+						{/if}
+						{/foreach}
+						{/if}
+					</div>
+				</div>
+				<div class="track">
+					<div class="playbtn"></div>
+					<div class="bl_bg"><img src="{$smarty.const.STATIC_DOMAIN}3.0/m/images/play_bg.png?{$smarty.const.VERSION}" alt=""/></div>
+				</div>
+				<div class="swiperbox">
+					<div class="swiper-container swiper-container4">
+						<div class="swiper-wrapper">
+							{article id="560" size=50 var=audio}
+							{if $audio neq ''}
+							{foreach $audio as $key=>$v}
+							{if $key >= 0}
+							<div class="swiper-slide {if $key == 0}active{/if}">
+								<div class="album"><img class="images" src="{$v.thumb}" alt=""></div>
+							</div>
+							{/if}
+							{/foreach}
+							{/if}
+						</div>
+					</div>
+					<div class="swiper-button-prev swiper4_prev"></div>
+					<div class="swiper-button-next swiper4_next"></div>
+				</div>
+			</div>
+			<div class="st_video st_box1 hidden">
+				{article id="557" size=1 var=qb}
+				{if $qb neq ''}
+				{foreach $qb as $key=>$v}
+				{if $key >=0}
+				<div class="video_bg js_video_play" data-url="{$v.video.media_url}">
+					<img src="{$v.thumb}" alt=""/><i></i>
+					<span class="st_txt">{$v.title}</span>
+				</div>
+				{/if}
+				{/foreach}{/if}
+				<div class="video_list">
+					<a class="more" href="{myurl name='wap/video/list, id=>557'}">更多视频></a>
+					{article id="557" size=5 var=qb}
+					{if $qb neq ''}
+					{foreach $qb as $key=>$v}
+					{if $key >=1}
+					<div class="video_bg js_video_play" data-url="{$v.video.media_url}">
+						<img src="{$v.thumb}" alt=""/><i></i>
+						<span class="st_txt">{$v.title}</span>
+					</div>
+					{/if}
+					{/foreach}{/if}
+				</div>
+			</div>
+		</div>
+		<div class="rw_info">
+			<a href="{$global.wb_url}"></a>
+			<a href="javascript:;" class="weixin_btn"></a>
+			<a href="{$global.group_url_one}"></a>
+			<a href="http://bbs.yingxiong.com/t/pc/19.html"></a>
+			<div class="wechat hidden">
+				<img src="{$global.wx_img}" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+<audio src="" id="music1"></audio>
+</body>
+{include '../../layouts/wap/foot.html'}
+<script src="{$smarty.const.STATIC_DOMAIN}3.0/m/js/canvas.js?{$smarty.const.VERSION}"></script>
+</html>

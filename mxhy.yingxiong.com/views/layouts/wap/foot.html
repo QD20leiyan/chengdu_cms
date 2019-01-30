@@ -1,0 +1,95 @@
+   <!--底部-->
+    <div class="footer_bottom">
+        <a href="javascript:;" class="back"></a>
+        <ul class="bottom_media">
+            <li class="wx_btn">
+                <a href="hjavascript:;"></a>
+            </li>
+            <li>
+                <a href="{if $global.wb_url}{$global.wb_url}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+            </li>
+            <li>
+                <a href="{if $global.group_url_one}{$global.group_url_one}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+            </li>
+            <li>
+                <a href="{if $global.tb_url}{$global.tb_url}{else}javascript:yx_showTips('敬请期待');{/if}"></a>
+            </li>
+        </ul>
+        <span class="gzh">
+            <img src="{$global.wx_img}" alt="">
+        </span>
+    </div>
+    <div class="wx_tc co_tips hidden">
+    </div>
+    <!--预约弹窗-->
+    <div class="co_tips co_tips_login hidden">
+        <div class="co_con">
+            <span class="co_tips_close"></span>
+            <div class="co_form">
+                <div class="chengg"></div>
+                <div class="rdo_box">
+                    <span class="rdo on and" data-id="android"><i></i>Android</span>
+                    <span class="rdo ios" data-id="ios"><i></i>iOS</span>
+
+                </div>
+                <div class="co_input co_input1">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码">
+                    <p class="co_error"><i></i>手机号码错误</p>
+                </div>
+                <div class="co_input co_input2">
+                    <input type="text" class="captcha" placeholder="请输入验证码">
+                    <span class="co_captcha">点击刷新</span>
+                    <p class="co_error"><i></i>验证码错误</p>
+                </div>
+                <div class="co_input co_input2">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"><span class="co_codebtn co_codebtn1">获取验证码</span>
+                    <p class="co_error"><i></i>验证码错误</p>
+                </div>
+
+                <p class="co_tips_btn co_tips_yybtn"></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}1.0/m/js/js.js?{$smarty.const.VERSION}"></script>
+ {download}
+{video_play}
+<script src="http://cdnstatic.yingxiong.com/common/js/yx.js?{$smarty.const.VERSION}"></script>
+<script src="http://cdnstatic.yingxiong.com/common/js/statics.js?{$smarty.const.VERSION}"></script>
+<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer.js"></script>
+<script>
+    $(function(){
+        var swiper01 = new Swiper('.swiper-container1', {
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+        var swiper02 = new Swiper('.swiper-container2',{
+            pagination: '.swiper-pagination2',
+            paginationClickable: true,
+            effect : 'coverflow',
+            slidesPerView: 3,
+            centeredSlides: false,
+            loop:true,
+            autoplay:9000,
+            coverflow: {
+                rotate:0,
+                stretch:-80,
+                depth: 200,
+                modifier:1,
+                slideShadows : false
+            }
+        });
+        $(".back").click(function(){
+            $("html,body").animate({
+                    scrollTop: 0
+                }, 700);
+        })
+        
+    });
+</script>
+</html>

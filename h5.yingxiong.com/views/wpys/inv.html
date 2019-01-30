@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}wpys/inv/css/swiper-3.3.1.min.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}wpys/inv/css/common.css?{$smarty.const.VERSION}" />
+		<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}wpys/inv/css/cover1029.css?{$smarty.const.VERSION}" />
+		<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}wpys/inv/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+
+		<script>
+			//push 手动上报方法，event 事件触发方法 ，ready js加载完成回调 
+			//push 参数，name：页面名称，behavior 行为 
+			//event 参数，event：事件名称，args 拓展参数 
+			var HLog = {
+				push: function(name, behavior) {},
+				setUser: function() {},
+				event: function(event, args) {},
+				ready: function() {}
+			};
+			HLog.config = {
+				"senseHash": 0, //hash锚点是否进入url统计
+				"senseQuery": 0, //url参数是否进入url统计
+				"ignoreParams": [] //开启url参数上报时，可忽略部分参数拼接上报；
+			};
+			(function() {
+				var hl = document.createElement("script");
+				hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/42/client/1/filter/stat.js";
+				hl.async = "async";
+				var s = document.getElementsByTagName("script")[0];
+				HLog.ready = function() {
+					HLog.push('reflash')
+				};
+				s.parentNode.insertBefore(hl, s);
+			})();
+		</script>
+
+	</head>
+
+	<body>
+		<header>
+			<img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/icon.png?{$smarty.const.VERSION}" alt="" class="icon" />
+			<div class="header_txt">
+				<p>王牌御史</p>
+				<p>正版授权3D动作手游</p>
+			</div>
+			<a href="http://downurl.yingxiong.com/url/wpys_tt1.html" class="down_a">下载游戏</a>
+		</header>
+		<section class="kv">
+			<a href="javascript:;" class="play js_video_play" data-url="http://video.yingxiong.com/hd/22de7889e96a40a6bd4d22ae44e221fd.mp4"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/p_play.png?{$smarty.const.VERSION}" alt="" /></a>
+			<a href="http://downurl.yingxiong.com/url/wpys_tt1.html" class="p_down down_a"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/p_down.png?{$smarty.const.VERSION}" alt="" /></a>
+		</section>
+		<section class="content">
+			<img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/p_txt.png" alt="" class="label" />
+			<div class="t_play">
+				<div class="chengg"></div>
+				<div class="swiper-container">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/1.jpg?{$smarty.const.VERSION}" alt="" /></li>
+						<li class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/2.jpg?{$smarty.const.VERSION}" alt="" /></li>
+						<li class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/3.jpg?{$smarty.const.VERSION}" alt="" /></li>
+						<li class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/4.jpg?{$smarty.const.VERSION}" alt="" /></li>
+						<li class="swiper-slide"><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/5.jpg?{$smarty.const.VERSION}" alt="" /></li>
+					</ul>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</section>
+		<div class="w_footer">
+			<img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/f_logo.png?{$smarty.const.VERSION}" alt="" class="f_logo" />
+			<div class="f_p1">
+				<p>客服中心<span>|</span>游戏社区<span>|</span><img src="{$smarty.const.STATIC_DOMAIN}wpys/inv/images/tel.png?{$smarty.const.VERSION}" alt="" />010-50948585</p>
+			</div>
+			<p>版权信息 ©腾讯动漫 ©啊哈娱乐</p>
+			<p>COPYRIGHT©2015 – 2017 . ALL RIGHTS RESERVED</p>
+			<p>《网络文化经营许可证》[2015]0629-259号</p>
+			<p>天津英雄互娱科技有限公司</p>
+		</div>
+	</body>
+	{video_play}
+	<script type="text/javascript" src="{$smarty.const.STATIC_DOMAIN}wpys/inv/js/swiper-3.3.1.jquery.min.js?{$smarty.const.VERSION}"></script>
+	<script type="text/javascript">
+		var mySwiper = new Swiper('.swiper-container', {
+			loop: true,
+			autoplay: 2700,
+			speed: 300,
+			nextButton: '.swiper-button-next',
+			prevButton: '.swiper-button-prev',
+			autoplayDisableOnInteraction: false,
+			pagination: '.swiper-pagination'
+
+		});
+		var url = window.location.href;
+		var url_id = window.location.href.split('inv/')[1];
+		var channel = new Array();
+		var newChannel = new Array();
+		channel = ["wpys_tt1.html", "wpys_tt2.html", "wpys_tt3.html", "wpys_tt4.html", "wpys_tt5.html", "wpys_tt6.html", "wpys_tt7.html", "wpys_tt8.html", "wpys_tt9.html", "wpys_tt10.html", "wpys_tt11.html", "wpys_tt12.html", "wpys_tt13.html", "wpys_tt14.html", "wpys_tt15.html", "wpys_gdt1.html", "wpys_gdt2.html", "wpys_gdt3.html", "wpys_gdt4.html", "wpys_gdt5.html", "wpys_gdt6.html", "wpys_gdt7.html", "wpys_gdt8.html", "wpys_gdt9.html", "wpys_gdt10.html", "http://cdn.yingxiong.com/wpys/wpys-iqy1-P34732A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy2-P34733A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy3-P34734A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy4-P34735A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy5-P34736A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy6-P34737A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy7-P34738A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy8-P34739A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy8-P34739A-1024.apk", "http://cdn.yingxiong.com/wpys/wpys-iqy10-P34741A-1024.apk","wpys_txdm1.html"];
+		if(url_id == undefined || url_id == "") {
+			console.log(1);
+		} else {
+			var str = parseInt(url_id);
+			if(str == 36){
+				$(".down_a").attr("href", "http://downurl.yingxiong.com/url/" + channel[str - 1]);
+			}else if(str > 36) {
+				$(".down_a").attr("href", "http://downurl.yingxiong.com/url/" + channel[0]);
+			} else if (str <= 25 && str > 0){
+				$(".down_a").attr("href", "http://downurl.yingxiong.com/url/" + channel[str - 1]);
+			} else if(str > 25 && str <= 35){
+				$(".down_a").attr("href", channel[str - 1]);
+			}
+		}
+	</script>
+
+</html>
