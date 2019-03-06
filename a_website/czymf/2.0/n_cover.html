@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>创造与魔法</title>
+		<meta name="keywords" content="创造,魔法,创造与魔法,创造与魔法官方网站,创造与魔法预约,创造与魔法手游,创造与魔法沙盒手游,高自由度" />
+		<meta name="description" content="创造与魔法官方网站，提供创造的下载、预约、新闻、视频、攻略等内容。创造与魔法是一款可以改造环境，自由建造房屋、城池、城邦甚至国家，同时还能探险，交友、副本、换装的高自由生存游戏。玩家可以在沙漠、丛林、草原、海滩等多种不同环境降生，甚至能够创建属于自己的文明，还在等什么，快来开始你的冒险之旅吧！" />
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/n_index.css">
+		<script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.SuperSlide.2.1.1.js"></script>
+
+	</head>
+
+	<body>
+		<div class="m_body">
+			<div class="czymf_one">
+				<div class="wrap">
+					<div class="czymf_play"><img src="./images/cz_play.png"></div>
+					<div class="download">
+						<a href="javascript:;"><img src="images/cz_pic_01.png" alt="" /></a>
+						<a href="javascript:;"><img src="images/cz_pic_02.png" alt="" /></a>
+					</div>
+				</div>
+			</div>
+			<div class="czymf_two">
+				<div class="czymf_bottom">
+					<div id="slideBox" class="slideBox">
+						<div class="bd">
+							<ul>
+								<li>
+									<a href="javascript:void(0);"><img src="./images/cz_pic_07.png" /></a>
+								</li>
+								<li>
+									<a href="javascript:void(0);"><img src="./images/cz_pic_07.png" /></a>
+								</li>
+								<li>
+									<a href="javascript:void(0);"><img src="./images/cz_pic_07.png" /></a>
+								</li>
+							</ul>
+						</div>
+						<!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+						<a class="prev" href="javascript:void(0)"></a>
+						<a class="next" href="javascript:void(0)"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			jQuery(".slideBox").slide({
+				mainCell: ".bd ul",
+				autoPlay: true,
+				effect: "left",
+			});
+			//动态效果
+			$(".czymf_yxyy,.ios").on("click", function(e) {
+				e.stopPropagation();
+				$(".yxyy_tk").show();
+				$(".yxyy_con").show();
+			});
+			$(".yxyy_con_close").on("click", function(e) {
+				e.stopPropagation();
+				$(".yxyy_tk").hide();
+				$(".yxyy_con").hide();
+				$(".yxyy_con_in_phone input").val("");
+			})
+			$(".yxyy_con_in_btn").on("click", function(e) {
+				e.stopPropagation();
+				var phoneLen = $(".yxyy_con_in_phone input").val().length;
+				if(phoneLen != 11) {
+					alert("请输入正确的手机号码");
+				} else {
+					alert("预约成功");
+					$(".yxyy_tk").hide();
+					$(".yxyy_con").hide();
+					$(".yxyy_con_in_phone input").val("");
+				}
+			});
+			$(".czymf_yxlt").on("click", function(e) {
+				e.stopPropagation();
+				alert("敬请期待！");
+			})
+			$(".czymf_yxlt").hover(function() {
+				$(this).find("img").attr("src", "./images/cz_pic_02_p.png");
+			}, function() {
+				$(this).find("img").attr("src", "./images/cz_pic_02.png");
+			});
+			$(".czymf_yxyy").hover(function() {
+				$(this).find("img").attr("src", "./images/cz_pic_01_p.png");
+			}, function() {
+				$(this).find("img").attr("src", "./images/cz_pic_01.png");
+			})
+
+			$(".cur1").hover(function(e) {
+				e.stopPropagation();
+				$(".imgcur1").show();
+			}, function() {
+				$(".imgcur1").hide();
+			});
+			$(".cur2").hover(function(e) {
+				e.stopPropagation();
+				$(".imgcur2").show();
+			}, function() {
+				$(".imgcur2").hide();
+			});
+
+			$(".cur3").hover(function(e) {
+				e.stopPropagation();
+				$(".imgcur3").show();
+			}, function() {
+				$(".imgcur3").hide();
+			})
+			$(".cur4").hover(function(e) {
+				e.stopPropagation();
+				$(".imgcur4").show();
+			}, function() {
+				$(".imgcur4").hide();
+			});
+			$(".cur5").hover(function(e) {
+				e.stopPropagation();
+				$(".imgcur5").show();
+			}, function() {
+				$(".imgcur5").hide();
+			});
+			$(".cur6").hover(function(e) {
+				e.stopPropagation();
+				$(".imgcur6").show();
+			}, function() {
+				$(".imgcur6").hide();
+			});
+
+			$(".czymf_play").click(function() {
+				$(".video_mask").show();
+			})
+
+			$("#close").click(function() {
+				$(".video_mask").hide();
+			});
+
+			String.prototype.insert = function(index, item) {
+				var temp = [];
+				for(var i = 0; i < this.length; i++) {
+					temp.push(this[i]);
+				}
+				temp.splice(index, 0, item);
+				return temp.join("")
+			};
+			var theNum = $(".czymf_yyrs").find("span").text();
+			var aa = theNum.split("").reverse().join("");
+			var ss = aa;
+			var theNumLen = aa.length;
+			var result = theNumLen / 3;
+			if(result > 1) {
+				if(theNumLen % 3 == 0) {
+					result--;
+				} else {
+					result = Math.floor(result);
+				};
+				for(var i = result; i > 0; i--) {
+					ss = ss.insert(Math.floor(i * 3), ",");
+					console.log(ss)
+				}
+			}
+			var bb = ss.split("").reverse().join("");
+			$(".czymf_yyrs").find("span").text(bb);
+		</script>
+		<script type="text/javascript" src="./js/index.js"></script>
+		<script type="text/javascript" src="http://dev.static.yingxiong.com/footer/js/footer_new.js"></script>
+	</body>
+
+</html>

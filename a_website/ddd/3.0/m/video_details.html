@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹弹岛2</title>
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/common01.css">
+	<link rel="stylesheet" href="./css/dropload.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+	<script src="./js/jquery-1.11.2.min.js"></script>
+	<style>
+		.dropload-down{
+		    width:100%;
+		    text-align: center;
+		    float: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="hengping"><p>请竖屏浏览</p></div>
+	<script src="./js/top.js"></script>
+	<div class="top_H"></div>
+	<div class="d_movie_center">
+		<div class="d_movie_header">视频中心</div>
+		<div class="d_movie_nav">
+			<li class="textActive">案发攻略<span index="0" class="m_active"></span><i></i></li>
+			<li>新手教程<span index="1"></span><i></i></li>
+			<li>精彩赛事<span index="2"></span><i></i></li>
+		</div>
+		<div class="d_movie_lists">
+			<!-- <div class="d_movie_list">
+				<dt>
+					<div class="videos">
+		                <iframe border="0" marginwidth="0" framespacing="0" marginheight="0" src="/video/videosource.html?uu=58546ec681&amp;vu=ca2c007d5e" frameborder="0" noresize="" scrolling="no" width="100%" height="100%" vspale="0" id="iframe_btn" name="iframe_btn"></iframe>
+		            </div>
+		        </dt>
+				<dd>01标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+			</div> -->
+			<div class="d_movie_list">
+				<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+				<dd>01标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+			</div>
+			
+		</div>
+		<div class="d_movie_lists" style="display:none;"></div>
+		
+		<div class="d_movie_lists" style="display:none;"></div>
+		
+		<div class="d_movie_lists" style="display:none;"></div>
+	
+		<!-- <div class="d_movie_more"><div>查看更多</div></div> -->
+	</div>
+
+
+	<script src="./js/dropload.min.js"></script>
+
+
+	<script src="./js/common.js"></script>
+	<script>
+		$(function(){
+
+
+
+		//下拉加载
+	    var itemIndex = 0;
+	    var tab1LoadEnd = false;
+	    var tab2LoadEnd = false;
+	    var tab3LoadEnd = false;
+	   
+	    // tab
+	    $(".d_movie_nav li").on('click', function(){
+	        var $this = $(this);
+	        $(".d_movie_nav li").removeClass("textActive");
+	      	$this.addClass("textActive");
+	        itemIndex = $this.find("span").attr("index");
+	        $this.find("span").addClass('m_active').parent("li").siblings("li").find('span').removeClass('m_active');
+	        $('.d_movie_lists').eq(itemIndex).show().siblings('.d_movie_lists').hide();
+
+	        // 如果选中菜单一
+	        if(itemIndex == '0'){
+	            // 如果数据没有加载完
+	            if(!tab1LoadEnd){
+	                // 解锁
+	                dropload.unlock();
+	                dropload.noData(false);
+	            }else{
+	                // 锁定
+	                dropload.lock('down');
+	                dropload.noData();
+	            }
+	        // 如果选中菜单二
+	        }else if(itemIndex == '1'){
+	            if(!tab2LoadEnd){
+	                // 解锁
+	                dropload.unlock();
+	                dropload.noData(false);
+	            }else{
+	                // 锁定
+	                dropload.lock('down');
+	                dropload.noData();
+	            }
+	        // 如果选中菜单三
+	        }else if(itemIndex == '2'){
+	        	if(!tab3LoadEnd){
+	                // 解锁
+	                dropload.unlock();
+	                dropload.noData(false);
+	            }else{
+	                // 锁定
+	                dropload.lock('down');
+	                dropload.noData();
+	            }
+	        }
+	        // 重置
+	        dropload.resetload();
+	    });
+
+	    // dropload
+	    var dropload = $('.d_movie_lists').dropload({
+	        scrollArea : window,
+	        loadDownFn : function(me){
+            // 加载菜单一的数据
+              	$.ajax({
+                    type: 'GET',
+                    url: 'json/movieInit.json',
+                    dataType: 'json',
+                    success: function(data){
+                    	console.log(data)
+                        var result = '';
+                        for(var i = 0; i < data.lists.length; i++){
+                         	result += '<div class="d_movie_list"><dt><div class="videos"><img src="./images/pic_16.png" /></div></dt><dd>'+data.lists[i].title+'</dd></div>';
+                        }
+                        // 为了测试，延迟1秒加载
+                        setTimeout(function(){
+                           $('.d_movie_lists').eq(itemIndex).find(".dropload-down").before(result);
+                           	movieClickOff()
+                           	movieClick();
+                            // 每次数据加载完，必须重置
+                            me.resetload();
+                            //tab1LoadEnd = true;
+                        },3000);
+                    },
+                    error: function(xhr, type){
+                        alert('Ajax error!');
+                        // 即使加载出错，也得重置
+                        me.resetload();
+                    }
+                });
+	        }
+	    });
+		function movieClick(){
+			$(".d_movie_list").on("click",function(e){
+				e.stopPropagation();
+
+				tankuang("/video/videosource?uu=58546ec681&vu=ca2c007d5e");
+			})
+		}
+		function movieClickOff(){
+			$(".d_movie_list").off();
+		}
+	});
+
+	</script>
+</body>
+</html>

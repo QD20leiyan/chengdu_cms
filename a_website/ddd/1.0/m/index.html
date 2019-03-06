@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<title>弹弹岛2</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="c_wrap">
+		<section class="c_main1">
+			<a href="#" class="c_returnhome"></a>
+			<a href="#" class="c_logo">
+				<img src="images/c_logo.png" alt="LOGO">
+			</a>
+			<div class="c_per_nv"></div>
+			<div class="c_per_nan"></div>
+			<div class="c_slogan">
+				<div class="c_video"></div>
+				<div class="c_yulei"></div>
+			</div>
+		</section>
+		<section class="c_main2">
+			<a href="#" class="c_down"></a>
+			<div class="c_lb">
+				<div class="c_lbbox">
+					<ul>
+						<li><img src="images/c_lb_img01.jpg" alt=""></li>
+						<li><img src="images/c_lb_img02.jpg" alt=""></li>
+						<li><img src="images/c_lb_img03.jpg" alt=""></li>
+						<li><img src="images/c_lb_img04.jpg" alt=""></li>
+						<li><img src="images/c_lb_img05.jpg" alt=""></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<div class="c_footer">
+			<p>版权所有：北京卓越晨星科技有限公司 Rights Reserved </p>
+			<p>《网络文化经营许可证》：京网文[2015]0629-259号 文网游备字〔2015〕Ｍ-CSG 0671 号</p>
+			<p>公司地址：北京市朝阳区酒仙桥路宏源大厦3楼   联系方式：4009393333   京ICP备15026730号-2</p>
+		</div>
+	</div>
+
+	<div id="mask"></div>
+    <div id="video_tck">
+		<div id="player5">
+			<div id="close"></div>
+			<video controls="controls" class="vid_sp">
+				<source src="images/v.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+	<!-- 双十二抽奖活动入口 -->
+	<div class="prize_shadow">
+		<div class="prize_enter">
+		<div class="prize_con">
+			<a href="http://game.yingxiong.com/special/qmqz_prize"></a>
+			<a href="http://game.yingxiong.com/special/dfzj_prize"></a>
+			<a href="http://game.yingxiong.com/special/ddd_prize"></a>
+			<a href="http://game.yingxiong.com/special/qtdl_prize"></a>
+		</div>
+			
+			<a href="#" class="prize_close"></a>
+		</div>
+	</div>
+	<script src="../common/js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('html').fitText(2);
+		$(".c_lbbox").img_lb();
+		// 视频
+		$(".c_video").click(function(){
+			$("#mask").show();
+	 		$("#video_tck").show();
+	 		$('.vid_sp').trigger('play');
+	 	})
+	 	$("#close").click(function(){
+	 		$("#mask").hide();
+	 		$("#video_tck").hide();
+	 		$('.vid_sp').trigger('pause');
+	 	})
+	 	$(".prize_enter .prize_close").click(function(){
+				$(".prize_shadow").hide();
+			})
+
+
+
+		$(".c_fsbtn").click(function(){
+	        $(".c_yytack").show();
+	    })
+	    $(".c_yyclose").click(function(){
+	        $(".c_yytack").hide();
+	    })
+	    var flag = 0;
+
+	    $(".c_ewm").click(function(){
+	    	if(flag==0){
+	    		$(".c_ewm img").show();
+	    		flag = 1;
+	    	}else{
+	    		$(".c_ewm img").hide();
+	    		flag = 0;
+	    	}
+	    })
+
+	    $(".c_video").click(function(){
+	        $(".video_mask").show();
+	        $(".c_yulei").addClass("c_yl_animate")
+	    })
+	    $("#close").click(function(){
+	        $(".video_mask").hide();
+	        $(".c_yulei").removeClass("c_yl_animate")
+	    })
+
+	})
+	$.fn.img_lb=function(){
+	return this.each(function(){
+		var $con=$(this);//包裹按钮和轮播的图片元素
+		var sWidth = $con.width();
+		console.log(sWidth)
+		var cov_length = $con.find("ul li").length;
+		var index = 0;
+		var picTimer;
+		var btn = "<div class='buttons'>";
+		for (var i = 0; i < cov_length; i++) {
+			if(i==0){
+				btn+="<span class='on'></span>";
+			}else{
+				btn+="<span></span>";
+			}
+		}
+		$con.append(btn);
+		$con.find(".buttons span").mouseover(function() {
+			index = $con.find(".buttons span").index(this);
+			showPics(index);
+		}).eq(0).trigger("mouseover");
+		$(".pre").click(function() {
+			index -= 1;
+			if (index == -1) {
+				index = cov_length - 1;
+			}
+			showPics(index);
+		});
+		$(".next").click(function() {
+			index += 1;
+			if (index == cov_length) {
+				index = 0;
+			}
+			showPics(index);
+		});
+		$con.find("ul").css("width", sWidth * (cov_length));
+		// $con.hover(function() {
+		// 	clearInterval(picTimer);
+		// }, function() {
+			picTimer = setInterval(function() {
+				showPics(index);
+				index++;
+				if (index == cov_length) {
+					index = 0;
+				}
+			}, 3000);
+		// }).trigger("mouseleave");
+		function showPics(index) {
+			var nowLeft = -index * sWidth;
+			$con.find("ul").stop(true, false).animate({
+				"left": nowLeft
+			}, 300);
+		    $con.find(".buttons span").removeClass("on").eq(index).addClass("on");
+		}
+	})
+}
+
+	</script>
+</body>
+</html>

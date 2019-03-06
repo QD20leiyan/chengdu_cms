@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	 <meta charset="UTF-8">
+	 <meta name="apple-mobile-web-app-capable" content="yes">
+	 <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	 <meta name="format-detection" content="telephone=no">
+	<title>弹弹岛2</title>
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" href="css/swiper.3.1.7.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="http://cdnstatic.yingxiong.com/ddd/3.0/m/js/jquery-1.11.2.min.js"></script>
+	<script src="js/swiper.3.1.7.min.js"></script>
+	<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+
+		})(document, window);
+		
+	</script>
+</head>
+<body>
+	<div class="content">
+		<a class="download" href="http://downurl.yingxiong.com/url/ddd2_bdwm.html"></a>
+		<p class="p-style">预警!《弹弹岛2》竟是一款可以让好友"反目成仇"的游戏！3V3同屏即时对战，奇谋迭起,不敢眨眼！好友携手对敌,转瞬坑杀反目!放眼望去，举目皆敌，如何用操作+头脑杀出重围！
+        </p>
+		<div class="swiper-content">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" data-history="1">
+						<img src="images/11.jpg" alt=""></div>
+					<div class="swiper-slide" data-history="2">
+						<img src="images/22.jpg" alt=""></div>
+					<div class="swiper-slide" data-history="3">
+						<img src="images/33.jpg" alt=""></div>
+					<div class="swiper-slide" data-history="4">
+						<img src="images/44.jpg" alt=""></div>
+					<div class="swiper-slide" data-history="5">
+						<img src="images/55.jpg" alt=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+        var swiper = new Swiper('.swiper-container', {
+             slidesPerView: 2.5,
+             autoplayDisableOnInteraction : false,
+             spaceBetween: 5,
+             slidesOffsetBefore:8,
+        });
+    </script>
+</body>
+
+</html>

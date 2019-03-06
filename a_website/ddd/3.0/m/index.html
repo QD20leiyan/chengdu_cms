@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>弹弹岛2</title>
+		<link rel="stylesheet" href="./css/common.css">
+		<link rel="stylesheet" href="./css/swiper.min.css">
+		<link rel="stylesheet" href="./css/common01.css">
+		<link rel="stylesheet" href="./css/index.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<script src="./js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+
+	</head>
+
+	<body>
+		<div class="hengping">
+			<p>请竖屏浏览</p>
+		</div>
+		<div class="d_top">
+			<div class="d_t_cover"></div>
+			<div class="d_t_con">
+				<div>
+					<img src="<?php echo STATIC_DOMAIN ?><?= $global['icon_img']?><?= VERSION?>">
+				</div>
+				<div>
+					<p>弹弹岛2</p>
+					<p>指尖弹射 燃魂竞技</p>
+				</div>
+				<div>
+					<div class="d_t_con_loadBtn">
+						<a class="js_wap_down" href="javascript:;" style="color: #000000">立即下载</a>
+					</div>
+				</div>
+				<div>
+
+					<div class="d_t_con_drop" data="0">
+						<span class="d_t_t"></span>
+						<span class="d_t_m"></span>
+						<span class="d_t_b"></span>
+					</div>
+				</div>
+			</div>
+			<ul class="down_ul">
+				<li><a href="javascript:;"><img src="images/gf.png" alt="" /></a></li>
+				<li><a href="http://l.taptap.com/EGoDqaq5"><img src="images/n_tap.png" alt="" /></a></li>
+			</ul>
+		</div>
+		<div class="d_top_nav">
+			<ul>
+				<li class="top_active shouye">首 页</li>
+				<li class="liansai">英雄联赛</li>
+				<li class="xinwen">新闻资讯</li>
+				<li class="huodong">活动中心</li>
+				<li class="gonglue">弹弹攻略</li>
+				<li>官方社区</li>
+				<li>
+					<a href="https://www.jiyoushe.cn/game/gamePlay.html?gid=280020">点击试玩</a>
+				</li>
+			</ul>
+		</div>
+		<div class="d_top_cover"></div>
+		<div class="d_header">
+			<img src="./images/pic_03.png" class="d_h_bg">
+			<img src="./images/pic_04.png" class="d_h_play d_h_play_tran">
+		</div>
+		<div class="d_news">
+			<div class="d_news_header">新闻资讯</div>
+			<div class="d_news_nav">
+				<li class="textActive">资讯<span index="0" class="active"></span><i></i></li>
+				<li>公告<span index="1"></span><i></i></li>
+				<li>活动<span index="2" class=""></span><i></i></li>
+				<li>攻略<span index="3"></span><i></i></li>
+			</div>
+			<div class="d_news_lists">
+				<ul class="d_news_list">
+				</ul>
+				<ul class="d_news_list" style="display:none;">
+
+				</ul>
+				<ul class="d_news_list" style="display:none;">
+
+				</ul>
+				<ul class="d_news_list" style="display:none;">
+
+				</ul>
+				<div class="d_news_load"><img src="./images/loading.png">正在加载...</div>
+				<div class="d_news_more">
+					<div>查看更多</div>
+				</div>
+			</div>
+		</div>
+		<div class="d_guagn">
+			<div><img src="./images/pic_06.png"></div>
+			<div><img src="./images/pic_07.png"></div>
+		</div>
+		<div class="swiper-container d_swiper_01">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="./images/pic_08.png"></div>
+				<div class="swiper-slide"><img src="./images/pic_09.png"></div>
+				<div class="swiper-slide"><img src="./images/pic_10.png"></div>
+				<div class="swiper-slide"><img src="./images/pic_11.png"></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="d_movie_center">
+			<div class="d_movie_header">视频中心</div>
+			<div class="d_movie_nav">
+				<li class="textActive">案发攻略<span index="0" class="m_active"></span><i></i></li>
+				<li>新手教程<span index="1"></span><i></i></li>
+				<li>精彩赛事<span index="2"></span><i></i></li>
+			</div>
+			<div class="d_movie_lists">
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>01标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>01标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>01标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>01标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+
+			</div>
+			<div class="d_movie_lists" style="display:none;">
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>02标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>02标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>02标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" class="videos_play_btn">
+		               	<img src="./images/pic_09.png" class="videos_play_mask">
+		            </div>
+		        </dt>
+					<dd>02标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+
+			</div>
+			<div class="d_movie_lists" style="display:none;">
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>03标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>03标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		              	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>03标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>03标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+
+			</div>
+			<div class="d_movie_lists" style="display:none;">
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>04标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		               	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>04标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		              	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>04标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+				<div class="d_movie_list">
+					<dt>
+					<div class="videos">
+		              	<img src="./images/pic_16.png" >
+		            </div>
+		        </dt>
+					<dd>04标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题</dd>
+				</div>
+
+			</div>
+			<div class="d_movie_more">
+				<div>查看更多</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footer_m">
+				<div><img src="./images/pic_13.png"><span></span></div>
+				<div>
+					<p>微信公众号</p>
+					<p>扫描二维码关注官方微信</p>
+					<p>官方微信号：<span>弹弹岛2</span></p>
+				</div>
+			</div>
+			<div class="footer_m">
+				<div><img src="./images/pic_14.png"><span></span></div>
+				<div>
+					<p>客户服务</p>
+					<p>BUG反馈，游戏问题</p>
+					<p>客户服务电话：<span>400-939-333</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="cover"></div>
+		<div class="moviePlay">
+			<div class="movieClose"><img src="./images/c.png"></div>
+			<div class="videos">
+				<iframe border="0" marginwidth="0" framespacing="0" marginheight="0" src="/video/videosource.html?uu=58546ec681&amp;vu=ca2c007d5e" frameborder="0" noresize="" scrolling="no" width="100%" height="100%" vspale="0" id="iframe_btn" name="iframe_btn"></iframe>
+			</div>
+		</div>
+
+		<script src="./js/swiper.min.js"></script>
+		<script>
+			var swiper = new Swiper(".swiper-container", {
+				autoplay: 3000,
+
+				loop: true,
+				pagination: ".swiper-pagination"
+			});
+			var isClick = true; //判断是否可以点击
+			init(0)
+
+			function init(index) {
+				isClick = false;
+				$(".d_news_nav li span").removeClass("active")
+				$(".d_news_nav li span").eq(0).addClass("active");
+
+				$(".d_news_list").hide();
+				$(".d_news_load").css("display", "-webkit-box");
+				$.ajax({
+					type: 'GET',
+					url: 'json/update.json',
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						var result = '';
+						for(var i = 0; i < data.lists.length; i++) {
+							result += '<li><span>' + data.lists[i].title + '</span><i>[' + data.lists[i].date + ']</i></li>';
+						}
+						// 为了测试，延迟1秒加载
+						setTimeout(function() {
+							$(".d_news_load").hide();
+							$('.d_news_list').eq(index).append(result).show();
+							offLists();
+							toLists();
+							isClick = true;
+						}, 2000);
+					},
+					error: function(xhr, type) {
+						isClick = true;
+						alert('Ajax error!');
+					}
+				});
+			}
+			//获得没点击前的active的位置
+			/*function getCurIndex(){
+				var curIndex = "0";
+				$.each($(".d_news_nav>li"),function(index,element){
+					if($(element).find("span").hasClass("active")){
+						curIndex = $(element).find("span").attr("index");
+						console.log(curIndex)
+					}
+				});
+				return curIndex;
+			}*/
+
+			$(".d_news_nav li").on("click", function(e) {
+				e.stopPropagation();
+				if($(this).hasClass("active")) {
+					return false;
+				} else {
+					if(isClick) {
+						isClick = false;
+						/*var curIndex =  getCurIndex();   //没点击之前的active
+						var nextIndex = $(this).attr("index");
+						console.log(curIndex+" "+nextIndex);
+
+						$(".d_news_nav li span").removeClass("active")
+						$(this).addClass("active");
+
+						if(parseInt(nextIndex)>parseInt(curIndex)){   //向右运动;
+							$(".d_news_nav li span").eq(curIndex).find("i").addClass("d_news_n_click_r");
+							$(this).find("i").addClass("d_news_n_click_l");
+						}else{
+							$(".d_news_nav li span").eq(curIndex).find("i").removeClass("d_news_n_click_l").removeClass(:"d_news_n_click_r");
+							$(this).find("i").addClass("d_news_n_click_r");
+						}*/
+
+						$(".d_news_nav li").removeClass("textActive");
+						$(this).addClass("textActive");
+
+						$(".d_news_nav li span").removeClass("active");
+						$(this).find("span").addClass("active");
+
+						var index = $(this).find("span").attr("index");
+
+						$(".d_news_list").hide();
+						$(".d_news_load").css("display", "-webkit-box");
+						$.ajax({
+							type: 'GET',
+							url: 'json/update.json',
+							dataType: 'json',
+							success: function(data) {
+								console.log(data)
+								var result = '';
+								for(var i = 0; i < data.lists.length; i++) {
+									result += '<li><span>' + data.lists[i].title + '</span><i>[' + data.lists[i].date + ']</i></li>';
+								}
+								// 为了测试，延迟1秒加载
+								setTimeout(function() {
+									$(".d_news_load").hide();
+									$('.d_news_list').eq(index).append(result).show();
+									offLists();
+									toLists();
+									isClick = true;
+
+								}, 2000);
+							},
+							error: function(xhr, type) {
+								alert('Ajax error!');
+								isClick = true;
+							}
+						});
+					} else {
+						return false;
+					}
+				}
+			});
+			$(".d_movie_nav li").on("click", function(e) {
+				e.stopPropagation();
+				if($(this).hasClass("m_active")) {
+					return false;
+				} else {
+					$(".d_movie_nav li").removeClass("textActive");
+					$(this).addClass("textActive");
+
+					var index = $(this).find("span").attr("index");
+					$(".d_movie_nav li span").removeClass("m_active");
+					$(this).find("span").addClass("m_active");
+					$(".d_movie_lists").hide();
+					$(".d_movie_lists").eq(index).show();
+				}
+
+			})
+
+			$(".d_news_more").on("click", function(e) {
+				e.stopPropagation();
+				location.href = "news_lists.html?current=2";
+			});
+			$(".d_movie_more").on("click", function(e) {
+				e.stopPropagation();
+				location.href = "video_details.html"
+
+			})
+
+			function toLists() {
+				$(".d_news_list li").on("click", function(e) {
+					e.stopPropagation();
+					location.href = "news_details.html";
+				})
+			};
+			$(".d_h_play").on("click", function(e) {
+				if($(this).hasClass("d_h_play_tran")) {
+					$(this).removeClass("d_h_play_tran");
+					windowHidden();
+					$(".cover").show();
+					$(".moviePlay").show();
+					$(".cover,.movieClose img").on("click", function(e) {
+						$(".d_h_play").addClass("d_h_play_tran")
+						e.stopPropagation();
+						$(".cover").hide();
+						$(".moviePlay").hide();
+						windowScroll()
+					});
+				}
+
+			});
+
+			$(".d_movie_list").on("click", function(e) {
+				e.stopPropagation();
+				$(this).removeClass("d_h_play_tran");
+				windowHidden();
+				$(".cover").show();
+				$(".moviePlay").show();
+				$(".cover,.movieClose img").on("click", function(e) {
+					$(".d_h_play").addClass("d_h_play_tran")
+					e.stopPropagation();
+					$(".cover").hide();
+					$(".moviePlay").hide();
+					windowScroll()
+				});
+			});
+
+			function offLists() {
+				$(".d_news_list li").off();
+			}
+
+			function windowHidden() {
+				$("html,body").css({
+					"overflow": "hidden",
+					"width": "100%",
+					"height": "100%"
+				});
+			};
+
+			function windowScroll() {
+				$("html,body").css({
+					"overflow": "visible",
+					"width": "100%",
+					"height": "auto"
+				});
+			};
+		</script>
+	</body>
+
+</html>

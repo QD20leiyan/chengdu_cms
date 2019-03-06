@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<title>神准！12星座永远不会告诉别人的假期计划！</title>
+		<script src="js/setPageRem.js" type="text/javascript" charset="utf-8"></script>
+		<meta name="description" content="自己的星座，心里还没点X数吗？！">
+		<link rel="stylesheet" type="text/css" href="css/wapReset.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<section class="pagebox1 page">
+			<img class="tit animated fadeInDownBig" src="img/T.png" />
+			<a class="btn btn1 animated infinite tada2 duration"></a>
+			<p class="p-bottom">本H5由真弹射真好玩的《弹弹岛2》独家策划</p>
+		</section>
+		<section class="pagebox2 page">
+			<div class="box-top">
+				<div class="head"><img src="img/head.png" /></div>
+				<div class="head-bg"><img src="img/head_bg.png" /></div>
+				<p>微信昵称</p>
+			</div>
+			<div class="cont-box">
+				<ul class="list-ul">
+					<li>
+						<label>
+							<input type="radio" value="1" name="xingzuo" checked/>
+							<img class="text" src="img/t1.png" />
+						</label>
+					</li>
+				</ul>
+				<div class="scroll-box">
+					<div class="bar">
+						<div class="scroll-item"></div>
+					</div>
+				</div>
+			</div>
+			<!--<p class="p1"></p>
+			<p class="p2"></p>
+			<p class="p3"></p>-->
+			<div class="btn-box">
+				<img class="see-btn" src="img/img6.png" />
+			</div>
+			<p class="p-bottom">本H5由真弹射真好玩的《弹弹岛2》独家策划</p>
+		</section>
+		<section class="pagebox3 page">
+			<h1 class="p3_name">狂奔的鸵鸟</h1>
+			<img class="xbg" src="img/BG.jpg" />
+			<div class="img-box">
+				<img class="ximg" src="img/x2.png" />
+				<img class="xhead head2" src="img/head.png" />
+			</div>
+			<p class="p-toast1">长按保存我的假期计划</p>
+			<p class="p-toast2">show到朋友圈！</p>
+		</section>
+	</body>
+
+	<li class="clone-box">
+		<label>
+			<input type="radio" name="xingzuo"/>
+			<img class="text" src="img/t1.png" />
+		</label>
+	</li>
+	<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			var listJson = [{
+				value: 1,
+				imgurl: 'img/t1.png',
+			}, {
+				value: 2,
+				imgurl: 'img/t2.png',
+			}, {
+				value: 3,
+				imgurl: 'img/t3.png',
+			}, {
+				value: 4,
+				imgurl: 'img/t4.png',
+			}, {
+				value: 5,
+				imgurl: 'img/t5.png',
+			}, {
+				value: 6,
+				imgurl: 'img/t6.png',
+			}, {
+				value: 7,
+				imgurl: 'img/t7.png',
+			}, {
+				value: 8,
+				imgurl: 'img/t8.png',
+			}, {
+				value: 9,
+				imgurl: 'img/t9.png',
+			}, {
+				value: 10,
+				imgurl: 'img/t10.png',
+			}, {
+				value: 11,
+				imgurl: 'img/t11.png',
+			}, {
+				value: 12,
+				imgurl: 'img/t12.png',
+			}, ]
+
+			for(var i = 1; i < listJson.length; i++) {
+				var clone = $(".clone-box").clone(true);
+				clone.removeClass('clone-box');
+				clone.find('input').val(listJson[i].value);
+				clone.find('img').attr('src', listJson[i].imgurl);
+				console.log(1)
+				$(".list-ul").append(clone)
+			}
+
+			var list_ul = $(".list-ul");
+			list_ul.on('scroll', function(e) {
+				//console.log(e)
+				var allH = e.target.scrollHeight;
+				var topH = e.target.scrollTop;
+				var ulH = e.target.offsetHeight;
+				var itemH = $(".scroll-item").height();
+				$(".p1").text(allH);
+				$(".p2").text(topH);
+				$(".p3").text(ulH);
+				var HH = allH - ulH;
+				//console.log(HH);
+				$(".scroll-item").css({
+					top: (topH / HH * 100) + "%"
+				})
+			})
+
+			$(".btn1").click(function() {
+				$(".pagebox1").hide();
+				$(".pagebox2").fadeIn();
+			});
+
+			//查看计划
+			$(".see-btn").click(function() {
+				
+				var type = $("input[name = 'xingzuo']:checked").val();
+				console.log(type);
+//				return false;
+				var page3 = $(".pagebox3");
+				page3.find('.ximg').attr("src",'img/x'+type+".png");
+				page3.find(".xhead").addClass("head"+type)
+				$(".pagebox2").hide();
+				page3.fadeIn();
+			})
+
+		})
+	</script>
+
+</html>

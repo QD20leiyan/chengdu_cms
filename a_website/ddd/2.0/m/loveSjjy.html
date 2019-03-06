@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>Valentine</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<section class="Valentine_page1 Valentine_sjjy_page1">
+		<a href="index.html" class="Valentine_logo"><img src="./images/Valentine_logo.png" alt=""></a>
+		<a href="http://ddd2.yingxiong.com/" class="Valentine_back"><img src="../common/images/Valentine_back.png" alt=""></a>
+		<a href="javascript:;" class="Valentine_load"><img src="./images/Valentine_load.png" alt=""></a>
+	</section>
+	<section class="Valentine_page2">
+		<div class="Valentine_video Valentine_sjjy_video">
+			<i class="video_i"></i>
+		</div>
+	</section>
+	<footer class="new-footer">
+		<p class="m-f-footer">
+			<a href="http://kf.yingxiong.com/Mobile/checkOption?Gid=73">客服中心</a>
+			<a href="http://gamer.yingxiong.com/index.php?m=Mobile&fid=9&md5=8e5ad6e88099674d422432f143ffffa2">游戏中心</a>
+			<span>
+				<img src="./images/Valentine_tel.png" alt="">
+				<i>400-939-3333</i>
+			</span>
+			<div class="clear"></div>
+		</p>
+		<p class="m-s-footer">COPY RIGHT  @2015-2016 ALL RIGHTS RESERVED</p>
+		<p class="m-t-footer"><span>英雄互娱版权所有</span></p>
+	</footer>
+	<div id="Valentine_video_mask">
+	    <div id="Valentine_player5">
+	        <div id="Valentine_close"></div>
+	        <iframe border=0 marginWidth=0 frameSpacing=0 marginHeight=0 src="" frameBorder=0 noResize scrolling="no" width=100% height=100% vspale="0" id="iframe_btn" name="iframe_btn"></iframe>
+	    </div>
+	</div>
+	<script src="js/jquery+fittext+touchslider.js"></script>
+	<script>
+		$(".video_i").click(function(){
+			var rel = $(this).attr('rel');
+			if(rel){
+				$("#iframe_btn").attr("src","/video/videoSource.html?"+rel);
+				$("#Valentine_video_mask").show();
+				//兼容安卓延时获取iframe子元素高度来
+	            setTimeout(function(){$("#iframe_btn").css("height",window.frames['iframe_btn'].dHeight)},100);
+			}else{
+				alert('暂无视频，敬请期待');
+				return false;
+			}	
+		});
+		$("#Valentine_close,#Valentine_video_mask").click(function(){
+		    $("#Valentine_video_mask").hide();
+			setTimeout(function(){$(window.frames['iframe_btn'].document).find("video")[0].pause()},100);
+		});
+		$("#Valentine_player5").click(function(e){
+			e.stopPropagation();
+		});
+	</script>
+</body>
+</html>

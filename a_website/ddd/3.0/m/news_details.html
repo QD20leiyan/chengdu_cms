@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹弹岛2</title>
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/common01.css">
+	<link rel="stylesheet" href="./css/news_details.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+	<script src="./js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<div class="hengping"><p>请竖屏浏览</p></div>
+	<script src="./js/top.js"></script>
+	<div class="top_H"></div>
+	<div class="news_header">
+		<div>
+			<h1>关于利用游戏漏洞恶意刷道具处理办 法公告</h1>
+			<p>发布时间：2017-05-28 来源：本网站</p>	
+		</div>
+	</div>
+	<div class="news_con">
+		<div>
+			<div>亲爱的各位岛民：</div>
+			<p>5月27日16：00至5月28日1:00，我们发现有部分玩家利用游戏漏洞在精英商城无限刷取道具，经过查证属实，该行为严重破坏了游戏平衡，影响了其他玩家的游戏体验。为了保证游戏的公平性和维护广大玩家的利益，将对这些破坏游戏规则的行为做出相应处罚，现在对这批账号进行暂时停封，涉及账号将被清除非法所得，处理完成后将对账号陆续进行解封，情节严重账号进行永久封禁处理。同时也将保留追究这些不法行为法律责任的权利！</p> 
+
+			<p>感谢广大玩家对《弹弹岛2》的支持与厚爱，我们呼吁所有《弹弹岛2》的玩家共同维护游戏环境。对于任何利用游戏漏洞的行为，我们绝不姑息，一起维护健康良好的游戏环境！</p>
+
+			<div>郑重声明：</div>
+			<p>我们希望各位玩家在发现游戏bug漏洞时，切勿一时贪图利益而利用bug，破坏自己所爱的游戏，不要抱着侥幸心理而已使用并肆意传播扩散。</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/public.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+        	(function (doc, win) {
+        	    var docEl = doc.documentElement,
+        	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+        	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	            recalc = function () {
+        	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+        	                var clientWidth = docEl.clientWidth;
+        	                if (!clientWidth) return;
+        	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+        	            };
+
+        	    recalc();
+        	    //判断是否支持监听事件 ，不支持则停止
+        	    if (!doc.addEventListener) return;
+        	    //注册翻转事件
+        	    win.addEventListener(resizeEvt, recalc, false);
+        	})(document, window);
+    	</script>
+	</head>
+	
+	<body>
+		<div class="m_banner">
+			<div class="yy"><img src="images/yy.png" alt="" /></div>
+			<img src="images/hd2.png" alt="" class="hd2" />
+		</div>
+		<div class="login">
+			<div class="c_login">
+				<img src="images/close.png" alt="" class="close" />
+				<div class="check">
+					<div class="ios active" data-type="ios">
+						<div class="pic">
+							<img src="images/no.png" alt="" />
+							<img src="images/on.png" alt="" />
+						</div>
+						<p>iOS</p>
+					</div>
+					<div class="and" data-type="android">
+						<div class="pic">
+							<img src="images/no.png" alt="" />
+							<img src="images/on.png" alt="" />
+						</div>
+						<p>Android</p>
+					</div>
+				</div>
+				<div class="put">
+					<input type="tel" placeholder="请输入手机号" class="phone"/>
+					<img src="images/c.png" alt="" class="c_close" />
+				</div>
+				<p class="tip"><img src="images/sj.png" alt="" /><span>电话号码错误</span></p>
+				<div class="ljyy"><img src="images/l_yy.png" alt="" /></div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function (){
+			$(".check>div").on("click" , function (){
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".c_close").click(function (){
+				$(".phone").val("");
+			});
+			$(".yy").click(function (){
+				$(".login").show();
+			});
+			$(".close").click(function (){
+				$(".login").hide();
+			});
+			$('.ljyy').click(function (){
+				var phone = $(".phone").val();
+				if(phone == "" || phone == undefined || phone.length != 11){
+					$(".tip").css("visibility","visible");
+				}
+			})
+		});
+	</script>
+</html>

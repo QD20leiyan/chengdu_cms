@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>search</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="http://cdnstatic.yingxiong.com/qmqz/7.0/js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<div class="search-wrap">
+		<div class="nav">
+			<div class="main">
+				<div class="logo-download">
+					<a href="javascript:;" class="logo">
+						<img src="./images/logo.png" alt="">
+					</a>
+					<div class="r-box">
+						<p>创造与魔法 油菜花社区</p>
+						<div class="btn">
+							<div class="website">官网</div>
+							<div class="download">下载</div>
+						</div>
+					</div>
+				</div>
+				<ul class="list">
+					<li class="active"><a href="./index.html">首页</a></li>
+					<li><a href="./activity.html">活动</a></li>
+				</ul>
+				<div class="search">
+					<div class="inp">
+						<i class="icon"></i>
+						<input type="text" placeholder="搜索你喜欢的">
+					</div>
+					<div class="contribute">我要投稿</div>
+				</div>
+			</div>
+		</div>
+		<div class="page1-wrap">
+			<div class="leaf">
+				<img src="./images/leaf1.png" alt="" class="leaf1">
+				<img src="./images/leaf2.png" alt="" class="leaf2">
+				<img src="./images/leaf3.png" alt="" class="leaf3">
+				<img src="./images/leaf4.png" alt="" class="leaf4">
+			</div>
+			<div class="main">
+				<div class="con-box">
+					<div class="tab-list">
+						<ul>
+							<li class="active">作者相关</li>
+							<li>作品名相关</li>
+						</ul>
+						<div class="flower"></div>
+					</div>
+					<div class="con-list">
+						<div class="per">
+							<ul class="pic-list">
+								<li class="video-border">
+									<div class="top">
+										<img src="./images/pic.png" alt="">
+										<i class="play-btn"></i>
+										<div class="shadow"></div>
+									</div>
+									<div class="bottom">
+				        				<p class="title">#这里是题目这里这里是题#</p>
+				        				<p class="name">
+				        					<i></i>
+				        					<span>名字</span>
+				        				</p>
+				        				<div class="num">
+				        					<i class="icon"></i>
+				        					<span>850</span>
+				        				</div>
+				        			</div>
+								</li>
+							</ul>
+						</div>
+						<div class="per">
+							<ul class="pic-list">
+								<li class="video-border">
+									<div class="top">
+										<img src="./images/pic.png" alt="">
+										<i class="play-btn"></i>
+										<div class="shadow"></div>
+									</div>
+									<div class="bottom">
+				        				<p class="title">#这里是题目这里这里是题#</p>
+				        				<p class="name">
+				        					<i></i>
+				        					<span>名字</span>
+				        				</p>
+				        				<div class="num">
+				        					<i class="icon"></i>
+				        					<span>850</span>
+				        				</div>
+				        			</div>
+								</li>
+								<li class="video-border">
+									<div class="top">
+										<img src="./images/pic.png" alt="">
+									</div>
+									<div class="bottom">
+				        				<p class="title">#这里是题目这里这里是题#</p>
+				        				<p class="name">
+				        					<i></i>
+				        					<span>名字</span>
+				        				</p>
+				        				<div class="num">
+				        					<i class="icon"></i>
+				        					<span>850</span>
+				        				</div>
+				        			</div>
+								</li>
+							</ul>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<!-- 视频弹窗 -->
+	<div class="mask video-mask">
+		<div class="video-mask-con">
+			<a href="javascript:;" class="close video-mask-close"></a>
+			<div class="video-box">
+				<i></i>
+			</div>
+			<div class="introduce">
+				<p class="name">
+					作品名称：<span>创造与魔法</span>
+				</p>
+				<div class="author-box">
+					<p class="author">
+						作者：
+						<span>创造与魔法</span>
+					</p>
+					<div class="fire">
+						<i></i>
+						<span class="num">850</span>
+					</div>
+				</div>
+				<div class="good">
+					<i></i>
+					赞一下
+				</div>
+				<p class="des">文字说明部分：可以对图片进行详细解说可以对图片进行详细解说可以对图片进行详细解说可以对图片进行详细解说可以对图片进行详细解说</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/masonry-docs.min.js"></script>
+	<script>
+		//瀑布流
+	    $(function() {
+			var $container = $('.pic-list');
+			$container.imagesLoaded(function() {
+				$container.masonry({
+					itemSelector: '.video-border',
+					gutter: 9,
+					isAnimated: true,
+				});
+			});
+			
+		});
+		$(".tab-list li").click(function(){
+			var index = $(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".con-list .per").eq(index).show().siblings().hide();
+		})
+
+		$(".play-btn").click(function(){
+			$(".video-mask").show();
+		})
+		$(".video-mask-close").click(function(){
+			$(".video-mask").hide();
+		})
+	</script>
+</body>
+</html>
