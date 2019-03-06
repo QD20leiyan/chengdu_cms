@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- ********** begin style ********** -->
+    <!--  fonts  -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <!-- bootstrap style  -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- layout style  -->
+    <link href="css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <!-- login style-->
+    <link rel="stylesheet" href="css/login-soft.css"/>
+    <!-- *********** end style *********** -->
+</head>
+
+<body class="login">
+<div class="login_box">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <a href="login.html">
+            <img src="images/logo-big.png" alt=""/>
+        </a>
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+        <form class="login-form" action="index.html" method="post" novalidate="novalidate">
+            <h3 class="form-title">官网数据管理系统</h3>
+            <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span>
+                请填写用户名，或密码。 </span>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">用户名</label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="请输入用户名" name="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">密码</label>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="请输入密码" name="password">
+                </div>
+            </div>
+            <div class="form-actions">
+                <label class="checkbox">
+                    <div class="checker"><span><input type="checkbox" name="remember" value="1"></span></div> 记住密码 </label>
+                <button type="submit" class="btn blue pull-right">
+
+                </button>
+            </div>
+            <div class="forget-password">
+                <h4>忘记密码 ?</h4>
+            </div>
+            <div class="create-account"><p></p></div>
+        </form>
+        <!-- END LOGIN FORM -->
+    </div>
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+    2014 &copy; 英雄互娱 yingxiong.com.
+    </div>
+</div>
+<!-- END LOGIN -->
+<div class="backstretch">
+    <img src="images/2.jpg">
+</div>
+<div class="bl">
+    <div class="bl1"><img src="images/bl_1.png" alt=""/></div>
+    <div class="bl2"><img src="images/bl_2.png" alt=""/></div>
+    <div class="bl3"><img src="images/bl_3.png" alt=""/></div>
+</div>
+<!-- END COPYRIGHT -->
+
+
+<!--[if lt IE 9]>
+<script src="lib/ie/respond.min.js"></script>
+<script src="lib/ie/excanvas.min.js"></script>
+<![endif]-->
+
+<!--login script-->
+<!-- jquery  -->
+<script src="lib/jQuery/jquery.min.js" type="text/javascript"></script>
+<!-- bootstrap -->
+<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script>
+    //记住我按钮选择
+    var clickNumber = 1;
+    $(".login .content .form-actions .checkbox .checker>span").click(function() {
+        if(clickNumber % 2 !== 0) {
+            $(this).addClass("active");
+        } else {
+            $(this).removeClass("active");
+        }
+        clickNumber++;
+    });
+</script>
+</body>
+</html>

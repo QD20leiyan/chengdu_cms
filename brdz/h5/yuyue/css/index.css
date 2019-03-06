@@ -1,0 +1,160 @@
+body,html{
+	height:100%;
+	width:100%;
+	padding: 0;
+	margin: 0;
+	overflow:hidden;
+	font-family: "HelveticaNeue";
+}
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-appearance: none;
+}
+.hidden{
+	display:none;
+}
+.bg01,.bg02,.bg03{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	background: url(../images/bg.png) no-repeat;
+	background-size: cover;
+	background-position: center 0;
+}
+.bg01 .logo{
+	width: 7.375rem;
+	height:3.5625rem;
+	background: url(../images/logo1.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: .9375rem;
+	left: .625rem;
+}
+.bg02 .logo{
+	width: 8.9375rem;
+	height:3.5625rem;
+	background: url(../images/logo2.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: .9375rem;
+	left: .625rem;
+}
+.bg03 .logo{
+	width: 8.9375rem;
+	height:3.5625rem;
+	background: url(../images/logo3.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: .9375rem;
+	left: .625rem;
+}
+.showtips{
+	position: absolute;
+	width: 12rem;
+	height: 3.5rem;
+	top: 50%;
+	left: 4rem;
+	background: transparent;
+	outline: none;
+	border: none;
+	margin-top: 8.5rem;
+}
+
+.tips{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.9);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+}
+.tips .content{
+	width: 20rem;
+	height:15rem;
+	position: relative;
+	left:0;
+	top: 45%;
+	transform: translate(0,-50%);
+	-webkit-transform: translate(0,-50%);
+	background:url("../images/tipsbg01.png");
+	background-size:100% 100%;
+}
+.tips .content .close{
+	position: absolute;
+	width: 1.375rem;
+	height: 1.125rem;
+	right: 1rem;
+	top: 3.2rem;
+}
+.tips .content>div{
+	position: relative;
+	top: 7rem;
+}
+.tips .content>div,.tips .content>div img{
+	width: 14rem;
+	height: 5.65625rem;
+	margin: 0 auto;
+}
+.tips .content>div input{
+	width: 8.5rem;
+	height: 2.4rem;
+	text-indent: .9375rem;
+	position: absolute;
+	top: 3.2rem;
+	left: .1rem;
+	font-size: .9375rem;
+	color: #999;
+	outline: none;
+	border: none;
+	padding: 0;
+}
+.tips .content>div input::-webkit-input-placeholder {
+	font-size:.9375rem;
+	color:#999;
+}
+.tips .content>div .orderbtn{
+	width: 5.3rem;
+	position: absolute;
+	top: 3.2rem;
+	right: 0;
+	height: 2.4rem;
+}
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+@-webkit-keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+		transform: translateX(-2000px)
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0)
+	}
+}
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+		-ms-transform: translateX(-2000px);
+		transform: translateX(-2000px)
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0)
+	}
+}
+.slideInLeft {
+	-webkit-animation-name: slideInLeft;
+	animation-name: slideInLeft
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>兵人大战</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+</head>
+<body>
+<section class="bg01">
+    <div class="logo"></div>
+    <button class="showtips"></button>
+</section>
+<!--<section class="bg02">-->
+    <!--<div class="logo"></div>-->
+    <!--<button class="showtips"></button>-->
+<!--</section>-->
+<!--<section class="bg03">-->
+    <!--<div class="logo"></div>-->
+    <!--<button class="showtips"></button>-->
+<!--</section>-->
+<div class="tips hidden">
+    <div class="content">
+        <img src="images/close.png" alt="" class="close"/>
+        <div>
+            <img src="images/content_bg.png" alt=""/>
+            <input type="text" placeholder="输入手机号码"/>
+            <div class="orderbtn"></div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    $(".showtips").click(function(){
+        $(".tips").removeClass("hidden");
+    });
+
+    $(".close").click(function(){
+        $(".tips").addClass("hidden");
+    });
+</script>
+</body>
+</html>

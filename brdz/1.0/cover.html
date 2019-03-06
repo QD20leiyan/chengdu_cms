@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>兵人大战</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta name="baidu-site-verification" content="4QTWrEt07K" />
+	<link rel="shortcut icon" href="images/favicon.png">
+	<link rel="stylesheet" href="common/css/common.css" />
+	<link rel="stylesheet" href="common/css/animate.min.css" />
+	<link rel="stylesheet" href="css/cover.css" />
+	<script data-fixed="true">
+		if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+			location.href = "/m/";
+		}
+	</script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?9825bc6b31a76e75287e5ca0db8bcf34";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<div style="z-index: 100;position:absolute;left:0;top:0;width:100%;height:50px;background:rgb(255,255,233);color:rgb(30,84,148);border-bottom:1px solid rgb(230,230,198);text-align:center;line-height:50px;font-size:12px;">您使用的浏览器版本过低，可能会影响到您浏览本网页，建议您升级您的浏览器。</div>
+<!--header-->
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/head/js/topbar.js"></script>
+	<div class="wrap">
+		<div class="wrap_con">
+			<img src="images/logo.png" alt="" class="logo">
+			<img src="images/title.png" alt="" class="tlt">
+			<p class="act_data"><span class="time">1月29日</span>首次删档测试 预约下载 限时开启</p>
+			<p class="btn">
+            	<button class="showtips slideInLeft animated order_btn"></button>
+            	<a href="" class="slideInRight animated load_btn js_down_andriod"></a>
+       		</p>
+       		<div class="peo_box">
+       			<img src="images/hot.png" alt="" class="hot">
+       			<img src="images/huodi.png" alt="" class="huodian">
+				<img src="images/peo01.png" alt="" class="peo1 slideInLeft animated">
+				<img src="images/open.png" alt="" class="open_hot">
+				<img src="images/peo02.png" alt="" class="peo2 slideInUp animated">
+				<img src="images/peo03.png" alt="" class="peo3 slideInUp animated">
+				<img src="images/peo04.png" alt="" class="peo4 slideInRight animated">
+			</div>
+		</div>
+       	<img src="images/buttle01.png" alt="" class="buttle1">
+       	<img src="images/buttle02.png" alt="" class="buttle2">
+		<img src="images/airplane1.png" alt="" class="apl01">
+		<img src="images/airplane2.png" alt="" class="apl02">
+		<img src="images/huodi.png" alt="">
+		<img src="images/bott.png" alt="" class="bott">
+	</div>
+	<div class="tips hidden">
+    	<div class="content">
+            <img src="images/enter.png" alt="" class="tc_tl"/>
+        	<img src="images/close.png" alt="" class="close"/>
+        	<div>
+        	 	<p class="info">预约后我们会在游戏上线第一时间通知您!</p>
+            	<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="输入手机号码" class="tel"/>
+            	<div class="getcode"></div>
+            	<p class="error hidden">※ 您输入的手机号格式不正确喔~</p>
+        	</div>
+        </div>
+    </div>
+	<script src="common/js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/footer_new.js"></script>
+	<script>
+	// var order_url ='/commonMethod/yuyue.html';
+	// var verify_url ='/commonMethod/get-verify.html';
+	// var srf = $('meta[name="csrf-token"]').attr('content');
+	//预约弹框
+		$(".showtips").click(function(){
+    		$(".tips").removeClass("hidden");
+		});
+		$(".close").click(function(){
+   			$(".tips").addClass("hidden");
+    		$(".tel").val("");
+    		$(".error").hide();
+		});
+	//预约游戏
+		$(".getcode").click(function(){
+    		var my_phone = $(".tel").val();
+    		if(my_phone == "" || my_phone == undefined) {
+        		$(".error").show().text("※ 请输入您的手机号码~");
+        		return;
+    		}else if(!/^1[34578]\d{9}$/.test(my_phone)){
+        		$(".error").show().text("※ 您输入的手机号格式不正确喔~");
+        		return;
+    		}
+   // 			else{
+   //  			$.post(order_url,{ "phone":my_phone,"device_type":7,"cms_csrf":srf },function(data){
+   //      			if(data.status == 0){
+   //          			$(".tips").addClass("hidden");
+   //          			$(".tel").val("");
+   //          			alert(data.msg);
+   //      			}else{
+   //          			alert(data.msg);
+   //      			}
+   //  			}, 'json');
+			// }
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <title>任务管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- ********** begin style ********** -->
+    <!--  fonts  -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <!-- bootstrap style   -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- layout style  -->
+    <link href="css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+    <!-- table -->
+    <link href="css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="css/light.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <!-- 自定义-->
+    <link rel="stylesheet" href="css/style.css"/>
+    <!-- *********** end style *********** -->
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo ppage-sidebar-closed-hide-logo">
+
+<!-- header -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="logo" class="logo-default"/>
+            </a>
+
+            <div class="menu-toggler sidebar-toggler"></div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+           data-target=".navbar-collapse">
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN PAGE TOP -->
+        <div class="page-top">
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="separator hide"></li>
+                    <li>
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle play-type" data-hover="dropdown"
+                           data-close-others="true">
+                            <span class="text">游戏名称</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default" role="menu">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> 全民抢战 </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> 巅峰战舰 </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-angle-right"></i> 一起来飞车 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown dropdown-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                           data-close-others="true">
+								<span class="username username-hide-on-mobile">
+								admin
+								</span>
+                            <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
+                            &nbsp;
+                            <img alt="" class="img-circle" src="images/avatar1.jpg"/>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="login.html">
+                                    <i class="fa fa-user"></i> 退出 </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal-m">
+                                    <i class="fa fa-pencil-square"></i> 修改 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END PAGE TOP -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- / header -->
+
+<div class="clearfix"></div>
+
+<!-- container -->
+<div class="page-container">
+
+    <!-- left-nav -->
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu1" data-keep-expanded="false"
+                data-auto-scroll="true" data-slide-speed="200">
+                <li class="heading">
+                    <h3>网站统计后台</h3>
+                </li>
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-home"></i>
+                        <span class="title">首页</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="javascript:;">
+                        <i class="fa fa-rss"></i>
+                        <span class="title">参数配置</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="appManage.html">
+                                <i class="fa fa-angle-right"></i>
+                                应用管理</a>
+                        </li>
+                        <li>
+                            <a href="taskManage.html">
+                                <i class="fa fa-angle-right"></i>
+                                任务管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-filter"></i>
+                        <span class="title">数据统计</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="realTimeData.html">
+                                <i class="fa fa-angle-right"></i>
+                                实时数据</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="heading">
+                    <h3>系统管理</h3>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <i class="fa fa-gear"></i>
+                        <span class="title">系统设置</span>
+                        <span class="arrow "></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="userManage.html">
+                                <i class="fa fa-angle-right"></i>
+                                用户管理</a>
+                        </li>
+                        <li>
+                            <a href="roleManage.html">
+                                <i class="fa fa-angle-right"></i>
+                                角色管理</a>
+                        </li>
+                        <li>
+                            <a href="limitManage.html">
+                                <i class="fa fa-angle-right"></i>
+                                权限管理</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </div>
+    </div>
+    <!-- / left-nav -->
+
+    <!-- content -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--<div class="page-head">-->
+            <!--&lt;!&ndash; BEGIN PAGE TITLE &ndash;&gt;-->
+            <!--<div class="page-title">-->
+            <!--<h1>任务管理-->
+            <!--<small>123456789</small>-->
+            <!--</h1>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; END PAGE TITLE &ndash;&gt;-->
+            <!--</div>-->
+            <!-- breadcrumb-->
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">首页</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="#">参数配置</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a href="taskManage.html">任务管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- table list-->
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-list"></i>任务列表
+                    </div>
+                    <a href="addnote.html">
+                        <button type="button" value="添加"
+                                class="btn btn-success full-right addbtn"><i class="fa fa-plus"></i>新增
+                        </button>
+                    </a>
+                </div>
+                <div class="portlet-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-operate-group">
+                            <thead>
+                            <!-- search-->
+                            <div class="row search-wrap">
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" placeholder="创建人">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" placeholder="任务名称">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" placeholder="任务类型">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" class="form-control" placeholder="任务状态">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-sm yellow margin-bottom full-left">查询</button>
+                                </div>
+                            </div>
+                            <!-- /search-->
+                            <tr>
+                                <th>
+                                    序号
+                                </th>
+                                <th>
+                                    任务ID
+                                </th>
+                                <th>
+                                    创建人
+                                </th>
+                                <th>
+                                    任务名称
+                                </th>
+                                <th>
+                                    任务类型
+                                </th>
+                                <th>
+                                    任务状态
+                                </th>
+                                <th>
+                                    创建时间
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    chengjiang
+                                </td>
+                                <td>
+                                    影之刃首页
+                                </td>
+                                <td>
+                                    pv/vn
+                                </td>
+                                <td>
+                                    开启
+                                </td>
+                                <td>
+                                    2016-11-28
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" class="bg-primary"><i class="fa fa-eye"></i></a>
+                                    <a href="javascript:void(0);" class="bg-success"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:void(0);" class="bg-delete" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash-o "></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    2
+                                </td>
+                                <td>
+                                    2
+                                </td>
+                                <td>
+                                    123
+                                </td>
+                                <td>
+                                    VR首页
+                                </td>
+                                <td>
+                                    留存
+                                </td>
+                                <td>
+                                    关闭
+                                </td>
+                                <td>
+                                    2016-11-27
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" class="bg-primary"><i class="fa fa-book"></i></a>
+                                    <a href="javascript:void(0);" class="bg-success"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:void(0);" class="bg-delete" data-toggle="modal"
+                                       data-target="#myModal"><i class="fa fa-trash-o "></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                    4jw
+                                </td>
+                                <td>
+                                    装甲联盟
+                                </td>
+                                <td>
+                                    留存
+                                </td>
+                                <td>
+                                    开启
+                                </td>
+                                <td>
+                                    2016-11-25
+                                </td>
+                                <td>
+                                    <a href="javascript:void(0);" class="bg-primary"><i class="fa fa-book"></i></a>
+                                    <a href="javascript:void(0);" class="bg-success"><i class="fa fa-pencil"></i></a>
+                                    <a href="javascript:void(0);" class="bg-delete" data-toggle="modal"
+                                       data-target="#myModal"><i class="fa fa-trash-o "></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="dataTables_info_w">
+                            <div class="col-md-5">
+                                <div class="dataTables_info" role="status"
+                                     aria-live="polite">显示<span>1</span>到<span>10</span>条&nbsp共<span>10</span>页
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="dataTables_paginate paging_simple_numbers" id="sample_2_paginate">
+                                    <ul class="pagination">
+                                        <li class="paginate_button previous disabled" aria-controls="sample_2"
+                                            tabindex="0" id="sample_2_previous"><a href="#"><i
+                                                class="fa fa-angle-left"></i></a></li>
+                                        <li class="paginate_button active" aria-controls="sample_2" tabindex="0"><a
+                                                href="#">1</a></li>
+                                        <li class="paginate_button " aria-controls="sample_2" tabindex="0"><a
+                                                href="#">2</a></li>
+                                        <li class="paginate_button " aria-controls="sample_2" tabindex="0"><a
+                                                href="#">3</a></li>
+                                        <li class="paginate_button " aria-controls="sample_2" tabindex="0"><a
+                                                href="#">4</a></li>
+                                        <li class="paginate_button " aria-controls="sample_2" tabindex="0"><a
+                                                href="#">5</a></li>
+                                        <li class="paginate_button next" aria-controls="sample_2" tabindex="0"
+                                            id="sample_2_next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / table list-->
+        </div>
+    </div>
+    <!-- / content -->
+</div>
+<!-- / container -->
+<!-- 模态框（Modal） -->
+<div class="modal fade del-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content pN_backgroundView">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">提示</h4>
+            </div>
+            <div class="modal-body">
+                <span class="pormpt-infor">确定要删除吗?</span>
+            </div>
+            <div class="modal-footer">
+                <a href="">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" jar-unit="cancel">取消</button>
+                </a>
+                <a href="">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"
+                            data-toggle="modal" data-target="#hasphonedModal">确定
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer -->
+<div class="page-footer">
+    <div class="page-footer-inner">
+        2014 &copy; 英雄互娱 yingxiong.com.
+    </div>
+    <div class="scroll-to-top">
+        <i class="icon-arrow-up"></i>
+    </div>
+</div>
+<!-- / footer -->
+
+<!--[if lt IE 9]>
+<script src="lib/ie/respond.min.js"></script>
+<script src="lib/ie/excanvas.min.js"></script>
+<![endif]-->
+
+<!-- jquery  -->
+<script src="lib/jQuery/jquery.min.js" type="text/javascript"></script>
+<!-- bootstrap -->
+<script src="lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- layout script -->
+<script src="js/metronic.js" type="text/javascript"></script>
+<script src="js/layout.js" type="text/javascript"></script>
+<!-- 自定义script  -->
+<script src="js/main.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        Layout.init(); // init layout
+    });
+</script>
+</body>
+</html>

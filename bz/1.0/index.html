@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>兵者</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	</head>
+
+	<body>
+		<div class="kv">
+			<div class="wrap">
+				<img src="images/logo.png" alt="" class="logo" />
+				<img src="images/slogan.png" alt="" class="slogan" />
+				<div class="play">
+					<img src="images/play.png" alt="" />
+					<img src="images/s_play.png" alt="" />
+				</div>
+				<div class="kv_con">
+					<div class="kv_left">
+						<img src="images/icon.png" alt="" class="icon" />
+						<div class="kv_txt">
+							<p class="kv_tit">兵者</p>
+							<p class="k_tit">《兵者》是一款关于象棋和兵法的独立解谜游戏。在游戏中,玩家只能控制最弱小的棋子”兵”,去对抗强大的车马炮,吃掉敌人的老将。</p>
+						</div>
+					</div>
+					<div class="kv_right">
+						<div class="kv_down">
+							<a href="javascript:;"><img src="images/ios.png" alt="" /></a>
+							<a href="javascript:;"><img src="images/and.png" alt="" /></a>
+							<a href="javascript:;"><img src="images/tap.png" alt="" /></a>
+						</div>
+						<div class="kv_code">
+							<img src="images/erweima.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<img src="images/cloud4.png" alt="" class="cloud4" />
+		</div>
+		<div class="content">
+			<div class="wrap">
+				<div class="con">
+					<div class="left_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/banner.jpg" alt="" /></a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/banner.jpg" alt="" /></a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/banner.jpg" alt="" /></a>
+							</li>
+						</ul>
+						<div class="swiper-pagination1"></div>
+					</div>
+					<div class="right_news">
+						<div class="right_con">
+							<ul class="top_ul">
+								<li class="active">
+									<p>最新</p><img src="images/title.png" alt="" /></li>
+								<li>
+									<p>新闻</p><img src="images/title.png" alt="" /></li>
+								<li>
+									<p>攻略</p><img src="images/title.png" alt="" /></li>
+							</ul>
+							<div class="con_news">
+								<ul class="active">
+									<li>
+										<a href="javascript:;">
+											<em>【新闻】</em><span>即时语音开启！《林中路》开黑欢乐不断</span><i>11-30</i>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											<em>【新闻】</em><span>即时语音开启！《林中路》开黑欢乐不断</span><i>11-30</i>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											<em>【新闻】</em><span>即时语音开启！《林中路》开黑欢乐不断</span><i>11-30</i>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<img src="images/wanfa.png" alt="" class="wanfa" />
+				<div class="bottom_con">
+					<div class="bottom_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/pic.jpg" alt="" /><i></i><span></span></a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/pic.jpg" alt="" /><i></i><span></span></a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/pic.jpg" alt="" /><i></i><span></span></a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/pic.jpg" alt="" /><i></i><span></span></a>
+							</li>
+							<li class="swiper-slide">
+								<a href="javascript:;"><img src="images/pic.jpg" alt="" /><i></i><span></span></a>
+							</li>
+						</ul>
+						<div class="swiper-pagination"></div>
+
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper(".left_banner", {
+				loop:true,
+				autoplay:5000,
+				autoplayDisableOnInteraction : false,
+				pagination: '.swiper-pagination1',
+				observer: true,
+				observeParents: true,
+			});
+			$(".top_ul li").on("click", function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			var mySwiper = new Swiper('.bottom_banner', {
+				loop: true,
+				pagination: '.swiper-pagination',
+				effect: 'coverflow',
+				slidesPerView: 5,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 0,
+					stretch: -40,
+					depth: 200,
+					modifier: 1,
+					slideShadows: false
+				},
+				observer: true,
+				observeParents: true,
+				//				onClick: function(mySwiper, event) {
+				//					var index = mySwiper.clickedIndex - 2;
+				//					mySwiper.slideTo(index);
+				//					if(index < 0) {
+				//						mySwiper.fixLoop();
+				//						setTimeout(function() {
+				//							mySwiper.slideTo(mySwiper.activeIndex + index);
+				//						}, 30);
+				//					} else if(index > 10) {
+				//						mySwiper.fixLoop();
+				//						setTimeout(function() {
+				//							mySwiper.slideTo(mySwiper.activeIndex + index - 10);
+				//						}, 30);
+				//					}
+				//				},
+				//				onDoubleTap: function(mySwiper, event) {
+				//					var index = mySwiper.clickedIndex - 2;
+				//					mySwiper.slideTo(index);
+				//					if(index < 0) {
+				//						mySwiper.fixLoop();
+				//						setTimeout(function() {
+				//							mySwiper.slideTo(mySwiper.activeIndex + index);
+				//						}, 30);
+				//					} else if(index > 10) {
+				//						mySwiper.fixLoop();
+				//						setTimeout(function() {
+				//							mySwiper.slideTo(mySwiper.activeIndex + index - 10);
+				//						}, 30);
+				//					}
+				//				}
+			});
+		});
+	</script>
+
+</html>
