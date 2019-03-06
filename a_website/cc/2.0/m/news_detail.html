@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>英雄互娱-赤潮新闻详情</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+	<link rel="stylesheet" href="css/common.css">
+	
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="header" style="background:#000;">
+		<div class="header_title">
+			<a href="index.html"><img src="./images/pic_01.png"></a>
+		</div>
+		<div class="header_name">
+			<p>赤潮</p>
+			<p>决战之巅，谁与争锋</p>
+		</div>
+		<div class="header_load">
+			<div class="h_load">下载游戏</div>
+		</div>
+	</div>
+	<div class="top_H"></div>
+	<div class="n_t"><img src="./images/pic_25.png"></div>
+	<div class="nd_header">
+		<div class="nd_h">新服火爆开启！《赤潮》手游新版“帮派 论剑”等你挑战</div>
+		<div class="nd_small">发布于 2017/05/07</div>
+	</div>
+	<div class="nd_con">
+		<img src="./images/pic_26.png">
+		<h3>【全服帮派论剑 刀锋所向挑战整个江湖】</h3>
+		<p>作为新版本的核心，全服帮派论剑将跨越彼此服务器的场地局限，将整个大唐天下的群英荟萃于点将台上一决高下想参加这代表至高荣耀的“帮派论剑”，首先需要加入一个心仪的帮派当屏幕右侧出现“论剑大会”的提示时，即可点击进入点将台点将台的地面和墙壁上可以明显看到代表论剑的标志。玩家在点将台可以等待进行跨服帮派的对决。</p>
+		<img src="./images/pic_01.png">
+		<div>破空斩：天煞的基本攻击技能，对敌人进行五连击，给目标造成巨大的火伤害。</div>
+		<p>怒火燎原：小范围的AOE技能，在3秒内，对周围敌人造成火伤害，使用技能时可移动，并免疫不良状态。</p>
+		<p>横戈一击：对身前敌人造成火伤害，若命中敌人将获得5点怒气。</p>
+		<p>横扫千军：使身前小范围敌人定身，<img src="./images/pic_01.png">定身效果不可被解除，消耗所有的怒气，在3秒内对目标造成持</p>
+	</div>
+	<script src="js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>赤潮</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			p {
+				position: absolute;
+				z-index: 10;
+				text-align: center;
+				width: 100%;
+				left: 0;
+				top: 0;
+				color: #ffb400;
+				padding: 10px 0;
+				background: rgba(0, 0, 0, .5);
+				font-size: 12px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p>长按图片保存到相册，然后分享到朋友圈</p>
+		<img src="<{$image}>" />
+	</body>
+	<script src="<{$smarty.const.STATIC}>cc/lanjing/js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<!--<script>
+		document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' + encodeURIComponent(location.href) + '"><\/script>');
+	</script>
+	<script>
+		$(function() {
+			// initForm();
+			var share = {
+				imgUrl: 'http://cdnstatic.yingxiong.com/yqlfc/h5/journey/images/share_icon.jpg',
+				shareTitle: '生成我的十一假期规划',
+				descContent: '不装x，我们还是朋友',
+				lineLink: location.href
+			};
+			wx.config({
+				debug: false,
+				appId: wx_conf.appId,
+				timestamp: wx_conf.timestamp,
+				nonceStr: wx_conf.nonceStr,
+				signature: wx_conf.signature,
+				jsApiList: [
+					'onMenuShareTimeline',
+					'onMenuShareAppMessage',
+					'chooseImage',
+					'previewImage',
+					'uploadImage',
+					'downloadImage'
+				]
+			});
+			wx.ready(function() {
+				wx.onMenuShareAppMessage({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+						$.get('/h5/cc/ajax-stat-lj-share.html', {}, function() {
+
+						});
+					}
+				});
+				wx.onMenuShareTimeline({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+						$.get('/h5/cc/ajax-stat-lj-share.html', {}, function() {
+
+						});
+					},
+				});
+
+				wx.onMenuShareQQ({
+					title: share.shareTitle,
+					desc: share.descContent,
+					link: share.lineLink,
+					imgUrl: share.imgUrl,
+					success: function() {
+						$.get('/h5/cc/ajax-stat-lj-share.html', {}, function() {
+
+						});
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+			})
+
+		});
+	</script>-->
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>英雄互娱-赤潮新闻资讯</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/dropload.css">
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="header" style="background:#000;">
+		<div class="header_title">
+			<a href="index.html"><img src="./images/pic_01.png"></a>
+
+		</div>
+		<div class="header_name">
+			<p>赤潮</p>
+			<p>决战之巅，谁与争锋</p>
+		</div>
+		<div class="header_load">
+			<div class="h_load">下载游戏</div>
+		</div>
+	</div>
+	<div class="top_H"></div>
+	<div class="n_t"><img src="./images/pic_24.png"></div>
+	<ul class="c_news_detail">
+		<li class="c_news_detail01 active">
+			<img src="images/news_tab01.png" alt="" /><i>新闻</i>
+		</li>
+		<li class="c_news_detail02">
+			<img src="images/gg_tab01.png" alt="" /><i>公告</i>
+		</li>
+	</ul>
+	<div class="n_news_lists">
+		<div class="loading_enter"><img src="images/enter-loading.png" alt="" /></div>
+		<ul class="n_news_list">
+			<li class='opacity'><span>英雄巨作魔幻机甲《艺术战争：赤潮》内测英雄巨作魔幻机甲</span><i>05/07</i></li>
+			<li class='opacity'><span>英雄巨作魔幻机甲《艺术战争：赤潮》内测英雄巨作魔幻机甲</span><i>05/07</i></li>
+			<li class='opacity'><span>英雄巨作魔幻机甲《艺术战争：赤潮》内测英雄巨作魔幻机甲</span><i>05/07</i></li>
+			<li class='opacity'><span>英雄巨作魔幻机甲《艺术战争：赤潮》内测英雄巨作魔幻机甲</span><i>05/07</i></li>	
+		</ul>
+	</div>
+	<script src="./js/jquery-1.11.2.min.js"></script>
+	<script src="./js/common.js"></script>
+	<script src="./js/dropload.min.js"></script>
+	<script>
+		$('.n_news_lists').dropload({
+	        scrollArea : window,
+	        loadDownFn : function(me){
+	            $.ajax({
+	                type: 'POST',
+	                url: 'json/news.json',
+	                dataType: 'json',
+	                success: function(data){
+	                	console.log(data)
+	                	if(data.code=="0"){
+	                		var result = '';
+		                    for(var i = 0; i < data.lists.length; i++){
+		                        result += "<li class='opacity'><span>"+data.lists[i].desc+"</span><i>"+data.lists[i].time+"</i></li>";
+		                    }
+		                    // 为了测试，延迟1秒加载
+		                    setTimeout(function(){
+		                        $('.n_news_list').append(result);
+		                        // 每次数据加载完，必须重置
+		                        clickOff()
+		                        clickOn()
+		                        me.resetload();
+		                    },1000);
+	                	}
+	                	
+	                    
+	                },
+	                error: function(xhr, type){
+	                   	
+	                    // 即使加载出错，也得重置
+	                    me.resetload();
+	                }
+	            });
+	        }
+	    });
+	    function clickOn(){
+	    	$(".n_news_list").on("click", function(e){
+		    	e.stopPropagation();
+		    	location.href="news_detail.html";
+		    })
+	    };
+	    function clickOff(){
+	    	$(".n_news_list").off()
+	    }
+	   
+	   $(".c_news_detail li").on("click" , function (){
+	   		$(this).addClass("active").siblings().removeClass("active");
+	   });
+	</script>
+</body>
+</html>

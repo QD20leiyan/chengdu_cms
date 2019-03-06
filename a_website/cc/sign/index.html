@@ -1,0 +1,313 @@
+<html>
+
+	<head>
+		<title>赤潮报名页</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="contante">
+			<div class="item">
+				<img class="c_slogan" src="images/c_slogan.png" />
+				<div class="c_btn_box">
+					<a class="c_gw" href="javascript:"></a>
+					<a class="c_down" href="javascript:"></a>
+				</div>
+				<ul class="c_sign">
+					<li class="sign_title">
+						<img src="images/c_title2.png" />
+					</li>
+					<li>
+						<input type="text" class="sign_name" placeholder="主播昵称" />
+						<input type="text" class="sign_id" placeholder="主播数字ID" />
+					</li>
+					<li>
+						<input type="text" class="sign_name" placeholder="队员1昵称" />
+						<input type="text" class="sign_id" placeholder="队员1数字ID" />
+					</li>
+					<li>
+						<input type="text" class="sign_name" placeholder="队员2昵称" />
+						<input type="text" class="sign_id" placeholder="队员2数字ID" />
+					</li>
+					<li class="sign_line"></li>
+					<li>
+						<div class="sign_list">
+							<h1><span>选择直播平台</span><label></label></h1>
+							<ul>
+								<li>斗鱼<label></label></li>
+								<li>触手<label></label></li>
+								<li>熊猫<label></label></li>
+								<li>虎牙<label></label></li>
+								<li>战旗<label></label></li>
+								<li>YY<label></label></li>
+								<li>其他<label></label></li>
+							</ul>
+						</div>
+						<input type="text" class="sign_room" placeholder="输入直播房间号" />
+					</li>
+					<li class="sign_line"></li>
+					<li>
+						<input type="text" class="sign_phone" placeholder="输入您的手机号" />
+						<button type="button" class="sign_getCode">获取手机验证码</button>
+					</li>
+					<li>
+						<input type="text" class="sign_code" placeholder="输入您验证码" />
+					</li>
+					<li class="sign_btn">
+						<button type="button">
+							<img src="images/c_title3.png"/>
+						</button>
+					</li>
+				</ul>
+				<ul class="c_gz">
+					<li class="gz_title">
+						<img src="images/c_title1.png" />
+					</li>
+					<li>
+						<label>1</label>
+						<p>同一玩家不允许重复报名；</p>
+					</li>
+					<li>
+						<label>2</label>
+						<p>比赛奖励中，每一份获胜队伍的资源位只能给一名主播，若同一队伍中有多个主播，请队员协商解决；</p>
+
+					</li>
+					<li>
+						<label>3</label>
+						<p>请勿使用非报名ID进行比赛，一经发现视为违规，开除比赛资格；</p>
+
+					</li>
+					<li>
+						<label>4</label>
+						<p>设备及网络问题请选手自行解决；</p>
+
+					</li>
+					<li>
+						<label>5</label>
+						<p>超过原定比赛时间10分钟未到场选手视为弃权；</p>
+
+					</li>
+					<li>
+						<label>6</label>
+						<p>官方直播的比赛场次需等待解说到场，赛事最终解释权归英雄互娱所有。</p>
+
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--这是下载弹窗-->
+		<div class="load_tips">
+			<div class="content">
+				<img src="//cdnstatic.yingxiong.com/cc/2.0/images/tipsbg01.png?1.0.15" alt="">
+				<img src="//cdnstatic.yingxiong.com/cc/2.0/images/loadtips_close.png?1.0.15" alt="" class="loadtips_close">
+				<div>
+					<div class="btn">
+						<span class="ios"></span>
+						<span class="ad"></span>
+					</div>
+					<div class="load_div ">
+						<p><img src="images/jump_rts_pcgw.png"></p>
+						<!--<h4>预约成功后我们会联系您领取【赤潮全球开服礼包】,更有机会获得精美游戏周边、稀有兵种皮肤等超多奖励!</h4>-->
+					</div>
+					<div class="order_div hidden">
+						<input type="text" placeholder="请输入您的手机号码" class="load_tel">
+						<label class="err">请输入手机号码</label>
+						<div class="code">
+							<input type="text" placeholder="请输入验证码" class="codenum">
+							<button class="sendcode">发送验证码</button>
+						</div>
+						<label class="err">请输入验证码</label>
+						<button class="orderbtn">确认提交</button>
+						<h4>预约成功后我们会联系您领取【赤潮全球开服礼包】,更有机会获得精美游戏周边、稀有兵种皮肤等超多奖励!</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function() {
+			//全局
+			var get_code_url = '/commonMethod/get-verify';
+			var order_url = '/commonMethod/yuyue';
+
+			//事件
+			$(".sign_list ul li").click(function() {
+				var html = $(this).html();
+				$(".sign_list ul li").removeClass("active");
+				$(this).addClass("active");
+				$(".sign_list h1").html(html);
+			});
+
+			$(".c_down").click(function() {
+				down_show();
+			});
+
+			$(".loadtips_close").click(function() {
+				down_hide();
+			});
+
+			$(".ios").click(function() {
+				$(".btn").removeClass("btn-1");
+				$(".load_div ").removeClass("hidden");
+				$(".order_div ").addClass("hidden");
+			});
+
+			$(".ad").click(function() {
+				$(".btn").addClass("btn-1");
+				$(".load_div ").addClass("hidden");
+				$(".order_div ").removeClass("hidden");
+			});
+
+			$(".sendcode").click(function() {
+				if($(this).attr("click")) {
+					return;
+				}
+				$(this).attr("click", "true");
+				//验证手机号
+				if(checkPhone($(".load_tel"))) {
+					getDownCode();
+				} else {
+					$(this).attr("click", "");
+				}
+			});
+			//函数
+			function down_show() {
+				$(".load_tips").css({
+					display: "block"
+				})
+				setTimeout(function() {
+					$(".load_tips").css({
+						opacity: "1"
+					})
+				}, 20);
+			}
+
+			function down_hide() {
+				$(".load_tips").css({
+					opacity: "0"
+				})
+				setTimeout(function() {
+					$(".load_tips").css({
+						display: "none"
+					})
+				}, 200);
+			}
+
+			//获取安卓下载预约验证码
+			function getDownCode(theThis) {
+				$.ajax({
+					type: "post",
+					url: get_code_url,
+					data: {
+						"phone": $(".load_tel").val(),
+						"gift_id": "5",
+						"cms_csrf": cms_csrf
+					},
+					success: function(data) {
+
+						var data = JSON.parse(data);
+						if(data.status == 0) {
+							countdown(theThis, 60, function() {
+								theThis.attr("click", "");
+								theThis.html("获取验证码");
+							});
+						} else {
+							showErr(0, data.msg);
+							theThis.attr("click", "");
+						}
+
+					},
+					error: function() {
+						theThis.attr("click", "");
+						alert("网络异常~");
+					}
+				});
+
+			}
+			//预约礼包
+			function signAzDown(theThis) {
+				if(checkPhone($(".load_tel")) && checkCode($(".codenum"))) {
+					var data = {
+
+					};
+					$.ajax({
+						type: "post",
+						url: "/commonMethod/ajax-gift-code.html",
+						data: data,
+						success: function(data) {
+							var data = JSON.parse(data);
+							if(data.status == 0) {
+								alert("预约成功~");
+								hide_tc();
+							} else {
+								showErr(1, data.msg);
+								theThis.attr("click", "");
+							}
+						},
+						error: function(err) {
+							theThis.attr("click", "");
+							alert("网络异常~");
+						}
+					});
+				} else {
+					theThis.attr("click", "");
+				}
+			}
+			//验证手机号
+			function checkPhone(ele) {
+				var userPhone = ele;
+				if(userPhone.val() == "" || userPhone.val() == null) {
+					showErr(0, "请输入手机号码");
+					return false;
+				}
+				if(!(/^1(3|4|5|7|8)[0-9]\d{8}$/.test(userPhone.val()))) {
+					showErr(0, "请输入正确的手机号码");
+					return false;
+				}
+				hideErr(0);
+				return true;
+			}
+			//验证验证码
+			function checkCode(ele) {
+				var userCode = ele;
+				if(userCode.val() == "" || userCode.val() == null) {
+					showErr(1, "请输入验证码");
+					return false;
+				}
+				if(!(/^[0-9]*$/.test(userCode.val()))) {
+					showErr(1, "请输入正确的验证码");
+					return false;
+				}
+				hideErr(1);
+				return true;
+			}
+			//显示错误信息
+			function showErr(index, text) {
+				$(".err").eq(index).addClass("gift_err_show").html(text);
+			}
+			//取消错误信息
+			function hideErr(index) {
+				$(".err").eq(index).removeClass("gift_err_show");
+			}
+			//倒计时
+			function countdown(ele, time, callback) {
+				ele.html(time + "s");
+				var timer = setInterval(function() {
+					time--;
+					ele.html(time + "s");
+					if(time == 0) {
+						clearInterval(timer);
+						if(callback) {
+							callback();
+						}
+					}
+				}, 1000);
+			}
+
+		});
+	</script>
+
+</html>

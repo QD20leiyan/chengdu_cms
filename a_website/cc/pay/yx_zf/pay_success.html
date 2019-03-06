@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="keyword" content="英雄互娱，游戏，游戏体育">
+    <title>支付成功</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/success.css">
+</head>
+<body>
+<div class="p_main">
+    <div>
+        <div class="p_pay_success" style="display: block;">
+            <div>
+                <img src="images/p_suceess2_03.png">
+                <h1>支付成功！</h1>
+                <p>赶紧去游戏体验吧！ <span id="p_s_btime"></span>秒后跳回</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //充值成功显示页面
+        function pay_success_page(){
+            var timer;
+            var time = 3;
+            $("#p_s_btime").html(time);
+            // $(".p_pay_box").css("display","none");
+            // $(".p_pay_success").css("display","block");
+            //3秒返回方法
+            timer = setInterval(function(){
+                time--;
+                $("#p_s_btime").html(time);
+                if(time == 0){
+                    if(timer){
+                        clearInterval(timer);
+                    }
+                    $(".p_main").hide();
+                }
+            },1000);
+        }
+        pay_success_page();
+    });
+</script>
+</html>

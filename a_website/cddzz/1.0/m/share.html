@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<link rel="stylesheet" href="css/screen.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<title>吃豆大作战</title>
+	</head>
+
+	<body>
+		<div class="cd-bg">
+			<img class="logo" src="images/logo.png" title="" alt="" />
+			<div class="cd-content">
+				<!-- <div class="demo-box" id="demo-box1">
+      <h2 id="demo1" class="demo strong">《吃豆大战中》我叫：<span>豆豆123456</span></h2>
+    </div>
+ -->
+				<!-- <div class="cd-title">
+          <img src="images/cd-title.png">
+          <p id="cd-title" class="strong">豆豆123456</p>
+        </div> -->
+				<div class="cd-title">
+					<img class="title01" src="images/cd_title01.png" />
+					<p id="cd-title" class="strong"><span class="cd-name">豆豆123456</span></p>
+					<img class="title02" src="images/cd_title02.png" />
+				</div>
+				<div class="cd-text">
+					<img src="images/cd-txt.png">
+				</div>
+				<div class="cd-sharebtn">
+					<a href="javascript:;" class="iphonebtn">
+						<img src="images/iphonebtn.png">
+					</a>
+					<a href="http://downurl.yingxiong.com/url/dou_yxnfx.html" class="playbtn">
+						<img src="images/playbtn.png">
+					</a>
+					<a href="http://cdn.yingxiong.com/dou/dou-yxnfx-P33076A-1227.apk" class="androidbtn">
+						<img src="images/androidbtn.png">
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.fittext.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/circletype.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+			$('html').fitText(2);
+			//			$(".char11").prevAll().addClass("addclass")
+
+			var str = window.location.search;
+
+			function getQueryStringArgs(q) {
+				var qs = q.split('?')[1] || (location.search.length > 0 ? location.search.substring(1) : ''),
+					args = {},
+					items = qs.length ? qs.split('&') : [],
+					item = null,
+					name = null,
+					value = null,
+					i = 0,
+					len = items.length;
+
+				for(i = 0; i < len; i++) {
+					item = items[i].split('=');
+					name = decodeURIComponent(item[0]);
+					value = decodeURIComponent(item[1]);
+					if(name.length) {
+						args[name] = value;
+					}
+				}
+				return args;
+			}
+			var r = getQueryStringArgs(str);
+			$('#cd-title').text(r.name);
+
+			//			var r = window.location.search;
+			//			r = r.substring(r.indexOf("?"), r.length - 1);
+			//			$(".strong").text();
+
+			$('#cd-title').circleType({ radius: 500 });
+		})
+			
+//			$(".iphonebtn").click(function (){
+//				alert("亲爱的豆比们，很快就能舔到我了");
+//			})
+		</script>
+</html>

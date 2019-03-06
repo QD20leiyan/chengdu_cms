@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>与陌生人私奔</title>
+    <meta content="" name="Keywords">
+    <meta content="" name="Description">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section class="loading-box">
+        <img src="images/peo1.png" class="peo1">
+        <div class="aircraft"><img src="images/peo2.png" id="airImg"></div>
+        <div class="progress">
+         <div class="progress_bar">
+              <img src="images/progress1.png" id="bar">
+         </div>
+       
+        </div>
+        <p>loading...<span id="loading-txt">75%</span></p>
+    </section>
+    <section class="center-box">
+        <p class="img1"><img src="images/n_img1.png" alt=""/></p>
+        <p class="img8"><img src="images/n_img8.png" alt=""/></p>
+        <img src="images/peo3.png" alt="" class="peo3"/>
+        <img src="images/peo4.png" alt="" class="peo4"/>
+        <a href="javascript:;" class="open_tr"></a>
+    </section>
+    <section class="self_info">
+        <div class="user_phone" id="user_photo"><img src="images/erw_code.png" alt="" class="user_pic"></div>
+        <div class="form_info">
+            <i></i>
+            <input type="text" class='name' placeholder="输入昵称">
+            <p class="error error1">昵称是必填的哦~</p>
+            <input type="text" class='id' placeholder="输入游戏ID">
+            <i></i>
+            <input type="select" class='sex' placeholder="输入性别" readonly="readonly" value="">
+            <p class="set"></p>
+            <ul class="sex_sel">
+                <li data-id="1">男</li>
+                <li data-id="2">女</li>
+            </ul>
+            <p class="error error2">性别是必填的哦~</p>
+            <input type="text" class='wx_code' placeholder="输入微信号">
+        </div>
+        <img src="images/text1.png" alt="" class="text1"/>
+        <a href="javascript:;" class="open_pp"></a>
+    </section>
+    <section class="tch_box">
+        <div class="user_phone2" id="user_photo">
+            <img src="images/erw_code.png" alt="" class="user_pic">
+        </div>
+        <div class="user_sec">
+            <p class="user_name">昵称名字</p>
+            <p class="user_id">游戏ID:<span>123456</span></p>
+        </div>
+        <img src="images/text2.png" alt="" class="text2"/>
+        <img src="images/text3.png" alt="" class="text3"/>
+        <img src="images/text4.png" alt="" class="text4"/>
+        <div style="clear:both;"></div>
+        <div class="erw_code">
+            <img src="images/erw_code.png" alt="">
+            <img src="images/sys.png" alt="">
+        </div>
+        <a href="javascript:;" class="open_sb"></a>
+        <div class="tch_box_con">
+            <div class="tc_img">
+                <a href="javascript:;" class="close"></a>
+            </div>
+        </div>
+    </section>
+    <section class="tch_box2">
+        <div class="user_phone2"  id="user_photo">
+            <img src="images/erw_code.png" alt="" class="user_pic">
+        </div>
+        <div class="user_sec">
+            <p class="user_name">昵称名字</p>
+            <p class="user_id">游戏ID:<span>123456</span></p>
+        </div>
+        <img src="images/text2.png" alt="" class="text2"/>
+        <img src="images/text3.png" alt="" class="text3"/>
+        <img src="images/text4.png" alt="" class="text4"/>
+        <div style="clear:both;"></div>
+        <div class="erw_code">
+            <img src="images/erw_code.png" alt="">
+            <img src="images/sys.png" alt="">
+        </div>
+    </section>
+    <section class="tch_box3">
+        <img src="images/share2.jpg" alt="" class="jp_img">
+    </section>
+</div>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+var timer,timer1 = null;
+var leftNum = 85;
+var aircraft = 15;
+var loadingTxt = 15;
+var i='';
+var bar = $("#bar").css({"left":"-"+leftNum+"%"});
+var air = $("#airImg").css("marginLeft",aircraft+"%");
+var loading = $("#loading-txt").html(loadingTxt+"%");
+var verify_url='/h5/cd/ajax-cp.html';//开始匹配
+var share_url="/h5/cd/ajax-cp-share.html";//截屏分享
+var srf = $('meta[name="csrf-token"]').attr('content');
+timer=setInterval(function(){
+    leftNum--;
+    loadingTxt++;
+    $("#bar").css({"left":"-"+leftNum+"%"});
+    $("#loading-txt").html(loadingTxt+"%")
+    if(leftNum<=0 && loadingTxt==100){
+        clearInterval(timer);
+        $(".loading-box").hide();
+        $(".center-box").show();
+        $(".img1,.img8").addClass("zoomIn");
+        $(".img1,.img8,.open_tr,.peo4").addClass("animated");
+        $(".open_tr").addClass("slideInUp");
+        $(".peo4").addClass("slideInLeft");
+    }
+},50)
+timer1=setInterval(function(){
+    aircraft++;
+    $("#airImg").css("marginLeft",aircraft+"%");
+    if(aircraft==80){
+        clearInterval(timer1);
+    }
+},60)
+//错误提示显示
+function showErr(index, text) {
+  $(".error").eq(index).show().html(text);
+}
+//错误提示隐藏
+function hideErr(index) {
+  $(".error").eq(index).hide();
+}
+// 匹配请求
+    function init_pp(){
+      var my_name = $(".name").val();
+      var my_id = $(".id").val();
+      var my_wx = $(".wx_code").val();
+      var sex_id = i;
+      var type ='';
+      if(sex_id == 1) {
+         type = "男";
+      } else if(sex_id == 2) {
+         type = "女";
+      }
+      if(my_name == "" || my_name == undefined) {
+        showErr(0);
+        return;
+      }
+      hideErr(0);
+      if(sex_id == "" || sex_id == undefined) {
+        showErr(1);
+        return;
+      }
+      hideErr(1);
+      $.post(verify_url,{ "name":my_name,"game_id":my_id,"wechat_num":my_wx,"sex":type,"cms_csrf":srf },function(data){
+        if(data.status == 0){
+            $(".tch_box").show();
+            $(".self_info").hide();
+            $(".text2,.text4,.text3,.user_phone2,.open_sb").addClass("animated");
+            $(".text3").addClass("slideInLeft");
+            $(".user_phone2").addClass("bounce");
+            $(".text4").addClass("slideInRight");
+            $(".open_sb").addClass("slideInUp");
+            $(".text2").addClass("zoomIn");
+        }else{
+          alert(data.msg);
+        }
+      }, 'json');
+}
+$(function(){
+    $("input.sex").focus(function(){
+        var ul=$(".sex_sel");
+        if(ul.css("display")=="none"){
+            ul.slideDown();
+        }else{
+            ul.slideUp();
+        }
+    });
+    $(".sex_sel li").click(function(){
+        var li=$(this).text();
+        $(this).addClass("active").siblings().removeClass("active");
+        $("input.sex").val(li);
+        i=$(".sex_sel li.active").attr("data-id");
+        $(".sex_sel").hide();  
+    });
+    $(".set").click(function(){
+        var ul=$(".sex_sel");
+        if(ul.css("display")=="none"){
+            ul.slideDown();
+        }else{
+            ul.slideUp();
+        }
+    });
+    $(".open_tr").click(function(){
+        $(".center-box").hide();
+        $(".self_info").show();
+        $(".user_phone,.name,.id,.sex,.wx_code,.open_pp").addClass("animated");
+        $(".user_phone").addClass("bounce");
+        $(".name,.sex").addClass("slideInLeft");
+        $(".id,.wx_code").addClass("slideInRight");
+        $(".open_pp").addClass("slideInUp");
+    })
+    $(".open_pp").click(function(){
+        init_pp();
+    });
+    $(".tch_box .open_sb").click(function(){
+        $(".tch_box .tch_box_con").slideDown();
+    });
+    $(".tch_box .close").click(function(){
+        $(".tch_box .tch_box_con").slideUp();
+        $(".tch_box").hide();
+        $(".tch_box2").show();
+        var canvas2 = document.createElement("canvas");
+        let _canvas = document.querySelector('.tch_box2');
+        var w = parseInt(window.getComputedStyle(_canvas).width);
+        var h = parseInt(window.getComputedStyle(_canvas).height);
+        canvas2.width = w * 2;
+        canvas2.height = h * 2;
+        canvas2.style.width = w + "px";
+        canvas2.style.height = h + "px";
+        var context = canvas2.getContext("2d");
+        context.scale(2,2);
+        html2canvas(document.querySelector('.tch_box2'),{canvas:canvas2}).then(function(canvas) {
+            console.log(canvas.toDataURL());
+            $(".tch_box3").show();
+            $(".tch_box3 .jp_img").attr("src",canvas.toDataURL());
+        });
+    });
+});
+</script>
+<script>
+    $(function(){
+        // initForm();
+        var share = {
+            imgUrl      : '',
+            shareTitle  :'一日CP',
+            descContent : '',
+            lineLink    : 'http://game.yingxiong.com/h5/cd/cd-cp.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.ajax({
+                        'url':gift_url,
+                        'data':{"cms_csrf":srf},
+                        'type':'POST',
+                        'dataType':'Json',
+                        success:function(data){
+                            $.get('http://game.yingxiong.com/h5/cd/ajax-cp-share.html', {}, function(){
+
+                            });
+                        }
+                    });
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.get('http://game.yingxiong.com/h5/cd/ajax-cp-share.html', {}, function(){
+
+                    });
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+                    $.get('http://game.yingxiong.com/h5/cd/ajax-cp-share.html', {}, function(){
+
+                    });
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+    });
+</script>
+</body>
+</html>

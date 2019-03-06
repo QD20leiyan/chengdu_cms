@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>赤潮 官方网站 Red Tides Game Science</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link rel="stylesheet" href="../common/css/swiper-3.3.1.min.css">
+<link href="./images/icon.png" rel="shortcut icon">
+<link rel="stylesheet" href="./css/style.css">
+<script src="../common/js/jquery-1.11.2.min.js"></script>
+<script src="./js/jquery.fittext.js"></script>
+
+</head>
+<body>
+<div class="wrapper" style="height: 100%">
+	<div class="swiper-container" style="height: 100%">
+		<div class="swiper-wrapper" style="height: 100%">
+			<div class="swiper-slide page1" style="height: 100%">
+				<div id="main_t">
+					<div class="main_01">
+						<a href="javasctipt:;" class="load"></a>
+						<a href="javasctipt:;" class="order"></a>
+					</div>
+					
+				</div>
+			</div>
+			<div class="swiper-slide page2" style="height: 100%">
+				<div class="webchat"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="shadow">
+	<div class="order_alert">
+		<img src="./images/erweima.jpg" alt="">
+		<a href="javascript:;" class="close"></a>
+	</div>
+</div>
+<div class="up"></div>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=58618132" charset="UTF-8"></script>
+<script src="../common/js/swiper-3.3.1.jquery.min.js"></script>
+<script>
+	$("html").fitText(2);
+	$(".order_alert .close").click(function(){
+		$(".shadow").hide();
+	})
+	$(".order").click(function(){
+		$(".shadow").show();
+	})
+	var mySwiper = new Swiper ('.swiper-container', {
+	    direction: 'vertical',
+	    followFinger : !1,
+	    onSlideChangeStart : function(swiper){
+			swiper.activeIndex==1 ? $(".up").hide() : $(".up").show();
+        }
+  	})   
+  	$(".load").click(function(){
+  		alert("敬请期待");
+  	})
+</script>
+</body>
+</html>

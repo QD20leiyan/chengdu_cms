@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+    <title></title>
+</head>
+<body>
+    <div class="top_content">
+        <img src="images/top_icon.png" />
+        <div class="top_title">
+            <h4>蜀山战纪2</h4>
+            <p>正版授权东方异想仙侠手游</p>
+        </div>
+        <div class="h_nav">
+            <span class="d_t_t"></span>
+            <span class="d_t_m"></span>
+            <span class="d_t_b"></span>
+        </div>
+        <ul class="header_nav">
+            <li>
+                <a href="index.html">首页</a>
+            </li>
+            <li>
+                <a href="new_list.html">新闻</a>
+            </li>
+        </ul>
+        <a class="top_yyue" href="">游戏预约</a>
+    </div>
+    <div class="listBg">
+        <img src="images/logo.png" alt="" class="logo">
+        <div class="bg"></div>
+    </div>
+    <div class="news-info">
+        <div class="news-info-box">
+            <div class="back back2"><a href=""></a></div>
+            <div class="art_til">
+                <h3>炫酷场景首播展示不删档预约载具大 盘点开启</h3>
+                <p>发布时间：<span class="detail-time">2017-10-31</span><span>来源：本网站</span></p>
+            </div>
+            <div class="art_m">
+                <p>国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北</p>
+                <img src="images/shop1.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/swiper-3.4.0.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $('.top-btn').click(function () {
+        $(this).toggleClass('close');
+        $('.top-list').toggle(500);
+    })
+</script>
+</html>

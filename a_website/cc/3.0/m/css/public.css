@@ -1,0 +1,328 @@
+* {
+	box-sizing: border-box;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	font-family: Lucida Grande, 'Microsoft YaHei', "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+p,
+span,
+em,
+i,
+a {
+	line-height: inherit;
+	font-size: inherit;
+	-webkit-tap-highlight-color: transparent;
+}
+#J_prismPlayer {
+    height: 3rem !important;
+}
+
+#video_player {
+    height: 3rem!important;
+}
+a {
+	text-decoration: none;
+	color: inherit;
+}
+.prism-time-display{
+	font-size:1px;
+}
+html {
+	position: relative;
+	z-index: -1;
+}
+li{
+	list-style: none;
+}
+.donload-box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100vw;
+	height: 1rem;
+	background: #191919;
+	padding: 0 0.2rem;
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+}
+
+.donload-box .box-l {
+	display: flex;
+	align-items: center;
+}
+
+.donload-box .box-l img {
+	width: 0.68rem;
+	height: 0.75rem;
+}
+
+.donload-box .box-l .box-l-r {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 0.1rem;
+	line-height: 1.2;
+}
+
+.donload-box .box-l .box-l-r p {
+	font-size: 0.26rem;
+	color: #fff;
+}
+
+.donload-box .box-l .box-l-r span {
+	font-size: 0.18rem;
+	color: #999;
+}
+
+.donload-box .down-btn {
+	display: flex;
+	align-items: center;
+}
+.nav-tab{
+	width:2.4rem;
+	height:3.12rem;
+	background-color:rgba(0,0,0,.9);
+	position:fixed;
+	right:0;
+	top:1rem;
+	z-index:99;
+	font-size:0;
+	display: none;
+}
+.nav-tab a{
+	display: block;
+	width:2rem;
+	height:0.64rem;
+	margin:0.3rem auto;
+}
+.nav-tab a img{
+	display: block;
+	width:100%;
+	height:100%;
+}
+.donload-box .down-btn img {
+	width: 1.7rem;
+	height: 0.51rem;
+}
+/*资料页面底部通用样式*/
+.c_footer{
+	width:100%;
+	height:0.97rem;
+	background-color:#000;
+	position:fixed;
+	bottom:0;
+	left:0;
+	display: flex;
+	display: -webkit-flex;
+	justify-content: space-around;
+	border-top:1px solid #b5b5b5;
+}
+.c_footer li{
+	width:auto;
+	height:100%;
+	overflow: hidden;
+	position:relative;
+	display: flex;
+	display: -webkit-flex;
+}
+.c_footer li a{
+	display: block;
+	width:100%;
+	height:100%;
+	color:#999;
+}
+.c_footer li a .b_img{
+	width:0.48rem;
+	height:0.42rem;
+	overflow: hidden;
+	margin:0 auto;
+	margin-top:0.14rem;
+}
+.c_footer li a .b_img img{
+	display: block;
+	width:100%;
+	height:100%;
+}
+.c_footer li a p{
+	font-size:0.2rem;
+	color:#999;
+	text-align: center;
+}
+.c_footer li.active a p{
+	color:#962c2c;
+}
+.c_footer li.active a .b_img img:first-child{
+	display: none;
+}
+/*下载弹框*/
+.hidden {
+  display: none;
+}
+.load_tips {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.load_tips .content {
+  width: 85%;
+  margin-left: 7.5%;
+  position: relative;
+  top: 45%;
+  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+}
+.load_tips .content img {
+  width: 4.5rem;
+  position: relative;
+  z-index: 1;
+  bottom: -0.6rem;
+}
+.load_tips .content .loadtips_close {
+  position: absolute;
+  width: 0.48rem;
+  right: 0;
+  top: 0.6rem;
+}
+.load_tips .content > div {
+  position: relative;
+  z-index: 2;
+  padding-top: 0.3rem;
+  background: url(../images/tipsbg.png?1506491873);
+  background-size: 100% 100%;
+  width: 100%;
+  height: 4.5rem;
+}
+.load_tips .content > div .btn,
+.load_tips .content > div .btn-1,
+.load_tips .content > div .btn_en .btn,
+.load_tips .content > div .btn_en .btn-1 {
+  width: 4.5rem;
+  background: url(../images/down_ios.png?1506491873);
+  background-size: 100% 100%;
+  height: 0.6rem;
+  margin: 0 auto;
+  position: relative;
+}
+.load_tips .content > div .btn-1 {
+  background: url(../images/android.png?1506491873);
+  background-size: 100% 100%;
+}
+.load_tips .content > div .btn_en .btn {
+  background: url(../images/down_iosen.png?1506491873);
+  background-size: 100% 100%;
+}
+.load_tips .content > div .btn_en .btn-1 {
+  background: url(../images/android_en.png?1506491873);
+  background-size: 100% 100%;
+}
+.load_tips .content > div .btn .ios {
+  display: inline-block;
+  width: 50%;
+  height: 0.6rem;
+  float: left;
+}
+.load_tips .content > div .btn .ad {
+  display: inline-block;
+  width: 50%;
+  height: 0.6rem;
+  float: right;
+}
+.load_tips .content > div input {
+  width: 4.5rem;
+  height: 0.5rem;
+  margin: 0 auto;
+  margin-bottom: 0.3rem;
+  margin-top: 0.3rem;
+  border: 1px solid #992626;
+  background: #F8F8F8;
+  text-indent: 0.2rem;
+  display: block;
+  font-size: 0.2rem;
+  color: #8C7272;
+  line-height: 1.5;
+}
+.load_tips .content > div input::-webkit-input-placeholder {
+  color: #8C7272;
+  font-size: 0.2rem;
+  line-height: 1.5;
+}
+.load_tips .content > div input:-moz-placeholder {
+  color: #8C7272;
+  font-size: 0.2rem;
+  line-height: 1.5;
+}
+.load_tips .content > div input::-moz-placeholder {
+  color: #8C7272;
+  font-size: 0.2rem;
+  line-height: 1.5;
+}
+.load_tips .content > div input:-ms-input-placeholder {
+  color: #8C7272;
+  font-size: 0.2rem;
+  line-height: 1.5;
+}
+.load_tips .content > div .code {
+  overflow: hidden;
+  width: 4.5rem;
+  margin: 0 auto;
+}
+.load_tips .content > div .code input {
+  width: 60%;
+  display: inline-block;
+  height: 0.5rem;
+  float: left;
+  margin: 0;
+}
+.load_tips .content > div .code button {
+  width: 35%;
+  height: 0.5rem;
+  background: #860000;
+  border: 1px solid #860000;
+  color: #fff;
+  font-size: 0.24rem;
+  float: right;
+}
+.load_tips .content > div .orderbtn {
+  width: 4.5rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  font-size: 0.24rem;
+  background: #860000;
+  border: 1px solid #860000;
+  color: #fff;
+  outline: none;
+  margin: 0 auto;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.load_tips .content > div h4 {
+  color: #2F1D1D;
+  font-size: 0.2rem;
+  font-weight: 100;
+  width: 4.5rem;
+  margin: 0 auto;
+}
+.load_tips .load_div p {
+  text-align: center;
+}
+.load_tips .load_div img {
+  width: 2rem;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+.load_tips .order_div .soon {
+  text-align: center;
+  color: #2F1D1D;
+  font-size: 0.16rem;
+}

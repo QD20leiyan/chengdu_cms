@@ -1,0 +1,489 @@
+*{
+	-webkit-tap-highlight-color:transparent;
+	box-sizing: border-box;
+	font-style: normal;
+}
+.hidden{display:none;}
+/*公共头部*/
+.donload-box {
+	position: fixed;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 20rem;
+	height: 3.125rem;
+	background: #191919;
+	padding: 0 0.625rem;
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+}
+.donload-box .box-l {
+	display: flex;
+	align-items: center;
+}
+.donload-box .box-l img {
+	width: 2.125rem;
+	height: 2.34375rem;
+}
+.donload-box .box-l .box-l-r {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: .3125rem;
+	line-height: 1.2;
+}
+.donload-box .box-l .box-l-r p {
+	font-size: .8125rem;
+	color: #fff;
+}
+.donload-box .box-l .box-l-r span {
+	font-size: 0.5625rem;
+	color: #999;
+}
+.donload-box .down-btn {
+	display: flex;
+	align-items: center;
+}
+.donload-box .down-btn img {
+	width: 5.3125rem;
+	height: 1.59375rem;
+}
+
+/*下载弹框*/
+.load_tips {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.8);
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.load_tips .content {
+	width: 85%;
+	margin-left: 7.5%;
+	position: relative;
+	top: 45%;
+	transform: translate(0,-50%);
+	-webkit-transform: translate(0,-50%);
+}
+.load_tips .content img {
+	width: 14.375rem;
+	position: relative;
+	z-index: 1;
+}
+.load_tips .content .loadtips_close {
+	position: absolute;
+	width: 1.375rem;
+	right: -.8rem;
+	top: 1rem;
+}
+.load_tips .content>div {
+	position: relative;
+	z-index: 2;
+	margin-top: -2.5rem;
+	background: url(../../../2.0/m/images/tipsbg.png?1506491873);
+	background-size: 100% 100%;
+	width: 17.188rem;
+	height: 14.688rem;
+}
+.load_tips .content>div .btn,.load_tips .content>div .btn-1,.load_tips .content>div .btn_en .btn,.load_tips .content>div .btn_en .btn-1{
+	width: 15.188rem;
+	background: url(../../../2.0/m/images/down_ios.png?1506491873);
+	background-size: 100% 100%;
+	height: 1.875rem;
+	margin: 0 auto;
+	position: relative;
+	top: 1.5rem;
+}
+.load_tips .content>div .btn-1{
+	background: url(../../../2.0/m/images/android.png?1506491873);
+	background-size: 100% 100%;
+}
+.load_tips .content>div .btn_en .btn{background: url(../../../2.0/m/images/down_iosen.png?1506491873);background-size: 100% 100%;}
+.load_tips .content>div .btn_en .btn-1{background: url(../../../2.0/m/images/android_en.png?1506491873);background-size: 100% 100%;}
+.load_tips .content>div .btn .ios{
+	display: inline-block;
+	width: 7.55rem;
+	height: 1.804rem;
+	float: left;
+}
+.load_tips .content>div .btn .ad{
+	display: inline-block;
+	width: 7.55rem;
+	height: 1.804rem;
+	float: right;
+}
+.load_tips .content>div input {
+	width: 13.313rem;
+	height: 1.563rem;
+	margin: 0 auto;
+	margin-top: 2.5rem;
+	margin-bottom: .8rem;
+	border: 1px solid #992626;
+	background: #F8F8F8;
+	text-indent: 15px;
+	display: block;
+	font-size:.55rem;
+	color: #8C7272;
+	line-height: 1.563rem;
+}
+.load_tips .content>div input::-webkit-input-placeholder {
+	color: #8C7272;
+	font-size:.6rem;
+	line-height: 1.438rem;
+}
+.load_tips .content>div input:-moz-placeholder {color: #8C7272;
+	font-size:.55rem;line-height: 1.438rem;}
+.load_tips .content>div input::-moz-placeholder {color: #8C7272;
+	font-size:.55rem;line-height: 1.438rem;}
+.load_tips .content>div input:-ms-input-placeholder { color: #8C7272;
+	font-size:.55rem;line-height: 1.438rem;}
+.load_tips .content>div .code{
+	overflow: hidden;
+	width: 13.438rem;
+	margin: 0 auto;
+}
+.load_tips .content>div .code input{
+	width: 7.6879rem;
+	display: inline-block;
+	height: 1.563rem;
+	float: left;
+	margin: 0;
+}
+.load_tips .content>div .code button{
+	width: 5.313rem;
+	height: 1.6875rem;
+	background: #860000;
+	border: 1px solid #860000;
+	color: #fff;
+	font-size: .7rem;
+	float: right;
+}
+.load_tips .content>div .orderbtn {
+	width: 13.438rem;
+	height: 1.6875rem;
+	line-height: 1.6875rem;
+	font-size: .7rem;
+	background: #860000;
+	border: 1px solid #860000;
+	color: #fff;
+	outline: none;
+	margin: 0 auto;
+	margin-top:.8rem;
+	margin-bottom:.8rem;
+	display: block;
+}
+.load_tips .content>div h4{
+	color: #2F1D1D;
+	font-size: .5rem;
+	font-weight: 100;
+	width: 13.438rem;
+	margin: 0 auto;
+}
+.load_tips .load_div p{
+	text-align:center;
+}
+.load_tips .load_div img{
+	width: 6rem;
+	margin-top: 3rem;
+	margin-bottom: 15px;
+	display: inline-block;
+}
+.load_tips .order_div .soon{
+	text-align: center;
+	color: #2F1D1D;
+	font-size: 24px;
+	margin-top:70px;
+}
+
+/*主播报名*/
+.scroll_box{
+	position:absolute;
+	overflow-y: auto;
+	top:0;
+	bottom:81px;
+}
+#Hero-bar{
+	position:absolute!important;
+	bottom:0;
+}
+.apply_contnet .apply_banner {
+	position: relative;
+	margin-bottom: 1.5625rem;
+}
+.apply_contnet .apply_banner img {
+	width: 100%;
+}
+.apply_contnet .apply_banner>a {
+	position: absolute;
+	left: 1rem;
+	top: 22.5rem;
+	display: inline-block;
+	width: 7.5rem;
+	height: 3.4375rem;
+	background: url("../images/apply_btn01.png?1506491873");
+	background-size: 100% 100%;
+}
+.apply_contnet .apply_info {
+	margin-top: 2.9375rem;
+	padding: 0 0.9375rem;
+}
+.apply_contnet .apply_info>p {
+	margin-bottom: 1.5rem;
+	font-size: .75rem;
+	color: #000;
+}
+.apply_contnet p.title img {
+	margin: 0 auto;
+	width: 8.375rem;
+	height: 1.125rem;
+}
+.apply_contnet .apply_info>p>.num {
+	float: left;
+	width: 1rem;
+	height:1.125rem;
+	line-height: 1.125rem;
+	display: inline-block;
+	text-align: center;
+	margin-right: .625rem;
+	font-size: .625rem;
+	font-style:normal;
+	color: #D43939;
+	background: url("../images/apply_th.png?1506491873") no-repeat;
+	background-size:100% 100%;
+}
+.apply_contnet .apply_info>p>span{width:16rem;display:inline-block;}
+.apply_contnet .apply_bottom img{
+	width: 15.1875rem;
+	float: right;
+}
+.apply_contnet .apply_form{
+	padding:0 .9375rem;
+}
+.apply_contnet .apply_form p.title img {
+	margin-bottom:1.5625rem;
+}
+.apply_contnet .apply_form .form{
+	width: 8.625rem;
+	height:2.25rem;
+	/*line-height:2.25rem;*/
+	font-size:.8125rem;
+	margin-bottom:.9375rem;
+	color: #000;
+	text-indent:.625rem;
+	background:#FFF5F5;
+	border:1px solid #FFC9C8;
+}
+.apply_contnet .apply_form .form.send_code{
+	text-align:center;
+	line-height:2.25rem;
+	color: #d73230;
+	border: 1px solid #d73230;
+}
+.apply_contnet .apply_form .form.yzm{width:18.125rem;}
+.apply_contnet .apply_form .form:focus{border:1px solid #D6312F;background:#fff;}
+.apply_contnet .apply_form .form::-webkit-input-placeholder {color:#C5A5A5;}
+.apply_contnet .apply_form .form:-moz-placeholder {color:#C5A5A5;}
+.apply_contnet .apply_form .form::-moz-placeholder {color:#C5A5A5;}
+.apply_contnet .apply_form .form:-ms-input-placeholder {color:#C5A5A5;}
+.apply_contnet .apply_form .form:nth-child(2n){
+	float:right;
+}
+.apply_contnet .apply_form ul.form_box>li{height: 2.25rem;}
+.apply_contnet .apply_form li>.order_btn{
+	width: 13.4375rem;
+	height: 2.5625rem;
+	background: #D43939;
+	font-size: 1.5rem;
+	color: #fff;
+	font-weight: 600;
+	outline: none;
+	border: none;
+	margin: 0 auto;
+	display: block;
+	margin-top: 1rem;
+}
+.sign_list {
+	width: 8.75rem;
+	height: 2.25rem;
+	margin-bottom: .9375rem;
+	position: relative;
+	display: inline-block;
+}
+.sign_list h1 {
+	position: relative;
+	font-size:.8125rem;
+	line-height: 2.25rem;
+	position: relative;
+	color:#C5A5A5;
+	font-weight:100;
+	text-indent: .625rem;
+	background:#FFF5F5;
+	border:1px solid #FFC9C8;
+}
+.sign_list h1 input{
+	position: absolute;
+	border:none!important;
+	/*width: 6.625rem!important;*/
+	padding-right: 1.5rem;
+	display:none;
+	left: 0;
+}
+.sign_list h1 label {
+	display: block;
+	width: .5625rem;
+	height: .40625rem;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: .625rem;
+	bottom: 0;
+	background: url(../images/c_icon2.png) no-repeat;
+	background-size: cover;
+}
+.sign_list ul {
+	width: 100%;
+	height: 0;
+	position: absolute;
+	top: 2.375rem;
+	left: 0;
+	z-index: 99;
+	border-left: 1px solid #ffb3b2;
+	border-right: 1px solid #ffb3b2;
+	box-sizing: border-box;
+	overflow: hidden;
+	transition: all .2s;
+	-webkit-transition: all .2s;
+
+}
+.sign_list ul.show{
+	height:15.75rem;
+}
+.sign_list ul li {
+	position: relative;
+	font-size:.8125rem;
+	line-height: 2.25rem;
+	height: 2.25rem;
+	text-indent: .625rem;
+	box-sizing: border-box;
+	background: #fff;
+	color: #666;
+	border-bottom: 1px solid #FFC9C8;
+	transition: all .2s;
+	-webkit-transition: all .2s;
+}
+.sign_list ul li:active,.sign_list ul li.active {
+	background: #d43939;
+	color: #fff;
+}
+.sign_list ul li.active label {
+	display: block;
+}
+.sign_list ul li label {
+	display: none;
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 13px;
+	height: 10px;
+	background: url(../images/c_icon1.png) no-repeat;
+	background-size: cover;
+}
+.sign_list ul li:active label {
+	display: block;
+}
+.err {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	font-size: .625rem;
+	color: #F71C2F;
+	margin-top: .125rem;
+	margin-bottom: .125rem;
+	visibility: hidden;
+}
+.err_show {
+	visibility: visible;
+}
+.apply_contnet .sign_line {
+	width: 100%;
+	height: 1px!important;
+	margin-bottom: .9375rem;
+	border-bottom: 1px dashed #e0c9c9;
+	box-sizing: border-box;
+}
+
+/*报名成功弹框*/
+.apply_tips {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.9);
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.apply_tips .content {
+	position: relative;
+	top: 50%;
+	width: 19.3475rem;
+	height: 20.53125rem;
+	background: url(../images/apply_tipsbg2.png) 10px 0;
+	background-size: 100% 100%;
+	transform: translate(0,-50%);
+	-webkit-transform: translate(0,-50%);
+	margin: 0 auto;
+}
+.apply_tips .content img {
+	width: 12rem;
+	position: relative;
+	z-index: 1;
+}
+.apply_tips .content .apply_close {
+	position: absolute;
+	width: 1.125rem;
+	right: 2.5rem;
+	top: 4rem;
+}
+.apply_tips .content>div {
+	position: relative;
+	z-index: 2;
+	width: 14rem;
+	top: 8rem;
+	margin: 0 auto;
+}
+.apply_tips .content>div>p{
+	font-size: .9375rem;
+	color: #fff;
+	margin-bottom: .625rem;
+}
+.apply_tips .content>div>h2{
+	font-size: 1.5rem;
+	font-weight: 100;
+	color: #fff;
+	margin-bottom: 1.5625rem;
+	margin-top: -.625rem;
+}
+.apply_tips .content .apply_join{
+	display: block;
+	position: absolute;
+	z-index: 2;
+	width: 9.84375rem;
+	height: 2.625rem;
+	top: 17.9rem;
+	left: 50%;
+	margin: 0 auto;
+	margin-left: -4.921875rem;
+	background: url(../images/apply_join.png);
+	background-size: 100% 100%;
+
+}

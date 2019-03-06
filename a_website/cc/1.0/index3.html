@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>赤潮 官方网站 Red Tides Game Science</title>
+</head>
+<body>
+
+
+<script>
+
+//alert( Modernizr.animation );
+alert( navigator.userAgent );
+
+var isNotSupport = false;
+var userAgent = navigator.userAgent,   
+rMsie = /(msie\s|trident.*rv:)([\w.]+)/,   
+rFirefox = /(firefox)\/([\w.]+)/,   
+rOpera = /(opera).+version\/([\w.]+)/,   
+rChrome = /(chrome)\/([\w.]+)/,   
+rSafari = /version\/([\w.]+).*(safari)/;
+
+var browser = "-";  
+var version = 0;  
+
+var ua = userAgent.toLowerCase();  
+function uaMatch(ua) {  
+	var match = rMsie.exec(ua);  
+	if (match != null) {  
+		return { browser : "IE", version : match[2] || "0" };  
+	}  
+	var match = rFirefox.exec(ua);  
+	if (match != null) {  
+		return { browser : match[1] || "", version : match[2] || "0" };  
+	}  
+	var match = rOpera.exec(ua);  
+	if (match != null) {  
+		return { browser : match[1] || "", version : match[2] || "0" };  
+	}  
+	var match = rChrome.exec(ua);  
+	if (match != null) {  
+		return { browser : match[1] || "", version : match[2] || "0" };  
+	}  
+	var match = rSafari.exec(ua);  
+	if (match != null) {  
+		return { browser : match[2] || "", version : match[1] || "0" };  
+	} 
+	if (match != null) {  
+		return { browser : "", version : "0" };  
+	}  
+}  
+var browserMatch = uaMatch(userAgent.toLowerCase());  
+if( browserMatch.browser ) {  
+	browser = browserMatch.browser.toLowerCase();  
+	version = browserMatch.version.toLowerCase();  
+}  
+
+
+if( browser != "chrome" && browser != "ie" )
+{
+	isNotSupport = true
+}
+
+if( browser == "ie" && parseFloat(version) < 11 )
+{
+	isNotSupport = true
+}
+
+if( browser == "chrome" && parseFloat(version) < 44 )
+{
+	isNotSupport = true
+}
+
+alert( browser + version );
+
+if( isNotSupport == true )
+{
+	document.body.innerHTML = "";
+	alert( "请使用Chrome最新版本浏览器访问本网站!!" );
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+
+@width: 19.2%;
+@height: 9.4%;
+
+@keyframes translate1 {
+  from{
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+  }
+  to{
+    transform: translate3d(-50px,0,0);
+    -webkit-transform: translate3d(-50px,0,0);
+  }
+}
+@-webkit-keyframes translate1 {
+  from{
+    transform: translate3d(0,0,0);
+    -webkit-transform: translate3d(0,0,0);
+  }
+  to{
+    transform: translate3d(-50px,0,0);
+    -webkit-transform: translate3d(-50px,0,0);
+  }
+}
+
+@keyframes scale1 {
+  from{
+    transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+  }
+  to{
+    transform: scale(1.15,1.15);
+    -webkit-transform: scale(1.15,1.15);
+  }
+}
+@-webkit-keyframes rotate1 {
+  from{
+    transform: scale(1,1);
+    -webkit-transform: scale(1,1);
+  }
+  to{
+    transform: scale(1.15,1.15);
+    -webkit-transform: scale(1.15,1.15);
+  }
+}
+
+@keyframes shake {
+  0%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  5%{
+    transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+  }
+  10%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  15%{
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+  }
+  20%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes shake {
+  0%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  5%{
+    transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+  }
+  10%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  15%{
+    transform: rotate(10deg);
+    -webkit-transform: rotate(10deg);
+  }
+  20%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+
+html,body{
+  font-family: "Microsoft YaHei UI";
+}
+a{
+  text-decoration: none;
+}
+.cd-container{
+  width: 100%;
+  min-width: 1200px;
+  margin: 0 auto;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  >img{
+    width: 100%;
+    height: auto;
+    display: block;
+    line-height: 0;
+  }
+  >div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.cd-logo{
+  width: 398/@width;
+  display: block;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  margin-top: 5/@height;
+}
+.cd-title{
+  width: 590/@width;
+  display: block;
+  margin: 0 auto;
+  margin-top: 5/@height;
+}
+.cd-play-icon{
+  width: 79/@width;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15/@height;
+  animation: rotate1 1s linear infinite alternate;
+  -webkit-animation: rotate1 1s linear infinite alternate;
+}
+.cd-play-icon:hover{
+  cursor: pointer;
+}
+.cd-yun{
+  width: 442/@width;
+  height: 94/@height;
+  position: absolute;
+  top: 157/@height;
+  left: 560/@width;
+  z-index: 1;
+  animation: translate1 2.5s linear infinite alternate;
+  -webkit-animation: translate1 2.5s linear infinite alternate;
+}
+.cd-yy{
+  width: 100%;
+  height: 80/@height;
+  position: absolute;
+  top: 46.45%;
+  text-align: center;
+  z-index: 2;
+  li{
+    width: 270/@width;
+    height: 80/@height;
+    display: inline-block;
+    margin: 0 14/@width 0 0;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+      line-height: 0;
+    }
+  }
+  li.cd-ty-btn{
+    animation: shake 2s linear infinite;
+    -webkit-animation: shake 2s linear infinite;
+  }
+  li.no-margin{
+    margin: 0;
+  }
+}
+
+.cd-master{
+  width: 100%;
+  height: 510/@height;
+  position: absolute;
+  top: 44.8%;
+  z-index: 1;
+  overflow: hidden;
+  li{
+    position: relative;
+    float: left;
+    background: url("../images/mastaer_bimg.png") no-repeat;
+    background-size: cover;
+    img{
+      width: 100%;
+      height: auto;
+    }
+    img.m-dh{
+      opacity: 0;
+      visibility: hidden\9;
+      transition: all .3s;
+      -webkit-transition: all .3s;
+    }
+  }
+  li:hover{
+    img.m-dh{
+      opacity: 1;
+      visibility: visible\9;
+    }
+  }
+  li.m1{
+    width: 420/@width;
+    height: 73.92%;
+    margin: 7.4% 0 0 11.7%;
+    z-index: 4;
+    img.m-dh{
+      width: 33.33%;
+      height: auto;
+      margin: 17.24% 0 0 54.76%;
+    }
+  }
+  li.m2{
+    width: 420/@width;
+    height: 93.5%;
+    margin: 0.6% 0 0 -70/@width;
+    z-index: 3;
+    img.m-dh{
+      width: 34.12%;
+      height: auto;
+      margin: 20.4% 0 0 51.18%;
+    }
+  }
+  li.m3{
+    width: 300/@width;
+    height: 77.05%;
+    margin: 5.5% 0 0 -50/@width;
+    z-index: 2;
+    img.m-dh{
+      width: 50%;
+      height: auto;
+      margin: 9% 0 0 22%;
+    }
+  }
+  li.m4{
+    width: 260/@width;
+    height: 58.82%;
+    margin: 11% 0 0 0;
+    z-index: 1;
+    img{
+      width: 42.3%;
+      height: auto;
+      position: absolute;
+      top: 63.33%;
+      right: 15.38%;
+    }
+    img.m-dh{
+      width: 54.61%;
+      height: auto;
+      position: static;
+      margin: 14% 0 0 20%;
+    }
+  }
+}
+
+.ewm-box{
+  width: 180px;
+  height: 427px;
+  position: absolute;
+  top: 250/@height;
+  right: 170/@width;
+  padding: 10px 0 0 0;
+  box-sizing: border-box;
+  background: url("../images/ewm_bimg.png") no-repeat;
+  background-size: cover;
+  z-index: 9;
+  > div{
+    width: 158px;
+    height: 173px;
+    position: relative;
+    margin: 0 0 0 10px;
+    background: url("../images/ewm_bimg2.png") no-repeat;
+    background-size: cover;
+    img{
+      width: 142px;
+      height: 142px;
+      position: absolute;
+      margin: auto;
+      top: 10px;
+      left: 5px;
+    }
+  }
+
+  h1{
+    margin: 8px 0 6px 0;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+  }
+  p{
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+  }
+  >a {
+    img{
+      display: block;
+      margin: 0 auto;
+      margin-top: 12px;
+    }
+  }
+  label{
+    display: block;
+    width: 80%;
+    height: 1px;
+    margin: 0 auto;
+    margin-top: 12px;
+    border-top: 1px dashed #fff;
+  }
+}
+.cd-gf{
+  width: 100%;
+  height: 45px;
+  margin: 20px 0 0 0;
+  li{
+    float: left;
+    width: 33.3%;
+    height: auto;
+    position: relative;
+
+    a{
+      display: block;
+      width: 100%;
+      height: auto;
+      text-align: center;
+      div{
+        width: 27px;
+        height: 23px;
+        position: relative;
+        display: inline-block;
+        img{
+          width: 100%;
+          height: 100%;
+          display: block;
+          line-height: 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          visibility: hidden\9;
+          transition: all .3s;
+          -webkit-transition: all .3s;
+        }
+        img.show{
+          opacity: 1;
+          visibility: visible\9;
+        }
+      }
+      p{
+        display: block;
+        width: 100%;
+        height: auto;
+        font-size: 14px;
+        color: #fff;
+        text-align: center;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+      }
+    }
+    i{
+      width: 162px;
+      height: 174px;
+      top: 54px;
+      left: -47px;
+      position: absolute;
+      background: url("../images/weixin_bimg.png") no-repeat;
+      background-size: cover;
+      display: none;
+      img{
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
+    }
+  }
+  li:hover{
+
+    img.gf1{
+      opacity: 0;
+      visibility: hidden\9;
+    }
+    img.gf2{
+      opacity: 1;
+      visibility: visible\9;
+    }
+    p{
+      color: #f5f524;
+    }
+    i{
+      display: block;
+    }
+  }
+}
+
+.cd-tc{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  opacity: 0;
+  display: none;
+  transition: all .3s;
+  -webkit-transition: all .3s;
+  background: rgba(0,0,0,.7);
+  >div{
+    width: 670px;
+    height: 510px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 86px;
+    box-sizing: border-box;
+    background: url("../images/tc_bimg.png") no-repeat;
+    background-size: cover;
+    h1{
+      margin: 60px 0 20px 0;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+    }
+    >input{
+      width: 100%;
+      height: 50px;
+      outline: none;
+      text-indent: 20px;
+      background: #fff;
+      font-size: 18px;
+      color: #afaeae;
+      border: 2px solid transparent;
+      transition: all .3s;
+      -webkit-transition: all .3s;
+    }
+    >input:focus{
+      border: 2px solid #ffc300;
+    }
+    >p.tc-error{
+      height: 18px;
+      font-size: 14px;
+      color: #f50c0c;
+      visibility: hidden;
+    }
+    >p.tc-text{
+      height: 18px;
+      font-size: 14px;
+      color: #fff;
+      margin: 0 0 6px 0;
+    }
+    >div{
+      width: 100%;
+      height: 50px;
+      margin: 0 0 15px 0;
+      input{
+        width: 310px;
+        height: 100%;
+        outline: none;
+        float: left;
+        font-size: 18px;
+        color: #afaeae;
+        text-indent: 20px;
+        background: #fff;
+        border: 2px solid transparent;
+        line-height: 50px;
+        box-sizing: border-box;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+      }
+      input:focus{
+        border: 2px solid #ffc300;
+      }
+      button{
+        width: 176px;
+        height: 100%;
+        outline: none;
+        float: right;
+        font-size: 18px;
+        color: #fff;
+        line-height: 50px;
+        background: #ffba00;
+        box-sizing: border-box;
+        border: 1px solid transparent;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+      }
+      button:hover{
+        cursor: pointer;
+        background: #f5b000;
+      }
+    }
+    >a{
+      display: block;
+      margin: 0 auto;
+      width: 340px;
+      height: 70px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      background: url("../images/tijiao_btn.png") no-repeat;
+      background-size: cover;
+    }
+    .tc-close{
+      display: block;
+      width: 34px;
+      height: 36px;
+      position: absolute;
+      top: 30px;
+      right: -38px;
+      background: url("../images/close.png") no-repeat;
+      background-size: cover;
+    }
+    .tc-close:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 0px) and (max-width: 1600px){
+  .ewm-box{
+    width: 180px;
+    height: 427px;
+    position: absolute;
+    top: 120/@height;
+    right: 120/@width;
+  }
+}
