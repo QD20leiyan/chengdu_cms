@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>名将传</title><{csrf}>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="<{$smarty.const.STATIC}>csyx/h5/mjz/css/public.css" />
+    <link rel="stylesheet" href="<{$smarty.const.STATIC}>csyx/h5/mjz/css/style.css" />
+    <script type="text/javascript" src="<{$smarty.const.STATIC}>csyx/h5/mjz/js/jquery-1.11.2.min.js"></script>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+</head>
+<body>
+    <div class="top">
+        <div class="topLogo"></div>
+        <div class="topWord">
+            <h5>名将传</h5>
+            <p>首款三国玄技无双手游</p>
+        </div>
+        <img class="topBtn" src="<{$smarty.const.STATIC}>csyx/h5/mjz/images/topBtn.png" alt="">
+    </div>
+    <div class="kv">
+        <img class="logo" src="<{$smarty.const.STATIC}>csyx/h5/mjz/images/logo.png"/>
+        <div class="sloganBox">
+            <img class="slogan" src="<{$smarty.const.STATIC}>csyx/h5/mjz/images/slogan.png" alt="">
+        </div>
+        <img class="kvBtn" src="<{$smarty.const.STATIC}>csyx/h5/mjz/images/btn.png"/>
+        <div class="group">
+            玩家QQ交流群：<a href="shang.qq.com/wpa/qunwpa?idkey=9bc1ea969294a08256b1bc26721147f111aad70ac095d4d26a8d9e6f703fb38c">697670984</a>
+        </div>
+    </div>
+
+    <div class="mask">
+        <div class="dialog">
+            <div class="close"></div>
+            <p>预约后我们会在游戏上线第一时间通知您！</p>
+            <input id="phone" type="text" placeholder="请输入手机号">
+            <img class="dialogBtn" src="<{$smarty.const.STATIC}>csyx/h5/mjz/images/btn2.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    $('.topBtn').click(function () {
+        $('.mask').show();
+    })
+    $('.kvBtn').click(function () {
+        $('.mask').show();
+    })
+    $('.close').click(function () {
+        $('.mask').hide();
+    })
+    $('.dialogBtn').click(function () {
+        var phoneValue = $('#phone').val();
+        var re = /^1\d{10}$/;
+        if(phoneValue && phoneValue.length >= 0){
+            if(phoneValue.length != 11 || !re.test(phoneValue)){
+                alert('请输入正确的手机号');
+            }else{
+                var url = '';
+                var cms_csrf = $("meta[name='csrf-token']").attr("content");
+                var params = {
+                    phone: phoneValue
+                };
+                $.get("/h5/csyx/ajax-yuyue.html", {
+                    "phone": phoneValue,
+                    "type": 'mjz_1',
+                    "cms_csrf": cms_csrf
+                }, function (data) {
+                }, 'json');
+                alert('预约成功！');
+                $('.mask').hide();
+            }
+        }else{
+            alert('请输入手机号');
+        }
+    })
+</script>
+</html>

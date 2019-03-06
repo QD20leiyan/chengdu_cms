@@ -1,0 +1,303 @@
+body,html{
+	height:100%;
+	width:100%;
+	padding: 0;
+	margin: 0;
+	overflow:hidden;
+	font-family: "HelveticaNeue";
+}
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-appearance: none;
+}
+.hidden{
+	display:none;
+}
+.bg01,.bg02,.bg03,.bg04,.bg05,.bg06,.bg07{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	background: url(../images/bg.png) no-repeat;
+	background-size: cover;
+	background-position: center 0;
+}
+.bg01 .logo{
+	width: 6.84375rem;
+	height: 3.96875rem;
+	background: url(../images/logo.png);
+	background-size: 100% 100%;
+	position: absolute;
+	top: .4375rem;
+	left: .9375rem;
+}
+.bg02 .logo{
+	width: 5.71875rem;
+	height:3.96875rem;
+	background:url("../images/logo2.png");
+	background-size:100% 100%;
+	position: absolute;
+	top: .4375rem;
+	left: .9375rem;
+}
+.bg03 .logo{
+	width: 4.84375rem;
+	height:3.96875rem;
+	background:url("../images/logo3.png");
+	background-size:100% 100%;
+	position: absolute;
+	top: .4375rem;
+	left: .9375rem;
+}
+.bg04 .logo{
+	width:4.90625rem;
+	height:3.96875rem;
+	background:url("../images/logo4.png");
+	background-size:100% 100%;
+	position:absolute;
+	top: .4375rem;
+	left: .9375rem;
+}
+.bg05 .logo{
+	width:4.71875rem;
+	height:3.96875rem;
+	background:url("../images/logo5.png");
+	background-size:100% 100%;
+	position:absolute;
+	top:.4375rem;
+	left:.9375rem;
+}
+.bg06 .logo{
+	width:5.8125rem;
+	height:3.96875rem;
+	background:url("../images/logo6.png");
+	background-size:100% 100%;
+	position:absolute;
+	top:.4375rem;
+	left:.9375rem;
+}
+.bg07 .logo{
+	width:4.8125rem;
+	height:3.96875rem;
+	background:url("../images/logo7.png");
+	background-size:100% 100%;
+	position:absolute;
+	top:.4375rem;
+	left:.9375rem;
+}
+.bg01 .peo{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 9;
+	background: url(../images/people.png);
+	background-size: cover;
+	-webkit-animation: jump1 2s infinite alternate;
+	-moz-animation: jump1 2s infinite alternate;
+	-o-animation: jump1 2s infinite alternate;
+	-ms-animation: jump1 2s infinite alternate;
+	animation: jump1 2s infinite alternate;
+}
+.slideInRight {
+	-webkit-animation-name: slideInRight;
+	animation-name: slideInRight
+}
+.bg01 .triangle{
+	width: 100%;
+	height: 100%;
+	background: url(../images/triangle.png);
+	background-size: 100% 100%;
+	position: absolute;
+	z-index: 10;
+	top: .3125rem;
+	left: 0;
+}
+.bg01>button{
+	z-index: 11;
+	position: absolute;
+	width: 11.6875rem;
+	height: 3.75rem;
+	bottom: 1.5rem;
+	left: 4rem;
+	background: url(../images/btn.png);
+	background-size: 100% 100%;
+	outline: none;
+	border: none;
+}
+.tips{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.9);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+}
+
+.tips .content{
+	width: 20rem;
+	height:16.125rem;
+	position: relative;
+	top: 45%;
+	transform: translate(0,-50%);
+	-webkit-transform: translate(0,-50%);
+	background:url("../images/tipsbg01.png");
+	background-size:100% 100%;
+}
+.tips .content .close{
+	position: absolute;
+	width: 1.375rem;
+	height: 1.125rem;
+	right: 1rem;
+	top: 4.6rem;
+}
+.tips .content>div{
+	position: relative;
+	top: 9rem;
+}
+.tips .content>div,.tips .content>div img{
+	width: 14.0625rem;
+	height: 5.59375rem;
+	margin: 0 auto;
+}
+.tips .content>div input{
+	width: 8.7rem;
+	height: 2.35rem;
+	text-indent: .9375rem;
+	position: absolute;
+	left: .1rem;
+	top: 3rem;
+	font-size: .9375rem;
+	color: #999;
+	outline: none;
+	border: none;
+	padding: 0;
+}
+.tips .content>div input::-webkit-input-placeholder {
+	font-size:.9375rem;
+	color:#999;
+}
+.tips .content>div .orderbtn{
+	width: 5rem;
+	height: 2.35rem;
+	position: absolute;
+	top: 2.875rem;
+	right: 0;
+}
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+@keyframes jump1{from {transform: translateY(15px);}to {transform: translateY(0px);}}
+@-webkit-keyframes jump1{from {transform: translateY(15px);}to {transform: translateY(0px);}}
+@-webkit-keyframes lightSpeedIn {
+	0% {
+		-webkit-transform: translateX(100%) skewX(-30deg);
+		transform: translateX(100%) skewX(-30deg);
+		opacity: 0
+	}
+	60% {
+		-webkit-transform: translateX(-20%) skewX(30deg);
+		transform: translateX(-20%) skewX(30deg);
+		opacity: 1
+	}
+	80% {
+		-webkit-transform: translateX(0%) skewX(-15deg);
+		transform: translateX(0%) skewX(-15deg);
+		opacity: 1
+	}
+	100% {
+		-webkit-transform: translateX(0%) skewX(0deg);
+		transform: translateX(0%) skewX(0deg);
+		opacity: 1
+	}
+}
+@keyframes lightSpeedIn {
+	0% {
+		-webkit-transform: translateX(100%) skewX(-30deg);
+		-ms-transform: translateX(100%) skewX(-30deg);
+		transform: translateX(100%) skewX(-30deg);
+		opacity: 0
+	}
+	60% {
+		-webkit-transform: translateX(-20%) skewX(30deg);
+		-ms-transform: translateX(-20%) skewX(30deg);
+		transform: translateX(-20%) skewX(30deg);
+		opacity: 1
+	}
+	80% {
+		-webkit-transform: translateX(0%) skewX(-15deg);
+		-ms-transform: translateX(0%) skewX(-15deg);
+		transform: translateX(0%) skewX(-15deg);
+		opacity: 1
+	}
+	100% {
+		-webkit-transform: translateX(0%) skewX(0deg);
+		-ms-transform: translateX(0%) skewX(0deg);
+		transform: translateX(0%) skewX(0deg);
+		opacity: 1
+	}
+}
+.lightSpeedIn {
+	-webkit-animation-name: lightSpeedIn;
+	animation-name: lightSpeedIn;
+	-webkit-animation-timing-function: ease-out;
+	animation-timing-function: ease-out
+}
+@-webkit-keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+		transform: translateX(-2000px)
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0)
+	}
+}
+@keyframes slideInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+		-ms-transform: translateX(-2000px);
+		transform: translateX(-2000px)
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0)
+	}
+}
+.slideInLeft {
+	-webkit-animation-name: slideInLeft;
+	animation-name: slideInLeft
+}
+@-webkit-keyframes slideInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(2000px);
+		transform: translateX(2000px)
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0)
+	}
+}
+@keyframes slideInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(2000px);
+		-ms-transform: translateX(2000px);
+		transform: translateX(2000px)
+	}
+	100% {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0)
+	}
+}

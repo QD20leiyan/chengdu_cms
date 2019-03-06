@@ -1,0 +1,97 @@
+
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"  />
+<title></title>
+    <link rel="stylesheet" type="text/css" href="demo2.css">
+<script src="jquery-1.8.3.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<body>
+<div id="main">
+    <img id="p1"  class="index" src="cover_bg.jpg">
+    <img  class="indexbtn" src="baoming.png">
+
+    <img id="p2"  class="p2  hidden" src="cover_bg.jpg">
+    <div id="video" class="video ">
+        <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="第一段粗剪.mp4"></video>
+        <video id="my_video2" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="第二段粗剪.mp4"></video>
+
+    </div>
+    <div class="btn2 hidden"><img src="baoming.png"></div>
+    <div class="share hidden">
+        <img src="mask_box1.png">
+        <div ></div>
+    </div>
+</div>
+<script type="text/javascript">
+var touch = ("createTouch" in document);
+var start = touch ? "touchstart" : "mousedown";
+var move = touch ? "touchmove" : "mousemove";
+var end = touch ? "touchend" : "mouseup";
+
+function evTurn(e) {
+    return touch ? e.originalEvent.targetTouches[0] : e
+}
+var rand = parseInt(2 * Math.random());
+var rands = parseInt(2 * Math.random());
+document.addEventListener('DOMContentLoaded', function () {
+    var  myVid1=document.getElementById("my_video1");
+    var  myVid2=document.getElementById("my_video2");
+
+    function audioAutoPlay() {
+        myVid1.load();
+        myVid2.load();
+
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            myVid1.load();
+                myVid2.load();
+
+        }, false);
+    }
+    audioAutoPlay();
+});
+
+$(function(){
+    var  myVid1=document.getElementById("my_video1");
+    var  myVid2=document.getElementById("my_video2");
+
+
+    $('.indexbtn').on('click',function(){
+        $('.indexbtn').hide();
+        $('.index').hide();
+        myVid1.play();
+        $('#my_video1').css('z-index','102')
+        myVid1.onended = function() {
+            $('#my_video1').css('opacity','0');
+            $('#my_video2').css('opacity','0');
+            $('#my_video1').css('z-index','0')
+            $('#p2').show();
+            $('.btn1').show();
+            $('.btn2').show();
+        }
+
+    });
+     var state1= 0,state2=0;
+    $('.btn2').on('click',function(){
+        if(state1==0){
+            state1=1;
+                $('#my_video2').css('z-index','102');
+            $('#my_video2').css('opacity','1');
+                myVid2.play();
+                $('#p2').hide();
+                $('.btn1').hide();
+                $('.btn2').hide();
+                myVid2.onended = function() {
+                    state2=1;
+                    $('#my_video2').css('z-index','0')
+                    $('.share').show();
+                }
+
+        }
+
+    });
+})
+</script>
+</body>
+</html>

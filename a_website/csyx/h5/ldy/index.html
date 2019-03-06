@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>坦克</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+    	<link rel="stylesheet" href="css/index.css" />
+    	<script>
+    	(function (doc, win) {
+    	    var docEl = doc.documentElement,
+    	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+    	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    	            recalc = function () {
+    	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+    	                var clientWidth = docEl.clientWidth;
+    	                if (!clientWidth) return;
+    	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+    	            };
+
+    	    recalc();
+    	    //判断是否支持监听事件 ，不支持则停止
+    	    if (!doc.addEventListener) return;
+    	    //注册翻转事件
+    	    win.addEventListener(resizeEvt, recalc, false);
+    	})(document, window);
+    </script>
+	</head>
+	
+	<body>
+		<section class="kv">
+			<a href="javascript:;" class="btn"><img src="images/btn.png" /></a>
+		</section>
+		<section class="login_board">
+			<div class="login_con">
+				<div class="login_tel">
+					<a href="javascript:;" class="close"></a>
+					<p class="yl_info">预约后我们会在游戏上线第一时间通知您！</p>
+					<input type="number" class="tel" id="login_code1" placeholder="请输入手机号码">
+					<p class="co_error err1">* 手机号码格式不正确哦~</p>
+					<a href="javascript:;" class="login_next"><img src="images/btn.png" alt=""></a>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fittext.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+	<script>
+		$(function() {
+			$('html').fitText(2);
+		});
+		$(".btn").click(function(){
+			$(".login_board").show();
+		})
+		$(".login_board .close").click(function(){
+			$(".login_board").hide();
+		})
+	</script>
+</html>

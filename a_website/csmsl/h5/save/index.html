@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>超杀默示录</title>
+    <meta content="" name="Keywords">
+    <meta content="" name="Description">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page1">
+                <div class="down ani " swiper-animate-effect="slideInUp">向上滑动翻页</div>
+            </section>
+            <section class="swiper-slide page2">
+                <div class="down ani" swiper-animate-effect="slideInUp">向上滑动翻页</div>
+            </section>
+            <section class="swiper-slide page3 swiper-no-swiping">
+                <div class="th_btn ani " swiper-animate-effect="bounceInRight"></div>
+            </section>
+            <section class="swiper-slide page4 swiper-no-swiping">
+                <div>
+                    <p class="fo_img01"><img src="images/fo_img01.png" alt=""/></p>
+                    <p class="fo_img02_box align">
+                        <span class="fo_img02 ani" swiper-animate-effect="bounceInLeft"><i class="check" data-id="1"></i><img src="images/fo_img02.png"/></span>
+                        <span class="fo_img03 ani" swiper-animate-effect="bounceInRight"><i class="check" data-id="2"></i><img src="images/fo_img03.png"/></span>
+                    </p>
+                    <p class="fo_input ani " swiper-animate-effect="fadeInLeftBig"><input type="text" placeholder="点击输入昵称" maxlength="6"/></p>
+                    <p class="fo_btn ani" swiper-animate-effect="fadeInRightBig"><img src="images/fo_btn.png" alt=""/></p>
+                </div>
+            </section>
+            <section class="swiper-slide page5 swiper-no-swiping">
+                <p class="fi_name">尼古拉斯·赵四</p>
+                <div class="count">
+                    <p>
+                        <span class="title">武力值</span>
+                        <span class="progress"><span class="progress-bar wl"></span></span>
+                        <span class="num num1">87</span>
+                    </p>
+                    <p>
+                        <span class="title">智力值</span>
+                        <span class="progress"><span class="progress-bar zl"></span></span>
+                        <span class="num num2">87</span>
+                    </p>
+                    <p>
+                        <span class="title">颜值</span>
+                        <span class="progress"><span class="progress-bar yz"></span></span>
+                        <span class="num num3">87</span>
+                    </p>
+                </div>
+                <p class="fi_btn">
+                    <span class="onemore"><img src="images/fi_btn01.png" alt=""/></span>
+                    <span class="savegirl"><img src="images/fi_btn02.png" alt=""/></span>
+                </p>
+            </section>
+            <section class="swiper-slide page6 swiper-no-swiping">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <div class="part1 ">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/s_tips01.png" alt=""/></p>
+                    <p class="s_img02"><img src="images/fi_fd.png" alt=""/><img src="images/fi_fd.png" alt=""/></p>
+                    <p class="s_btn ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/s_btn01.png" alt=""/></p>
+                    <div class="progress">
+                        <p class="count_box"><span class="num1">0</span>/<span class="num1">45</span></p>
+                        <p class="progress_bar"><span></span></p>
+                        <p class="title">体力值</p>
+                    </div>
+                </div>
+                <div class="part2 hidden">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/s_tips02.png" alt=""/></p>
+                    <p class="s_btn s_btn2 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/s_btn02.png" alt=""/></p>
+                </div>
+            </section>
+            <section class="swiper-slide page7 swiper-no-swiping">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <p class="s_img01 ani" swiper-animate-effect="slideInDown" swiper-animate-delay="3s"><img src="images/se_tips01.png" alt=""/></p>
+                <p class="s_btn ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="3.1s"><img src="images/se_btn01.png" alt=""/></p>
+            </section>
+            <section class="swiper-slide page8 swiper-no-swiping">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <div class="part1 ">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/e_tips01.png" alt=""/></p>
+                    <p class="s_btn ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/e_btn01.png" alt=""/></p>
+                </div>
+                <div class="question_box hidden ani" swiper-animate-effect="lightSpeedIn">
+                    <div class="question qu1 ">
+                        <p class="title">以下那国不是三国割据的势力？</p>
+                        <div class="choice">
+                            <span>A.魏</span>
+                            <span>B.蜀</span>
+                            <span>C.吴</span>
+                            <span data-type="true">D.晋</span>
+                        </div>
+                    </div>
+                    <div class="question qu2 more hidden">
+                        <p class="title">诸葛亮的妻子是谁？</p>
+                        <div class="choice">
+                            <span data-type="true">A.黄月英</span>
+                            <span>B.张春华</span>
+                            <span>C.孙尚香</span>
+                        </div>
+                    </div>
+                    <div class="question qu3 more hidden">
+                        <p class="title">吕布的女儿是谁？</p>
+                        <div class="choice">
+                            <span data-type="true">A.吕玲绮</span>
+                            <span>B.吕绮玲</span>
+                            <span>C.吕玲玲</span>
+                        </div>
+                    </div>
+                    <div class="question qu4 hidden">
+                        <p class="title">以下那个不是桃园三结义的人物？</p>
+                        <div class="choice">
+                            <span>A.刘备</span>
+                            <span>B.关羽</span>
+                            <span>C.张飞</span>
+                            <span data-type="true">D.赵云</span>
+                        </div>
+                    </div>
+                    <div class="question qu5 more hidden">
+                        <p class="title">曹操与曹丕的关系？</p>
+                        <div class="choice">
+                            <span>A.爷孙</span>
+                            <span data-type="true">B.父子</span>
+                            <span>C.平辈</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="part2 hidden">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/e_tips02.png" alt=""/></p>
+                    <p class="s_btn s_btn2 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/e_btn02.png" alt=""/></p>
+                </div>
+                <div class="part3 hidden">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/e_tips03.png" alt=""/></p>
+                    <p class="s_btn s_btn3 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/e_btn03.png" alt=""/></p>
+                </div>
+            </section>
+            <section class="swiper-slide page9 swiper-no-swiping ">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <p class="s_img01 ani" swiper-animate-effect="slideInDown" swiper-animate-delay="3s"><img src="images/n_tips01.png" alt=""/></p>
+                <p class="s_btn ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="3.1s"><img src="images/n_btn01.png" alt=""/></p>
+            </section>
+            <section class="swiper-slide page10 swiper-no-swiping">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <div class="part1 ">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/t_tips01.png" alt=""/></p>
+                    <p class="s_btn ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/t_btn01.png" alt=""/></p>
+                </div>
+                <div class="question_box question_box1 hidden ani" swiper-animate-effect="lightSpeedIn">
+                    <span class="dr_end"><img src="images/t_img03.png" alt=""/></span>
+                    <div class="question">
+                        <span class="stone"><img src="images/t_img03.png" alt=""/></span>
+                        <span class="jd"><img src="images/t_img04.png" alt=""/></span>
+                        <span class="pz"><img src="images/t_img05.png" alt=""/></span>
+                    </div>
+                </div>
+                <div class="question_box question_box2 hidden">
+                    <p class="t_tsimg ani hidden" swiper-animate-effect="slideInDown"><img src="images/t_tips03.png" alt=""/></p>
+                    <span class="dr_end"><img src="images/t_img03.png" alt=""/></span>
+                    <div class="question">
+                        <span class="stone"><img src="images/t_img03.png" alt=""/></span>
+                    </div>
+                    <span class="success hidden"><img src="images/t_img06.png" alt=""/></span>
+                    <span class="faile hidden"><img src="images/t_img07.png" alt=""/></span>
+                </div>
+                <div class="part2 hidden">
+                    <p class="s_img01 ani" swiper-animate-effect="slideInDown"><img src="images/t_tips02.png" alt=""/></p>
+                    <p class="s_btn s_btn2 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><img src="images/t_btn02.png" alt=""/></p>
+                </div>
+            </section>
+            <section class="swiper-slide page11 swiper-no-swiping">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <p class="s_img01 ani" swiper-animate-effect="slideInDown" swiper-animate-delay="3s"><img src="images/el_tips01.png" alt=""/></p>
+                <p class="s_btn ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="3.1s"><img src="images/el_btn01.png" alt=""/></p>
+            </section>
+            <section class="swiper-slide page12 swiper-no-swiping">
+                <div class="top_title">
+                    <p class="fi_name">尼古拉斯·赵四</p>
+                    <p class="count">
+                        <span class="title">武力值<i class="num_1"></i></span>
+                        <span class="title">智力值<i class="num_2"></i></span>
+                        <span class="title">颜值<i class="num_3"></i></span>
+                    </p>
+                </div>
+                <p class="tw-count">
+                    <img src="images/tw_img01.png" alt=""/>
+                    <span class="second second1 ani" swiper-animate-effect="bounceInLeft" ><i>20</i></span>
+                    <span class="second second2 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.1s"><i>35</i></span>
+                    <span class="second second3 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="0.2s"><i>27</i></span>
+                    <span class="second second5 ani"  swiper-animate-effect="bounceInRight"><i>3</i></span>
+                    <span class="second second4 ani"  swiper-animate-effect="bounceInRight"><i>3</i></span>
+                </p>
+                <div class="s_btn">
+                    <a href="" class="load_game ani" swiper-animate-effect="zoomIn"><img src="images/tw_btn01.png" alt=""/></a>
+                    <p>
+                        <span class="again ani" swiper-animate-effect="slideInLeft"><img src="images/tw_btn02.png" alt=""/></span>
+                        <span class="share ani" swiper-animate-effect="slideInRight"><img src="images/tw_btn03.png" alt=""/></span>
+                    </p>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="images/share_bg.png" alt=""/></div>
+<!--黑屏-->
+<div class="zz hidden"></div>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<!--音乐-->
+<audio id="music1" src="audio/audio1.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio id="music2" src="audio/audio2.mp3"></audio>
+<audio id="music3" src="audio/audio3.mp3"></audio>
+<audio id="music4" src="audio/audio4.mp3"></audio>
+<audio id="music5" src="audio/audio5.mp3"></audio>
+<audio id="music6" src="audio/audio6.mp3"></audio>
+
+<audio id="py1" src="audio/py1.mp3" autoplay="autoplay"></audio>
+<audio id="py2" src="audio/py2.mp3"></audio>
+<audio id="py3" src="audio/py3.mp3"></audio>
+<audio id="py4" src="audio/py4.mp3"></audio>
+<audio id="py5" src="audio/py5.mp3"></audio>
+<audio id="py6" src="audio/py6.mp3"></audio>
+<audio id="py7" src="audio/py7.mp3"></audio>
+<audio id="py8" src="audio/py8.mp3"></audio>
+<audio id="py9" src="audio/py9.mp3"></audio>
+<audio id="py10" src="audio/py10.mp3"></audio>
+<!-- 这是加载层 -->
+<div id="d_loading" style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;line-height: 20px;color: #999">正在加载...</p>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="js/index.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    $(function() {
+        //答对题数
+        var dts=0;
+        var peo=0;
+        $("#d_loading").show();
+        (function(){
+            //手机类型判断
+            var u = navigator.userAgent,
+                    app = navigator.appVersion;
+            var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if(isIOS) {
+                autoPlayAudio3();
+            }
+            var audio3=document.getElementById("music3");
+            var py1=document.getElementById("py1");
+            var timer=setInterval(function(){
+                if(audio3.readyState==4&&py1.readyState==4){
+                    clearInterval(timer);
+                    $("#d_loading").hide();
+                    audio3.pause();
+                }
+            },10);
+        })();
+        //微信接口音乐
+        function autoPlayAudio1() {
+            document.getElementById('music1').play();
+            document.getElementById('music1').volume =.5;
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                document.getElementById('music1').play();
+                document.getElementById('music1').volume = .5;
+            }, false);
+        }
+        autoPlayAudio1();
+        function autoPlayAudio3() {
+            document.getElementById('music3').play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                document.getElementById('music3').play();
+            }, false);
+        }
+        function autoPlayPy1() {
+            document.getElementById('py1').play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                document.getElementById('py1').play();
+            }, false);
+        }
+        autoPlayPy1();
+        //滑动页面
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+                var audio1=$("#music1").attr("src");
+                $("#music1").attr("src",audio1);
+                var py1=document.getElementById("py1");
+                var py2=$("#py2").attr("src");
+                var py3=$("#py3").attr("src");
+                var py4=$("#py4").attr("src");
+                var py5=$("#py5").attr("src");
+                var i=0;
+                py1.addEventListener('ended', function () {
+                    if(i==0){
+                        i++;
+                        $("#py1").attr("src",py2);
+                        autoPlayPy1();
+                    }else if(i==1){
+                        i++;
+                        $("#py1").attr("src",py3);
+                        autoPlayPy1();
+                    }else if(i==2){
+                        i++;
+                        $("#py1").attr("src",py4);
+                        autoPlayPy1();
+                    }else if(i==3){
+                        i++;
+                        $("#py1").attr("src",py5);
+                        autoPlayPy1();
+                    }
+                }, false);
+            },
+            onSlideChangeEnd: function (swiper) {
+                $("#py1").attr("src","");
+                var audio2=$("#music2").attr("src");
+                var audio4=$("#music4").attr("src");
+                var audio5=$("#music5").attr("src");
+                var audio6=$("#music6").attr("src");
+
+                var py6=$("#py6").attr("src");
+                var py7=$("#py7").attr("src");
+                var py8=$("#py8").attr("src");
+                var py9=$("#py9").attr("src");
+                var py10=$("#py10").attr("src");
+                if(swiper.activeIndex==1){
+                    $("#py1").attr("src",py6);
+                    autoPlayPy1();
+                }else if(swiper.activeIndex==2){
+                    $("#py1").attr("src",py7);
+                    autoPlayPy1();
+                }else if(swiper.activeIndex==5){
+                    $("#music1").attr("src",audio2);
+                }else if(swiper.activeIndex==6){
+                    $("#music1").attr("src",audio4);
+                    setTimeout(function(){
+                        $("#music1").attr("src",audio5);
+                        $(".zz").addClass("hidden");
+                        $("#py1").attr("src",py8);
+                        autoPlayPy1();
+                    },3000);
+                }else if(swiper.activeIndex==7){
+                    $("#music1").attr("src",audio2);
+                }else if(swiper.activeIndex==8){
+                    $("#music1").attr("src",audio4);
+                    setTimeout(function(){
+                        $("#music1").attr("src",audio5);
+                        $(".zz").addClass("hidden");
+                        $("#py1").attr("src",py9);
+                        autoPlayPy1();
+                    },3000);
+                }else if(swiper.activeIndex==9){
+                    $("#music1").attr("src",audio2);
+                }else if(swiper.activeIndex==10){
+                    $("#music1").attr("src",audio4);
+                    setTimeout(function(){
+                        $("#music1").attr("src",audio5);
+                        $(".zz").addClass("hidden");
+                        $("#py1").attr("src",py10);
+                        autoPlayPy1();
+                    },3000);
+                }else if(swiper.activeIndex==11){
+                    $("#music1").attr("src",audio6);
+                }
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        //武将三个值随机设置以及进度条效果
+        function setProgress(){
+            var w=8.95;
+            var wl=50+Math.floor(Math.random()*51),
+                    zl=50+Math.floor(Math.random()*51),
+                    yz=50+Math.floor(Math.random()*51);
+            $(".page5 .num1,.top_title .num_1").text(wl);
+            $(".page5 .progress-bar.wl").width(w*wl/100+"rem");
+            $(".page5 .num2,.top_title .num_2").text(zl);
+            $(".page5 .progress-bar.zl").width(w*zl/100+"rem");
+            $(".page5 .num3,.top_title .num_3").text(yz);
+            $(".page5 .progress-bar.yz").width(w*yz/100+"rem");
+        }
+        //武将体力值
+        function setProgressBar(n){
+            var h=8.5;
+            n=n||0;
+            n=n>0?n:0;
+            if(n==0&&$(".page6 .num1:first").text()!='0'){
+            //体力减到0时结束计时
+                $(".page6 .part1 .s_btn").attr("data-endtime",new Date().getTime());
+            }
+            $(".page6 .num1:first").text(n);
+            $(".page6 .progress_bar>span").height(h*n/45+"rem");
+            if(n==0){
+                $(".page6 .part1").addClass("hidden");
+                $(".page6 .part2").removeClass("hidden");
+            }
+        }
+        //点击加入战斗
+        $(".page3 .th_btn").click(function(){
+            mySwiper.slideNext();
+        });
+        //人物选择
+        $(".fo_img02_box>span").click(function(){
+            peo=$(this).find("i").attr("data-id");
+            $(".fo_img02_box i").removeClass("active");
+            $(this).find("i").addClass("active");
+        });
+        //点击确认生成
+        $(".page4 .fo_btn").click(function(){
+            var name=$(".fo_input input").val();
+            if(peo==0){
+                alert("请选择武将哦~");
+                return;
+            }
+            if(!name){
+                alert("昵称不能为空哦~");
+                return;
+            }
+            if(peo==1){
+                $(".page5").removeClass("page5-1");
+                mySwiper.slideNext();
+                setProgress();
+            }else if(peo==2){
+                $(".page5").addClass("page5-1");
+                mySwiper.slideNext();
+                setProgress();
+            }
+            $(".page5 .fi_name,.top_title .fi_name").text(name);
+        });
+        //重新生成武将
+        $(".onemore").click(function(){
+            mySwiper.slidePrev();
+        });
+        //拯救萌妹
+        $(".savegirl").click(function(){
+            mySwiper.slideNext();
+            //初始化体力值
+            setProgressBar(45);
+            setTimeout(function(){
+                $(".page6 .progress_bar>span").css("transition","height .1s linear");
+            },800);
+        });
+        //点击斩杀
+        $(".page6 .part1 .s_btn").click(function(){
+            autoPlayAudio3();
+            $(".page6 .part1 .s_img02 img:first").fadeIn(300,function(){
+                $(this).fadeOut(300);
+                $(this).next().fadeIn(300,function(){
+                    $(this).fadeOut(300);
+                });
+            });
+            if($(".page6 .num1:first").text()=='45'){
+            //第一次点击开始计时
+                $(".page6 .part1 .s_btn").attr("data-starttime",new Date().getTime());
+            }
+            setProgressBar($(".page6 .num1:first").text()-1-Math.floor(Math.random()*10));
+        });
+        //前去解救
+        $(".page6 .s_btn2").click(function(){
+            mySwiper.slideNext();
+            $(".zz").removeClass("hidden");
+        });
+        //继续解救
+        $(".page7 .s_btn").click(function(){
+            mySwiper.slideNext();
+        });
+        //开始答题
+        $(".page8 .part1 .s_btn").click(function(){
+            $(".page8 .part1").addClass("hidden");
+            $(".page8 .question_box").removeClass("hidden");
+            dts=0;
+            //点击开始答题开始计时
+            $(".page8 .part1 .s_btn").attr("data-starttime",new Date().getTime());
+        });
+        //点击答案
+        $(".page8 .question_box .question .choice>span").click(function(){
+            if($(this).data('type')==true){
+                dts++;
+            }
+            var question=$(this).closest(".question");
+            if(question.hasClass("qu5")){
+                //  答题结束计时
+                $(".page8 .part1 .s_btn").attr("data-endtime",new Date().getTime());
+                $(".page8 .question_box").addClass("hidden");
+                question.addClass("hidden");
+                $(".page8 .question_box .qu1").removeClass("hidden");
+                //答题完毕
+                if(dts>=3){
+                    $(".page8 .part2").removeClass("hidden");
+                }else{
+                    $(".page8 .part3").removeClass("hidden");
+                }
+            }else{
+                question.addClass("hidden");
+                question.next().removeClass("hidden");
+            }
+        });
+        //答题再次挑战
+        $(".page8 .part3 .s_btn").click(function(){
+            $(".page8 .part3").addClass("hidden");
+            $(".page8 .question_box").removeClass("hidden");
+            dts=0;
+            //点击答题再次挑战重新开始计时
+            $(".page8 .part1 .s_btn").attr("data-starttime",new Date().getTime());
+        });
+        //答题继续解救
+        $(".page8 .s_btn2").click(function(){
+            mySwiper.slideNext();
+            $(".zz").removeClass("hidden");
+        });
+        //继续解救
+        $(".page9 .s_btn").click(function(){
+            mySwiper.slideNext();
+        });
+        //开始猜拳游戏
+        var cqtimer=null;
+        var cqarr=[[1,0,1,0,1],[1,0,1,0,1],[1,1,1,0,1],[1,1,1,1,1]];//三种猜拳结果数组，分别中赢3,3,4,5次
+        var jgarr=cqarr[Math.floor(Math.random()*4)];//随机取一组结果
+        var imgarr=[];//图片url数组
+        $(".page10 .part1 .s_btn").click(function(e){
+            e.stopPropagation();//阻止冒泡
+            var count=0;
+            for(var i in jgarr){
+                if(jgarr[i]==1){
+                    count++;
+                }
+            }
+            $(".page10 .part1 .s_btn").attr("data-count",count);
+            //点击开始猜拳开始计时
+            $(".page10 .part1 .s_btn").attr("data-starttime",new Date().getTime());
+            imgarr=[];
+            $(".page10 .question_box1 .question>span img").each(function(i,n){
+                imgarr.push($(n).attr('src'));
+            });
+            $(".page10 .part1").addClass("hidden");
+            $(".page10 .question_box1").removeClass("hidden");
+            cqtimer=setInterval(function(){
+                $(".page10 .question_box1 .dr_end img").attr('src',imgarr[Math.floor(Math.random()*3)]);
+            },200);
+        });
+        //用户选择出拳
+        $(".page10 .question_box1 .question>span").click(function(e){
+            e.stopPropagation();//阻止冒泡
+            var i=Math.floor(Math.random()*jgarr.length);
+            var value=jgarr[i];
+            jgarr.splice(i,1);
+            $(".page10 .question_box1").addClass("hidden");
+            $(".page10 .question_box2 .stone img").attr('src',$(this).find("img").attr("src"));
+            if(jgarr.length==0){
+            //猜拳结束计时
+                $(".page10 .part1 .s_btn").attr("data-endtime",new Date().getTime());
+            }
+            if(value==1){
+                $(".page10 .question_box2 .success,.page10 .question_box2 .t_tsimg").removeClass("hidden");
+                if($(this).index()==2){
+                    $(".page10 .question_box2 .dr_end img").attr('src',$(".page10 .question_box1 .question>span:first img").attr("src"));
+                }else{
+                    $(".page10 .question_box2 .dr_end img").attr('src',$(".page10 .question_box1 .question>span").eq($(this).index()+1).find("img").attr("src"));
+                }
+            }else{
+                $(".page10 .question_box2 .faile,.page10 .question_box2 .t_tsimg").removeClass("hidden");
+                if($(this).index()==0){
+                    $(".page10 .question_box2 .dr_end img").attr('src',$(".page10 .question_box1 .question>span:last img").attr("src"));
+                }else{
+                    $(".page10 .question_box2 .dr_end img").attr('src',$(".page10 .question_box1 .question>span").eq($(this).index()-1).find("img").attr("src"));
+                }
+            }
+            $(".page10 .question_box2").removeClass("hidden");
+        });
+        //点击任意位置继续
+        $(".page10").click(function(){
+            if(!$(".page10 .question_box2").hasClass("hidden")){
+                $(".page10 .question_box2 .success,.page10 .question_box2 .t_tsimg").addClass("hidden");
+                $(".page10 .question_box2 .faile,.page10 .question_box2 .t_tsimg").addClass("hidden");
+                //猜拳结果展示状态
+                if(jgarr.length==0){//jgarr长度为0 则已猜五次
+                    clearInterval(cqtimer);
+                    $(".page10 .part2").removeClass("hidden");
+                    $(".page10 .question_box1").addClass("hidden");
+                    $(".page10 .question_box2").addClass("hidden");
+                }else{//猜拳继续
+                    $(".page10 .question_box1").removeClass("hidden");
+                    $(".page10 .question_box2").addClass("hidden");
+                }
+            }
+        });
+        //继续解救
+        $(".page10 .s_btn2").click(function(e){
+            e.stopPropagation();//阻止冒泡
+            mySwiper.slideNext();
+            $(".zz").removeClass("hidden");
+        });
+        //凯旋而归
+        $(".page11 .s_btn").click(function(){
+            var sdbtn=$(".page6 .part1 .s_btn");
+            $(".page12 .second1 i").text(parseInt((sdbtn.attr("data-endtime")-sdbtn.attr("data-starttime"))/1000));
+            var dtbtn=$(".page8 .part1 .s_btn");
+            $(".page12 .second2 i").text(parseInt((dtbtn.attr("data-endtime")-dtbtn.attr("data-starttime"))/1000));
+            var cqbtn=$(".page10 .part1 .s_btn");
+            $(".page12 .second3 i").text(parseInt((cqbtn.attr("data-endtime")-cqbtn.attr("data-starttime"))/1000));
+            $(".page12 .second4 i").text(cqbtn.attr("data-count"));
+            //答对题数  dts
+            $(".page12 .second5 i").text(dts);
+            mySwiper.slideNext();
+        });
+        //再次拯救
+        $(".page12 .again").click(function(){
+            window.location.href = location.href+'?time='+((new Date()).getTime());
+        });
+        //集结英豪
+        $(".page12 .share").click(function(){
+            $(".share_bg").removeClass("hidden");
+        });
+        $(".share_bg").click(function(){
+            $(".share_bg").addClass("hidden");
+        });
+    });
+</script>
+</body>
+</html>

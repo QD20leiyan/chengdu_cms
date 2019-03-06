@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	</head>
+
+	<body>
+		<div class="login" style="display: block;">
+			<div class="login_yy">
+				<div class="close"></div>
+				<div class="r_main">
+					<div class="r_type">
+						<div class="r_ios active">
+							<div class="r_img">
+								<img src="images/yuan.png" alt="" />
+								<img src="images/yuan_h.png" alt="" />
+							</div>
+							<p>iOS平台</p>
+						</div>
+						<div class="r_android">
+							<div class="r_img">
+								<img src="images/yuan.png" alt="" />
+								<img src="images/yuan_h.png" alt="" />
+							</div>
+							<p>安卓平台</p>
+						</div>
+					</div>
+					<div class="form_put">
+						<div class="p_put">
+							<div class="put_yzm">
+								<div class="put_img">
+									<img src="images/p_b.png" alt="" />
+									<img src="images/p_bg.png" alt="" />
+								</div>
+								<input type="tel" placeholder="请输入手机号码" class="phone" />
+							</div>
+						</div>
+						<div class="t_put">
+							<div class="put_yzm">
+								<div class="put_img">
+									<img src="images/y.png" alt="" />
+									<img src="images/y_h.png" alt="" />
+								</div>
+								<input type="tel" placeholder="请输入图形验证码" class="yzm" />
+							</div>
+							<div class="captcha">
+								<img src="images/pic.png" alt="" />
+							</div>
+						</div>
+						<div class="y_put">
+							<div class="put_yzm">
+								<div class="put_img">
+									<img src="images/y.png" alt="" />
+									<img src="images/y_h.png" alt="" />
+								</div>
+								<input type="tel" placeholder="请输入验证码" class="yzm" />
+							</div>
+							<div class="get_yzm">
+								<input type="tel" value="获取验证码" class="g_code" disabled="disabled" />
+							</div>
+						</div>
+						<div class="yxyy"><img src="images/yy.png" alt="" /></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var countdown = 60;
+		//倒计时
+		function sendemail() {
+			var obj = $(".g_code");
+			settime(obj);
+		}
+
+		function settime(obj) { //发送验证码倒计时
+			if(countdown == 0) {
+				obj.attr('disabled', false);
+				obj.val("免费获取验证码");
+				countdown = 60;
+				return;
+			} else {
+				obj.attr('disabled', true);
+				obj.val("重新发送(" + countdown + ")");
+				countdown--;
+			}
+			setTimeout(function() {
+				settime(obj)
+			}, 1000)
+		};
+		//图片验证码
+		function tupian() {
+			$.get("/site/captcha.html?refresh=1", {}, function(data) {
+				$(".captcha img").attr("src", data.url);
+			}, 'json');
+		}
+		$(function() {
+			$(".r_type>div").on("click", function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			$(".form_put .put_yzm input").on("focus", function() {
+				$(this).siblings(".put_img").addClass("active");
+				$(this).parent().parent().siblings().find(".put_img").removeClass("active");
+			});
+			$(".close").click(function() {
+				$(".login").hide();
+			});
+			var srf = $("meta[name='csrf-token']").attr("content");
+			$(".captcha").click(function() {
+				tupian();
+			});
+			$(".g_code").click(function() {
+				var phone = $(".phone").val();
+				var t_yzm = $(".t_yzm").val();
+				if(phone == "" || phone == undefined) {
+					alert("请输入正确的手机号");
+					return;
+				}
+				if(t_yzm == "" || t_yzm == undefined) {
+					alert("请输入正确的图形验证码");
+					return;
+				}
+				$.post("/site/ajax-login-verify", {
+					"phone": phone,
+					"captcha": t_yzm,
+					"cms_csrf": srf
+				}, function(data) {
+					if(data.status == 0) {
+						sendemail();
+					} else {
+						alert(data.msg);
+						tupian();
+					}
+				}, "json");
+			});
+			$(".yxyy").click(function() {
+				var phone = $(".phone").val();
+				var type = $(".r_type>div.active").attr("data-type");
+				var yzm = $(".yzm").val();
+				if(phone == "" || phone == undefined) {
+					alert("请输入正确的手机号");
+					return;
+				}
+				if(yzm == "" || yzm == undefined) {
+					alert("请输入验证码");
+					return;
+				}
+				$.post("/site/ajax-index-yy", {
+					"phone": phone,
+					"type": type,
+					"yzm": yzm,
+					"cms_csrf": srf
+				}, function(data) {
+					if(data.status == 0) {
+						$(".login").hide();
+						$(".phone").val("");
+						$(".t_yzm").val("");
+						$(".yzm").val("");
+						alert("恭喜您预约成功!");
+					} else {
+						$(".login").hide();
+						$(".phone").val("");
+						$(".t_yzm").val("");
+						$(".yzm").val("");
+						alert(data.msg);
+						tupian();
+					}
+				}, "json");
+			});
+		});
+	</script>
+
+</html>

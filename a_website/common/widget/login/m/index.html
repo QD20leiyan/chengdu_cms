@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<section>
+			<div class="command">
+				<div class="login_c">
+					<div class="chengg"></div>
+					<span class="close"><img src="images/close.png" alt="" /></span>
+					<img src="images/fzd.png" alt="" class="fzd" />
+					<img src="images/person.png" alt="" class="f_person" />
+					<p class="g_txt">马上登陆</p>
+					<div class="s_put">
+						<i class="wrong"><img src="images/wrong.png" alt="" />请输入手机号</i>
+						<input type="tel" placeholder="请输入手机号" class="phone" />
+					</div>
+					<div class="s_put">
+						<i class="wrong"><img src="images/wrong.png" alt="" />请输入验证码</i>
+						<div class="p_put">
+							<input type="tel" placeholder="输入验证码" class="pic_code" />
+							<div class="capture">
+								<img src="images/f.jpg" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="s_put">
+						<i class="wrong"><img src="images/wrong.png" alt="" />请输入验证码</i>
+						<div class="p_put">
+							<input type="tel" placeholder="输入验证码" class="i_code" />
+							<input type="button" value="获取验证码" class="g_code" />
+						</div>
+					</div>
+					<div class="sure">
+						<img src="images/sure.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript">
+		var srf = $("meta[name='csrf-token']").attr("content");
+		//倒计时
+		function sendemail() {
+			var obj = $(".g_code");
+			settime(obj);
+		}
+
+		function settime(obj) { //发送验证码倒计时
+			if(countdown == 0) {
+				obj.attr('disabled', false);
+				obj.val("获取验证码");
+				countdown = 60;
+				return;
+			} else {
+				obj.attr('disabled', true);
+				obj.val("重新发送(" + countdown + ")");
+				countdown--;
+			}
+			setTimeout(function() {
+				settime(obj)
+			}, 1000)
+		};
+		$(function() {
+			$(".close").click(function() {
+				$(".command").hide();
+			});
+			//获取验证码
+			$(".g_code").click(function() {
+				var phone = $(".phone").val();
+				var imgCode = $(".pic_code").val();
+				if(phone == "" || phone == undefined) {
+					$(".phone").siblings("i").css("visibility", "visible");
+					return;
+				}
+				if(phone.length != 11) {
+					$(".phone").siblings("i").html("请输入11位手机号");
+					$(".phone").siblings("i").css("visibility", "visible");
+					return;
+				}
+				if(imgCode == "" || imgCode == undefined) {
+					$(".pic_code").parent().siblings("i").css("visibility", "visible");
+					return;
+				}
+				$.post("/site/ajax-login-verify.html", {
+					"phone": phone,
+					"captcha": imgCode,
+					"cms_csrf": srf
+				}, function(data) {
+					if(data.status == 0) {
+						sendemail();
+						$(".wrong").css("visibility", "hidden");
+					} else {
+						tupian();
+						alert(data.msg);
+					}
+				}, "json");
+			});
+			//登录
+			$(".j_sure").click(function() {
+				var phone = $(".phone").val();
+				var yzm = $(".i_code").val();
+				if(phone == "" || phone == undefined) {
+					$(".phone").siblings("i").css("visibility", "visible");
+					return;
+				}
+				if(phone.length != 11) {
+					$(".phone").siblings("i").html("请输入11位手机号");
+					$(".phone").siblings("i").css("visibility", "visible");
+					return;
+				}
+				if(yzm == "" || yzm == undefined) {
+					$(".i_code").parent().siblings("i").css("visibility", "visible");
+					return;
+				}
+				$.post("/site/ajax-login.html", {
+					"phone": phone,
+					"yzm": yzm,
+					"cms_csrf": srf
+				}, function(data) {
+					if(data.status == 0) {
+						$(".command").show();
+					} else {
+						tupian();
+						alert(data.msg);
+					}
+				}, "json");
+			});
+			//点击更新图片验证码
+			$(".capture").click(function() {
+				tupian();
+			});
+			//点击选择设备类型
+			$(".yy_ul li").on("click", function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+			//图片验证码
+			function tupian() {
+				$.get("/site/captcha.html?refresh=1", {}, function(data) {
+					$(".capture img").attr("src", data.url);
+				}, 'json');
+			};
+		});
+	</script>
+
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下载引导</title>
+	<link rel="stylesheet" href="./css/common.css" />
+	<link rel="stylesheet" href="./css/index.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=device-dpi" />
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+</head>
+<body>
+	<div class="i_box">
+		<div class="i_con_01">
+			<!-- <img src="./images/pic_01.png" class="i_c_01">
+			<img src="./images/pic_02.png" class="i_c_02">
+			<img src="./images/pic_03.png" class="i_c_03"> -->
+			<img src="./images/pic_09.png" class="i_c_03">
+		</div>
+		<img src="./images/4.png" class="i_con_02">
+		<img src="./images/pic_04.png" class="i_con_03">
+		<div class="i_text">
+			<p>下载就差一步啦~</p>
+			<p>请点击右上角<img src="./images/pic_05.png" alt=""></p>
+			<p>选择<span>“在Safari中打开”</span></p>
+
+		</div>
+		<img  src="./images/pic_06.png" class="i_con_04">
+	</div>
+	<script src="./js/jquery-1.11.2.min.js"></script>
+	<script>
+		function ismobile(test){
+			var u = navigator.userAgent, app = navigator.appVersion;
+			if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){
+			 	if(window.location.href.indexOf("?mobile")<0){
+				  	try{
+					   	if(/iPhone|mac|iPod|iPad/i.test(navigator.userAgent)){
+					   		return '0';
+					   	}else{
+					   		return '1';
+					   	}
+				  	}catch(e){}
+				}
+			}else if( u.indexOf('iPad') > -1){
+				return '0';
+			}else{
+				return '1';
+			}
+		};
+		//console.log(ismobile(1));//0:iPhone 1:Android
+		var themobile = ismobile(1);
+		if(themobile=="0"){
+			$(".i_text").find("img").attr("src","./images/pic_05.png");
+			$(".i_con_04").attr("src","./images/pic_06.png");
+			$(".i_text").find("span").text("“在Safari中打开”");
+		}else{
+			$(".i_text").find("img").attr("src","./images/pic_07.png")
+			$(".i_con_04").attr("src","./images/pic_08.png");
+			$(".i_text").find("span").text("“在浏览器中打开”");
+		}
+		Carousel();
+		function Carousel(){
+			var i = 0;
+			setInterval(function(){
+				if(i%2==0){
+					hide();
+				}else{
+					show();
+				}
+				if(i==1){
+					i=0;
+				}else{
+					i++
+				}
+			},500);
+		}
+		function show(){
+			$(".i_con_01").find("img").show();
+		}
+		function hide(){
+			$(".i_con_01").find("img").hide();
+		}
+		$(document).on('touchmove', function(e){
+		 	e.preventDefault();
+		})
+	</script>
+</body>
+</html>

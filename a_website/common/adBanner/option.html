@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta name="keyword" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" href="css/wapReset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="content"></div>
+	<section id="ad_banner" class="ad_banner">
+		<a href="javascript:">
+			<img src="images/pic_03.png">
+		</a>
+		<label class="ad_close"></label>
+	</section>
+</body>
+<script type="text/javascript">
+	function resetRem(){
+		var page_w = document.documentElement.clientWidth;
+		document.getElementById("ad_banner").style.fontSize = page_w / 6.4 + 'px';
+	}
+	resetRem();
+</script>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var is_show = false;
+		var is_click_close = false;
+		
+		$(window).scroll(function(){
+			is_show_banner(); 
+		});
+
+		function is_show_banner(){
+			if(is_click_close){
+				return;
+			}
+			var scrollTop = $(document).scrollTop();
+			var ad_banner = $(".ad_banner");
+			if(scrollTop >= 20){
+				if(is_show){
+					return;
+				}
+				is_show = true;
+				ad_banner.css({
+					display: "block"
+				}) 
+			}else if(scrollTop == 0){
+				if(is_show){
+					ad_banner.css({
+						display: "none"
+					}) 
+					is_show = false;
+				}								
+			}
+		}
+
+		$(".ad_close").click(function(){
+			is_click_close = true;
+			$(".ad_banner").css({
+				display: "none"
+			})
+		});
+	});
+</script>
+</html>

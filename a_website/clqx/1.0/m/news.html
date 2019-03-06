@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<!--header-->
+<header class="header">
+    <a href="#" class="logo" target="_blank">
+        <img src="images/logo.png" alt="">
+    </a>
+    <div class="h_text">
+        <p class="h_p01">苍蓝前线</p>
+        <p class="h_p02">53D即时制团战弹射手游</p>
+    </div>
+    <div class="header_a">
+        <a href="javascript:;" class="down_btn"></a>
+        <span class="type"></span>
+    </div>
+    <div class="nav-content">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="" class="item-anchor">首页</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:alert('敬请期待！')" class="item-anchor">新闻资讯</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!--内容-->
+<div class="list">
+    <div class="top_img">
+        <!--logo-->
+        <div class="logo1"><img src="images/logo1.png" alt=""/></div>
+        <!--download-->
+        <div class="download"><img src="images/down_btn1.png" alt=""/></div>
+    </div>
+    <div class="list_news">
+        <div class="news_box">
+        <div class="hd">
+            <ul>
+                <a href="" class="go_home"></a>
+                <li class="on">
+                    <a>最新</a>
+                </li>
+                <li>
+                    <a>资讯</a>
+                </li>
+                <li>
+                    <a>公告</a>
+                </li>
+                <li>
+                    <a>活动</a>
+                </li>
+                <li>
+                    <a>攻略</a>
+                </li>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul class="news_info">
+                <li>
+                    <a target="_blank" href="#"><i class="small_ti">[最新]</i>《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                </li>
+                <li>
+                    <a target="_blank" href="#"><i class="small_ti">[最新]</i>谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                </li>
+                <li>
+                    <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                </li>
+                <li>
+                    <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                </li>
+            </ul>
+            <div class="dropload-down">
+                <div class="dropload-noData">上滑加载更多...</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper-3.4.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script>
+    $(function(){
+        var swiper01 = new Swiper('.swiper-container1', {
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+    });
+</script>
+</html>
