@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">	
+	<title>巅峰战舰</title>
+	<!-- <link rel="stylesheet" href="../common/css/"> -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="l_wrap">
+		<div class="i_top">
+			<div class="i_top_ico">
+				<img src="images/i_icon.png" alt="icon">
+			</div>
+			<div class="i_top_text">
+				<h3>巅峰战舰</h3>
+				<p>首款次世代TPS海战手游</p>
+			</div>
+			<div class="i_down">
+				<a href="javascript:"></a>
+			</div>
+		</div>
+		<div class="n_m1">
+			<div class="n_m1_nav">
+				<div class="n_con">
+					<div class="n_move n_move1">
+						<div class="n_movebar">
+							<span>1</span>
+						</div>
+						<div class="n_inf">
+							<span>重型战斗机        玩法指引</span>
+						</div>
+					</div>
+					<div class="n_move n_move2" style="width: 2rem;">
+						<div class="n_movebar">
+							<span>2</span>
+						</div>
+						<div class="n_inf">
+							<span>重型战斗机        玩法指引</span>
+						</div>
+					</div>
+					<div class="n_move n_move3" style="width: 2rem;">
+						<div class="n_movebar">
+							<span>3</span>
+						</div>
+						<div class="n_inf">
+							<span>重型战斗机        玩法指引</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="n_m1_inf">
+				<img src="images/n_img01.jpg" alt="lb">
+				<img src="images/n_inf_bg.jpg" alt="lb" style="display: block;">
+				<img src="images/n_img01.jpg" alt="lb" style="display: block;">
+			</div>
+		</div>
+		<div class="pad_bot">
+			<div class="n_m2">
+				<a href="#" class="n_a1"></a>
+				<a href="#" class="n_a2"></a>
+				<a href="#" class="n_a3"></a>
+				<a href="#" class="n_a4"></a>
+				<a href="#" class="n_a5"></a>
+				<a href="#" class="n_a6"></a>
+			</div>
+		</div>
+		<div class="i_nav">
+			<ul>
+				<li>
+					<a href="#">
+						<i></i>
+						<span>首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i></i>
+						<span>新闻</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i></i>
+						<span>战舰</span>
+					</a>
+				</li>
+				<li class="on">
+					<a href="#">
+						<i></i>
+						<span>新手</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	<script src="../common/js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('html').fitText(2);
+		$(".n_con .n_move").click(function(){
+			var index=$(this).index();
+			$(".n_con .n_move").not(this).animate({width:'2rem'},500);
+			$(this).animate({width:'16rem'},500);
+			$(".n_m1_inf img").eq(index).css({"display":"block"}).siblings().css({"display":"none"});
+		});
+	 })
+	</script>
+</body>
+</html>

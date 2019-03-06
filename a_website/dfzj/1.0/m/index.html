@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="address=no">
+	<title>巅峰战舰</title>
+	<!-- <link rel="stylesheet" href="../common/css/"> -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="i_wrap">
+		<div class="i_top">
+			<div class="i_top_ico">
+				<img src="images/i_icon.png" alt="icon">
+			</div>
+			<div class="i_top_text">
+				<h3>巅峰战舰</h3>
+				<p>首款次世代TPS海战手游</p>
+			</div>
+			<div class="i_down">
+				<a href="javascript:"></a>
+			</div>
+		</div>
+		<a href="index.html" class="i_logo">
+			<img src="images/i_logo.png" alt="logo">
+		</a>
+		<div class="i_video">
+			<div class="i_lb">
+				<div class="i_lbbox">
+					<ul>
+						<li>
+							<img src="images/i_bg.jpg" alt="">
+							<i></i>
+						</li>
+						<li>
+							<img src="images/i_bg.jpg" alt="">
+							<i></i>
+						</li>
+						<li>
+							<img src="images/i_bg.jpg" alt="">
+							<i></i>
+						</li>
+						<li>
+							<img src="images/i_bg.jpg" alt="">
+							<i></i>
+						</li>
+					</ul>
+				</div>
+				<span class="i_prev"></span>
+				<span class="i_next"></span>
+			</div>
+		</div>
+		<div class="c_footer">
+			<p>版权所有：北京卓越晨星科技有限公司 Rights Reserved </p>
+			<p>《网络文化经营许可证》：京网文[2015]0629-259号 文网游备字〔2015〕Ｍ-CSG 0671 号</p>
+			<p>公司地址：北京市朝阳区酒仙桥路宏源大厦3楼   联系方式：010-53356557   京ICP备15026730号-2</p>
+		</div>
+		<div class="i_nav">
+			<ul>
+				<li class="on">
+					<a href="#">
+						<i></i>
+						<span>首页</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i></i>
+						<span>新闻</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i></i>
+						<span>战舰</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i></i>
+						<span>新手</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	<div id="mask"></div>
+    <div id="video_tck">
+		<div id="player5">
+			<div id="close"></div>
+			<video controls="controls" class="vid_sp">
+				<source src="images/v.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+	<div class="makeApp"> 
+	   <i class="close"></i>
+	   <div class="mApp-item item1"><input type="text" placeholder="手机号码："></div>
+	   <div class="mApp-item item2"><input type="text" placeholder="验证码："><span>发送验证码</span></div>
+	   <a href="javascript:;" class="dfzjBtn"></a>
+	</div>
+	<script src="../common/js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('html').fitText(2);
+		$(".i_lbbox").img_lb();
+		// 视频
+		$(".i_lbbox ul li i").click(function(){
+			$("#mask").show();
+	 		$("#video_tck").show();
+	 		$('.vid_sp').trigger('play');
+	 	})
+	 	$("#close").click(function(){
+	 		$("#mask").hide();
+	 		$("#video_tck").hide();
+	 		$('.vid_sp').trigger('pause');
+	 	});
+		$(".makeApp i.close").click(function(){
+			  $(".makeApp").hide()&&$("#mask").hide();
+		});
+		
+		
+			  var validCode=true;
+				$(".makeApp span").on("click",function(){
+					var time=60;
+					var code=$(this);
+					if(validCode){
+						validCode=false;
+						var t=setInterval(function(){
+							time--;
+							code.html(time+"秒");
+							code.addClass("on");
+							if (time==0) {
+								clearInterval(t);
+								code.html("重新获取");
+								validCode=true;
+								code.removeClass("on");
+							 }
+						},1000);
+					}
+				});
+	
+	 })
+	 	$.fn.img_lb=function(){
+			return this.each(function(){
+				var $con=$(this);//包裹按钮和轮播的图片元素
+				var sWidth = $con.width();
+				console.log(sWidth)
+				var cov_length = $con.find("ul li").length;
+				var index = 0;
+				var picTimer;
+				var btn = "<div class='buttons'>";
+				for (var i = 0; i < cov_length; i++) {
+					if(i==0){
+						btn+="<span class='on'></span>";
+					}else{
+						btn+="<span></span>";
+					}
+				}
+				$con.append(btn);
+				$con.find(".buttons span").mouseover(function() {
+					index = $con.find(".buttons span").index(this);
+					showPics(index);
+				}).eq(0).trigger("mouseover");
+				$(".i_prev").click(function() {
+					index -= 1;
+					if (index == -1) {
+						index = cov_length - 1;
+					}
+					showPics(index);
+				});
+				$(".i_next").click(function() {
+					index += 1;
+					if (index == cov_length) {
+						index = 0;
+					}
+					showPics(index);
+				});
+				$con.find("ul").css("width", sWidth * (cov_length));
+					picTimer = setInterval(function() {
+						showPics(index);
+						index++;
+						if (index == cov_length) {
+							index = 0;
+						}
+					}, 3000);
+				function showPics(index) { 
+					var nowLeft = -index * sWidth;
+					$con.find("ul").stop(true, false).animate({
+						"left": nowLeft
+					}, 300);
+				    $con.find(".buttons span").removeClass("on").eq(index).addClass("on"); 				
+				}
+			})
+		}
+
+	</script>
+</body>
+</html>
