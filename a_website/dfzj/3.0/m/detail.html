@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/news.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+	                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                    recalc = function () {
+	                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+	                        var clientWidth = docEl.clientWidth;
+	                        if (!clientWidth) return;
+	                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+	                    };
+	
+	            recalc();
+	            //判断是否支持监听事件 ，不支持则停止
+	            if (!doc.addEventListener) return;
+	            //注册翻转事件
+	            win.addEventListener(resizeEvt, recalc, false);
+	        })(document, window);
+    	</script>
+	</head>
+	
+	<body>
+		<header>
+			<div class="header">
+				<a href="javascript:;" class="icon"><img src="images/icon.png" alt="" /></a>
+				<div class="header_txt">
+					<p>巅峰战舰</p>
+					<p>全球对战TPS海战竞技手游</p>
+				</div>
+				<a href="javascript:;" class="i_down"><img src="images/i_down.png" alt="" /></a>
+				<div class="header_tab">
+					<span class="f_span"></span>
+					<span class="s_span"></span>
+					<span class="t_span"></span>
+				</div>
+				<ul class="h_tab">
+					<li><a href="javascript:;">首页</a></li>
+					<li><a href="javascript:;">新闻资讯</a></li>
+					<li><a href="javascript:;">视频中心</a></li>
+					<li><a href="javascript:;">赛事专区</a></li>
+				</ul>
+			</div>
+		</header>
+		<section>
+			<div class="kv"></div>
+		</section>
+		<section>
+			<div class="n_con">
+				<div class="chengg"></div>
+				<div class="news_body">
+					<div class="detail_title">
+						<a href="javascript:;" class="d_back"><img src="images/sanjiao.png" alt="" /></a>
+						<div class="detail_tit">
+							<h3>2018全民期待吃鸡手游《代号英 雄》官网今日上线</h3>
+							<p>发布时间：<span>05/06</span>来源：本网站</p>
+						</div>
+					</div>
+					<div class="d_body">
+						<div class="detail_con">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript">
+		$(function (){
+			$(".header_tab").click(function (){
+				if($(".h_tab").css("display") == "none"){
+					$(".header_tab span").addClass("active");
+					$(".h_tab").stop().slideDown();
+				} else {
+					$(".header_tab span").removeClass("active");
+					$(".h_tab").stop().slideUp();
+				}
+			});
+		});
+	</script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>交友墙</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/common.min.css" />
+		<link rel="stylesheet" href="css/picture.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+        	(function (doc, win) {
+        	    var docEl = doc.documentElement,
+        	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+        	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	            recalc = function () {
+        	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+        	                var clientWidth = docEl.clientWidth;
+        	                if (!clientWidth) return;
+        	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+        	            };
+
+        	    recalc();
+        	    //判断是否支持监听事件 ，不支持则停止
+        	    if (!doc.addEventListener) return;
+        	    //注册翻转事件
+        	    win.addEventListener(resizeEvt, recalc, false);
+        	})(document, window);
+    	</script>
+	</head>
+	
+	<body>
+		<section>
+			<ul class="p_ul" id="p_ul">
+				<li class="box">
+					<div class="li_top">
+						<img src="images/pic.jpg" alt="" class="pic" />
+						<div class="li_tx">
+							<img src="images/tx.png" alt="" />
+							<p>美好的饼干奶油</p>
+						</div>
+					</div>
+					<div class="li_txt">
+						<p>爱迪生AS大所大所大所多所大所大所大所 </p>
+					</div>
+				</div>
+				<li class="box">
+					<div class="li_top">
+						<img src="images/pic.jpg" alt="" class="pic" />
+						<div class="li_tx">
+							<img src="images/tx.png" alt="" />
+							<p>美好的饼干奶油</p>
+						</div>
+					</div>
+					<div class="li_txt">
+						<p>爱迪生AS大所大所大所多所大所大所大所 </p>
+					</div>
+				</li>
+				<li class="box">
+					<div class="li_top">
+						<img src="images/act_01.jpg" alt="" class="pic" />
+						<div class="li_tx">
+							<img src="images/tx.png" alt="" />
+							<p>美好的饼干奶油</p>
+						</div>
+					</div>
+					<div class="li_txt">
+						<p>爱迪生AS大所大所大所多所大所大所大所 </p>
+					</div>
+				</li>
+				<li class="box">
+					<div class="li_top">
+						<img src="images/pic.jpg" alt="" class="pic" />
+						<div class="li_tx">
+							<img src="images/tx.png" alt="" />
+							<p>美好的饼干奶油</p>
+						</div>
+					</div>
+					<div class="li_txt">
+						<p>爱迪生AS大所大所大所多所大所大所大所 </p>
+					</div>
+				</li>
+				<li class="box">
+					<div class="li_top">
+						<img src="images/pic.jpg" alt="" class="pic" />
+						<div class="li_tx">
+							<img src="images/tx.png" alt="" />
+							<p>美好的饼干奶油</p>
+						</div>
+					</div>
+					<div class="li_txt">
+						<p>爱迪生AS大所大所大所多所大所大所大所 </p>
+					</div>
+				</li>
+				<img src="images/wr.png" alt="" class="wr"/>
+			</ul>
+			<div class="b_img">
+				<div class="b_cimg">
+					<img src="images/n_close.png" alt="" class="close"/>
+					<img src="images/bg.png" alt="" class="z_img" />
+				</div>
+			</div>
+		</section>
+		<section>
+			<a href="javascript:;" class="send">我要发表</a>
+		</section>
+	</body>
+	<script type="text/javascript" src="js/masonry-docs.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			var $container = $('#p_ul');
+			    $container.imagesLoaded(function() {
+			        $container.masonry({
+			                itemSelector: '.box',
+			                gutter: 15,
+			                isAnimated: true,
+			            });
+			     });
+			$(".p_ul li").on("click" , function (){
+				var img = $(this).children(".li_top").find(".pic").attr("src");
+				$(".z_img").attr("src",img);
+				$(".b_img").stop().fadeIn();
+			});
+			$(".b_img").click(function() {
+				$(this).stop().fadeOut();
+			});
+		})
+	</script>
+</html>

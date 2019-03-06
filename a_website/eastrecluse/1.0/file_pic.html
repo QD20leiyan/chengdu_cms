@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/common.min.css" />
+		<link rel="stylesheet" href="css/picture.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<style>
+			html,
+			body {
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section>
+			<div class="c_main">
+				<div class="c_pic">
+					<input type="file" class="addBorder" onchange="showPreview(this)">
+					<img src="" alt="" class="c_img" id="portrait"/>
+					<div class="loading"><img src="images/loading.png" alt="" /></div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="textarea">
+				<textarea placeholder="写下你此刻的想说的话" onkeyup="wordStatic(this);" class="txt"></textarea>
+				<p><span class="c_p" id="num">0</span>/50</p>
+			</div>
+		</section>
+		<section>
+			<a href="javascript:;" class="send">马上发表</a>
+		</section>
+	</body>
+	<script type="text/javascript">
+		function wordStatic(input) {
+			// 获取要显示已经输入字数文本框对象  
+			var content = document.getElementById('num');
+			if(content && input) {
+				// 获取输入框输入内容长度并更新到界面  
+				var value = input.value;
+				// 将换行符不计算为单词数  
+				value = value.replace(/\n|\r/gi, "");
+				// 更新计数  
+				content.innerText = value.length;
+				if(value.length > 50) {
+					$("#num").css("color", "red");
+				}
+			}
+		}
+		function showPreview(source) {
+			var file = source.files[0];
+			if(window.FileReader) {
+				var fr = new FileReader();
+				console.log(fr);
+				var portrait = document.getElementById('portrait');
+				fr.onloadend = function(e) {
+					portrait.src = e.target.result;
+				};
+				fr.readAsDataURL(file);
+				$(".c_pic").css("background","none");
+				portrait.style.display = 'block';
+			}
+		}
+		$(".send").click(function (){
+			var txt = $(".txt").val();
+			var b_src = $("#portrait").attr("src");
+			if(b_src == "" || b_src == undefined){
+				alert("请选择上传图片~");
+				return
+			}
+			if(txt == "" || txt == undefined){
+				alert("请写下您想说的话~");
+				return;
+			}
+		})
+	</script>
+
+</html>

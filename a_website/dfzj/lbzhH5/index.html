@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<title></title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				//				console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="container_1">
+				<div class="loading_bg"></div>
+			</div>
+			<div class="videobox">
+				<video id="video" src="http://cdn.static.yingxiong.com/dfzj/lbzhH5/video_content.mp4" playsinline webkit-playsinline></video>
+				<div class="btn"></div>
+			</div>
+			<div class="container_2">
+				<img src="img/txt01.png" title="" alt="" />
+				<img src="img/price.png" title="" alt="" />
+				<img src="img/txt02.png" title="" alt="" />
+				<img src="img/boat.jpg" title="" alt="" />
+				<img src="img/txt.png" title="" alt="" />
+				<a target="_blank" href="http://downurl.yingxiong.com/url/dfzj_lbh5.html">下载游戏</a>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fittext.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var i = 0;
+			if(i == 0) {
+				$(".loading_bg").css({
+					"background-position": "0rem 0rem"
+				});
+				i++;
+				console.log(i)
+				if(i == 1) {
+					setTimeout(function() {
+						$(".loading_bg").css({
+							"background-position": "-20rem 0rem"
+						});
+						i++;
+						if(i == 2) {
+							setTimeout(function() {
+								$(".loading_bg").css({
+									"background-position": "-40rem 0rem"
+								});
+								i++;
+								if(i == 3) {
+									setTimeout(function() {
+										$(".loading_bg").css({
+											"background-position": "-60rem 0rem"
+										});
+										i++;
+										if(i == 4) {
+											setTimeout(function() {
+												$(".loading_bg").css({
+													"background-position": "-80rem 0rem"
+												});
+												i++;
+												if(i == 5) {
+													setTimeout(function() {
+														$(".loading_bg").css({
+															"background-position": "-100rem 0rem"
+														});
+														$(".btn").fadeIn();
+														return false;
+													}, 500)
+												}
+											}, 500)
+										}
+									}, 500)
+								}
+							}, 500)
+						}
+					}, 500)
+				}
+			}
+		})
+	</script>
+
+</html>

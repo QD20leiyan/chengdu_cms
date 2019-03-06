@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="css/n_index.css" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<!--header-->
+		<header class="header">
+			<a href="#" class="logo" target="_blank">
+				<img src="image1/logo.png" alt="">
+			</a>
+			<div class="h_text">
+				<p class="h_p01">明日决胜！</p>
+				<p class="h_p02">开放世界为爱冒险</p>
+			</div>
+			<a href="javascript:;" class="enter"><img src="image1/l_order.png" alt="" /></a>
+			<!--<div class="header_a">
+				<a href="javascript:;" class="order"></a>
+			</div>-->
+			<div class="l_download">
+				<a href="javascript:;"><img src="image1/gf.png" alt="" /></a>
+				<a href="http://l.taptap.com/SfcTPHyU"><img src="image1/tap.png" alt="" /></a>
+			</div>
+		</header>
+
+		<!--<section>
+			<div class="loading">
+				<i class="ic_mouse"></i>
+			</div>
+		</section>-->
+		<!--内容-->
+		<section class="section01">
+			<div class="zhezhao2"> </div>
+			<div class="canvasbox">
+				<canvas id="child" width="640" height="946"></canvas>
+			</div>
+			<div class="isLogin">
+				<aside class="login-box before_denglu active">欢迎您，请
+					<a href="javascript:" class="denglu">登录</a>
+				</aside>
+				<aside class="login-box after_denglu ">欢迎您，<span>13880579867</span><span class="control_count">账户操作</span></aside>
+				<ul class="isLogin_ul" style="display: block;">
+					<li>
+						<img src="image1/l_qq.png" alt="" />
+						<p>关联QQ</p>
+					</li>
+					<!--<li>
+						<img src="image1/l_phone.png" alt="" />
+						<p>改绑手机</p>
+					</li>
+					<li>
+						<img src="image1/l_back.png" alt="" />
+						<p>安全退出</p>
+					</li>-->
+				</ul>
+			</div>
+			<aside class="clear"></aside>
+			<aside class="slogan"><img src="image1/slogan.png"></aside>
+			<aside class="play-box"><img src="image1/play.png"></aside>
+			<aside class="yuyue-wrapper">
+				<!--<p>当前预约人数:<span>538468</span></p>-->
+				<img src="image1/yuyue.png">
+				<!--<p>9月7日 安卓全渠道公测</p>-->
+			</aside>
+			<aside class="next-wrapp">
+				<img src="image1/down01.png">
+			</aside>
+		</section>
+		<section class="section02">
+			<aside class="title01"><img src="image1/title01.png"></aside>
+			<b>绑定手机获得198元礼包</b>
+			<aside class="list-img"><img src="image1/list_img.png"></aside>
+			<aside class="gift-btn">
+				<div class="active"><img src="image1/gift.png"></div>
+				<div class="gift_code ">
+					<p id="tc13_copyTextz">啊实打实大所</p>
+					<i class="fuzhi" id="tc13_copyBtnz" data-clipboard-action="copy" data-clipboard-target="#tc13_copyTextz">复制</i>
+				</div>
+			</aside>
+			<div class="p_yuyue c_yy"></div>
+			<a href="javascript:;" class="look_gift">
+				查看我的礼包>
+			</a>
+			<b class="mar">累计绑定手机达到指定人数，送豪礼</b>
+			<!--<p class="new_tip">9月14日游戏内创角后，官网领取奖励</p>-->
+			<p class="new_tip">当前预约人数：<span class="renshu">21545</span></p>
+			<article class="progress-wrapp">
+				<div class="s_zhezhao"></div>
+				<div class="progress-box">
+					<div class="progress-pro">
+						<div style="width: 40%"></div>
+					</div>
+					<article class="progress-gift active">
+						<aside class="numTxt">5000预约礼包</aside>
+						<img src="image1/gift_icon01.png">
+						<p>
+							<b>已领取</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="image1/gift_one.png"></aside>
+					</article>
+					<article class="progress-gift active">
+						<aside class="numTxt">10000预约礼包</aside>
+						<img src="image1/gift_icon02.png">
+						<p>
+							<b>已领取</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="image1/gift_one.png"></aside>
+					</article>
+					<article class="progress-gift active">
+						<aside class="numTxt progress-giftAct">50000预约礼包</aside>
+						<img src="image1/gift_icon03.png">
+						<p>
+							<b>已领取</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="image1/gift_one.png"></aside>
+					</article>
+					<article class="progress-gift active">
+						<aside class="numTxt progress-giftAct">100000预约礼包</aside>
+						<img src="image1/gift_icon04.png">
+						<p>
+							<b>已领取</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="image1/gift_one.png"></aside>
+					</article>
+					<article class="progress-gift active">
+						<aside class="numTxt progress-giftAct">500000预约礼包</aside>
+						<img src="image1/gift_icon05.png">
+						<p>
+							<b>已领取</b>
+							<a href="javascript:;" class="lqq"></a>
+						</p>
+						<aside class="gift-details"><img src="image1/gift_one.png"></aside>
+					</article>
+				</div>
+			</article>
+			<div class="zhezhao"></div>
+			<aside class="next-wrapp">
+				<img src="image1/down02.png">
+			</aside>
+		</section>
+		<section class="section03">
+			<aside class="title02"><img src="image1/title02.png"></aside>
+			<aside class="star-wrapp">
+				<img src="image1/star01.png">
+				<img src="image1/star02.png">
+				<img src="image1/star03.png">
+				<img src="image1/star04.png">
+				<img src="image1/star05.png">
+				<img src="image1/star06.png">
+			</aside>
+			<article class="server-wrapp">
+				<aside class="server-box">
+					<img src="image1/wx.png">
+					<img src="image1/wb.png">
+					<img src="image1/qq.png">
+					<img src="image1/tb.png">
+				</aside>
+			</article>
+		</section>
+		<section class="TKMask hidden">
+			<article class="login-wrapper">
+				<!-- 登录预约 -->
+				<article class="login">
+					<aside class="title03">
+						<img src="image1/title03.png">
+						<!-- <img src="image1/title04.png"> -->
+					</aside>
+					<aside class="login-inp">
+						<aside class="login-list">
+							<p><img src="image1/user.png"><input type="tel" name="" placeholder="请输入手机号"></p>
+							<!-- <span><img src="image1/error.png">请输入正确的手机号</span> -->
+						</aside>
+						<aside class="login-list yzm-box">
+							<p><img src="image1/suo.png"><input type="text" name="" placeholder="请输入验证码"><label></label></p>
+							<span><img src="image1/error.png">请输入验证码</span>
+						</aside>
+						<aside class="login-list yzm-box">
+							<p><img src="image1/suo.png"><input type="text" name="" placeholder="请输入验证码">><label>获取验证码</label></p>
+							<!-- <span><img src="image1/error.png">请输入验证码</span> -->
+						</aside>
+						<aside class="login-btn">
+							<!-- <img src="image1/login_btn.png"> -->
+							<img src="image1/yuyue_btn.png">
+						</aside>
+						<div class="yuyue_bottom">
+							<aside>
+								<ul class="login_ul">
+									<li>
+										<img src="image1/n_qq.png" alt="" />
+										<p>QQ关联</p>
+									</li>
+									<li>
+										<img src="image1/n_wx.png" alt="" />
+										<p>微信关联</p>
+									</li>
+								</ul>
+							</aside>
+							<aside class="system-tips">
+								<p>出于对您账户安全性考虑，绑定手机号后，<br/>您将无法再使用同一手机号进行其他方式的预约。</p>
+								<!--<aside class="choice">
+									<span><img src="image1/sure.png"></span>我已知晓，且同意
+								</aside>-->
+							</aside>
+						</div>
+					</aside>
+				</article>
+				<!-- 预约成功 -->
+				<article class="reservations hidden">
+					<aside class="title05"><img src="image1/title05.png"></aside>
+					<aside class="code-wrapp"><span>预约礼包码：</span>GWIDIB36B54MGISDZF</aside>
+					<aside class="reminder-tips">
+						<p>温馨提示：</p>
+						<p>· 游戏上线后，您可以直接用预约账户登录游戏，无需再次注册。</p>
+						<p>· 您可以再次登录《明日决胜！》官网，查看礼包码，改绑手机。</p>
+						<img src="image1/sure_btn.png">
+					</aside>
+					<aside class="wx-follow">
+						<img src="image1/ewm.png">
+						<p>关注《明日决胜！》微信公众号，<br/>赢取<span>iPhoneX</span></p>
+					</aside>
+				</article>
+				<aside class="close">
+					<img src="image1/close.png">
+				</aside>
+			</article>
+		</section>
+		<section class="my_gift_tips">
+			<div class="my_gift">
+				<img src="image1/my_gift.png" alt="" class="title">
+				<p class="user_info">您绑定的手机号码为：<span>18516254937</span></p>
+				<ul>
+					<li></li>
+					<li class="li">
+						<p class="active">礼包码为：</p>
+						<p class="active">
+							vffdgdfgf
+						</p>
+					</li>
+					<li class="li1">
+						<p class="status1">已领取</p>
+						<p class="status2">可领取</p>
+						<p class="status3">未领取</p>
+					</li>
+					<li class="li2">
+						<p class="status1">已领取</p>
+						<p class="status2">可领取</p>
+						<p class="status3">未领取</p>
+					</li>
+					<li class="li3">
+						<p class="status1">已领取</p>
+						<p class="status2">可领取</p>
+						<p class="status3">未领取</p>
+					</li>
+					<li class="li4">
+						<p class="status1">已领取</p>
+						<p class="status2">可领取</p>
+						<p class="status3">未领取</p>
+					</li>
+					<li class="li5">
+						<p class="status1">已领取</p>
+						<p class="status2">可领取</p>
+						<p class="status3">未领取</p>
+					</li>
+				</ul>
+				<a href="javascript:;" class="to_game"><img src="image1/to_game.png" alt=""></a>
+				<a href="javascript:;" class="close"></a>
+				<img src="image1/ewm.png" alt="" class="ewm">
+			</div>
+		</section>
+		<div class="bigImg">
+			<img src="../images/erweima.jpg" alt="" />
+			<p>长按保存至手机</p>
+			<p>发送至微信内识别</p>
+			<p>关注《明日决胜！》官方微信</p>
+		</div>
+		<!-- 选择ios还是安卓 -->
+		<section class="TKMask hidden">
+			<article class="choose-models">
+				<span class="curr1 curr "></span>
+				<span class="curr2"></span>
+				<aside class="sure_btn"><img src="image1/sure_btn.png"></aside>
+				<aside class="close"><img src="image1/close.png"></aside>
+			</article>
+		</section>
+		<!-- error提示框 -->
+		<section class="TKMask2 TKMask2_1 hidden">
+			<article class="choose-models2">
+				<span class="title">请勿重复领取！</span>
+				<p class="err_text">当前符合领取条件的奖励，已全部发放至游戏中，请查看角色邮箱
+					<br> 如无法解决，请加入官方Q群，联系群管理员。（Q群：689772061）
+				</p>
+				<aside class="sure_btn"><img src="image1/sure_btn.png"></aside>
+				<aside class="close"><img src="image1/close.png"></aside>
+			</article>
+		</section>
+		<section class="TKMask2 TKMask2_2 hidden">
+			<article class="choose-models2">
+				<span class="title">领取失败！</span>
+				<p class="err_text">可能原因如下：<br> 1、您未使用预约手机号进行注册。（奖励仅发放至预约手机号对应账号中）
+					<br> 2、您未创建游戏账号。
+					<br> （奖励默认发放至绑定手机号创建的第一个游戏账号中）
+					<br> 3、其他未知错误请加入官方Q群，联系群管理员。（Q群：689772061）
+				</p>
+				<aside class="sure_btn2"><img src="image1/sure_btn.png"></aside>
+				<aside class="close2"><img src="image1/close.png"></aside>
+			</article>
+		</section>
+		<section class="TKMask2 TKMask2_3">
+			<article class="choose-models2">
+				<span class="title">领取成功！</span>
+				<p class="err_text">奖励已发送成功，<br> 请至游戏内，查看邮箱领取奖励</p>
+				<aside class="sure_btn"><img src="image1/sure_btn.png"></aside>
+				<aside class="close"><img src="image1/close.png"></aside>
+			</article>
+		</section>
+		<section class="TKMask2 TKMask2_4">
+			<article class="choose-models2">
+				<span class="title">活动未开始</span>
+				<p class="err_text">请9月14日，游戏开服后，再进行领取<br><br> 温馨提示：
+					<br> 1、“累计预约”礼包，仅限在《明日决胜！》官网下载游戏的用户使用。
+					<br> 2、9月14日游戏开服后，请使用预约时使用的手机号进行注册。
+					<br> 3、“累计预约”礼包会默认发放至绑定手机号创建的第一个游戏角色中
+				</p>
+				<aside class="sure_btn2"><img src="image1/sure_btn.png"></aside>
+				<aside class="close2"><img src="image1/close.png"></aside>
+			</article>
+		</section>
+		<!--选择登录方式-->
+		<section>
+			<div class="login_select">
+				<div class="c_login_select">
+					<div class="chengg"></div>
+					<img src="image1/n_title01.png" alt="" class="n_title" />
+					<p class="select_p">选择登录方式</p>
+					<ul class="login_ul">
+						<li>
+							<img src="image1/n_qq.png" alt="" />
+							<p>QQ</p>
+						</li>
+						<li>
+							<img src="image1/n_wx.png" alt="" />
+							<p>微信</p>
+						</li>
+						<li>
+							<img src="image1/n_phone.png" alt="" />
+							<p>手机</p>
+						</li>
+					</ul>
+					<div class="login_bottom">
+						<img src="image1/ewm.png" alt="" />
+						<div class="login_txt">
+							<p>关注《明日决胜！》微信公众号，</p>
+							<p>赢取<span>iPhoneX</span></p>
+						</div>
+					</div>
+					<div class="o_close">
+						<img src="image1/close.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--更改绑定-->
+		<section>
+			<div class="change_bind">
+				<div class="c_change_bind">
+					<div class="chengg"></div>
+					<img src="image1/n_title02.png" alt="" class="n_title" />
+					<p class="change_title">您绑定的手机号码为 <span>15829046113</span></p>
+					<p class="change_phone">绑定新的手机号码：</p>
+					<div class="m_input">
+						<div class="s_put">
+							<img src="image1/user.png" alt="" class="l_tip" />
+							<input type="tel" placeholder="请输入手机号" class="phone" />
+							<i class="wrong"><img src="images/wrong.png" alt="" /><span>手机号有误</span></i>
+						</div>
+						<div class="s_put">
+							<img src="image1/suo.png" alt="" class="l_tip" />
+							<input type="tel" placeholder="输入验证码" class="t_yzm" />
+							<div class="captcha">
+								<p>点击刷新</p>
+								<!--<img src="images/kv.jpg" alt="" />-->
+							</div>
+							<i class="wrong"><img src="images/wrong.png" alt="" /><span>验证码有误</span></i>
+						</div>
+						<div class="s_put">
+							<img src="image1/suo.png" alt="" class="l_tip" />
+							<input type="tel" placeholder="输入验证码" class="yzm" />
+							<input type="button" value="获取验证码" class="g_code" />
+							<i class="wrong"><img src="images/wrong.png" alt="" /><span>验证码有误</span></i>
+						</div>
+					</div>
+					<img src="image1/bangding.png" alt="" class="bangding" />
+					<div class="o_close">
+						<img src="image1/close.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--账号关联-->
+		<section>
+			<div class="account">
+				<div class="c_account">
+					<div class="chengg"></div>
+					<img src="image1/n_title03.png" alt="" class="n_title" />
+					<p class="kuaijie">关联微信/QQ快捷登录</p>
+					<ul class="login_ul">
+						<li>
+							<img src="image1/n_qq.png" alt="" />
+							<p>QQ关联</p>
+						</li>
+						<li>
+							<img src="image1/n_wx.png" alt="" />
+							<p>微信关联</p>
+						</li>
+					</ul>
+					<img src="image1/no.png" alt="" class="no" />
+					<div class="login_bottom">
+						<img src="image1/ewm.png" alt="" />
+						<div class="login_txt">
+							<p>关注《明日决胜！》微信公众号，</p>
+							<p>赢取<span>iPhoneX</span></p>
+						</div>
+					</div>
+					<div class="o_close">
+						<img src="image1/close.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--绑定手机-->
+		<section>
+			<div class="bind_phone">
+				<div class="c_account">
+					<div class="chengg"></div>
+					<img src="image1/n_title04.png" alt="" class="n_title" />
+					<p class="first_bd">首次登录请绑定手机号</p>
+					<div class="m_input">
+						<div class="s_put">
+							<img src="image1/user.png" alt="" class="l_tip" />
+							<input type="tel" placeholder="请输入手机号" class="phone" />
+							<i class="wrong"><img src="images/wrong.png" alt="" /><span>手机号有误</span></i>
+						</div>
+						<div class="s_put">
+							<img src="image1/suo.png" alt="" class="l_tip" />
+							<input type="tel" placeholder="输入验证码" class="t_yzm" />
+							<div class="captcha">
+								<p>点击刷新</p>
+								<!--<img src="images/kv.jpg" alt="" />-->
+							</div>
+							<i class="wrong"><img src="images/wrong.png" alt="" /><span>验证码有误</span></i>
+						</div>
+						<div class="s_put">
+							<img src="image1/suo.png" alt="" class="l_tip" />
+							<input type="tel" placeholder="输入验证码" class="yzm" />
+							<input type="button" value="获取验证码" class="g_code" />
+							<i class="wrong"><img src="images/wrong.png" alt="" /><span>验证码有误</span></i>
+						</div>
+					</div>
+					<img src="image1/lgbd.png" alt="" class="lgbd" />
+					<div class="login_bottom">
+						<img src="image1/ewm.png" alt="" />
+						<div class="login_txt">
+							<p>关注《明日决胜！》微信公众号，</p>
+							<p>赢取<span>iPhoneX</span></p>
+						</div>
+					</div>
+					<div class="o_close">
+						<img src="image1/close.png" alt="" />
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<!--<script src="js/canvas.js"></script>-->
+	<script type="text/javascript">
+		//		$(".login-box").click(function() {
+		//			$(".js_loginShow").show();
+		//		})
+		$(".close").click(function() {
+			$(".js_loginShow").hide();
+			$(".my_gift_tips").hide();
+			$(".TKMask2").hide();
+			$(".TKMask").hide();
+		})
+		//选择设备类型
+		$(".choose-models span").click(function() {
+			$(this).addClass("curr").siblings().removeClass("curr");
+		})
+		//鼠标悬浮预约礼包
+		$(".progress-box .progress-giftAct").click(function() {
+			$(this).find(".gift-details").show();
+			if($(this).find(".gift-details").css("display") == "none") {
+				$(".gift-btn").css({
+					"position": "relative",
+					"z-index": "10"
+				});
+				$(".zhezhao").hide();
+			} else {
+				$(".gift-btn").css({
+					"position": "relative",
+					"z-index": "0"
+				});
+				$(".zhezhao").show();
+			};
+			$(this).siblings().find(".gift-details").hide();
+		});
+		$(".s_zhezhao").click(function() {
+			$(".gift-details").hide();
+		});
+		$(".zhezhao").click(function() {
+			$(".gift-details").hide();
+			$(this).hide();
+		});
+		$(".progress-box .progress-gift .gift-details").click(function() {
+			$(this).hide();
+		});
+		//
+	</script>
+
+</html>

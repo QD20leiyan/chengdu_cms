@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>东隐餐厅</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+		<meta name="format-detection" content="telephone=no">
+		<!-- 关键词及描述 -->
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/common.min.css" />
+		<!-- <link rel="stylesheet" href="css/swiper.min.css"> -->
+		<link rel="stylesheet" href="css/dialogue.css" />
+		<script>
+        	(function (doc, win) {
+        	    var docEl = doc.documentElement,
+        	    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+        	            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        	            recalc = function () {
+        	                //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+        	                var clientWidth = docEl.clientWidth;
+        	                if (!clientWidth) return;
+        	                docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+        	            };
+
+        	    recalc();
+        	    //判断是否支持监听事件 ，不支持则停止
+        	    if (!doc.addEventListener) return;
+        	    //注册翻转事件
+        	    win.addEventListener(resizeEvt, recalc, false);
+        	})(document, window);
+    	</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="dialogue_board">
+				<img src="images/user_img.png" alt="" class="user_pic">
+				<div class="user_dialogue">
+					<h4>顾客花甲米线</h4>
+					<p class="creat_date">03-19 18:36</p>
+					<p class="dia_info">厨师必须要有创新精神...要做出个特色，再有就是卫生，一个餐厅卫生必须是非常到位的，给人一种天天都是刚开张的感觉，不要到处都是苍蝇到处都是油腻，消毒工作要做到位。</p>
+				</div>
+			</div>
+			<div class="xiaoyin_board">
+				<div class="res_board">
+					<div class="auto_response">
+						<p class="xiaoyin">小隐回复：</p>
+						<p class="resp_info">我们已经收到您的留言，感谢您的关注！</p>
+					</div>
+				</div>
+			</div> 
+        </div>
+        <div class="send_message">
+        	<textarea type="text" name="message" class="message" placeholder="我也要留言..."></textarea><a href="javascript:;" class="send">发送</a>
+        </div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery.fittext.js"></script>
+	<script src="js/dialogue.js"></script>
+	<script type="text/javascript">
+	    $(function() {
+		   $('html').fitText(2);
+		});
+    </script>
+</html>

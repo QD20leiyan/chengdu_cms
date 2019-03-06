@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/m_cover.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	</head>
+
+	<body>
+		<div class="kv">
+			<div class="n_wrap">
+
+				<img src="images/logo_new.png" alt="" class="logo" />
+				<a href="javascript:;" class="enter"><img src="images/enter.png" alt="" /></a>
+				<img src="images/slogan2.png" alt="" class="slogan">
+				<!--<a href="http://downurl.zhengyuetech.com/android/mrjs_pcgw.html" class="anz_url"><img src="images/down_btn.png" alt=""></a>-->
+				 <div class="download">
+					<p class="download_p">扫描二维码下载</p>
+					<img src="images/noCode.png" alt="" class="erweima js_jump_img" />
+					<div class="ios_and">
+						<a href="javascript:yx_showTips('敬请期待<br>本次为安卓删档测试');"><img src="images/d_ios.png" alt="" /></a>
+						<a href="http://downurl.zhengyuetech.com/android/mrjs_pcgw.html" class=""><img src="images/d_an.png" alt="" /></a>
+					</div>
+					<img src="images/lgyy.png" alt="" class="lgyy" />
+				</div> 
+			</div>
+		</div>
+		<div class="second">
+			<div class="n_wrap">
+				<div class="xuanfu">
+					<div class="chengg"></div>
+					<img src="images/erweima.jpg" alt="" class="q_qun" />
+					<p class="first_p">扫码或搜索官方Q群：</p>
+					<p class="second_p">689772061</p>
+					<p class="third_p">领神秘大礼包</p>
+				</div>
+				<a href="javascript:;" target="_blank" class="qun"><img src="images/qun.png" alt="" /></a>
+			</div>
+		</div>
+		<div class="last">
+			<div class="n_wrap">
+				<div class="banner">
+					<div class="c_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<img src="images/pp.jpg" alt="" />
+							</li>
+						</ul>
+						<div class="swiper-button-next"></div>
+						<div class="swiper-button-prev"></div>
+					</div>
+				</div>
+				<img src="images/mu.png" alt="" class="mu" />
+				<div class="db_footer">
+					<ul>
+						<li>
+							<img class="noCode js_jump_img" src="{$global.bottommedia_download_ewm}">
+							<div class="bottom_txt">
+								<h4>{$global.bottommedia_download_title}</h4>
+								<p>{$global.bottommedia_download_sub_title1}</p>
+								<p>{$global.bottommedia_download_sub_title2}</p>
+							</div>
+						</li>
+						<li>
+							<img class="noCode" src="{$global.bottommedia_wechat_ewm}">
+							<div class="bottom_txt">
+								<h4>{$global.bottommedia_wechat_title}</h4>
+								<p>{$global.bottommedia_wechat_sub_title1}</p>
+								<a href="javascript:;">{$global.bottommedia_wechat_sub_title2}</a>
+							</div>
+						</li>
+						<li>
+							<img src="{$global.bottommedia_qq_ewm}">
+							<div class="bottom_txt">
+								<h4>{$global.bottommedia_qq_title}</h4>
+								<p>{$global.bottommedia_qq_sub_title1}</p>
+								<a href="javascript:;">{$global.bottommedia_qq_sub_title2}</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var clickTap = true;
+			var mySwiper = new Swiper(".c_banner", {
+				loop: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+			});
+			$(".back").click(function() {
+				$("html,body").animate({
+					scrollTop: 0
+				}, 500);
+			});
+			$(".op_close").click(function() {
+				if(clickTap) {
+					$(this).addClass("active");
+					$(".float").css("left", "-185px");
+					clickTap = false;
+				} else {
+					$(this).removeClass("active");
+					$(".float").css("left", "25px");
+					clickTap = true;
+				}
+			})
+
+		});
+	</script>
+
+</html>

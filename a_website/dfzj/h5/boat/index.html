@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>巅峰战舰</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section>
+        <div class="logo"><img src="images/logo.png" alt=""/></div>
+        <div class="user_info">
+            <span class="wx_name">小王</span>的战舰已经航行了<span class="num num1">136</span>海里
+        </div>
+        <div class="user_info1">
+            下一站：<span class="f_name">北冰洋</span>（还差<span class="num">136</span>海里）
+        </div>
+        <div class="map">
+            <span class="ocean ocean1 active">北冰洋</span>
+            <span class="ocean ocean2">大西洋</span>
+            <span class="ocean ocean3">印度洋</span>
+            <span class="ocean ocean4">太平洋</span>
+        </div>
+        <svg width="20rem" height="11.25rem" viewBox="0 0 640 360" id='svg'>
+            <path id="road" fill="none" stroke="#ffffff" stroke-miterlimit="10"  stroke-width='0' d="M112.5,252.5s-65.74-126.8-36-156c30.84-33.61,35.78-18.72,76-32,18.74-5.56,69.52-31.31,91-28s29.2,26.34,71,31c19.22.8,14.65,13.74,13,22-9.91,48.48-51.52,34.63-59,72-19.6,53.35,8,62.66,24,88,19.83,24.79,3.13,64.19,18,73,21.48,8.81,46-31.92,95-22s49.12,40.45,117,38c43.09-17.32,40.87-41.21,26-93"/>
+            <path id="dasharray" fill="none" stroke="#83d0e3" stroke-miterlimit="10"  stroke-width='2' d="M112.5,252.5s-65.74-126.8-36-156c30.84-33.61,35.78-18.72,76-32,18.74-5.56,69.52-31.31,91-28s29.2,26.34,71,31c19.22.8,14.65,13.74,13,22-9.91,48.48-51.52,34.63-59,72-19.6,53.35,8,62.66,24,88,19.83,24.79,3.13,64.19,18,73,21.48,8.81,46-31.92,95-22s49.12,40.45,117,38c43.09-17.32,40.87-41.21,26-93"/>
+            <path id="road2" fill="none" stroke="#fede3f" stroke-width='3' stroke-miterlimit="10" d="M112.5,252.5s-65.74-126.8-36-156c30.84-33.61,35.78-18.72,76-32,18.74-5.56,69.52-31.31,91-28s29.2,26.34,71,31c19.22.8,14.65,13.74,13,22-9.91,48.48-51.52,34.63-59,72-19.6,53.35,8,62.66,24,88,19.83,24.79,3.13,64.19,18,73,21.48,8.81,46-31.92,95-22s49.12,40.45,117,38c43.09-17.32,40.87-41.21,26-93">
+                <animate id="animate" attributeName="stroke-dashoffset" from="1992" to="0" dur="6s" begin="0s" fill="freeze" repeatCount="indefinite" />
+            </path>
+            <image id="boat" width="78" height="91" xlink:href="images/boat.png" transform="translate(-39, -67)"/>
+            <animateMotion id='animateMotion' xlink:href="#boat" dur="6s" fill="freeze" repeatCount="indefinite">
+                <mpath xlink:href="#road" />
+            </animateMotion>
+        </svg>
+        <div class="btn">
+            <span class="btn01"><img src="images/btn01.png" alt=""/></span>
+            <span class="btn02"><img src="images/btn02.png" alt=""/></span>
+        </div>
+        <div class="code">
+            <div class="left">
+                <p>新玩家下载游戏有奖</p>
+                <p>XXXX周年活动</p>
+                <p>登陆就送</p>
+            </div>
+            <div class="right">
+                <img src="images/code.png" alt=""/>
+            </div>
+        </div>
+    </section>
+</div>
+<!--礼品弹框-->
+<div class="co_tips co_tips_gift co_tips_gift1 hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <p class="co_tips_title"><span>北冰洋</span></p>
+            <div class="gift_box">
+                <div class="gift">
+                    <span class="border"><img src="images/gift1.png" alt=""/></span>
+                    <span class="name">军需8折折扣券*1</span>
+                </div>
+                <div class="gift">
+                    <span class="border"><img src="images/gift2.png" alt=""/></span>
+                    <span class="name">双倍军功卡*1</span>
+                </div>
+                <div class="gift">
+                    <span class="border"><img src="images/gift3.png" alt=""/></span>
+                    <span class="name">燃油*100</span>
+                </div>
+                <div class="gift">
+                    <span class="border"><img src="images/gift4.png" alt=""/></span>
+                    <span class="name">金币*100 </span>
+                </div>
+            </div>
+            <p class="co_tips_btn co_tips_giftbtn"></p>
+        </div>
+    </div>
+</div>
+<div class="co_tips co_tips_gift co_tips_gift2 hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <p class="co_tips_title"><span>很抱歉</span></p>
+            <p class="co_tips_title1">你还未抵达<span>北冰洋</span></p>
+            <div class="gift_box">
+                <div class="gift">
+                    <span class="border"><img src="images/gift1.png" alt=""/></span>
+                    <span class="name">军需8折折扣券*1</span>
+                </div>
+                <div class="gift">
+                    <span class="border"><img src="images/gift2.png" alt=""/></span>
+                    <span class="name">双倍军功卡*1</span>
+                </div>
+                <div class="gift">
+                    <span class="border"><img src="images/gift3.png" alt=""/></span>
+                    <span class="name">燃油*100</span>
+                </div>
+                <div class="gift">
+                    <span class="border"><img src="images/gift4.png" alt=""/></span>
+                    <span class="name">金币*100 </span>
+                </div>
+            </div>
+            <p class="co_tips_btn co_tips_yqbtn"></p>
+        </div>
+
+    </div>
+</div>
+<!--礼包码弹框-->
+<div class="co_tips co_tips_code hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <p class="co_tips_title"><span>恭喜你</span></p>
+            <div class="my_code">
+                <p>
+                    <span>恭喜舰长成功抵达<i>北冰洋</i>，您的礼包码为</span>
+                    <span class="code_num">DG68H79CKK</span>
+                </p>
+            </div>
+            <p class="copy">*长按复制粘贴礼包码</p>
+        </div>
+
+    </div>
+</div>
+<!--活动介绍弹框-->
+<div class="co_tips co_tips_detail hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <p class="co_tips_title"><span>活动介绍</span></p>
+            <p class="intro">
+                一跃成为网络红人，玩游戏也能名利双收！全球对战TPS海战竞技手游《巅峰战舰》帮你圆梦。2月8日至2月28日，《巅峰战舰》虎牙直播招募活动正式开启。只要你热爱电竞、喜欢海战射击游戏，乐于在直播平台上展现自己的风采，那就快报名吧！成为主播后，不止将获得官方的各种资源力推，展现出你的风采，还将获得《巅峰战舰》官方送出的京东卡，高额游戏礼包！迈出你璀璨星路的第一步！
+                全球对战TPS海战竞技手游《巅峰战舰》是一款载具类TPS海战手游。游戏中玩家将会操控历史上各国著名战舰鏖战大洋，重现二战大型海战实景。游戏中游戏中支持10V10真人实时对战。天梯模式，舰队战役，组队战，开房间模式等。
+            </p>
+        </div>
+
+    </div>
+</div>
+<!--加速起航-->
+<div class="co_tips co_tips_add hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <p class="co_tips_title"><span>加速起航</span></p>
+            <div class="my_code">
+                <p>
+                    <span>已为他成功加速<i>136</i>海里</span>
+                </p>
+            </div>
+            <p class="co_tips_btn co_tips_giftbtn2"></p>
+        </div>
+
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    $(function(){
+        //js 获取航行路径的长度(可以不写)
+        var path = document.querySelector('#road2');
+        var length = path.getTotalLength();
+        console.log(length);
+        path.style.strokeDasharray = length + 10;
+        //定义初始dash部分相对起始点的偏移量,正数表示往前便宜
+        path.style.strokeDashoffset = length + 10;
+        document.getElementById("animate").setAttribute("from",length);
+        const animateMotion=document.getElementById("animateMotion");
+        document.getElementById('svg').pauseAnimations();
+        const road=[1000,2000,3000,4000,6000];
+        function start(time){
+            document.getElementById('svg').unpauseAnimations();
+            setTimeout(function(){
+                document.getElementById('svg').pauseAnimations();
+            },time);
+        }
+        window.onload=function(){
+//            start(6000);
+        }
+    });
+</script>
+</html>
