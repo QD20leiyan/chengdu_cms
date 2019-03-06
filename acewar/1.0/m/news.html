@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>��������</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="../css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/news.css" />
+		<script type="text/javascript" src="../js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// �ֻ���ת�¼�,�󲿷��ֻ��������֧�� onorientationchange ���֧�֣�����ʹ��ԭʼ�� resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: ��ȡ����ɼ����ݵĿ�ȣ����������������������߿�
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//�ж��Ƿ�֧�ּ����¼� ����֧����ֹͣ
+				if(!doc.addEventListener) return;
+				//ע�ᷭת�¼�
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<a href="javascript:;" class="icon"><img src="images/icon.png" alt="" /></a>
+			<div class="header_txt">
+				<p>战争公约</p>
+				<p>划时代策略对战手游</p>
+			</div>
+			<a href="javascript:;" class="down">
+				<img src="images/down.png" alt="" />
+			</a>
+		</header>
+		<section class="news_top">
+			<a href="javascript:;" class="n_back">返回</a>
+			<ul class="news_ul">
+				<li class="active"><a href="javascript:;">最新</a></li>
+				<li><a href="javascript:;">新闻</a></li>
+				<li><a href="javascript:;">公告</a></li>
+			</ul>
+		</section>
+		<section class="news_con">
+			<img src="images/label.png" alt="" class="label" />
+			<ul class="list_ul">
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+				<li><a href="javascript:;"><em>[新闻]</em><span>战争公约战争公约战争公约</span><i>01-12</i></a></li>
+			</ul>
+			<img src="images/check.png" alt="" class="check_more" />
+		</section>
+		<section>
+			<div class="bottom_down">
+				<div class="chengg"></div>
+				<a href="javascript:;">立即下载</a>
+			</div>
+			<div class="bottom_media">
+				<div class="chengg"></div>
+				<img src="../images/ewm.png" alt="" class="code" />
+				<p class="bottom_p">关注战争公约官方微信</p>
+				<p class="bottom_p1">请搜索微信公众号<span>战争公约</span></p>
+				<p class="bottom_p2">获取更多福利</p>
+				<img src="images/back.png" alt="" class="back" />
+			</div>
+		</section>
+		<section class="ios_tc">
+			<div class="ios_tc_c">
+				<i class="close"></i>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper(".n_banner", {
+				autoplayDisableOnInteraction: false,
+				//			loop: true,
+				pagination: '.swiper-pagination',
+				//			autoplay: 2500,
+			});
+			var mySwiper01 = new Swiper(".b_banner", {
+				pagination: '.pagenation',
+				paginationClickable: true,
+				paginationBulletRender: function(swiper, index, className) {
+					var font = ["images/small.png", "images/small.png", "images/small.png"];
+					return '<li class="' + className + '"><img src=' + font[index] + ' /></li>';
+				}
+			});
+			$(".news_ul ul li").click(function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_div ul").eq(index).addClass("active").siblings().removeClass("active");
+			});
+		})
+	</script>
+
+</html>
