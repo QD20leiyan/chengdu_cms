@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>oldPlayer</title>
+	<link rel="stylesheet" href="./css/css.css">
+	<script src="./common/js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<div class="playerAll">
+		<div class="player">
+			<div class="select">
+				<input type="text" class="_name" value="角色名称" >
+				<div class="area" id="area">选择区服</div>
+				
+				<ul id="option">
+					<li>一区</li>
+					<li>二区</li>
+					<li>三区</li>
+					<li>四区</li>
+				</ul>
+				<a href="#" class="gift_01" id="gift_01">
+					<img src="./images/btn_01.png" alt="">
+				</a>
+			</div>
+		</div>
+		<div class="erweima">
+			<img src="./images/erweima_01.jpg" alt="">
+		</div>
+		<div class="shdow" id="shdow">
+			<div class="sorry">
+				<div class="txt">
+					<p>对不起您输入的用户名</p>
+					<p>不属于老用户</p>
+					
+				</div>
+				<!-- <img src="./images/alert.png" alt=""> -->
+				<a href="#" id="closeAlert"></a>
+			</div>
+			
+		</div>
+		<div class="shdow" id="success">
+			<div class="sus" >
+				<div class="txt">
+					<p>恭喜您获得老玩家专享福利</p>
+					<p>礼包码【XXXXX】</p>
+					
+				</div>
+				
+				<img src="./images/alert.png" alt="">
+				<a href="#" id="closeAlert1"></a>
+			</div>
+			
+		</div>
+	</div>
+	<script>
+		var aTxt=$(".sus p");
+		var len=aTxt.length;
+		var aTxt1=$(".sorry p");
+		var len1=aTxt1.length;
+		$('#area').click(function(){
+			
+			$('#option').toggle();
+		})
+		$('#option li').click(function(){
+			var index=$(this).index();
+			$('#option li').eq(index).addClass("on");
+			$('#option').toggle();
+			$('#option li').eq(index).siblings().removeClass("on");
+			$('#area').html($('#option li').eq(index).html());
+		})
+		$("#closeAlert").click(function(){
+			$("#shdow").hide();
+		})
+		$("#closeAlert1").click(function(){
+			$("#success").hide();
+		})
+		$("#gift_01").click(function(){
+			$("#success").show();
+			if(len>2){
+				$(".sus").removeClass("alert_02");
+				$(".sus").addClass("alert_01");
+				$(".sus img").attr({"src":"./images/alert_01.png"})
+			}else{
+				$(".sus").removeClass("alert_01");
+				$(".sus").addClass("alert_02");
+				$(".sus img").attr({"src":"./images/alert_02.png"})
+			}
+		})
+		$("#gift_01").mouseover(function(){
+			$("#gift_01 img").attr({"src":"./images/btn_02.jpg"})
+		})
+		$("#gift_01").mouseout(function(){
+			$("#gift_01 img").attr({"src":"./images/btn_01.png"})
+		})
+		if(len1>2){
+				$(".sorry").removeClass("alert_02");
+				$(".sorry").addClass("alert_01");
+				$(".sorry img").attr({"src":"./images/alert_01.png"})
+			}else{
+				$(".sorry").removeClass("alert_01");
+				$(".sorry").addClass("alert_02");
+				$(".sorry img").attr({"src":"./images/alert_02.png"})
+		}
+	</script>
+</body>
+</html>

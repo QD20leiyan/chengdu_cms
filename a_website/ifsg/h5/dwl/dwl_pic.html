@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <script src="<{$smarty.const.STATIC}>ifsg/h5/dwl/js/setPageRem.js"></script>
+    <link href="<{$smarty.const.STATIC}>ifsg/h5/dwl/css/public.css" rel="stylesheet" />
+    <link href="<{$smarty.const.STATIC}>ifsg/h5/dwl/css/style.css" rel="stylesheet" />
+</head>
+<body>
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page8">
+                <aside class="txt1"><img src="<{$smarty.const.STATIC}>ifsg/h5/dwl/image/dwl_6_small_text.png"></aside>
+                <ul class="list">
+                    <li>
+                        <em><span class="js_name"></span>于公元<span class="js_time"></span>生于三国乱世之中</em>
+                    </li>
+                    <li>
+                        <em>将军招贤纳士<span class="js_best"></span>等共<span class="js_heroNum"></span>武将追随</em>
+                    </li>
+                    <li class="li_1">
+                        <em>有<span class="js_gname"></span>军团诸多兄弟情深将士陪伴</em>
+                    </li>
+                    <li>
+                        <em>过关斩将经历<span class="js_battleNum"></span>终达<span class="js_level"></span></em>
+                    </li>
+                    <li class="js_li4">
+                        <em class="js_li4">攻城略地奋勇杀敌无双争霸第<span class="js_A_pvpRank"></span></em>
+                    </li>
+                    <aside class="txt2">
+                        <img src="<{$smarty.const.STATIC}>ifsg/h5/dwl/image/dwl_7_title.png">
+                    </aside>
+                    <bottom><img src="<{$smarty.const.STATIC}>ifsg/h5/dwl/image/dwl_7_code.png"></bottom>
+                </ul>
+            </section>
+        </section>
+    </section>
+</div>
+</body>
+<script src="<{$smarty.const.STATIC}>ifsg/h5/dwl/js/jquery-1.7.2.min.js"></script>
+<script>
+    $(function() {
+        $(".js_time").html('<{$info.CreateTime}>');
+        $(".js_name").html('<{$info.name}>');
+        $(".js_severname").html('<{$info.severname}>');
+        //第二页
+        $(".js_first").html('<{$info.firstHero}>');
+        $(".js_best").html('<{$info.bestHero}>');
+        if(parseInt('<{$info.heroNum}>') == 0){
+            $(".js_li2").html("<em class='ani js_li2' swiper-animate-effect='fadeInLeftBig' swiper-animate-delay='0.7s'>遗憾未寻得名将</em>");
+        }else{
+            $(".js_heroNum").html('<{$info.heroNum}>'+"名");
+        }
+        //第三页
+        if('<{$info.gname}>' == ""){
+            $(".li_1").html("<li class='ani li_1' swiper-animate-effect='fadeInLeftBig' swiper-animate-delay='0.4s'><i></i><em>千万雄兵莫敢当，单枪匹马闯龙潭</em></li>");
+            $(".li_2").html("<i></i>将军至今未加入任何军团");
+        }else{
+            $(".js_gname").html('<{$info.gname}>');
+        }
+
+        //第四页
+        $(".js_level").html('<{$info.level}>'+"级");
+        $(".js_battleNum").html('<{$info.battleNum}>'+"战役");
+        //第五页
+        if(parseInt('<{$info.pvpRank}>') == -1 && parseInt('<{$info.A_pvpRank}>') == -1){
+            $(".js_li5").html('<li class="ani js_li5" swiper-animate-effect="fadeInLeftBig"><i></i><em>一心只为苍生战</em></li>');
+            $(".js_li1").html('');
+            $(".js_li3").html('');
+            $(".js_li4").html('<i></i>淡薄排行功与名</em>').removeClass("li");
+            $(".js_li4").attr("swiper-animate-delay","0.3s");
+        }
+        if(parseInt('<{$info.pvpRank}>') == -1){
+            $(".js_li1").html(' ');
+        }else{
+            $(".js_pvpRank").html("第"+'<{$info.pvpRank}>'+"名");
+        }
+
+        if(parseInt('<{$info.A_pvpRank}>') == -1){
+            $(".js_li3").html('');
+        }else{
+            $(".js_A_pvpRank").html("第"+'<{$info.A_pvpRank}>'+"名");
+        }
+    })
+</script>
+</html>

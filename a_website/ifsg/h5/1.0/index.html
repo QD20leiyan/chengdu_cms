@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5</title>
+   <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/public.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+
+<section class="bg01">
+<div id="tickerContainer">
+  <dl id="ticker">
+    <dt class="move"></dt>
+  </dl>
+</div>
+    <article class="art">
+        <article class="slogan">
+            <img src="images/slogan.png" />
+        </article>
+        <p>输入姓名开始答题</p>
+        <form class="form">
+             <span class="input"><input type="text" name="" placeholder="请输入游戏昵称" ></span>
+             <a href="main.html" class="btn01"><img src="images/btn01.png"></a>
+        </form>
+        <article class="logo"><img src="images/logo.png"></article>
+    </article>
+</section>
+<div id="orientLayer" class="mod-orient-layer">
+  <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+    <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+  </div>
+</div>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery+fittext+touchslider.js"></script>
+<script type="text/javascript">
+      $(function() {
+        var ticker = $("#ticker");
+        ticker.children().filter("dl").each(function() {
+          
+          var dt = $(this),
+            container = $("<div>");
+          
+          dt.next().appendTo(container);
+          dt.prependTo(container);
+          
+          container.appendTo(ticker);
+        });
+        ticker.css("overflow", "hidden");
+        function animator(currentItem) {
+          var distance = currentItem.height();
+            duration = (distance + parseInt(currentItem.css("marginTop"))) / 0.006;
+
+          currentItem.animate({ marginTop: -distance }, duration, "linear", function() {
+            currentItem.appendTo(currentItem.parent()).css("marginTop", 0);
+            animator(currentItem.parent().children(":first"));
+          }); 
+        };
+        animator(ticker.children(":first"));
+        ticker.mouseenter(function() {
+          // ticker.children().stop();
+          
+        });
+        ticker.mouseleave(function() {
+          animator(ticker.children(":first"));
+          
+        });
+      });
+    </script>
+</body>
+</html>

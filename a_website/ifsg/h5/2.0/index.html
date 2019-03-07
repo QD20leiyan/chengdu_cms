@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/public.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+<section class="bg01">
+    <section class="play_icon play_icon1" name="play">
+        <img src="images/play_icon.png" alt="">
+        <img src="images/no_play_icon.png" alt="">
+    </section>
+    <div id="tickerContainer">
+        <dl id="ticker">
+            <dt class="move"></dt>
+        </dl>
+    </div>
+    <article class="art">
+        <article class="slogan">
+            <img src="images/slogan.png" />
+        </article>
+        <!--<p>输入姓名开始答题</p>-->
+        <form class="form">
+            <span class="input"><input type="text" name="" placeholder="请输入您的姓名" ></span>
+            <a href="javascript:" class="btn01"><img src="images/btn01.png"></a>
+        </form>
+        <article class="logo"><img src="images/logo.png"></article>
+    </article>
+</section>
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<!--这是背景音乐-->
+<audio id="bMusic" loop="loop" autoplay="autoplay">
+    <source src="./music/bmusic.mp3" type="audio/mpeg" codecs="mp3">
+</audio>
+<!--这是点击开始答题的播放音乐-->
+<audio id="nextMusic" src="./music/next.wav"></audio>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery+fittext+touchslider.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var ticker = $("#ticker");
+        var nextMusic = $("#nextMusic");
+        ticker.children().filter("dl").each(function() {
+
+            var dt = $(this),
+                    container = $("<div>");
+
+            dt.next().appendTo(container);
+            dt.prependTo(container);
+
+            container.appendTo(ticker);
+        });
+        ticker.css("overflow", "hidden");
+        function animator(currentItem) {
+            var distance = currentItem.height();
+            duration = (distance + parseInt(currentItem.css("marginTop"))) / 0.006;
+
+            currentItem.animate({ marginTop: -distance }, duration, "linear", function() {
+                currentItem.appendTo(currentItem.parent()).css("marginTop", 0);
+                animator(currentItem.parent().children(":first"));
+            });
+        };
+        animator(ticker.children(":first"));
+        ticker.mouseenter(function() {
+            // ticker.children().stop();
+
+        });
+        ticker.mouseleave(function() {
+            animator(ticker.children(":first"));
+
+        });
+
+        $(".btn01").on("touchend",function(){
+            nextMusic[0].play();
+            setTimeout(function(){
+                location.href = "main.html";
+            },300);
+        });
+        //微信ios自动播放背景音乐
+        function audioAutoPlay(id){
+            var audio = document.getElementById(id);
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+        }
+        audioAutoPlay('bMusic');
+        //解决IOS不能自动播放音乐
+        document.addEventListener('touchstart', function(){
+            $("#bMusic")[0].play();
+        }, false);
+        //点击播放按钮播放或者暂停播放
+        $(".play_icon").on("touchend",function(){
+            var name = $(this).attr("name");
+            if(name == "play"){
+                $("#bMusic")[0].pause();
+                $(this).attr("name","noplay").find("img").css({
+                    display: "none"
+                })
+                $(this).find("img").eq(1).css({
+                    display: "block"
+                })
+            }else{
+                $("#bMusic")[0].play();
+                $(this).attr("name","play").find("img").css({
+                    display: "block"
+                })
+                $(this).find("img").eq(1).css({
+                    display: "none"
+                })
+            }
+        });
+    });
+</script>
+</body>
+</html>

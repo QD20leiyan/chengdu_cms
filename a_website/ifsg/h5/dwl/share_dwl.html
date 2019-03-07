@@ -1,0 +1,71 @@
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script>
+var share_url = '<{myurl name="/h5/jws/dwl-ajax-share"}>';
+
+    $(function(){
+        // initForm();
+        var share = {
+            imgUrl      : 'http://cdnstatic.yingxiong.com/ifsg/h5/3.0/image/share.png',
+            shareTitle  : '《极无双》1周年庆-朕的帝王录',
+            descContent : '《极无双》1周年庆典，古往今来英雄胆，留有青史一段香。朕的征战之路，记载成册，流芳千世。',
+            lineLink    : 'http://game.yingxiong.com/h5/jws/dwl.html?serverId='+serverId+'&id='+id+'&share=1'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.get(share_url+'?serverId='+serverId+'&name='+name, {}, function(){
+                    });
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.get(share_url+'?serverId='+serverId+'&name='+name, {}, function(){
+                    });
+                },
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success: function () {
+                    $.get(share_url+'?serverId='+serverId+'&name='+name, {}, function(){
+
+                    });
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+
+    });
+</script>

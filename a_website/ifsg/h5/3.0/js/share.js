@@ -1,0 +1,1 @@
+document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');

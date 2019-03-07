@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/common.min.css" />
+		<link rel="stylesheet" href="css/l_list.css" />
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<div class="l_header">
+				<a href="javascript:;" class="l_icon"><img src="images/l_icon.png" alt="" /></a>
+				<div class="l_h_txt">
+					<p><img src="images/l_txt.png" alt="" /></p>
+					<p>官方正版奇蹟手遊</p>
+				</div>
+				<div class="l_download">
+					<a href="javascript:;"><img src="images/l_download.png" alt="" /></a>
+				</div>
+				<div class="l_sx">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</header>
+		<section>
+			<div class="l_tab">
+				<div class="l_tab_con">
+					<i class="close"><img src="images/l_close.png" alt="" /></i>
+					<div class="l_tab_share">
+						<a href="javascript:;"><img src="images/l_apk.png" alt="" /></a>
+						<a href="javascript:;"><img src="images/l_face.png" alt="" /></a>
+					</div>
+					<ul class="l_ul">
+						<li>
+							<a href="javascript:;">
+								<p>首页</p>
+								<p class="l_p">Home</p>
+								<img src="images/l_li.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<p>新聞資訊</p>
+								<p class="l_p">News</p>
+								<img src="images/l_li.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<p>職業廣場</p>
+								<p class="l_p">Professional</p>
+								<img src="images/l_li.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<p>攻略資料</p>
+								<p class="l_p">Strategy</p>
+								<img src="images/l_li.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<p>次元魔方</p>
+								<p class="l_p">Dimensional</p>
+								<img src="images/l_li.png" alt="" />
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;">
+								<p>勇士社區</p>
+								<p class="l_p">Warriors</p>
+								<img src="images/l_li.png" alt="" />
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="l_news_title">
+				<a href="javascript:;" class="l_back">
+					< 返回</a>
+						<p>最新</p>
+			</div>
+		</section>
+		<section>
+			<div class="l_detail">
+				<div class="l_detail_title">
+					<p>標題標題標題標題標題標題標題標題</p>
+				</div>
+				<div class="l_detail_body">
+					<p class="l_detail_date">更新時間：2018-3-9</p>
+					<div class="l_detail_con">
+						內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容 內容內容內容內容內容內容內容內容內容內容內容
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="news_footer">
+				<div class="news_xy">
+					<a href="javascript:;">用戶協議</a>
+					<a href="javascript:;">隐私协议</a>
+				</div>
+				<p>奇蹟MU:覺醒 客服信箱：mu@herogame.com</p>
+				<p>客服電話：02-2219-0701（台灣專線） 85281990635（香港專線）</p>
+				<img src="images/l_logo.png" class="news_logo" />
+				<img src="images/l_footer.png" alt="" class="news_jia" />
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			$(".l_sx").click(function() {
+				$(".l_tab").fadeIn(500);
+				$(this).addClass("active");
+			});
+			$(".close").click(function() {
+				$(".l_tab").fadeOut(500);
+				$(".l_sx").removeClass("active");
+			});
+		});
+	</script>
+
+</html>

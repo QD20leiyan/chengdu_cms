@@ -1,0 +1,94 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+}
+.tc_cover{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0,0,0,.7);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#B2000000,endColorstr=#B2000000);
+}
+.tc_cover > div{
+    width: 283px;
+    height: 53px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("http://dev.static.yingxiong.com/common/images/t_img1.png") no-repeat;
+    background-size: cover;
+}
+.tc_cover > div > a{
+    display: block;
+    width: 168px;
+    height: 46px;
+    position: absolute;
+    top: auto;
+    left: 60px;
+    right: auto;
+    bottom: 0;
+}
+.tc_cover > div > div.t_close{
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    background: url("http://dev.static.yingxiong.com/common/images/t_close.png");
+    background-size: cover;
+    transition: transform .2s;
+    -webkit-transition: transform .2s;
+}
+.tc_cover > div > div.t_close:hover{
+    cursor: pointer;
+    transform: scale(1.1,1.1);
+    -webkit-transform: scale(1.1,1.1);
+}
+/*¾´ÇëÆÚ´ý¹«¹²µ¯¿ò*/
+.yx_shade{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 19891016;
+    background: rgba(0, 0, 0,.3);
+}
+.yx_tips_txt{
+    position: absolute;
+    width: 288px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -24px;
+    color: #666;
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+}
+.yx_tips_txt.show{
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}

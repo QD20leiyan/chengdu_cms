@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+	<link rel="stylesheet" href="css/public.css" />
+	<link href="css/swiper-3.4.2.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/active.css" />
+</head>
+<body>
+	<!--内容-->
+	<div class="i_main">
+		<div class="cont">
+			<div class="logo"></div>
+			<!--第一部分-->
+			<div class="kv">
+				<div class="share_box">
+                        <a href="javascript:;" class="weixin"></a>
+                        <a href="javascript:;" class="weibo"></a>
+                        <a href="javascript:;" class="baidu"></a>
+                        <img src="images/in_code1.png" alt="" class="ewm_wx">
+				</div>
+				<a href="javascript:;" class="enter"></a>
+				<div class="slogan"></div>
+				<div class="page_two">
+				    <div class="gidt_box1">
+				    	<div class="gifts"></div>
+				    	<a href="javascript:;"></a>
+				    </div>
+				    <div class="gidt_box2">
+				    	<div class="gifts"></div>
+				    	<a href="javascript:;"></a>
+				    </div>
+				</div>
+                <div class="page3">
+                	<div class="part1">
+                		<img src="images/gif1.gif" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part2">
+                		<img src="images/gif2.gif" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part3">
+                		<img src="images/gif3.gif" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                	<div class="part4">
+                		<img src="images/part4_img.png" alt="">
+                		<div class="bg_img"></div>
+                	</div>
+                </div>
+                <div class="page4">
+                	<p class="gift_info">老用户回归最高可获得<span>VIP10</span>和<span>24571钻石</span>返还，无双助您新区再战！</p>
+                	<p class="buch">（该老账号在活动开启后的新服中创建的第1个角色有效）</p>
+                </div>
+			</div>
+	</div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script>
+    //点击隐藏和显示下载悬浮框
+		function show_hide_down() {
+			$(".q_f_icon").click(function() {
+				var state = $(this).attr("show");
+				if(state) {
+					$(".float").animate({
+						"right": "10px"
+					}, 200);
+					$(this).attr({
+						"show": "",
+						"class": "show"
+					});
+				} else {
+					$(".float").animate({
+						"right": "-320px"
+					}, 200);
+					$(this).attr({
+						"show": "true",
+						"class": "hide_float"
+					});
+				}
+			})
+		}
+$(function (){
+	show_hide_down();
+	var mySwiper01 = new Swiper('.h_banner1', {
+			effect: "coverflow",
+			speed: 1500,
+			autoplay: 3500,
+			prevButton: ".wgam_prev",
+			nextButton: ".wgam_next",
+			pagination: '.swiper-pagination',
+			paginationClickable: true,
+			slidesPerView:2.43,
+			loop: true,
+			effect: 'coverflow',
+			slideToClickedSlide: true,
+			simulateTouch: false,
+			centeredSlides: true,
+			autoplayDisableOnInteraction: false,
+			coverflow: {
+				rotate: 50,
+				stretch: -55,
+				depth: 410,
+				modifier: 1,
+				slideShadows: true
+			},
+			});
+	//导航变化
+	var clickNumber =0;
+	$(".h_nav").on("click", function(e){
+        e.stopPropagation();
+        if(clickNumber %2==0){
+            $(".d_t_t").addClass("d_t_t_tran");
+            $(".d_t_m").addClass("d_t_m_tran");
+            $(".d_t_b").addClass("d_t_b_tran");
+            $(".header_nav").stop().slideDown();
+        }else{
+            $(".d_t_t").removeClass("d_t_t_tran");
+            $(".d_t_m").removeClass("d_t_m_tran");
+            $(".d_t_b").removeClass("d_t_b_tran");
+            $(".header_nav").stop().slideUp();
+        }
+        clickNumber++;
+    });
+    $(".header_nav li").on("click" , function (){
+    	$(this).addClass("active").siblings().removeClass("active");
+    });
+    $(".last_li a").click(function (){
+    	$(".li_mask").stop().fadeIn();
+    	$(".wx_code").stop().fadeIn();
+    });
+    $(".li_close").click(function (){
+    	$(".li_mask").stop().fadeOut();
+    	$(".wx_code").stop().fadeOut();
+    });
+    //tap
+    var clicknum = 1;
+    $("header .h_d").click(function() {
+        if(clicknum % 2 !== 0) {
+            $(this).siblings(".nav-content1").slideDown();
+        } else {
+            $(this).siblings(".nav-content1").slideUp();
+        }
+        clicknum++;
+    });
+    $(".i_main .share_box a.weixin").hover(function(){
+    	$(".ewm_wx").fadeIn(500);
+    },function(){
+    	$(".ewm_wx").fadeOut(500);
+    })
+		var clickTap = true;
+		$(".close_float").click(function (){
+			if(clickTap){
+				$(".new_float").addClass("active");
+				clickTap = false;
+			} else {
+				$(".new_float").removeClass("active");
+				clickTap = true;
+			}
+		});
+});
+</script>
+</html>

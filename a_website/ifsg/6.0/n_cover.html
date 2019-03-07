@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>极无双_官网_极无双_手游_攻略_真3D国人无双动作手游</title>
+		<meta name="Keywords" content="极无双,极无双手游,极无双官网,极无双,极无双手游礼包,真三国无双,真三国无双手游,真三手游,极无双,《极无双》官网,《极无双》官方网站,极无双官网,极无双正式官网,《极无双》官网,极无双手游礼包,极无双,极无双官网,《极无双》官网,《极无双》官方网站,极无双官网,极无双官方网战,《极无双》官网,《极无双》官方网战,横版手游,动作手游,无双手游,三国手游,极无双手游礼包,霸三国,三国志online,三国之刃,太极熊猫,时空猎人,无双剑姬,全民无双,樱花三国,战国BASARA,英雄互娱">
+		<meta name="Description" content="《极无双》三国题材无双动作手游，由马伯庸亲自执笔撰写恢宏的世界观架构，秉承无双系列的经典玩法，还原三国武将一骑当千的战斗临场感，打造出性鲜明的三国武将特色，国人研发无双引擎打造极具视觉震撼力的掌上盛宴！">
+		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/n_cover.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	</head>
+	
+	<body>
+		<div class="cover">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="images/c_logo.png" alt="" class="logo"/>
+				<img src="images/c_play.png" alt="" class="c_play" />
+				<img src="images/jws_slogan_pc.png" alt="" class="slogan" />
+				<div class="float">
+					<a href="javascript:;" class="enter"></a>
+					<img src="images/in_code1.png" alt="" class="code"/>
+				</div>
+				<div class="bling">
+					<img src="images/bling.png" alt="" />
+					<img src="images/light.png" alt="" />
+				</div>
+				<div class="c_btn">
+					<a href="javascript:;" class="ios"></a>
+					<a href="javascript:;" class="and"></a>
+					<a href="javascript:;" class="tap"></a>
+				</div>
+				<div class="content">
+					<div class="j_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide" data-type="1"><img src="images/banner01.png" alt=""/></li>
+							<li class="swiper-slide" data-type="2"><img src="images/banner02.png" alt=""/></li>
+							<li class="swiper-slide" data-type="3"><img src="images/banner03.png" alt=""/></li>
+							<li class="swiper-slide" data-type="4"><img src="images/banner04.png" alt=""/></li>
+							<li class="swiper-slide" data-type="5"><img src="images/banner05.png" alt=""/></li>
+							<li class="swiper-slide" data-type="6"><img src="images/banner06.png" alt=""/></li>
+						</ul>
+						<div class="num">
+							<span class="num_span">1</span>/<span class="d_span">6</span>
+						</div>
+						<div class="swiper-button-next"><img src="images/c_prev.png" alt="" /></div>
+						<div class="swiper-button-prev"><img src="images/c_prev.png" alt="" /></div>
+					</div>
+					<ul class="swiper-pagination"></ul>
+					<img src="images/effect.png" class="effect" />
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js"></script>
+	<script type="text/javascript" src="js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".j_banner",{
+				loop:true,
+				simulateTouch : false,
+				prevButton:'.swiper-button-prev',
+				nextButton:'.swiper-button-next',
+				pagination : '.swiper-pagination',
+				paginationClickable :true,
+				paginationBulletRender: function (swiper,index, className){
+                    var font = ["images/con1.png","images/con2.png","images/con3.png","images/con4.png","images/con5.png","images/con6.png"];
+                   	var size = ["images/tab1.png","images/tab2.png","images/tab3.png","images/tab4.png","images/tab5.png","images/tab6.png"];
+                   	var c_index = index+1;
+                    return '<li class="' + className + '"><img src='+font[index]+' /><img src='+size[index]+' /></li>';
+                }
+			});
+			$(".swiper-button-next").click(function (){
+				var num = $(".swiper-slide-active").attr("data-type");
+				$(".num_span").html(num);
+			});
+			$(".swiper-button-prev").click(function (){
+				var num = $(".swiper-slide-active").attr("data-type");
+				$(".num_span").html(num);
+			});
+//			$(document).on(".swiper-pagination-bullet","click" , function (){
+////				var num = $(".swiper-slide-active").attr("data-type");
+////				$(".num_span").html(num);
+//				alert(1111);
+//			});
+			$(".swiper-pagination").on("click",".swiper-pagination-bullet",function(){
+				var num = $(".swiper-slide-active").attr("data-type");
+				$(".num_span").html(num);
+			});
+		});
+	</script>
+</html>
