@@ -1,0 +1,1926 @@
+/*-------------------------------------nba首页-------------------------------------*/
+body {
+	background:#070707;
+	overflow-x:hidden;
+	min-width:1200px;
+}
+/*视频*/
+#video_mask { width: 100%;height: 100%; background: url(../images/d.png); position: fixed;top: 0; left: 0;z-index: 99999;display: none;}
+#close {z-index: 999999; width: 30px; height: 30px; position: absolute; top: -30px; right: -30px; background: url(../images/c.png) no-repeat;cursor: pointer;}
+#player5{ width: 714px; height: 378px; position: relative; left: 50%;top: 50%;margin: -189px 0 0 -357px;}
+.videos{ width: 714px; height: 378px; background: #fff; margin: 20px auto; clear: both; overflow: hidden;}
+.videos embed { display: block; width: 696px; height: 358px; margin: 9px;}
+.banner {
+	position: relative;
+	width:100%;
+	height: 950px;
+	background:url(../images/banner.jpg?1.0.28) no-repeat center top;
+
+}
+.download {
+	position: absolute;
+	width: 470px;
+	height: 200px;
+	top: 270px;
+	left: 50%;
+	margin-left: -515px;
+}
+.login_gift{
+	position: absolute;
+	width: 294px;
+	height: 166px;
+	top:485px;
+	left: 50%;
+	margin-left: 80px;
+}
+.login_gift a{
+	width: 190px;
+	height: 30px;
+	position: absolute;
+	bottom: -2px;
+	right: 28px;
+	cursor:pointer;
+}
+.float1{position:absolute;top:642px;left:0; height:52px;width:36px;background:url(../images/icon_gather.png) no-repeat;background-position:-82px 0;}
+.float2{position:absolute;top:234px;left:240px;height:62px;width:80px;background:url(../images/icon_gather.png) no-repeat;background-position:-82px -53px;}
+.float3{position:absolute;bottom:0;left:490px;height:99px;width:192px;/*background:url(../images/icon_gather.png) no-repeat;*/background-position:-81px -296px;}
+.float4{position: absolute;bottom: 250px;left: 360px;height: 91px;width: 138px;background: url(../images/icon_gather.png) no-repeat;background-position: -82px -203px;}
+.float5{position: absolute;top: 0;left: 224px;height: 83px;width: 104px;background: url(../images/icon_gather.png) no-repeat;background-position: -82px -117px;}
+
+.float6{
+	position: absolute;
+	top: 200px;
+	left: 1266px;
+	height: 50px;
+	width: 34px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: 0 0;
+}
+.float7{
+	position: absolute;
+	top: 223px;
+	left: 1380px;
+	height: 50px;
+	width: 50px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -121px -25px;
+}
+.float8{
+	position: absolute;
+	top: 277px;
+	left: 1445px;
+	height: 35px;
+	width: 35px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -180px -80px;
+}
+.float9{
+	position: absolute;
+	top: 320px;
+	left:1520px;
+	height: 70px;
+	width: 40px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -157px -120px;
+}
+.float10{
+	position: absolute;
+	top: 446px;
+	left: 1415px;
+	height: 50px;
+	width: 40px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -153px -247px;
+}
+.float11{
+	position: absolute;
+	top: 418px;
+	left: 1330px;
+	height: 50px;
+	width: 40px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -68px -220px;
+}
+.float12{
+	position: absolute;
+	top: 545px;
+	left: 1345px;
+	height: 66px;
+	width: 80px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -80px -347px;
+}
+.float13{
+	position: absolute;
+	top: 620px;
+	left: 1335px;
+	height: 40px;
+	width: 40px;
+	background: url(../images/bjfloat.png) no-repeat;
+	background-position: -72px -423px;
+}
+
+
+.video_play{
+	position: absolute;
+	top:399px;
+	left: 50%;
+	margin-left: -125px;
+	height: 91px;
+	width: 91px;
+	cursor: pointer;
+	z-index: 9;
+}
+.download .qr_down2{position:absolute;top:0;left:0;}
+.download .qr_down2>span:nth-child(1) {
+	display: inline-block;
+	float: left;
+	width: 45px;
+	height: 200px;
+	background: url(../images/qr_code1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.download .qr_down2>span:nth-child(2),.download .qr_down2>span:nth-child(2) img{
+	display: inline-block;
+	float: left;
+	width: 200px;
+	height: 200px;
+}
+.download .qr_btn{
+	position: absolute;
+	left: 265px;
+	top: 0;
+	width: 202px;
+	height: 200px;
+}
+.download .ios_down2{
+	position: absolute;
+	top: 0;
+	left:0;
+	height: 59px;
+	width: 202px;
+	background: url(../images/ios_btn.png) no-repeat;
+}
+.download .android_down2	{
+	position: absolute;
+	top: 70px;
+	left:0;
+	height: 59px;
+	width: 202px;
+	background: url(../images/and_btn.png) no-repeat;
+}
+.download .tap	{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 59px;
+	width: 202px;
+	background: url(../images/tap_btn.png) no-repeat;
+	background-size: 100% 100%;
+}
+.download .an_info {
+	position: absolute;
+	top: 173px;
+	left: 0;
+	color: #fff;
+	font-size: 20px;
+	display: none;
+	width: 180px;
+}
+.down_game .qr_down{position:absolute;top:10px;left:11px;}
+.down_game .qr_down>span:nth-child(1) {
+	display: inline-block;
+	float: left;
+	width: 37px;
+	height: 165px;
+	background: url(../images/qr_code1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.down_game .qr_down>span:nth-child(2),.down_game .qr_down>span:nth-child(2) img{
+	display: inline-block;
+	float: left;
+	width: 165px;
+	height: 165px;
+}
+.down_game .an_info{position: absolute;bottom:80px;left: 23px;font-size: 20px;color: #fff;display:none;}
+.down_game .tap	{position: absolute;height: 59px; width: 203px;bottom: 15px;left: 11px;background: url(../images/tap_btn.png) no-repeat;background-size: 100% 100%;}
+.down_game .ios_down{position:absolute;bottom:160px;left:11px;height:59px;width:202px;background:url(../images/hover_img.png) no-repeat;background-position:0 -85px;}
+.down_game .android_down{position:absolute;bottom:88px;left:11px;height:59px;width:203px;background:url(../images/hover_img.png) no-repeat;background-position:0 -182px;}
+.download .index_qr_down{background:none;}
+.download .index_qr_down img{float:left;}
+.download .index_qr_down img:nth-child(2){width:165px;height:165px;}
+.download.no_tap .android_down2{bottom:0;top: initial;}
+.download.no_tap .tap,.down_game.no_tap .tap{display:none;}
+.right_all .down_game.no_tap{height:335px;}
+.down_game.no_tap .ios_down{bottom:85px;}
+.down_game.no_tap .android_down{bottom:10px;}
+.down_game.no_tap .an_info{bottom:7px;}
+
+.right_all {
+	position:absolute;
+	right:0;
+	width:360px;
+	z-index: 9999;
+}
+.r_nav {
+	position: fixed;
+	right:0;
+	top:40px;
+	width:100px;
+	height:800px;
+	background:#181724;
+	opacity:.9;
+	filter:alpha(opacity=90);
+}
+.r_nav li{
+	width:100px;
+	height:100px;
+	text-align: center;
+}
+.r_nav li:hover {
+	background:#f2f7ff;
+}
+.arrow-right {
+    width:0; 
+    height:0; 
+    border-top:50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 50px solid green;
+}
+.r_nav li a {
+	color:#85859e;
+}
+.r_nav li a:hover {
+	color:#cf1417;
+}
+.r_nav li a i {
+	font-style:normal;
+	display:inline-block;
+	padding-top:65px;
+}
+.r_nav .r_icon1 {
+	background:#cf1417;
+}
+.r_nav .r_icon1:hover {
+	background:#cf1417;
+}
+.r_nav .r_icon8 {
+	background:#6e7283;
+}
+.r_nav .r_icon8:hover {
+	background:#6e7283;
+}
+.r_nav .r_icon1 .ic1 {
+	position: absolute;
+	top:15px;
+	left:35px;
+	height:45px;
+	width:39px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -329px;
+}
+.r_nav .r_icon2 .ic2 {
+	position: absolute;
+	top:126px;
+	left:37px;
+	height:28px;
+	width:27px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -148px;
+}
+.r_nav .r_icon2 .ic2.on {
+	position: absolute;
+	top:126px;
+	left:37px;
+	height:28px;
+	width:27px;
+	background:url(../images/hover_img.png) no-repeat;
+	background-position:-60px 0;
+}
+
+.r_nav .r_icon3 .ic3 {
+	position: absolute;
+	top:226px;
+	left:37px;
+	height:29px;
+	width:27px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -192px;
+}
+.r_nav .r_icon3 .ic3.on {
+	position: absolute;
+	top:226px;
+	left:37px;
+	height:29px;
+	width:27px;
+	background:url(../images/hover_img.png) no-repeat;
+	background-position:0 0;
+}
+.r_nav .r_icon4 .ic4 {
+	position: absolute;
+	top:320px;
+	left:37px;
+	height:42px;
+	width:27px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -93px;
+}
+.r_nav .r_icon4 .ic4.on {
+	position: absolute;
+	top:320px;
+	left:37px;
+	height:42px;
+	width:27px;
+	background:url(../images/hover_img.png) no-repeat;
+	background-position:-125px 0;
+}
+.r_nav .r_icon5 .ic5 {
+	position: absolute;
+	bottom:347px;
+	left:37px;
+	height:30px;
+	width:27px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 0px;
+}
+.r_nav .r_icon5 .ic5.on {
+	position: absolute;
+	bottom:347px;
+	left:37px;
+	height:30px;
+	width:27px;
+	background:url(../images/hover_img.png) no-repeat;
+	background-position:-186px 0;
+}
+.r_nav .r_icon6 .ic6 {
+	position: absolute;
+	bottom:248px;
+	left:37px;
+	height:27px;
+	width:30px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -238px;
+}
+.r_nav .r_icon6 .ic6.on {
+	position: absolute;
+	bottom:248px;
+	left:37px;
+	height:27px;
+	width:30px;
+	background:url(../images/hover_img.png) no-repeat;
+	background-position:-312px 0;
+}
+.r_nav .r_icon7 .ic7 {
+	position: absolute;
+	bottom:148px;
+	left:37px;
+	height:30px;
+	width:27px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -48px;
+}
+.r_nav .r_icon7 .ic7.on {
+	position: absolute;
+	bottom:148px;
+	left:37px;
+	height:30px;
+	width:27px;
+	background:url(../images/hover_img.png) no-repeat;
+	background-position:-246px 0;
+}
+.r_nav .r_icon8 .ic8 {
+	position: absolute;
+	bottom:46px;
+	left:37px;
+	height:25px;
+	width:30px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:0 -286px;
+}
+.right_all .down_game {
+	position: fixed;
+	right:100px;
+	top:40px;
+	width:223px;
+	height:410px;
+	background: #c9d0de;
+	display:none;
+
+}
+.arrow-right {
+	position: absolute;	
+    width:0; 
+    height:0; 
+    border-top:10px solid transparent;
+    border-bottom:10px solid transparent;
+    border-left:10px solid #c9d0de;
+}
+.down_game .arrow-right {
+	top:44px;
+	right:-10px;
+}
+.channel .arrow-right {
+	bottom:44px;
+	right:-10px;
+}
+.weixin_gift .arrow-right {
+	bottom:44px;
+	right:-10px;
+}
+.qr_contact1,.qr_contact2,.next_contact1,.next_contact2 {
+	display:inline-block;
+}
+.qr_contact1 {
+	padding-top: 117px;
+    padding-left: 34px;
+}
+.qr_contact2 {
+	padding-top: 117px;
+    padding-left: 52px;
+}
+.next_contact1 {
+	cursor:pointer;
+	padding-top: 65px;
+    padding-left: 34px;
+}
+.next_contact2 {
+	padding-top: 75px;
+    padding-left: 46px;
+}
+.right_all .channel {
+	position: fixed;
+	width:223px;
+	height:259px;
+	background:#c9d0de;
+	right:100px;
+	top:581px;
+	display:none;
+}
+.right_all .weixin_gift {
+	position: fixed;
+	width:223px;
+	height:185px;
+	background:#c9d0de;
+	right:100px;
+	top: 555px;
+	display:none;
+}
+.right_all .weixin_gift .gift_code {
+	position: absolute;
+	top:10px;
+	left:10px;
+	height:165px;
+	width:202px;
+	background:url(../images/weixin_gift.png) no-repeat;
+	background-size:202px 165px;
+}
+.right_all .channel .code_1 {
+	position: absolute;
+	top:10px;
+	left:10px;
+	height:96px;
+	width:97px;
+	background:url(../images/weibo_code.png) no-repeat;
+background-size:100% 100%;
+}
+.right_all .channel .code_2 {
+	position: absolute;
+	top:10px;
+	right:10px;
+	height:96px;
+	width:97px;
+	background:url(../images/foucs_us.png) no-repeat;
+	background-size:97px 96px;
+	/*background-position:0 -559px;*/
+}
+.right_all .channel .code_11 {
+	position: absolute;
+	bottom:48px;
+	left:26px;
+	height:64px;
+	width:64px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:-273px -80px;
+	
+}
+.right_all .channel .code_22 {
+	position: absolute;
+	bottom:48px;
+	right:26px;
+	height:63px;
+	width:64px;
+	background:url(../images/icon_gather.png) no-repeat;
+	background-position:-274px 0;
+	
+}
+.right_all .channel i {
+	font-style:normal;
+	display:inline-block;
+	font-size:12px;
+}
+.content-1 {
+	width:100%;
+	/*height:1001px;*/
+	background:url(../images/bac_2.jpg) no-repeat;
+}
+.pos_content {
+	width:1200px;
+	margin:0 auto;
+}
+.scroll_tab {
+	padding-top:100px;
+}
+/*官网图片轮播区域*/
+.swiper-container3{ width:663px;height:336px; overflow:hidden; position:relative; cursor:pointer;float:left;}
+.swiper-container3 img { width: 100%; }
+.swiper-container3 .swiper-pagination{position:absolute;top:300px;left:0;}
+.swiper-container3 .swiper-pagination-bullet {width: 20px;height: 20px;border-radius: 50px;background: #fff;}
+.swiper-container3 .swiper-pagination-bullet-active {width:20px;height: 20px; background:url(../images/img_selected.png) no-repeat!important;}
+.js{position: relative; width:663px; height: 336px;margin:0 auto;}
+.jsNav{ position:absolute; left:288px; top:305px;}
+.jsNav a{width:40px; font-size:14px; margin-right:10px; display:inline; height:33px; line-height:33px; display:block;float:left; text-align:center; color:#fff;}
+.jsNav .imgSelected {width:20px;height: 20px; background:url(../images/img_selected.png) no-repeat!important;}
+.qq{ display:none; z-index:200}
+.jsNav .trigger {width:20px;height:20px;border-radius:50px;	background:#fff;}
+/*轮播结束*/
+.nba_tab {
+	width:529px;
+	height:336px;
+	background:#050505;
+	float:left;
+	position: relative;
+}
+.nba_tab .tab_nav li{
+	float:left;
+	width:160px;
+	height:66px;
+	text-align: center;
+	line-height:66px;
+}
+.nba_tab .tab_nav li a {
+	color: #fff;
+	font-size:24px;
+}
+.nba_tab .tab_nav .tab_nav_4 a {
+	font-size:18px;
+}
+.nba_tab .tab_nav .tab_nav_1 {
+	height:66px;
+	width:161px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:0 0;
+}
+.nba_tab .tab_nav .tab_nav_1.on{
+	height:66px;
+	width:161px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position: -2px -86px;
+}
+.nba_tab .tab_nav .tab_nav_2 {
+	height:66px;
+	width:161px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:-178px 0;
+	margin-left:-11px;
+}
+.nba_tab .tab_nav .tab_nav_2.on {
+	height:66px;
+	width:161px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:-178px -86px;
+	margin-left:-11px;
+}
+.nba_tab .tab_nav .tab_nav_3 {
+	height:66px;
+	width:160px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:-356px 0;
+	margin-left:-10px;
+}
+.nba_tab .tab_nav .tab_nav_3.on {
+	height:66px;
+	width:160px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:-356px -86px;
+	margin-left:-10px;
+}
+.nba_tab .tab_nav .tab_nav_4 {
+	display: inline-block;
+	height:66px;
+	width:76px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:-534px 0;
+	margin-left:-9px;
+	line-height:18px;
+	padding-top:17px;
+}
+.nba_tab .tab_nav .tab_nav_4:hover {
+	height:66px;
+	width:76px;
+	background:url(../images/juchi.png) no-repeat;
+	background-position:-534px -86px;
+	margin-left:-9px;
+	line-height:18px;
+	padding-top:17px;
+}
+.nba_tab .tabList {
+	width:528px;
+	height: 270px;
+	background:#050505;
+	position: absolute;
+	top:67px;
+	left:0;
+
+}
+.nba_tab .tabList li {
+	border-bottom:1px solid #141313;
+	line-height:43px;
+}
+#active {
+	z-index:999;
+}
+.nba_tab .tabList span {
+	color:#949393;
+	font-size:14px;
+	width: 80%;
+	float: left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.nba_tab .tabList i {
+	color:#393a36;
+	font-style:normal;
+	float:right;
+	font-size:14px;
+	padding-right:20px;
+}
+
+.game_feature {
+	position: relative;
+	width:1200px;
+	margin:0 auto;
+}
+.title {
+	margin-top:80px;
+}
+.title .game_icon {
+	position: absolute;
+	top:7px;
+	height:30px;
+	width:27px;
+	background:url(../images/my_nba.png) no-repeat;
+	background-position:-82px 0;
+}
+.title h3 {
+	font-size:28px;
+	color:#c30000;
+	float:left;
+	margin-left:35px;
+}
+.title span {
+	font-size:28px;
+	color:#444;
+	float:left;
+	margin-left:10px;
+}
+.nba_tab_2 {
+	width:1200px;
+	height:403px;
+	padding-top:60px;
+}
+.nba_tab_2 .tabList span {
+	position: absolute;
+	top:60px;
+	left:0;
+}
+#active2 {
+	z-index:999;
+}
+.nba_tab_2 .tab_nav{
+	float:right;
+}
+.nba_tab_2 .tab_nav li {
+	width:200px;
+	height:100px;
+	float:none;
+	cursor:pointer;
+}
+.content-2 {
+	width:100%;
+	background:url(../images/bac_3.jpg) no-repeat;
+}
+.forefront {
+	position: relative;
+	width:1200px;
+	margin:-5px auto;
+	padding-top:80px;
+}
+.video_scroll {
+	position: relative;
+	width:1200px;
+	height:508px;
+	background:#252525;
+	margin-top:60px;
+}
+.video_scroll .swiper-container1 {
+	position: relative;
+	width:1120px;
+	height:508px;
+	margin:0 auto;
+	overflow: hidden;
+}
+.video_scroll .swiper-wrapper {
+	width:100%;
+	height:100%;
+}
+.video_scroll .swiper-slide {
+	width:1120px;
+	height:508px;
+	margin:0 auto;
+}
+.video_scroll .video_list {
+	cursor:pointer;
+	position: relative;
+	width:347px;
+	height:223px;
+	margin-left:18px;
+	margin-top:20px;
+	float:left;
+}
+.video_list .play_btn {
+	position: absolute;
+	top:67px;
+	left:132px;
+	height:85px;
+	width:86px;
+	background:url(../images/my_nba.png) no-repeat;
+	background-position:-501px -131px;
+	cursor: pointer;
+}
+.video_scroll .swiper-button-prev,.video_scroll .swiper-button-next {
+	width:40px;
+	height:508px;
+	background: #333;
+	position: absolute;
+	cursor: pointer;
+}
+.video_scroll .swiper-button-prev:hover,.video_scroll .swiper-button-next:hover {
+	background: #666;
+}
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+	opacity: .5;  
+    filter:alpha(opacity=50);  
+}
+.video_scroll .swiper-button-prev {
+	left:0px;
+	top:22px;
+	opacity: .8;  
+    filter:alpha(opacity=80);  
+}
+.video_scroll .swiper-button-next {
+	right:0px;
+	top:22px;
+	opacity: .8;  
+    filter:alpha(opacity=80);  
+}
+.video_scroll .swiper-button-prev .prev_btn {
+	height:51px;
+	width:29px;
+	background:url(../images/my_nba.png) no-repeat;
+	background-position:-164px 0;
+	margin-top:229px;
+	margin-left:8px;
+	cursor:pointer;
+}
+.video_scroll .swiper-button-next .next_btn {
+	height:51px;
+	width:24px;
+	background:url(../images/my_nba.png) no-repeat;
+	background-position:0 0;
+	margin-top:229px;
+	margin-left:8px;
+	cursor:pointer;
+}
+.clear {
+	clear:both;
+}
+.major_league {
+	position: relative;
+	width:1200px;
+	margin:0px auto;
+	padding-top:80px;
+}
+.major_league .team_scroll {
+	position: relative;
+	width:1200px;
+	height:622px;
+	background:#252525;
+	margin-top:60px;
+}
+.major_league .team_scroll .team_list:nth-child(16) .team_logo img{
+	height:50px;
+}
+.major_league .swiper-container {
+	position: relative;
+	width:1200px;
+	height:622px;
+	margin:0 auto;
+}
+.major_league .team_list {
+	position: relative;
+	width:177px;
+	height:98px;
+	border:1px solid #4d4646;
+	background:#292827;
+	float:left;
+	margin-left:18px;
+	margin-top:20px;
+	cursor:pointer;
+}
+.team_list .team_logo {
+	text-align: center;	
+}
+.team_list .team_logo img{
+	display: block;
+	height: 76px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+}
+.team_list .team_name {
+	position:absolute;
+	top:25px;
+	right:15px;
+	color:#fff;
+	font-size:18px;
+	width:73px;
+}
+.team_scroll .swiper-slide {
+	width:1200px;
+	height:622px;
+	margin:0 auto;
+}
+.team_scroll .swiper-button-prev,.team_scroll .swiper-button-next {
+	width:40px;
+	height:381px;
+	background:#2b2b2c;
+	position: absolute;
+	z-index:999;
+}
+.team_scroll .swiper-button-prev {
+	left:0px;
+	top:22px;
+}
+.team_scroll .swiper-button-next {
+	right:0px;
+	top:22px;
+}
+.team_scroll .swiper-button-prev .prev_btn {
+	height:51px;
+	width:29px;
+	background:url(../images/my_nba.png) no-repeat;
+	background-position:-164px 0;
+	margin-top:166px;
+	margin-left:8px;
+	cursor:pointer;
+}
+.team_scroll .swiper-button-next .next_btn {
+	height:51px;
+	width:24px;
+	background:url(../images/my_nba.png) no-repeat;
+	background-position:0 0;
+	margin-top:166px;
+	margin-left:8px;
+	cursor:pointer;
+}
+.about_medias {
+	width:1200px;
+	margin:125px auto;
+}
+.about_us,.medias {
+	float:left;
+	position: relative;
+}
+.medias {
+	margin-left:19px;
+}
+.about_us .qr_about {
+	width:498px;
+	height:200px;
+	background:#252525;
+}
+.qr_about .the_code {
+	position: absolute;
+	height: 202px;
+    width: 200px;
+    background: url(../images/foucs_us2.png) no-repeat;
+    background-size:200px 163px;
+    top:20px;
+    left:20px;
+}
+.qr_about .contact_type {
+	position: absolute;
+	right:40px;
+	top:20px;
+	color:#878787;
+	line-height:39px;
+}
+.medias .meidas_list {
+	position: relative;
+	width:683px;
+	height:200px;
+	background:#252525;
+}
+.meidas_list .mediasList {
+	float:left;
+	height:70px;
+	width:201px;
+	margin-left:20px;
+	margin-top:20px;
+}
+
+.footer {
+	width:100%;
+	height:253px;
+	background:url(../images/nba_footer.jpg) no-repeat center top; 
+	margin-top:400px;
+}
+
+.teams_detail	{
+	position: absolute;
+	width:640px;
+	height:270px;
+	background: #707070;
+	border:2px solid #4b4b4b;
+	z-index: 999;
+	top:310px;
+	left:278px;
+	display:none;
+}
+.teams_detail.on {
+	display:block!important;
+}
+.teams_detail #logo {
+    float: left;
+    margin-top: 70px;
+    margin-left: 13px;
+}
+.teams_detail #logo img {
+	width: 150%;
+}
+.teams_detail #intro {
+	float:right;
+	width:464px;
+	height:190px;
+	background:#8d8d8d;
+	color:#fff;
+	font-size:12px;
+	margin-top:35px;
+	margin-right:10px;
+	padding: 10px;
+    line-height: 25px;
+}
+.teams_detail #intro h5 {
+	font-size: 18px;
+	padding-top:15px;
+}
+.teams_detail #intro p {
+	font-size:14px;
+	padding-top:10px;
+}
+.close_detail {
+	position: absolute;
+	width:30px;
+	height:30px;
+	background: #4b4b4b;
+	color: #8d8d8d;
+	right:0;
+	top:0;
+	text-align: center;
+	line-height:30px;
+	cursor: pointer;
+}
+/*---------------------列表页  list.html-------------------------*/
+.list_banner {
+	width:100%;
+	height:634px;
+	background:url(../images/list_banner.jpg) no-repeat;
+}
+.list_content {
+	width:100%;
+	background:#f5f5f5;
+	margin-top:-290px;
+	padding-bottom:40px;
+}
+.real_list {
+	position: relative;
+	width:1020px;
+	margin:0 auto;
+	background:#fff;
+	padding-bottom:50px;
+}
+.real_list h3 {
+	font-size:34px;
+	color:#333;
+	text-align: center;
+	padding-top:40px;
+}
+.real_list .hd_tab {
+	width:968px;
+	margin:30px auto 0;
+}
+.real_list .hd_tab span{
+	display:inline-block;
+	width:319px;
+	height:46px;
+	background:#d6d6d6;	
+	text-align: center;
+	line-height:46px;
+	font-size:24px;
+	color: #666666;
+	cursor:pointer;
+}
+.real_list .hd_tab span.active {
+	background:url(../images/tab_hover.png) no-repeat;
+	color:#fff;
+	font-weight:bold;
+}
+.real_list .position {
+	width:968px;
+	margin-left:30px;
+	border-bottom:4px solid #d6d6d6;
+	padding-bottom:15px;
+	color:#666;
+	font-size:18px;
+}
+.real_list .position i {
+	font-style:normal;	
+}
+.real_list .position a {
+	color: #ff6000;
+}
+.real_list .bd_tab {
+	width: 968px;
+	margin-left:30px;	
+	display:none;
+}
+#bd_active li {
+	float:none;
+}
+.real_list .bd_tab li {
+	line-height:35px;
+	border-bottom:2px dotted #d4d4d4;
+}
+.real_list .bd_tab a{
+	color:#666;
+}
+.real_list .bd_tab a:hover {
+	color:#ff6000;
+}
+.real_list .bd_tab i {
+	font-style:normal;
+}
+.real_list .bd_tab img {
+	vertical-align:middle;
+}
+.real_list .bd_tab span {
+	float:right;
+}
+#bd_active {
+	display:block!important;
+}
+.pagination {
+	width:380px;
+	margin:43px auto 0;
+}
+.pagination li {
+	display: inline-block;
+	width:24px;
+	height:24px;
+	border:1px solid #424a55;
+	color:#666;
+	text-align:center;
+	line-height:24px;
+	cursor:pointer;
+	font-size:14px;
+	margin-left:5px;
+}
+.pagination .page_active a{
+	color:#b4b4b4;
+}
+.pagination a {
+	font-style:normal;
+}
+.pagination .first,.pagination .last_page  {
+	width: 42px;
+    height: 24px;
+}
+.pagination .prev_page, .pagination .next_page{
+	width: 54px;
+    height: 24px;
+}
+.page_active {
+	background:#666;
+	color:#b4b4b4!important;
+}
+.list_page .next_page {
+	width:54px;
+	height:24px;
+}
+.list_page .last_page {
+	width:42px;
+	height:24px;
+}
+#footer {
+	height:284px;
+	width:100%;
+	background:#fff;
+}
+#footer .footer_content {
+	width:1200px;
+	height:284px;
+	margin:0 auto;
+}
+#footer .footer_content .footer_logo {
+	float:left;
+	margin-top:20px;
+}
+#footer .footer_content .footer_logo img {
+	padding-left:35px;
+}
+#footer .footer_content .footer_words {
+	float:left;
+	margin-top:20px;
+	font-size:12px;
+	margin-left:98px;
+}
+#footer .footer_content .footer_words p {
+	line-height:20px;
+	width:570px;
+	color:#888;
+}
+#footer .footer_content .footer_words p img {
+	width:12px;
+	vertical-align:middle;
+}
+.list_code {
+	position: absolute;
+	top:0;
+	left:-180px;
+	width:180px;
+	height:326px;
+	background:#1e212d;
+	display:none;
+}
+.list_code h5 {
+	text-align: center;
+	padding-top:15px;
+	font-size:14px;
+	color:#fff;
+}
+.list_code img {
+	padding-left:15px;
+	padding-top:15px;
+}
+
+/*----------------------文章详情页detail------------------*/
+.article_topic {
+	margin-top:38px;
+}
+.article_topic {
+	display:inline-block;
+	margin-top:35px;
+}
+.article_topic h4 {
+	font-size: 26px;
+	color:#333;
+	font-weight:normal;
+}
+.article_topic i {
+	font-size: 12px;
+	color:#666;
+	font-style:normal;
+}
+.article_content {
+	line-height: 35px;
+	color:#666;
+	width:968px;
+	padding-left: 30px;
+	font-size:14px;
+	padding-top:35px;
+}
+.article_content .article_img {
+	width:360px;
+	height:240px;
+	margin:35px auto;
+}
+.article_content .article_img img {
+	width:360px;
+	height:240px;
+ 	
+}
+
+/*---------------------超首页-----------------------*/
+.position_ok {
+	width:1200px;
+	height:100%;
+	margin:0 auto;
+	position: relative;
+}
+.go_index {
+	position: absolute;
+	top:195px;
+	left:0;
+	width: 464px;
+	height: 87px;
+	background: url(../images/go_index.png) no-repeat;
+}
+.some_flag {
+	height:201px;
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+.some_flag .flags_team .team1 {
+	display:inline-block;
+	width:39px;
+	height:63px;
+	background:url(../images/weibo_flag.png) no-repeat;
+}
+.some_flag .flags_team .team2 {
+	display:inline-block;
+	width:39px;
+	height:63px;
+	background:url(../images/tieba_flag.png) no-repeat;
+}
+.some_flag .flags_team .team3 {
+	display:inline-block;
+	cursor:pointer;
+	width:39px;
+	height:63px;
+	background:url(../images/weixin_flag.png) no-repeat;
+}
+.some_flag .foucs_qr {
+	width:125px;
+	height:140px;
+	background:url(../images/foucs_us.png) no-repeat;
+	display:none;
+}
+
+
+.video_play i{
+	width:91px;
+	height: 91px;
+	display: block;
+	cursor: pointer;
+	position: absolute;
+	
+}
+.video_play .i-video-01{
+	background: url(../images/playBtn1.png) no-repeat;
+	background-size: 100% 100%;
+	animation:rotate 2s linear infinite;
+	-webkit-animation:rotate 2s linear infinite;
+	-moz-animation:rotate 2s linear infinite;
+	-ms-animation:rotate 2s linear infinite;
+	-o-animation:rotate 2s linear infinite;
+	-webkit-transform-origin:46.07594px 46.07594px;
+	-moz-transform-origin:46.07594px 46.07594px;
+	-ms-transform-origin:46.07594px 46.07594px;
+	-o-transform-origin:46.07594px 46.07594px;
+}
+@keyframes rotate{
+	0%{
+		transform: rotate(0);
+
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.video_play .i-video-02{
+	width: 19px;
+	height: 29px;
+	left: 55%;
+	top: 50%;
+	margin-left: -9.5px;
+	margin-top: -14.5px;
+	background: url(../images/playBtn2.png) no-repeat;
+	background-size: 100% 100%;
+	animation:scales 2.5s linear infinite;
+	-webkit-animation:scales 2.5s linear infinite;
+	-moz-animation:scales 2.5s linear infinite;
+	-ms-animation:scales 2.5s linear infinite;
+}
+@keyframes scales{
+	0%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.2)
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+
+.swiper-pagination {
+    height: 10px;
+    z-index: 9999;
+    top:799px;
+    left:40%;
+}
+.swiper-pagination span {
+	display:inline-block;
+	width:92px;
+	height:10px;
+	background:#575757;
+	border-radius:0;
+	margin-left:5px;
+	cursor:pointer;
+}
+.swiper-pagination span.swiper-pagination-bullet-active {
+	background:#b21413;
+}
+.fp-tableCell {
+	vertical-align: top!important;
+}
+.swiper-container2 {
+	position: relative;
+	overflow:hidden;
+}
+.swiper-container2 .swiper-button-prev {
+	bottom:0px;
+}
+.swiper-container2 .swiper-slide img {
+	width:100%;
+}
+#scroll2 {
+	width:1200px;
+}
+/*修改*/
+.slogen {
+	width: 734px;
+	height: 201px;
+	position: absolute;
+	top: 260px;
+	left: 50%;
+	margin-left: -370px;
+}
+.new_move {
+	position:absolute;
+	top:253px;
+	left:0;
+	width: 100%;
+}
+/*分辨率适配*/
+@media screen and (max-width: 1600px) {
+	#scroll1 {
+		height:850px;
+	}
+	/*.qr_down2,.qr_btn,.login_gift,.slogen,.video_play {*/
+		/*transform:scale(.9,.9);*/
+		/*-moz-transform:scale(.9,.9);*/
+		/*-webkit-transform:scale(.9,.9);*/
+		/*-o-transform:scale(.9,.9);*/
+		/*-ms-transform:scale(.9,.9);*/
+	/*}*/
+	/*.video_play{*/
+		/*top: 595px!important;*/
+		/*margin-left: 230px!important;*/
+	/*}*/
+	/*.slogen{*/
+		/*top: 230px!important;*/
+	/*}*/
+	.download{
+		top: 250px!important;
+	}
+	/*.qr_btn {*/
+		/*left: 200px !important;;*/
+	/*}*/
+	/*.login_gift{*/
+		/*top: 430px!important;*/
+		/*margin-left:70px!important;*/
+	/*}*/
+	.go_index {
+		left:-10px!important;
+		top:160px!important;
+		transform:scale(.7,.7); 
+		-moz-transform:scale(.7,.7); 
+		-webkit-transform:scale(.7,.7); 
+		-o-transform:scale(.7,.7);
+		-ms-transform:scale(.7,.7);
+	}
+	.r_nav  {
+		transform:scale(.8,.8); 
+	    -moz-transform:scale(.8,.8); 
+		-webkit-transform:scale(.8,.8); 
+		-o-transform:scale(.8,.8);
+		-ms-transform:scale(.8,.8);
+		right: -10px;
+    	top: -40px;
+	}
+	.down_game {
+		transform:scale(.8,.8); 
+	    -moz-transform:scale(.8,.8); 
+		-webkit-transform:scale(.8,.8); 
+		-o-transform:scale(.8,.8);
+		-ms-transform:scale(.8,.8);
+		right:66px!important;
+    	top:7px!important;
+	}
+	.channel {
+		transform:scale(.8,.8); 
+	    -moz-transform:scale(.8,.8); 
+		-webkit-transform:scale(.8,.8); 
+		-o-transform:scale(.8,.8);
+		-ms-transform:scale(.8,.8);
+		right:66px!important;
+    	top: 447px!important;
+	}
+	.weixin_gift {
+		transform:scale(.8,.8); 
+	    -moz-transform:scale(.8,.8); 
+		-webkit-transform:scale(.8,.8); 
+		-o-transform:scale(.8,.8);
+		-ms-transform:scale(.8,.8);
+    	right: 66px!important;
+    	top: 435px!important;
+	}
+	.list_content {
+		margin-top:0;
+	}
+	.list_banner {
+		width:100%;
+		height:230px;
+		background:url(../images/list_banner2.jpg) no-repeat;
+	}
+}
+
+@media only screen and (max-width: 1599px) {
+	.pos_content {
+		width:800px!important;
+		margin:0 auto;
+	}
+	#scroll2 {
+    	width: 800px!important;
+	}
+	.swiper-container3 {
+	    width: 416px!important;
+	    height: 240px!important;
+	} 
+	.swiper-container3 img {
+	    width: 100%;
+	    height: 240px!important;
+	}
+	.swiper-container3 .swiper-pagination {
+		top:213px;
+	}
+	.major_league .team_scroll .team_list:nth-child(16) .team_logo img{
+		height:33px;
+	}
+	.nba_tab {
+		width:374px!important;
+		height:238px!important;
+	}   
+	.nba_tab .tab_nav li {
+		line-height:50px;
+	}
+	.nba_tab .tab_nav li a {
+	    color: #fff;
+	    font-size:18px;
+	}
+	.nba_tab .tab_nav .tab_nav_4 a {
+	    font-size: 14px;
+	}
+	.nba_tab .tab_nav .tab_nav_1.on {
+	    height: 49px!important;
+	    width: 115px!important;
+    }
+     .nba_tab .tab_nav .tab_nav_2.on {
+	    height: 49px!important;
+	    width: 115px!important;
+   }
+   .nba_tab .tab_nav .tab_nav_3.on {
+	    height: 49px!important;
+	    width: 115px!important;
+   }
+   .nba_tab .tab_nav .tab_nav_4:hover {
+	    height: 39px!important;
+	    width: 56px!important;
+	    line-height: 14px;
+	    padding-top: 10px;
+   }
+    .nba_tab .tab_nav .tab_nav_1 {
+	    height: 49px!important;
+	    width: 115px!important;
+    }
+    .nba_tab .tab_nav .tab_nav_2 {
+	    height: 49px!important;
+	    width: 115px!important;
+   }
+   .nba_tab .tab_nav .tab_nav_3 {
+	    height: 49px!important;
+	    width: 115px!important;
+   }
+   .nba_tab .tab_nav .tab_nav_4 {
+	    height: 39px!important;
+	    width: 56px!important;
+	    line-height: 14px;
+	    padding-top: 10px;
+   }
+   .nba_tab .tabList {
+	   	width:375px!important;
+	   	height:190px!important;
+	   	top: 49px!important;
+   }
+   .nba_tab .tabList li {
+   	line-height:29px;
+   }
+   .nba_tab .tabList span {
+	    color: #949393;
+	    font-size: 12px!important;
+	}
+	.nba_tab .tabList i {
+		font-size:12px!important;
+		padding-right:5px;
+	}
+	.nba_tab_2 {
+	    width: 800px;
+	    height: 340px;
+	    padding-top: 60px;
+	}
+	.nba_tab_2 .tab_nav li {
+	    width: 133px;
+    	height: 67px;
+	}
+	.nba_tab_2 .tab_nav li img{
+	    width: 133px;
+    	height: 67px;
+	}
+	.nba_tab_2 .tabList span {
+		width: 668px;
+    	height: 268px;
+	}
+	.nba_tab_2 .tabList span img {
+		width: 668px;
+    	height: 268px;
+	}
+	.forefront {
+		width:800px;
+	}
+	.video_scroll {
+		width:800px;
+		height:340px;
+	}
+	.video_scroll .swiper-container1 {
+		width:745px;
+		height:340px;
+	}
+	.video_scroll .video_list {
+		width:230px;
+		height:150px;
+		margin-left: 13px;
+    	margin-top: 12px;
+	}
+	.video_scroll .video_list img{
+		width:230px;
+		height:150px;
+	}
+	.video_scroll .swiper-button-prev, .video_scroll .swiper-button-next {
+		width:28px;
+		height:340px;
+	}
+	.video_scroll .swiper-button-prev .prev_btn {
+	   	margin-left:0px;
+	    margin-top:150px;
+   }
+   .video_scroll .swiper-button-next .next_btn {
+	    margin-top: 150px;
+    	margin-left: 4px;
+   }
+   .major_league {
+	    position: relative;
+	    width: 800px;
+	    margin: 0px auto;
+	    padding-top: 80px;
+	}
+	.major_league .team_scroll {
+		width:800px;
+		height:415px;
+	}
+	.major_league .swiper-container {
+		width:800px;
+		height:415px;
+	}
+	.team_scroll .swiper-slide {
+	    width: 800px;
+	    height: 415px;
+	}
+	.major_league .team_list {
+		position: relative;
+		width:118px;
+		height:67px;
+		margin-left: 11px;
+    	margin-top: 13px;
+	}
+	.major_league .team_list img {
+		position: absolute;
+	    /*top: 3px;
+	    left: 29px;
+	    width: 50%;*/
+	    height:50px;
+	}
+	.about_medias {
+	    width: 800px;
+	    margin: 125px auto;
+	}
+	.about_us .qr_about {
+	    width: 406px;
+	    height: 165px;
+	}
+	.qr_about .the_code {
+		width:159px;
+		height:132px;
+		background: url(../images/foucs_us2.png) no-repeat;
+		background-size:159px 132px;
+	}
+	.qr_about .contact_type {
+		font-size:16px;
+		right: 10px;
+    	top: 18px;
+    	line-height:36px;
+	}
+	.medias {
+		margin-left:15px;
+	}
+	.medias .meidas_list {
+		width:378px;
+		height:164px;
+	}
+	.meidas_list .mediasList  {
+		width:164px;
+		height:57px;
+		margin-left:16px;
+		margin-top:16px;
+	}
+	.meidas_list .mediasList img{
+		width:164px;
+		height:57px;
+	}
+	.teams_detail {
+		top: 217px!important;
+    	left: 71px!important;
+	}
+}
+
+@media screen and (max-width: 1366px) {
+	#scroll1 {
+		height:850px;
+	}
+	/*.qr_down2,.qr_btn,.login_gift,.slogen,.video_play {*/
+		/*transform:scale(.8,.8);*/
+		/*-moz-transform:scale(.8,.8);*/
+		/*-webkit-transform:scale(.8,.8);*/
+		/*-o-transform:scale(.8,.8);*/
+		/*-ms-transform:scale(.8,.8);*/
+	/*}*/
+	/*.video_play{*/
+		/*top: 510px!important;*/
+		/*margin-left: 195px!important;*/
+	/*}*/
+	/*.slogen{*/
+		/*top: 150px!important;*/
+	/*}*/
+	.download{
+		top: 250px!important;
+	}
+	/*.qr_btn {*/
+		/*left: 180px !important;*/
+	/*}*/
+	/*.login_gift{*/
+		/*top: 365px!important;*/
+		/*margin-left: 35px!important;*/
+	/*}*/
+
+
+	.go_index {
+		left:-10px!important;
+		top:160px!important;
+		transform:scale(.7,.7); 
+		-moz-transform:scale(.7,.7); 
+		-webkit-transform:scale(.7,.7); 
+		-o-transform:scale(.7,.7);
+		-ms-transform:scale(.7,.7);
+	}
+	.r_nav  {
+		transform:scale(.6,.6); 
+	    -moz-transform:scale(.6,.6); 
+		-webkit-transform:scale(.6,.6); 
+		-o-transform:scale(.6,.6);
+		-ms-transform:scale(.6,.6);
+		right: -20px;
+    	top: -100px;
+	}
+	.down_game {
+		transform:scale(.6,.6); 
+	    -moz-transform:scale(.6,.6); 
+		-webkit-transform:scale(.6,.6); 
+		-o-transform:scale(.6,.6);
+		-ms-transform:scale(.6,.6);
+		right: 22px!important;
+    	top: 9px!important;
+	}
+	.channel {
+		transform:scale(.6,.6); 
+	    -moz-transform:scale(.6,.6); 
+		-webkit-transform:scale(.6,.6); 
+		-o-transform:scale(.6,.6);
+		-ms-transform:scale(.6,.6);
+	    right: 22px!important;
+    	top: 354px!important;
+	}
+	.weixin_gift {
+		transform:scale(.6,.6); 
+	    -moz-transform:scale(.6,.6); 
+		-webkit-transform:scale(.6,.6); 
+		-o-transform:scale(.6,.6);
+		-ms-transform:scale(.6,.6);
+		right: 22px!important;
+	    top: 354px!important;
+	}
+	.section2 .slide img {
+		position: absolute;
+		width:100%;
+		left:0px!important;
+		bottom:0;
+	}
+	.list_content {
+		margin-top:0;
+	}
+	.list_banner {
+		width:100%;
+		height:230px;
+		background:url(../images/list_banner2.jpg) no-repeat center top;
+	}
+}
+
+.section2 {
+	width:100%;
+	background:url(../images/scroll_bac.jpg) no-repeat center top;
+	/*background-size:100% 100%;*/
+}
+.section2 .scroll_pos {
+	width:1200px;
+	margin:0 auto;
+}
+.section2 .slide {
+	/*width:100%;
+	height:100%;*/
+	text-align: center;
+	margin:0 auto;
+	position: relative;
+}
+.section2 .slide img {
+	position: absolute;
+	left:-180px;
+	bottom:40px;
+}
+#do_this {
+	display:none;
+}
+/*-------------------------------------新增预约功能------------------------------------------*/
+.order_now {
+	position: absolute;
+	top: 195px;
+	left: 0;
+	width: 464px;
+	height: 83px;
+	background: url(../images/order_btn.png) no-repeat;
+	display: none;
+}
+.order_mask { 
+	width: 100%;
+	height: 100%; 
+	background: url(../images/d.png); 
+	position: fixed;
+	top: 0; 
+	left: 0;
+	z-index: 99999;
+	display: none;
+}
+.order_mask .the_order {
+	background:url(../images/order_bac.jpg) no-repeat;
+	width:393px;
+	height:488px;
+	position: relative;
+    left: 50%;
+    top: 50%;
+    margin: -244px 0 0 -196.5px;
+}
+.order_mask .close_btn {
+	width: 37px;
+	height:48px;
+	background:url(../images/order_close.png) no-repeat;
+	position: absolute;
+	right:0;
+	top:0;
+	cursor:pointer;
+}
+.order_mask .system_choose {
+	position: absolute;
+	top:103px;
+	left:103px;
+	width:183px;
+	height:85px;
+}
+.system_choose .ios {
+	display:inline-block;
+	width:48px;
+	height:80px;
+	background:url(../images/ios_selected.png) no-repeat;
+	cursor:pointer;
+}
+.system_choose .ios_change {
+	display:inline-block;
+	width:48px;
+	height:80px;
+	background:url(../images/ios_unselected.png) no-repeat;
+	cursor:pointer;
+}
+.system_choose .android {
+	display:inline-block;
+	width:54px;
+	height:81px;
+	background:url(../images/android_unselected.png) no-repeat;
+	margin-left:70px;
+	cursor:pointer;
+}
+.system_choose .android_change {
+	display:inline-block;
+	width:54px;
+	height:81px;
+	background:url(../images/android_selected.png) no-repeat;
+	margin-left:70px;
+	cursor:pointer;
+}
+.order_mask .tips {
+	position: absolute;
+	color:#9dbbe7;
+	font-size:22px;
+	top: 204px;
+    left: 87px;
+}
+.order_mask .tips2 {
+	position: absolute;
+	color:#708aaf;
+	font-size:18px;
+	top: 312px;
+    left: 39px;
+}
+.order_mask .phone_num {
+	position: absolute;
+	top:248px;
+	left:53px;
+}
+.phone_num label {
+	font-size:16px;
+	color:#9dbbe7;
+}
+.phone_num input {
+	width:176px;
+	height:37px;
+	border:1px solid #26385b;
+	color:#708aaf;
+	font-size:18px;
+	background:#060a14;
+	padding-left:20px;
+	letter-spacing:1.5px;
+}
+.phone_num input::-webkit-input-placeholder{
+	color:#708aaf;
+}
+.phone_num input::-moz-placeholder{
+	color:#708aaf;
+}
+.order_mask .order_nowing {
+	width:301px;
+	height:69px;
+	background:url(../images/order_now.png) no-repeat;
+	position: absolute;
+	top:370px;
+	left:44px;
+	cursor:pointer;
+}
+.order_mask .ordered {
+	width:301px;
+	height:69px;
+	background:url(../images/ordered_btn.png) no-repeat;
+	position: absolute;
+	top:370px;
+	left:44px;
+	cursor:pointer;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/setPageRem.js"></script>
+    <title>投票</title>
+</head>
+<body>
+    <div class="vote-container">
+        <img class="title" src="images/title.png">
+        <div class="rule">
+            <div class="rule-title">投票规则</div>
+            <ul class="rule-main">
+                <li><em></em>到场每人次有3票； </li>
+                <li><em></em>3票必须选择3个不同节目,单人次投票数不得小于3票； </li>
+                <li><em></em>不投表示弃权。 </li>
+            </ul>
+        </div>
+        <div class="check-box">
+        </div>
+        <div class="null"></div>
+    </div>
+    <div class="vote-box">
+        <img class="noVote" src="images/vote-button2.png">
+        <img class="vote" style="display: none" src="images/vote-button.png">
+        <img class="voted" style="display: none" src="images/vote-button3.png">
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
+</body>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    var data = [
+        {
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        },
+        {
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        },
+        {
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        },{
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        },
+        {
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        },
+        {
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        },
+        {
+            name:'名族舞蹈集体舞',
+            department:'研发部',
+        }
+    ]
+    $(function () {
+        var html = '';
+        $(data).each(function (index) {
+            html += '<div class="check">\n' +
+                '<h4>'+ this.name +'</h4>\n' +
+                '<p>'+ this.department +'</p>\n' +
+                '<span>'+ (index+1) +'</span>\n' +
+                '<em></em>\n' +
+                '</div>';
+        })
+        $('.check-box').append(html);
+
+        $('.check').click(function () {
+            var tar = $(this);
+            var vote = 0;
+            $('.check').each(function () {
+                if($(this).hasClass('active')){
+                    vote++;
+                }
+            })
+            if($(tar).hasClass('active')){
+                $(this).removeClass('active');
+                vote--;
+                $('.vote-box').find('img').hide();
+                $('.noVote').show();
+            }else if(vote >= 3){
+                return;
+            }else{
+                $(this).addClass('active');
+                vote++;
+                if(vote >= 3){
+                    $('.vote-box').find('img').hide();
+                    $('.vote').show();
+                }
+            }
+            if($('.vote-box').attr('disable')){
+                $('.vote-box').find('img').hide();
+                $('.voted').show();
+            }
+        })
+        $('.vote').click(function () {
+            $('.vote-box').find('img').hide();
+            $('.voted').show();
+            $('.vote-box').attr('disable','disable');
+        })
+    })
+</script>
+</html>

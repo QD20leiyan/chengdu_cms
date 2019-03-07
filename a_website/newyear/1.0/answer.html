@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/setPageRem.js"></script>
+    <title>答题</title>
+</head>
+<body>
+    <div class="answer-container">
+        <div class="circle-box" id="ready">
+            <!--<div class="circle-box1">-->
+                <!--<div class="circle-box2">-->
+                    <!--<div class="circle-box3"></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <ul class="small-circle">
+                <li></li>
+                <li class="active"></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="circle-box" id="time3"></div>
+        <div class="circle-box" id="time2"></div>
+        <div class="circle-box" id="time1"></div>
+        <div class="circle-box" id="steal"></div>
+        <div class="circle-box" id="show_name">
+            <p>研发部</p>
+            <h5>贺杰小基霸</h5>
+            <p class="bottom">恭喜抢到答题资格</p>
+        </div>
+    </div>
+    <div class="mask">
+        <div class="dialog" id="get_answer">
+            <span class="answer-close"></span>
+        </div>
+        <div class="dialog" id="noget_answer">
+            <span class="answer-close"></span>
+        </div>
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        </div>
+    </div>
+</body>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    $(function () {
+        var smallTime = setInterval(function () {
+            var tar = $('.small-circle').find('.active');
+            $('.small-circle').find('li').removeClass('active');
+            if($(tar).next().length > 0){
+                $(tar).next().addClass('active');
+            }else{
+                $('.small-circle').children("li:first-child").addClass('active');
+            }
+        },1000)
+
+        function timer() {
+            var time = 3;
+            var djs_timer = setInterval(function() {
+                time--;
+                if(time == 3){
+                    $('.circle-box').hide();
+                    $('#time3').show();
+                }
+                if(time == 2){
+                    $('.circle-box').hide();
+                    $('#time2').show();
+                }
+                if(time == 1){
+                    $('.circle-box').hide();
+                    $('#time1').show();
+                }
+                if(time == 0) {
+                    clearInterval(djs_timer);
+                    $('.circle-box').hide();
+                    $('#steal').show();
+                }
+            }, 1000);
+        }
+        function start() {
+            setTimeout(function () {
+                $('.circle-box').hide();
+                $('#time3').show();
+                timer();
+            },3000)
+        }
+        start();
+
+        $('#steal').click(function (e) {
+            if('success'){
+                $('#get_answer').show();
+            }else{
+                $('#noget_answer').show();
+            }
+            $('.mask').slideDown(500);
+            $('.circle-box').hide();
+            $('#show_name').show();
+            e.stopPropagation();
+            e.preventDefault();
+        })
+        $('.answer-close').click(function () {
+            $('.mask').slideUp(500);
+        })
+    })
+</script>
+</html>

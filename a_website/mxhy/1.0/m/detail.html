@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui,viewport-fit=cover">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/new.css" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<!--header-->
+<header class="header">
+    <a href="#" class="logo" target="_blank">
+        <img src="images/logo.png" alt="">
+    </a>
+    <div class="h_text">
+        <p class="h_p01">梦想花语</p>
+        <p class="h_p02">开花店玩消除快乐一起建庄园</p>
+    </div>
+    <div class="header_a">
+        <a href="javascript:;" class="down_btn"></a>
+        <div class="h_nav">
+            <span class="d_t_t"></span>
+            <span class="d_t_m"></span>
+            <span class="d_t_b"></span>
+        </div>
+    </div>
+    <ul class="down_list">
+        <li><a href="javascript:;" class="down_gfbtn js_wap_down"></a></li>
+        <li><a href="javascript:yx_showTips('敬请期待');" class="tap"></a></li>
+    </ul>
+    <div class="nav-content">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="" class="item-anchor">首页</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="item-anchor">新闻</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<!--内容-->
+<div class="list">
+    <p class="top_img"><a href="" class="return"></a></p>
+    <div class="detailbox">
+            <div class="article_title">
+                <a href="" class="go_list"></a>
+                <h3>徐云龙倾情助阵 百张北京国安主场门票及签名周边免费领！</h3>
+                <span><span>发布时间：2017/10/31</span><span>来源：本网站</span></span>
+            </div>
+            <div class="content">
+                <p>相信大部分的《极无双》主公都对三国的故事情有独钟，即使讨论了千万遍仍然乐在其中。而三国中的爱恨情仇一直以来也都是大家津津乐道的话题，今天《极无双》就带大家盘点三对三国中的宿命生死冤家，看看是否与你想象中的结果一样呢？</p>
+            </div>
+        </div>
+</div>
+<!--底部-->
+    <div class="footer_bottom">
+        <a href="javascript:;" class="back"></a>
+        <ul class="bottom_media">
+            <li>
+                <a href="http://weibo.com/yqrewu"></a>
+            </li>
+            <li class="x_weixin">
+                <a href="javascript:;"></a>
+            </li>
+            <li>
+                <a href="http://sina.lt/fBVn"></a>
+            </li>
+            <li>
+                <a href="http://bbs.yingxiong.com/t/pc/19.html"></a>
+            </li>
+        </ul>
+    </div>
+    <!--预约弹窗-->
+    <div class="co_tips co_tips_login hidden">
+        <div class="co_con">
+            <span class="co_tips_close"></span>
+            <div class="co_form">
+                <div class="chengg"></div>
+                <div class="rdo_box">
+                    <span class="rdo on and" data-id="android"><i></i>Android</span>
+                    <span class="rdo ios" data-id="ios"><i></i>iOS</span>
+
+                </div>
+                <div class="co_input co_input1">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码">
+                    <p class="co_error"><i></i>手机号码错误</p>
+                </div>
+                <div class="co_input co_input2">
+                    <input type="text" class="captcha" placeholder="请输入验证码">
+                    <span class="co_captcha">点击刷新</span>
+                    <p class="co_error"><i></i>验证码错误</p>
+                </div>
+                <div class="co_input co_input2">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"><span class="co_codebtn co_codebtn1">获取验证码</span>
+                    <p class="co_error"><i></i>验证码错误</p>
+                </div>
+
+                <p class="co_tips_btn co_tips_yybtn"></p>
+            </div>
+
+        </div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper-3.4.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/js.js"></script>
+<script>
+    $(function(){
+        var swiper01 = new Swiper('.swiper-container1', {
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+    });
+</script>
+</html>
