@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h5</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/index.css" rel="stylesheet" />
+</head>
+<body>
+<section class="bg01">
+    <button class="showtips"></button>
+    <div class="tips hidden">
+        <div class="content">
+            <img src="images/tipsbg01.png" alt=""/>
+            <img src="images/close.png" alt="" class="close"/>
+            <div>
+                <h4>请填写您的手机信息，我们将与您联系！</h4>
+                <input type="text" placeholder="输入手机号码"/>
+
+                <button class="orderbtn">立即预约</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/setrem.js"></script>
+<script>
+    $(".showtips").click(function(){
+        $(".tips").removeClass("hidden");
+    });
+
+    $(".close").click(function(){
+        $(".tips").addClass("hidden");
+    });
+</script>
+</body>
+</html>

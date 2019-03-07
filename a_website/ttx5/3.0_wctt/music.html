@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN"> 
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content=""></meta>
+	<meta name="keywords" content=""></meta>
+	<meta name="description" content=""></meta>
+	<title>音乐上传</title>
+	<link rel="stylesheet" href="./common/css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="./css/index_style.css">
+    
+	<!--[if lt IE 9]>
+        <script src="./common/js/html5shiv.js"></script>
+	<![endif]-->
+	<script data-fixed="true">
+        if ((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+            //更改跳转为移动端前加m
+            var cur_href = window.location.href;//当前的href
+            var cur_hostname = "http://"+window.location.hostname;
+            var path = cur_href.replace(cur_hostname,'');
+            location.href = "/m" + path;
+        }
+    </script>	
+</head>
+<body>
+	<!--[if lt IE 10]>
+		<div style="position:absolute;left:0;top:0;width:100%;height:50px;background:rgb(255,255,233);color:rgb(30,84,148);border-bottom:1px solid rgb(230,230,198);text-align:center;line-height:50px;font-size:12px;z-index:9999999">您使用的浏览器版本过低，可能会影响到您浏览本网页，建议您升级您的浏览器。</div>
+	<![endif]-->
+	<!--顶导航开始-->
+	    <script type="text/javascript" src="http://dev.static.yingxiong.com/head/js/topbar.min.js"></script>
+	<!--顶导航结束-->
+	<!--测试信息 正式环境需删除-->
+	<link rel="stylesheet" href="http://dev.static.yingxiong.com/head/css/head.css">
+	<div id="Hero-bar"></div>
+	<!--end-->
+	<!--网站导航-->
+	<div class="ttx5-hed">
+	    <ul class="clearfix">
+		    <li><a href="index.html" title="官网首页" target="_blank" >官网首页<span>HOME</span></a></li>
+			<li><a href="list.html" title="新闻公告" target="_blank" class="on">新闻公告<span>NEW</span></a></li>
+			<li><a href="javascript:;" title="活动中心" target="_blank">活动中心<span>ACTIVITY</span></a></li>
+			<li id="hedlogo"><a href="/" title="" target="_blank"><img src="./common/images/c_logo.png" alt=""></a></li>
+			<li><a href="list.htm" title="游戏资料" target="_blank">游戏资料<span>DATA</span></a></li>
+			<li><a href="video.html" title="视频中心" target="_blank">视频中心<span>VIDEO</span></a></li>
+			<li><a href="javascript:;" title="联系我们" target="_blank">联系我们<span>WEBO WEHAT</span></a></li>
+		</ul>
+	</div>
+	<div class="m-wrap">
+		<div class="m-main1">
+		    <div class="m-m1con">
+				<div class="ind-down">
+				    <div class="ind-down-wchat fl"> 
+					    <img src="./common/images/ewm_wx.jpg" alt="" width="197" height="197">
+						<p>扫一扫下载游戏</p>
+					</div>
+					<div class="ind-down-app fr">
+					    <a href="javascript:;" title="苹果ios" target="_blank" class="ios-app"></a>
+						<a href="javascript:;" title="安卓" target="_blank" class="and-app"></a>
+						<a href="javascript:;" title="pc客户端" target="_blank" class="pc-app"></a>
+					</div>
+				</div>
+			</div>
+		</div> 
+		<div class="m-main2">
+			<div class="m-m2con">
+				<p>1.上传的歌曲，由专人审核筛选，符合要求的作品将分批放入游戏中，所有玩家都可以来试听哦，大家一起来判断辣耳朵等级（～￣▽￣～）</p>
+				<p>2.所有被选中的歌曲将通过投票数排名，每一期排名前三的歌曲我们将在下一次新版本的时候做成舞蹈歌曲哦~</p>
+			</div>
+		</div> 
+		<div class="m-main3">
+			<div class="m-m3con">
+				<form action="">
+					<!-- class为suc正确，为fail错误 -->
+					<div class="item uid suc">
+						<label></label>
+						<input type="text">
+						<i></i>
+						<span class="tips">请根据您的uid采集昵称哦～</span>
+					</div>
+					<div class="item area">
+						<label></label>
+						<select selected="selected">
+							<option value="">一见倾心</option>
+							<option value="">怦然心动</option>
+							<option value="">心心相印</option>
+							<option value="">舞动奇迹</option>
+							<option value="">倾城之恋</option>
+							<option value="">郑州站</option>
+							<option value="">杭州站</option>
+							<option value="">青岛站</option>
+							<option value="">苏州站</option>
+							<option value="">厦门站</option>
+							<option value="">东莞站</option>
+							<option value="">合肥站</option>
+							<option value="">深圳站</option>
+							<option value="">上海南京</option>
+							<option value="">武汉长沙</option>
+							<option value="">重庆成都</option>
+							<option value="">周年庆典</option>
+							<option value="">水瓶座</option>
+							<option value="">广州昆明</option>
+							<option value="">相悦三生</option>
+							<option value="">白羊座</option>
+							<option value="">京津沈</option>
+							<option value="">巨蟹座</option>
+							<option value="">天秤座</option>
+							<option value="">IOS花好百年</option>
+							<option value="">IOS一往情深</option>
+							<option value="">IOS比翼双飞</option>
+							<option value="">IOS长相意合</option>
+							<option value="">IOS天长钟情</option>
+						</select>
+						<em class="down"></em>
+						<span class="tips"></span>
+					</div>
+					<div class="item name fail">
+						<label></label>
+						<input type="text">
+						<i></i>
+						<span class="tips"></span>
+					</div>
+					<div class="item music">
+						<label></label>
+						<input type="text">
+						<em class="music-input"><input type="file"></em>
+						<span class="tips"></span>
+					</div>
+					<div class="item img">
+						<label></label>
+						<input type="text">
+						<em class="img-input"><input type="file"></em>
+						<span class="tips">推荐尺寸：最佳尺寸1080*1080</span>
+					</div>
+					<div class="item phone">
+						<label></label>
+						<input type="text">
+						<i></i>
+						<span class="tips">将通过手机号告知您是否入选～请填写真实信息</span>
+					</div>
+					<button class="music-btn"></button>
+				</form>
+			</div>
+		</div> 
+		<div class="m-main4">
+			<div class="m-m4con">
+				<p>1.使用存在争议的歌曲，官方有权下架。</p>
+				<p>2.审核通过的歌曲，官方即拥有使用权。</p>
+				<p>3.本活动解释权在法律允许的范围内归英雄互娱公司所有。</p>
+				<h3>备注：<a target="_blank" href="http://jingyan.baidu.com/article/925f8cb8c8143cc0dde0563c.html">点击查看歌曲导出教程</a></h3>
+			</div>
+		</div>
+	</div>
+	<div id="HERO-copyRight">
+		<p class="HERO-copyRight-p"><span class="HERO-copyRight-p1"><a href="javascript:;" target="_blank"><img src="./common/images/hero.jpg" alt="hero"></a></span><span class="HERO-copyRight-p2">文网游备字〔2016〕Ｍ-CSG 0339 号  版权所有：北京卓越晨星科技有限公司 联系方式：010-50948585<br>COPYRIGHT©2015 – 2015 . ALL RIGHTS RESERVED. 京ICP备15026730号-2<br><a target="_blank" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393" class="www-ico"><img src="./common/images/www-ico.png" alt=""></a><a target="_blank" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/gameNetTag/4028c08c53cc2ed60153cfbc3e1203cd" class="game-ico"><img src="./common/images/game-ico.png" alt=""></a>《网络文化经营许可证》京网文[2015]0629-259号</span></p>
+	</div>
+
+	<!-- 消息验证提示 -->
+	<div class="m-tips">
+		<i class="m-tipsclose"></i>
+		<p>已成功上传!</p>
+		<p>筛选结果将通过<em>游戏内邮件形式</em>告知哦～</p>
+		<p>请注意查看!</p>
+	</div>
+	<script type="text/javascript" src="common/js/jquery-1.11.2.min.js"></script>
+	<script>
+	$(function(){
+		$(".ttx5-hed").css({"position":"relative","top":"0"});
+		$(".m-tips .m-tipsclose").click(function(){
+			$(".m-tips").hide()
+		})
+	})
+	</script>
+</body>
+</html>

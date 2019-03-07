@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>一起来跳舞</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<link rel="stylesheet" type="text/css" href="css/wapReset.css">
+	<link rel="stylesheet" type="text/css" href="public/yx_swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="css/active.css">
+	<script type="text/javascript" src="public/resetRem.js"></script>
+</head>
+<body>
+	<section class="a-top">
+		<img src="images/logo.png">
+		<section>
+			<h1>一起来跳舞（天天炫舞）</h1>
+			<p>全民音舞交友手游</p>
+		</section>
+		<a class="a-index" href="javascript:"></a>
+	</section>
+	<section class="a-container">
+		<section class="a-item1">
+			<a class="i1-down" href="javascript:"></a>
+		</section> 
+		<section class="a-item2">
+			<p>活动期间，下载游戏并注册成功，每天登录即可领取：</p>
+		</section> 
+		<section class="a-item3">
+			<p>活动期间，新用户可获得幸运转盘抽奖机会，每人限抽1次，抽得的兑换码请于游戏内领取。</p>
+			<div>
+				<img id="cj_pan" src="images/cj_pan.png">
+				<div class="p-all-center">
+					<img id="cj_start_btn" src="images/cj_zz1.png">
+					<img class="p-x-center" src="images/cj_zz2.png">
+				</div>
+			</div>
+			<p>活动期间，新用户可获得幸运转盘抽奖机会，每人限抽1次，抽得的兑换码请于游戏内领取。</p>
+		</section> 
+		<section class="a-item4">
+			<p>活动期间，下载游戏并注册成功，玩家等级达到：</p>
+		</section> 
+		<section class="a-item5">
+			<div class="i5-banner">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="javascript:">
+								<img src="images/banner1.jpg">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="javascript:">
+								<img src="images/banner2.jpg">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="javascript:">
+								<img src="images/banner3.jpg">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="javascript:">
+								<img src="images/banner4.jpg">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="javascript:">
+								<img src="images/banner5.jpg">
+							</a>
+						</div>
+					</div>
+				</div>
+				<label class="swiper-button-prev"></label>
+				<label class="swiper-button-next"></label>
+			</div>		
+			<section class="swiper-icon"></section>	
+            <p class="a-jsq">英雄互娱公司对上述活动的规则拥有最终解释权。</p>
+		</section> 
+	</section>
+
+	<section class="a-dwon-box">
+		<a class="p-all-center" href="javascript:"></a>
+	</section>
+	<!-- 这是弹窗 -->
+	<section class="a-tc">
+		<div class="p-all-center">
+			<h1>恭喜中奖</h1>
+			<h2>您的兑换码为：</h2>
+			<label>12xyz7fgs8</label>
+			<p>长按复制</p>
+			<a href="javascript:"></a>
+			<i class="tc-close"></i>
+		</div>
+	</section>
+</body>
+<script type="text/javascript" src="public/zepto.js"></script>
+<script type="text/javascript" src="public/yx_swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		function init(){
+			addSwiperIcon();	
+			start_cj();
+		};  
+
+        //添加swiper插件轮播icon
+        function addSwiperIcon(){
+        	var len = $(".i5-banner .swiper-slide").length;
+        	var html = "";
+        	for(var i=0; i<len; i++){
+        		if(i == 0){
+        			html = html+'<label class="active"></label>';
+        		}else{
+        			html = html+'<label></label>';
+        		}
+        	}
+        	$(".swiper-icon").append(html);
+        	initSwiper(len);
+        }
+        //改变swiper插件轮播icon
+        function changeSwiperIocn(index){
+        	$(".swiper-icon label").removeClass("active");
+        	$(".swiper-icon label").eq(index).addClass("active");  
+        }
+        //初始化swiper插件
+        function initSwiper(len){
+        	var mySwiper = new Swiper ('.swiper-container', {
+        		loop: true,
+        		autoplay: 4000,
+        		autoplayDisableOnInteraction: false,
+        		pagination: '.swiper-pagination',
+        		slidesPerView: 'auto',
+        		centeredSlides: true,
+        		paginationClickable: true,
+        		nextButton: '.swiper-button-next',
+        		prevButton: '.swiper-button-prev',
+        		onSlideChangeEnd: function(swiper){
+        			var index = parseInt(swiper.activeIndex) - len;
+        			if(index == len){
+        				index = 0;
+        			}
+        			if(index == -1){
+        				index = len - 1;
+        			}
+        			changeSwiperIocn(index);
+        		}
+        	});        
+        }
+
+        //开始转盘
+        function start_cj(){
+        	var degList = initDegArr();
+
+        	$("#cj_start_btn").on("tap",function(){
+        		var myThis = $(this);
+        		var isClick = $(this).attr("isClick");
+        		if(isClick){
+        			return;
+        		}
+        		$(this).attr("isClick","true");
+        		//产生0-7的随机数
+        		var ran = getRand();
+        		console.log(ran);
+        		var rotateDeg = -degList[ran]+(360*2);
+        		rotate(rotateDeg,function(){
+        			$("#cj_pan").css({
+        				"transition":"none",
+        				"-webkit-transition":"none",
+        				"transform": "rotate3d(0,0,1,"+(-degList[ran])+"deg)"
+        			});
+        			myThis.attr("isClick","");
+        		});
+        		//获取相应奖品
+        		get_jp(ran);
+        	}); 
+        }
+        //初始化旋转角度数组 
+        function initDegArr(){
+        	var initDeg= 22.5;
+        	var deg_list = [initDeg];
+        	for(var i=0; i<7; i++){
+        		initDeg = initDeg + 45;
+        		deg_list.push(initDeg); 
+        	} 
+        	return deg_list;
+        } 
+        //产生随机数，分配中奖概率
+        function getRand(){
+        	var ran = parseInt((Math.random()*100));
+        	var index = 0;
+        	if(0<=ran&&ran<=35){
+        		index = 6; 
+        	}else if(35<ran&&ran<=60){
+        		index = 5; 
+        	}else if(60<ran&&ran<=80){
+        		index = 0; 
+        	}else if(80<ran&&ran<=95){
+        		index = 2; 
+        	}else if(95<ran&&ran<=100){
+        		index = 4; 
+        	}
+        	return index;
+        }
+
+        //旋转角度
+        function rotate(myDeg,callBack){
+        	$("#cj_pan").css({
+        		"transition":"transform 1s",
+        		"-webkit-transition":"transform 1s",
+        		"transform": "rotate3d(0,0,1,"+myDeg+"deg)"
+        	});
+        	setTimeout(function(){
+        		if(callBack){
+        			callBack();
+        		}  
+        	},1010);
+        }
+        //判断用户获得的奖品
+        function get_jp(n){
+        	switch(n) {
+        		case 0:{
+        			console.log(n);
+        		}
+        		break;
+        		case 1:{
+        			console.log(n);
+        		}
+        		break;
+        		case 2:{
+        			console.log(n);
+        		}
+        		break;
+        		case 3:{
+        			console.log(n);
+        		}
+        		break;
+        		case 4:{
+        			console.log(n);
+        		}
+        		break;
+        		case 5:{
+        			console.log(n);
+        		}
+        		break;
+        		case 6:{
+        			console.log(n);
+        		}
+        		break;
+        		case 7:{
+        			console.log(n);
+        		}
+        		break;
+        	} 
+        }
+
+        init();
+    });
+</script>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>生煎三国志</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/index.css">
+	
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+
+</head>
+</head>
+<body>
+	<div class="d_top">
+		<div class="d_t_cover"></div>
+		<div class="d_t_con">
+			<div>
+				<img src="./images/pic_01.png">
+			</div>
+			<div>
+				<p>生煎三国志</p>
+				<p>正版授权策略对战手游</p>
+			</div>
+			<div>
+				<div class="d_t_con_loadBtn">游戏下载</div>
+			</div>
+		</div>
+	</div>
+	<div class="top_H"></div>
+
+	<div class="container">
+		<div class="con_bg"><img src="./images/pic_21.png" ></div>	
+		<img src="./images/pic_04.png" class="con_logo">
+		<!-- <img src="./images/pic_10.png" class="con_p_i"> -->
+		<img src="./images/pic_12.png" class="con_p_t">
+		<!-- <img src="./images/pic_11.png" class="con_p_bg"> -->
+		<div class="con_play">
+			<img src="./images/pic_09.png" class="con_p_01">
+			<img src="./images/pic_08.png" class="con_p_02">
+		</div>
+		<div class="load_btn">
+			<a href="javascript:;"><img src="./images/pic_05.png" ></a>
+			<a href="javascript:;"><img src="./images/pic_06.png" ></a>
+		</div>
+		<img src="./images/pic_07.png" class="con_water_drop">
+
+		<div class="about_us">
+			<div class="au_header">关于我们</div>
+			<img src="./images/pic_13.jpg" class="au_ewm">
+			<p class="get_gift">长按二维码关注吞食天地 领取礼包</p>
+			<p class="get_wx">微信公众号：<span>tstd</span></p>
+			<div class="au_relect">
+				<ul>
+					<li><a href="javascript:;"><img src="./images/pic_18.png">官方贴吧</a></li>
+					<li><a href="javascript:;"><img src="./images/pic_17.png">官方微博</a></li>
+					<li><a href="https://jq.qq.com/?_wv=1027&k=4ASoESq"><img src="./images/pic_16.png">310193441</a></li>
+				</ul>
+			</div>
+			<p class="kf">客服电话：4009393333</p>
+			<p class="player_club">吞食天地官方玩家群：310193441</p>
+			<!-- <div class="au_footer">
+				<p><img src="./images/pic_20.png">版权所有：北京卓越晨星科技有限公司 Rights Reserved</p>
+				<p>用户许可协议  卸载说明  联系我们</p>
+				<p>客服电话  4009393333</p>
+			</div> -->
+		</div>
+	</div>
+	<!-- <div class="cover"></div>
+	<div class="moviePlay">
+		<div class="movieClose"><img src="./images/c.png"></div>
+		<div class="videos">
+			<iframe border="0" marginwidth="0" framespacing="0" marginheight="0" src="/wap/video/video-source.html?uu=58546ec681&vu=a75d748d21" frameborder="0" noresize="" scrolling="no" width="100%" height="100%" vspale="0" id="iframe_btn" name="iframe_btn"></iframe>
+		</div>
+	</div> -->
+	<script src="./js/jquery-1.11.2.min.js"></script>
+	<script src="./js/common.js"></script>
+	<script>
+		$(".con_play").on("click",function(e){
+			e.stopPropagation();
+			console.log(11)
+			tankuang('./css/movie.ogg');
+		});
+	
+	</script>
+</body>
+</html>

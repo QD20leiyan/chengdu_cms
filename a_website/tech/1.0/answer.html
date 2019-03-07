@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>英雄学院</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link href="css/font-awesome.min.css" rel="stylesheet" />
+		<link href="css/summernote.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+	</head>
+
+	<body>
+		<script type="text/javascript" src="http://dev.static.yingxiong.com/head/js/topbar.js"></script>
+		<!--头部-->
+		<div class="top">
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#global-navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+						<div class="logo">
+							<a href="javascript:"><img src="common/images/logo.png" alt=""></a>
+						</div>
+					</div>
+					<div class="collapse navbar-collapse" id="global-navbar">
+						<form class="navbar-form navbar-left" role="search" id="top-search-form" method="GET">
+							<div class="input-group">
+								<input type="text" name="word" id="searchBox" class="form-control" placeholder="请输入关键词搜索" />
+								<span class="input-group-addon btn"><span id="search-button" class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+							</div>
+						</form>
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="index.html">首页</a></li>
+							<li><a href="question.html">问答</a></li>
+							<li><a href="source.html">美术素材</a></li>
+							<li><a href="knowledge.html">技术知识</a></li>
+							<li><a href="division.html">运营思路</a></li>
+							<li><a href="javascript:">产品分析</a></li>
+							<li><a href="javascript:">营销推广</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="enter.html">用户中心</a></li>
+							<li><a href="#responsive" data-toggle="modal">联系管理员</a></li>
+							<li><a href="login.html">登录</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="clearfix"></div>
+		<div class="container mar-top">
+			<div class="row min-h ans-main">
+				<div class="col-xs-12 col-md-9 min-h">
+					<h4 class="title">测试一下</h4>
+					<ul class="taglist-inline ib">
+						<li class="tagPopup"><a class="tag" href="javascript:">商业授权</a></li>
+					</ul>
+					<div class="text-fmt">
+						<p><span style="font-weight:bold;">大大大滴滴答答</span></p>
+					</div>
+					<div class="post-opt">
+						<ul class="list-inline">
+							<li><a class="comments" data-toggle="collapse" href="#comments-question-89" aria-expanded="false" aria-controls="comment-89"><i class="fa fa-comment-o"></i> 1 条评论</a></li>
+						</ul>
+					</div>
+					<div class="share">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style_24x24">
+							<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							<a class="jiathis_button_qzone"></a>
+							<a class="jiathis_button_tsina"></a>
+							<a class="jiathis_button_tqq"></a>
+							<a class="jiathis_button_weixin"></a>
+							<a class="jiathis_button_renren"></a>
+
+						</div>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+						<!-- JiaThis Button END -->
+					</div>
+					<div class="clearfix"></div>
+					<div class="widget-answers mt-15">
+						<div class="btn-group pull-right" role="group">
+							<a href="javascript:" class="btn btn-default btn-xs  active ">默认排序</a>
+							<a href="javascript:" id="sortby-created" class="btn btn-default btn-xs ">时间排序</a>
+						</div>
+						<h2 class="h4 post-title"> 0 个回答</h2>
+						<div class="widget-answer-form mt-15">
+							<h4>我来回答</h4>
+							<form method="post" class="editor-wrap">
+								<input type="hidden" id="answer_token" name="_token" value="keICYR0sfo5U65dqd4D9nW7xFMxQElrIypSQOeTW">
+								<input type="hidden" value="89" id="question_id" name="question_id">
+								<div class="editor" id="questionText">
+									<textarea id="answerEditor" name="content" class="form-control" rows="4" placeholder="撰写答案..." style="display: none;"></textarea>
+									<div class="note-editor panel panel-default">
+										<div class="note-dialog">
+											<div class="note-image-dialog modal" aria-hidden="false">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header"><button type="button" class="close" aria-hidden="true" tabindex="-1">×</button>
+															<h4 class="modal-title">Insert Image</h4></div>
+														<div class="modal-body">
+															<div class="form-group row note-group-select-from-files"><label>Select from files</label><input class="note-image-input form-control" type="file" name="files" accept="image/*" multiple="multiple"></div>
+															<div class="form-group row"><label>Image URL</label><input class="note-image-url form-control col-md-12" type="text"></div>
+														</div>
+														<div class="modal-footer"><button href="#" class="btn btn-primary note-image-btn disabled" disabled="">Insert Image</button></div>
+													</div>
+												</div>
+											</div>
+											<div class="note-link-dialog modal" aria-hidden="false">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header"><button type="button" class="close" aria-hidden="true" tabindex="-1">×</button>
+															<h4 class="modal-title">Insert Link</h4></div>
+														<div class="modal-body">
+															<div class="form-group row"><label>Text to display</label><input class="note-link-text form-control col-md-12" type="text"></div>
+															<div class="form-group row"><label>To what URL should this link go?</label><input class="note-link-url form-control col-md-12" type="text" value="http://"></div>
+															<div class="checkbox"><label><input type="checkbox" checked=""> Open in new window</label></div>
+														</div>
+														<div class="modal-footer"><button href="#" class="btn btn-primary note-link-btn disabled" disabled="">Insert Link</button></div>
+													</div>
+												</div>
+											</div>
+											<div class="note-help-dialog modal" aria-hidden="false">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-body"><a class="modal-close pull-right" aria-hidden="true" tabindex="-1">Close</a>
+															<div class="title">Keyboard shortcuts</div>
+															<div class="note-shortcut-row row">
+																<div class="note-shortcut note-shortcut-col col-sm-6 col-xs-12">
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-title col-xs-offset-6">Action</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Z</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Undo</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + Z</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Redo</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + ]</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Indent</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + [</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Outdent</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + ENTER</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Insert Horizontal Rule</div>
+																	</div>
+																</div>
+																<div class="note-shortcut note-shortcut-col col-sm-6 col-xs-12">
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-title col-xs-offset-6">Text formatting</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + B</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Bold</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + I</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Italic</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + U</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Underline</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + \</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Remove Font Style</div>
+																	</div>
+																</div>
+															</div>
+															<div class="note-shortcut-row row">
+																<div class="note-shortcut note-shortcut-col col-sm-6 col-xs-12">
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-title col-xs-offset-6">Document Style</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM0</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Normal</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM1</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Header 1</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM2</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Header 2</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM3</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Header 3</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM4</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Header 4</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM5</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Header 5</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + NUM6</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Header 6</div>
+																	</div>
+																</div>
+																<div class="note-shortcut note-shortcut-col col-sm-6 col-xs-12">
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-title col-xs-offset-6">Paragraph formatting</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + L</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Align left</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + E</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Align center</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + R</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Align right</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + J</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Justify full</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + NUM7</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Ordered list</div>
+																	</div>
+																	<div class="note-shortcut-row row">
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-key">Ctrl + Shift + NUM8</div>
+																		<div class="note-shortcut-col col-xs-6 note-shortcut-name">Unordered list</div>
+																	</div>
+																</div>
+															</div>
+															<p class="text-center"><a href="//summernote.org/" target="_blank">Summernote 0.6.16</a> · <a href="//github.com/summernote/summernote" target="_blank">Project</a> · <a href="//github.com/summernote/summernote/issues" target="_blank">Issues</a></p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="note-dropzone">
+											<div class="note-dropzone-message"></div>
+										</div>
+										<div class="note-toolbar panel-heading">
+											<div class="note-style btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="bold" tabindex="-1" data-name="bold" data-original-title="Bold (CTRL+B)"><i class="fa fa-bold"></i></button><button type="button" class="btn btn-default btn-sm" title=""
+													data-event="removeFormat" tabindex="-1" data-name="clear" data-original-title="Remove Font Style (CTRL+\)"><i class="fa fa-eraser"></i></button></div>
+											<div class="note-para btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="insertUnorderedList" tabindex="-1" data-name="ul" data-original-title="Unordered list (CTRL+SHIFT+NUM7)"><i class="fa fa-list-ul"></i></button><button type="button" class="btn btn-default btn-sm"
+													title="" data-event="insertOrderedList" tabindex="-1" data-name="ol" data-original-title="Ordered list (CTRL+SHIFT+NUM8)"><i class="fa fa-list-ol"></i></button>
+												<div class="btn-group" data-name="paragraph"><button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" title="" tabindex="-1" data-original-title="Paragraph"><i class="fa fa-align-left"></i> <span class="caret"></span></button>
+													<div class="dropdown-menu">
+														<div class="note-align btn-group"><button type="button" class="btn btn-default btn-sm active" title="" data-event="justifyLeft" tabindex="-1" data-original-title="Align left (CTRL+SHIFT+L)"><i class="fa fa-align-left"></i></button><button type="button" class="btn btn-default btn-sm"
+																title="" data-event="justifyCenter" tabindex="-1" data-original-title="Align center (CTRL+SHIFT+E)"><i class="fa fa-align-center"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="justifyRight" tabindex="-1"
+																data-original-title="Align right (CTRL+SHIFT+R)"><i class="fa fa-align-right"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="justifyFull" tabindex="-1" data-original-title="Justify full (CTRL+SHIFT+J)"><i class="fa fa-align-justify"></i></button></div>
+														<div
+															class="note-list btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="indent" tabindex="-1" data-original-title="Indent (CTRL+])"><i class="fa fa-indent"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="outdent"
+																tabindex="-1" data-original-title="Outdent (CTRL+[)"><i class="fa fa-outdent"></i></button></div>
+												</div>
+											</div>
+										</div>
+										<div class="note-insert btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="showLinkDialog" data-hide="true" tabindex="-1" data-name="link" data-original-title="Link (CTRL+K)"><i class="fa fa-link"></i></button><button type="button" class="btn btn-default btn-sm"
+												title="" data-event="showImageDialog" data-hide="true" tabindex="-1" data-name="picture" data-original-title="Picture"><i class="fa fa-picture-o"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="insertHorizontalRule"
+												tabindex="-1" data-name="hr" data-original-title="Insert Horizontal Rule (CTRL+ENTER)"><i class="fa fa-minus"></i></button></div>
+										<div class="note-view btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="fullscreen" tabindex="-1" data-name="fullscreen" data-original-title="Full Screen"><i class="fa fa-arrows-alt"></i></button></div>
+									</div>
+									<div class="note-editing-area">
+										<div class="note-handle">
+											<div class="note-control-selection" style="display: none;">
+												<div class="note-control-selection-bg"></div>
+												<div class="note-control-holder note-control-nw"></div>
+												<div class="note-control-holder note-control-ne"></div>
+												<div class="note-control-holder note-control-sw"></div>
+												<div class="note-control-sizing note-control-se"></div>
+												<div class="note-control-selection-info"></div>
+											</div>
+										</div>
+										<div class="note-popover">
+											<div class="note-link-popover popover bottom in" style="display: none;">
+												<div class="arrow"></div>
+												<div class="popover-content"><a href="http://www.google.com" target="_blank">www.google.com</a>&nbsp;&nbsp;
+													<div class="note-insert btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="showLinkDialog" data-hide="true" tabindex="-1" data-original-title="Edit"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-default btn-sm" title=""
+															data-event="unlink" tabindex="-1" data-original-title="Unlink"><i class="fa fa-unlink"></i></button></div>
+												</div>
+											</div>
+											<div class="note-image-popover popover bottom in" style="display: none;">
+												<div class="arrow"></div>
+												<div class="popover-content">
+													<div class="btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="resize" data-value="1" tabindex="-1" data-original-title="Resize Full"><span class="note-fontsize-10">100%</span></button><button type="button" class="btn btn-default btn-sm"
+															title="" data-event="resize" data-value="0.5" tabindex="-1" data-original-title="Resize Half"><span class="note-fontsize-10">50%</span></button><button type="button" class="btn btn-default btn-sm" title="" data-event="resize" data-value="0.25"
+															tabindex="-1" data-original-title="Resize Quarter"><span class="note-fontsize-10">25%</span></button></div>
+													<div class="btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="floatMe" data-value="left" tabindex="-1" data-original-title="Float Left"><i class="fa fa-align-left"></i></button><button type="button" class="btn btn-default btn-sm"
+															title="" data-event="floatMe" data-value="right" tabindex="-1" data-original-title="Float Right"><i class="fa fa-align-right"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="floatMe" data-value="none"
+															tabindex="-1" data-original-title="Float None"><i class="fa fa-align-justify"></i></button></div><br>
+													<div class="btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="imageShape" data-value="img-rounded" tabindex="-1" data-original-title="Shape: Rounded"><i class="fa fa-square"></i></button><button type="button" class="btn btn-default btn-sm"
+															title="" data-event="imageShape" data-value="img-circle" tabindex="-1" data-original-title="Shape: Circle"><i class="fa fa-circle-o"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="imageShape" data-value="img-thumbnail"
+															tabindex="-1" data-original-title="Shape: Thumbnail"><i class="fa fa-picture-o"></i></button><button type="button" class="btn btn-default btn-sm" title="" data-event="imageShape" tabindex="-1" data-original-title="Shape: None"><i class="fa fa-times"></i></button></div>
+													<div
+														class="btn-group"><button type="button" class="btn btn-default btn-sm" title="" data-event="removeMedia" data-value="none" tabindex="-1" data-original-title="Remove Image"><i class="fa fa-trash-o"></i></button></div>
+											</div>
+										</div>
+									</div><textarea class="note-codable"></textarea>
+									<div class="note-editable panel-body" contenteditable="true" data-placeholder="撰写答案..." style="height: 180px;">
+										<p><br></p>
+									</div>
+								</div>
+								<div class="note-statusbar">
+									<div class="note-resizebar">
+										<div class="note-icon-bar"></div>
+										<div class="note-icon-bar"></div>
+										<div class="note-icon-bar"></div>
+									</div>
+								</div>
+						</div>
+					</div>
+					<div id="answerSubmit" class="mt-15 clearfix">
+						<div class="checkbox pull-left">
+							<label><input type="checkbox" id="attendTo" name="followed" value="1" checked="">关注该问题</label>
+						</div>
+						<div class="pull-right">
+							<button type="submit" id="answerSubmit" class="btn btn-primary ml20">提交回答</button>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-3">
+			<div class="widget-box">
+				<ul class="widget-action list-unstyled">
+					<li>
+						<button type="button" id="follow-button" class="btn btn-success btn-sm" data-source_type="question" data-source_id="89" data-show_num="true" data-toggle="tooltip" data-placement="right" title="" data-original-title="关注后将获得更新提醒">关注</button>
+						<strong id="follower-num">0</strong> 关注
+					</li>
+					<li>
+						<button id="collect-button" class="btn btn-default btn-sm" data-source_type="question" data-source_id="89"> 收藏</button>
+						<strong id="collection-num">0</strong> 收藏，<strong class="no-stress">13</strong> 浏览
+					</li>
+					<li>
+						<i class="fa fa-clock-o"></i>
+						<a href="javascript:" target="_blank">V歌儿</a>提出于 3小时前
+					</li>
+				</ul>
+			</div>
+			<div class="widget-box">
+				<h2 class="h4 widget-box__title">相似问题</h2>
+			</div>
+		</div>
+		</div>
+		</div>
+		<div class="modal fade" id="responsive" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-txt">
+						<div class="fl">
+							<h3>有问题可以随时联系我哦</h3>
+							<p>周立新<small>-用户中心</small></p>
+							<p>联系方式：1571 1314 666</p>
+							<p>联系QQ:8976040546@qq.com</p>
+						</div>
+						<img class="img-rounded fl mod-img" src="images/peo.jpg">
+						<div class="clearfix"></div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" data-dismiss="modal" class="btn btn-default">确定</button>
+						<button type="button" class="btn blue">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="footer container">
+				<p><a href="#">公司简介</a>-<a href="#">客户服务</a>-<a href="#">相关法律</a>-<a href="#">联系我们</a>-<a href="#">加入我们</a></p>
+				<p><span>英雄互娱版权所有 ©2015-2015</span><span>中国网络游戏版权保护联盟举报中心</span></p>
+				<p>COPYRIGHT©1998 – 2015 TENCENT. ALL RIGHTS RESERVED.</p>
+			</div>
+		</div>
+		<script src="common/js/jquery-1.11.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/js.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script type="text/javascript">
+			var is_login = Boolean("");
+			var ask_editor_options = {
+				toolbar: [
+					['style', ['bold', 'clear']],
+					['para', ['ul', 'ol', 'paragraph']],
+					['insert', ['link', 'picture', 'hr']],
+					['view', ['fullscreen']]
+				],
+				codemirror: {
+					mode: 'text/html',
+					htmlMode: true,
+					lineNumbers: true,
+					theme: 'monokai'
+				}
+			};
+			var showPopover = function() {
+					$(this).popover('show');
+				},
+				hidePopover = function() {
+					$(this).popover('hide');
+				};
+		</script>
+
+		<script src="js/summernote.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*回答编辑器初始化*/
+				$('#answerEditor').summernote({
+					height: 180,
+					placeholder: true,
+					toolbar: ask_editor_options.toolbar,
+					codemirror: ask_editor_options.codemirror,
+					onImageUpload: function(files, editor, welEditable) {
+						upload_editor_image(files[0], "answerEditor", $("#answer_token").val());
+					}
+				});
+				/*评论提交*/
+				$(".comment-btn").click(function() {
+					var source_id = $(this).data('source_id');
+					var source_type = $(this).data('source_type');
+					var to_user_id = $(this).data('to_user_id');
+					var token = $(this).data('token');
+					var content = $("#comment-" + source_type + "-content-" + source_id).val();
+					add_comment(token, source_type, source_id, content, to_user_id);
+					$("#comment-content-" + source_id + "").val('');
+				});
+				$(".widget-comments").on('show.bs.collapse', function() {
+					load_comments($(this).data('source_type'), $(this).data('source_id'));
+				});
+				$(".widget-comments").on('hide.bs.collapse', function() {
+					clear_comments($(this).data('source_type'), $(this).data('source_id'));
+				});
+				/*收藏问题或文章*/
+				$("#collect-button").click(function() {
+					$("#collect-button").button('loading');
+					var source_type = $(this).data('source_type');
+					var source_id = $(this).data('source_id');
+					var collection_num = $("#collection-num").html();
+					$.get('/collect/' + source_type + '/' + source_id, function(msg) {
+						$("#collect-button").removeClass('disabled');
+						$("#collect-button").removeAttr('disabled');
+						if (msg == 'collected') {
+							$("#collect-button").html('已收藏');
+							$("#collection-num").html(parseInt(collection_num) + 1);
+						} else {
+							$("#collect-button").html('收藏');
+							$("#collection-num").html(parseInt(collection_num) - 1);
+						}
+					});
+				});
+				/*采纳回答为最佳答案*/
+				$(".adopt-answer").click(function() {
+					var answer_id = $(this).data('answer_id');
+					$("#adoptAnswerSubmit").attr('data-answer_id', answer_id);
+					$("#answer_quote").html($(this).data('answer_content'));
+				});
+				$("#adoptAnswerSubmit").click(function() {
+					document.location = "/answer/adopt/" + $(this).data('answer_id');
+				});
+			});
+		</script>
+	</body>
+
+</html>

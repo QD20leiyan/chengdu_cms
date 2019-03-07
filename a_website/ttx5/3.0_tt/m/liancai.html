@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link href="../common/css/common.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="../common/css/swiper.3.1.7.min.css">
+	</head>
+	
+	<body>
+		<div class="top clearfix">
+			<div class="logo"><img src="images/mts_logo.png" alt=""></div>
+			<div class="top-text">
+				<h3>天天炫舞</h3>
+				<p>国民级3D音舞手游</p>
+			</div>
+			<a href="#" class="down"></a>
+		</div>
+		<div class="lc-wrap">
+			<div class="ts-title ts-title01">
+				<a href="year_index.html" class="ts-home"></a>
+			</div>
+			<div class="m-rmhd-lunbo">
+				<div class="images_box o_h">
+					<div id="Roll" class="roll_ul image_ul o_h">
+						<div class="bd">
+							<ul>
+								<li>
+									<a href="javascript:void(0)"><img src="images/pic01.jpg" alt="轮播"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)"><img src="images/pic01.jpg"  alt="轮播"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)"><img src="images/pic01.jpg"  alt="轮播"></a>
+								</li>
+								<li>
+									<a href="javascript:void(0)"><img src="images/pic01.jpg"  alt="轮播"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="hd">
+							<ul></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="m_m2">
+				<div class="swiper-container">
+			        <div class="swiper-wrapper">
+			            <div class="swiper-slide">
+			            	<img src="images/m_image01.jpg" alt="">
+			            	<span></span>
+			            </div>
+			            <div class="swiper-slide">
+			            	<img src="images/m_image01.jpg" alt="">
+			            	<span></span>
+			            </div>
+			            <div class="swiper-slide">
+			            	<img src="images/m_image01.jpg" alt="">
+			            	<span></span>
+			            </div>
+			            <div class="swiper-slide">
+			            	<img src="images/m_image01.jpg" alt="">
+			            	<span></span>
+			            </div>
+			        </div>
+		    	</div>
+			</div>
+			<footer class="ts-fot">
+				<p><span>客服热线：400-939-3333</span>&nbsp;&nbsp;<span>微信公众号：tt_xuanwu</span></p>
+		        <p><span>客服QQ：4009393333</span>&nbsp;&nbsp;<span>微博：天天炫舞官博</span></p>
+		        <p>版权所有：北京卓越晨星科技有限公司&nbsp;经营许可证编号：粤ICP备09179912号-3</p>
+		        <p>公司地址：北京市朝阳区酒仙桥路宏源大厦3楼</p>
+			</footer>
+		</div>
+
+		<div id="mask"></div>
+        <div id="video_tck">
+			<div id="player5">
+				<div id="close"></div>
+				<video controls="controls" class="vid_sp">
+					<source src="images/v.mp4" type="video/mp4">
+				</video>
+			</div>
+		</div>
+		</section>
+		<script src="../common/js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.fittext.js"></script>
+		<script src="js/swiper.3.1.7.min.js"></script>
+		<script src="js/TouchSlidev1.1.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			$('html').fitText(2);
+			$(".m_m2 .swiper-slide").click(function(){
+				$("#mask").show();
+				$("#video_tck").show();
+			})
+			$("#close").click(function(){
+				$("#mask").hide();
+				$("#video_tck").hide();
+			})
+		});
+		function unitPicBox(sid,width,height){
+			var cW=document.querySelector("body").clientWidth;
+			var tH=height/width*cW;
+			$("."+sid).height(tH);
+			var liW = cW *1;
+			$(".image_ul img").width(liW); //轮播图大小
+			$(".image_ul li").width(cW);
+		}
+		unitPicBox("image_ul",640,375);
+		TouchSlide({ 
+			slideCell:"#Roll",
+			titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+			mainCell:".bd ul", 
+			effect:"leftLoop", 
+			autoPage:true,//自动分页
+			autoPlay:true //自动播放
+		});
+		var swiper = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        slidesPerView: 2,
+	        paginationClickable: true,
+	        spaceBetween: 8,
+	        nextButton: '.swiper-button-next',
+	    	prevButton: '.swiper-button-prev'
+	    });
+		</script>
+    </body>
+</html>
