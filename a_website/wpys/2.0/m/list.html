@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全民御史_官方网站</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/lx_index.css" />
+    <link rel="stylesheet" href="./css/lx_style.css" />
+    <link rel="stylesheet" href="./css/public.css" />
+    <script src="./js/jquery-1.11.2.min.js"></script>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+</head>
+<body class="newsBody">
+    <div class="header">
+            <div class="h_bg"></div>
+            <div class="h_con top">
+                <div class="h_logo"><img src="images/gameicon.png" alt=""></div>
+                <div class="h_name">
+                    <h3>全民御史</h3>
+                    <p>正版授权3D动作手游</p>
+                </div>
+                <a class="h_order"></a>
+                <div class="h_nav">
+                    <span class="d_t_t"></span>
+                    <span class="d_t_m"></span>
+                    <span class="d_t_b"></span>
+                </div>
+                <ul class="top-list">
+                    <li class="active"><a>首页</a></li>
+                    <li><a>新闻</a></li>
+                </ul>
+            </div>
+        </div>
+    <div class="lx_news_title"></div>
+    <div class="border_top"></div>
+    
+    <img src="images/new_peo.png" alt="" class="new_peo">
+    <div class="lx_news lx_news_body">
+        <ul class="news_title">
+            <li class="active">最新</li>
+            <li>新闻</li>
+            <li>公告</li>
+            <li>攻略</li>
+        </ul>
+        <ul class="news_main">
+            <li><a href=""><i>[新闻]</i><span>有需求就有市场</span><span>03/21</span></a></li>
+            <li><a href=""><i>[新闻]</i><span>有需求就有市场</span><span>03/21</span></a></li>
+        </ul>
+    </div>
+        <div class="border_bottom"></div>
+    <div class="w_footer">
+        <img src="images/f_logo.png" alt="" class="f_logo" />
+        <div class="f_p1">
+            <p>客服中心<span>|</span>游戏社区<span>|</span><img src="images/tel.png" alt="" />010-50948585</p>
+        </div>
+        <p>版权信息  ©腾讯动漫  ©啊哈娱乐</p>
+        <p>COPYRIGHT©2015 – 2017 . ALL RIGHTS RESERVED</p>
+        <p>《网络文化经营许可证》[2015]0629-259号</p>
+        <p>天津英雄互娱科技有限公司</p>
+    </div>
+</body>
+<script>
+    $('.top-btn').click(function () {
+        $(this).toggleClass('close');
+        $('.top-list').toggle(500);
+    })
+    //二级菜单下拉框
+            var data = {};
+            var clickNumber = 0;
+            $(".h_nav,.h_nav2").on("click", function(e) {
+                e.stopPropagation();
+                if(clickNumber % 2 == 0) {
+                    $(".d_t_t").addClass("d_t_t_tran");
+                    $(".d_t_m").addClass("d_t_m_tran");
+                    $(".d_t_b").addClass("d_t_b_tran");
+                    $(".top-list").stop().slideDown();
+                } else {
+                    $(".d_t_t").removeClass("d_t_t_tran");
+                    $(".d_t_m").removeClass("d_t_m_tran");
+                    $(".d_t_b").removeClass("d_t_b_tran");
+                    $(".top-list").stop().slideUp();
+                }
+                clickNumber++;
+            });
+</script>
+</html>

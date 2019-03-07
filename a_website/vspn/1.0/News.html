@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="keywords" content="VSPN 新闻动态 news">
+  <link rel="shortcut icon" href="images/icon.png">
+
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <!--[if IE 9 ]>
+  <link rel="stylesheet" type="text/css" media="all" href="css/newlistie.css" />
+  <![endif]-->
+  <!--[if !(IE 9)]><!--><link rel="stylesheet" type="text/css" href="css/newslist.css"/><!--<![endif]-->
+  <script type="text/javascript" src="js/news_list_json.js"></script>
+  <title>新闻动态</title>
+</head>
+<body>
+  <div id="main" style="background-color: #272728">
+    <!-- 标题 -->
+    <div class="mainTitle aboutTitle">
+      <p class="activeColor topFont">新闻动态</p>
+      <div class="title-line"></div>
+      <div class="title-line-center"></div>
+      <p class="subheadColor bottomFont">News</p>
+    </div>
+
+
+    <!-- 下方内容 -->
+    <div class="content">
+      
+      <div class="news_list">
+        
+        <!-- 前3个新闻的对应的图片 -->
+        <div id="news-top3-img">
+          <a href=""><img id="img1" src="images/news_top3_img/news-1.png"></a>
+          <a href=""><img id="img2" src="images/news_top3_img/news-2.png" ></a>
+            <a href=""><img id="img3" src="images/news_top3_img/news-3.png"></a>
+        </div>
+        <ul id="news_list_ul">
+          
+        </ul>
+        
+      </div>
+
+      <div id="pages"></div>
+
+    </div>
+
+  </div>
+</body>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" type="text/javascript" src="laypage/laypage.js"></script>
+
+<script type="text/javascript">
+  
+  var news_list_str = '';
+  var news_list_object;
+  for(var i = 0; i < news_list_json_array.length; i++){
+    news_list_object = news_list_json_array[i];
+    news_list_str += '<li><span class="news_title">'+ news_list_object['news_title'] +'</span><span class="news_time">'+ news_list_object['news_time'] +'</span></li>'
+  }
+
+  $('#news_list_ul').html(news_list_str);
+
+  var totalPage = $('#news_list_ul li').length; //总条数  
+  var pageSize = 10;//每页显示条数  
+  var pageNumber = Math.ceil(totalPage/pageSize); //总页数  
+
+  function Paging(index){  
+            
+    var currentPage = index;//当前页数  
+    var start_row = (currentPage-1)*pageSize;//开始显示的行  
+    var end_row = currentPage*pageSize;//结束显示的行  
+    end_row = (end_row > totalPage) ? totalPage : end_row;  
+    for(var i=0;i<totalPage;i++){  
+      var irow = $('#news_list_ul li')[i];  
+      if(i>=start_row && i<end_row){  
+        irow.style.display = 'block';  
+      }else {  
+        irow.style.display = 'none';  
+      }  
+    } 
+
+    //调用分页
+    laypage({
+      cont: 'pages',
+      pages: pageNumber,
+      curr: currentPage,
+      last: '尾页', //将尾页显示为总页数。若不显示，设置false即可
+      prev: '上一页', //若不显示，设置false即可
+      next: '下一页', //若不显示，设置false即可
+      jump: function(obj, first){
+        if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+          // demo(obj.curr);
+            Paging(obj.curr);
+        }
+      }
+    })
+  }      
+  
+  Paging(1);
+
+  // 根据index值 获取json 跳转到对应详情页
+  $('#news_list_ul li').click(function(){
+    var index = $("#news_list_ul li").index(this);
+    window.location.href = news_list_json_array[index]['href'];
+  });
+
+  $('#news-top3-img img').click(function(){
+    var curIndex = parseInt(this.id.substring(3));
+    // console.log($(this).index())
+    window.location.href = news_list_json_array[curIndex-1]['href'];
+  });
+
+</script>
+
+</html>

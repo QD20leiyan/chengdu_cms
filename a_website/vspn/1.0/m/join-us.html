@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="keywords" content="量子体育VSPN 加入我们 职位名称">
+        <link rel="shortcut icon" href="images/icon.png">
+        <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" href="css/public.css">
+        <link rel="stylesheet" type="text/css" href="css/join-us.css">
+        <title>加入我们</title>
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if(!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+
+                recalc();
+                //判断是否支持监听事件 ，不支持则停止
+                if(!doc.addEventListener) return;
+                //注册翻转事件
+                win.addEventListener(resizeEvt, recalc, false);
+
+            })(document, window);
+        </script>
+    </head>
+    <body>      
+		<div id="main" class="top_content">
+            <div class="header">
+            <img src="images/logo.png" />
+            <div class="h_nav">
+                <span class="d_t_t"></span>
+                <span class="d_t_b"></span>
+            </div>
+            <ul class="header_nav">
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li>
+                    <a href="list.html">关于我们</a>
+                </li>
+                <li>
+                    <a href="JavaScript:;">业务布局</a>
+                </li>
+                <li>
+                    <a href="JavaScript:;">最新动态</a>
+                </li>
+                <li>
+                    <a href="JavaScript:;">加入我们</a>
+                </li>
+                <div class="ewm_box">
+                    <div class="ewm_weixin">
+                        <img src="images/weixin.png" alt="">
+                    </div>
+                    <div class="ewm_weibo">
+                        <img src="images/weixin.png" alt="">
+                    </div>
+                    <div class="change">
+                        <h3>All Rights <span>乐竞文化传媒（上海）有限公司</span> 版权所有</h3>
+                        <h2>Powered by www.vspn.com</h2>
+                    </div>
+                </div>
+            </ul>
+            </div>
+            <div class="part_con">
+                <div class="logo_img">
+                </div>
+            </div>
+			<div id="container">
+
+                <div id="job-filter">
+                    <ul>
+                        <li class="focused">全部</li>
+                        <li>运营管理类</li>
+                        <li>内容编辑类</li>
+                        <li>设计包装类</li>
+                        <li>商务执行类</li>
+                        <li>市场推广类</li>
+                        <li>主播类</li>
+                        <li>其他类</li>
+                    </ul>
+                </div>
+	    		<table id="job-table" class="table table-hover" style="text-align:center">
+					<thead>
+						<tr>
+							<td class="center nameW">职位名称</td>
+							<td class="center typeW">职位类别</td>
+                            <td class="center numW">招聘人数</td>
+							<td class="center cityW">工作地点</td>
+						</tr>
+					</thead>
+					<tbody id="record">
+					</tbody>
+				</table>
+				<div id='page' class="right"></div>
+			</div>
+		</div>
+        <div class="ewm_box ewm_box2">
+                <div class="ewm_weixin">
+                    <img src="images/weixin.png" alt="">
+                </div>
+                <div class="ewm_weibo">
+                    <img src="images/weixin.png" alt="">
+                </div>
+            </div>
+            <div class="footer">
+                <img src="images/logo.png" />
+                <p>All Rights <span class="span">乐竞文化传媒（上海）有限公司</span> 版权所有</p>
+                <p>Powered by www.vspn.com</p>
+            </div>
+    </body>
+    <!-- // <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script> -->
+    <script type="text/javascript" src="js/joblist.js"></script>
+    <script type="text/javascript" src="laypage/laypage.js"></script>
+
+    <script type="text/javascript">
+    	var job_list_JSA = new Array();
+        job_list_JSA = jobListArr.concat();
+        var leftSpanW = $('#job-filter span').width();
+        // 计算职位类别右侧宽度用于换行
+        var ul_width = 1200 - leftSpanW - 15;
+        $('#job-filter ul').width(ul_width);
+        // 职位类别 click 筛选
+        $('#job-filter > ul > li').click(function(){
+            $('#job-filter > ul > li').removeClass('focused');
+            $(this).addClass('focused');
+            curJobType = $(this).index();
+            if (curJobType == 0) {
+                updateJobList(job_list_JSA);
+            }else{
+                var new_job_filter_array = new Array();
+                for(var i = 0; i < job_list_JSA.length; i++){
+                    if (job_list_JSA[i]['jobTypeNum'] == curJobType) {
+                        var tempObject = jobListArr[i];
+                        new_job_filter_array.push(tempObject);
+                    }
+                }
+                updateJobList(new_job_filter_array);
+            }
+            if (job_list_JSA.length > pageSize) {
+                Paging(1);
+            }else{
+                Paging(0);
+            }
+        });
+    	var RankInfo = document.getElementById('record');
+    	var totalPage; //= RankInfo.rows.length; //总条数  ;
+        var pageSize = 6;//每页显示条数 
+        var pageNumber; //总页数  
+
+    	function updateJobList(arr){
+            totalPage = arr.length;
+            pageNumber = Math.ceil(totalPage/pageSize);
+            var tableInner = '';
+            for(var i=0;i<arr.length;i++){
+
+                tableInner += '<tr onclick="jobDetailClick(this)" id="jobItem'+ arr[i].jobID +'"><td class="activeColor">'+arr[i].jobName+'</td><td class="center">'+arr[i].jobType+'</td><td class="center">'+ arr[i].headcount +'<td class="center">'+arr[i].address+'</tr>';
+            }
+            // RankInfo.innerHTML = tableInner;
+            $(RankInfo).html(tableInner);
+        }
+        updateJobList(job_list_JSA);
+
+
+    	function Paging(index){  
+            
+            var currentPage = index;//当前页数  
+            var start_row = (currentPage-1)*pageSize;//开始显示的行  
+            var end_row = currentPage*pageSize;//结束显示的行  
+                end_row = (end_row > totalPage) ? totalPage : end_row;  
+            for(var i=0;i<totalPage;i++){  
+                var irow = RankInfo.rows[i];  
+                if(i>=start_row && i<end_row){  
+                    irow.style.display = 'table-row';  
+                }else {  
+                    irow.style.display = 'none';  
+                }  
+            }
+
+            //调用分页
+			laypage({
+			    cont: 'page',
+			    pages: pageNumber,
+			    curr: currentPage,
+			    last: false, //将尾页显示为总页数。若不显示，设置false即可
+			    prev: '上一页', //若不显示，设置false即可
+			    next: '下一页', //若不显示，设置false即可
+                groups: 0,
+			    jump: function(obj, first){
+			       if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+			                    // demo(obj.curr);
+			                     Paging(obj.curr);
+			        }
+			    }
+			})
+        }      
+  
+   		Paging(1);
+
+   		function jobDetailClick(o){
+   			var id = o.id.substring(7);
+   			window.location.href = 'join-us-detail.html?id=' + id;
+   		}
+    </script>
+</html>

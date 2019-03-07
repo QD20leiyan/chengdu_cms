@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/n_index.css">
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script>
+        (function(doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function() {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if(!clientWidth) return;
+                    docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if(!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+
+        })(document, window);
+    </script>
+    <title></title>
+</head>
+<body>
+        <header>
+            <div class="header">
+                <a href="javascript:;" class="icon"></a>
+                <div class="header_txt">
+                    <p>我是召唤师</p>
+                    <p>xxxxxxx手游</p>
+                </div>
+                <a href="javascript:;" class="enter">
+                    <img src="images/btn_down.png" alt="" />
+                </a>
+                <ul class="down_list">
+                <li><a href="javascript:;" class="down_gfbtn"></a></li>
+                <li><a href="" class="tap"></a></li>
+            </ul>
+            </div>
+        </header>
+    <div class="listBg fade">
+    </div>
+    <div class="news-info fade news-info2">
+        <div class="news-info-box">
+            <div class="back back2"><a href=""></a></div>
+            <div class="art_til">
+                <h3>炫酷场景首播展示不删档预约载具大 盘点开启</h3>
+                <p>发布时间：<span class="detail-time">2017-10-31</span><span>来源：本网站</span></p>
+            </div>
+            <div class="art_m">
+                <p>国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北国漫风激斗手游《超杀默示录》现已全平台首发，北京国安足球俱乐部前队长徐云龙倾情助阵，并准备了一大波首发福利送给喜欢足球，支持北</p>
+                <img src="images/slider.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/swiper-3.4.0.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    var clickNumber2 = 0;
+    $('.enter').click(function () {
+        if(clickNumber2 % 2 == 0) {
+        $('.down_list').slideDown(500);
+        }else{
+        $('.down_list').slideUp(500);
+        }
+        clickNumber2++;
+    })
+    $(".fade").click(function(){
+        $('.down_list').slideUp(500);
+        clickNumber2=0;
+    })
+</script>
+</html>

@@ -1,0 +1,1 @@
+document.write('<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"><link rel="stylesheet" type="text/css" href="css/reset.css"><link rel="stylesheet" type="text/css" href="css/news_detail.css"><link rel="stylesheet" type="text/css" href="css/common.css">');

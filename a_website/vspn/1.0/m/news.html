@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="keywords" content="量子体育VSPN 加入我们 职位名称">
+        <link rel="shortcut icon" href="images/icon.png">
+        <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+        <link rel="stylesheet" href="css/public.css">
+        <link rel="stylesheet" type="text/css" href="css/news.css">
+        <title>新闻动态</title>
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if(!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+
+                recalc();
+                //判断是否支持监听事件 ，不支持则停止
+                if(!doc.addEventListener) return;
+                //注册翻转事件
+                win.addEventListener(resizeEvt, recalc, false);
+
+            })(document, window);
+        </script>
+    </head>
+    <body>      
+		<div id="main" class="top_content">
+            <div class="header">
+            <img src="images/logo.png" />
+            <div class="h_nav">
+                <span class="d_t_t"></span>
+                <span class="d_t_b"></span>
+            </div>
+            <ul class="header_nav">
+                <li>
+                    <a href="index.html">首页</a>
+                </li>
+                <li>
+                    <a href="list.html">关于我们</a>
+                </li>
+                <li>
+                    <a href="JavaScript:;">业务布局</a>
+                </li>
+                <li>
+                    <a href="JavaScript:;">最新动态</a>
+                </li>
+                <li>
+                    <a href="JavaScript:;">加入我们</a>
+                </li>
+                <div class="ewm_box">
+                    <div class="ewm_weixin">
+                        <img src="images/weixin.png" alt="">
+                    </div>
+                    <div class="ewm_weibo">
+                        <img src="images/weixin.png" alt="">
+                    </div>
+                    <div class="change">
+                        <h3>All Rights <span>乐竞文化传媒（上海）有限公司</span> 版权所有</h3>
+                        <h2>Powered by www.vspn.com</h2>
+                    </div>
+                </div>
+            </ul>
+            </div>
+            <div class="part_con">
+                <div class="logo_img">
+                </div>
+            </div>
+			<div id="container">
+                <ul id="news_list_ul">
+          
+                </ul>
+			</div>
+            <div id='pages' class="right"></div>
+		</div>
+        <div class="ewm_box ewm_box2">
+                <div class="ewm_weixin">
+                    <img src="images/weixin.png" alt="">
+                </div>
+                <div class="ewm_weibo">
+                    <img src="images/weixin.png" alt="">
+                </div>
+            </div>
+            <div class="footer">
+                <img src="images/logo.png" />
+                <p>All Rights <span class="span">乐竞文化传媒（上海）有限公司</span> 版权所有</p>
+                <p>Powered by www.vspn.com</p>
+            </div>
+    </body>
+    <script type="text/javascript" src="laypage/laypage.js"></script>
+    <script type="text/javascript">
+  
+  var news_list_str = '';
+  var news_list_object;
+  for(var i = 0; i < news_list_json_array.length; i++){
+    news_list_object = news_list_json_array[i];
+    news_list_str += '<li><span class="news_title">'+ news_list_object['news_title'] +'</span><span class="news_time">'+ news_list_object['news_time'] +'</span></li>'
+  }
+
+  $('#news_list_ul').html(news_list_str);
+
+  var totalPage = $('#news_list_ul li').length; //总条数  
+  var pageSize = 10;//每页显示条数  
+  var pageNumber = Math.ceil(totalPage/pageSize); //总页数  
+
+  function Paging(index){  
+            
+    var currentPage = index;//当前页数  
+    var start_row = (currentPage-1)*pageSize;//开始显示的行  
+    var end_row = currentPage*pageSize;//结束显示的行  
+    end_row = (end_row > totalPage) ? totalPage : end_row;  
+    for(var i=0;i<totalPage;i++){  
+      var irow = $('#news_list_ul li')[i];  
+      if(i>=start_row && i<end_row){  
+        irow.style.display = 'block';  
+      }else {  
+        irow.style.display = 'none';  
+      }  
+    } 
+
+    //调用分页
+    laypage({
+      cont: 'pages',
+      pages: pageNumber,
+      curr: currentPage,
+      last: '尾页', //将尾页显示为总页数。若不显示，设置false即可
+      prev: '上一页', //若不显示，设置false即可
+      next: '下一页', //若不显示，设置false即可
+      jump: function(obj, first){
+        if(!first){ //点击跳页触发函数自身，并传递当前页：obj.curr
+          // demo(obj.curr);
+            Paging(obj.curr);
+        }
+      }
+    })
+  }      
+  
+  Paging(1);
+
+  // 根据index值 获取json 跳转到对应详情页
+  $('#news_list_ul li').click(function(){
+    var index = $("#news_list_ul li").index(this);
+    window.location.href = news_list_json_array[index]['href'];
+  });
+
+  $('#news-top3-img img').click(function(){
+    var curIndex = parseInt(this.id.substring(3));
+    // console.log($(this).index())
+    window.location.href = news_list_json_array[curIndex-1]['href'];
+  });
+
+</script>
+</html>

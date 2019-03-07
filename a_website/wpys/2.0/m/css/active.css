@@ -1,0 +1,338 @@
+html, body {
+    /*min-height:1030px;*/
+    width:100%;
+    height:100%;
+    position: relative;
+}
+*{margin: 0;padding: 0;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+body {font-family: "微软雅黑";}
+.show {display: block;}
+.hidden,.hide{display:none!important;}
+img{width:100%;height:100%;}
+a{text-decoration:none;}
+li{list-style:none;}
+i,em{font-style:normal;}
+.fl{float:left;}
+.fr{float: right;}
+input:focus{outline:none;}
+.clearfix {
+	clear: both;
+}
+.clearfix:after {
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0;
+}
+.chengg{
+	width:100%;
+	height:1px;
+	background:none;
+}
+.no_auto{
+	overflow: hidden;
+	width:100%;
+	height:100%;
+}
+.no_auto .co_tips{position:absolute;overflow: hidden;}
+input[type=number] { -moz-appearance: textfield; } input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.active_main {
+	position: relative;
+	width:20rem;
+	height:100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.active_main .a_wrap{
+	position:absolute;
+    top: 0;
+    width:20rem;
+    height: 100%;
+    margin: 0 auto;
+}
+.active_main .a_wrap .banner{
+	width:20rem;
+	height:auto;
+	position: relative;
+	top:0;
+	margin:0 auto;
+}
+.active_main .a_wrap .form{
+	width:16.25rem;
+	position: relative;
+	margin:0 auto;
+}
+.active_main .a_wrap .form p{
+    width:16.25rem;
+    height: 2.09375rem;
+    line-height: 2.09375rem;
+    position: relative;
+    margin: 0.9375rem auto;
+    border-bottom: 1px solid #999999;
+}
+.active_main .a_wrap .form p input{
+    color: #000;
+    font-size: 0.9rem;
+    height: 2rem;
+    line-height: 2rem;
+    border: none;
+    text-indent: 0.625rem;
+    font-family: "微软雅黑";
+    width: 14rem;
+}
+.active_main .a_wrap .form .reset{
+    display: none;
+    position: absolute;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url(../images/a_close.png) no-repeat;
+    background-size: 100% 100%;
+    right: 0.6rem;
+    top: 0.5rem;
+    cursor: pointer;
+}
+.active_main .a_wrap .submit{
+	width:17.125rem;
+	height:2.8125rem;
+	position: relative;
+	display:block;
+	margin:0 auto;
+	background: url(../images/a_submit.png) no-repeat;
+    background-size: 100% 100%;
+}
+.active_main .a_wrap .form p.text_add{
+    height: 2.375rem;
+    line-height: 1.187.5rem;
+    margin-top: 0.9375rem;
+}
+.active_main .a_wrap .form textarea{
+    width: 91%;
+    outline: none;
+    -webkit-outline: none;
+    left: 0.525rem;
+    position: relative;
+    color: #000;
+    font-size: 0.8125rem;
+    height:2.375rem;
+    border: none;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    resize: none;
+    font-family: "微软雅黑";
+}
+input::-webkit-input-placeholder {
+	color:#999;
+	font-size:0.8125rem;
+	font-family: "微软雅黑";
+}
+textarea::-webkit-input-placeholder {
+	color:#999;
+	font-size:0.8125rem;
+	font-family: "微软雅黑";
+}
+/*弹窗*/
+	.popup-wrap{
+		width:20rem;
+		height:100%;
+		position:fixed;
+		display:none;
+		top:0;
+		left:0;
+		content:'';
+		z-index:99;
+		background-color:rgba(51,51,51,0.5);
+	}
+	.popup-wrap .popup-box{
+		width:16.875rem;
+		background:#fff;
+		position:absolute;
+		-webkit-transform:translate(-50%, -80%);
+		transform:translate(-50%, -80%);
+		top:50%;
+		left:50%;
+		font-size:0.8125rem;
+		text-align:center;
+		border-radius:0.4375rem;
+	}
+	.popup-wrap .popup-box .title,.popup-wrap .popup-box .content,.popup-wrap .popup-box .popup-close{
+		width:100%;
+		left:0;
+		text-align:center;
+		vertical-align:middle;
+	}
+	.popup-wrap .popup-box .title{
+    	font-size:0.78125rem;
+    	margin-top: 0.9375rem;
+	}
+	.popup-wrap .popup-box .title .notice-title{
+    	height: 1.25rem;
+    	line-height: 1.25rem;
+    	vertical-align: middle;
+    	font-family: PingFangSC-Medium;
+    	font-size: 0.8125rem;
+    	color: #222222;
+	}
+	.popup-wrap .popup-box .title .warm-icon{
+		width: 1.375rem;
+    	height: 1.375rem;
+    	background: url(../images/error2.png) no-repeat center;
+    	background-size: contain;
+    	display: block;
+    	margin: 0.78125rem auto 0.34375rem auto;
+    	vertical-align: middle;
+    	box-sizing: content-box;
+	}
+    .popup-wrap .popup-box .title .warm-icon.success-icon{
+			background:url(../images/success.png) no-repeat center;background-size:contain;
+	}
+	.popup-wrap .popup-box .content{
+		font-size:0.8125rem;
+    	padding: 0.3125rem 0.625rem;
+    	box-sizing: border-box;
+	}
+	.popup-wrap .popup-box .popup-cancle{
+					width:2.187rem;height:0.853rem;border-radius:2.667rem;font-size:0.373rem;border:0.027rem solid #999999;color:#999999;margin:0.267rem 0.427rem 0.293rem 0
+	}
+	.popup-wrap .popup-box .popup-close{
+		width: 3.125rem;
+    	height:1.3rem;
+    	display: inline-block;
+    	border-radius: 2.667rem;
+    	line-height: 1.3rem;
+    	margin: 0 auto;
+    	font-size:0.8rem;
+    	border: 1px solid #B8201D;
+    	color: #B8201D;
+    	margin: 0.625rem auto 0.5625rem;
+    	padding: 0;
+    	cursor: pointer;
+	}
+	.form_tel{
+		width:20rem;
+		height:100%;
+		position:absolute;
+		display:none;
+		top:0;
+		left:0;
+		content:'';
+		z-index:88;
+		background-color:rgba(51,51,51,0.5);
+	}
+	.form_tel .spam-user-validate-dialog{
+    	position: absolute;
+    	top: 27%;
+    	left: 50%;
+    	/* -webkit-transform: translate(-50%, -50%); */
+    	/* transform: translate(-50%, -50%); */
+    	width: 15.0rem;
+    	background: #fff;
+    	-webkit-box-shadow: 0 0 2px 2px rgba(127,127,127,0.6);
+    	box-shadow: 0 0 2px 2px rgba(127,127,127,0.6);
+    	z-index: 5;
+    	border-radius: 0.3125rem;
+    	padding: 0.9375rem;
+    	margin-left: -8.4rem;
+	}
+	.form_tel .validate-dialog .close {
+    	position: absolute;
+    	top: 0.6rem;
+    	right: 0.6rem;
+    	width: 1.5625rem;
+    	height:1.5625rem;
+    	background: url(../images/a_close.png) no-repeat;
+    	background-size: 100% 100%;
+    	cursor: pointer;
+    }
+    .form_tel .validate-dialog .title {
+		font-size:0.8125rem;
+    	width: 50%;
+    	border-bottom: 0.07rem solid #B8201D;
+    	margin: 0 auto;
+    	margin-top: 20px;
+    	text-align: center;
+    	padding-bottom: 0.625rem;
+    }
+    .form_tel .warning-info, .form_tel .validate-dialog .spam-info {
+    	color: #B8201D;
+    	height: 0.9375rem;
+    	line-height: 0.9375rem;
+    	text-align: center;
+    	padding: 0.625rem 0 0 0;
+    	font-size: 0.625rem;
+    }
+    .form_tel .validate-dialog .pic-validate,.form_tel .validate-dialog .spam-sms-validate{
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: flex;
+	    margin: 0.9375rem auto 0.625rem;
+	    width: 14rem;
+	    position: relative;
+	}
+	.form_tel .validate-dialog .pic-validate input,.form_tel .validate-dialog .spam-sms-validate input{
+ 		margin-right: 0.625rem;
+    	flex-shrink: 1;
+    	width: 6.125rem;
+    	border: 0.03125rem solid #e8e8e8;
+    	text-align: center;
+    	height: 2rem;
+    	line-height: 2rem;
+    	font-size: 0.75rem;
+	}
+	.form_tel .validate-dialog .spam-sms-validate input{
+        width:8.2625rem;
+	}
+	.form_tel .validate-dialog .pic-validate .decor-line {
+    	flex-shrink: 0;
+        border-right:0.0625rem solid #e8e8e8;
+    }
+    .form_tel .validate-dialog .pic-validate .co_captcha{
+    	height:2rem;
+    	margin: 0 0.46875rem;
+    	-ms-flex-negative: 0;
+    	flex-shrink: 0;
+    	border: 0.03125rem solid #e8e8e8;
+    	width:4rem;
+        display: inline-block;
+    }
+    .form_tel .validate-dialog .pic-validate .co_captcha img{
+        display: block;
+        width:100%;
+        height:100%;
+    }
+    .form_tel .validate-dialog .pic-validate .refresh-pic-btn, .form_tel .validate-dialog .pic-validate .spam-refresh-pic-btn, .form_tel .validate-dialog .spam-sms-validate .spam-send-sms{
+    	height: 2rem;
+    	padding: 0 0.35625rem;
+    	width:2.2625rem;
+    	color: #48A3FC;
+    	background-color: #FAFAFA;
+    	-ms-flex-negative: 0;
+    	flex-shrink: 0;
+    	padding: 0;
+    	font-size:0.625rem;
+    	line-height:2rem;
+    	text-align: center;
+    	cursor: pointer;
+    	cursor: pointer;
+    }
+   .form_tel .validate-dialog .spam-sms-validate .spam-send-sms{
+    	width: 5.2125rem;
+    	height: 2.05rem;
+    	line-height: 2.05rem;
+   } 
+   .form_tel .spam-submit{
+    position: relative;
+    width: 14rem;
+    height: 2rem;
+    position: relative;
+    display: block;
+    margin: 1.1875rem auto 0.3125rem;
+    background: #B8201D;
+    font-size: 0.85rem;
+    color: #fff;
+    text-align: center;
+    line-height: 2rem;
+    border-radius: 1.5625rem;
+   }

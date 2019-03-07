@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="keywords" content="VSPN rita图集 gini图集">
+  <link rel="shortcut icon" href="images/icon.png">
+
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/atlas.css">
+  <link rel="stylesheet" type="text/css" href="css/zoomify.min.css">
+  
+  <title></title>
+</head>
+
+<body>
+  <div id="main" style="background: url(images/e-sports/bg.png)">
+
+    <!-- 标题 -->
+    <div class="mainTitle aboutTitle">
+      <p id="albumTitle" class="activeColor topFont"></p>
+      <div class="title-line"></div>
+      <div class="title-line-center"></div>
+      <p class="subheadColor bottomFont">Photo Album</p>
+    </div>
+
+    <!-- 内容 -->
+    <div style="width:100%; height: 1200px;">
+      <div class="content">
+        <div class="left_album">
+          <div class="cubeImg photo"><a class="example-image-link" data-lightbox="example-set"><img class="example-image" /></a></div>
+          <div class="cubeImg photo"><a class="example-image-link" data-lightbox="example-set"><img class="example-image"/></a></div>
+          <div class="cubeImg photo"><a class="example-image-link" data-lightbox="example-set" ><img class="example-image"/></a></div>
+          <div id="alphabet_img3" class="cubeImg"><img ></div>
+        </div>
+        <div class="middle_album">
+          <div class="retImg photo"><a class="example-image-link" data-lightbox="example-set"><img class="example-image"/></a></div>
+          <div style="width: 600px;height:300px">
+            <div class="cubeImg photo" style="display:inline-block"><a class="example-image-link" data-lightbox="example-set"><img class="example-image"/></a></div>
+            <div id="alphabet_img4" class="cubeImg" style="display:inline-block"><img ></div>
+          </div>
+        </div>
+        <div class="right_album">
+          <div id="alphabet_img1" class="cubeImg"><img ></div>
+          <div class="cubeImg photo"><a class="example-image-link" data-lightbox="example-set"><img class="example-image" /></a></div>
+          <div id="alphabet_img2" class="cubeImg"><img ></div>
+          <div class="cubeImg photo"><a class="example-image-link" data-lightbox="example-set"><img class="example-image"/></a></div>
+        </div>
+      </div>
+    </div>
+          
+
+  </div>
+
+</body>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/zoomify.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+
+
+<script type="text/javascript">
+  var curArtist;
+
+  // 获取curArtist的参数
+  function getUrlVars(){
+    var vars = [], hash; 
+    var hashes = window.location.href.slice(window.location.href.indexOf('?')+1).split('&'); 
+    for(var i = 0; i < hashes.length; i++) { 
+      hash = hashes[i].split('='); 
+      vars.push(hash[0]); 
+      vars[hash[0]] = hash[1]; 
+    } 
+    return vars;
+  }
+
+  $(function(){
+    curArtist = getUrlVars()['curArtist'];
+    if (curArtist == 'rita') {
+      $('title').html('Rita' + '图集');
+      $('#albumTitle').html('Rita' + '图集');
+    }else if (curArtist == 'gini') {
+      $('title').html('Gini' + '图集');
+      $('#albumTitle').html('Gini' + '图集');
+    }else if (curArtist == 'ykyk') {
+      $('title').html('英凯' + '图集');
+      $('#albumTitle').html('英凯' + '图集');
+    }else if (curArtist == 'lele') {
+      $('title').html('灵儿' + '图集');
+      $('#albumTitle').html('灵儿' + '图集');
+    }else if (curArtist == 'wywy') {
+      $('title').html('李微雅' + '图集');
+      $('#albumTitle').html('李微雅' + '图集');
+    }    
+    var photoArray = $('.photo img'),
+        aHrefArray = $('.example-image-link');
+    var objPhoto, objA;
+
+    if (typeof(curArtist) != 'undefined') {
+      for(var i = 0; i < photoArray.length; i++){
+        objPhoto = photoArray[i];
+        objA = aHrefArray[i];
+        $(objPhoto).attr('src', 'images/artist/'+ curArtist + '/s' + (i+1) + '.png');
+        $(objA).attr('href', 'images/artist/'+ curArtist + '/' + (i+1) + '.png');
+      }
+
+      for(var i = 0; i < 4; i++){
+        var t = curArtist.substr(i,1);
+        $('#alphabet_img' + (i+1) + ' img').attr('src','images/artist/'+ curArtist + '/' + curArtist.substr(i,1) + '.png');
+      }
+    }
+    
+  });
+
+  $('.example-image-link').click(function(){
+    $('.lb-dataContainer').html('');
+  });
+
+</script>
+
+</html>

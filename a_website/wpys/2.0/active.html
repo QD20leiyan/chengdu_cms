@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>王牌御史—获奖信息收集</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="shortcut icon" href="">
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/active.css" />
+</head>
+<body>
+	<div class="active_main">
+		<div class="a_wrap">
+			<img src="images/ac_img.png" alt="" class="banner">
+			<div class="form">
+				<p><input type="text" placeholder="抖音名称" class="douyin_name"><span class="reset"></span></p>
+				<p><input type="text" placeholder="抖音ID" class="douyin_id"><span class="reset"></span></p>
+				<p><input type="text" placeholder="姓名" class="user_name"><span class="reset"></span></p>
+				<p><input type="text" placeholder="电话" class="user_phone"><span class="reset"></span></p>
+				<p class="text_add"><textarea placeholder="详细地址" rows="2" class="user_address"></textarea><span class="reset"></span></p>
+			</div>
+			<a href="javscript:;" class="submit"></a>
+			<div class="popup-wrap">
+				<div class="popup-box">
+					<div class="title">
+						<div class="warm-icon success-icon"></div>
+						<span class="notice-title">提交成功</span>
+					</div>
+				    <div class="content">抖音ID不能为空，请重新填写!</div>
+				    <div class="btn popup-close">关闭</div>
+				</div>
+			</div>
+			<div class="form_tel">
+				<div class="validate-dialog spam-user-validate-dialog">
+					<div class="close"></div>
+					<div class="title">验证手机</div>
+					<div class="spam-info">请输入短信验证码</div>
+					<div class="pic-validate">
+						<input type="text" name="pic-captcha" placeholder="图片验证码" class="input-style validate-item spam-pic-captcha">
+						<div class="decor-line"></div>
+						<span class="co_captcha"><img class="validate-img validate-item" src="images/yzm_test.jpg
+						"></span>
+						<span class="nor-btn validate-item spam-refresh-pic-btn">
+						<i class="iconeditor-refresh"></i>
+						<span>刷新</span>
+					    </span>
+					</div>
+					<div class="spam-sms-validate">
+						<input type="text" pattern="[0-9]*" name="captcha" placeholder="短信验证码" class="input-style validate-item spam-sms-captcha">
+						<span class="nor-btn validate-item spam-send-sms">
+							<span class="text">发送短信验证码</span><span class="timer"></span></span></div>
+							<div class="nor-btn spam-submit" need-pic-validate="1">提交</div>
+						</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/active.js"></script>
+<script>
+	$(function(){
+            var $inputwrapper = $('.form');
+            $inputwrapper.find('input').on('input propertychange',function(){
+                $(this).parent().find("span").show();
+            });
+             $inputwrapper.find('textarea').on('input propertychange',function(){
+                $(this).parent().find("span").show();
+            });
+            $(".reset").click(function(){
+            	$(this).parent().find("input").val("");
+            	$(this).parent().find("textarea").val("");
+            	$(this).hide();
+            })
+            $(".popup-close").click(function(){
+                $(".popup-wrap").fadeOut();
+            })
+            $(".form_tel .validate-dialog .close").click(function(){
+                $(".form_tel").fadeOut();
+            })
+        });
+</script>
+</html>

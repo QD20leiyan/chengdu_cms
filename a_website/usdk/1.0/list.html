@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HeroUSDK</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link type="text/css" rel="stylesheet" href="css/jquery.fullpage.min.css">
+	<link type="text/css" rel="stylesheet" href="css/animate.css">
+	<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="header">
+	<div class="logo_box"></div>
+	<div class="right_box">
+		<ul class="nav_list">
+			<li><a class="">首页<i class="ic_line"></i></a></li>
+			<li><a href="#">SDK下载<i class="ic_line"></i></a></li>
+			<li><a href="#">进入控制台<i class="ic_line"></i></a></li>
+		</ul>
+	</div>
+</div>
+<div class="wrap">
+	<div class="hero-usdk">
+		<div class="list">
+			<div class="list_box">
+				<div>
+					<div class="type">
+						<span class="active type1">支持渠道列表</span>
+						<span class="type2">支持插件列表</span>
+					</div>
+					<div class="list_info">
+						<table class="table table1 " border="0" cellpadding="0" cellspacing="0">
+							<thead>
+							<tr>
+								<th>渠道ID</th>
+								<th>渠道名称 </th>
+								<th>版本号</th>
+								<th>渠道后台</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#" class="link link1">查看</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							</tbody>
+						</table>
+						<table class="table table2 hidden" border="0" cellpadding="0" cellspacing="0">
+							<thead>
+							<tr>
+								<th>渠道ID</th>
+								<th>渠道名称 </th>
+								<th>版本号</th>
+								<th>渠道后台</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#" class="link link1">查看</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>英雄互娱</td>
+								<td>3.1.4</td>
+								<td><a href="#"  class="link">暂无</a></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/jquery.fullpage.min.js"></script>
+<script>
+	$(function(){
+		var search=location.search;
+		if(search=="?jc"){
+			$(".list_info .table1").removeClass("hidden");
+			$(".list_info .table2").addClass("hidden");
+			$(".type1").addClass("active").siblings().removeClass("active");
+		}else if(search=="?gj"){
+			$(".list_info .table1").addClass("hidden");
+			$(".list_info .table2").removeClass("hidden");
+			$(".type2").addClass("active").siblings().removeClass("active");
+		}
+
+		//列表切换
+		$(".list_box .type>span").click(function(){
+			var index=$(this).index();
+			$(this).addClass("active").siblings().removeClass("active");
+			$(".list_info .table").eq(index).removeClass("hidden").siblings(".list_info .table").addClass("hidden");
+		});
+
+		$(".header .nav_list li a").mouseover(function(){
+			$(this).addClass("in").removeClass("out");
+		});
+		$(".header .nav_list li a").mouseout(function(){
+			$(this).addClass("out").removeClass("in");
+		});
+	});
+</script>
+</html>

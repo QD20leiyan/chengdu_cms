@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta name="keywords" content="VSPN 赛事运营 王者荣耀职业联赛 中国足球电竞联赛 皇室战争皇冠锦标赛—中国区秋季赛 穿越火线职业联赛 球球大作战职业联赛 穿越火线枪战王者职业联赛 英雄联盟职业联赛 HPL联赛 kpl cefl ccgs cfpl bpl cfml lpl hpl">
+  <link rel="shortcut icon" href="images/icon.png"> 
+
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <!--[if IE 9 ]>
+  <link rel="stylesheet" type="text/css" media="all" href="css/idangerous.swiper2.7.6.css" />
+  <![endif]-->
+  <!--[if !(IE 9)]><!--><link rel="stylesheet" type="text/css" href="css/swiper.min.css"/><!--<![endif]-->
+  <link rel="stylesheet" type="text/css" href="css/e-sports_detail.css">
+  <link rel="stylesheet" type="text/css" href="css/zoomify.min.css">
+  <link rel="stylesheet" type="text/css" href="css/fullcalendar.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <title></title>
+</head>
+
+<body>
+  <div id="main" style="background-color: #222;background: url(images/e-sports/bg.png);background-color: #272728;">
+
+    <!-- 内容 -->
+    <div class="conDiv" style="width:100%;position: relative;">
+      <div class="content">
+        
+        <!-- 赛事名称 简介 logo -->
+        <div id="matchName"></div>
+        <div id="intro_div" class="introDiv">
+          <p id="introText"></p>
+          <img id="matchLogo">
+        </div>
+
+        <div class="titleDiv album">
+         <img src="images/album.png">
+         <span>精彩瞬间</span>
+        </div>
+
+        <div class="swiper-container albumDiv" id="albumContainer" ondragstart="return false">
+          <div class="swiper-wrapper" style="width:100%;height:100%"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+        
+
+        <div class="titleDiv calendar">
+         <img src="images/calendar.png">
+         <span>赛事日历</span>
+         <span id="month"></span>
+        </div>
+        <div class="calendarDiv">
+          <div class="btnDiv" style="left:0"><img id="preBtn" src="images/arrow-left.png"></img></div>
+          <div id="fullCalendar" style="left: 95px;top: -31px;"></div>
+          <div class="btnDiv" style="float:right"><img id="nextBtn" src="images/arrow-right.png"></img></div>
+        </div>
+
+        <div style="width:100%;margin-top:114px;text-align:center"><button id="specialSubject">进入赛事专题查看更多</button></div>
+
+      </div>
+    </div>
+          
+
+  </div>
+
+</body>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/header.js"></script>
+<script type="text/javascript" src="js/idangerous.swiper2.7.6.min.js"></script>
+<script type="text/javascript" src='js/fullcalendar.min.js'></script>
+<script type="text/javascript" src="js/e-sports_intro_json_array.js"></script>
+<script type="text/javascript" src="js/e-sports_detail.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="js/footer.js"></script>
+<script type="text/javascript" src="js/zoomify.min.js"></script>
+
+
+<script type="text/javascript">
+  window.onload = function(){
+    // 最大为3
+    var clickBtnCount = 0;
+
+    var swiper = new Swiper('#albumContainer', {
+      slidesPerView : 'auto',
+      onlyExternal : true,
+    });
+
+    $('.swiper-button-prev').css('opacity',0.5);
+
+    $('.swiper-button-prev').on('click', function(e){
+      if (clickBtnCount <= 0) {
+        $(this).css('opacity',0.5);
+        return
+      }else{
+        e.preventDefault()
+        swiper.swipePrev()
+        if (clickBtnCount == 1) {
+          $(this).css('opacity',0.5);
+        }
+        clickBtnCount -= 1;
+      }
+      $('.swiper-button-next').css('opacity',1);
+    });
+
+    $('.swiper-button-next').on('click', function(e){
+      
+      if (clickBtnCount >= 3) {
+        $(this).css('opacity',0.5);
+        return
+      }{
+        e.preventDefault()
+        swiper.swipeNext()
+        if (clickBtnCount == 2) {
+          $(this).css('opacity',0.5);
+        }
+        clickBtnCount += 1;
+      }
+      $('.swiper-button-prev').css('opacity', 1);
+    });
+  };
+
+  $(document).ready(function(){
+    $('#month').css('font-size', 24 / 1920 * screenW);
+    $('.fc-day-header').css('font-size', 18 / 1920 * screenW);
+    $('.fc-grid,.fc-day-number').css('font-size', 24 / 1920 * screenW);
+  });
+  
+</script>
+
+
+
+</html>
