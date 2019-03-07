@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<!-- 滚动容器区域 -->
+<scroll-view class="container">
+  <!--滚动内容-->
+  <view class='content'>
+    <!-- rules -->
+    <view class='rules'>
+      <image class='label2' src='https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/label2.png'></image>
+      <view class="ward_rules">
+        <view class='right_text'>
+            <view class='tetx_li'>
+              <text class='num'>01</text>
+              <text class='info'>活动期间，前500位首先<text class='y_info'>点亮新赛季所有段位</text>的枪友将获得“<text class='y_info'>新赛季荣耀奖励-200W强化点</text>”，第666/999/1111/2222/6666/9999/11111……位点亮全部段位的<text class='y_info'>幸运枪友</text>也将额外获得该奖励。</text>
+            </view>
+            <view class='tetx_li'>
+              <text class='num'>02</text>
+              <text class='info'>活动时间：5月4日-5月24日</text>
+            </view>
+            <view class='tetx_li'>
+              <text class='num'>03</text>
+              <text class='info'><text class='y_info'>每日登录</text>此活动小程序将获得<text class='y_info'>2次点亮机会</text>，通过<text class='y_info'>“召唤队友”</text>每天可转发到<text class='y_info'>不同微信群</text>获得<text class='y_info'>额外点亮机会</text>，每日<text class='y_info'>最多可分享3次；</text></text>
+            </view>
+            <view class='tetx_li'>
+              <text class='num'>04</text>
+              <text class='info'>根据各段位集星数量，获得相应数量的星星可点亮对应段位徽章并获得该段位奖励；</text>
+            </view>
+            <view class='tetx_li'>
+              <text class='num'>05</text>
+              <text class='info'>礼包兑换：登录游戏-任务-兑换礼品-进行兑换</text>
+            </view>
+        </view>
+      </view>
+    </view>
+    <!-- wards -->
+    <view class='wards'>
+      <image class='label3' src='https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/label3.png'></image>
+      <view class="ward_rules">
+        <view class='right_text'>
+            <block wx:for="{{wards.ward_info}}">
+              <view class='tetx_li'>
+                <text class='num'></text>
+                <text class='info'>{{item.info}}</text>
+                <text class='sub_info'>{{item.sub_info}}</text>
+              </view>
+            </block>
+             <view class='tetx_li'>
+              <text class='sub_info'>(*以上奖励均为此次活动奖励，与游戏内段位结算奖励无关)</text>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class='fixed_btn detail'>
+  <view class='homePage' data-url="pages/index/index" bindtap='navigator'></view>
+  <view class='detailPage' data-url="pages/detail/detail" bindtap='navigator'></view>
+</view>

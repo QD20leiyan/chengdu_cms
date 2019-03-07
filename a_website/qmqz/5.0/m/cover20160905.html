@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link href="../common/css/common.min.css" rel="stylesheet"/>
+		<link href="../common/css/swiper.3.1.7.min.css" rel="stylesheet"/>
+		<link href="./css/css.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="cmain95">
+		    <div class="cmain95-boxt">
+		        <div class="cmain95-boxt-boxa"></div>
+		    	<img src="./images/c_bg0905-3.png" alt="" class="cmain95-boxt-3">
+		    	<img src="./images/c_bg0905-4.png" alt="" class="cmain95-boxt-4">
+		    	<img src="./images/c_bg0905-5.png" alt="" class="cmain95-boxt-5">
+		    	<img src="../common/images/c_bg0905-10.png" alt="" class="cmain95-boxt-10">
+		    	<img src="../common/images/c_bg0905-9.png" alt="" class="cmain95-boxt-9">
+		    	<img src="../common/images/c_bg0905-8.png" alt="" class="cmain95-boxt-8">
+		    	<img src="../common/images/c_bg0905-7.png" alt="" class="cmain95-boxt-7">
+		    	<img src="../common/images/c_bg0905-6.png" alt="" class="cmain95-boxt-6"> 
+            </div>
+			<a href="/" title="游戏下载" class="c-down95" target="_blank"></a>
+			<a href="/" title="进入官网" class="c-home95" target="_blank"></a>
+			<div class="cmain95-boxa">
+                <div class="swiper-container cmain95-swiper">
+				    <div class="swiper-wrapper">
+				        <div class="swiper-slide"><img src="../common/images/c_bg0905a-6.png" alt=""></div>
+				        <div class="swiper-slide"><img src="../common/images/c_bg0905a-7.png" alt=""></div>
+				        <div class="swiper-slide"><img src="../common/images/c_bg0905a-8.png" alt=""></div>
+				        <div class="swiper-slide"><img src="../common/images/c_bg0905a-9.png" alt=""></div>
+				        <div class="swiper-slide"><img src="../common/images/c_bg0905a-10.png" alt="" class="cmain95-nextPage"><img src="../common/images/c_bg0905a-11.png" alt="" class="cmain95-prevPage"><a href="javascript:;" class="cmain95-dataPage" data-page="1"></a></div>
+				    </div>
+
+				    <div class="cmain95-button-close"></div>
+				</div>
+				<div class="cmain95-button-prev"></div>
+				<div class="cmain95-button-next"></div>
+            </div>
+		</div>
+
+		<script type="text/javascript" src="../common/js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="../common/js/swiper.3.1.7.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.fittext.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('html').fitText(2);
+				
+			    $(".cmain95-boxt-boxa").on("click",function(){
+                    $(".cmain95-boxa").show(); 
+                    var swiper01 = new Swiper('.cmain95-swiper', {
+						prevButton:'.cmain95-button-prev',
+	                    nextButton:'.cmain95-button-next',
+				    	loop:true
+				    });  
+			    });
+			    $(".cmain95-button-close").on("click",function(){
+                     $(".cmain95-boxa").hide();
+			    });
+			    
+                $(".cmain95-swiper").on("click",".cmain95-dataPage",function(){
+
+                    if($(this).attr('data-page')=='1'){
+                     	$(".cmain95-nextPage").hide();
+                     	$(".cmain95-prevPage").show();
+                     	$(this).attr("data-page","2");
+                    }else if($(this).attr('data-page')=='2'){
+                     	$(".cmain95-nextPage").show();
+                     	$(".cmain95-prevPage").hide();
+                     	$(this).attr("data-page","1");
+                    }
+                });
+                $(".cmain95-boxt-3").on("click",function(){
+                	$(this).hide();
+                    $(".cmain95-boxt-4,.cmain95-boxt-5").css({"opacity":"1"});
+                   setTimeout(function(){
+	                   	$(".cmain95-boxt-10").addClass("anitec-5")
+                        $(".cmain95-boxt-9").addClass("anitec-4")
+                        $(".cmain95-boxt-8").addClass("anitec-3")
+                        $(".cmain95-boxt-7").addClass("anitec-2")
+	                    $(".cmain95-boxt-6").addClass("anitec-1")
+                   },100);
+                   setTimeout(function(){
+                   	$(".cmain95-boxt-boxa").show();
+                   },1100);
+                });
+			});
+		</script>
+	</body>
+</html>

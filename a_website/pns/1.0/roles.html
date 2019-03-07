@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+	<link rel="stylesheet" href="css/animate.min.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?132690f58976e65359f6cf26d85b0ba9";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script>
+		//push 手动上报方法，event 事件触发方法 ，ready js加载完成回调
+		//push 参数，name：页面名称，behavior 行为
+		//event 参数，event：事件名称，args 拓展参数
+		var HLog={push:function(name,behavior){},setUser:function(){},event:function(event,args){},ready:function(){}};
+		HLog.config={
+			"senseHash":0, //hash锚点是否进入url统计
+			"senseQuery":0, //url参数是否进入url统计
+			"ignoreParams":[] //开启url参数上报时，可忽略部分参数拼接上报；
+		};
+		(function() {
+			var hl = document.createElement("script");
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) {
+				hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/100/client/2/filter/stat.js";
+			}else{
+				hl.src = "http://spro.yingxiong.com/datastat/jsapi/jssdk/appid/100/client/1/filter/stat.js";
+			}
+			hl.async = "async";
+			var s = document.getElementsByTagName("script")[0];
+			HLog.ready = function(){
+				HLog.push('reflash')
+			};
+			s.parentNode.insertBefore(hl, s);
+		})();
+	</script>
+</head>
+
+<body>
+
+	<!--<script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script>-->
+	<div class="i_main i_main2" id="index">
+		<img src="images/rolebg1.jpg" class="role_img role_img1"/>
+		<img src="images/rolebg2.jpg" class="role_img role_img2"/>
+		<img src="images/rolebg3.jpg" class="role_img role_img3"/>
+	</div>
+</body>
+</html>

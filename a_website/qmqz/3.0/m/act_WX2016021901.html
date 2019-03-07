@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_actlb.css" rel="stylesheet"/>
+<script src="./js/jquery-2.1.4.min.js"></script>
+<script src="./js/TouchSlidev1.1.js"></script>
+</head>
+<body>
+	<div class="wchat-219-a" id="tslider01">
+		<div class="hd">
+			<ul></ul>
+		</div>
+		<div class="bd">
+				<ul>
+					<li><a href="javascript:;" title="全名枪战 陈赫 app 微信"><img src="./images/wchat-1.jpg" alt="全名枪战 陈赫 app 微信"></a></li>
+					<li><a href="javascript:;" title="全名枪战 陈赫 app 微信"><img src="./images/wchat-1.jpg" alt="全名枪战 陈赫 app 微信"></a></li>
+					<li><a href="javascript:;" title="全名枪战 陈赫 app 微信"><img src="./images/wchat-1.jpg" alt="全名枪战 陈赫 app 微信"></a></li>
+				</ul>
+		</div>
+	</div>
+	 <div class="wchat-219-b" id="tslider02">
+		 <div class="hd">
+			<ul>
+				<li class="on">活动中心</li>
+				<li>礼包中心</li>
+			</ul>
+		</div>
+		<div class="bd">
+			
+				<ul style="display:block">
+					 
+					<li>
+						<a href="javascript:;" title="活动">
+							<img src="./images/wchat-3.jpg" alt="活动">
+							<p class="tit">【促销】是东风iusdoif进【促销】是东风iusdoif进</p>
+							<p class="txt">【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" title="活动">
+							<img src="./images/wchat-3.jpg" alt="活动">
+							<p class="tit">【促销】是东风iusdoif进</p>
+							<p class="txt">【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进</p>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" title="活动">
+							<img src="./images/wchat-3.jpg" alt="活动">
+							<p class="tit">【促销】是东风iusdoif进</p>
+							<p class="txt">【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进</p>
+						</a>
+					</li>
+				</ul>
+			
+						
+				<ul>
+					 <li>
+						<a href="javascript:;" title="活动">
+							<img src="./images/wchat-3.jpg" alt="活动">
+							<p class="tit">【促销】是东风iusdoif进2</p>
+							<p class="txt">【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进【促销】是东风iusdoif进</p>
+						</a>
+					</li>
+					
+				</ul>
+		</div>
+	</div>
+	<script> 
+		$(function(){
+			$("#tslider02").tab_switch();
+			TouchSlide({slideCell:"#tslider01",titCell:".hd ul",mainCell:".bd ul",effect:"leftLoop",autoPlay:false,autoPage:true});
+		});
+		//tab切换
+		$.fn.tab_switch=function(){
+			var $this = $(this);
+			return this.each(function(){
+				$this.find(".hd ul li").on("touchstart",function(){
+					var index=$(this).index();
+					$(this).addClass("on").siblings().removeClass("on");
+					$this.find(".bd ul").eq(index).css({"display":"block"}).siblings().css({"display":"none"});
+				})
+			})
+		}
+	</script>
+</body>
+</html>

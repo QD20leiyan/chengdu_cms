@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>一键生成吃鸡海报</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <!--<link rel='stylesheet' href='https://g.alicdn.com/de/prismplayer/1.9.9/skins/default/index.css'/>-->
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide swiper-no-swiping pageform">
+                <form class="form ani" swiper-animate-effect="bounceInDown">
+                    <p class="tit">#大吉大利  生存竞技#</p>
+                    <h2 class="ani" swiper-animate-effect="bounceInDown">生成我的吃鸡海报</h2>
+                    <div class="input_box">
+                        <div class="input">
+                            <span>输入昵称</span>
+                            <input type="text" data-value="请输入您的大名" maxlength="6" value="请输入您的大名" class="name"/>
+                        </div>
+                        <div class="input">
+                            <span>大吉大利，马上</span>
+                            <input type="text" data-value="吃鸡" maxlength="10" value="吃鸡" class="info"/>
+                        </div>
+                        <div class="input">
+                            <span>奖励</span>
+                            <input type="text" data-value="请输入奖励" maxlength="7" value="请输入奖励" class="reward"/>
+                        </div>
+                    </div>
+                    <p class="btn1 ani" swiper-animate-effect="bounceInDown"><img src="images/btn01.png" alt=""/></p>
+                </form>
+            </section>
+            <section class="swiper-slide swiper-no-swiping page1">
+                <p>生成中...</p>
+                <div style="display:none;">
+                    <span class="bull1"></span>
+                    <span class="bull2"></span>
+                    <span class="bull3"></span>
+                    <span class="bull4"></span>
+                    <span class="bull5"></span>
+                    <span class="bull6"></span>
+                </div>
+            </section>
+            <section class="swiper-slide page2">
+                <img src="images/share_img.jpg" class="share_img"/>
+                <p class="save_txt">长按图片保存到手机</p>
+                <p class="down_info">下拉横屏，惊喜更多！</p>
+                <p class="down"></p>
+                <p class="save_img">长按图片保存到手机</p>
+            </section>
+            <!--<section class="swiper-slide page3">-->
+                <!--<video id="video">-->
+                    <!--<source src="video/video.mp4"/>-->
+                <!--</video>-->
+                <!--<p class="down"></p>-->
+            <!--</section>-->
+            <section class="swiper-slide page4">
+                <video id="video" controls="controls" x-webkit-airplay airplay playsinline webkit-playsinline poster="images/video_img.jpg">
+                  <source src="http://video.yingxiong.com/hd/7b4039157ab042289346563e3ec530bc.mp4"/>
+                </video>
+                <!--<div class="prism-player" id="J_prismPlayer" data-url="http://video.yingxiong.com/hd/7b4039157ab042289346563e3ec530bc.mp4" data-cover="images/video_img.jpg">-->
+
+                <!--</div>-->
+                <p class="qm_title ani" swiper-animate-effect="zoomIn"><img src="images/title.png" alt=""/></p>
+                <p class="info1 ani" swiper-animate-effect="fadeInLeftBig" >《全民枪战2》生存竞技 </p>
+                <p class="time ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-delay="0.2s">12月14日</p>
+                <p class="info2 ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-delay="0.4s">爱吃鸡的你不容错过！ </p>
+                <p class="btn ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-delay="0.6s">
+                    <a class="again"><img src="images/btn02.png"/></a>
+                    <a href="" class="download"><img src="images/btn03.png" /></a>
+                </p>
+            </section>
+        </section>
+    </section>
+</div>
+<!--音乐-->
+<img id="music_icon" class="music_play" name="play" src="images/p_music_play_06.png">
+<audio id="music" src="audio/audio.MP3" autoplay="autoplay" loop="loop"></audio>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<!--<script src="https://g.alicdn.com/de/prismplayer/1.9.9/prism.js"></script>-->
+<script type="text/javascript">
+  $(function() {
+      //滑动页面
+      var mySwiper = new Swiper('.swiper-container', {
+          direction: 'vertical',
+          pagination: '.swiper-pagination',
+          mousewheelControl: true,
+          observer: true,
+          observeParents: true,
+          noSwiping: true,
+          nested: true,
+          onInit: function (swiper) {
+              swiperAnimateCache(swiper);
+              swiperAnimate(swiper);
+          },
+          onSlideChangeEnd: function (swiper) {
+             $(".page1>div").css({"display":"block"});
+//              if(swiper.activeIndex==2){
+//                  $(".page2 .save_img").css({"display":"block"});
+//              }
+          },
+          onTransitionEnd: function (swiper) {
+              swiperAnimate(swiper);
+              if(swiper.activeIndex==2){
+                  swiper.lockSwipeToPrev();
+              }else{
+                  swiper.unlockSwipeToPrev();
+              }
+          }
+
+      });
+//      //阿里视频加载
+//      var player = new prismplayer({
+//          id: 'J_prismPlayer',
+//          autoplay: false,
+//          useH5Prism: true,
+//          playsinline:true,
+//          //支持播放地址播放,此播放优先级最高
+//          source: $("#J_prismPlayer").attr("data-url"),
+//          cover: $("#J_prismPlayer").attr("data-cover")
+//      });
+//      //视频结束音乐继续
+//      player.on("ended", function(e){
+//          if($("#music_icon").attr("name")=="play"){
+//              $("#music")[0].play();
+//          }
+//          $("#music_icon").show();
+//      });
+//      //视频播放音乐暂停
+//      player.on('play',function(e) {
+//          $("#music")[0].pause();
+//          $("#music_icon").hide();
+//      });
+//      //视频暂停音乐播放
+//      player.on('pause',function(e) {
+//          if($("#music_icon").attr("name")=="play"){
+//              $("#music")[0].play();
+//          }
+//          $("#music_icon").show();
+//      });
+
+    //视频播放音乐暂停
+      $("#video").bind("play",function(){
+          $("#music")[0].pause();
+          $("#music_icon").hide();
+      });
+    //视频暂停音乐继续
+      $("#video").bind("pause",function(){
+          if($("#music_icon").attr("name")=="play"){
+              $("#music")[0].play();
+          }
+          $("#music_icon").show();
+      });
+    //视频播放结束音乐继续
+      $("#video").bind("ended",function(){
+          if($("#music_icon").attr("name")=="play"){
+              $("#music")[0].play();
+          }
+          $("#music_icon").show();
+      });
+      //一键生成
+      $(".btn1").click(function(){
+          mySwiper.slideNext();
+          bull();
+      });
+      //再来一张
+      $(".again").click(function(){
+          window.location.href = location.href+'?time='+((new Date()).getTime());
+      });
+      $(".page1").click(function(){
+          mySwiper.slideNext();
+      });
+      //子弹动画
+      function bull(){
+          $(".bull1").css("animation","bullsFly 3s linear "+Math.random()+"s infinite");
+          $(".bull2").css("animation","bullmFly 2s linear "+Math.random()+"s infinite");
+          $(".bull3").css("animation","bullmFly 2s linear "+Math.random()+"s infinite");
+          $(".bull4").css("animation","bulllFly 1.5s linear "+Math.random()*0.5+"s infinite");
+          $(".bull5").css("animation","bullsFly 3s linear "+Math.random()+"s infinite");
+          $(".bull6").css("animation","bullsFly 3s linear "+Math.random()+"s infinite");
+      }
+      //奖励值初始化
+      $(".reward").val(500 + Math.floor(Math.random()*1001));
+      $(".reward").attr("data-value",$(".reward").val());
+      //input获取焦点
+      $(".input_box input").focus(function(){
+          var val=$(this).val();
+          var dataVal=$(this).attr("data-value");
+          if(val==dataVal){
+              $(this).val("");
+          }
+      });
+      //input失去焦点
+      $(".input_box input").blur(function(){
+          if(!$(this).val()){
+              $(this).val($(this).attr("data-value"));
+          }
+      });
+  });
+</script>
+</body>
+</html>

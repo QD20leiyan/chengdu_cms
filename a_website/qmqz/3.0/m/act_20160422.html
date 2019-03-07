@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_actlb.css" rel="stylesheet"/>
+<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<header class="common_header">
+		<div class="clear">
+			<a class="linklogo">
+				<dl class="p-common">
+					<dt><h1>全民枪战</h1></dt>
+					<dd>CA，新一代枪战选择</dd>
+				</dl>
+			</a>
+			<a href="http://downurl.yingxiong.com/android/wap_qmqz.html" class="link01 down_andriod">下载</a>
+			<a class="link03" href="http://ca.yingxiong.com">领取礼包</a>
+		</div>
+	</header>
+	<section class="ws_ione ws_nav">
+		<a href="http://ca.yingxiong.com/data/m/act_151118.html"><img src="../common/images/fire1-menu1.png" alt="双龙沙鹰" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20151203.html"><img src="../common/images/fire2-menu1.png" alt="迷你乌兹" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20151229.html"><img src="../common/images/fire3-menu1.png" alt="M4A1" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20160315.html"><img src="../common/images/fire4-menu1.png" alt="WA2000" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20160422.html"><img src="../common/images/fire5-menu2.png" alt="虚空恶魔" class="mkv"></a>
+	</section>
+	<div id="Ftube5" class="Ftube5">
+		<div class="F-tube F-tube1">
+			<div class="F5-tubefont"></div>
+			<div class="F5-tubest"></div>
+		</div>
+		<div class="F-tube F-tube2">
+			<div class="F5-tubevideo"></div>
+			<div class="F5-tubevideo1"></div>
+		</div>
+		<div class="F-tube F-tube3"></div>
+		<div class="F-tube F-tube4"></div>
+		<div class="F-tube F-tube5"></div>
+		<div class="F-tube F-tube6">
+			<div class="F5-tubecs"></div>
+		</div>		
+		<div id="totoplist"></div>
+	</div>
+	
+
+	
+    <div id="mask"></div>
+<!--
+    <div class="gift_tck">
+		<img src="./images/i_libao_bg.jpg" class="mkv">
+		<input type="text" placeholder="输入手机号码" id="phone_cdf13d4b5348da8867cc5923446ba88a">
+		<a href="javascript:void(0)" title="领取礼包" type="0" class="gift_get_cdf13d4b5348da8867cc5923446ba88a"></a>
+		<i class="close"></i>
+	</div> 
+-->
+	<div id="video_tck">
+		<div id="player5">
+			<div id="close"></div>
+			<video controls="controls" class="vid_sp">
+				<source src="http://dev.static.yingxiong.com/qmqz/3.0/m/images/2_1_1.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+	
+	
+<script>
+		$(function(){
+			$(".link03").on('touchstart',function(){
+				$(".gift_tck").show();
+				$("#mask").show();
+			})
+			$(".close").on('touchstart',function(){
+				$(".gift_tck").hide();
+				$("#mask").hide();
+			});
+			$(".F5-tubevideo").click(function(){
+				$("#mask").show();
+				$("#video_tck").show();
+			});
+			$("#video_tck #close").click(function(){
+				$("#video_tck").hide();
+				$("#mask").hide();
+			});
+            //平移
+			$(window).scroll(function(){
+				if($(window).scrollTop() > 100) {
+					$('#totoplist').css("display","block");
+				}else{
+					$('#totoplist').css("display","none");
+				}
+			})
+			$('#totoplist').click(function(){
+				$('html,body').animate({scrollTop: '0px'}, 800);
+			});
+
+		});
+
+
+
+	</script>
+</body>
+</html>

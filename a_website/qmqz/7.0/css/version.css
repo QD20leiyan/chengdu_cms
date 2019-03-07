@@ -1,0 +1,220 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.v_listBox {
+  width: 1040px;
+ 	min-height:464px;
+  margin: 0 auto;
+  position: relative;
+  
+}
+.v_nav {
+  position: absolute;
+  top: 40px;
+  left: -100px;
+  
+}
+.v_nav li {
+  margin-bottom: 30px;
+  padding: 0 0 30px 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #393939;
+}
+.v_list_ul li .public_img{
+	display: none;
+}
+.v_list_ul li .public_img.active{
+	display: block;
+}
+.v_list_ul li .public_img.active .li_mask{
+	display: block;
+}
+.v_list_ul li .li_mask{
+	display: none;
+  width: 100%;
+  height: 100%;
+  background: url(../images/f.png) repeat;
+  position: fixed;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+.v_list_ul li .tc_img{
+	display: block;
+	width:1200px;
+	position:fixed;
+	top: 10%;
+  left: 50%;
+  margin: 0 0 0 -600px;
+  z-index: 1000;
+}
+.v_list_ul li .tc_img img{
+	display: block;
+	width:100%;
+	height:100%;
+}
+.v_list_ul li .tc_img .c_close{
+	display: block;
+	width:30px;
+	height:30px;
+	position:absolute;
+	right:-30px;
+	top:-15px;
+	cursor: pointer;
+}
+.v_list_ul li .tc_img .c_close:hover{
+	animation: cGo .5s linear;
+	-webkit-animation: cGo .5s linear;
+}
+@keyframes cGo{
+	0%{transform: rotate(0deg);}
+	50%{transform: rotate(180deg);}
+	100%{transform: rotate(360deg);}
+}
+@-webkit-keyframes cGo{
+	0%{transform: rotate(0deg);}
+	50%{transform: rotate(180deg);}
+	100%{transform: rotate(360deg);}
+}
+.v_nav li h1 {
+  color: #999999;
+  font-family: "Impact";
+  font-size: 30px;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+}
+.v_nav li p {
+  color: #999999;
+  font-size: 14px;
+}
+.v_nav li.active h1 {
+  color: #ffa800;
+}
+.v_nav li:hover {
+  cursor: pointer;
+}
+.v_nav li:hover h1 {
+  color: #ffa800;
+}
+.v_list_ul {
+  padding: 40px 0 0 0;
+  overflow: hidden;
+  margin-right: -20px;
+}
+.v_list_ul li {
+  margin: 0 20px 20px 0;
+  width: 507px;
+  height: 362px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #474747;
+  box-sizing: border-box;
+}
+.v_list_ul li img {
+  display: block;
+  line-height: 0;
+  width: 100%;
+  height: 100%;
+}
+.v_list_ul li .v_cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.8);
+  filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#99000000, 0, endcolorstr=#99000000, 0);
+  transition: all 0.2s cubic-bezier(0, 0.2, 0.8, 1);
+  -webkit-transition: all 0.2s cubic-bezier(0, 0.2, 0.8, 1);
+	cursor: pointer;
+}
+.v_list_ul li .v_cover label {
+  display: inline-block;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 8px 14px;
+  color: #000;
+  font-family: "Impact";
+  font-size: 18px;
+  background: #ffa800;
+  border-radius: 30px;
+}
+.v_list_ul li .v_cover a {
+  display: block;
+  width: 81px;
+  height: 81px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(../images/v_img7.png) no-repeat;
+  background-size: cover;
+}
+.v_list_ul li .v_cover img:hover {
+  cursor: pointer;
+}
+.v_list_ul li .v_cover p {
+  margin-top: 240px;
+  text-align: center;
+  color: #6c6c6c;
+}
+.v_list_ul li:hover {
+  border: 2px solid #ffa800;
+}
+.v_list_ul li:hover .v_cover {
+  opacity: 1;
+}
+.v_list_btn {
+  display: block;
+  width: 400px;
+  height: 56px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border-radius: 56px;
+  background: #303030;
+}
+.v_list_btn span {
+  display: none;
+  height: 100%;
+  text-align: center;
+  line-height: 56px;
+  font-size: 18px;
+  color: #6c6c6c;
+}
+.v_list_btn span.la_jz_ing img {
+  display: inline-block;
+  margin: 0 12px 0 0;
+  position: relative;
+  top: 3px;
+  animation: rotate 1s linear infinite;
+  -webkit-animation: rotate 1s linear infinite;
+}
+.v_list_btn span.active {
+  display: block;
+}
+.v_list_btn:hover {
+  cursor: pointer;
+  background: #2f2e2e;
+}
+.active {
+  display: block;
+}

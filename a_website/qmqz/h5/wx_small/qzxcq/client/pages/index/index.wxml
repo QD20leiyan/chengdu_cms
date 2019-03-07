@@ -1,0 +1,135 @@
+<!--index.wxml-->
+<!-- 滚动容器区域 -->
+<scroll-view class="container">
+    <!--滚动内容-->
+    <view class='content'>
+      <view class='room'></view>
+      <!--点亮星星-->
+       <view class='starbox'>
+        <view class='{{"stars stars1  "+(star.stars1_get?"am":"")}}'>
+           <label wx:if="{{initdata.grade[1]==5}}" bindtap='openGift' data-num='1'></label>
+          <label wx:if="{{initdata.grade[1]!=5}}" class='gray' bindtap='notOpenGift'></label> 
+          <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="i">
+            <view class='{{"star "+(initdata.grade[1]>=i?"light":"")}}'></view>
+          </block>
+        </view>
+        <view class='{{"stars stars2  "+(star.stars2_get?"am":"")}}'>
+          <label wx:if="{{initdata.grade[2]==4}}" bindtap='openGift' data-num='2'></label>
+          <label wx:if="{{initdata.grade[2]!=4}}" class='gray' bindtap='notOpenGift'></label>
+          <block wx:for="{{[1,2,3,4]}}" wx:for-item="i">
+            <view class='{{"star "+(initdata.grade[2]>=i?"light":"")}}'></view>
+          </block> 
+        </view>
+        <view class='{{"stars stars3  "+(star.stars3_get?"am":"")}}'>
+          <label wx:if="{{initdata.grade[3]==4}}" bindtap='openGift' data-num='3'></label>
+          <label wx:if="{{initdata.grade[3]!=4}}" class='gray' bindtap='notOpenGift'></label>
+          <block wx:for="{{[1,2,3,4]}}" wx:for-item="i">
+            <view class='{{"star "+(initdata.grade[3]>=i?"light":"")}}'></view>
+          </block> 
+        </view>
+        <view class='{{"stars stars4  "+(star.stars4_get?"am":"")}}'>
+          <label wx:if="{{initdata.grade[4]==3}}" bindtap='openGift' data-num='4'></label>
+          <label wx:if="{{initdata.grade[4]!=3}}" class='gray' bindtap='notOpenGift'></label>
+          <block wx:for="{{[1,2,3]}}" wx:for-item="i">
+            <view class='{{"star "+(initdata.grade[4]>=i?"light":"")}}'></view>
+          </block> 
+        </view>
+        <view class='{{"stars stars5  "+(star.stars5_get?"am":"")}}'>
+          <label wx:if="{{initdata.grade[5]==3}}" bindtap='openGift' data-num='5'></label>
+          <label wx:if="{{initdata.grade[5]!=3}}" class='gray' bindtap='notOpenGift'></label>
+          <block wx:for="{{[1,2,3]}}" wx:for-item="i">
+            <view class='{{"star "+(initdata.grade[5]>=i?"light":"")}}'></view>
+          </block> 
+        </view>
+        <view class='{{"stars stars6  "+(star.stars6_get?"am":"")}}'>
+          <label wx:if="{{initdata.grade[6]==2}}" bindtap='openGift' data-num='6'></label>
+          <label wx:if="{{initdata.grade[6]!=2}}" class='gray' bindtap='notOpenGift'></label>
+          <block wx:for="{{[1,2]}}" wx:for-item="i">
+            <view class='{{"star "+(initdata.grade[6]>=i?"light":"")}}'></view>
+          </block> 
+        </view>
+        <view class='{{"stars stars7  "+(star.stars7_get?"am":"")}}'>
+          <label wx:if="{{initdata.grade[7]==1}}" bindtap='openGift' data-num='7'></label>
+          <label wx:if="{{initdata.grade[7]!=1}}" class='gray' bindtap='notOpenGift'></label>
+          <view class='{{"star "+(initdata.grade[7]>=1?"light":"")}}'></view>
+        </view>
+      </view>
+      <!-- 两个按钮 -->
+      <view class='btnbox'>
+        <button class='btn btn01' bindtap='lightStar'><text><text>{{initdata.lottery}}</text>/{{initdata.count}}</text></button> 
+        <button class='btn btn02' bindtap='shareFriend'><text><text>{{initdata.share}}</text>/3</text></button>
+        <view class='check' bindtap='checkCode'>查看我的礼包</view> 
+      </view>
+      <!-- down -->
+      <image class='down' src='https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/down.png'></image>
+      <!-- 加入战斗 -->
+      <view class='btn03' bindtap='opencode'></view>       
+      <!-- 轮播 -->
+      <view class='slide'>
+        <image class='label1' src='https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/label1.png'></image>
+          <swiper class='swiper' display-multiple-items="2" current="{{swiper.current}}" interval="5000" loop="true" duration="500" bindanimationfinish="swiperchange">
+            <block wx:for="{{swiper.slides}}">
+              <swiper-item>
+                <view class='swiper-inner'>
+                  <image src="{{item.imgurl}}" class="slide-image"/>
+                  <text class="name">{{item.text}}</text>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+          <image class='swiper-prev' bindtap="swiperPrev" src='https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/prev.png'></image>
+          <image class='swiper-next'  bindtap="swiperNext" src='https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/next.png'></image>
+      </view>
+    </view>
+</scroll-view>
+
+<view class='fixed_btn index'>
+  <view class='homePage' data-url="pages/index/index" bindtap='navigator'></view>
+  <view class='detailPage' data-url="pages/detail/detail" bindtap='navigator'></view>
+</view>
+
+<!-- tips -->
+<view class="co_tips co_tips_ward co_tips_ward1" hidden='{{!model1.modelHidden}}'>
+    <view class="co_con">
+        <view class="co_form">
+             <label class='{{"icon icon"+model1.num}}'></label> 
+            <text class="ts">这位枪神，请留步~</text>
+            <text class="ts1">恭喜你解锁<text class='d_name'>{{model1.dwmc}}</text>段位</text>
+            <text class="ts">【CA传奇新赛季】即将开启！</text>
+            <text class="ts">请收好你的专属奖励</text>
+            <text class="ts2">礼包码<text class='d_code' selectable='true'>{{model1.code}}</text></text>
+            <text class="ts3">打开游戏-任务-兑换礼品-进行兑换</text>
+        </view>
+        <view class="co_tips_btn" data-name='model1' bindtap='closeModel'></view>
+    </view>
+</view>
+<view class='{{"co_tips co_tips_ward co_tips_ward2 co_tips_ward2_1  "+(model2.hasGift?"":"co_tips_ward2_2")}}' hidden='{{!model2.modelHidden}}'>
+    <view class="co_con">
+        <view class="co_form">
+            <text class="ts1">你是第<text class='d_name'>{{model2.countNum}}</text>位</text>
+            <text class="ts">成功点亮新赛季的荣誉枪友 </text>
+            <text class="ts4"></text>
+            <text class="ts2">荣耀奖励<text class='d_code' selectable='true'>{{model2.gift_code}}</text></text>
+            <text class="ts3">打开游戏-任务-兑换礼品-进行兑换</text>
+        </view>
+        <view class="co_tips_btn" data-name='model2' bindtap='closeModel'></view>
+    </view>
+</view>
+ <view class="co_tips co_tips_ward co_tips_ward2 co_tips_ward2_3 " hidden='{{!model3.modelHidden}}'>
+    <view class="co_con">
+        <view class="co_form">
+          <block wx:for="{{model3.codearr}}">
+            <text class="ts2"><text class='g_type'>{{item.name}}</text><text class='d_code' selectable='true'>{{item.code}}</text></text>
+          </block>
+          <text class="ts3">长按复制兑换码</text>
+        </view>
+        <view class="co_tips_btn" data-name='model3' bindtap='closeModel'></view>
+    </view>
+</view> 
+<!-- 二维码弹框 -->
+ <!-- <view class="co_tips co_tips_ward " hidden='{{!model4.modelHidden}}' data-name='model4' bindtap='closeModel'>
+    <view class="co_con">
+        <image src="https://cdnstatic.yingxiong.com/qmqz/h5/wx_small/images/qrcode3.png" class="code_img" catchlongtap='saveImg'></image> -->
+        <!-- <view class="co_tips_btn" data-name='model4' bindtap='closeModel'></view> -->
+    <!-- </view>
+</view>  -->

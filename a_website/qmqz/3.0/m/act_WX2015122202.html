@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_actlb.css" rel="stylesheet"/>
+<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+	
+	<section class="WX-qz02">
+		<span class="bound">绑定角色：XXXXXX</span>
+		<span class="lbsl">0000</span>
+		<span class="lbcs">2</span>
+		<span class="lbbdjs">绑定角色</span>
+		<span class="lblqhb">领取红包</span>
+		<span class="lbhdfx">活动分享</span>
+	</section>
+	<section class="WX-qz03">
+		<img src="./images/WX-bg003.jpg" class="mkv">
+	</section>
+
+	<div id="mask"></div>
+	<div class="gift_tck">
+		<img src="./images/i_libao_bg.jpg" class="mkv">
+		<input type="text" placeholder="输入手机号码" id="phone_cdf13d4b5348da8867cc5923446ba88a">
+		<a href="javascript:void(0)" title="领取礼包" type="0" class="gift_get_cdf13d4b5348da8867cc5923446ba88a"></a>
+		<i class="close"></i>
+	</div>
+	<!--领取规则
+	<div class="WX-lqgz">
+		<i class="close"></i>
+	</div>-->
+	<!--领取弹窗-->
+	<div class="WX-lqtk">
+		<input type="text" class="servermsg" value="">
+		<input type="text" class="playerid" value="">
+		<input type="text" class="gold" value="">
+		<a href="javascript:;" class="bin-btn" title="绑定"></a>
+		<i class="close"></i>
+		<div class="serverxl closep"></div>
+		<ul class="model-serverxl">
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+		</ul>
+	</div>
+	<!--消息提示-->
+	<div class="WX-lbtsxx">
+		<i class="close"></i>
+		<div class="divcon">
+			<p>对不起，今日红包已发完，请明天早点来抢！（抢红包开放时间：活动期间每天早上8点）</p>
+		</div>	
+	</div>
+	<!--中奖提示-->
+	<div class="WX-lbzjxx">
+		<i class="close"></i>
+		<div class="divcon">
+			<p class="tit1">恭喜您领到了现金</p>
+			<p class="tit2">领到了<span>现金999元</span></p>
+			<p class="tit3">请在“微信零钱”中查收。</p>
+		</div>	
+	</div>
+	<div class="share-btn">
+		<i class="close"></i>
+	</div>
+
+
+<!--loading-->
+	<div class="load-container load5"><div class="loader"></div></div>
+
+	<script>
+		$(function(){
+			$(".link03").on('touchstart',function(){
+				$(".gift_tck").show();
+				$("#mask").show();
+			})
+			$(".close").on('touchstart',function(){
+				$(".gift_tck").hide();
+				$("#mask").hide();
+			});
+			$(".lbbdjs").click(function(){
+				$("#mask").show();
+				$(".WX-lqtk").show();
+			});
+			$(".WX-lqtk .close").click(function(){
+				$(".WX-lqtk").hide()&&$("#mask").hide();;
+			});
+			$(".WX-lbtsxx .close").click(function(){
+				$(".WX-lbtsxx").hide()&&$(".WX-lbtsxx p").html("");
+			});
+			$(".WX-lqtk .bin-btn").click(function(){
+				alert('绑定失败');
+			});
+			$(".lblqhb").click(function(){
+				$("#mask").show()&&$(".WX-lbzjxx").show()
+			})
+			$(".WX-lbzjxx .close").click(function(){
+				$("#mask").hide()&&$(".WX-lbzjxx").hide()&&$(".WX-lbzjxx .tit2").find("span").html("");
+			})
+			$(".serverxl").click(function(){
+				if($(this).hasClass("closep")){
+					$(".serverxl").removeClass("closep").addClass("open");
+					$(".model-serverxl").slideDown();
+				}else{
+					$(".serverxl").addClass("closep").removeClass("open");
+					$(".model-serverxl").slideUp();
+				}
+			})
+			$(".model-serverxl li").click(function(){
+				var selectval = $.trim($(this).text());
+				$(".servermsg").val(selectval);
+				$(".serverxl").addClass("closep").removeClass("open");
+				$(".model-serverxl").slideUp();
+			});
+			//分享
+			$(".lbhdfx").on("touchstart",function(){
+				$(".share-btn").show();
+				$("body").on("touchmove",false);
+			});
+			$(".share-btn .close").on("touchstart",function(){
+				$(".share-btn").hide();
+				$("body").off("touchmove",false);
+			})
+		});
+
+
+
+	</script>
+
+</body>
+</html>

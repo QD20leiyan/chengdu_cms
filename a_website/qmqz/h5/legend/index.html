@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/animate.min.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+	        (function (doc, win) {
+	            var docEl = doc.documentElement,
+	            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+	                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+	                    recalc = function () {
+	                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+	                        var clientWidth = docEl.clientWidth;
+	                        if (!clientWidth) return;
+	                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+	                    };
+	
+	            recalc();
+	            //判断是否支持监听事件 ，不支持则停止
+	            if (!doc.addEventListener) return;
+	            //注册翻转事件
+	            win.addEventListener(resizeEvt, recalc, false);
+	        })(document, window);
+	    </script>
+	</head>
+	
+	<body>
+		<section>
+			<div class="main">
+				<div class="c_main">
+					<img src="images/logo.png" alt="" class="logo bounceInDown animated" />
+					<div class="c_video">
+						<img src="images/play.png" alt="" />
+					</div>
+				</div>
+				<div class="c_con">
+					<div class="c_download">
+						<img src="images/icon.png" alt="" class="icon"/>
+						<div class="c_txt">
+							<p>全民枪战2</p>
+							<p class="s_p">传奇新赛季，等你来战！</p>
+							<a href="javascript:;">点击下载</a>
+						</div>
+						<img src="images/dian.png" alt="" class="dian" />
+					</div>
+					<div class="c_banner">
+						<div class="t_banner">
+							<ul class="swiper-wrapper">
+								<li class="swiper-slide"><img src="../../7.0/images/p_banner1.jpg" alt="" /></li>
+								<li class="swiper-slide"><img src="../../7.0/images/p_banner2.jpg" alt="" /></li>
+								<li class="swiper-slide"><img src="../../7.0/images/p_banner3.jpg" alt="" /></li>
+								<li class="swiper-slide"><img src="../../7.0/images/p_banner4.jpg" alt="" /></li>
+								<li class="swiper-slide"><img src="../../7.0/images/p_banner5.jpg" alt="" /></li>
+								<li class="swiper-slide"><img src="../../7.0/images/p_banner6.jpg" alt="" /></li>
+							</ul>
+						</div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+				<a href="http://downurl.yingxiong.com/url/qmqz_jpy.html" class="top_load"></a>
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript" src="js/swiper.3.1.7.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			var mySwiper = new Swiper(".t_banner",{
+				loop:true,
+				autoplay:5000,
+				autoplayDisableOnInteraction : false,
+				prevButton:'.swiper-button-prev',
+				nextButton:'.swiper-button-next',
+				observer:true,
+				observeParents:true,
+			});
+		})
+	</script>
+</html>

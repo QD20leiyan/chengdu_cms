@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>一键生成吃鸡海报</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page_photo">
+                <p class="class"><span>第1</span>/<span class="deno">100</span></p>
+                <p class="name">wang er ma</p>
+                <p class="do">大吉大利，马上晚上吃鸡</p>
+                <div class="userinfo">
+                    <p class="main main1"><span>排名</span><span>第1</span></p>
+                    <p class="main main2"><span>杀</span><span>6<i> 玩家</i></span></p>
+                    <p class="main main3"><span>奖励</span><span>1034</span></p>
+                    <div>
+                        <p class="sub"><span>排名得分</span><span>790</span></p>
+                        <p class="sub"><span>击杀得分</span><span>790</span></p>
+                        <p class="sub"><span>生命值</span><span>790</span></p>
+                    </div>
+                </div>
+                <div class="qr_code">
+                    <p class="code"><img src="images/qr_code.png" alt=""/></p>
+                    <p class="info">就问你 怕不怕</p>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    $(function(){
+        $(".deno").text(96 + Math.floor(Math.random()*4));
+    });
+</script>
+</body>
+</html>

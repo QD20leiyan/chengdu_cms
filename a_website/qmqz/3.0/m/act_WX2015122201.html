@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_actlb.css" rel="stylesheet"/>
+<script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+	<header class="common_header">
+		<div class="clear">
+			<a class="linklogo">
+				<dl class="p-common">
+					<dt><h1>全民枪战</h1></dt>
+					<dd>CA，新一代枪战选择</dd>
+				</dl>
+			</a>
+			<a href="http://downurl.yingxiong.com/android/wap_qmqz.html" class="link01 down_andriod">下载</a>
+			<a class="link03" href="javascript:void(0)">领取礼包</a>
+		</div>
+	</header>
+	<section class="WX-qz01">
+		<a href="javascript:;" class="lqhb">领取红包</a>
+		<a href="javascript:;" class="yxxz">游戏下载</a>
+	</section>
+	<div id="mask"></div>
+	<div class="gift_tck">
+		<img src="./images/i_libao_bg.jpg" class="mkv">
+		<input type="text" placeholder="输入手机号码" id="phone_cdf13d4b5348da8867cc5923446ba88a">
+		<a href="javascript:void(0)" title="领取礼包" type="0" class="gift_get_cdf13d4b5348da8867cc5923446ba88a"></a>
+		<i class="close"></i>
+	</div>
+	<!--领取弹窗-->
+	<div class="WX-lqtk">
+		
+		<input type="text" class="servermsg" value="">
+		<input type="text" class="playerid" value="">
+		<input type="text" class="gold" value="">
+		<a href="javascript:;" class="bin-btn" title="绑定"></a>
+		<i class="close"></i>
+		<div class="serverxl"></div>
+		<ul class="model-serverxl">
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+			<li>华中华南</li>
+		</ul>
+	</div>
+	<!--消息提示-->
+	<div class="WX-lbtsxx">
+		<i class="close"></i>
+		<div class="divcon">
+			<p>对不起，今日红包已发完，请明天早点来抢！（抢红包开放时间：活动期间每天早上8点）</p>
+		</div>	
+	</div>
+
+	<div id="mask"></div>
+	<div class="gift_tck">
+		<img src="./images/i_libao_bg.jpg" class="mkv">
+		<input type="text" placeholder="输入手机号码" id="phone_cdf13d4b5348da8867cc5923446ba88a">
+		<a href="javascript:void(0)" title="领取礼包" type="0" class="gift_get_cdf13d4b5348da8867cc5923446ba88a"></a>
+		<i class="close"></i>
+	</div>
+	
+	
+<script>
+		$(function(){
+			$(".link03").on('touchstart',function(){
+				$(".gift_tck").show();
+				$("#mask").show();
+			})
+			$(".close").on('touchstart',function(){
+				$(".gift_tck").hide();
+				$("#mask").hide();
+			});
+			$(".lqhb").click(function(){
+				$("#mask").show();
+				$(".WX-lqtk").show();
+			});
+			$(".WX-lqtk .close").click(function(){
+				$(".WX-lqtk").hide();
+				$("#mask").hide();
+			});
+			$(".serverxl").click(function(){
+				$(".model-serverxl").slideDown();
+			})
+			$(".model-serverxl li").click(function(){
+				var selectval = $.trim($(this).text());
+				$(".servermsg").val(selectval);
+				$(".model-serverxl").slideUp();
+			})
+
+		});
+
+
+
+	</script>
+</body>
+</html>

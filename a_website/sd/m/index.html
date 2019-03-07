@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="format-detection" content="telephone=no"/>
+		<link rel="stylesheet" href="css/swiper-3.4.0.min.css">
+		<link rel="stylesheet" href="css/public.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if(!clientWidth) return;
+                        docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+                    };
+
+                recalc();
+                //判断是否支持监听事件 ，不支持则停止
+                if(!doc.addEventListener) return;
+                //注册翻转事件
+                win.addEventListener(resizeEvt, recalc, false);
+
+            })(document, window);
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div class="top">
+			<div class="logo"></div>
+			<div class="top-word">
+				<h4>飘移车神</h4>
+				<p>3D写实在线竞速手游</p>
+			</div>
+			<div class="top-btn"></div>
+			<ul class="top-list">
+				<li class="active">首页</li>
+				<li>新闻</li>
+				<li>社区</li>
+				<li>客服</li>
+			</ul>
+		</div>
+		<div class="cont1">
+			<div class="logo"></div>
+			<div class="play"></div>
+			<img class="video" src="images/video1.png" alt="">
+			<div class="download"></div>
+		</div>
+		<div class="cont2">
+			<div class="swiper1">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<a href="">
+							<img src="images/photo.png">
+							<p>极速飘逸狂欢赛事</p>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="">
+							<img src="images/photo.png">
+							<p>极速飘逸狂欢赛事</p>
+						</a>
+					</div>
+					<div class="swiper-slide">
+						<a href="">
+							<img src="images/photo.png">
+							<p>极速飘逸狂欢赛事</p>
+						</a>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="news">
+				<ul class="news-list">
+					<li class="active" data-index="0">最新</li>
+					<li data-index="1">新闻</li>
+					<li data-index="2">资讯</li>
+					<li data-index="3">公告</li>
+					<a></a>
+				</ul>
+				<ul class="news-info">
+					<li class="info active">
+						<a href="">
+							<h3>别以为自己天下无敌了来《漂移车神》...</h3>
+							<p>普通关卡第12章-防卫荆州开放，第11章通关后可参与第12章关卡通关关卡后可获得丰富的道具奖励将 ...</p>
+						</a>
+						<ul class="news-info-list">
+							<li><a href=""><span><i>[资讯]</i>《漂移车神》跨服战“问鼎九州”</span><span>01/02</span></a></li>
+						</ul>
+					</li>
+					<li class="info"><p class="noData">暂无数据</p></li>
+					<li class="info">3</li>
+					<li class="info">4</li>
+				</ul>
+			</div>
+		</div>
+		<div class="cont3">
+			<div class="title"></div>
+			<div class="playBg">
+				<div class="swiper2">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<a href="">
+								<img src="images/photo.png">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="">
+								<img src="images/photo.png">
+							</a>
+						</div>
+						<div class="swiper-slide">
+							<a href="">
+								<img src="images/photo.png">
+							</a>
+						</div>
+					</div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+<script src="js/swiper-3.4.0.min.js"></script>
+<script>
+	$('.top-btn').click(function () {
+	    $(this).toggleClass('close');
+	    $('.top-list').toggle(500);
+    })
+    var mySwiper = new Swiper(".swiper1", {
+        autoplay: 5000,
+        pagination : '.swiper-pagination',
+		loop: true
+    });
+    var mySwiper2 = new Swiper(".swiper2", {
+        autoplay: 5000,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        loop: true
+    });
+    $(".news-list").find('li').click(function() {
+        if($(this).hasClass('active')){
+            return;
+		}
+		var index = parseInt($(this).attr('data-index'));
+        $('.news-list').find('li').removeClass('active');
+        $(this).addClass('active');
+        $('.news-info').find('li').removeClass('active');
+        $('.news-info').find('li.info').eq(index).addClass('active');
+    });
+</script>
+</html>

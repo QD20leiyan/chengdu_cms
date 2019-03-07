@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_xcover.css" rel="stylesheet"/>
+</head>
+<body class="ws_index">
+	<header class="common_header">
+		<div class="ws_header clear">
+			<a href="" class="linklogo">
+				<dl class="p-common">
+					<dt><h1>全民枪战</h1></dt>
+					<dd>CA,新一代枪战选择</dd>
+				</dl>
+			</a>
+			<a class="link01" href="javascript:void(0)">下载</a>
+			<a class="link03" href="javascript:void(0)">领取礼包</a>
+		</div>
+	</header>
+	<section class="ws_ione">
+		<img src="./images/ws_qz_bg1_03.jpg" alt="万圣节全民枪战" class="mkv">
+		<img src="./images/ws_qz_bg2.jpg" alt="新品上架" class="mkv" id="ws_menu1">
+		<img src="./images/ws_qz_bg3_01.jpg" alt="超值礼包" class="mkv" id="ws_menu2">
+		<img src="./images/ws_qz_bg3_02.jpg" alt="超值礼包" class="mkv">
+		<img src="./images/ws_qz_bg4.jpg" alt="作战有礼" class="mkv" id="ws_menu3">
+		<img src="./images/ws_qz_bg5_01.jpg" alt="登录有礼" class="mkv" id="ws_menu4">
+		<img src="./images/ws_qz_bg5_02.jpg" alt="登录有礼" class="mkv">
+		<img src="./images/ws_qz_bg5_03.jpg" alt="登录有礼" class="mkv">
+		<img src="./images/ws_qz_bg6.jpg" alt="角色上架" class="mkv" id="ws_menu5">
+		<img src="./images/ws_qz_bg7.jpg" alt="充值送改装卡" class="mkv" id="ws_menu6">
+		<img src="./images/ws_qz_bg8.jpg" alt="充值反站" class="mkv" id="ws_menu7">
+		<img src="./images/ws_qz_bg9.jpg" alt="强化骑士" class="mkv" id="ws_menu8">
+		<img src="./images/ws_qz_bg10.jpg" alt="万圣节全民枪战" class="mkv">
+		<img src="./images/ws_ico3.png" alt="眼睛" class="ws_yan mkv">
+	</section>
+	
+	<footer>
+		<p>版权所有：北京卓越晨星科技有限公司</p>
+		<p>经营许可证编号：粤ICP备09179912号-3 Rights Reserved©</p>
+		<p>公司地址：北京市朝阳区酒仙桥路宏源大厦3楼</p>
+		<p>联系方式：4009393333</p> 
+	</footer>
+	<div class="mask_pop">
+		<div class="gift_tck">
+			<div class="t_box">
+				<div class="gift_title">
+					<h3>新手礼包</h3>
+				</div>
+				<img src="images/c.png" class="close">
+			</div>
+			<div class="clear"></div>
+			<div class="gift_main">
+				<div class="text">
+					<input type="text" placeholder="输入手机号码" id="phone_18bc54a05edc099bcb309ed881176712">
+				</div>
+				<div class="tck_btn">
+					<a href="javascript:void(0)" title="IOS领取" type="1" class="gift_get_18bc54a05edc099bcb309ed881176712">IOS领取</a>
+					<a href="javascript:void(0)" title="安卓领取" type="2" class="gift_get_18bc54a05edc099bcb309ed881176712">安卓领取</a>
+					<a href="javascript:void(0)" title="IOS越狱领取" type="2" class="gift_get_18bc54a05edc099bcb309ed881176712">IOS越狱领取</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ws_menu">
+		<img src="./images/ws_menu.png" alt="导航条" class="mkv">
+		<ul id="fmNav">
+			<li><a  title="111" class="ws_menu1"></a></li>
+			<li><a  title="222" class="ws_menu2"></a></li>
+			<li><a  title="333" class="ws_menu3"></a></li>
+			<li><a  title="444" class="ws_menu4"></a></li>
+			<li><a  title="555" class="ws_menu5"></a></li>
+			<li><a  title="666" class="ws_menu6"></a></li>
+			<li><a  title="777" class="ws_menu7"></a></li>
+			<li><a  title="888" class="ws_menu8"></a></li>
+		</ul>
+		<div class="ws_ico ws_open" href="javascript:void(0)">
+			<i></i>
+			<i></i>
+		</div>
+	</div>
+	<script type="text/javascript" src="../common/js/jquery-1.11.2.min.js"></script>
+	<script>
+		$(function(){
+			$(".link03").click(function(){
+				$(".mask_pop").show();
+				$(".gift_tck").show();
+				$("#mask").show();
+				$("body").on("touchmove",false);
+			})
+			$(".close").click(function(){
+			$(".mask_pop").hide();
+				$(".gift_tck").hide();
+				$("#mask").hide();
+				$("body").off("touchmove",false);
+			});
+			$(".link01").click(function(){
+				$(".main01_nav").show();
+			});
+			$(".wclose").click(function(){
+				$(this).parent(".main01_nav").hide();
+			});
+			$(".ws_ico").on("touchstart",function(event){
+				if($(this).hasClass('ws_open')){
+					$(".ws_menu").css('right','0');
+					$(this).removeClass('ws_open');
+					$(".ws_ico").addClass('ws_ico_01');
+				}else{
+					$(".ws_menu").css('right','-38%');
+					$(this).addClass('ws_open');
+					$(".ws_ico").removeClass('ws_ico_01');
+				}
+				event.preventDefault();
+			});
+			$("body").addClass('qz_ws');
+			//描点定位
+			var scence1 = $("#ws_menu1").offset().top;
+			var scence2 = $("#ws_menu2").offset().top;
+			var scence3 = $("#ws_menu3").offset().top;
+			var scence4 = $("#ws_menu4").offset().top;
+			var scence5 = $("#ws_menu5").offset().top;
+			var scence6 = $("#ws_menu6").offset().top;
+			var scence7 = $("#ws_menu7").offset().top;
+			var scence8 = $("#ws_menu8").offset().top;
+			$(window).scroll(function(){
+				var scroH = $(this).scrollTop();
+				if(scroH>=scence1){
+					set_cur(".ws_menu1");
+				}else if(scroH>=scence2){
+					set_cur(".ws_menu2");
+				}else if(scroH>=scence3){
+					set_cur(".ws_menu3");
+				}else if(scroH>=scence4){
+					set_cur(".ws_menu4");
+				}else if(scroH>=scence5){
+					set_cur(".ws_menu5");
+				}else if(scroH>=scence6){
+					set_cur(".ws_menu6");
+				}else if(scroH>=scence7){
+					set_cur(".ws_menu7");
+				}else if(scroH>=scence8){
+					set_cur(".ws_menu8");
+				}
+			});
+			$("#fmNav li a").click(function() {
+				var el = $(this).attr('class');
+		     	$('html, body').animate({
+		         	scrollTop: $("#"+el).offset().top
+		     	}, 300);
+				$(this).addClass("cur").parent().siblings().find("a").removeClass("cur");	
+				
+		 	});
+			
+		});
+
+		function set_cur(n){
+			if($("fmNav a").hasClass("cur")){
+				$("fmNav a").removeClass("cur");
+			}
+			$("fmNav a"+n).addClass("cur");
+			$(".ws_menu").css('right','-38%');
+			$(".ws_ico").addClass('ws_open');
+			$(".ws_ico").removeClass('ws_ico_01');
+		}
+
+	</script>
+</body>
+</html>

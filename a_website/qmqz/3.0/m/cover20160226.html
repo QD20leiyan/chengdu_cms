@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_xcover.css" rel="stylesheet"/>
+</head>
+<body>
+
+<header class="common_header">
+	<div class="clear">
+		<a href="" class="linklogo">
+			<dl class="p-common">
+				<dt><h1>全民枪战</h1></dt>
+				<dd>CA,新一代枪战选择</dd>
+			</dl>
+		</a>
+		<a class="link01" href="javascript:void(0)">下载</a>
+		<a class="link03" href="javascript:void(0)">领取礼包</a>
+	</div>
+</header>
+<div class="main01_nav">
+	<span class="wclose"><img src="images/c_03.png"></span>          		
+	<a href="javascript:void(0)"><img src="images/nav08.jpg" alt="IOS正版下载"></a>
+	<a href="javascript:void(0)"><img src="images/nav07.jpg" alt="安卓版下载"></a>
+	<div class="clear"></div>
+</div>
+<div class="gift_tck">
+	<img src="../common/images/i_libao_bg.jpg" class="mkv">
+	<input type="text" placeholder="输入手机号码" id="">
+	<a href="javascript:javascript:alert(1)" title="领取礼包"></a>
+	<i class="close"></i>
+</div>
+
+
+<section class="first_chapter o_h">
+	<div class="cover_OH"></div>
+    <img src="./images/m_xmain_03.jpg" alt="全民枪战" class="mkv" >
+    <img src="./images/m_xmain_04.jpg" alt="全民枪战" class="mkv" >
+
+    <a class="o-con o-l" href="javascript:;" title="进入专题">进入专题</a>
+    <a class="o-con o-r" href="javascript:;" title="进入官网">进入官网</a>
+</section>
+
+<footer>
+	<p>版权所有：北京卓越晨星科技有限公司</p>
+	<p>经营许可证编号：粤ICP备09179912号-3 Rights Reserved©</p>
+	<p>公司地址：北京市朝阳区酒仙桥路宏源大厦3楼</p>
+	<p>联系方式：4009393333</p> 
+</footer>
+<div class="huya-zb">
+	<div class="huya-zbc">
+		<div id="close"></div>
+		<iframe src="http://m.huya.com/1424681765?vm=sinalive" style="width:100%;height:100%;display:block;margin:0 auto" frameborder="0" ></iframe> 
+		
+	</div>
+</div>
+<script type="text/javascript" src="../common/js/jquery-1.11.2.min.js"></script>
+<script>
+	
+	$(function(){
+		$(".link03").click(function(){
+			$(".gift_tck").show();
+			$("#mask").show();
+		})
+		$(".close").click(function(){
+			$(".gift_tck").hide();
+			$("#mask").hide();
+		});
+		$(".link01").click(function(){
+			$(".main01_nav").show();
+		});
+		$(".wclose").click(function(){
+			$(this).parent(".main01_nav").hide();
+		});
+		
+		$(".o-l").on("touchstart",function(){
+			$(".huya-zb").show();
+			$("body").on("touchmove",false)
+		});
+		$(".huya-zb #close").on("touchstart",function(){
+			$(".huya-zb").hide();
+			$("body").off("touchmove",false)
+		})
+	})
+</script>
+</body>
+</html>

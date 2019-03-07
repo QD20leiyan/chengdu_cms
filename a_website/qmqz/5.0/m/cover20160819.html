@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+	  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link href="../common/css/common.min.css" rel="stylesheet"/>
+		<link href="../common/css/swiper.3.1.7.min.css" rel="stylesheet"/>
+		<link href="./css/css.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<header class="common_header">
+			<img class="linklogo" src="../common/images/i_icon.png" alt="img" />
+			<div class="h_title">
+				<h3>全民枪战</h3>
+				<p>CA，新一代枪战选择</p>
+			</div>
+			<div class="h_btn">
+				<a class="m_giftbtn" href="javascript:void(0)">领取礼包</a>
+				<a href="javascript:" class="m_downl down_andriod">下载</a>
+			</div>
+		</header>
+		<section class="cover_box">
+			<img class="co_bg" src="./images/co_bg0819.jpg" alt="bg" />
+			<img class="c_logo" src="../common/images/c_logo.png" alt="logo">
+			<div class="co_videobox">
+				<div class="video_compere">
+					<div class="co_video">
+						<!-- <iframe frameborder="0" width="100%" height="100%" scrolling="no" src="http://pl-hls8.live.panda.tv/live_panda/23f3bb2888d928fccca69267276d7a85.m3u8"></iframe> -->
+						<video id="videoplayer" width="100%" height="100%" preload="preload" autoplay="autoplay" controls="controls" webkit-playsinline=""><source src="http://pl-hls8.live.panda.tv/live_panda/23f3bb2888d928fccca69267276d7a85.m3u8"></video>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="co_downl"></a>
+		</section>
+		<footer class="bottom">
+			<p class="bottp_1">COPY RIGHT   @2015-2016  ALL RIGHTS RESERVED</p>
+			<p class="bottp_2">英雄互娱版权所有</p>
+	  </footer>
+		<div class="mask"></div>
+		<div class="gift_tck">
+			<img src="../common/images/i_libao_bg.jpg" class="mkv">
+			<input type="text" placeholder="输入手机号码" id="">
+			<a href="javascript:" title="领取礼包"></a>
+			<i class="close"></i>
+		</div>
+		<div id="video_tck">
+			<div id="player5">
+				<div id="close"></div>
+				<iframe border=0 marginWidth=0 frameSpacing=0 marginHeight=0 src="" frameBorder=0 noResize scrolling="no" width=100% height=100% vspale="0" id="iframe_btn"></iframe>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="../common/js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="../common/js/swiper.3.1.7.min.js"></script>
+		<script type="text/javascript" src="./js/jquery.fittext.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('html').fitText(2);
+				var vedio_url = "/video/videosource.html";
+        $(".c_live").click(function(){
+            var uuid = $(this).attr("data-uid");
+            var url = vedio_url + '?' + uuid;
+            $("#video_tck").find('#player5').find("iframe").attr({src:url});
+            $("#video_tck").show();
+            $(".mask").show();
+        });
+        $("#video_tck #close").click(function(){
+            $("#video_tck").hide();
+            $(".mask").hide();
+        })
+
+			})
+			var swiper01 = new Swiper('.swiper-container', {
+	        pagination: '.swiper-pagination',
+	        slidesPerView: 1,
+	        paginationClickable: true,
+	        spaceBetween: 2,
+	        autoplayDisableOnInteraction : false,
+	    	autoplay:2000,
+	    	loop:true
+	    });
+		</script>
+	</body>
+</html>

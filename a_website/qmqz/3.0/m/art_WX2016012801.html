@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>111111</title>
+	<link rel="stylesheet" href="css/m_actlb.css">
+
+</head>
+<body>
+	<div class="HW-qzwap">
+		<div class="page-1">
+			<img src="./images/hb-HW-1.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-2.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-3.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-4.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-5.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-6.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<a href="javascript:;" class="Start-testing" title="开始测试">开始测试</a>
+		</div>
+		<div class="page-2">
+			<img src="./images/hb-HW-01.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-02.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-03.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-04.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-05.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-06.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<div class="middleT">
+				<p>请输入您的大名！</p>
+				<p>只能输入6个字符以内</p>
+				<p><input type="text" value="" maxlength=6></p>
+				<a href="javascript:;" class="Confirm-name" title="确认姓名">确认姓名</a>
+			</div>
+		</div>
+		<div class="page-3">
+			<img src="./images/hb-HW-01.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-002.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-003.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-004.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-005.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<img src="./images/hb-HW-006.jpg" alt="全民枪战微信华为礼包" class="mkv">
+			<div class="middleQ"></div>
+			<a href="javascript:;" class="Game-download" title="游戏下载">游戏下载</a>
+		</div>	
+	</div>
+	
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script> 
+		
+		$(function(){
+			Index.init();
+		})
+		var Index = function(){
+			var t ={
+				StartTesting:function(){
+					$(".Start-testing").on("click",function(){
+						$(".page-1").hide();
+						$(".page-2").show();
+					})
+				},
+				ConfirmName:function(){
+					$(".Confirm-name").on("click",function(){
+						if($(".middleT input").val()==""){
+							alert("请输入您的大名！");
+						}else{
+							var Coname = $.trim($(".middleT input").val());
+							$.ajax({
+								type:"POST",
+								url:"./a.json",
+								data:{uname:Coname},
+								dataType:"json",
+								success:function(data){
+								console.log(data.unid);
+									if(data.unid==1){
+										//alert("插入成功");
+										$(".page-2").hide();
+										$(".page-3").show();
+										var n = data.ToyouId;
+										t.ConToyou(n);
+									}else if(data.unid==0){
+										alert("你已经领取过了");
+									}else if(data.unid==-1){
+										alert("领取失败，从新输入");
+									}
+								}
+							})
+						}
+					});
+				},
+				ConToyou:function(n){
+					var n = n?n:Math.floor(Math.random()*9 + 1);
+					$(".middleQ").css("background-image","url(./images/Q"+n+".png)")
+				}
+			}
+			var n = function(){
+				t.ConfirmName(),t.StartTesting();
+			}
+			return {init:n}
+		}();
+		
+	</script>
+</body>
+</html>

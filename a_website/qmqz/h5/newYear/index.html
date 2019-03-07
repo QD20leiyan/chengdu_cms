@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全民枪战</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide swiper-no-swiping page1">
+                <div class="logo"><img src="images/logo.png" alt=""/></div>
+                <div class="txt_who ani" swiper-animate-effect="bounceOutRight" swiper-animate-delay="0.6s"><img src="images/txt_who.png" alt=""/></div>
+                <div class="txt_you ani" swiper-animate-effect="bounceInDown" swiper-animate-delay="0.3s"><img src="images/txt_you.png" alt=""/></div>
+                <button class="login_btn"></button>
+            </section>
+            <section class="swiper-slide page2">
+                <div class="logo"><img src="images/logo.png" alt=""/></div>
+                <div class="txt_you"><img src="images/txt_you.png" alt=""/></div>
+                <button class="prev_btn"></button>
+                <button class="next_btn"></button>
+            </section>
+            <section class="swiper-slide swiper-no-swiping page3">
+                <div class="logo"><img src="images/logo.png" alt=""/></div>
+                <div class="name">拉努与</div>
+                <div class="dl"><canvas class="sway" width="160" height="212" imgsrc="images/dl.png"></canvas></div>
+                <div class="scroll">
+                    <div class="se_con">
+                        <div class="title1"><img src="images/title1.png" alt=""/></div>
+                        <div class="path">
+                            <div class="path1 ani" swiper-animate-effect="fadeInLeft"><img src="images/path1.png" alt=""/></div>
+                            <div class="path2 ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="2s"><img src="images/path2.png" alt=""/></div>
+                            <div class="path3 ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="4s"><img src="images/path3.png" alt=""/></div>
+                            <div class="path4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="6s"><img src="images/path4.png" alt=""/></div>
+                            <div class="path5 ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="8s"><img src="images/path5.png" alt=""/></div>
+                            <div class="path6 ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="10s"><img src="images/path6.png" alt=""/></div>
+                            <div class="path6-1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-delay="10s"><img src="images/path6-1.png" alt=""/></div>
+                            <div class="path6-2 ani" swiper-animate-effect="bounceInLeft" swiper-animate-delay="10.2s"><img src="images/path6-2.png" alt=""/></div>
+                            <div class="path7 ani" swiper-animate-effect="fadeInRight" swiper-animate-delay="12s"><img src="images/path7.png" alt=""/></div>
+                        </div>
+                        <div class="down"></div>
+                        <div class="down_txt"><img src="images/check_txt.png" alt=""/></div>
+                    </div>
+                </div>
+            </section>
+            <section class="swiper-slide page4 swiper-no-swiping">
+                <div class="scroll">
+                    <div class="logo"><img src="images/logo.png" alt=""/></div>
+                    <div class="name">拉努与</div>
+                    <div class="text_info">
+                        <p class="line1 ani" swiper-animate-effect="slideInLeft">今年1月</p>
+                        <p class="line2 ani" swiper-animate-effect="slideInLeft">某不知名策划-<span>“酒仙桥小伍”</span>悄悄现身贴吧。</p>
+                        <p class="line3 ani" swiper-animate-effect="slideInLeft" swiper-animate-delay="0.1s">在<span>“未经允许”</span>的情况下...</p>
+                        <p class="line4 ani" swiper-animate-effect="slideInLeft" swiper-animate-delay="0.1s"><span>“偷偷”</span>许诺枪友们大量研发计划 </p>
+                        <p class="line5 ani" swiper-animate-effect="slideInLeft" swiper-animate-delay="0.1s">然而..</p>
+                    </div>
+                    <div class="dl"><canvas class="sway" width="160" height="212"></canvas></div>
+                    <div class="continue_btn"><img src="images/continue_btn.png" alt=""/></div>
+                    <div class="dm hidden"></div>
+                    <div class="down hidden"></div>
+                </div>
+            </section>
+            <section class="swiper-slide page5">
+                <div class="scroll">
+                    <div class="logo"><img src="images/logo.png" alt=""/></div>
+                    <div class="name">拉努与</div>
+                    <div class="text_info">
+                        <p class="line1 ani" swiper-animate-effect="slideInLeft">小伍同学一度遭到制作人的  </p>
+                        <p class="line2 ani" swiper-animate-effect="bounceInDown">狠狠批评  </p>
+                        <p class="line3 ani"  swiper-animate-effect="bounceInDown" swiper-animate-delay="0.1s">“<span>早干嘛去了</span>！！！”</p>
+                    </div>
+                    <div class="dl"><canvas class="sway" width="160" height="212"></canvas></div>
+                    <div class="dz">
+                        <div class="dz_txt">
+                            <!--<p>so...</p>-->
+                            <!--<p>这是来自策划小伍的一个小小恳求</p>-->
+                            <!--<p>希望你能帮帮他一起“整理”</p>-->
+                            <!--<p>那些他答应众多枪友们后期要开发和调整的内容....</p>-->
+                        </div>
+                    </div>
+                    <div class="down"></div>
+                    <div class="down_txt"><img src="images/check_txt1.png" alt=""/></div>
+                </div>
+            </section>
+            <section class="swiper-slide page6 swiper-no-swiping">
+                <div class="logo"><img src="images/logo.png" alt=""/></div>
+                <div class="name">拉努与</div>
+                <div class="dl"><canvas class="sway" width="160" height="212"></canvas></div>
+                <div class="title2"><img src="images/title2.png" alt=""/>
+                    <p>提示：动动小手选择你觉得最重要的3个选项进行选择~ </p>
+                </div>
+                <div class="scroll">
+                    <div class="se_con">
+                        <div class="tp_box">
+                            <div>
+                                <h1>排位新赛季</h1>
+                                <p>排位赛新赛季，当前段位重置，枪友们会根据当前排位积分获得相应奖励；【选我记得冲排位】</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>排位荣誉&奖励系统更新</h1>
+                                <p>新排位系统中，枪友们可通过排位赛解锁更多福利和荣耀武器；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>新地图</h1>
+                                <p>涉及各种模式的对战新地图；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>全新PVE模式</h1>
+                                <p>开发新的挑战模式，新挑战拥有对应新奖励；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>新玩法</h1>
+                                <p>开发更多新鲜玩法和模式；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>免费新武器</h1>
+                                <p>枪友们可通过在游戏中的活跃获得免费新武器，包括各类型枪械和近战武器等；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>顶级新武器</h1>
+                                <p>新传奇武器，包括龙、骑士、恶魔系列武器以及专供排位量身打造的新武器；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>生存模式升级</h1>
+                                <p>生存冒险持续优化，更多新功能加入；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>日常福利升级</h1>
+                                <p>通过日常任务和活动任务可获得更多福利；</p>
+                            </div>
+                        </div>
+                        <div class="tp_box">
+                            <div>
+                                <h1>模块优化</h1>
+                                <p>枪战中现有系统和模式调优升级eg.创造、机甲、喷射等；</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_bg">
+                    <button class="tj_btn"></button>
+                </div>
+            </section>
+            <section class="swiper-slide page7 swiper-no-swiping">
+                <div class="logo"><img src="images/logo.png" alt=""/></div>
+                <div class="name">拉努与</div>
+                <div class="dl"><canvas class="sway" width="160" height="212"></canvas></div>
+                <div class="title2"><img src="images/title3.png" alt=""/>
+                    <p>排行榜与投票结果</p>
+                </div>
+                <div class="ts_btn"><img src="images/ts_btn.png" alt=""/></div>
+                <div class="scroll">
+                    <div class="se_con">
+                        <div class="tp_box tp_box1">
+                            <div>
+                                <h1>排位新赛季</h1>
+                                <p>排位赛新赛季，当前段位重置，枪友们会根据当前排位积分获得相应奖励；【选我记得冲排位】</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">01</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box2">
+                            <div>
+                                <h1>排位荣誉&奖励系统更新</h1>
+                                <p>新排位系统中，枪友们可通过排位赛解锁更多福利和荣耀武器；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">02</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box3">
+                            <div>
+                                <h1>新地图</h1>
+                                <p>涉及各种模式的对战新地图；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">03</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box4">
+                            <div>
+                                <h1>全新PVE模式</h1>
+                                <p>开发新的挑战模式，新挑战拥有对应新奖励；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">04</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box5">
+                            <div>
+                                <h1>新玩法</h1>
+                                <p>开发更多新鲜玩法和模式；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">05</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box6">
+                            <div>
+                                <h1>免费新武器</h1>
+                                <p>枪友们可通过在游戏中的活跃获得免费新武器，包括各类型枪械和近战武器等；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">06</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box7">
+                            <div>
+                                <h1>顶级新武器</h1>
+                                <p>新传奇武器，包括龙、骑士、恶魔系列武器以及专供排位量身打造的新武器；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">07</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box8">
+                            <div>
+                                <h1>生存模式升级</h1>
+                                <p>生存冒险持续优化，更多新功能加入；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">08</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box9">
+                            <div>
+                                <h1>日常福利升级</h1>
+                                <p>通过日常任务和活动任务可获得更多福利；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">09</span>
+                            </div>
+                        </div>
+                        <div class="tp_box tp_box10">
+                            <div>
+                                <h1>模块优化</h1>
+                                <p>枪战中现有系统和模式调优升级eg.创造、机甲、喷射等；</p>
+                                <span class="num"><i>0</i>票</span>
+                                <span class="top">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom_bg">
+                    <button class="down_btn"><a href="http://downurl.yingxiong.com/url/qmqz_xnh5.html"></a></button>
+                    <button class="help_btn"></button>
+                </div>
+            </section>
+        </section>
+    </section>
+</div>
+<!--登录弹框-->
+<div class="tips login_tips hidden">
+    <div class="content">
+        <div class="co_form">
+            <div class="co_input">
+                <input type="text" maxlength="6" class="co_username" placeholder="输入昵称">
+            </div>
+            <div class="co_input">
+                <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username1" placeholder="输入手机号">
+            </div>
+            <div class="co_input">
+                <input type="text" class="captcha" placeholder="输入图片验证码">
+                <span class="co_captcha"><img id="captcha-img" src="images/captcha.png" alt="" title="换一个" style="cursor:pointer;"></span>
+                <p class="co_imgtxt">点击图片刷新</p>
+            </div>
+            <div class="co_input">
+                <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="输入手机验证码"><span class="co_codebtn">获取验证码</span>
+            </div>
+            <div class="tipstj_btn"></div>
+        </div>
+    </div>
+</div>
+<!--兑换码弹框-->
+<div class="tips code_tips hidden">
+    <div class="content">
+        <div class="co_form">
+            <p class="info">跪谢枪友们对CA的关照</p>
+            <p class="info">2018听你的！</p>
+            <p class="info">新年快递请收下</p>
+            <p class="code">XF23H56</p>
+            <div class="back_btn"></div>
+        </div>
+    </div>
+</div>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="images/share_bg.png" alt=""/></div>
+<!--音乐-->
+<!--<img id="music_icon" class="music_play" name="play" src="images/p_music_play_06.png">-->
+<audio id="music" src="audio/audio.MP3" autoplay="autoplay" loop="loop"></audio>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script type="text/javascript">
+    var is_vote=0;
+    $(function() {
+      //滑动页面
+      var mySwiper = new Swiper('.swiper-container', {
+          direction: 'vertical',
+          pagination: '.swiper-pagination',
+          mousewheelControl: true,
+          observer: true,
+          observeParents: true,
+          noSwiping: true,
+          nested: true,
+          onInit: function (swiper) {
+              swiperAnimateCache(swiper);
+              swiperAnimate(swiper);
+          },
+          onTouchEnd:function(swiper){
+              if(swiper.activeIndex==4){
+                  if(is_vote==0){
+                      mySwiper.slideTo(4);
+                  }else{
+                      mySwiper.slideTo(5);
+                  }
+                  return false;
+              }
+          },
+          onSlideChangeEnd: function (swiper) {
+              if(swiper.activeIndex==2){
+                  setTimeout(function(){
+                      $(".page3 .scroll").animate({
+                          scrollTop: $(".page3 .scroll .se_con").height()-$(this).height()+'px'
+                      },11500,"linear",function(){
+                          $(".page3").removeClass("swiper-no-swiping");
+                          });
+                  },2500);
+                  setTimeout(function(){
+                      $(".page3 .scroll .path6-1").removeClass("fadeInLeft").addClass("right");
+                  },10700);
+              }else{
+                  $(".page3").addClass("swiper-no-swiping");
+                  $(".page3 .scroll").animate({
+                      scrollTop:'0px'
+                  },10);
+              }
+              if(swiper.activeIndex==4){
+
+                  //#号表示增加一个p标签
+                  var str="#so...#这是来自策划小伍的一个小小恳求#希望你能帮帮他一起“整理”#那些他答应众多枪友们后期要开发和调整的内容....";
+                  print(str);
+              }else{
+                  $(".dz .dz_txt").text('');
+              }
+//              if(swiper.activeIndex==5||swiper.activeIndex==6){
+//                  $(".bottom_bg").addClass("z-index");
+//              }else{
+//                  $(".bottom_bg").removeClass("z-index");
+//              }
+          },
+          onTransitionEnd: function (swiper) {
+              swiperAnimate(swiper);
+              if(swiper.activeIndex==1){
+                  swiper.lockSwipeToPrev();
+              }else{
+                  swiper.unlockSwipeToPrev();
+              }
+          }
+
+      });
+
+      //点击登录
+      $(".login_btn").click(function(){
+        $(".login_tips").removeClass("hidden");
+      });
+
+      //点击用户登录提交
+      $(".tipstj_btn").click(function(){
+          $(".login_tips").addClass("hidden");
+          mySwiper.slideNext();
+      });
+
+      //点击回放2017
+      $(".prev_btn").click(function(){
+          mySwiper.slideNext();
+      });
+
+      //点击快进2018
+      $(".next_btn").click(function(){
+          mySwiper.slideTo(3);
+      });
+
+      //点击继续出现弹幕
+      $(".continue_btn").click(function(){
+          $(this).addClass("hidden");
+          $(".page4 .down").removeClass("hidden");
+          $(".page4").removeClass("swiper-no-swiping");
+          $(".dm").removeClass("hidden");
+          danmu();
+        //window.location.href = location.href+'?time='+((new Date()).getTime());
+      });
+
+      //灯笼
+      (function dlFun(){
+          var childImg=document.createElement("img");
+          childImg.src=$(".sway:first").attr("imgsrc");
+          var swayarr=[];
+          $(".sway").each(function(i,n){
+              var swayobj={dom:n,y:0};
+              swayobj.ctx= n.getContext("2d");
+              swayarr.push(swayobj);
+          });
+          function drawDl(){
+              for(var i in swayarr){
+                  swayarr[i].ctx.clearRect(0,0,swayarr[i].dom.width,swayarr[i].dom.height);
+                  swayarr[i].ctx.beginPath();
+                  swayarr[i].ctx.save();
+                  swayarr[i].y+=212;
+                  if(swayarr[i].y>=childImg.height){
+                      swayarr[i].y = 0;
+                  }
+                  //9个参数
+                  //1元素节点
+                  //2切割的起始X坐标
+                  //3切割的起始的Y坐标
+                  //4切割宽度
+                  //5切割高度
+                  //6切割好的图片的定位X坐标
+                  //7切割好的图片的定位Y坐标
+                  //8显示切割图片的宽度
+                  //9显示切割图片的高度
+//                  console.log(i+":"+swayarr[i].y);
+                  swayarr[i].ctx.drawImage(childImg,0,swayarr[i].y,160,212,0,0,swayarr[i].dom.width,swayarr[i].dom.height);
+                  swayarr[i].ctx.closePath();
+                  swayarr[i].ctx.stroke();
+                  swayarr[i].ctx.restore();
+              }
+          }
+          drawDl();
+          setInterval(drawDl,150);
+      })();
+
+      //弹幕
+      function danmu(){
+          var strArr=['早该来了！','段位呀段位呀，这么长时间了还不重置啊，都急死啦',
+              '我怀疑你是个假策划，微博上不是有个夏颜么','作为内部人员，我不知道该不该信',
+              '我怀疑你是个假策划','快走，很多人想打你，我断后','快走吧，你没看贴吧多少人想杀策划的吗？',
+              '老哥，这泼冒充都可以。','还有多办一点事吧……这么多人 反馈意见不要敷衍了事',
+              '黑骑39火光好亮 帮忙消一下，太亮了，看不清'];
+          var colorArr=['#D42700','#78101E','#009ABB','#50B748','#EB5D0F'];
+          var toparr=[6,6.8,7.6,8.4,9.2,10,10.8,11.6,12.4,13.2,14,14.8,15.6,16.4,17.2];
+          function danmufun(){
+              var topindex=Math.floor(toparr.length*Math.random());
+              var span=$('<span style="top:'+toparr[topindex]+'rem;color:'+colorArr[Math.floor(colorArr.length*Math.random())]+';">'+strArr[Math.floor(strArr.length*Math.random())]+'</span>');
+              toparr.splice(topindex,1);
+              span.appendTo(".dm").animate({left:-span.width()+"px"},10000,'linear',function(){
+                  toparr.push(parseFloat($(this).css('top'))/parseFloat($('html').css('fontSize')));
+                  $(this).remove();
+//                  console.log(toparr);
+              });
+
+              setTimeout(function(){
+                  danmufun();
+              },1000+Math.random()*1000);
+          }
+          danmufun();
+      }
+
+      //打字
+      function print(str){
+          if(str){
+              if(str.charAt()=="#"){
+                  $(".dz .dz_txt").append("<p></p>");
+                  str=str.substr(1);
+              }
+              $(".dz .dz_txt p:last").text($(".dz .dz_txt p:last").text()+str.charAt());
+              setTimeout(function(){print(str.substr(1));},50);
+          }else{
+
+          }
+      };
+
+      //投票选中
+      $(".page6 .tp_box").click(function(){
+          $(this).toggleClass("active");
+          if($(".page6 .tp_box.active").length==4){
+              $(this).removeClass("active");
+              alert("亲，只能选三个哦！");
+          }
+      });
+
+//      //点击投票提交
+//      $(".tj_btn").click(function(){
+//          if($(".page6 .tp_box.active").length==3){
+//              var ids=[];
+//              $(".page6 .tp_box.active").each(function(i,n){
+//                  ids.push($(n).index()+1);
+//              });
+//              console.log(ids);
+//              //ids
+//
+//              mySwiper.slideNext();
+//
+//          }else{
+//              alert("亲，只能选三个哦！");
+//          }
+//      });
+
+      //点击投票提交
+      $(".tj_btn").click(function(){
+          if($(".page6 .tp_box.active").length==3){
+              var ids=[];
+              $(".page6 .tp_box.active").each(function(i,n){
+                  ids.push($(n).index()+1);
+              });
+              //ids
+              console.log(ids);
+//              $.ajax({
+//                  'url':vote_url,
+//                  'data':{'ids':ids,"cms_csrf":srf },
+//                  'type':'POST',
+//                  'dataType':'Json',
+//                  success:function(data){
+              var data={"status":0,"vote":[{"vote_id":"8","count":"3"},{"vote_id":"6","count":"2"},
+                  {"vote_id":"2","count":"2"},{"vote_id":"3","count":"2"},{"vote_id":"4","count":"1"}]};
+              if(data.status==0){
+                  for(var i=data.vote.length-1;i>=0;i--){
+                      var d=data.vote[i];
+                      var dom=$(".page7 .tp_box"+d.vote_id);
+                      dom.remove();
+                      dom.find(".num i").text(d.count);
+                      $(".page7 .se_con .tp_box:first").before(dom);
+                  }
+                  for(var i=0;i<10;i++){
+                      $(".page7 .tp_box").eq(i).find(".top").text(("00"+(i+1)).substr(-2,2));
+                  }
+                  mySwiper.slideNext();
+              }else{
+                  alert(data.msg);
+              }
+//                  }
+//              });
+          }else{
+              alert("亲，只能选三个哦！");
+          }
+      });
+
+     //邀请朋友--微信分享
+      $(".help_btn").click(function(){
+          $(".share_bg").removeClass("hidden");
+      });
+      $(".share_bg").click(function(){
+          $(".share_bg").addClass("hidden");
+      });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+	<link rel="stylesheet" href="css/animate.min.css" />
+	<link rel="stylesheet" href="css/public.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+
+<body>
+	<div class="i_main">
+        <a href="javascript:;" class="role_inter"></a>
+		<img src="images/rolebg1.jpg" class="role_img role_img1"/>
+		<img src="images/rolebg2.jpg" class="role_img role_img2"/>
+		<img src="images/rolebg3.jpg" class="role_img role_img3"/>
+	</div>
+</body>
+</html>

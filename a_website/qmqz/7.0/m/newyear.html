@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="../css/public.css" />
+		<link rel="stylesheet" href="css/newyear.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+				// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc = function () {
+							//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+							var clientWidth = docEl.clientWidth;
+							if (!clientWidth) return;
+							docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+						};
+	
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if (!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+	
+			})(document, window);
+		</script>
+	</head>
+	
+	<body>
+		<section>
+			<div class="kv">
+				<img src="images/n_logo.png" alt="" class="logo" />
+				<a href="javascript:;" class="enter"><img src="images/n_enter.png" alt="" /></a>
+			</div>
+		</section>
+		<section>
+			<div class="second">
+				<div class="chengg"></div>
+				<img src="images/n_label.png" alt="" class="label" />
+				<div class="m_tab">
+					<ul class="m_ul">
+						<li class="active"><img src="../images/n_tab1.png" alt="" /><img src="../images/n_tab1_h.png" alt="" /></li>
+						<li><img src="../images/n_tab2.png" alt="" /><img src="../images/n_tab2_h.png" alt="" /></li>
+						<li><img src="../images/n_tab3.png" alt="" /><img src="../images/n_tab3_h.png" alt="" /></li>
+					</ul>
+					<div class="tab_div">
+						<div class="">
+							<img src="images/n_gun1.png" alt="" class="gun" />
+							<img src="images/n_play.png" alt="" class="n_play" />
+						</div>
+						<div class="">
+							<img src="images/n_gun2.png" alt="" class="gun" />
+							<img src="images/n_play.png" alt="" class="n_play" />
+						</div>
+						<div class="active">
+							<img src="images/n_gun3.png" alt="" class="gun" />
+							<img src="images/n_play.png" alt="" class="n_play" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="last">
+				<img src="images/n_label1.png" alt="" class="label"/>
+				<p class="last_p">枪友可在指定活动时间，进入庆生主播所在的直播间，与主播进行游戏互动，主播将创建无密码的房间，进行枪王爆破模式6v6，除主播外，每位参与的玩家将根据成绩，获得超值福利</p>
+				<img src="images/rule.png" alt="" class="rule" />
+				<p class="number_p"><i>01</i><span>活动时间9月8日-9月12日</span></p>
+				<p class="number_p"><i>02</i><span>活动将在每个整点开始</span></p>
+				<p class="number_p"><i>03</i><span>庆生主播名单请关注<em>【全民枪战公众号】</em></span></p>
+			</div>
+		</section>
+	</body>
+</html>

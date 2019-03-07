@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8" />
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<link href="css/m_xcover.css" rel="stylesheet"/>
+</head>
+<body class="ws_index">
+	<header class="common_header">
+		<div class="ws_header clear">
+			<a href="" class="linklogo">
+				<dl class="p-common">
+					<dt><h1>全民枪战</h1></dt>
+					<dd>CA,新一代枪战选择</dd>
+				</dl>
+			</a>
+			<a class="link01" href="javascript:void(0)">下载</a>
+			<a class="link03" href="javascript:void(0)">领取礼包</a>
+		</div>
+	</header>
+	<section class="ws_ione ws_nav">
+		<a href="http://ca.yingxiong.com/data/m/act_151118.html"><img src="../common/images/fire1-menu1.png" alt="双龙沙鹰" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20151203.html"><img src="../common/images/fire2-menu2.png" alt="迷你乌兹" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20151229.html"><img src="../common/images/fire3-menu1.png" alt="期待" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20160315.html"><img src="../common/images/fire4-menu1.png" alt="期待" class="mkv"></a>
+		<a href="http://ca.yingxiong.com/data/m/act_20160422.html"><img src="../common/images/fire5-menu1.png" alt="虚空恶魔" class="mkv"></a>		
+	</section>
+	<section class="ws_ione ws_height">
+		<img src="./images/fire2-bg0.jpg" alt="名枪馆" class="mkv">
+		<img src="./images/fire2-bg1.jpg" alt="名枪馆" class="mkv">
+		<img src="./images/fire2-bg2.jpg" alt="名枪馆" class="mkv">
+		<img src="./images/fire2-bg3.jpg" alt="名枪馆" class="mkv">
+		<img src="./images/fire2-bg4.jpg" alt="名枪馆" class="mkv">
+		<img src="../common/images/logo.png" alt="名枪馆" class="fire-logo mkv">
+		<a class="fire-play_btn" href="javascript:void(0)">
+			<img src="./images/play_btn.png" alt="banner">
+		</a>
+	</section>
+	
+	<footer>
+		<p>版权所有：北京卓越晨星科技有限公司</p>
+		<p>经营许可证编号：粤ICP备09179912号-3 Rights Reserved©</p>
+		<p>公司地址：北京市朝阳区酒仙桥路宏源大厦3楼</p>
+		<p>联系方式：4009393333</p> 
+	</footer>
+	<div id="mask"></div>
+	<div id="video_tck">
+		<div id="player5">
+			<div id="close"></div>
+			<video controls="controls" class="vid_sp">
+				<source src="images/2_1_1.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+	<div class="gift_tck">
+		<img src="http://dev.static.yingxiong.com/qmqz/3.0/common/images/i_libao_bg.jpg" class="mkv">
+		<input type="text" placeholder="输入手机号码" id="phone_32f21e2209052a7452823c91705bec42" />
+		<a href="javascript:void(0)" title="领取礼包" type='0' class="gift_get_32f21e2209052a7452823c91705bec42"></a>
+		<i class="close"></i>
+    </div>
+	<script type="text/javascript" src="../common/js/jquery-1.11.2.min.js"></script>
+	<script>
+		$(function(){
+			$(".link03").click(function(){
+				$(".mask_pop").show();
+				$(".gift_tck").show();
+				$("#mask").show();
+				$("body").on("touchmove",false);
+			})
+			$(".close").click(function(){
+			$(".mask_pop").hide();
+				$(".gift_tck").hide();
+				$("#mask").hide();
+				$("body").off("touchmove",false);
+			});
+			$(".link01").click(function(){
+				$(".main01_nav").show();
+			});
+			//	视频播放弹层	
+			$(".fire-play_btn img").click(function(){
+				$("#mask").show();
+				$("#video_tck").show();
+				$('.vid_sp').trigger('play');
+			})
+			$("#close").click(function(){
+				$("#mask").hide();
+				$("#video_tck").hide();
+				$('.vid_sp').trigger('pause');
+			})
+			
+			
+		});
+
+	
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="英雄互娱-游戏，抢滩登陆" name="keyword">
+    <title>抢滩登陆3D</title>
+    <link rel="stylesheet" type="text/css" href="./css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./css/qt.css">
+</head>
+<body>
+<div class="qt_main">
+
+    <div id="qt_game_inf" class="qt_game_inf">
+        <p>海陆空立体战争手游《抢滩登陆3D》是由美国DIGITAL FUSION公司正版授权，
+            对比经典抢滩单机系列，本作的玩法和画面全面升级，游戏通过舍弃人物的移动
+            将FPS游戏乐趣还给了更纯粹的射击本身。同时佣兵、捕鱼式PVP等创新玩法也
+            首次出现在FPS类型的手游中。
+        </p>
+    </div>
+    <div class="qt_inp_box">
+        <div class="qt_in_left">
+            <input type="text" class="qt_yy_inp" name="预约邮箱地址输入" value="输入邮箱地址">
+            <button id="qt_yy_btn" class="qt_yy_btn"></button>
+        </div>
+        <div class="qt_in_right">
+            <p>
+                <label>1</label>
+                邮箱预约成功之后可领取礼包
+            </p>
+            <p>
+                <label>2</label>
+                我们会以短信形式通知预约邮件
+            </p>
+            <img src="images/qt_img5_03.png">
+            <a  href="javascript:">
+                <img src="images/qt_img6_07.png">
+            </a>
+        </div>
+
+    </div>
+    <div class="qt_yy_inf">
+        <ul class="qt_yy_js">
+            <li>
+                <label>1</label>
+                <p>预约测试，提供可用的邮箱地址以及手机号</p>
+            </li>
+            <li>
+                <label>2</label>
+                <p>您将会在“立即预约”提供的邮箱地址中，收到对应的TestFlight测试邀请邮件，届时我们也会通过短信的方式提醒您查收邮件</p>
+            </li>
+            <li>
+                <label>3</label>
+                <p class="no_border_bottom">打开邀请邮件，跳转App Store 下载“ TestFlight ”这款 App，以及获得测试邀请的兑换码</p>
+            </li>
+        </ul>
+        <ul class="qt_yy_xz">
+            <li>
+                <label>1</label>
+                <p>《抢滩登陆3D》开测时间我们将在临近开测时通过手机号提醒您，请您注意留意手机短信。</p>
+            </li>
+            <li>
+                <label>2</label>
+                <p>本次VIP封测，游戏账号&密码直接由我们通过短信的方式发到您的预约手机上，无需注册，直接登录游戏;安装包通过TestFlight邮件发送到您的预约邮箱中，请按照本指南安装游戏;</p>
+            </li>
+            <li>
+                <label>3</label>
+                <p>TestFlight测试邀请邮件有时会不小心被误放入垃圾邮件中;出现这种情况，就请把他解救出来;</p>
+            </li>
+            <li>
+                <label>4</label>
+                <p>请不要在微信内登陆TestFlight测试邀请邮件，会提示无法跳转;</p>
+            </li>
+            <li>
+                <label>5</label>
+                <p>由于苹果限制，在“TestFlight”App中下载《抢滩登陆3D》手游速度会较慢，需要半小时以上，请耐心等一下，等一下就好了;</p>
+            </li>
+            <li>
+                <label>6</label>
+                <p class="no_border_bottom">如在安装中出现任何问题，都可以来QQ群【457448320】中询问，一键加群链接：
+                    <a href="https://jq.qq.com/?_wv=1027&k=49X1FiJ" target="_blank">点击这里加入客服群</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="page_cover">
+    <div class="qt_tz_text"></div>
+    <div class="qt_tz_yy">
+        <label></label>
+        <p>预约中...</p>
+    </div>
+</div>
+<!--这是弹出输入手机号浮层-->
+<div class="qt_in_sj_cover">
+    <form>
+        <p>二级文案，若有，游戏可下载第一时间通知你！！！</p>
+        <input id="qt_in_sjhm" type="text" value="输入手机号码" name="输入手机号码">
+        <div>
+            <input id="qt_in_yzm" type="text" value="验证码" name="验证码">
+            <a id="qt_in_send" href="javascript:" name="send">发送</a>
+        </div>
+        <a id="qt_in_yy" href="javascript:">立即预约</a>
+        <img id="qt_sj_close" src="images/qt_img8_03.png">
+    </form>
+</div>
+<!-- 这个是锚点定位到输入邮箱 -->
+<a class="qt_md" href="javascript:"><img src="images/qt_md.png"></a>
+</body>
+<script type="text/javascript" src="common/js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var qt_yy_inp = $(".qt_yy_inp");
+
+        function init(){
+            qt_md_animate(40,800);
+        }
+
+        //页面事件
+        qt_yy_inp.on("focus",function(){
+            var val = $(this).val();
+            if(val == "输入邮箱地址"){
+                $(this).val(null);
+            }
+        });
+
+        qt_yy_inp.on("blur",function(){
+            var val = qt_yy_inp.val();
+            val = val.replace(/\s+/g,"");
+            if(val == "" || val == null || val == undefined){
+                $(this).val("输入邮箱地址").blur();
+            }
+        });
+
+        //点击预约
+        $("#qt_yy_btn").on("click",function(){
+            var val = qt_yy_inp.val();
+            if(val == ""){
+                show_tz("邮箱不能为空");
+                return;
+            }
+            //去掉空格
+            val = val.replace(/\s+/g,"");
+            if(!/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(val)){
+                show_tz("请输入正确的邮箱地址");
+                return;
+            }
+            show_yy_ing();
+        });
+
+        $(".qt_in_right>a").click(function(){
+            var n = 1;
+            //n:0 代表没有预约  1代表预约过
+            if(n == 0){
+                qt_yy_inp.focus();
+                return;
+            }else{
+                //显示手机号输入页面
+                $(".qt_in_sj_cover").css({
+                    "display":"block"
+                });
+                setTimeout(function(){
+                    $(".qt_in_sj_cover").css({
+                        opacity: "1"
+                    });
+                },50);
+            }
+        });
+
+        $(".qt_in_sj_cover input").focus(function(){
+            var name = $(this).attr("name");
+            var val = $(this).val();
+            if(name == val){
+                $(this).val(null);
+            }
+        });
+
+        $(".qt_in_sj_cover input").blur(function(){
+            var name = $(this).attr("name");
+            var val = $(this).val();
+            if(val == ""){
+                $(this).val(name);
+            }
+        });
+
+        $("#qt_in_send").click(function(){
+            var timer;
+            var send_btn = $(this);
+            var time = 60;
+            var name = $(this).attr("name");
+            var qt_in_sjhm = $("#qt_in_sjhm");
+            var val = qt_in_sjhm.val();
+            var sj_name = qt_in_sjhm.attr("name");
+            if(name != "send"){
+                return;
+            }
+            if(val == "" || val == sj_name){
+                show_tz("请输入手机号码");
+                return;
+            }
+            if(!(/^1[34578]\d{9}$/.test(val))){
+                show_tz("请输入正确的手机号码");
+                return;
+            }
+            $(this).attr("name","");
+            send_btn.html(time+"s后重发");
+            //倒计时
+            timer = setInterval(function(){
+                time--;
+                send_btn.html(time+"s后重发");
+                if(time == 0){
+                    if(timer){
+                        clearInterval(timer);
+                        send_btn.html("发送").attr("name","send");
+                    }
+                }
+            },1000);
+        });
+
+        //这是手机号码输入提交
+        $("#qt_in_yy").click(function(){
+            var qt_in_sjhm = $("#qt_in_sjhm");
+            var qt_in_yzm = $("#qt_in_yzm");
+            var sj_val = qt_in_sjhm.val();
+            var sj_name = qt_in_sjhm.attr("name");
+            var yz_val = qt_in_yzm.val();
+            var yz_name = qt_in_yzm.attr("name");
+
+            if(sj_val == "" || sj_val == sj_name){
+                show_tz("请输入手机号码");
+                return;
+            }
+            if(!(/^1[34578]\d{9}$/.test(sj_val))){
+                show_tz("请输入正确的手机号码");
+                return;
+            }
+            if(yz_val == "" || yz_val == yz_name){
+                show_tz("请输入验证码");
+                return;
+            }
+        });
+
+        //点击关闭手机号输入按钮
+        $("#qt_sj_close").on("click",function () {
+            var qt_in_sj_cover = $(".qt_in_sj_cover");
+            qt_in_sj_cover.css("opacity","0");
+            setTimeout(function(){
+                qt_in_sj_cover.css("display","none");
+            },210);
+        });
+
+        //点击锚点
+        $(".qt_md").on("click",function () {
+            location.href = "#qt_game_inf";
+            $(".qt_yy_inp").val(null).focus();
+        });
+        //显示通知消息
+        function show_tz(text){
+            inint_tz();
+            $(".qt_tz_text").html(text).css("display","block");
+            //3秒之后提示内容消失
+            setTimeout(function(){
+                $(".page_cover").css("display","none");
+            },1000);
+        }
+        //显示正在预约消息
+        function show_yy_ing(){
+            inint_tz();
+            $(".qt_tz_yy").css("display","block");
+
+            setTimeout(function(){
+                $(".page_cover").css("display","none");
+            },1000);
+        }
+        //初始化通知显示内容
+        function inint_tz(){
+            $(".page_cover").css("display","block");
+            $(".qt_tz_text").html(null).css("display","none");
+            $(".qt_tz_yy").css("display","none");
+        }
+
+        //立即预约动画效果
+        function qt_md_animate(l,time) {
+            $(".qt_md").animate({bottom: l+"px"},time,"linear",function () {
+                var new_l;
+                if(l == 40){
+                    new_l = 80;
+                }else{
+                    new_l = 40;
+                }
+                qt_md_animate(new_l,1600);
+            });
+        }
+
+        init();
+    });
+
+</script>
+</html>

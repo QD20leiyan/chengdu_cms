@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/newyear.css" />
+		<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+	</head>
+	
+	<body>
+		<div class="kv">
+			<img src="images/n_logo.png" alt="" class="logo" />
+			<a href="javascript:;" class="enter"><img src="images/n_enter.png" alt="" /></a>
+		</div>
+		<div class="second">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="images/n_label1.png" alt="" class="label" />
+				<div class="tab_con">
+					<ul class="tab_ul">
+						<li class="active"><img src="images/n_tab1.png" alt=""  /><img src="images/n_tab1_h.png" alt="" /></li>
+						<li><img src="images/n_tab2.png" alt=""  /><img src="images/n_tab2_h.png" alt="" /></li>
+						<li><img src="images/n_tab3.png" alt=""  /><img src="images/n_tab3_h.png" alt="" /></li>
+					</ul>
+					<div class="tab_gun">
+						<div class="active">
+							<img src="images/n_gun1.png" alt="" class="gun" />
+							<div class="img_play">
+								<img src="images/s_play.png" alt="" />
+								<img src="images/s_txt.png" alt="" />
+							</div>
+						</div>
+						<div class="">
+							<img src="images/n_gun2.png" alt="" class="gun" />
+							<div class="img_play">
+								<img src="images/s_play.png" alt="" />
+								<img src="images/s_txt.png" alt="" />
+							</div>
+						</div>
+						<div class="">
+							<img src="images/n_gun3.png" alt="" class="gun" />
+							<div class="img_play">
+								<img src="images/s_play.png" alt="" />
+								<img src="images/s_txt.png" alt="" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="last">
+			<div class="wrap">
+				<div class="chengg"></div>
+				<img src="images/n_label2.png" alt="" class="label" />
+				<img src="images/person.png" alt="" class="person" />
+				<div class="txt_bg">
+					<p>枪友可在指定活动时间，进入庆生主播所在的直播间，与主播进行游戏互动，主播将创建无密码的房间，进行枪王爆破模式6v6，除主播外，每位参与的玩家将根据成绩，获得超值福利</p>
+				</div>
+				<div class="right_txt">
+					<img src="images/rule.png" alt=""  />
+					<p><i>01</i><span>活动时间9月8日-9月12日</span></p>
+					<p><i>02</i><span>活动将在每个整点开始</span></p>
+					<p><i>03</i><span>庆生主播名单请关注<em>【全民枪战公众号】</em></span></p>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function (){
+			$(".tab_ul li").click(function (){
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".tab_gun>div").eq(index).addClass("active").siblings().removeClass("active");
+			})
+		});
+	</script>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>生化灾变，人类的最后抵抗！</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/public.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page3">
+            <h2 class="ani" swiper-animate-effect="fadeInLeftBig"><p>恭喜你</p><p>成为<span>华北</span>第<span>3412位</span>支援者!</p></h2>
+                <p class="tit ani" swiper-animate-effect="fadeInRightBig">还差<i>2563</i>人解锁<span>全服进击礼包</span>奖励</p>
+                <article class="map_min ani" swiper-animate-effect="zoomIn">
+                    <div class="supp-map">
+                        <span class="img1">
+                            <img src="images/img_on_1.png" />
+                            <p>东北</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                        <span class="img2">
+                            <img src="images/img_on_2.png" />
+                            <p>华北</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                        <span class="img3">
+                            <img src="images/img_on_3.png" />
+                            <p>西北</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                        <span class="img4">
+                            <img src="images/img_on_4.png" />
+                            <p>西南</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                        <span class="img5">
+                            <img src="images/img_on_5.png" />
+                            <p>华中</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                        <span class="img6">
+                            <img src="images/img_on_6.png" />
+                            <p>华南</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                        <span class="img7">
+                            <img src="images/img_on_7.png" />
+                            <p>华东</p>
+                            <i><img src="images/cir-1.png" /></i>
+                        </span>
+                    </div>
+                </article>
+                <article class="progress-cont ani" swiper-animate-effect="zoomIn">
+                    <aside class="progress">
+                        <div class="progress-bar" style="width: 55%;">
+                            <span></span>
+                        </div>
+                    </aside>
+                </article>
+                <article class="ani" swiper-animate-effect="zoomIn">
+                    <span class="icon-1"><img src="images/icon_1.png"></span>
+                    <span class="icon-2"><img src="images/icon_2.png"></span>
+                    <span class="icon-3"><img src="images/icon_3.png"></span>
+                </article>
+                <article class="erweima ani" swiper-animate-effect="fadeInUpBig">
+                    <img src="images/border.png" class="border">
+                    <img src="images/erweima.png" class="erwei">
+                </article>
+                 <p class="p ani" swiper-animate-effect="fadeInUpBig">长按二维码下载</p>
+                 <span class="share"><img src="images/share.png" class="ani" swiper-animate-effect="fadeInUpBig"></span>
+            </section>
+        </section>
+    </section>
+    </div>
+    <div class="share-bg"></div>
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery+fittext+touchslider.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/support.js"></script>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction : 'vertical',
+        pagination: '.swiper-pagination',
+        mousewheelControl : true,
+        onInit: function(swiper){
+            swiperAnimateCache(swiper);
+            swiperAnimate(swiper);
+        },
+        onSlideChangeEnd: function(swiper){
+            swiperAnimate(swiper);
+        },
+        onTransitionEnd: function(swiper){
+            swiperAnimate(swiper);
+        }
+    });
+    $(".share").click(function(){
+        $(".share-bg").show();
+    })
+    $(".share-bg").click(function(){
+        $(this).hide();
+    })
+</script>
+<script language="javascript">
+    function animate(){
+        $(".charts").each(function(i,item){
+            var a=parseInt($(item).attr("w"));
+            $(item).animate({
+                width: a+"%"
+            },1000);
+        });
+    }
+    animate();
+</script>
+</body>
+</html>

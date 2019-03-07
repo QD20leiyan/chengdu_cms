@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>111111</title>
+	<link rel="stylesheet" href="css/m_arttouch.css">
+	<link rel="stylesheet" href="css/swiper.3.1.7.min.css">
+</head>
+<body>
+	<audio src="../common/images/hb-clip.mp3" loop="loop" autoplay="autoplay"></audio>
+	<div class="wrap">
+	<div class="hengshuping">更好体验，请竖屏浏览</div>
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		    	<div class="swiper-slide page page-1">
+		        	<a href="javascript:;" class="Start-testing" title="开始测试">开始测试</a>
+		        </div>
+		    	<div class="swiper-slide page page-2">
+		    		<div class="middleT">
+						<p>请输入您的大名！</p>
+						<p>只能输入6个字符以内</p>
+						<p><input type="text" value="" maxlength=6></p>
+						<a href="javascript:;" class="Confirm-name" title="确认姓名">确认姓名</a>
+					</div>
+		    	</div>
+				<div class="swiper-slide page page-3">
+		    		<div class="middleQ">
+						<!-- <img src="./images/Q1.png" alt="全民枪战"> -->
+					</div>
+					<a href="javascript:;" class="Game-download" title="游戏下载">游戏下载</a>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+	
+
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/swiper.3.1.7.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		
+		var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		    loop: false,
+			allowSwipeToPrev : false,//禁止向上滑动
+			allowSwipeToNext:false,
+			onSlideChangeEnd: function(swiper){
+			    	if(mySwiper.activeIndex ==1){
+			    			mySwiper.lockSwipes();//枷锁
+			    	}else if(mySwiper.activeIndex ==2){
+			    		mySwiper.lockSwipeToPrev();
+			    	}else if(mySwiper.activeIndex ==3){
+			    		mySwiper.lockSwipeToPrev();
+			    	}
+			    }
+		});
+		$(".Start-testing").on("click",function(){
+			mySwiper.unlockSwipes();//解锁
+			mySwiper.slideNext();
+		});
+		$(".Confirm-name").on("click",function(){
+			if($(".middleT input").val()==""){
+				alert("请输入您的大名！");
+			}else{
+				mySwiper.unlockSwipes();//解锁
+				mySwiper.slideNext();
+				$(".middleQ").css("background-image","url(./images/Q"+Math.floor(Math.random()*9 + 1)+".png)")
+			}
+			
+		});
+	
+	});
+	//判断手机横竖屏状态： 
+function hengshuping(){ 
+  if(window.orientation==180||window.orientation==0){ 
+    $(".hengshuping").hide();   
+   } 
+if(window.orientation==90||window.orientation==-90){ 
+    $(".hengshuping").show();     
+		
+    } 
+ } 
+window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false); 
+	</script>
+</body>
+</html>

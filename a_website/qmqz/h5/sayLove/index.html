@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>520全民表白节</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/active.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchangse' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+     <style>
+        .page4,.page5{
+            width: 100%;
+            height: 100%;
+            background: url("images/bg2.png") no-repeat;
+            background-size:100% 100%;
+            overflow:hidden;
+            position: relative;
+            font-size: 0;
+            display:none;
+        }
+        .page4 .say_love{
+            width: 76%;
+            margin: 0 auto;
+            top: 2.2rem;
+            position: relative;
+        }
+        .page4 .love_btn {
+            width: 100%;
+            position: absolute;
+            bottom: 1rem;
+        }
+        .page4 .love_btn a.gift_page {
+            display: block;
+            width:17.53125rem;
+            height: 4.125rem;
+            position: relative;
+            margin: 0 auto;
+            background: url("images/button.png") no-repeat;
+            background-size: 100% 100%;
+        }
+        .page5 p{
+            width:100%;
+            height:2rem;
+            line-height: 2rem;
+            z-index:20;
+            position: absolute;
+            top:0;
+            color: #fff;
+            background: rgba(0,0,0,.8) no-repeat;
+        }
+        .page5 a{
+
+        }
+    </style>
+</head>
+<body class="active">
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide swiper-no-swiping page1">
+                <img src="images/music.png" alt="" class="music_img"/>
+                <div class="logo">
+                    <img src="images/logo1.png" alt="" onclick="return false"/>
+                    <img src="images/logo2.png" alt="" class=" animated bounce" onclick="return false"/>
+                    <img src="images/logo3.png" alt="" onclick="return false"/>
+                </div>
+
+                <div class="page1_con">
+                <div class="txt_board"> 
+                     <div class="txt_who animated zoomIn">    
+                        <img src="images/chen_he.png" alt="" onclick="return false"/>
+                     </div>
+                     <img src="images/heart_poo.png" alt="" class="heart_poo animated" swiper-animate-effect="bounceIn" onclick="return false">
+                    <div class="txt_info">
+                    <img src="images/chen_info.png" alt="" onclick="return false"/>
+                    </div>
+                </div>
+                <div class="form_info">
+                    <input type="text" class='name' placeholder="输入你的昵称">
+                    <div class="constellation">
+                       
+                        <p class="slideInLeft animated"><input type="select" class='star star1' placeholder="你的星座" readonly="readonly" value=""><i class="set set1"></i></p>
+                        <img src="images/heart1.png" alt="" onclick="return false">
+                        
+                        <p class="other_star slideInRight animated"><input type="select" class='star star2' placeholder="Ta的星座" readonly="readonly" value=""><i class="set set2"></i></p>
+                    </div>
+                    <p class="error error2">性别是必填的哦~</p>
+                    <div class="star_list hidden"> 
+                        <ul class="styar_sel">
+                            <li data-id="1">白羊座</li>
+                            <li data-id="2">金牛座</li>
+                            <li data-id="3">双子座</li>
+                            <li data-id="4">巨蟹座</li>
+                            <li data-id="5">狮子座</li>
+                            <li data-id="6">处女座</li>
+                            <li data-id="7">天秤座</li>
+                            <li data-id="8">天蝎座</li>
+                            <li data-id="9">射手座</li>
+                            <li data-id="10">摩羯座</li>
+                            <li data-id="11">水平座</li>
+                            <li data-id="12">双鱼座</li>
+                        </ul> 
+                    </div>
+                </div>
+                <button class="test_btn slideInUp animated"></button>
+                </div>
+            </section>
+            <section class="swiper-slide page2">
+                <img src="images/music.png" alt="" class="music_img"/>
+                <div class="logo">
+                    <div class="heart_li"><div class="heart_line"></div></div>
+                    <p id="loading-txt">59%</p>
+                </div>
+                <div class="txt_read">
+                    <img src="images/pa2_title.png" alt=""/>
+                    <img src="images/main.png" alt=""/>
+                </div>
+                <p>本活动由《全民枪战2》提供技术支持</p>
+            </section>
+            <section class="swiper-slide page3">
+                <div class="say_love">
+                   <img src="" alt="" onclick="return false">
+                </div>
+                <div class="love_btn">
+                    <a href="javascript:;" class="made_img"></a>
+                    <div class="chance_btn">
+                        <a href="javascript:;" class="chance1"></a>
+                        <a href="javascript:;" class="chance2"></a>
+                    </div>
+                </div>
+            </section>
+            <section class="swiper-slide page4">
+                <div class="say_love">
+                   <img src="" alt="" onclick="return false">
+                </div>
+                <div class="love_btn">
+                    <a href="javascript:;" class="gift_page"></a>
+                </div>
+            </section>
+            <section class="swiper-slide page5">
+                <p>长按图片保存到手机</p>
+                <img src="images/bg4.jpg" alt="" class="jp_img" onclick="return false">
+                <a href="javascript:;" class="gift_page"></a>
+            </section>
+        </section>
+    </section>
+</div>
+<section class="lottery">
+     <section class="a-container">
+        <section class="a-top">
+            <a class="return" href="index.html"><img src="images/return.png" alt=""></a>
+            <img src="images/logo4.png" onclick="return false">
+            <img src="images/heart_poo.png" alt="" class="heart_poo" onclick="return false">
+        </section>
+        <section class="a-item2">
+
+            <p>欢迎您，<span>枪战の王者</span></p>
+        </section> 
+        <section class="a-item3">
+            <div>
+                <img id="cj_pan" src="images/cj_pan.png" onclick="return false">
+                <img src="images/light2.png" alt="" class="light light2">
+                <img src="images/light1.png" alt="" class="light light1">
+                <div class="p-all-center">
+                    <!-- <img src="images/pointer.png" alt="" class="text"> -->
+                    <img id="rotate" src="images/cj_zz1.png">
+                </div>
+            </div>
+            <a href="javascript:;" class="gift_look"><img src="images/gift_look.png" alt=""></a>
+        </section> 
+    </section>
+    <section class="b-container">
+        <section class="b-btn">
+            <a class="download" href="http://downurl.yingxiong.com/url/qmqz_ch520.html"><img src="images/button_76.png" alt=""></a>
+             <a class="share_other" href="index.html"><img src="images/button_share.png" alt=""></a>
+        </section>
+        <section class="b-open_style">
+            <img src="images/1.png" alt="">
+            <ul class="act_info">
+                <li>
+                    <i>1</i><p>活动时间：5月19日-5月28日24:00</p>
+                </li>
+                <li>
+                    <i>2</i><p>活动期间，每个微信账号拥有1次抽奖机会</p>
+                </li>
+                <li>
+                    <i>3</i><p><span>游戏内物品奖励：</span> 游戏礼包请打开《全民枪战2》游戏-任务-兑换礼品-进行兑换</p>
+                </li>
+                <li>
+                    <i>4</i><p><span>实物奖励：</span> 520陈赤赤定制款巧克力将于活动结束后的10个工作日内寄出，收件地址一定要填写正确噢~否则会影响收货</p>
+                </li>
+            </ul>
+        </section>
+        <section class="b-open_style b-open_style2">
+            <img src="images/2.png" alt="" class="img2">
+            <ul class="act_info">
+                <li>
+                    <i>1</i><p>天才巧克力（72g浓醇黑巧克力）</p>
+                </li>
+                <li>
+                    <i>2</i><p>陈赤赤520限定巧克（72g浓醇黑巧克力）</p>
+                </li>
+                <li>
+                    <i>3</i><p>经典陈赤赤头像（永久）</p>
+                </li>
+                <li>
+                    <i>4</i><p>天才陈赤赤限定头像（永久）</p>
+                </li>
+                 <li>
+                    <i>5</i><p>丘比特爱弓（永久）</p>
+                </li>
+                <li>
+                    <i>6</i><p>红唇气球（永久）</p>
+                </li>
+                <li>
+                    <i>7</i><p>浪漫巴雷特（5天）</p>
+                </li>
+                <li>
+                    <i>8</i><p>风色杀手包（5天）</p>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <section class="c-container">
+        <section class="b-focus">
+            <img src="images/3.png" alt="">
+            <div class="focus_info">
+                <div class="name">
+                    <p>昵称:<span>CA小官方</span></p>
+                    <p>抖音号:<span>591309010</span></p>
+                </div>
+                <div class="dyin_info">
+                    <p>5月21日和5月28日将在官方号所有抖音粉丝中送出2个天才陈赤赤限定头像和12盒520陈赤赤定制款巧克力，一定记得关注噢~ </p>
+                </div>
+            </div>
+            <ul class="act_info">
+                <li>
+                    <i>1</i><p>CA温馨提示：<span>同类型礼包仅可兑换一次  </span></p>
+                </li>
+                <li>
+                    <i>2</i><p>如有活动礼包问题，请与《全民枪战2》官方客服联系。</p>
+                </li>
+                <li>
+                    <i>3</i><p>客服联系方式——关注“quanminqiangzhan”公众号——“新兵计划”——“在线客服”</p>
+                </li>
+                <li>
+                    <i>4</i><p>本活动由《全民枪战2》运营团队最终解释；</p>
+                </li>
+            </ul>
+        </section>
+    </section>
+    <!--地址弹框-->
+<div class="tips address_tips hidden">
+    <div class="content">
+        <a href="javascript:;" class="close_tips"></a>
+        <div class="co_form">
+            <p class="info">陈赤赤给你送了一份<span>520专属礼物~</span><br>请填写你的<span class="red">有效收件地址</span>哦 </p>
+            <div class="input_con">
+                <div class="co_input">
+                        <input type="text" maxlength="6" class="co_username" placeholder="您的姓名">
+                </div>
+                <div class="co_input">
+                    <input type="number" onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username1" placeholder="输入手机号">
+                </div>
+            </div>
+            <div class="clear"></div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="详细地址"></textarea>
+        
+            <div class="tipstj_btn"></div>
+        </div>
+    </div>
+</div>
+<!--兑换码弹框-->
+<div class="tips code_tips hidden">
+    <div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <div class="co_form">
+            <p class="info">陈赤赤给你送了一份<span>520专属礼物~</span>请收好!</p>
+            <p class="code">礼包码<span>3D2FEWF3FEW3F</span></p>
+            <div class="back_btn"></div>
+        </div>
+    </div>
+</div>
+<!--抽完奖弹框-->
+<div class="tips lottery_tips hidden">
+    <div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <div class="co_form">
+            <p class="info">恭喜你，你已经获得：</p>
+            <p class="code"></p>
+            <a href="javascript:;" class="add_address"></a>
+        </div>
+    </div>
+</div>
+<!--礼包弹框-->
+<div class="tips gift_tips hidden">
+    <div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <div class="co_form">
+            <p class="info">你已获得：</p>
+            <p class="gift_name"></p>
+        </div>
+    </div>
+</div>
+</section>
+<!--音乐-->
+<!--<img id="music_icon" class="music_play" name="play" src="images/p_music_play_06.png">-->
+<audio id="music" src="audio/music.MP3" autoplay="autoplay" loop="loop"></audio>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<!--遮罩层-->
+<div id=loading10 style="position:fixed;left:0;top:0;z-index:9999;background:rgba(0,0,0,1);width:100%;height:100%;display: none;" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="font-family:'微软雅黑';width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<!-- <script type="text/javascript" src="public/zepto.js"></script> -->
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+    // 百分比进度
+var loadingTxt = 15;
+var timer,timer1 = null;
+var widthNum = 15;
+var i='';
+var status='';//星座列表
+var li1='';//我的星座
+var li2='';//Ta的星座
+var bar = $(".heart_li").css({"width":widthNum+"%"});
+var loading = $("#loading-txt").html(loadingTxt+"%");
+var share_url="/h5/cd/ajax-cp-share.html";//截屏分享
+var srf = $('meta[name="csrf-token"]').attr('content');
+var images=['11.png','12.png','13.png','14.png','15.png','16.png','17.png','18.png','19.png','20.png','21.png','22.png','23.png'];//随机生成告白图
+var url=images[Math.floor(Math.random()*images.length)];
+var url_img='images/'+url;
+    $(function(){
+        var verify_url='/h5/cd/ajax-cp.html';//开始测试
+        var share_url="/h5/cd/ajax-cp-share.html";//截屏分享
+        //微信分享接口
+        var share = {
+            imgUrl      : 'http://cdnstatic.yingxiong.com/cddzz/h5/oneday/images/share_icon.png',
+            shareTitle  :'520全名告白节',
+            descContent : '',
+            lineLink    : 'http://game.yingxiong.com/h5/cd/cd-cp.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.ajax({
+                        'url':gift_url,
+                        'data':{"cms_csrf":srf},
+                        'type':'POST',
+                        'dataType':'Json',
+                        success:function(data){
+                            $.get('http://game.yingxiong.com/h5/cd/ajax-cp-share.html', {}, function(){
+
+                            });
+                        }
+                    });
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+                    $.get('http://game.yingxiong.com/h5/cd/ajax-cp-share.html', {}, function(){
+
+                    });
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+                    $.get('http://game.yingxiong.com/h5/cd/ajax-cp-share.html', {}, function(){
+
+                    });
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        //百分比进度条
+        function time_jd(){
+            timer=setInterval(function(){
+            widthNum++;
+            loadingTxt++;
+            $(".heart_li").css({"width":widthNum+"%"});
+            $("#loading-txt").html(loadingTxt+"%")
+            if(widthNum>=0 && loadingTxt==100){
+                clearInterval(timer);
+                widthNum == 100
+                $(".page2").hide();
+                $(".page3").show();
+                $(".say_love img").attr("src",url_img);
+            }
+            },50)
+        }
+        // 匹配请求
+        function init_pp(){
+            var my_name = $(".name").val();
+            var star_id1 = i1;
+            var star_id2 = i2;
+            var type ='';
+            if(star_id == 1) {
+               type = "男";
+            } else if(star_id == 2) {
+               type = "女";
+            }
+            if(my_name == "" || my_name == undefined) {
+              alert("请输入您的昵称~");
+              return;
+            }
+            if(star_id1 == "" || star_id1 == undefined) {
+              alert("请选择您的星座~");
+              return;
+            }
+            if(star_id2 == "" || star_id2 == undefined) {
+              alert("请选择Ta星座~");
+              return;
+            }
+            $.post(verify_url,{ "name":my_name,"star":type,"cms_csrf":srf},function(data){
+              if(data.status == 0){
+                  $(".page1").hide();
+                  $(".page2").show();
+                  time_jd();
+              }else{
+                alert(data.msg);
+              }
+            }, 'json');
+        }
+        //弹窗滚动
+        function windowHidden(){
+            $("html,body").css({
+                "overflow":"hidden",
+                "width":"100%",
+                "height":"100%"
+            });
+        };
+        function windowScroll(){
+            $("html,body").css({
+                "overflow":"visible",
+                "width":"100%",
+                "height":"auto"
+            });
+        };
+        var rotateTimeOut = function() {
+        $('#rotate').rotate({
+            angle: 0,
+            animateTo: 2160,
+            duration: 8000,
+            callback: function() {
+                alert('网络超时，请检查您的网络设置！');
+            }
+        });
+    };
+    var bRotate = false;
+    var giftNum = [{
+            "id": "1",
+            "name": "经典陈赤赤头像（永久）"
+        },
+        {
+            "id": "2",
+            "name": "金币*100"
+        },
+        {
+            "id": "3",
+            "name": "S侠客碎片*10"
+        },
+        {
+            "id": "4",
+            "name": "金币*500"
+        },
+        {
+            "id": "5",
+            "name": "实物奖励抱枕"
+        },
+        {
+            "id": "6",
+            "name": "实物奖励T-shirt"
+        },
+        {
+            "id": "7",
+            "name": "随机时装礼包"
+        },
+        {
+            "id": "8",
+            "name": "随机时装礼包"
+        }
+    ];
+    var rotateFn = function(awards, angles, txt, num) {
+        bRotate = !bRotate;
+        $('#rotate').stopRotate();
+        $('#rotate').rotate({
+            angle: 0,
+            animateTo: angles + 1777.5,
+            duration: 3000,
+            callback: function() {
+                if(num == 0) {
+                    $(".code_tips").removeClass("hidden");
+                }
+                if(num == 1) {
+                    $(".lottery_tips").removeClass("hidden");
+                }
+                bRotate = !bRotate;
+            }
+        })
+    };
+        $('.p-all-center').click(function() {
+                if(bRotate) return;
+                $.get(lottery_url, {}, function(data) {
+                    if(data.status == 0) {
+                        var item = data.gift_id;
+                        switch(item) {
+                            case 1:
+                                rotateFn(1, 45, '经典陈赤赤头像（永久）', 0);
+                                break;
+                            case 2:
+                                rotateFn(136, 180, '天才陈赤赤限定头像（永久）', 0);
+                                break;
+                            case 3:
+                                rotateFn(271, 315, '丘比特爱弓（永久）', 1);
+                                break;
+                            case 4:
+                                rotateFn(181, 225, '随机时装礼包', 0);
+                                break;
+                            case 5:
+                                rotateFn(91, 135, '浪漫巴雷特（5天）', 1);
+                                break;
+                            case 6:
+                                rotateFn(316, 360, '粉色杀手包（3天）', 0);
+                                break;
+                            case 7:
+                                rotateFn(226, 270, '天才巧克力（72g浓醇黑巧克力）', 1);
+                                break;
+                            case 8:
+                                rotateFn(46, 90, '陈赤赤520限定巧克（72g浓醇黑巧克力）', 1);
+                                break;
+                        }
+                        var giftId = data.msg.gift_id;
+                        $(".code_tips .info span").html(giftNum[giftId+1].name);
+                        $(".lottery_tips .code").html(giftNum[giftId+1].name);
+                        $(".code_tips .code span").html(data.msg.msg);
+                    }else{
+                        alert(data.msg);
+                        return;
+                    }
+                }, "json");
+                alert(data.msg);
+        });
+        
+        //选择星座
+        $("input.star").focus(function(){
+            var ul=$(".star_list");
+            var ul_list=$(".styar_sel");
+            if(ul.hasClass("hidden")){
+                ul.removeClass("hidden");
+                ul_list.slideDown();
+            }
+        });
+        $("input.star1").focus(function(){
+            status=1;
+        });
+        $("input.star2").focus(function(){
+            status=2;
+        });
+        $(".styar_sel li").click(function(){
+            if(status==1){
+                var li1=$(this).text();
+                $("input.star1").val(li1);
+                i1=$(this).attr("data-id");
+                $(".star_list").addClass("hidden") ;
+            }else if(status==2){
+                var li2=$(this).text();
+                $("input.star2").val(li2);
+                i2=$(this).attr("data-id");
+                $(".star_list").addClass("hidden") ; 
+            }
+            
+        });
+        //点击一键测试
+        $(".page1 .test_btn").click(function(){
+            $(".page1").hide();
+            
+            time_jd();
+        });
+        //抽奖按钮
+        $(".chance1,.gift_page").click(function(){
+            $(".wrap").hide();
+            $(".lottery").show();
+            $("body").removeClass("active");
+        })
+        //返回按钮
+        $(".return").click(function(){
+            $(".lottery").hide();
+            $("body").addClass("active");
+            $(".wrap").show();
+        })
+        //再测一次按钮
+        $(".chance2").click(function(){
+            widthNum = 15;
+            loadingTxt = 15;
+            $(".page2,.page3").hide();
+            $(".page1").show();
+        });
+        //关闭弹窗按钮
+        $(".close_tips").click(function(){
+          $(this).parent().parent().addClass("hidden");
+          windowScroll();
+        });
+        //查看礼包
+        $(".gift_look").click(function(){
+            $(".code_tips").removeClass("hidden");
+            windowHidden();
+        });
+        //生成告白姿势
+        $(".made_img").click(function(){
+                    $(".js_load").show();
+                    $(".page3").hide();
+                    $(".page4").show();
+                    $(".page4 .tch_box_con").fadeIn(1000);
+                    var canvas2 = document.createElement("canvas");
+                    let _canvas = document.querySelector('.page4');
+                    var w = parseInt(window.getComputedStyle(_canvas).width);
+                    var h = parseInt(window.getComputedStyle(_canvas).height);
+                    canvas2.width = w * 2;
+                    canvas2.height = h * 2;
+                    canvas2.style.width = w + "px";
+                    canvas2.style.height = h + "px";
+                    var context = canvas2.getContext("2d");
+                    context.scale(2,2);
+                    html2canvas(_canvas,{canvas:canvas2}).then(function(canvas) {
+                        console.log(canvas.toDataURL());
+                        $(".page2").hide();
+                        $(".jp_img").attr("src",canvas.toDataURL());
+                        $(".page4").hide();
+                        mySwiper.update();
+                        $(".from").hide();
+                    });
+
+           //     }else{
+           //         alert(data.msg);
+           //     }
+           // } ,'json');
+        });
+})
+</script>
+
+</body>
+</html>
