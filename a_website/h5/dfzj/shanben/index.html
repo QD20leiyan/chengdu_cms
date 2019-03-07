@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>巅峰战舰</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no">
+		<meta name="full-screen" content="yes" />
+		<meta name="x5-fullscreen" content="true" />
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+		<link href="css/index.css" rel="stylesheet" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<section class="one swiper-slide hidden">
+					<img src="images/one.jpg" alt="" />
+				</section>
+				<section class="two swiper-slide hidden">
+					<img src="images/two.jpg" alt="" />
+				</section>
+				<seciton class="three swiper-slide hidden">
+					<img src="images/three.jpg" alt="" />
+					<div class="three_btn">
+						<img src="images/btn04.png" alt="" class="img_one" />
+						<img src="images/btn05.png" alt="" class="img_two" />
+					</div>
+				</seciton>
+				<section class="three_one swiper-slide hidden">
+					<img src="images/three_one.jpg" alt="" />
+					<img src="images/btn03.png" alt="" class="give_up" />
+				</section>
+				<section class="four swiper-slide hidden">
+					<img src="images/four.jpg" alt="" id="four" />
+					<img src="images/hand.png" alt="" class="hand" id="hand" />
+					<div class="bazhang">
+						<span>0</span>
+						<img src="images/bg.png" alt="" />
+					</div>
+					<p class="han_p">在规定时间内，<br /><span>拖动此手掌来回滑动，</span>完成打击</p>
+					<div class="time_jdt">
+						<p>TIME</p>
+						<span id="djs">10″</span>
+						<i class="jdt" id="jdt"></i>
+					</div>
+					<p class="play_cishu">已击打<span id="play_time">0</span>次</p>
+				</section>
+				<section class="five swiper-slide hidden">
+					<img src="images/five.jpg" alt="" />
+				</section>
+				<section class="six swiper-slide">
+					<div id="jp_img">
+						<img src="images/six.jpg" alt="" />
+						<div class="bazhang01">
+							<img src="images/six_bg.png" alt="" />
+							<span>0</span>
+							<p class="t_name">奥圣</p>
+						</div>
+					</div>
+					<div class="top_tip">
+						长按图片保存至相册进行分享!
+					</div>
+					<div class="six_bottom">
+						<div class="chengg"></div>
+						<img src="images/btn02.png" alt="" class="goon" />
+						<div class="btn_bottom">
+							<img src="images/btn01.png" alt="" />
+							<img src="images/btn.png" alt="" />
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="play_music">
+			<img src="images/play.png" alt="" />
+			<img src="images/pause.png" alt="" />
+		</div>
+		<section>
+			<div class="tc">
+				<div class="tc_img">
+					<div class="chengg"></div>
+					<p>爱国人士请留下你的大名</p>
+					<div class="s_put">
+						<input type="text" placeholder="请输入您的大名" class="name" /> 
+					</div>
+					<img src="images/sure.png" alt="" class="sure" />
+				</div>
+			</div>
+		</section>
+		<img src="images/sanjiao.png" alt="" class="sanjiao" />
+		<audio src="images/music.mp3" id="music"></audio>
+		<audio src="images/b_music.mp3"></audio>
+		<audio src="images/1.mp3" id="audio1"></audio>
+		<audio src="images/2.mp3" id="audio2"></audio>
+		<audio src="images/3.mp3" id="audio3"></audio>
+		<audio src="images/4.mp3" id="audio4"></audio>
+		<!--微信分享提示-->
+		<div class="share_bg"><img src="images/share_bg.png" alt="" /></div>
+	</body>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript" src="js/js.js"></script>
+</html>

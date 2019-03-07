@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+
+			})(document, window);
+		</script>
+	</head>
+	
+	<body>
+		<div class="loading">
+			<div class="chengg"></div>
+			<div class="loading_part">
+				<img src="images/loading_person.png" alt="" class="l_person" />
+				<img src="images/hotdog.png" alt="" class="hotdog" />
+				<img src="images/ditu.png" alt=""  class="ditu" />
+			</div>
+			<div class="phone">
+				<p>神秘来电连线中...</p>
+				<p id="loading-txt">0%</p>
+			</div>
+		</div>
+		<div class="page_one">
+			<div class="take"></div>
+		</div>
+		<div class="page_two">
+			<div id="btn"></div>
+		</div>
+		<div class="page_three">
+			<img src="images/slogan.png" alt="" class="slogan" />
+			<div class="share">
+				<a href="javascript:;"></a>
+				<a href="javascript:;" id="share_btn"></a>
+			</div>
+			<img src="images/share_bg.png" alt="" class="share_img" />
+		</div>
+		<video src="video/first.mp4" id="video_one" style="top:-2rem;"></video>
+		<video src="video/last.mp4" id="video_two"></video>
+		<audio src="video/mp3.mp3" loop="loop" autoplay="autoplay" id="bgMusic"></audio>
+	</body>
+	<script type="text/javascript" src="js/js.js"></script>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/swiper.min.css" />
+		<link rel="stylesheet" href="css/txty.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+			<div class="page_one">
+                <div class="header">
+                	<a href="index.html" class="icon"><img src="images/ico1.png" alt=""></a>
+					<div class="h_text">
+						<p class="h_p01">NBA LIVE MOBILE</p>
+						<p class="h_p02">5V5真操控篮球手游</p>
+					</div>
+					<a href="http://downurl.yingxiong.com/url/nba_kaip.html" class="down1"></a>
+                </div>
+                <div class="kv">
+                	<div class="logo bounceInDown"></div>
+                	<a href="http://downurl.yingxiong.com/url/nba_kaip.html" class="down2"></a>
+                </div>	
+                <div class="h_banner h_banner1">
+					<ul class="swiper-wrapper">
+						<li class="swiper-slide">
+						<img src="images/slider1.jpg" alt="">
+						</li>
+						<li class="swiper-slide">
+							<img src="images/slider2.jpg" alt="">
+						</li>
+						<li class="swiper-slide">
+							<img src="images/slider3.jpg" alt="">
+						</li>
+						<li class="swiper-slide">
+							<img src="images/slider4.jpg" alt="">
+						</li>
+						<li class="swiper-slide">
+							<img src="images/slider5.jpg" alt="">
+						</li>
+					</ul>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<footer id="Hero-bar"><div class="f_t"><ul><li><a href="//kf.yingxiong.com/Mobile/checkOption?Gid=92" id="kefu">客服中心</a></li><li><a href="//bbs.yingxiong.com/T/M/21" id="community">游戏社区</a></li></ul></div><p class="f_txt">COPY RIGHT   @2015-2018  ALL RIGHTS RESERVED</p><p class="f_link"><a href="//sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 </a>&nbsp;<a href="//sq.ccm.gov.cn/ccnt/sczr/service/business/emark/gameNetTag/4028c08b573b3c8901573c1ba4e908b3">[2015]0629-259号</a></p><p style="font-size: 12px;color: #707070;text-align: center;">天津英雄互娱科技有限公司</p></footer>
+			<div class="leader">
+				<div class="i_box" id="WeiXin">
+    	<div class="i_con_01">
+    	        <img src="https://spublic.yingxiong.com/xzyd2017/060102/images/pic_09.png" class="i_c_03"></div>
+    			<img src="https://spublic.yingxiong.com/xzyd2017/060102/images/4.png" class="i_con_02">
+    			<img src="https://spublic.yingxiong.com/xzyd2017/060102/images/pic_04.png" class="i_con_03">
+    	<div class="i_text">
+        <p>下载就差一步啦~</p>
+        <p class="info">请点击右上角
+            <img src="https://spublic.yingxiong.com/xzyd2017/060102/images/pic_05.png" alt=""></p>
+        <p class="info2">选择<span>“在浏览器中打开”</span></p>
+    </div>
+    <img src="images/phone_bg.png" class="i_con_04"></div>
+	</div>
+	</body>
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<script type="text/javascript">
+	    $(function() {
+			var mySwiper01 = new Swiper('.h_banner1', {
+				loop: true,
+				// autoplay: 3500,
+				slideToClickedSlide: true,
+				paginationClickable: true,
+				pagination : '.swiper-pagination',
+				autoplayDisableOnInteraction: false,
+                paginationClickable: true,
+				effect: 'coverflow',
+				slidesPerView: 2.14,
+				centeredSlides: true,
+				coverflow: {
+					rotate: 50,
+					stretch: 60,
+					depth: 100,
+					modifier: 1,
+					slideShadows: true
+				},
+				observer: true,
+				observeParents: true,
+			});
+	});
+	</script>
+</html>

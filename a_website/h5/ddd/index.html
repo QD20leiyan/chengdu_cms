@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>弹弹岛</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/animate.min.css" rel="stylesheet" />
+		<!--<link href="css/swiper.min.css" rel="stylesheet" />-->
+		<link href="css/index.css" rel="stylesheet" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+					<!--<section class="swiper-slide page3">
+						<div class="page3_con">
+							<p class="page3_tl">你想用那首歌形容<span>XXX</span>?</p>
+							<p class="com_input"><i></i><input type="text" placeholder="请输入歌名">
+								<a href="javascript:;" class="no_name"></a>
+							</p>
+							<a href="javascript:;" class="submit"></a>
+						</div>
+					</section>-->
+					<section class="swiper-slide page1 hidden">
+						<div class="info_box">
+							<div class="path1 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="3s" ><img src="images/path1.png" alt="" /></div>
+							<div class="path2 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="0.5s"><img src="images/path2.png" alt="" /></div>
+							<div class="path3 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="3.5s"><img src="images/path3.png" alt="" /></div>
+							<div class="path4 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="2s"><img src="images/path4.png" alt="" /></div>
+							<div class="path5 animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="2s"><img src="images/path5.png" alt="" /></div>
+							<div class="path6 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="3.5s"><img src="images/path6.png" alt="" /></div>
+							<div class="path6-1 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="4s"><img src="images/path6-1.png" alt="" /></div>
+							<div class="path7 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="1.5s"><img src="images/path7.png" alt="" /></div>
+							<div class="path7-1 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="2.5s"><img src="images/path7-1.png" alt="" /></div>
+							<div class="path8 ani animated fadeInRight" swiper-animate-effect="fadeInRight" swiper-animate-delay="1s"><img src="images/path8.png" alt="" /></div>
+						</div>
+						<button class="login_btn"></button>
+					</section>
+					<section class="swiper-slide page4">
+						<div class="page2_con">
+							<p class="page2_tl">你想用那首歌形容<span>XXX</span>?</p>
+							<div class="no_comment_box hidden">
+								<a href="javascript:;" class="share_btn"></a>
+								<img src="images/no_info.png" alt="">
+							</div>
+							<div class="comment_box">
+								<div class="list">
+									<div class="list_img">
+										<i></i>
+									</div>
+									<ul>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸易燃易爆炸易燃易爆炸</p>
+											</div>
+										</li>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<p class="com_input"><i></i><input type="text" placeholder="请输入歌名" class="m_name" >
+								<a href="javascript:;" class="tijiao"></a>
+								<a href="javascript:;" class="no_name"></a>
+							</p>
+							<div class="look_btn">
+								<a href="javascript:;" class="look_f"></a>
+							</div>
+							<div class="hj_box">
+								<div class="hj_img"></div>
+								<div class="hj_info">
+									<img src="images/info1.png" alt="">
+									<img src="images/info2.png" alt="">
+								</div>
+								<a href="javascript:;" class="tz_btn"></a>
+							</div>
+						</div>
+					</section>
+					<section class="swiper-slide page2">
+						<div class="page2_con">
+							<p class="page2_tl">你想用那首歌形容<span>XXX</span>?</p>
+							<div class="no_comment_box hidden">
+								<a href="javascript:;" class="share_btn"></a>
+								<img src="images/no_info.png" alt="">
+							</div>
+							<div class="comment_box">
+								<div class="list">
+									<ul>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+										<li>
+											<div>
+												<img src="images/phone.png" alt="">
+												<span class="user">弹弹岛2</span>
+											</div>
+											<div>
+												<p>易燃易爆炸</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="look_btn">
+								<a href="javascript:;" class="look_f"></a>
+							</div>
+							<div class="hj_box">
+								<div class="hj_img"></div>
+								<div class="hj_info">
+									<img src="images/info1.png" alt="">
+									<img src="images/info2.png" alt="">
+								</div>
+								<a href="javascript:;" class="tz_btn"></a>
+							</div>
+						</div>
+					</section>
+				</section>
+			</section>
+		</div>
+		<!--微信分享提示-->
+		<div class="share_bg hidden"><img src="images/share_bg.png" alt="" /></div>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+		<!--<script src="js/js.js"></script>-->
+		<script type="text/javascript">
+//			$(".no_name").click(function (){
+//				$(".m_name").val("");
+//			});
+//			var is_vote = 0;
+//
+//			function autoScroll(obj) {
+//				$(obj).animate({
+//					marginTop: "-190px"
+//				}, 9000, function() {
+//					$(this).css({
+//						marginTop: "0px"
+//					}).find("li:first").appendTo(this);
+//				});
+//			}
+//			$(function() {
+//				//滑动页面
+//				var mySwiper = new Swiper('.swiper-container', {
+//					direction: 'vertical',
+//					pagination: '.swiper-pagination',
+//					mousewheelControl: true,
+//					observer: true,
+//					observeParents: true,
+//					noSwiping: true,
+//					nested: true,
+//					onInit: function(swiper) {
+//						swiperAnimateCache(swiper);
+//						swiperAnimate(swiper);
+//					},
+//					onTouchEnd: function(swiper) {
+
+//					},
+//					onSlideChangeEnd: function(swiper) {
+
+//					},
+//					onTransitionEnd: function(swiper) {
+//						swiperAnimate(swiper);
+//						if(swiper.activeIndex == 1) {
+//							swiper.lockSwipeToPrev();
+//						} else {
+//							swiper.unlockSwipeToPrev();
+//						}
+//					}
+
+//				});
+				// 滚动
+				// var iCount=setInterval('autoScroll(".comment_box ul")', 1500);
+//				<!--$(".news_ul li").hover(function() {
+//					clearInterval(iCount);
+//				}, function() {
+//					iCount = setInterval('autoScroll(".comment_box ul")', 2500);
+//				})
+
+//				setInterval('autoScroll(".comment_box ul")', 1500);
+//				danmu();
+
+				//弹幕
+//				function danmu() {
+//					var strArr = ['小镇姑娘', '爱的初体验',
+//						'爱你', '朋克', '最佳损友', '快走，很多人想打你，我断后', '快走吧，你没看贴吧多少人想杀策划的吗？',
+//						'老哥，这泼冒充都可以。', '还有多办一点事吧……这么多人 反馈意见不要敷衍了事',
+//						'黑骑39火光好亮 帮忙消一下，太亮了，看不清'
+//					];
+//					var colorArr = ['#D42700', '#78101E', '#009ABB', '#50B748', '#EB5D0F'];
+//					var toparr = [6, 6.8, 7.6, 8.4, 9.2, 10, 10.8, 11.6, 12.4, 13.2, 14, 14.8, 15.6, 16.4, 17.2];
+//
+//					function danmufun() {
+//						var topindex = Math.floor(toparr.length * Math.random());
+//						var span = $('<span style="top:' + toparr[topindex] + 'rem;color:' + colorArr[Math.floor(colorArr.length * Math.random())] + ';">' + strArr[Math.floor(strArr.length * Math.random())] + '</span>');
+//						toparr.splice(topindex, 1);
+//						span.appendTo(".dm").animate({
+//							left: -span.width() + "px"
+//						}, 10000, 'linear', function() {
+//							toparr.push(parseFloat($(this).css('top')) / parseFloat($('html').css('fontSize')));
+//							$(this).remove();
+//						});
+//
+//						setTimeout(function() {
+//							danmufun();
+//						}, 1000 + Math.random() * 1000);
+//					}
+//					danmufun();
+//				}
+				//邀请朋友--微信分享
+//				$(".help_btn").click(function() {
+//					$(".share_bg").removeClass("hidden");
+//				});
+//				$(".share_bg").click(function() {
+//					$(".share_bg").addClass("hidden");
+//				});
+//			});
+		</script>
+	</body>
+
+</html>

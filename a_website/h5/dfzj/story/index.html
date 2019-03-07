@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>巅峰战舰</title>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+        <meta name="format-detection" content="telephone=no">
+        <link href="css/animate.min.css" rel="stylesheet"/>
+        <link href="css/swiper.min.css" rel="stylesheet"/>
+        <link href="css/index2.css" rel="stylesheet"/>
+        <link href="css/index.css" rel="stylesheet"/>
+        <script>
+            (function(doc, win) {
+                var docEl = doc.documentElement,
+                    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function() {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientHeight = docEl.clientHeight;
+                        if(!clientHeight) return;
+                        docEl.style.fontSize = 16 * (clientHeight / 320) + 'px';
+                    };
+
+                recalc();
+                // //判断是否支持监听事件 ，不支持则停止
+                // if(!doc.addEventListener) return;
+                // //注册翻转事件
+                // win.addEventListener(resizeEvt, recalc, false);
+
+addEventListener('orientationchange', function () {
+    //先重新计算rem跟屏幕宽度,然后再刷新
+    if (window.innerWidth === window.DEVICEWIDTH) return 0;
+    window.DEVICEWIDTH = window.innerWidth;
+    document.getElementsByTagName('html')[0].style.fontSize = window.DEVICEWIDTH / 10 + 'px';
+    location.reload(false);
+    })
+            })(document, window);
+
+        </script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <section class="swiper-container hidden">
+                <section class="swiper-wrapper">
+                    <section class="swiper-slide page1 swiper-no-swiping">
+                        <div class="poster">
+                         <img src="images/book.png" alt="">
+                        <a href="javascript:;" class="start_btn"></a>
+                        </div>
+                        <div class="poster2"></div>
+                    </section>
+                    <section class="swiper-slide page2 swiper-no-swiping">
+                        <div class="poster1">
+                        </div>
+                        <div class="poster2 on"></div>
+                        <div class="poster3 hidden"></div>
+                        <p class="continue">点击任意位置继续</p>
+                    </section>
+                    <section class="swiper-slide page3 swiper-no-swiping">
+                        <div class="poster1 hidden">
+                            <div class="type type1 active">
+                                <img src="images/peo1.png" alt="" class="peo1">
+                                <p class="p1">大副神色焦急：附近发现求救信号，如果我们不去救他，他必死无疑......</p>
+                                <p class="p2">可如果我们去救他，行踪极有可能被敌军发觉，一旦发生什么意外，后果将不堪设想。</p>
+                                <ul class="answer answer1 hidden" data-id="1">
+                                    <li class="an_01" ><p>不能见死不救！</p></li>
+                                    <li class="an_02"><p>任务为重，我们走！</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type1_2">
+                                <img src="images/peo1.png" alt="" class="peo1 hidden">
+                                <p class="p1">你从破船上救下一个难民，他衣衫破烂，浑身带伤，像是刚经历了一场激烈的厮杀。</p>
+                                <p class="p2">他奄奄一息告诉你：不远处的海峡里常年盘踞着一群海盗，他们掳走了我的伙伴和全部物资</p>
+                                <p class="p3">难民双眼充血，用沙哑的声音哀求：求求你，救救他们……</p>
+                                <p class="p4">大副若有所思把你叫到另一边……</p>
+                                <p class="p5">他悄悄对你说：船长，我不建议救人，那不是我们此行的任务，何况风险太大了！</p>
+                                <ul class="answer answer2 on2 hidden">
+                                    <li class="an_11"><p>人命关天，现在就出发！</p></li>
+                                    <li class="an_12"><p>我……还有任务在身，抱歉……</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type1_3">
+                                <p>得想个办法才好……</p>
+                                <ul class="answer answer3 on3">
+                                    <li class="an_31"><p>休整一下，重新发起攻击，不能让海盗猖狂</p></li>
+                                    <li class="an_32"><p>不可力敌，派大副正面吸引，自己偷偷潜入进行解救</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type1_4">
+                                <img src="images/peo2.png" alt="" class="peo2 hidden">
+                                <p class="p1">尽管你已经非常小心，但还是被一个海盗撞见，他身着华丽，不似一个普通海盗</p>
+                                <p class="p2">海盗：你是什么人，为什么会在这里</p>
+                                <ul class="answer answer4 on3 hidden">
+                                    <li class="an_41"><p>先下手为强，击杀海盗</p></li>
+                                    <li class="an_42"><p>尝试和海盗周旋，让他放松警惕</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type1_5">
+                                <p>好友邀请你和他一起行动，他认为你一个人力量不足，需要他的帮助</p>
+                                <ul class="answer answer5 on3">
+                                    <li class="an_51"><p>不必了，这是我的任务，你就别为我犯险了</p></li>
+                                    <img src="images/ans5_2.png" alt="" onclick="return false">
+                                    <li class="an_52 hidden"><p>如此甚好，有你帮我，胜算倒是大了不少</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type2_1">
+                                <img src="images/peo1.png" alt="" class="peo1 hidden">
+                                <p class="p1">前方探测到了危险风浪区，并且目前看来，风浪区的范围覆盖极广</p>
+                                <p class="p2">大副:我建议绕过风浪区吧，安全为重</p>
+                                <ul class="answer answer2_1 on2 hidden">
+                                    <li class="an_11_2"><p>敌军现在应该已经知晓我们的行动了，要争分夺秒，突破风浪区</p></li>
+                                    <li class="an_12_2"><p>以安全为重，绕开风浪区</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type2_2">
+                                <img src="images/peo1.png" alt="" class="peo1">
+                                <p>狂风大浪正朝你们袭来，大副脸色大变：船长，前方出现紧急情况，我建议立刻调转方向！</p>
+                                <ul class="answer answer2_2 on2">
+                                    <li class="an_21_2"><p>太快了，我们必须冲过去</p></li>
+                                    <li class="an_22_2"><p>马上调转床头</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type2_3">
+                                <img src="images/peo1.png" alt="" class="peo1 hidden">
+                                <p class="p1">雷达探测到不远处有一艘战舰，也许能够进行救援，但不明确那艘战舰是否带有攻击性</p>
+                                <p class="p2">大副：我早说过要避开风浪区，现在可好，我带人前去查看一下吧</p>
+                                <ul class="answer answer3_2 on2 hidden">
+                                    <li class="an_31_2"><p>现在会在风浪区出现的战舰，恐怕不是什么好事，不能去</p></li>
+                                    <li class="an_32_2"><p>也好，能找到救援尽快回来</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type2_4">
+                                <p class="p1">大副认为这一场灾难是你带来的，而你却不敢对此负责...</p>
+                                <p class="p2">眼看大副行为越来越过激，底下船员也纷纷抱怨，危机当前你准备：</p>
+                                <ul class="answer answer4_2 on2 hidden">
+                                    <li class="an_41_2"><p>将大副按照反叛击毙，杀鸡儆猴，让所有人冷静下来</p></li>
+                                    <li class="an_42_2"><p>将大副控制起来，安抚众人</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type3_1">
+                                <p>敌舰发现了你们，他们要求你立刻投降，你的决定是：</p>
+                                <ul class="answer answer1_3 on2">
+                                    <li class="an_11_3"><p>宁死不屈，与敌人进行战斗</p></li>
+                                    <li class="an_12_3"><p>敌众我寡，先假意投降</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type3_2 type3_2_2">
+                                <p>你来到了战舰之上，敌军要求你把指示图交出来</p>
+                                <ul class="answer answer3_2 on2">
+                                    <li class="an_21_32"><p>将指示图撕毁，要求由自己带路</p></li>
+                                    <li class="an_22_32"><p>将指示图撕毁，跳海</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type3_2 type3_2_1">
+                                <p>你来到了战舰之上，发现了一个熟人，你从海中发现的那个的难民已然换上了一套平整的军服，这时敌军要求你把指示图交出来</p>
+                                <ul class="answer answer3_2 on2">
+                                    <li class="an_21_31"><p>将指示图撕毁，要求由自己带路</p></li>
+                                    <li class="an_22_31"><p>将指示图撕毁，跳海</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type3_3 type3_3_1">
+                                <p>就在敌军拿到巅峰战舰设计图的时候，海面上迎来了一些新客人，儿时好友带队的战舰正准备向敌人发起进攻</p>
+                                <ul class="answer answer3_3 on2">
+                                    <li class="an_31_31"><p>抢过图纸立刻逃走！</p></li>
+                                    <li class="an_32_31"><p>与敌人进行搏斗！</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type3_3 type3_3_2">
+                                <p>敌军拿到了巅峰战舰设计图，但他们准备杀你灭口</p>
+                                <ul class="answer answer3_3 on2">
+                                    <li class="an_31_32"><p>抢过图纸立刻逃走！</p></li>
+                                    <li class="an_32_32"><p>与敌人进行搏斗！</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_1">
+                                <img src="images/peo2.png" alt="" class="peo2 hidden">
+                                <p class="p1">你带着被害的记忆，来到了海盗的聚集地，在人群之中一眼就看见了那个蝎子纹身的家伙</p>
+                                <p class="p2">你显的有些心神不宁，原来那个刺杀了自己的家伙就藏在好友的下属中</p>
+                                <p class="p3">海盗：看你心神不宁，是有什么心事？</p>
+                                <ul class="answer answer4_1 hidden ">
+                                    <li class="an_11_4"><p>告诉好友，希望他帮助你一起抓住叛贼！</p></li>
+                                    <li class="an_12_4"><p>不告诉好友，自己独自处理</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_2">
+                                <p>面对好友的质疑，你选择：</p>
+                                <ul class="answer answer4_2">
+                                    <li class="an_21_4"><p>我有办法引他上钩</p></li>
+                                    <li class="an_22_4"><p>继续劝说好友</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_3">
+                                <p>你果然发现了纹身男来到了这里，正准备去偷到指示图，你决定:</p>
+                                <ul class="answer answer4_3">
+                                    <li class="an_31_4"><p>冲上去和他搏斗</p></li>
+                                    <li class="an_32_4"><p>联系好友，让他迅速前来捉拿叛贼</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_4">
+                                <p>好友依然未能动摇，到了傍晚，你发现了纹身男一个人在甲板上，仿佛在等着谁，你决定</p>
+                                <ul class="answer answer4_4">
+                                    <li class="an_41_4"><p>直接冲上去和他搏斗</p></li>
+                                    <li class="an_42_4"><p>联系好友，让他迅速前来捉拿叛贼</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_5">
+                                <p>他们散去后，你决定：</p>
+                                <ul class="answer answer4_5">
+                                    <li class="an_51_4"><p>告诉好友，小心提防此人</p></li>
+                                    <li class="an_52_4"><p>准备好武器，先发制人</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_6">
+                                <p>你提前来到地点蹲守，正好发现纹身男准备去偷到指示图，你决定</p>
+                                <ul class="answer answer4_6">
+                                    <li class="an_61_4"><p>冲上去和他搏斗</p></li>
+                                    <li class="an_62_4"><p>联系好友，让他迅速前来捉拿叛贼</p></li>
+                                </ul>
+                            </div>
+                            <div class="type type4_7">
+                                <p>听完他的回答，你决定：</p>
+                                <ul class="answer answer4_7">
+                                    <li class="an_71_4"><p>你心有所思，让叛贼联络好友前来</p></li>
+                                    <li class="an_72_4"><p>自己联络好友前来捉拿叛贼</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mengceng pb1"></div>
+                        <div class="page3_1 on">
+                            <div class="poster0"><p class="zoomIn">肩负巅峰的使命 迎来命运的抉择</p></div>
+                            <p class="continue">点击任意位置继续</p>
+                        </div>
+                        <div class="board_mao">
+                            <img src="images/mao.png" alt="" class="mao ani">
+                            <img src="images/heian.png" alt="" class="heian">
+                        </div>
+                    </section> 
+                </section>
+            </section>
+            <section class="page1_2">
+                <div class="bg_box">
+                    <img src="images/kv1.jpg" alt="">
+                    <img src="images/kv2.png" alt="">
+                    <img src="images/kv3.png" alt="">
+                    <img src="images/kv4.png" alt="">
+                    <img src="images/kv5.png" alt="">
+                    <img src="images/kv6.png" alt="">
+                    <img src="images/kv7.png" alt="">
+                    <img src="images/kv8.png" alt="">
+                    <img src="images/kv9.png" alt="">
+                </div>
+                <a href="javascript:;" class="rule_btn"></a>
+                <div class="ewm_box">
+                    <img src="images/11.png" alt="">
+                    <a href="javascript:;" class="zj_gift"></a>
+                </div>
+                <div class="btn_box">
+                    <a href="javascript:;" class="again" data-id=""></a>
+                    <a href="javascript:;" class="invite"></a>
+                </div>
+                <div class="sel_box2">
+                    <ul class="sel_box">
+                        <li class="sel1"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel2 active"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel3"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel4"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel5"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel6"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel7"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel8"><i></i><a href="javascript:;"></a></li>
+                        <li class="sel9"><i></i><a href="javascript:;"></a></li>
+                    </ul>
+                </div>
+                <div class="share_bg hidden"></div>
+                <div class="tc_gift hidden">
+                    <div class="gift_box">
+                        <a href="javascript:;" class="close_btn"></a>
+                        <div class="gift_info">
+                        <h2>恭喜您</h2>
+                        <p>获得巅峰战舰礼包码，请登录游戏领取！</p>
+                        <p class="code"><span>D23FDSFSA</span><a href="javascript:;"></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tc_gift2 hidden">
+                    <div class="gift_box">
+                        <a href="javascript:;" class="close_btn"></a>
+                        <div class="gift_info">
+                        <h2>恭喜您</h2>
+                        <p>已解锁所有结局，获得终极大奖礼包码 ，请登录游戏领取！</p>
+                        <p class="code" id="code2"><span></span><a href="javascript:;"></a></p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="tc_gift3 hidden">
+                    <div class="gift_box3">
+                        <a href="javascript:;" class="close_btn"></a>
+                        <div class="gift_info">
+                        <h2>温馨提示</h2>
+                        <p>收集全部结局即可获得终极大奖</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="result_box hidden">
+                <div class="relt_bg">
+                    <img src="images/r1.png" alt="" class="r1">
+                    <img src="images/r2.png" alt="" class="r2 ">
+                    <img src="images/r3.png" alt="" class="r3">
+                    <img src="images/r4.png" alt="" class="r4 ">
+                    <img src="images/r5.png" alt="" class="r5">
+                    <img src="images/r6.png" alt="" class="r6">
+                    <img src="images/r7.png" alt="" class="r7 active">
+                    <img src="images/r8.png" alt="" class="r8">
+                    <img src="images/r9.png" alt="" class="r9">
+                    <p class="p1 on1">你成功的通过了所有的艰难险阻</p>
+                    <p class="p2 ">你发现了真相，但依然倒在了血泊中</p>
+                    <p class="p3 on1">你的鲁莽导致你送了命</p>
+                    <p class="p4 on1">你的死亡一文不值</p>
+                    <p class="p5">好友带上了巅峰战舰的设计图纸，替你完成你未完成的使命</p>
+                    <p class="p6">敌人最终获得了巅峰战舰的图纸，世界会怎样呢，可惜你看不到了</p>
+                    <p class="p7 active">返航的途中，你意外被刺杀身亡，你最后一眼，看到的，是一个蝎子纹身，那是谁呢……</p>
+                    <p class="p8">你没有完成使命，但奉献自己的生命挽回了一场灾难</p>
+                    <p class="p9">胜败乃兵家常事，舰长请重新来过</p>
+                    <h3 id="result_num">结局<span>一</span></h3>
+                    <a href="javascript:;" class="look_gift2"></a>
+                    <h3 id="result_info" class="hidden">已解锁海盗线</h3>
+                    
+                </div>
+                <div class="tc_gift hidden">
+                    <div class="gift_box">
+                        <a href="javascript:;" class="close_btn"></a>
+                        <div class="gift_info">
+                        <h2>恭喜您</h2>
+                        <p>获得巅峰战舰礼包码，请登录游戏领取！</p>
+                        <p class="code"><span>D23FDSFSA</span><a href="javascript:;"></a></p>
+                        </div>
+                 
+                    </div>
+                    <div class="share_bg hidden"></div>
+                    <div class="btn_box">
+                    <a href="javascript:;" class="again2"></a>
+                    <a href="javascript:;" class="invite"></a>
+                </div>
+                </div>
+            </section>
+            <section class="rule_box hidden">
+                <div class="rule_text">
+                    <a href="javascript:;" class="close_btn"></a>
+                    <div class="rule_boxsm">
+                        <h3>活动说明</h3>
+                        <div class="info_text2">  
+                        <p>1、一个微信号仅能为其他玩家解锁一次游戏机会<br>   2、每个玩家每日有一次免费游戏机会，获得额外游戏次数需要分享给其他用户，且被分享的用户需要解锁一次结局后，分享人才可获得游戏次数<br> 3、每个玩家每日额外获得游戏次数的机会为两次<br> 4、游戏中有隐藏分支“海盗线”，需要解锁指定结局才可解锁探索<br> 5、解锁游戏全部结局可领取最终大奖，内含绝版战舰“黄金梅奥”<br> 6、每个结局的礼包中都有概率产出京东卡实物奖励<br> 7、获得京东卡奖励的玩家，联系4009393333电话客服，根据客服提示提供信息记录，我们会尽快核实并发放京东卡奖励</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- 音乐 -->
+        <div class="music_play music_img">
+          <audio id="music1" src="music/music1.mp3" loop="loop"></audio>
+          <i></i>
+        </div>
+        <audio id="music2" src="music/music2.mp3" preload="load"></audio>
+        <audio id="music3" src="music/music3.mp3" preload="load"></audio>
+        </div>
+        <!--横竖屏-->
+        <div id="orientLayer" class="mod-orient-layer">
+            <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+                <div class="mod-orient-layer__desc">为了更好的体验，请使用横屏浏览</div>
+            </div>
+        </div>
+        <script src="js/jquery-1.11.2.min.js"></script>
+        <!-- <script src="js/super.js"></script> -->
+        <!-- 测试js -->
+         <!-- <script src="js/test.js"></script> -->
+        <!-- <script src="js/swiper.min.js"></script> -->
+        <!-- <script src="js/swiper.animate.min.js"></script> -->
+        <!--微信分享-->
+        <script>
+        // 终极礼包
+        var zj_gift=true;
+        $(".zj_gift").click(function(){
+            if(zj_gift){
+                $("#code2 span").html("asrfdsfgdsg");
+                $(".tc_gift3").addClass("hidden");
+                $(".tc_gift2").removeClass("hidden");
+            }else{
+                $("#code2 span").html("asrfdsfgdsg");
+                $(".tc_gift2").addClass("hidden");
+                $(".tc_gift3").removeClass("hidden");
+            }
+        })
+         $(".close_btn").click(function(){
+             $(".page2 .poster1 p").remove();
+            // $(".swiper-container").removeClass("hidden");
+            $(".page1").addClass("hidden");
+            $(".page2").removeClass("hidden");
+            $(".page3 .poster1").addClass("hidden");
+            $(".page2 .poster2").removeClass("hidden");
+            $(".result_box").addClass("hidden");
+            $(".swiper-container").addClass("hidden");
+            $(".tc_gift,.tc_gift2,.tc_gift3").addClass("hidden");
+        });
+        </script>
+        
+    </body>
+</html>

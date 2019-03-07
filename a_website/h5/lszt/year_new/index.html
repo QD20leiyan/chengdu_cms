@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 25 * (clientWidth / 375) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+		<style type="text/css">
+			@font-face {
+				font-family: "webFont";
+				src: url(font/webfont.ttf) format('truetype');
+				font-style: normal;
+				font-weight: normal;
+			}
+			.second{
+				width:100%;
+				height:100%;
+				position:relative;
+				display: none;
+			}
+			.second .content{
+				width:100%;
+				height: 100%;
+				background:url(images/third.jpg) no-repeat center;
+				background-size:100% 100%;
+				position:relative;
+			}
+			.second .content .code{
+				display: block;
+				width:2.34rem;
+				height:2.82rem;
+				position:absolute;
+				right:3.5rem;
+				bottom:30%;
+			}
+			.second .logo{
+				display: block;
+				width:3.04rem;
+				height:2.92rem;
+				position:absolute;
+				right:1rem;
+				top:0.7rem;
+			}
+			.second .second_con{
+				width:100%;
+				margin-top:30%;
+				position:relative;
+			}
+			.second .baocun{
+				width:0.6rem;
+				font-size:0.6rem;
+				color:#bc1b13;
+				position:absolute;
+				right:1.3rem;
+				top:5.5rem;
+				font-family: "微软雅黑";
+				line-height:0.6rem;
+				z-index:6;
+			}
+			.second .second_con .t_img{
+				display: block;
+				width:2.72rem;
+				height:6.76rem;
+				position:absolute;
+				right:2.84rem;
+				top:2.24rem;
+			}
+			.second .second_con .second_txt{
+				width:10.1rem;
+				position:absolute;
+				left:0;
+				top:1.4rem;
+			}
+			.second .second_con .second_txt .first_p{
+				font-size:0..8rem;
+				color:#18170e;
+				width:1rem;
+				margin-left:2.7rem;
+				margin-top:4.9rem;
+				float:left;
+			}
+			.second .second_con .second_txt .jia_txt{
+				width:1rem;
+				font-size:1rem;
+				color:#18170e;
+				margin-left:1rem;
+				float:left;
+			}
+			.second .second_con .second_txt .first_p span{
+				display: block;
+				text-align: center;
+			}
+			.second .second_con .second_txt .first_p img{
+				display: block;
+				width:0.8rem;
+				height:0.8rem;
+			}
+			.second .second_con .second_txt .second_p{
+				width:1rem;
+				font-size:1rem;
+				color:#18170e;
+				margin-left:1rem;
+				float:left;
+			}
+			.second .second_con .second_txt .third_p{
+				width:1rem;
+				font-size:1rem;
+				color:#18170e;
+				margin-left:.5rem;
+				float:left;
+			}
+			#z_img{
+				display: block;
+				width:100%;
+				height:100%;
+				position:absolute;
+				z-index:5;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="loading">
+			<img src="images/logo.png" alt="" class="logo" />
+			<i class="ic_mouse"></i>
+		</div>
+		<div class="kv">
+			<img src="images/slogan.png" alt="" class="slogan" />
+			<div class="play active">
+				<img src="images/play.png" alt="" />
+				<img src="images/pause.png" alt="" />
+			</div>
+			<div class="video">
+				<div class="danmu"></div>
+				<!--canvas视频-->
+				<div class="canvasbox">
+					<canvas id="child" data-src="images/canvas2.png" width="640" height="360"></canvas>
+					<i class="v_play"></i>
+				</div>
+				<video src="images/video.mp4" id="k_video"></video>
+			</div>
+			<div class="s_put p_put">
+				<input type="text" placeholder="输入您曾经的《征途》昵称" class="name" />
+			</div>
+			<div class="s_put">
+				<input type="text" placeholder="选择您的《征途》年龄" class="age" readonly="readonly" />
+				<img src="images/sanjiao.png" alt="" class="sanjiao" />
+				<div class="t_ul" id="#age_ul">
+					<ul>
+						<li data-num="2006" data-id="十三">2006年</li>
+						<li data-num="2007" data-id="十二">2007年</li>
+						<li data-num="2008" data-id="十一">2008年</li>
+						<li data-num="2009" data-id="十">2009年</li>
+						<li data-num="2010" data-id="九">2010年</li>
+						<li data-num="2011" data-id="八">2011年</li>
+						<li data-num="2012" data-id="七">2012年</li>
+						<li data-num="2013" data-id="六">2013年</li>
+						<li data-num="2014" data-id="五">2014年</li>
+						<li data-num="2015" data-id="四">2015年</li>
+						<li data-num="2016" data-id="三">2016年</li>
+						<li data-num="2017" data-id="二">2017年</li>
+						<li data-num="2018" data-id="一">2018年</li>
+					</ul>
+				</div>
+			</div>
+			<div class="s_put">
+				<input type="text" placeholder="请选择您的签到语" class="word" readonly="readonly" />
+				<img src="images/sanjiao.png" alt="" class="sanjiao" />
+				<div class="t_ul" id="#word_ul">
+					<ul>
+						<li>绿色征途 一统天下！</li>
+						<li>我又回来了!</li>
+						<li>前来签到!</li>
+						<li>山河铁蹄下，再战沙场!</li>
+						<li>再临绿色征途手游!</li>
+						<li>预祝游戏大卖!</li>
+					</ul>
+				</div>
+			</div>
+			<a href="javascript:;" class="qiandao"><img src="images/qiandao.png" alt="" /></a>
+			<a href="javascript:;" class="enter"><img src="images/enter.png" alt="" /></a>
+			<audio src="images/bg.mp3" loop="loop" id="audio"></audio>
+		</div>
+		<div class="second">
+			<p class="baocun">长按保存图片</p>
+			<div class="content">
+				<img src="images/logo.png" alt="" class="logo" />
+				<div class="chengg"></div>
+				<div class="second_con">
+					<img src="images/t_img.png" alt="" class="t_img" />
+					<div class="second_txt">
+						<p class="first_p"><span>玩家昵称棒棒</span><img src="images/yao.png" alt="" /></p>
+						<p class="jia_txt">兄弟们 皇城脚下再聚首</p>
+						<p class="second_p">绿色征途 一统天下</p>
+						<p class="third_p"><span>十三</span>年征途</p>
+					</div>
+				</div>
+				<img src="images/code.png" alt="" class="code" />
+			</div>
+			<div class="bottom">
+				<img src="images/txt.png" alt="" class="b_txt" />
+				<div class="code_bg">
+					<p></p>
+				</div>
+				<a href="javascript:;" class="b_enter"><img src="images/enter.png" alt="" /></a>
+			</div>
+		</div>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/canvas2image.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
+</html>

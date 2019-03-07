@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>超级英雄</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/animate.min.css" rel="stylesheet" />
+		<link href="css/swiper.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+					<section class="swiper-slide page1 swiper-no-swiping">
+                        <div class="poster">
+                        	<img src="images/bb.png" alt="" class="s1 ani animated fadeInRight" swiper-animate-delay="0.5s">
+                        	<img src="images/yuan.png" alt="" class="s2 ani animated bounceInDown" swiper-animate-delay="1s">
+                        </div>
+                        <div class="biaobai">
+                            <img src="images/user.png" alt="" class="user_phone">
+                            <div class="bb_txt">
+                                <i> </i>
+                                <p>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg_mc">
+                            <a href="javascript:;" class="test_go_btn"></a>
+                        </div>
+					</section>
+					<section class="swiper-slide page2 swiper-no-swiping hidden">
+					    <div class="not-find">
+                             <div class="info">
+                             <p class="info1">    </p>
+                             <p class="info2">    </p>
+                             </div>               
+                        </div>
+					</section>
+					<section class="swiper-slide page3 swiper-no-swiping">
+                        <div class="gift">
+                            <img src="images/cd.png" alt="" class="lihua">
+                            <img src="images/gift.png" alt="" class="box">
+                            <div class="gf_img">
+                                <img src="images/gf1.png" alt="" class="gf1 active">
+                                <img src="images/gf2.png" alt="" class="gf2">
+                                <img src="images/gf3.png" alt="" class="gf3">
+                                <img src="images/gf4.png" alt="" class="gf4">
+                            </div>
+                             <div class="info">
+                                <p>代码敲得够多才能发现中奖BUG！！！</p>
+                                <p>（快去<span>前台兑奖</span>吧！）</p>
+                             </div>               
+                        </div>
+                    </section>  
+                </section> 
+            </section>  
+		</div>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+		</script>
+		<script type="text/javascript">
+        function print(str){
+          if(str){
+              if(str.charAt()=="#"){
+                  $(".bb_txt").append("<p></p>");
+                  str=str.substr(1);
+              }
+              $(".bb_txt p:last").text($(".bb_txt p:last").text()+str.charAt());
+              setTimeout(function(){ print(str.substr(1)); },50);
+          }else{
+          }
+      };
+var   i,len,code;  
+function  getStringLen(Str){   
+    if(Str==null || Str == "")   return   0;   
+    len   =   Str.length;   
+    for   (i   =   0;i   <   Str.length;i++)     
+    {     
+    code   =   Str.charCodeAt(i);   
+    if   (code   >   255) {len ++;}   
+    }   
+    return   len;
+  } 
+      // var info_txt="一条网线连接四面八方，敲打键盘帅气的模样，“蜗居”生活胸怀天下，编一套快乐的程序，让世界欢畅，愿程序员朋友好好休息，身体健康，“不着病毒”，祝福你们明天再次创造辉煌。";
+      // var info_txt2="骚年回去继续敲代码吧……";
+      
+    $(function() {
+        var i =0;
+        var cal="";;
+        var strArr = ['如果上天让我许三个愿望，第一个是今生今世和你在一起，第二个是再生再世和你在一起，第三个是永生永世和你不分离。', '你如阳光般洒进了我的世界，英雄。', '幸福！只存在你我相聚时刻。', '爱你，藏在我心里，暖在你心里！', '英雄有你，才是真正的英雄。', '山有木兮木有枝，心悦君兮君不知！', '想你想你好想你，找个画家画下你，把你贴在杯子里，每天喝水亲亲你。','hello，world HERO！','感谢你，默默改变了这个世界！','敲击熟悉的键盘，点击快乐的鼠标，汇成开心的格式，出炉美妙的程序。','碰擦灵感的火花，放飞五彩的思绪，投入全部的身心，开启智慧的大门。','一条网线连接四面八方，敲打键盘帅气的模样，“蜗居”生活胸怀天下，编一套快乐的程序，让世界欢畅，愿程序员朋友好好休息，身体健康，“不着病毒”，祝福你们明天再次创造辉煌。','程序员节，愿你拥有大智慧，不断编写精彩，缔造辉煌！','你是 我等了半世未拆的礼物！','衣带渐宽终不悔 为伊消得人憔悴！','天上只有一个月亮世间只有一个你！','我想把世界上最好的都给你，却发现世界上最好的就是你。','不是我喜欢的样子你都有，而是你所有的样子我都喜欢。','无私奉献不是天方夜谭，有时候，我们也可以做到。','想要住进你心里，却发现里面是个小区还有很多邻居。','今朝有酒今朝醉，今朝有求今朝码。','大家统统闪开，程序员来了。','多写代码少打瞌睡，钱财大把随便把妹！','程序员爱老婆，爱我爱家！','骚年，转角遇到爱！'];
+        var info_txt=strArr[Math.floor(strArr.length * Math.random())];
+        print(info_txt);
+        getStringLen(info_txt);
+              if(len>80){
+                console.log(11);
+                $(".biaobai").addClass("on");
+              }else{
+                $(".biaobai").removeClass("on");
+                console.log(22);
+              }
+        console.log(len);
+        //滑动页面
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'vertical',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            // effect : 'fade',
+            fade: {
+                crossFade: true
+            },
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        $(".test_go_btn").click(function(){
+            mySwiper.slideNext();
+        });
+        
+        });
+        </script>
+	</body>
+</html>

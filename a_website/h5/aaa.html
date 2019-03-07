@@ -1,0 +1,62 @@
+<!DOCTYPE html>  
+<html lang="en">  
+    <head>  
+        <meta charset="utf-8">  
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    </head>  
+    <body>  
+        <input type="tel"  id="inp">
+        <br/>
+         <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+        <div id="status">bvnvb</div>     
+    </body>  
+    <script>  
+    $("#status").click(function(){
+      var inp = $("#inp").val();
+      console.log(inp)
+      // $("#inp").blur();
+
+     $("#inp").focus(function(){ document.activeElement.blur(); })
+       // $("#inp").remove();
+      $("#inp").attr("readonly","readonly")
+      if(inp != ""){
+        console.log("8888")
+        var shake=4000,   
+           last_update=0,   
+           count=0,  
+           x=y=z=last_x=last_y=last_z=0;  
+       if(window.DeviceMotionEvent){  
+            window.addEventListener("devicemotion",deviceMotionHandler,false);  
+       }else{  
+         alert("本设备不支持devicemotion事件");  
+       }  
+       console.log(new Date().valueOf());  
+       function deviceMotionHandler(eventData){  
+            var acceleration = eventData.accelerationIncludingGravity,  
+                currTime=new Date().valueOf(),  
+                diffTime=currTime-last_update;  
+   
+                if(diffTime>100){  
+                   last_update=currTime;  
+                   x=acceleration.x;  
+                   y=acceleration.y;  
+                   z=acceleration.z;  
+                   var speed=Math.abs(x+y+z-last_x-last_y-last_z)/diffTime*10000  
+                   var status=document.getElementById("status");  
+                   if(speed>shake){  
+                         count++;  
+                         status.innerHTML = "你摇了中"+count+"次" ;  
+                   }  
+                   last_x = x;  
+                   last_y = y;  
+                   last_z = z;  
+                }  
+          }  
+      }
+    })
+    
+      
+       
+    </script>  
+</html>

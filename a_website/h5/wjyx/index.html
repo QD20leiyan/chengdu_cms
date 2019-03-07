@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>index</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	<script>
+		(function(doc, win) {
+			var docEl = doc.documentElement,
+				// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function() {
+					//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+					var clientWidth = docEl.clientWidth;
+					if(!clientWidth) return;
+					docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+				};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if(!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+
+	<body>
+		<div class="index-wrap">
+			<div class="page1-wrap">
+				<a href="javascript:;" class="logo">
+					<img src="./images/logo.png" alt="">
+				</a>
+				<div class="dinosaur"></div>
+				<div class="fire"></div>
+				<div class="person"></div>
+				<div class="prize-box" id="prize-box">
+					<ul>
+						<li class="lottery-unit active prize-0">
+							<img src="./images/prize1.png" alt="">
+							<i></i>
+						</li>
+						<li class="lottery-unit prize-1">
+							<img src="./images/prize2.png" alt="">
+							<i></i>
+						</li>
+						<li class="lottery-unit prize-2">
+							<img src="./images/prize3.png" alt="">
+							<i></i>
+						</li>
+						<li class="lottery-unit prize-3">
+							<img src="./images/prize4.png" alt="">
+							<i></i>
+						</li>
+						<li class="lottery-unit prize-4">
+							<img src="./images/prize5.png" alt="">
+							<i></i>
+						</li>
+						<li class="lottery-unit prize-5">
+							<img src="./images/prize6.png" alt="">
+							<i></i>
+						</li>
+						<li class="lottery-unit prize-6">
+							<img src="./images/prize7.png" alt="">
+							<i></i>
+						</li>
+					</ul>
+					<div class="prize-btn active"></div>
+				</div>
+			</div>
+			<div class="page2-wrap">
+				<div class="person"></div>
+				<div class="box"></div>
+				<div class="login">
+					<div class="login-btn"></div>
+					<div class="login-alr">
+						<p>欢迎您<span>曹大静</span><i class="login-quit">[注销]</i></p>
+					</div>
+				</div>
+				<div class="rule-title"></div>
+				<div class="rule-con">
+					<p><i>1</i>每次抽奖必中奖。</p>
+					<p><i>2</i>每个奖励只可获取一次。</p>
+					<p><i>3</i>每天每人只可抽取一次奖励。</p>
+					<p><i>4</i>奖池奖励每日不会重置刷新，直至该奖池内奖励全部抽取完。</p>
+				</div>
+				<div class="beauty"></div>
+				<div class="go-website"></div>
+			</div>
+		</div>
+		<!-- 登录弹窗 -->
+		<div class="mask login-mask">
+			<div class="login-main">
+				<a href="javascript:;" class="close login-mask-close"></a>
+				<div class="title"></div>
+				<div class="platform">
+					<div class="ios active"><i></i>ios平台</div>
+					<div class="android"><i></i>Android平台</div>
+				</div>
+				<div class="area-box">
+					<div class="area-val inp">区服：全国统一服务</div>
+					<div class="area-pull">
+						<ul>
+							<li>11111</li>
+							<li>2222</li>
+							<li>3333</li>
+						</ul>
+					</div>
+				</div>
+				<div class="roleid">
+					<input type="text" class="inp" placeholder="输入角色游戏ID">
+				</div>
+				<div class="img1"></div>
+				<div class="login-mask-btn"></div>
+			</div>
+		</div>
+		<!-- 领取奖励弹窗 -->
+		<div class="mask receive-gift-mask">
+			<div class="receive-gift-main">
+				<a href="javascript:;" class="close receive-gift-close"></a>
+				<div class="title"></div>
+				<p class="congratulate">恭喜您获得</p>
+				<img src="./images/prize6.png" alt="">
+				<p class="name">游戏钻石388</p>
+				<p class="tips">*系统自动通过邮件发送到您的游戏邮箱，请在游戏内查收</p>
+				<div class="receive-btn"></div>
+				<div class="img1"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script src="./js/prize.js"></script>
+		<script>
+			$(".login-mask-close").click(function() {
+				$(".login-mask").hide();
+			})
+			$(".receive-gift-close").click(function() {
+				$(".receive-gift-mask").hide();
+			})
+		</script>
+	</body>
+
+</html>

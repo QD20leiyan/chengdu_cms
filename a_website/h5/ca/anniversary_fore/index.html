@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link href="css/active.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchangse' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+     <style>
+    </style>
+</head>
+<body class="active">
+<div class="wrap">
+    <section class="swiper-container hidden">
+        <section class="swiper-wrapper">
+             <section class="swiper-slide swiper-no-swiping page0 hidden">
+             <div class="bg"></div>
+                <div class="banner">
+                    <img src="images/banner.png" alt="" onclick="return false"/>
+                    <a href="javascript:;" class="head_img"><img src="images/head2.png" alt="" class="hand_move"><img src="images/light.png" alt=""></a>
+                </div>
+                <div class="title0">
+                    <img src="images/zi.png" alt="" onclick="return false"/>
+                </div>
+
+            <div class="page0_v hidden">
+                <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="audio/video.mp4"></video>
+            </div>
+            </section>
+            <section class="swiper-slide page1 hidden">
+                <div class="bg"></div>
+                <img src="images/play_on.png" alt="" class="music_img active"/>
+                <div class="logo">
+                    <img src="images/slogan.jpg" alt="" onclick="return false"/>
+                </div>
+               <img src="images/logo.png" alt="" class="logo_co">
+                <div class="form_info">
+                    <input type="text" class='name' placeholder="请输入姓名">
+                </div>
+                <div class="title1">
+                    <img src="images/title.png" alt="" onclick="return false"/>
+                </div>
+                <ul class="term_list">
+                    <li class="term1" data-id="1"></li>
+                    <li class="term2" data-id="2"></li>
+                </ul>
+                <button class="test_btn slideInUp animated"></button>
+                
+            </section>
+            <section class="swiper-slide page2 hidden">
+                <div class="bg"></div>
+                <img src="images/play_on.png" alt="" class="music_img active"/>
+               <img src="images/logo.png" alt="" class="logo_co">
+                <div class="logo">
+                    <img src="images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box">
+                           <img src="images/test1.png" alt="">
+                        </div>
+                        <div class="choose_box">
+                            <a href="javascript:;" class="" data-id="1"><img src="images/4.png" alt=""></a>
+                            <a href="javascript:;" class="" data-id="2"><img src="images/5.png" alt=""></a>
+                            <a href="javascript:;" class="" data-id="3"><img src="images/6.png" alt=""></a>
+                            <a href="javascript:;" class="" data-id="4"><img src="images/7.png" alt=""></a>
+                         </div>
+            </section>
+           <section class="swiper-slide page3 hidden">
+                <div class="bg"></div>
+                 <img src="images/play_on.png" alt="" class="music_img active"/>
+                <img src="images/logo.png" alt="" class="logo_co">
+                <div class="logo">
+                    <img src="images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box2">
+                    <div class="choose_box2">
+                        <a href="javascript:;" class="" data-id="1"><img src="images/1.png" alt=""></a>
+                        <a href="javascript:;" class="" data-id="2"><img src="images/2.png" alt=""></a>
+                        <a href="javascript:;" class="" data-id="3"><img src="images/3.png" alt=""></a>
+                        <a href="javascript:;" class="" data-id="4"><img src="images/8.png" alt=""></a>
+                    </div>
+                </div>
+            </section>
+            <section class="swiper-slide page4 hidden">
+                <div class="bg"></div>
+                <img src="images/logo.png" alt="" class="logo_co">
+                 <img src="images/play_on.png" alt="" class="music_img active"/>
+                <div class="logo">
+                    <img src="images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box3">
+                    <img src="images/yyy.png" alt="" class="yyy_bg">
+                </div>
+                <img src="images/zs.png" alt="" onclick="return false" class="zs"/>
+            </section>
+            <section class="swiper-slide page5 hidden">
+                <div class="bg"></div>
+                <img src="images/logo.png" alt="" class="logo">
+                <img src="images/play_on.png" alt="" class="music_img active"/>
+                <img src="images/logo.png" alt="" class="logo_co">
+                <div class="logo">
+                    <img src="images/titl2.png" alt="" onclick="return false"/>
+                </div>
+                <div class="question_box4">
+                    <p class="">羡慕嫉妒恨！<br>  您一定告别单身很久了 </p>
+                    <a href="javascript:;" class="jietu"></a>
+                </div>
+                <img src="images/zs.png" alt="" onclick="return false" class="zs"/>
+            </section>
+            <section class="swiper-slide page6">
+                <div class="bg"></div>
+                <img src="images/logo.png" alt="" class="logo_co">
+                <!-- 英雄之心 -->
+                <div class="result_text boot1">
+                    <div class="lf_lin">
+                        <img src="images/img_i.png" alt="" class="term1">
+                        <img src="images/img_11.png" alt="" class="term2 active ">
+                        <p> 
+                            <span>你对自己有着明确的认知</span>
+                            <span>因此你总能找到最适合</span>
+                            <span>自己的位置发光发热</span>
+                        </p>
+                        <img src="images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="images/11.png" alt="">
+                        <div class="user_box">
+                            <p><span class="user_name">己有着明确的认知</span>的天命枪</p>
+                            <p>特性：射速高</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 白金AK -->
+                <div class="result_text boot2">
+                    <div class="lf_lin">
+                        <img src="images/img_i.png" alt="" class="term1">
+                        <img src="images/img_11.png" alt="" class="term2 active ">
+                        <p class="two"> 
+                            <span>你的定位是指挥塔， </span>
+                            <span>冷静的你总能轻易的看穿一切。</span>
+                        </p>
+                        <img src="images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="images/12.png" alt="">
+                    </div>
+                </div>
+                <!-- 英雄之魂 -->
+                <div class="result_text boot3">
+                    <div class="lf_lin">
+                        <img src="images/img_i.png" alt="" class="term1">
+                        <img src="images/img_11.png" alt="" class="term2 active ">
+                        <p>
+                            <span>你有非常强的控场能力，</span>
+                            <span>细心且拥有实力的你，</span>
+                            <span>总会让一切变得恰到好处。</span>
+
+                        </p>
+                        <img src="images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="images/13.png" alt="">
+                    </div>
+                </div>
+                 <!-- 英雄之光 -->
+                <div class="result_text boot4">
+                    <div class="lf_lin">
+                        <img src="images/img_i.png" alt="" class="term1">
+                        <img src="images/img_11.png" alt="" class="term2 active ">
+                        <p> 
+                            <span>你是一颗小太阳，实力超强,</span>
+                            <span>同时也是值得信赖的伙伴 </span>
+                            <span>因为有你前行的路将不再黑暗 </span>
+                        </p>
+                        <img src="images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="images/14.png" alt="">
+                    </div>
+                </div>
+                 <!-- 白金战龙 -->
+                <div class="result_text boot5" style="display: block;">
+                    <div class="lf_lin">
+                        <img src="images/img_i.png" alt="" class="term1">
+                        <img src="images/img_11.png" alt="" class="term2 active ">
+                        <p>                     
+                            <span>冷静的你总能轻易的看穿一切</span>
+                            <span>且有超强的控场能力不容小觑</span>
+                            <span>总能以最快的速度找到最适合自己的位置</span>
+                        </p>
+                        <img src="images/ew_code.png" alt="" class="ew_code">
+                    </div>
+                    <div class="rt_lin">
+                        <img src="images/15.png" alt="">
+                    </div>
+                </div>
+                <div><a href="javascript:;" class="gift_page"></a></div>
+            </section>
+            <section class="swiper-slide page7 hidden">
+                 <img src="images/play_on.png" alt="" class="music_img active"/>
+                 <p>长安保存图片</p>
+                <img src="" alt="" class="jp_img" onclick="return false">
+                <a href="javascript:;" class="gift_page"></a>
+            </section> 
+        </section>
+    </section>
+</div>
+<section class="lottery">
+     <section class="a-container">
+        <img src="images/logo.png" onclick="return false" class="logo_co">
+         <img src="images/play_on.png" alt="" class="music_img active"/>
+        <section class="a-item3">
+            <div>
+                <img id="cj_pan" src="images/cj_pan.png" onclick="return false">
+                <img src="images/light2.png" alt="" class="light light2">
+                <img src="images/light1.png" alt="" class="light light1">
+                <div class="p-all-center">
+                    <!-- <img src="images/pointer.png" alt="" class="text"> -->
+                   <img id="rotate" src="images/cj_zz1.png">
+                </div>
+            </div>
+            <a href="javascript:;" class="gift_look"><img src="images/gift_look.png" alt=""></a>
+        </section> 
+    </section>
+    <section class="b-container">
+        <section class="b-open_style">
+            <ul class="act_info">
+                <li class="rule">
+                    <i>i</i><b>活动规则</b>
+                </li>
+                <li>
+                    <i>1</i><p>活动时间：9月11日—9月30日； </p>
+                </li>
+                <li>
+                    <i>2</i><p>活动期间，每个微信账号共拥有3次抽奖机会； </p>
+                </li>
+                <li>
+                    <i>3</i><p>奖励兑换说明：游戏礼包请打开《全民枪战2》游戏-任务-兑换礼品-进行兑换；</p>
+                </li>
+                <li>
+                    <i>4</i><p>CA温馨提示：同类型礼包仅可兑换一次，若有活动礼包问题，请与《全民枪战2》官方客服联系，联系方式：<span>关注“quanminqiangzhan”公众号——”枪友之家“——”在线客服“；</span></p>
+                </li>
+                <li>
+                    <i>5</i><p>在法律规定范围内《全民枪战2》运营团队拥有本活动最终解释权。</p>
+                </li>
+            </ul>
+            <a class="down_btn" href="javascript:;"><img src="images/down_btn.png" alt=""></a>
+        </section>
+    </section>
+<!--兑换码弹框-->
+<div class="tips code_tips hidden">
+    <div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <img src="images/tl1.png" alt="" class="lable_tl">
+        <div class="co_form">
+            <p class="info">恭喜你获得</p>
+            <div class="gift_ico">
+                <img src="images/icon1.png" alt="" class="img1">
+                <img src="images/icon2.png" alt="" class="img2">
+                <img src="images/icon3.png" alt="" class="img3">
+                <img src="images/icon4.png" alt="" class="img4">
+                <img src="images/icon5.png" alt="" class="img5 active">
+                <img src="images/icon6.png" alt="" class="img6">
+            </div>
+            <p class="gift_name">吕布∙飞将 AK47-1阶</p>
+            <div class="dhm_info">
+                <p>兑换码：<span class="code">3D2FEWF3FEW3F</span></p>
+            </div>
+            <div class="copy_btn"></div>
+            <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+        </div>
+    </div>
+</div>
+<!--礼包弹框-->
+<div class="tips f_login_tips">
+<div class="content"> 
+        <a href="javascript:;" class="close_tips"></a>
+        <img src="images/tl2.png" alt="" class="lable_tl2">
+    <div class="g_price">
+        <div class="price_div">
+            <span>名称</span>
+            <span>兑换码</span>
+            <span>时间</span>
+            <span></span>
+        </div>
+        <ul class="price_ul">
+            <li>
+                <span class="name_txt align-center-vertical">吕布∙飞将</span>
+                <span class="name_code align-center-vertical">3D2FEWF3FEWzxcf</span>
+                <span class="name_time">2018-09-31</span>
+                <span class="copy_btn2"><a href="javascript:;"></a></span>
+            </li>
+            <li>
+                <span class="name_txt align-center-vertical">吕布∙飞将 AK47-1阶</span>
+                <span class="name_code align-center-vertical">3D2FEWF3FEdf</span>
+                <span class="name_time">2018-09-31</span>
+                <span class="copy_btn2"><a href="javascript:;"></a></span>
+            </li>
+             <li>
+                <span class="name_txt align-center-vertical">吕布∙飞将 AK47-1阶</span>
+                <span class="name_code align-center-vertical">3D2FEWF3FEW3</span>
+                <span class="name_time">2018-09-31</span>
+                <span class="copy_btn2"><a href="javascript:;"></a></span>
+            </li>
+        </ul>
+
+    </div>
+        <div class="sure_btn"></div>
+        <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+    </div>
+</div>
+<!--音乐-->
+<!--<img id="music_icon" class="music_play" name="play" src="images/p_music_play_06.png">-->
+<audio id="music1" src="audio/music.wav" loop="loop" preload="load"></audio>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<!--遮罩层-->
+<div id=loading10 style="position:fixed;left:0;top:0;z-index:9999;background:rgba(0,0,0,1);width:100%;height:100%;display: none;" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px;">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="font-family:'微软雅黑';width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+<audio id="music" src="<{$smarty.const.STATIC_MAIN}>qmqz/h5/sayLove/audio/music.mp3"  loop="loop"></audio>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script type="text/javascript" src="js/awardRotate.js"></script>
+<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<!-- <script type="text/javascript" src="public/zepto.js"></script> -->
+<script>
+    document.write('<script src="http://game.yingxiong.com/common/cawx/cawxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+</script>
+<script type="text/javascript">
+//音乐视频初始化
+    document.addEventListener('DOMContentLoaded', function () {
+        var  myVid1=document.getElementById("my_video1");
+        function audioAutoPlay() {
+            myVid1.load();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                myVid1.load();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+// var share_url="/h5/cd/ajax-cp-share.html";//截屏分享
+var boot_box=['.boot1','.boot2','.boot3','.boot4','.boot5'];
+var boot1_box=['.boot1','.boot2','.boot4'];
+var boot1=boot_box[Math.floor(Math.random()*boot_box.length)];
+var boot2=boot1_box[Math.floor(Math.random()*boot1_box.length)];
+var srf = $('meta[name="csrf-token"]').attr('content');
+// var images=['11.png','12.png','13.png','14.png','15.png','16.png','17.png','18.png','19.png','20.png','21.png','22.png','23.png'];//随机生成告白图
+// var url=images[Math.floor(Math.random()*images.length)];
+// var lottery_url="/ca/fouryear/lottery.html"+h5_data;
+// var url_img='images/'+url;
+   var play1=true;
+    $(function(){
+        var  h5_data=$(".h5_data").html();
+        var  myVid1=document.getElementById("my_video1");
+        var  myauo1=document.getElementById('music1');
+        var verify_url='/h5/cd/ajax-cp.html';//开始测试
+        var share_url="/h5/cd/ajax-cp-share.html";//截屏分享
+       //强势围观
+        $(".page0 .head_img").click(function(){
+            // mySwiper.slideNext();
+            // $(".page0").addClass("hidden");
+            $(".page0_v").removeClass("hidden");
+            myVid1.play();
+            // myauo1.play();
+            // setTimeout(function(){
+            //     myauo1.pause();
+            // },1);
+            myVid1.onended = function() {
+                $(".page0_v").addClass("hidden");
+                $(".page0").addClass("hidden");
+                $(".page1").removeClass("hidden");
+                myauo1.play();
+            }
+        });
+        
+        // 匹配请求
+        function init_pp(){
+            var my_name = $(".name").val();
+            var star_id1 = i1;
+            var star_id2 = i2;
+            var type ='';
+            if(star_id == 1) {
+               type = "男";
+            } else if(star_id == 2) {
+               type = "女";
+            }
+            $.post(verify_url,{ "name":my_name,"star":type,"cms_csrf":srf},function(data){
+              if(data.status == 0){
+                  $(".page1").hide();
+                  $(".page2").show();
+              }else{
+                alert(data.msg);
+              }
+            }, 'json');
+        }
+        //弹窗滚动
+        function windowHidden(){
+            $("html,body").css({
+                "overflow":"hidden",
+                "width":"100%",
+                "height":"100%"
+            });
+        };
+        function windowScroll(){
+            $("html,body").css({
+                "overflow":"visible",
+                "width":"100%",
+                "height":"auto"
+            });
+        };
+        var rotateTimeOut = function() {
+        $('#rotate').rotate({
+            angle: 0,
+            animateTo: 2160,
+            duration: 8000,
+            callback: function() {
+                alert('网络超时，请检查您的网络设置！');
+            }
+        });
+    };
+    var bRotate = false;
+    var giftNum = [{
+        "id": "368",
+            "name": "暴烈涂鸦AWP"
+        },
+        {
+            "id": "367",
+            "name": "吕布飞将AK47-1阶"
+        },
+        {
+            "id": "365",
+            "name": "强化点"
+        },
+        {
+            "id": "364",
+            "name": "虚空恶魔"
+        },
+        {
+            "id": "366",
+            "name": "钻石"
+        },
+        {
+            "id": "369",
+            "name": "克里斯"
+        },
+        {
+            "id": "370",
+            "name": "谢谢参与"
+        }
+    ];
+    var rotateFn = function(awards, angles, txt, num) {
+        bRotate = !bRotate;
+        $('#rotate').stopRotate();
+        $('#rotate').rotate({
+            angle: 0,
+            animateTo: angles + 1777.5,
+            duration: 3000,
+            callback: function() {
+                if(num == 0) {
+                    $(".code_tips").removeClass("hidden");
+                }
+                if(num == 1) {
+                    alert("谢谢参与")
+                }
+                bRotate = !bRotate;
+            }
+        })
+    };
+        $('.p-all-center').click(function() {
+                if(bRotate) return;
+                // $.get(lottery_url, {}, function(data) {
+                //     if(data.status == 0) {
+                        var item = 141;
+                        switch(item) {
+                            case 1:
+                                rotateFn(1, 51.4, '暴烈涂鸦AWP', 0);
+                                break;
+                            case 2:
+                                rotateFn(52.4,103, '吕布飞将AK47-1阶', 0);
+                                break;
+                            case 3:
+                                rotateFn(104, 154.2, '强化点'
+                                , 0);
+                                break;
+                            case 4:
+                                rotateFn(155.2, 205.7, '虚空恶魔', 0);
+                                break;
+                            case 5:
+                                rotateFn(206.7, 257.1, '钻石', 0);
+                                break;
+                            case 6:
+                                rotateFn(258.1, 308.5, '克里斯', 0);
+                                break;
+                            case 7:
+                                rotateFn(309.5, 360, '谢谢参与', 1);
+                                break;
+                        }
+                    //     var giftId = data.msg.gift_id;
+                    //     $(".code_tips .info span").html(giftNum[giftId+1].name);
+                    //     $(".lottery_tips .code").html(giftNum[giftId+1].name);
+                    //     $(".code_tips .code span").html(data.msg.msg);
+                    // }else{
+                    //     alert(data.msg);
+                    //     return;
+                    // }
+                // }, "json");
+                // alert(data.msg);
+        });
+        
+        //选择战队
+          //选择战队
+         $(".term_list").find('li').click(function() {
+          
+           $(this).addClass("active").siblings().removeClass("active");
+
+           var index = $(".term_list li.active").attr("data-id");
+            console.log(index);
+           if(index=1){
+               $(".page6 .lf_lin .term1").removeClass("active");
+               $(".lf_lin .term2").addClass("active");
+           }else if(index=2){
+               $(".page6 .lf_lin .term1").addClass("active");
+               $(".page6 .lf_lin .term2").removeClass("active");
+           }
+        });
+         //第一题选择
+         $(".choose_box").find('a').click(function() {
+           $(this).addClass("active").siblings().removeClass("active");
+            
+           var index2 = $(".choose_box a.active").data("id");
+            console.log(index2);
+           setTimeout(function(){
+            $(".page2").hide();
+            $(".page3").show();
+           },500)
+        });
+         //第2题选择
+         $(".choose_box2").find('a').click(function() {
+           $(this).addClass("active").siblings().removeClass("active");
+           var index3 = $(".choose_box2 a.active").data("id");
+           console.log(index3);
+           if(index3==1){ 
+               $(".result_text").hide();
+               console.log(boot1);
+               $(boot1).show();
+           }else if(index3==2){
+               $(".result_text").hide();
+               $(".result_text.boot3").show();
+           }
+           else if(index3==3){
+              $(".result_text").hide();
+              $(boot2).show();
+           }
+           else if(index3==4){
+               $(".result_text").hide();
+               $(".result_text.boot5").show();
+           }
+           setTimeout(function(){
+           $(".page3").addClass("hidden");
+           $(".page4").removeClass("hidden");
+           },500)
+        });
+         $(".page4").click(function(){
+             setTimeout(function(){
+           $(".page4").addClass("hidden");
+           $(".page5").removeClass("hidden");
+           },300)
+         })
+        $("input.star1").focus(function(){
+            status=1;
+        });
+        $("input.star2").focus(function(){
+            status=2;
+        });
+        $(".styar_sel li").click(function(){
+            if(status==1){
+                var li1=$(this).text();
+                $("input.star1").val(li1);
+                i1=$(this).attr("data-id");
+                $(".star_list").addClass("hidden") ;
+            }else if(status==2){
+                var li2=$(this).text();
+                $("input.star2").val(li2);
+                i2=$(this).attr("data-id");
+                $(".star_list").addClass("hidden") ; 
+            }
+            
+        });
+        //点击一键测试
+        $(".page1 .test_btn").click(function(){
+            var name=$(".form_info .name").val();
+            var term=$(".term_list li.active").data("id");
+            if(name == "" || name==undefined){
+                alert("请输入您的姓名~");
+                return;
+            }
+            if(term == "" || term==undefined){
+                alert("请选择您的阵营~");
+                return;
+            }
+            $(".page1").hide();
+            $(".page2").show();
+        });
+        //抽奖按钮
+        $(".gift_page").click(function(){
+            $(".page7").hide();
+            $(".lottery").show();
+            $("body").removeClass("active");
+        })
+        //关闭弹窗按钮
+        $(".close_tips").click(function(){
+          $(this).parent().parent().addClass("hidden");
+          windowScroll();
+        });
+        //查看礼包
+        $(".gift_look").click(function(){
+            $(".tips.f_login_tips").fadeIn();
+            // windowHidden();
+        });
+         $(".sure_btn").click(function(){
+            $(".tips.f_login_tips").fadeOut();
+            // windowHidden();
+        });
+        $(".music_img").click(function(){
+            if(play1){
+                document.getElementById('music1').pause();
+                $(".music_img").removeClass("active");
+                $(".music_img").attr("src","images/play.png");
+                play1=false;
+            }else{
+                document.getElementById('music1').play();
+                $(".music_img").addClass("active");
+                 $(".music_img").attr("src","images/play_on.png");
+                play1=true;
+            }
+        })
+        var click_bnt = true;
+        //生成告白姿势
+        $(".jietu").click(function(){
+                    $(".js_load").show();
+                    $(".page5").hide();
+                    $(".page6").show();
+                    // $(".page4 .tch_box_con").fadeIn(1000);
+                    var canvas2 = document.createElement("canvas");
+                    let _canvas = document.querySelector('.page6');
+                    var w = parseInt(window.getComputedStyle(_canvas).width);
+                    var h = parseInt(window.getComputedStyle(_canvas).height);
+                    canvas2.width = w * 2;
+                    canvas2.height = h * 2;
+                    canvas2.style.width = w + "px";
+                    canvas2.style.height = h + "px";
+                    var context = canvas2.getContext("2d");
+                    context.scale(2,2);
+                    html2canvas(_canvas,{canvas:canvas2}).then(function(canvas) {
+                        console.log(canvas.toDataURL());
+                        $(".page6").addClass("hidden");
+                        $(".jp_img").attr("src",canvas.toDataURL());
+                        $(".page7").removeClass("hidden");
+                        // mySwiper.update();
+                         setTimeout(function(){
+                             $(".lottery_btn").fadeIn(300);
+                         },2000);
+                    });
+
+           //     }else{
+           //         alert(data.msg);
+           //     }
+           // } ,'json');
+        });
+        $(".page6").on('touchend',function(){
+             if(click_bnt){
+            setTimeout(function(){
+                 $(".gift_page").fadeIn(300);
+            },1000);
+            click_bnt = false;
+            }
+        }) 
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>超级英雄</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/animate.min.css" rel="stylesheet" />
+		<link href="css/swiper.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+					<section class="swiper-slide page1 hidden">
+                        <div class="poster"></div>
+                        <img src="images/play_on.png" alt="" class="music_img active"/>
+                        <img src="images/ren.png" alt="" class="s1 ani animated fadeInDown" swiper-animate-delay="0.5s">
+                        <img src="images/slogan.png" alt="" class="s2 ani animated zoomIn" swiper-animate-delay="1s">
+                         <img src="images/logo.png" alt="" class="s3" swiper-animate-delay="1s">
+                        <div class="start_btn">
+                            <a href="javascript:;"></a>
+                            <img src="images/dl.png" alt="">
+                        </div>
+                        <div class="poster3"></div>
+                        <div class="poster2"></div>
+					</section>
+					<section class="swiper-slide page2 hidden">
+                        <img src="images/logo.png" alt="" class="s3" swiper-animate-delay="1s">
+                        <img src="images/play_on.png" alt="" class="music_img active"/>
+					     <img src="images/title.png" alt="" class="title">
+                         <img src="images/title3.png" alt="" class="title2">
+                         <div class="name_box">
+                             <input type="text" placeholder="请输入您的名字" maxlength="8">
+                             <a href="javascript:;" class="name_btn"></a>
+                         </div>
+                        <div class="poster4"></div>
+                        <div class="poster"></div>
+                        <div class="poster2"></div>
+                        <div class="poster3"></div>
+                        <div class="poster5"></div>
+                        <div class="poster6"></div>
+					</section>
+					<section class="swiper-slide page3 hidden">
+                        <img src="images/logo.png" alt="" class="s3" swiper-animate-delay="1s">
+                        <img src="images/play_on.png" alt="" class="music_img active"/>
+                        <img src="images/fu2_1.png" alt="" class="f1">
+                        <img src="images/fu2_2.png" alt="" class="f2">
+                        <img src="images/fu2_3.png" alt="" class="f3">
+                        <div class="poster"></div>
+                        <div class="poster2"></div>
+                        <div class="poster3"></div>
+                        <div class="poster5"></div>
+                        <div class="poster6"></div>
+                        <div class="poster4"></div>
+                        <div class="poster7"></div>
+                        <div class="poster8"></div>
+                        <div class="type type1 active">
+                            <div class="timu">
+                                <p>咳咳，验明正身之前，先对个暗号！中秋的月饼，当然是——</p>
+                            </div>
+                        </div>
+                        <ul class="answer answer1 active" data-id="1">
+                                <li class="" data-sel="A"><p class="align-center-vertical">A.甜的</p></li>
+                                <li data-sel="B"><p class="align-center-vertical">B.咸的</p></li>
+                        </ul>
+                        <div class="type type2">
+                            <div class="timu on1">
+                                <p>夏侯中秋晚会经费告急！校长派大家去募集资金，只剩下两个工作选项，你会去哪里打工？</p>
+                            </div>
+                        </div>
+                        <ul class="answer answer2" data-id="2">
+                                <li data-sel="A"><p class="align-center-vertical">A.去东关，到小菲家打工当副组长，王牌黑道就是我！</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.去女仆咖啡厅做咖啡师,文艺又安全~</p></li>
+                        </ul>
+                        <div class="type type3">
+                            <div class="timu on2">
+                                <p>在夜部各位的努力下，经费凑齐了！但是大家又为晚会的风格争执起来，你觉得该举办一个什么样的晚会？</p>
+                            </div>
+                        </div>
+                            <ul class="answer answer3" data-id="3">
+                                <li data-sel="A"><p class="align-center-vertical">A.古风类型！传统节日嘛，就    古香古色的。</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.现代风格！RAP、街舞、极乐净土，就要high翻天！</p></li>
+                            </ul>
+                       <div class="type type4">
+                            <div class="timu on1">
+                                <p>西门会长说，中秋晚会上，夜部的每个人都要出一份力，你会选择做？</p>
+                            </div>
+                        </div>
+
+                            <ul class="answer answer4" data-id="4">
+                                <li data-sel="A"><p class="align-center-vertical">A.表演演员，艺术细胞不能浪费！</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.导演组人员，把控全局才是我的style~</p></li>
+                            </ul>
+                        <div class="type type5">
+                            <div class="timu on1">
+                                <p>晚会的彩排上，夜部小队又一次因为舞台剧的剧目选择而发愁，你会建议怎么决定呢？</p>
+                            </div>
+                        </div>
+
+                            <ul class="answer answer5"  data-id="5">
+                                <li data-sel="A"><p class="align-center-vertical">A.大家抽签决定（啊喂！你们都不准用法术作弊！）</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.让夜部全员投票决定</p></li>
+                            </ul>
+                        <div class="type type6">
+                            <div class="timu">
+                                <p>晚会开幕啦！但是却出现了突发状况！你觉得会是什么？</p>
+                            </div>
+                        </div>
+
+                            <ul class="answer answer6"  data-id="6">
+                                <li data-sel="A"><p class="align-center-vertical">A.希纱和车永泰在台上大打出手，不小心把上来劝架的校    长打晕了……</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.阎姐带着冥界的队伍空降舞台，表演了一场出人意料的    杂技show</p></li>
+                            </ul>
+                         <div class="type type7">
+                            <div class="timu">
+                                <p>表演休息时间，无人大叔给你递过来了一瓶饮料，你觉得会是？</p>
+                            </div>
+                        </div>
+
+                            <ul class="answer answer7"  data-id="7">
+                                <li data-sel="A"><p class="align-center-vertical">A.牛奶</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.矿泉水</p></li>
+                                 <li data-sel="C"><p  class="align-center-vertical">C.果汁</p></li>
+                            </ul>
+                         <div class="type type8">
+                            <div class="timu on2">
+                                <p>你抓到了一名在中秋晚会上引起混乱的花妖，她说只是想来人界感受下节日氛围，面对她可怜楚楚的求情，你会怎么做？</p>
+                            </div>
+                        </div>
+                            <ul class="answer answer8"  data-id="8">
+                                <li data-sel="A"><p class="align-center-vertical">A.妖族引发人界混乱，就应该即刻遣送回去</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.她看着很可怜，就发她一马吧。</p></li>
+                            </ul>
+                         <div class="type type9">
+                            <div class="timu">
+                                <p>夏侯中秋晚会终于顺利结束，忙碌了一天的你，现在最想去做什么？</p>
+                            </div>
+                        </div>
+                            <ul class="answer answer9"  data-id="9">
+                                <li data-sel="A"><p class="align-center-vertical">A..肯定是回家睡觉啦_(:зゝ∠)_累死个人了</p></li>
+                                <li data-sel="B"><p  class="align-center-vertical">B.这么辛苦办完了晚会，当然是去开个庆功宴啦！</p></li>
+                            </ul>
+					</section> 
+					<section class="swiper-slide page4">
+                        <div class="zhezhao">
+                            <img src="images/f1.png" alt="" class="f1">
+                            <img src="images/f2.png" alt="" class="f2">
+                            <img src="images/f3.png" alt="" class="f3">
+                            <img src="images/peo_1.png" alt="" class="peo_11 peo1">
+                            <img src="images/peo_2.png" alt="" class="peo_11 peo2">
+                            <img src="images/peo_3.png" alt="" class="peo_11 peo3">
+                            <img src="images/peo_4.png" alt="" class="peo_11 peo4">
+                            <img src="images/peo_5.png" alt="" class="peo_11 peo5">
+                            <img src="images/peo_6.png" alt="" class="peo_11 peo6">
+                            <img src="images/peo_7.png" alt="" class="peo_11 peo7">
+                            <img src="images/peo_8.png" alt="" class="peo_11 peo8 active">
+                            <img src="images/logo.png" alt="" class="s3">
+                            <img src="images/bg33.png" alt="" class="zhezhao2">
+                        </div>
+                        <div class="peo1_box peo_boxs">
+                        <img src="images/po11.png" alt="" class="peo po1">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>灭世魔王</span></p>
+                        <p class="act_info">由极端纠结混合而成的矛盾体，外表感觉冷漠，其实内心火热奔放！总是因为各种迷之理由，而不容易拒绝别人。没错，说的就是你，魔王大人！</p>
+                        </div>
+                        <div class="peo2_box peo_boxs">
+                        <img src="images/po22.png" alt="" class="peo po2">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>转生魔王</span></p>
+                        <p class="act_info">这位魔王大人！你已经被看穿啦！傲娇就是你的代名词了！经常嘴上说着拒绝，但其实内心却默默有所期待。有时候直接说出自己的感受，或许会有意外惊喜~</p>
+                        </div>
+                        <div class="peo3_box peo_boxs">
+                        <img src="images/po33.png" alt="" class="peo po3">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>打更人</span></p>
+                        <p class="act_info">思维善变，无拘无束，对外界有着永无休止的好奇心，谁也不知道下一秒，你又会有哪些新奇的想法。在白天逗比搞怪，在黑夜主宰群妖，除了打更人还有谁那~</p>
+                        </div>
+                        <div class="peo4_box peo_boxs">
+                        <img src="images/po44.png" alt="" class="peo po4">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>散仙</span></p>
+                        <p class="act_info">自信、大方是你的特质，永远精力满满，也期待被仰慕、被崇拜的感觉。但因为不肯认输的个性和太在乎别人的看法，偶尔会让自己感到困扰。以上都符合的你，一定是一名正统散仙！</p>
+                        </div>
+                         <div class="peo5_box peo_boxs ">
+                        <img src="images/po55.png" alt="" class="peo po5">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>灵气者</span></p>
+                        <p class="act_info">向往独一无二的生活，内心追求自由和新奇。但对待生活却也能随遇而安，适应力一级棒！热情奔放但是又有独特内心世界，灵气者，一定是你的真实身份啦！</p>
+                        </div>
+                         <div class="peo6_box peo_boxs">
+                        <img src="images/po66.png" alt="" class="peo po6">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>守墓人</span></p>
+                        <p class="act_info">平时温柔随和，甚至存在感都有些薄弱，但因为冷静的处事态度，也往往会成为小团体中的意见领袖。然而性格极度矛盾，在某个时刻会爆发出惊人的强势态度。是不是那？掌管阴阳的守墓人大人~</p>
+                        </div>
+                        <div class="peo7_box peo_boxs">
+                        <img src="images/po77.png" alt="" class="peo po7">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>阎王大人</span></p>
+                        <p class="act_info"> m( _ _)m阎王大人！一定就是您啦！气场超强大，领导力爆表，追求完美又精明强干。虽然有时候会看似不近人情的直来直去，但是了解你的人会知道，这是你一贯的认真态度。</p>
+                        </div>
+                        <div class="peo8_box peo_boxs active">
+                        <img src="images/po88.png" alt="" class="peo po8">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>三界异修</span></p>
+                        <p class="act_info">不因外界的看法而动摇，有自己的选择和道路，才能成为别人眼中“离经叛道”的三界异修。因为清楚自己心中真实的想法，所以格外爱憎分明。不过，又有什么不好呢？~
+                        </p>
+                        </div>
+                        <div class="ewm">
+                        <img src="images/ewm_img.png" alt="">
+                            <p>扫一扫二维码</p>
+                             <p class="test">测试你的三界真身</p>
+                        </div>
+                         <p class="copy_txt">©&nbsp;腾讯动漫&nbsp;&nbsp;&nbsp;©&nbsp;啊哈娱乐</p>
+					</section>
+                    <section class="swiper-slide page5 hidden">
+                        <div class="zhezhao">
+                            <img src="images/f1.png" alt="" class="f1">
+                            <img src="images/f2.png" alt="" class="f2">
+                            <img src="images/f3.png" alt="" class="f3">
+                            <img src="images/peo_1.png" alt="" class="peo_11 peo1">
+                            <img src="images/peo_2.png" alt="" class="peo_11 peo2">
+                            <img src="images/peo_3.png" alt="" class="peo_11 peo3">
+                            <img src="images/peo_4.png" alt="" class="peo_11 peo4">
+                            <img src="images/peo_5.png" alt="" class="peo_11 peo5">
+                            <img src="images/peo_6.png" alt="" class="peo_11 peo6">
+                            <img src="images/peo_7.png" alt="" class="peo_11 peo7">
+                            <img src="images/peo_8.png" alt="" class="peo_11 peo8 active">
+                            <img src="images/logo.png" alt="" class="s3">
+                            <img src="images/bg33.png" alt="" class="zhezhao2">
+                        </div>
+                        <div class="peo1_box peo_boxs">
+                        <img src="images/po11.png" alt="" class="peo po1">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>灭世魔王</span></p>
+                        <p class="act_info">由极端纠结混合而成的矛盾体，外表感觉冷漠，其实内心火热奔放！总是因为各种迷之理由，而不容易拒绝别人。没错，说的就是你，魔王大人！</p>
+                        </div>
+                        <div class="peo2_box peo_boxs">
+                        <img src="images/po22.png" alt="" class="peo po2">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>转生魔王</span></p>
+                        <p class="act_info">这位魔王大人！你已经被看穿啦！傲娇就是你的代名词了！经常嘴上说着拒绝，但其实内心却默默有所期待。有时候直接说出自己的感受，或许会有意外惊喜~</p>
+                        </div>
+                        <div class="peo3_box peo_boxs">
+                        <img src="images/po33.png" alt="" class="peo po3">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>打更人</span></p>
+                        <p class="act_info">思维善变，无拘无束，对外界有着永无休止的好奇心，谁也不知道下一秒，你又会有哪些新奇的想法。在白天逗比搞怪，在黑夜主宰群妖，除了打更人还有谁那~</p>
+                        </div>
+                        <div class="peo4_box peo_boxs">
+                        <img src="images/po44.png" alt="" class="peo po4">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>散仙</span></p>
+                        <p class="act_info">自信、大方是你的特质，永远精力满满，也期待被仰慕、被崇拜的感觉。但因为不肯认输的个性和太在乎别人的看法，偶尔会让自己感到困扰。以上都符合的你，一定是一名正统散仙！</p>
+                        </div>
+                         <div class="peo5_box peo_boxs">
+                        <img src="images/po55.png" alt="" class="peo po5">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>灵气者</span></p>
+                        <p class="act_info">向往独一无二的生活，内心追求自由和新奇。但对待生活却也能随遇而安，适应力一级棒！热情奔放但是又有独特内心世界，灵气者，一定是你的真实身份啦！</p>
+                        </div>
+                         <div class="peo6_box peo_boxs">
+                        <img src="images/po66.png" alt="" class="peo po6">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>守墓人</span></p>
+                        <p class="act_info">平时温柔随和，甚至存在感都有些薄弱，但因为冷静的处事态度，也往往会成为小团体中的意见领袖。然而性格极度矛盾，在某个时刻会爆发出惊人的强势态度。是不是那？掌管阴阳的守墓人大人~</p>
+                        </div>
+                        <div class="peo7_box peo_boxs">
+                        <img src="images/po77.png" alt="" class="peo po7">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>阎王大人</span></p>
+                        <p class="act_info"> m( _ _)m阎王大人！一定就是您啦！气场超强大，领导力爆表，追求完美又精明强干。虽然有时候会看似不近人情的直来直去，但是了解你的人会知道，这是你一贯的认真态度。</p>
+                        </div>
+                        <div class="peo8_box peo_boxs active">
+                        <img src="images/po88.png" alt="" class="peo po8">
+                        <p class="peo_name">王牌御史我朋友</p>
+                        <p class="act_name">你的真身是：<span>三界异修</span></p>
+                        <p class="act_info">不因外界的看法而动摇，有自己的选择和道路，才能成为别人眼中“离经叛道”的三界异修。因为清楚自己心中真实的想法，所以格外爱憎分明。不过，又有什么不好呢？~
+                        </p>
+                        </div>
+                        <p class="copy_txt">©腾讯动漫  ©啊哈娱乐</p>
+                         <img src="images/play_on.png" alt="" class="music_img active"/>
+
+                    </section>
+				</section>
+			</section>
+		</div>
+        <div id=loading10 style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+		<audio id="music" src="music/music.mp3" loop="loop" autoplay="autoplay"></audio>
+        <audio id="py1" src="music/music2.mp3" preload="load"></audio>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+		<!--微信分享-->
+		 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+        <script>
+        document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+        </script>
+		<script type="text/javascript">
+    // 音乐视频初始化
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     var  myVid1=document.getElementById("music");
+    //     function audioAutoPlay() {
+    //         document.addEventListener("WeixinJSBridgeReady", function () {
+    //             document.getElementById('music').play();
+    //              document.getElementById('music').volume = .6;
+    //         }, false);
+    //     }
+    //     audioAutoPlay();
+    // });
+    // audioAutoPlay();
+    var play1=true;
+    $(function() {
+        var  h5_wx=$(".h5_wx").html();
+        var  h5_data=$(".h5_data").html();
+        var text_url="/wpys/zq/check-name.html"+ h5_data;//检测名字
+        var ans_url="/wpys/zq/index.html"+ h5_data;//答案
+         //音乐视频初始化
+            document.addEventListener('DOMContentLoaded', function () {
+                var  myVid1=document.getElementById("my_video1");
+                function audioAutoPlay() {
+                    myVid1.load();
+                    document.addEventListener("WeixinJSBridgeReady", function () {
+                         myVid1.load();
+                    }, false);
+                }
+                audioAutoPlay();
+            });
+        var  myVid1=document.getElementById("my_video1");
+        var  myauo1=document.getElementById('music1');
+        var  myauo2=document.getElementById("music2");
+        function audioAutoPlay2(){
+            document.getElementById('music2').play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                document.getElementById('music2').play();
+            }, false);
+        }
+        function audioAutoPlay1(){
+            document.getElementById('music1').play();
+            document.getElementById('music1').volume = .5;
+            document.addEventListener("WeixinJSBridgeReady", function () {
+               document.getElementById('music1').play();
+                document.getElementById('music1').volume = .5;
+                 setTimeout(function(){
+                  document.getElementById('music1').volume += .1;
+                  },1200);
+            }, false);
+        }
+        var share_icon=$(".wrap").attr("data-icon");
+        var share_title=$(".wrap").attr("data-title");
+        var share_desc=$(".wrap").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/wpys/zq.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        //滑动页面
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            // effect : 'fade',
+            fade: {
+                crossFade: true
+            },
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        $(".music_img").click(function(){
+            if(play1){
+                document.getElementById('music').pause();
+                $(".music_img").removeClass("active");
+                $(".music_img").attr("src","images/play.png");
+                play1=false;
+            }else{
+                document.getElementById('music').play();
+                $(".music_img").addClass("active");
+                 $(".music_img").attr("src","images/play_on.png");
+                play1=true;
+            }
+        })
+        $(".start_btn a").click(function(){
+            $(".page1").addClass("hidden");
+            $(".page2").removeClass("hidden");
+        });
+        $(".name_btn").click(function(){
+            var name=$(".name_box input").val();
+            if(name == "" || name==undefined){
+                alert("请输入您的姓名~");
+                return;
+            }
+            $.ajax({
+                'url':text_url,
+                'data':{
+                           "name":name,"cms_csrf":srf
+                        },
+                        'type':'POST',
+                        'dataType':'Json',
+                        success:function(data){
+                            if(data.code=="0"){
+                                $(".page2").addClass("hidden");
+                                $(".page3").removeClass("hidden");
+                                $(".peo_name").html(name);
+                            }else{
+                                alert(data.msg);
+                                return;
+                            }
+                        }
+                        ,error:function(){
+                            alert("网络请求错误，请刷新页面");
+                        }
+            });
+        });
+        $(".question_go_btn").click(function(){
+            mySwiper.slideNext();
+            $(".page3 .type").eq(0).addClass("active").siblings().removeClass("active");
+        });
+        $(".result_btn_go").click(function(){
+            mySwiper.slideNext();
+        });
+        var true_id=0;
+        $(".page3 ul li").click(function(){
+        	var index=$(this).index();
+            var options = new Array();
+            var wrap=$(".page3").find('.answer');
+            var index_fa=$(this).parent(".answer").data("id");
+            var index_fa_next=index_fa;
+            var sel_txt1=$(".answer2 li.active").data("sel");
+            var sel_txt2=$(".answer4 li.active").data("sel");
+            var sel_txt3=$(".answer8 li.active").data("sel");
+            console.log(index_fa);
+            console.log(index_fa_next);
+            $(this).addClass("active").siblings().removeClass("active");
+            if(index_fa_next<=8){
+            setTimeout(function(){
+                // mySwiper.slideNext();
+                $(".answer").removeClass("active");
+                 $(".type").removeClass("active");
+                $(".answer").eq(index_fa_next).addClass("active");
+                $(".type").eq(index_fa_next).addClass("active");
+
+             },1100);
+            }else{
+                    for(var i=0;i<wrap.length;i++){
+                    var index=$(wrap[i]);
+                    var li_list=index.find("li.active");
+                    var sel_txt=li_list.data("sel");
+                    var answer_txt=$(".act_name span").html();
+                     options.push(sel_txt);
+                    }
+                    if(sel_txt1 == "A" && sel_txt2 == "A" && sel_txt3 == "A"){
+                        $(".act_name span").html("灵气者");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo5_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo5").addClass("active");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "A" && sel_txt3 == "B"){
+                        $(".act_name span").html("魔王-希纱");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo2_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo2").addClass("active");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "B" && sel_txt3 == "A"){
+                       $(".act_name span").html("散仙");
+                       $(".peo_boxs").removeClass("active");
+                        $(".peo4_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo4").addClass("active");
+                    }
+                    else if(sel_txt1 == "A" && sel_txt2 == "B" && sel_txt3 == "B"){
+                        $(".act_name span").html("打更人");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo3_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo3").addClass("active");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "A" && sel_txt3 == "A"){
+                        $(".act_name span").html("异修");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo8_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo8").addClass("active");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "A" && sel_txt3 == "B"){
+                        $(".act_name span").html("魔王-车永泰");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo1_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo1").addClass("active");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "B" && sel_txt3 == "A"){
+                        $(".act_name span").html("阎王");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo7_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo7").addClass("active");
+                    }
+                    else if(sel_txt1 == "B" && sel_txt2 == "B" && sel_txt3 == "B"){
+                        $(".act_name span").html("守墓人");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo6_box").addClass("active");
+                        $(".peo_11").removeClass("active");
+                        $(".peo6").addClass("active");
+                    }else{
+                        $(".act_name span").html("匹配出错了喔~");
+                        $(".peo_boxs").removeClass("active");
+                        $(".peo_11").removeClass("active");
+                    }
+                    $.ajax({
+                        'url':ans_url,
+                        'data':{
+                            'option':options,'answer':answer_txt,"cms_csrf":srf
+                        },
+                        'type':'POST',
+                        'dataType':'Json',
+                        success:function(data){
+                            if(data.status==0){
+                                setTimeout(function(){
+                                    console.log(options);
+                                    $(".page3").addClass("hidden");
+                                    $(".page4").removeClass("hidden");
+                                    $(".page5").removeClass("hidden");
+                                    $(".js_load").show();
+                                    var canvas1 = document.createElement("canvas");
+                                    let _canvas2 = document.querySelector('.page4');
+                                    var w = parseInt(window.getComputedStyle(_canvas).width);
+                                    var h = parseInt(window.getComputedStyle(_canvas).height);
+                                    canvas1.width = w * 2;
+                                    canvas1.height = h * 2;
+                                    canvas1.style.width = w + "px";
+                                    canvas1.style.height = h + "px";
+                                    var context1 = canvas1.getContext("2d");
+                                    context1.scale(2,2);
+                                    html2canvas(_canvas2,{canvas:canvas1}).then(function(canvas){
+                                    console.log(canvas1.toDataURL());
+                                    $(".js_load").hide();
+                                    $(".page4").addClass("hidden");
+                                    $(".jp_img1").attr("src",canvas1.toDataURL());
+                                    });
+                                    var canvas2 = document.createElement("canvas");
+                                    let _canvas2 = document.querySelector('.page5');
+                                    var w = parseInt(window.getComputedStyle(_canvas).width);
+                                    var h = parseInt(window.getComputedStyle(_canvas).height);
+                                    canvas2.width = w * 2;
+                                    canvas2.height = h * 2;
+                                    canvas2.style.width = w + "px";
+                                    canvas2.style.height = h + "px";
+                                    var context2 = canvas2.getContext("2d");
+                                    context2.scale(2,2);
+                                    html2canvas(_canvas2,{canvas:canvas2}).then(function(canvas){
+                                    console.log(canvas2.toDataURL());
+                                    $(".js_load").hide();
+                                    $(".page5").addClass("hidden");
+                                    $(".jp_img2").attr("src",canvas2.toDataURL());
+                                    $(".page6").removeClass("hidden");
+                                    });
+                                },1100);
+                            }else{
+                               alert(data.msg);
+                            }
+                        }
+                        ,error:function(){
+                            alert("网络请求错误，请刷新页面");
+                        }
+            });
+                        
+            }
+        })
+    });
+        </script>
+	</body>
+</html>

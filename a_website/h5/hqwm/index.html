@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>{$seo_title}</title>
+		<meta name="keywords" content="{$seo_key}" />
+		<meta name="description" content="{$seo_desc}" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<section>
+			<div class="kv">
+				<a href="javascript:;" class="download"><img src="images/down.png" alt="" /></a>
+			</div>
+		</section>
+		<section>
+			<div class="content">
+				<img src="images/label.png" alt="" class="label" />
+				<img src="images/video.png" alt="" class="video" />
+				<img src="images/label1.png" alt="" class="label" />
+				<img src="images/active1.png" alt="" class="pic" />
+				<img src="images/active2.png" alt="" class="pic" />
+				<img src="images/active3.png" alt="" class="pic" />
+				<img src="images/active4.png" alt="" class="pic" />
+				<a href="javascript:;" class="c_down"><img src="images/down1.png" alt="" /></a>
+			</div>
+		</section>
+	</body>
+
+</html>

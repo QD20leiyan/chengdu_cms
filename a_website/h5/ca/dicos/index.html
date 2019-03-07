@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全民枪战2</title>
+    <meta content="" name="Keywords">
+    <meta content="" name="Description">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper-3.4.2.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <section class="swiper-container">
+        <section class="swiper-wrapper">
+            <section class="swiper-slide page1 swiper-no-swiping ">
+                <p class="img1 ani" swiper-animate-effect="bounceInDown"><img src="images/o_img1.png" alt=""/></p>
+                <p class="img2 ani" swiper-animate-effect="bounceInDown"><img src="images/o_img2.png" alt=""/></p>
+                <p class="img3_box ani " swiper-animate-effect="bounceInUp" swiper-animate-delay="0.1s">
+                    <img src="images/o_img3.png" alt="" class="img3"/>
+                    <img src="images/o_img4.png" alt=""  class="img4 "/>
+                </p>
+            </section>
+            <section class="swiper-slide page2 swiper-no-swiping ">
+                <div id="video" class="video ">
+                    <span class="skip"></span>
+                    <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait" src="video/video1.mp4"></video>
+                </div>
+                <div class="zz hidden">
+                    <div class="img_box">
+                        <img src="images/th_img1.png" alt="" class="img1"/>
+                        <img src="images/th_img2.png" alt="" class="img2"/>
+                        <img src="images/th_img3.png" alt="" class="img3 shake"/>
+                    </div>
+                </div>
+                <p class="ts hidden ani " swiper-animate-effect="slideInRight"><img src="images/th_img4.png" alt=""/></p>
+                <div class="area_box">
+                    <span class="bed"></span>
+                    <span class="cho"></span>
+                    <span class="dt"></span>
+                    <span class="hat"></span>
+                    <span class="phone"></span>
+                </div>
+            </section>
+            <section class="swiper-slide page3 swiper-no-swiping ">
+                <div class="area_box">
+                    <span class="yc"></span>
+                    <span class="rl"></span>
+                    <span class="ljt"></span>
+                    <span class="computer"></span>
+                    <span class="books"></span>
+                </div>
+            </section>
+            <section class="swiper-slide page4 swiper-no-swiping ">
+                <p class="img1"><img src="images/fi_img1.png" alt=""/></p>
+                <p class="img2 door1">
+
+
+                </p>
+                <div class="btn  ">
+                    <img src="images/fi_img2.png" class="yes_btn ani"  swiper-animate-effect="zoomIn"/>
+                    <img src="images/fi_img3.png" class="no_btn ani"  swiper-animate-effect="zoomIn"/>
+                    <img src="images/fi_img4.png" class="xs_btn" style="opacity: 0;"/>
+                </div>
+            </section>
+            <section class="swiper-slide page5 swiper-no-swiping ">
+                <div class="yes hidden">
+                    <p class="img1 ani" swiper-animate-effect="slideInDown"><img src="images/s_img1.png" alt=""/></p>
+                    <p class="img2"><img src="images/s_img2.png" alt=""/></p>
+                    <p class="img3 share_btn shake"><img src="images/s_img3.png" alt=""/></p>
+                    <div class="zz hidden">
+                        <div>
+                            <p class="img4"><img src="images/s_img4.png" alt=""/></p>
+                            <p class="img5 cd_btn">
+                                <img src="images/s_img5.png"/>
+                                <img src="images/o_img4.png" alt=""  class="hand hand_move"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="no hidden">
+                  <p class="img1 ani" swiper-animate-effect="slideInDown"><img src="images/se_img1.png" alt=""/></p>
+                  <p class="img2 cd_btn"><img src="images/se_img2.png" alt=""/></p>
+                  <p class="img3 share_btn shake"><img src="images/s_img3.png" alt=""/></p>
+              </div>
+            </section>
+            <section class="swiper-slide page6 swiper-no-swiping ">
+                <p class="img1"><img src="images/e_img1.png" alt=""/></p>
+                <p class="img2"><img src="images/e_img2.png" alt=""/></p>
+                <p class="img3"><img src="images/e_img3.png" alt=""/></p>
+                <p class="img4_1">
+                    <img src="images/e_img4_1.png" alt=""/>
+                    <span class="shop1"></span>
+                    <span class="shop2"></span>
+                </p>
+                <p class="img4_2">
+                    <img src="images/e_img4_2.png" alt=""/>
+                    <span class="shop3"></span>
+                    <span class="shop4"></span>
+                </p>
+                <p class="door_txt">门店详情点击预览</p>
+                <div class="img5">
+                    <p>这是属于枪友们自己的德克士</p>
+                    <p> CA主题店</p>
+                    <p>在这里你能与枪姐面对面互动</p>
+                    <p>更能参加我们的主题线下赛</p>
+                    <p>赢取超值福利</p>
+                </div>
+                <div class="btn">
+                    <p class="img6 shake"><a href="http://downurl.yingxiong.com/url/qmqz_dicos.html"><img src="images/e_img5.png" alt=""/></a></p>
+                    <p class="img7 share_btn"><img src="images/e_img7.png" alt=""/></p>
+                </div>
+
+            </section>
+        </section>
+    </section>
+</div>
+
+<!--音乐-->
+<audio id="music1" src="audio/audio1.mp3" loop="loop" preload="load" data-src2="audio/audio2.mp3" data-src3="audio/audio3.mp3"></audio>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="images/share_bg.png" alt=""/></div>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+    </div>
+</div>
+<!-- 这是加载层 -->
+<div id="d_loading" style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,1);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODJDNTVGNjA0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODJDNTVGNjE0NDUxMTFFN0FEQzZFNUIwQkM3NUZFMjciPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MkM1NUY1RTQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MkM1NUY1RjQ0NTExMUU3QURDNkU1QjBCQzc1RkUyNyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8wa4IAAATlSURBVHja3FptiFRlFL7jzmzmJxu1KbvqoraGOOsuteZHioYf4EJmP6RAKvwjuEUgBIE/lP1V/Spig36U4gf9EgujMj8Q8TMoN2stc7VNbKxGW3drxZ0ZdzrHfS4cju+9c987c0emAw9z73vvPe855z3v+XiZWD6fdyqZYlqBzs7OihC8vb397u8op8IpHiHvBsJiXB8n/BrFJFGtAPNdRngQWBrVXGGZ1hDmEGo9no8hJMR9AmMmqgWvmnK50MOENYQqAkeAA4QrIQ0xlbCKgwnhDuEzwvWoV6ABwjuYeJG4t6EqfBsT9w3lcKEb6n48IRmCTxLf+vGORAGOJmk11uLj4157pEWNpcNEqrCb+IS65006z+L7eWqTm3hGqsBfhB411iiiUtbwTVZEnUb1rAc8S6oAR5tWwnSP52cIOTXWjN8hQkqMpzAm33EpB173lDmYuxWyWIVRjsnPCQXZOieVlQYJXYQnPfh9RZgpLOw1Zxd46dywUKzoXMJeQl9QBerV6tRCoR5Yy53we0IdYTIhQzirLPuzgfdZ8KsmXAMPl8YSnhKKS0+ps1HgDySpmBpnxtNgtXNIPvsJEwm3PHxfEwu9B5FoAPNwDmiCeyUM3/A7f9rsgTQy7IDhWQJ+2SbG+gMKLzd0PwRjWg2eJuEHIEvatpS4gs2X9LDMJFi+v8h6bCJc0KQkr/QPhmARuBbKwWcvIHbL8JeB2xRLt8CrWoz9QvgmCP+4xSRHCeexGnEoli2BAlm4SAsM1mWTE+KWbSQz/jqCsv4aUJJyOm4osqS1/o24S0z4BBeef9hPgbWEHYQJPhMcJDxLuF1iwavQG9T7vJOBK/d6hdH3CgjPtILwSgSWbywgvION/nQpirlcBArkw7ynFXjdI3lpF9odgQIXCVcLvJPRZbfeA/tQGtR7rM6Abc9qQVyWfEEYrXKCtPxgoU3sukfvfTyrum0TIGyPFp8gbELV+C7hNA+6x3y2JObiAnGJcBFPV9JzBc3EjxLeJKwTFWozFBos0uLsLi/CdZgeR4l9mPBPsaUEM91IeBVWlzQBil0uUoHxQni3E2PjzHZGjiRP+ZUsfgosJ3T4nNWcdk8RTG6nl9rHNf8m/AY30ivzDJT5ElEqcD/AH233EJ5d5m0su9v0TLU8VnkAqxcDj12EI9gDmh7CXHU2K9BqOG3L4+ivAx2ba6X3sRe4RtpM+K6AxR/jBXJGDn0vIvuzixxDJcqZfo7qBtnQUwi/B12BY8rvvkX9s0kIz/QShGcap0qMagizQsX1NgjvKrNS5Rlu3j9SkYhzxCWbFbiAidrQA3xuSPXcmL+sxobE9Vb0uUxLCVtEnJe0CqHzphi7CiVmw9V+CtNS/gh40WvCkq6L7RRtYpN41iTazwPYYzGxH54nfGxw2W4geCILmHiSmFD6Ka/SNlw/YhBog7Aiu9oCJew7bki2SYxhqlEW+g0lPLecH1jw+FS5G/N6wXCME4kCy+CbkrZbnm3eRGyXNM2598Q6EgVmqfsUDqps6ZChsp1SDgVkwhlGUsuEPI34RES3nJtDim3qCxGH2PWE+Si6uouogzjKvUWYgVCZKocCDqKFXxHXh3g/WsT+Po93e4vpP2Kl/q+ECLULUDJwFv3QGTmeD907lHoFgtApIFKK/e/+rVJp9J8AAwCOzjQoqkUfeAAAAABJRU5ErkJggg==" alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px;">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;line-height: 20px;color: #999">正在加载...</p>
+    </div>
+</div>
+<!--礼品查看弹框-->
+<div class="co_tips co_tips_gift co_tips_gift1 hidden">
+    <div class="co_con">
+        <div class="co_form">
+            <div class="gift_box gift_box1 hidden">
+                <p class="gift_img"><img src="images/gift1.png"/></p>
+                <p class="gift_name"><img src="images/txt1.png"/></p>
+                <div class="gift_txt">
+                    <p>还未收拾的床，噫~</p>
+                    <p>这里没有啥有价值的信息。</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box2 hidden">
+                <p class="gift_img"><img src="images/gift2.png"/></p>
+                <p class="gift_name"><img src="images/txt2.png"/></p>
+                <div class="gift_txt">
+                    <p>男友在520送的巧克力</p>
+                    <p> 然而之前从没给我买过礼物……</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box3 hidden">
+                <p class="gift_img"><img src="images/gift3.png"/></p>
+                <p class="gift_name"><img src="images/txt3.png"/></p>
+                <div class="gift_txt">
+                    <p>Y家出品，值得拥有，</p>
+                    <p>现在只要98软妹币。</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box4 hidden">
+                <p class="gift_img"><img src="images/gift4.png"/></p>
+                <p class="gift_name"><img src="images/txt4.png"/></p>
+                <div class="gift_txt">
+                    <p>随处可见的情侣款，</p>
+                    <p>没有可疑痕迹。</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box5 hidden">
+                <p class="gift_img"><img src="images/gift5.png"/></p>
+                <p class="gift_name"><img src="images/txt5.png"/></p>
+                <div class="gift_txt">
+                    <p>手机:5月26日的机票，还是一个人！</p>
+                    <p>明明以前每个周末我们都是一起过的！</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box6 hidden">
+                <p class="gift_img"><img src="images/gift6.png"/></p>
+                <p class="gift_name"><img src="images/txt6.png"/></p>
+                <div class="gift_txt">
+                    <p>新买的发蜡？讲究啊！</p>
+                    <p>之前怎么说都不肯用……</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box7 hidden">
+                <p class="gift_img"><img src="images/gift7.png"/></p>
+                <p class="gift_name"><img src="images/txt7.png"/></p>
+                <div class="gift_txt">
+                    <p>526、527重点画圈,上海,一个人,</p>
+                    <p>不是生日不是纪念日……</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box8 hidden">
+                <p class="gift_img"><img src="images/gift8.png"/></p>
+                <p class="gift_name"><img src="images/txt8.png"/></p>
+                <div class="gift_txt">
+                    <p>都是纸团，是感冒了吗？</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box9 hidden">
+                <p class="gift_img"><img src="images/gift9.png"/></p>
+                <p class="gift_name"><img src="images/txt9.png"/></p>
+                <div class="gift_txt">
+                    <p>密码错误，请重新输入……</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box10 hidden">
+                <p class="gift_img"><img src="images/gift10.png"/></p>
+                <p class="gift_name"><img src="images/txt10.png"/></p>
+                <div class="gift_txt">
+                    <p>《知日》……带回去研究一下……</p>
+                </div>
+            </div>
+            <div class="gift_box gift_box11 hidden">
+                <p class="xs_tit"><img src="images/xs_title.png" alt=""/></p>
+                <div class="xs_txt">
+                    <p><i>1</i><span>男友在520送的巧克力,然而之前从没有送过礼物！</span></p>
+                    <p><i>2</i><span>手机短信里发现5月26日的机票</span></p>
+                    <p><i>3</i><span>新买的发蜡?之前怎么说都不肯用</span></p>
+                    <p><i>4</i><span>日历上526、527重点画圈,不是生日不是纪念日……</span></p>
+                    <p><i>5</i><span>电脑的密码错误,请重新输入……</span></p>
+                </div>
+            </div>
+            <p class="co_tips_btn tipsbtn1"></p>
+            <div class="num">
+                <p>物品 <span class="wp_num">1</span>/5</p>
+                <p>线索 <span class="xs_num">1</span>/2</p>
+            </div>
+            <div class="gz_btn hidden"></div>
+        </div>
+    </div>
+</div>
+<!--店铺弹框-->
+<div class="co_tips co_tips_gift co_tips_gift2 hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="co_tips_close"/>
+        <div class="co_form">
+            <div class="shop_box shop_box1 hidden">
+                <p class="shop_tit"><img src="images/shop_tit1.png"/></p>
+                <p class="shop_img"><img src="images/shop_img1.png"/></p>
+                <div class="txt time">
+                    <img src="images/shop_txt1.png" alt=""/>
+                    <div><span>5月26日 12:00—15:00</span></div>
+                </div>
+                <div class="txt add">
+                    <img src="images/shop_txt2.png" alt=""/>
+                    <div>
+                        <span>上海市闵行区莘庄镇七莘路1507号怡丰城</span>
+                        <span>B2-018-X1</span>
+                    </div>
+                </div>
+                <div class="txt fl">
+                    <img src="images/shop_txt3.png" alt=""/>
+                    <div><span>用户只需到店扫码即可领取由CA和德克士准备的礼品，更能和枪姐现场互动哦~</span></div>
+                </div>
+            </div>
+            <div class="shop_box shop_box2 hidden">
+                <p class="shop_tit"><img src="images/shop_tit2.png"/></p>
+                <p class="shop_img"><img src="images/shop_img2.png"/></p>
+                <div class="txt time">
+                    <img src="images/shop_txt1.png" alt=""/>
+                    <div><span>5月26日 17:00—20:00</span></div>
+                </div>
+                <div class="txt add">
+                    <img src="images/shop_txt2.png" alt=""/>
+                    <div>
+                        <span>上海市闵行区莲花南路3999弄万乐城生活广场德克士</span>
+                    </div>
+                </div>
+                <div class="txt fl">
+                    <img src="images/shop_txt3.png" alt=""/>
+                    <div><span>用户只需到店扫码即可领取由CA和德克士准备的礼品，更能和枪姐现场互动哦~</span></div>
+                </div>
+            </div>
+            <div class="shop_box shop_box3 hidden">
+                <p class="shop_tit"><img src="images/shop_tit3.png"/></p>
+                <p class="shop_img"><img src="images/shop_img3.png"/></p>
+                <div class="txt time">
+                    <img src="images/shop_txt1.png" alt=""/>
+                    <div><span> 5月27日 12:00—15:00</span></div>
+                </div>
+                <div class="txt add">
+                    <img src="images/shop_txt2.png" alt=""/>
+                    <div>
+                        <span>杨浦区江湾镇国浩路211号生活广场一楼德克士餐厅</span>
+                    </div>
+                </div>
+                <div class="txt fl">
+                    <img src="images/shop_txt3.png" alt=""/>
+                    <div><span>用户只需到店扫码即可领取由CA和德克士准备的礼品，更能和枪姐现场互动哦~</span></div>
+                </div>
+            </div>
+            <div class="shop_box shop_box4 hidden">
+                <p class="shop_tit"><img src="images/shop_tit4.png"/></p>
+                <p class="shop_img"><img src="images/shop_img4.png"/></p>
+                <div class="txt time">
+                    <img src="images/shop_txt1.png" alt=""/>
+                    <div><span>5月27日 17:00—20:00</span></div>
+                </div>
+                <div class="txt add">
+                    <img src="images/shop_txt2.png" alt=""/>
+                    <div>
+                        <span>上海闸北区宝山路128号</span>
+                    </div>
+                </div>
+                <div class="txt fl">
+                    <img src="images/shop_txt3.png" alt=""/>
+                    <div><span>用户只需到店扫码即可领取由CA和德克士准备的礼品，更能和枪姐现场互动哦~</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper-3.4.2.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+    //音乐视频初始化
+    document.addEventListener('DOMContentLoaded', function () {
+        var  myVid1=document.getElementById("my_video1");
+        function audioAutoPlay() {
+            myVid1.load();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                myVid1.load();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    $(function() {
+        var  myVid1=document.getElementById("my_video1");
+        var  myauo1=document.getElementById('music1');
+        //滑动页面
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            effect : 'fade',
+            fade: {
+                crossFade: true
+            },
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+                if(swiper.activeIndex==3){
+                    setTimeout(function(){
+                        $(".xs_btn").addClass("left_move");
+                    },200)
+                }
+                if(swiper.activeIndex==2){
+                    $(".xs_num").parent().removeClass("red");
+                    $(".wp_num").parent().removeClass("red");
+                }
+
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        //动效
+        setTimeout(function(){
+            $(".page1 .img4").addClass("hand_move");
+        },100);
+
+
+        //强势围观
+        $(".page1 .img3").click(function(){
+            mySwiper.slideNext();
+            myVid1.play();
+            myauo1.play();
+            setTimeout(function(){
+                myauo1.pause();
+            },1);
+            myVid1.onended = function() {
+                $('#video').addClass("hidden");
+                $(".page2 .zz").removeClass("hidden");
+                myauo1.play();
+            }
+        });
+        //点击开始
+        $(".page2 .zz .img3").click(function(){
+            $(".page2 .zz").addClass("hidden");
+        });
+
+        //是否出轨了--是
+        $(".yes_btn").click(function(){
+            mySwiper.slideNext();
+            $(".page5 .yes").removeClass("hidden");
+        });
+        //是否出轨了--否
+        $(".no_btn").click(function(){
+            mySwiper.slideNext();
+            $(".page5 .no").removeClass("hidden");
+        });
+        //线索回顾
+        $(".xs_btn").click(function(){
+            $(".co_tips_gift .num").addClass("hidden");
+            $(".xs_btn").css({"opacity":"1"});
+            $(".page4 .img2.door1").addClass("door2");
+            $(".co_tips_btn").removeClass("tipsbtn3").addClass("tipsbtn2");
+            setTimeout(function(){
+                $(".xs_btn").removeClass("left_move");
+                $(".co_tips_gift1 .gift_box").addClass("hidden");
+                $(".co_tips_gift1,.co_tips_gift1 .gift_box11").removeClass("hidden");
+            },500);
+        });
+        //现场围观
+        $(".yes .img2").click(function(){
+            $(".page5 .zz").removeClass("hidden");
+        });
+        //精彩彩蛋
+        $(".cd_btn").click(function(){
+            mySwiper.slideNext();
+        });
+        //告诉好友
+        $(".share_btn").click(function(){
+            $(".share_bg").removeClass("hidden");
+        });
+        $(".share_bg").click(function(){
+            $(".share_bg").addClass("hidden");
+        });
+        // 物品点击
+        $(".page2 .area_box>span").click(function(){
+            var i = $(this).index();
+            $(this).addClass("clicked");
+            $(this).addClass("clicked1");
+            $(".wp_num").text($(".page2 .area_box>span.clicked1").length);
+            $(".xs_num").text($(".page2 .phone.clicked,.page2 .cho.clicked").length);
+            if($(".page2 .area_box>span.clicked1").length==5){
+                $(".wp_num").parent().addClass("red");
+            }
+            if($(".page2 .phone.clicked,.page2 .cho.clicked").length==2){
+//          if($(".page2 .phone.clicked,.page2 .cho.clicked,.page2 .dt.clicked").length==3){
+                $(".xs_num").parent().addClass("red");
+                $(".page2 .ts").removeClass("hidden");
+                $(".page2").removeClass("swiper-no-swiping");
+                mySwiper.lockSwipeToPrev();
+            }
+            $(".co_tips_gift1 .gift_box").addClass('hidden');
+            $(".co_tips_gift1 .gift_box"+(i+1)).removeClass("hidden");
+            $(".co_tips_gift1").removeClass("hidden");
+
+            setTimeout(function(){
+                if(i==4||i==1){
+                    $(".gz_btn").removeClass("normal");
+                    $(".gz_btn").removeClass("hidden").addClass("ky");
+                }else{
+                    $(".gz_btn").removeClass("ky");
+                    $(".gz_btn").removeClass("hidden").addClass("normal");
+                }
+            },500);
+        });
+        //弹框按钮点击
+        $(".co_tips_gift1 .co_tips_btn").click(function(){
+            $(".gz_btn").addClass("hidden");
+            if($(this).hasClass('tipsbtn1')){
+                //继续搜索
+                $(".co_tips_gift1").addClass("hidden");
+            }else if($(this).hasClass('tipsbtn2')){
+                //线索确定
+                $(".co_tips_gift1,.co_tips_gift1 .gift_box").addClass("hidden");
+            }else if($(this).hasClass('tipsbtn3')){
+                //我想我已经有答案了
+                $(".co_tips_gift1,.co_tips_gift1 .gift_box").addClass("hidden");
+                mySwiper.slideNext();
+            }
+        });
+        // 物品点击
+        $(".page3 .area_box>span").click(function(){
+            var i = $(this).index();
+            $(this).addClass("clicked");
+            $(this).addClass("clicked1");
+            $(".wp_num").text($(".page3 .area_box>span.clicked1").length);
+            $(".xs_num").text($(".page3 .computer.clicked,.page3 .rl.clicked").length);
+            if($(".page3 .area_box>span.clicked1").length==5){
+                $(".wp_num").parent().addClass("red");
+            }
+            if($(".page3 .computer.clicked,.page3 .rl.clicked").length==2){
+//          if($(".page3 .computer.clicked,.page3 .rl.clicked,.page3 .yc.clicked").length==3){
+                $(".xs_num").parent().addClass("red");
+                $(".co_tips_btn").removeClass("tipsbtn1").addClass("tipsbtn3");
+            }
+            $(".co_tips_gift1 .gift_box").addClass('hidden');
+            $(".co_tips_gift1 .gift_box"+(i+6)).removeClass("hidden");
+            $(".co_tips_gift1").removeClass("hidden");
+
+            setTimeout(function(){
+                if(i==1||i==3){
+                    $(".gz_btn").removeClass("normal");
+                    $(".gz_btn").removeClass("hidden").addClass("ky");
+                }else{
+                    $(".gz_btn").removeClass("ky");
+                    $(".gz_btn").removeClass("hidden").addClass("normal");
+                }
+            },500);
+        });
+        //店铺弹框显示
+        $(".page6 .img4_1>span,.page6 .img4_2>span").click(function(){
+            var i = $(".page6 .img4_1>span,.page6 .img4_2>span").index($(this));
+            $(".co_tips_gift2 .shop_box").addClass('hidden');
+            $(".co_tips_gift2 .shop_box"+(i+1)).removeClass("hidden");
+            $(".co_tips_gift2").removeClass("hidden");
+        });
+        //店铺弹框关闭
+        $(".co_tips_gift2 .co_tips_close").click(function(){
+            $(".co_tips_gift2").addClass("hidden");
+        });
+        //视频跳过
+        $(".skip").click(function(){
+            myVid1.pause();
+            myauo1.play();
+            $('#video').addClass("hidden");
+            $(".page2 .zz").removeClass("hidden");
+        });
+    });
+</script>
+</body>
+</html>
+
+
+

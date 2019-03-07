@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>巅峰战舰</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content=" initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<header>
+            <div class="header">
+                <a href="javascript:;" class="icon"><img src="images/icon.png" alt="" /></a>
+                <div class="header_txt">
+                    <p>巅峰战舰</p>
+                    <p>全球对战TPS海战竞技手游</p>
+                </div>
+                <a href="javascript:;" class="enter"><img src="images/enter.png" alt="" /></a>
+            </div>
+        </header>
+<div class="wrap">
+    <div class="banner"><img src="images/banner.png" alt=""/></div>
+    <div class="userinfo">
+        <div class="mine ">
+            <span class="yq_num">已邀请<i class="peo">5</i>人</span>
+            <span class="gift">我的礼包</span>
+        </div>
+        <div class="him hidden">
+            <span class="yq_num"><i class="name">lanyu</i>已邀请<i class="peo">5</i>人</span>
+            <span class="help">我也要助力</span>
+        </div>
+    </div>
+    <button class="momo_btn"></button>
+    <div class="ward">
+        <p class="title"></p>
+        <div class="gift_box">
+            <div class="gift">
+                <span class="border"><img src="images/gift1.png" alt=""/></span>
+                <span class="name">双倍</span>
+                <span class="name">银币卡*1</span>
+            </div>
+            <div class="gift">
+                <span class="border"><img src="images/gift2.png" alt=""/></span>
+                <span class="name">双倍</span>
+                <span class="name">经验卡*1</span>
+            </div>
+            <div class="gift">
+                <span class="border"><img src="images/gift3.png" alt=""/></span>
+                <span class="name more">燃油*88</span>
+
+            </div>
+            <div class="gift">
+                <span class="border"><img src="images/gift4.png" alt=""/></span>
+                <span class="name">金币*288 </span>
+            </div>
+        </div>
+    </div>
+    <div class="word_box">
+        <p class="title"></p>
+        <div class="ward_rules">
+            <ul>
+                <li><i>1</i><span>通过分享该页签，让好友为你助力；</span></li>
+                <li><i>2</i><span>好友点击活动链接下载脉脉APP，绑定用户信息，即可通过短信获得永久绝版战舰、588金币礼包或288金币礼包；</span></li>
+                <li><i>3</i><span>当成功邀请10位好友时（好友必须完成上诉规则2内容），即可通过本次活动额外获得288金币礼包；</span></li>
+                <li><i>4</i><span>如使用外挂、作弊器以及其他不正当的方式参加本次活动，官方将取消其资格；</span></li>
+                <li><i>5</i><span> 《巅峰战舰》保留法律允许范围内对活动进行补充解释权利。</span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="list_box">
+        <div class="price_con">
+            <ul>
+                <li><span>小霸王街机</span>已为<span>我</span>助力</li>
+                <li><span>小霸王街机</span>已为<span>我</span>助力</li>
+                <li><span>小霸王街机</span>已为<span>我</span>助力</li>
+                <li><span>小霸王街机</span>已为<span>我</span>助力</li>
+                <li><span>小霸王街机</span>已为<span>我</span>助力</li>
+            </ul>
+            <p class="price_no hidden">暂无相关数据</p>
+        </div>
+    </div>
+</div>
+
+<!--礼包码弹框-->
+<div class="co_tips co_tips_code co_tips_code1 hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <div class="my_code">
+                <p>
+                    <span>您的礼包码为</span>
+                    <span class="code_num">DG68H79CKK</span>
+                </p>
+            </div>
+            <p class="copy">*长按复制粘贴礼包码</p>
+        </div>
+
+    </div>
+</div>
+<!--我也要助力-->
+<div class="co_tips co_tips_code co_tips_code2 hidden">
+    <div class="co_con">
+        <img src="images/close.png" alt="" class="close">
+        <div class="co_form">
+            <div class="my_code">
+                <span> 已成功为其助力</span>
+                <span>我也要领绝版战舰</span>
+            </div>
+            <p class="co_tips_btn help"></p>
+        </div>
+
+    </div>
+</div>
+<!--微信分享提示-->
+<div class="share_bg hidden"><img src="images/share_bg.png" alt=""/></div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script>
+    //分享助力
+    $(".momo_btn").click(function(){
+        $(".share_bg").removeClass("hidden");
+    });
+    $(".share_bg").click(function(){
+        $(".share_bg").addClass("hidden");
+    });
+</script>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>末日测试-创造与魔法</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/animate.min.css" rel="stylesheet" />
+		<link href="css/swiper.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<div class="loading hidden">
+			<div class="chengg"></div>
+			<div class="m_loading">
+				<div class="img_loading">
+					<img class="active" src="images/loading1.png" alt="" />
+					<img src="images/loading2.png" alt="" />
+					<img src="images/loading3.png" alt="" />
+				</div>
+				<p>loading . . .</p>
+			</div>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide swiper1 hidden">
+					<img src="images/slogan.png" alt="" class="slogan ani" />
+					<img src="images/btn.png" alt="" class="btn" />
+				</div>
+				<div class="swiper-slide swiper2 hidden">
+					<ul>
+						<li class="active li1">
+							<div class="li_title"><img src="images/title.png" alt="" /><span>1</span></div>
+							<p class="ques_des">如果地球上的生物被外星人劫走了，幸存下来的只有你和一条狗，这时候你会？</p>
+							<div class="ques_con">
+								<div class="ques_txt" data-number="15">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>自己寻找求生之路</i>
+								</div>
+								<div class="ques_txt" data-number="10">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>因想念家人而痛不欲生</i>
+								</div>
+								<div class="ques_txt" data-number="20">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>和狗狗相依为命的活下去</i>
+								</div>
+								<div class="ques_txt" data-number="0">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>先杀了狗再自杀</i>
+								</div>
+							</div>
+							<div class="btn_2 on"><img src="images/next.png" alt="" /></div>
+						</li>
+						<li class="li2">
+							<div class="li_title"><img src="images/title.png" alt="" /><span>2</span></div>
+							<p class="ques_des">你和狗狗面对面吃“淘汰郎”小火锅，狗狗突然跳上桌子把你新买的果果X Max踢入锅中，这时候你会？</p>
+							<div class="ques_con">
+								<div class="ques_txt line" data-number="10">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>刚想发火，然后恍然大悟想到去果果店随便拿几十台就好了</i>
+								</div>
+								<div class="ques_txt" data-number="5">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>教训狗狗一顿并继续吃饭</i>
+								</div>
+								<div class="ques_txt line" data-number="20">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>拿起漏勺捞出手机，认为狗狗不是故意的</i>
+								</div>
+								<div class="ques_txt" data-number="0">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>把狗狗扔入锅中一并煮了</i>
+								</div>
+							</div>
+							<div class="btn_2 on"><img src="images/next.png" alt="" /></div>
+						</li>
+						<li class="li3">
+							<div class="li_title"><img src="images/title.png" alt="" /><span>3</span></div>
+							<p class="ques_des">填饱肚子后，你带着狗狗在街上漫无目的地溜达。你觉得该为之后的生活制定一个计划，这时候你会？</p>
+							<div class="ques_con">
+								<div class="ques_txt" data-number="5">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>先寻找一辆交通工具</i>
+								</div>
+								<div class="ques_txt line" data-number="10">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>先去超市装一些必需品和补给品再出发</i>
+								</div>
+								<div class="ques_txt" data-number="20">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>先找一个安全舒适的住所</i>
+								</div>
+								<div class="ques_txt" data-number="0">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>先去银行装他几个麻袋的钱</i>
+								</div>
+							</div>
+							<div class="btn_2 on"><img src="images/next.png" alt="" /></div>
+						</li>
+						<li class="li4">
+							<div class="li_title"><img src="images/title.png" alt="" /><span>4</span></div>
+							<p class="ques_des">你在这个破烂不堪的城市里度过93天了，今天你出门补给，发现不远处有两个外星人的身影，这时候你会？</p>
+							<div class="ques_con">
+								<div class="ques_txt line" data-number="15">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>上车逃往自己的避难所想下一步对策</i>
+								</div>
+								<div class="ques_txt" data-number="0">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>躲起来不敢动</i>
+								</div>
+								<div class="ques_txt" data-number="10">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>报仇心切，拿出武器跟他们拼了</i>
+								</div>
+								<div class="ques_txt line" data-number="20">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>找一个安全的角落躲避，伺机干掉他们</i>
+								</div>
+							</div>
+							<div class="btn_2 on"><img src="images/next.png" alt="" /></div>
+						</li>
+						<li class="li5">
+							<div class="li_title"><img src="images/title.png" alt="" /><span>5</span></div>
+							<p class="ques_des">仔细观察后你发现那两个外星人只是电影院门口的装饰物。你走进电影院发现地上有洒落的饮料，根据你的观察这像是刚刚洒落的！你判断可能还有其他的幸存者，这时候你会？</p>
+							<div class="ques_con">
+								<div class="ques_txt line" data-number="10">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>出门后大声呼喊，希望对方能听见</i>
+								</div>
+								<div class="ques_txt line" data-number="20">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>在附近寻找线索，尝试找到其他幸存者</i>
+								</div>
+								<div class="ques_txt" data-number="-5">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>想要杀掉其他幸存者</i>
+								</div>
+								<div class="ques_txt " data-number="5">
+									<span><img src="images/tit01.png" alt="" /><img src="images/tit.png" alt="" /></span>
+									<i>过几天再来这里看看</i>
+								</div>
+							</div>
+							<div class="btn_2 on1"><img src="images/next.png" alt="" /></div>
+						</li>
+					</ul>
+					
+				</div>
+				<div class="swiper-slide swiper3 hidden">
+				    <img src="images/phone.png" alt="" class="dog_logo">
+					<div class="label">
+						<img class="active lb1" src="images/label1.png" alt="" />
+						<img src="images/lable2.png" alt="" class="lb2"/>
+						<img src="images/lable3.png" alt="" class="lb3"/>
+						<img src="images/lable4.png" alt="" class="lb4"/>
+					</div>
+					<div class="swiper_p">
+						<p class="p1">恭喜你，你就是名副其实的“淘汰郎”！逆商一流，即使身处逆境被社会暂时淘汰，你也能找到最妥善的应对方法，改变对自己不利的处境。</p>
+						<p class="p2">你就是传说中情绪控制能力一流，就算憋到内出血也要皮笑肉不笑的微笑神本尊，逆商在线，知道成年人该做什么，再难也会咬着牙去做，是条好汉！</p>
+						<p class="p3">Hummmm….您这个逆商我只能说在及格线徘徊分分钟就掉下去了，还请多加修炼早日得道升仙哦！</p>
+						<p class="p4">请受兄弟一拜！你就是传说中逆商为0的性情中人，但求你的人生能一路顺风顺水千万不要有跌落逆境的那一天，因为那样….你就完蛋啦！</p>
+					</div>
+					<div class="pp_img">
+						<img class="p11" src="images/p1.png" alt="" />
+						<img src="images/p2.png" alt="" class="p22"/>
+						<img src="images/p3.png" alt="" class="p33"/>
+						<img src="images/p4.png" alt="" class="p44"/>
+						<img src="images/ewm.png" alt="" class="ewm">
+					</div>
+					<div class="btn_l">
+						<img src="images/more.png" alt="" class="more"/>
+						<img src="images/share.png" alt="" class="share"/>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--弹窗-->
+		<div class="tc" style="display: block;">
+			<div class="c_tc">
+				<i class="close"></i>
+			    <img src="http://cdnimg02.yingxiong.com/M00/0B/54/ChpCl1r9G4GEOwSvAAAAAP697pI961.png" alt="">
+			</div>
+		</div>
+		<!-- 分享 -->
+		<div class="share_bg"></div>
+		<!--微信分享提示-->
+		<div class="music_play music_img"></div>
+		<audio id="music" src="music/nekomimi.mp3" loop="loop"></audio>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+		<script src="js/index.js"></script>
+		<script type="text/javascript">
+			var s = 0,
+				o = $(".img_loading").find("img");    
+			var timer = setInterval(function() {      
+				s >= o.length && (s = 0);      
+				var t = o.eq(s);      
+				t.siblings().removeClass("active");       
+				setTimeout(function() {         
+					t.addClass("active")       
+				}, 200);       
+				s++
+			}, 200);
+			window.onload = function (){
+				clearInterval(timer);
+				$(".loading").hide();
+			};
+			
+		</script>
+	</body>
+
+</html>

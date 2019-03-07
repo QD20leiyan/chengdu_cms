@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+        <meta name="format-detection" content="telephone=no">
+		<link href="css/animate.min.css" rel="stylesheet" />
+		<link href="css/swiper.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+        <link href="css/active.css" rel="stylesheet" />
+        <script src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+        <!-- 轮播翻页 -->
+		<div class="wrap">
+			<section class="swiper-container">
+				<section class="swiper-wrapper">
+					<section class="swiper-slide page2 swiper-no-swiping hidden">
+                        <div class="wrap">
+                            <img src="images/logo.png" alt="" class="logo">
+                            <a href="javascript:;" class="head_img"><img src="images/head2.png" alt="" class="hand_move"><img src="images/light.png" alt=""></a>
+                            <img src="images/slogan2.png" alt="" class="slogan">
+                            <div class="page0_v hidden">
+                                <video id="my_video1" style="object-fit: fill; width: 100%; height: 100%;" preload="load" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="music/video.mp4"></video>
+                            </div>
+                        </div>
+					</section>
+                    <section class="swiper-slide page3 swiper-no-swiping hidden">
+                        <img src="images/slogan.png" alt="" class="slogan2">
+                        <div class="sel_box">   
+                            <a href="javascript:;" class="part1 active"><img src="images/txt1.png" alt="" ><i></i></a>
+                            <a href="javascript:;" class="part2"><img src="images/txt2.png" alt="" ><i></i></a>
+                            <a href="javascript:;" class="part3"><img src="images/txt3.png" alt="" ><i></i></a>
+                        </div>
+                    </section>
+                    <section class="swiper-slide page1 hidden">
+                        <img src="images/logo.png" alt="" class="logo">
+                        <div class="mm_box1 hidden">
+                            <div class="mm_box1_info"></div>
+                        </div>
+                        <div class="mm_box2 hidden">
+                            <div class="mm_box2_info">
+                                <img src="images/1.png" alt="">
+                                <p class="mm_text">战术风暴火爆来袭，该模式下枪友们可通过连杀对手来获得能量点，能量点可用于召唤相应道具or技能为己方进行战斗，如果你击杀了足够多的对手，甚至能召唤出直升飞机这种高火力的道具哦！</p>
+                            </div>
+                            <p><img src="images/mm_tl.png" alt="" >11</p>
+                        </div>
+                        <div class="mm_box3">
+                            <div class="mm_box3_info">
+                                <input type="text" maxlength="4" placeholder="请输入四位数密码..." class="mm_val">
+                                <div class="btn_box">
+                                    <a href="javascript:;" class="cancel"><img src="images/txt5.png" alt=""><i></i></a>
+                                    <a href="javascript:;" class="sure"><img src="images/txt6.png" alt=""><i></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mm_text3 hidden">
+                            <p>提示：密码藏于上两个模块之中~</p>
+                            <a href="javascript:;" class="return2">去查看</a>
+                        </div>
+                        <a href="javascript:;" class="return"><i></i><img src="images/txt4.png" alt="" ></a>
+                       
+                    </section>
+				</section>
+			</section>
+		</div>
+        <!-- 好友助力页 -->
+        <div class="invite_page hidden">
+            <img src="images/logo.png" alt="" class="logo">
+            <img src="images/slogan4.png" alt="" class="slogan4">
+            <img src="images/gift1.png" alt="" class="gift_send">
+            <a href="javascript:;" class="friend_help"><i></i><img src="images/txt12.png" alt="" ></a>
+            <div class="friend_box">
+                <p class="info">目前共有<span>10</span>位好友<br>  助力了<span>XXX</span></p>
+                <div class="friends_phone">
+                    <div class="phone_box">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                        <img src="images/icon3.png" alt="">
+                    </div>
+                </div>
+                <div class="btn_box2">
+                    <a href="javascript:;" class="cy_lottery"><img src="images/txt11.png" alt=""><i></i></a>
+                    <a href="javascript:;" class="cy_down"><img src="images/txt7.png" alt=""><i></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- 抽奖页 --> 
+        <section class="lottery">
+            <section class="a-container">
+                <img src="images/logo.png"  class="logo">
+                <img src="images/slogan3.png" alt="" class="slogan3">
+                <section class="a-item3">
+                    <div>
+                        <img id="rotate" src="images/cj_pan.png" >
+                        <div class="p-all-center">
+                            <!-- <img src="images/pointer.png" alt="" class="text"> -->
+                           <img id="cj_start_btn" src="images/cj_zz1.png">
+                        </div>
+                    </div>
+                    <p class="sy_num">剩余<span>1</span>次抽奖机会</p>
+                    <a href="javascript:;" class="gift_look"><img src="images/gift_look.png" alt=""></a>
+                </section> 
+            </section>
+            <section class="b-container">
+        <section class="b-open_style">
+            <ul class="act_info">
+                <li class="rule">
+                    <i>i</i><b>活动规则</b>
+                </li>
+                <li>
+                    <i>1</i><p>活动时间：11月28日—12月15日；</p>
+                </li>
+                <li>
+                    <i>2</i><p>活动期间，每个微信账号共拥有3次抽奖机会；若有好友助力则可额外获取抽奖次数，每有3位好友助力即可获得额外1次抽奖机会；最多获取额外3次抽奖机会； </p>
+                </li>
+                <li>
+                    <i>3</i><p>奖励兑换说明：游戏礼包请打开《全民枪战2》游戏-任务-兑换礼品-进行兑换；</p>
+                </li>
+                <li>
+                    <i>4</i><p>CA温馨提示：同类型礼包仅可兑换一次，若有活动礼包问题，请与《全民枪战2》官方客服联系；</p>
+                </li>
+                <li>
+                    <i>5</i><p>在法律规定范围内《全民枪战2》运营团队拥有本活动最终解释权。</p>
+                </li>
+            </ul>
+        </section>
+            </section>
+            <section class="btn_box2">
+                    <a href="http://downurl.yingxiong.com/url/qmqz_11yue.html" class="down_url"><img src="images/txt7.png" alt=""><i></i></a>
+                    <a href="javascript:;" class="invite"><img src="images/txt8.png" alt="" ><i></i></a>
+            </section>
+        </section>    
+        <!--兑换码弹框-->
+        <div class="tips code_tips hidden">
+            <div class="content"> 
+                <a href="javascript:;" class="close_tips"></a>
+                <img src="images/tl1.png" alt="" class="lable_tl">
+                <div class="co_form">
+                    <p class="info">恭喜你获得</p>
+                    <div class="gift_ico">
+                        <img src="images/icon1.png" alt="" class="img1">
+                        <img src="images/icon2.png" alt="" class="img2">
+                        <img src="images/icon3.png" alt="" class="img3">
+                        <img src="images/icon4.png" alt="" class="img4">
+                        <img src="images/icon5.png" alt="" class="img5">
+                        <img src="images/icon6.png" alt="" class="img6 active">
+                    </div>
+                    <p class="gift_name">吕布∙飞将 AK47-1阶</p>
+                    <div class="dhm_info">
+                        <p>兑换码：<span class="code">3D2FEWF3FEW3F</span></p>
+                    </div>
+                    <div class="copy_btn active"><img src="images/txt9.png" alt=""><i></i></div>
+                    <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+                </div>
+            </div>
+        </div>
+        <!--礼包弹框-->
+        <div class="tips f_login_tips ">
+            <div class="content"> 
+                <a href="javascript:;" class="close_tips"></a>
+                <img src="images/tl2.png" alt="" class="lable_tl2">
+                <div class="g_price">
+                    <div class="price_div">
+                        <span>名称</span>
+                        <span>兑换码</span>
+                        <span>时间</span>
+                        <span></span>
+                    </div>
+                    <div class="g_price2">   
+                    <ul class="price_ul">
+                        <li>
+                            <span class="name_txt align-center-vertical">感恩节手枪（永久）</span>
+                            <span class="name_code align-center-vertical">3D2FEWF3FEWzxcf</span>
+                            <span class="name_time align-center-vertical">2018-09-31</span>
+                            <span class="copy_btn2"><a href="javascript:;"></a></span>
+                        </li>
+                        <li>
+                            <span class="name_txt align-center-vertical">吕布∙飞将 AK47-1阶</span>
+                            <span class="name_code align-center-vertical">3D2FEWF3FEdf</span>
+                            <span class="name_time align-center-vertical">2018-09-31</span>
+                            <span class="copy_btn2"><a href="javascript:;"></a></span>
+                        </li>
+                         <li>
+                            <span class="name_txt align-center-vertical">吕布∙飞将 AK47-1阶</span>
+                            <span class="name_code align-center-vertical">3D2FEWF3FEW3</span>
+                            <span class="name_time">2018-09-31</span>
+                            <span class="copy_btn2"><a href="javascript:;"></a></span>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+                <div class="sure_btn"><img src="images/txt10.png" alt=""><i></i></div>
+                <p class="shuom">奖励兑换说明：游戏礼包请打开《全民枪战2》<br> 游戏-任务-兑换礼品-进行兑换； </p>
+            </div>
+        </div>
+                <!--微信分享提示-->
+<div class="tips share_bg hidden"><img src="images/share_bg.png" alt=""/></div>
+        <!-- 音乐 -->
+        <div class="music_play music_img hidden">
+          <audio id="music1" src="music/music.mp3" loop="loop"></audio>
+          <i></i>
+        </div>
+        <audio id="music2" src="music/music2.wav" preload="load"></audio>
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+        <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+        <script type="text/javascript" src="js/awardRotate.js"></script>
+        <script src="js/clipboard.min.js" type="text/javascript"></script>
+        <!--微信分享-->
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+         <script src="js/lottery.js" type="text/javascript">
+             if($(".phone_box img").length>6){
+            //$(".price_con ul").append($(".price_con ul li").clone(true));
+            setInterval('autoScroll($(".phone_box"));',2000);
+        }
+         </script>
+		<!--微信分享-->
+		<script>
+    	document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+		</script>
+	</body>
+</html>

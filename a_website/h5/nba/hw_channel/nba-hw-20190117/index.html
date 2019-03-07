@@ -1,0 +1,634 @@
+<!--
+    1、css
+    ---基础样式文件为qjsxq.css(一般不需要修改)
+    ---样式文件style.css
+
+    renew(20171205)
+      1、  优化logo名称及微信分享图标
+      2、修改为自动获取“往期回顾”的往期图标
+      3、增加讨论区模块
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<!--todo 页面title-->
+	<title>重磅更新</title>
+	<!--todo 更改游戏中心动态分享的分享图-->
+	<meta name="higame-image" content="./images/cjhwy.png?v=1508210403083" />
+	<!--常规配置-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" href="./css/animate.css?v=1508210403083">
+	<link rel="stylesheet" href="./css/qjsxq.css?v=1508210403083">
+	<link rel="stylesheet" href="./css/style.css?v=1508210403083">
+	<script src="./js/lib/zepto.min.js?v=1508210403083"></script>
+	<script src="./js/lib/app.js?v=1508210403083"></script>
+	<script src="./js/lib/hmssdk1.0.2.js?v=1508210403083"></script>
+	<script src="./js/lib/jweixin-1.2.0.js?v=1508210403083"></script>
+	<script src="./js/lib/ecfx.js?v=1508210403083"></script>
+	<script>
+		//设置webview字体大小不受系统改变
+		(function() {
+			if(window.HiSpaceObject) {
+				window.HiSpaceObject.setTextSizeNormal();
+			}
+		})();
+	</script>
+</head>
+
+<body class="conBody">
+	<!--todo 微信分享到朋友、朋友圈时的分享图-->
+	<img src="./images/logo.png?v=1508210403083" class="wxs" />
+	<!--内容模块-->
+	<div class="container">
+		<!-- 图片尺寸1920x1080 -->
+		<div class="module-banner">
+			<img src="./images/banner.jpg?v=1508210403083" alt="">
+		</div>
+		<!-- <div class="module-video">
+			<div class="video-wrap">
+				<div class="video-content">
+					<video preload="none" controlsList='nodownload noremote footbar' poster="./images/banner.jpg?v=1508210403083" src="https://hiapp-strm.dbankcdn.com/e21d7a4cvodtransgzp1253437192/b02ba8d85285890783412765559/v.f20.mp4?v=1508210403083">您的浏览器不支持 video 标签。</video>
+				</div>
+				<div class="play-icon">
+					<img src="./images/common/playIcon.png?v=1508210403083" alt="">
+				</div>
+			</div>
+		</div> -->
+		<div class="module-app-top app-content">
+			<div class="app-icon">
+				<img src="./images/logo.png?v=1508210403083" alt="">
+			</div>
+			<div class="app-detail">
+				<div class="app-title inaline"></div>
+				<div class="app-group inaline"></div>
+			</div>
+			<div class="app-install">
+				<a href="javascript:void(0)" class="btn-bluetxt">安装</a>
+			</div>
+		</div>
+
+		<div class="update">
+			<div class="update-title">版本更新内容</div>
+			<div class="update-content">
+				<div class="upt-fir">
+					<div class="fir-title">1.全新球衣、球场系统</div>
+					<div class="fir-intr">无论你是勇士还是火箭，都能自由搭配其他球队的球衣以及球场，展示你个性化一面。一颗火箭心，但也能穿着勇士衣。作为资深篮球迷，你对篮球场馆一定有着自己的执着，在这里切换特色球场，还原记忆深处那场难忘的比赛。</div>
+					<!-- 展示视频，若无视频，将该段代码注释掉，去掉下面展示图片代码注释并修改相关图片链接 -->
+					<!-- 此处poster图片尺寸大小规定为 1280X720 -->
+					<!-- <div class="video-info">
+						<div class="video-wrap">
+								<div class="video-content2">
+										<video preload="none" controlsList="nodownload noremote footbar" poster="./images/hhwrsyz.jpg?v=1508210403088" src="https://hiapp-strm.dbankcdn.com/e21d7a4cvodtransgzp1253437192/71a2b6ec5285890783316821317/v.f20.mp4?v=1508210403083">您的浏览器不支持 video 标签。</video>
+								</div>
+								<div class="play-icon">
+										<img src="./images/common/playIcon.png?v=1508210403083" alt="">
+								</div>
+						</div>
+					</div> -->
+					<!-- 展示图片，此处图片尺寸规定为 1280X720 -->
+					<div class="img-content">
+						<img src="./images/hhwrsyz.jpg?v=1508210403083" alt="">
+					</div>
+				</div>
+				<div class="upt-sec">
+					<div class="sec-title fir-title">2.开启新春系列活动</div>
+					<div class="sec-intr fir-intr">参与新春系列活动，根据活动赛事逐步解锁关卡，收集新春活动所需的合成材料，便可合成心仪球员，最终可通过合成获得高评分球员德马库斯·考辛斯、詹姆斯·哈登、斯蒂芬·马布里、姚明。巨星云集，任你挑选。</div>
+				  	<!-- 展示视频，若无视频，将该段代码注释掉，去掉下面展示图片代码注释并修改相关图片链接 -->
+					<!-- 此处poster图片尺寸大小规定为 1280X720 -->
+					<!-- <div class="video-info">
+						<div class="video-wrap">
+								<div class="video-content2">
+										<video preload="none" controlsList="nodownload noremote footbar" poster="./images/hhwrsyz.jpg?v=1508210403088" src="https://hiapp-strm.dbankcdn.com/e21d7a4cvodtransgzp1253437192/71a2b6ec5285890783316821317/v.f20.mp4?v=1508210403083">您的浏览器不支持 video 标签。</video>
+								</div>
+								<div class="play-icon">
+										<img src="./images/common/playIcon.png?v=1508210403083" alt="">
+								</div>
+						</div>
+					</div> -->
+					<!-- 展示图片，此处图片尺寸规定为 1280X720 -->
+					<div class="img-content">
+						<img src="./images/p_01.jpg?v=1508210403083" alt="">
+					</div>
+				</div>
+				<div class="upt-sec">
+					<div class="sec-title fir-title">3.开启新年礼物活动</div>
+					<div class="sec-intr fir-intr">
+						参与游戏内活动，将有多种途径获得神秘新年礼物，在举国欢庆的新春佳节期间去打开它，相信可以给你足够惊喜，以往活动中错过的高评分球星以及其他材料将有机会与你再次相遇。
+					</div>
+				  	<!-- 展示视频，若无视频，将该段代码注释掉，去掉下面展示图片代码注释并修改相关图片链接 -->
+					<!-- 此处poster图片尺寸大小规定为 1280X720 -->
+					<!-- <div class="video-info">
+						<div class="video-wrap">
+								<div class="video-content2">
+										<video preload="none" controlsList="nodownload noremote footbar" poster="./images/hhwrsyz.jpg?v=1508210403088" src="https://hiapp-strm.dbankcdn.com/e21d7a4cvodtransgzp1253437192/71a2b6ec5285890783316821317/v.f20.mp4?v=1508210403083">您的浏览器不支持 video 标签。</video>
+								</div>
+								<div class="play-icon">
+										<img src="./images/common/playIcon.png?v=1508210403083" alt="">
+								</div>
+						</div>
+					</div> -->
+					<!-- 展示图片，此处图片尺寸规定为 1280X720 -->
+					<div class="img-content">
+						<img src="./images/jjhzjx.jpg?v=1508210403083" alt="">
+					</div>
+				</div>
+				<div class="upt-sec">
+					<div class="sec-title fir-title">4.上架“四大天王”卡包</div>
+					<div class="sec-intr fir-intr">
+						春节期间商店内将会陆续推出“四大天王”卡包，购买此限定卡包即有机会获得拉塞尔·威斯布鲁克、凯文·杜兰特、德怀特·霍华德等球员。天王们拥有极高的属性，出色的专长，相信绝不会让你失望。
+					</div>
+					<!-- 展示视频，若无视频，将该段代码注释掉，去掉下面展示图片代码注释并修改相关图片链接 -->
+					<!-- 此处poster图片尺寸大小规定为 1280X720 -->
+					<!-- <div class="video-info">
+						<div class="video-wrap">
+								<div class="video-content2">
+										<video preload="none" controlsList="nodownload noremote footbar" poster="./images/hhwrsyz.jpg?v=1508210403088" src="https://hiapp-strm.dbankcdn.com/e21d7a4cvodtransgzp1253437192/71a2b6ec5285890783316821317/v.f20.mp4?v=1508210403083">您的浏览器不支持 video 标签。</video>
+								</div>
+								<div class="play-icon">
+										<img src="./images/common/playIcon.png?v=1508210403083" alt="">
+								</div>
+						</div>
+					</div> -->
+					<!-- 展示图片，此处图片尺寸规定为 1280X720 -->
+					<div class="img-content">
+						<img src="./images/lzjx.jpg?v=1508210403083" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="module module-activity">
+			<div class="act-title update-title">论坛活动</div>	
+			<div class="activity-container">
+				<ul class="clearfix">
+					<!-- data-title为活动标题，也用于记录打点，data-href为跳转链接，替换即可 -->
+					<li class="activity-list" data-title="球衣球场抢先看" data-href="https://cn.club.vmall.com/thread-18635397-1-1.html">
+						<div class="activity-content">
+							<div class="activity-left">
+								<!-- 图片尺寸1280x720 -->
+								<img src="./images/act/new1.jpg?v=1532660930021" alt="">
+							</div>
+							<div class="activity-right">
+								<div class="activity-title">球衣球场抢先看</div>
+								<div class="activity-introduce">《NBA LIVE》特色球衣球场曝光,让比赛趣味横生!</div>
+							</div>
+						</div>
+						<!-- <div class="line"></div> -->
+					</li>
+					<li class="activity-list" data-title="实时对抗全新赛季！" data-href="https://cn.club.vmall.com/thread-18635413-1-1-5603.html">
+						<div class="activity-content">
+							<div class="activity-left">
+								<img src="./images/act/new2.jpg?v=1532660930021" alt="">
+							</div>
+							<div class="activity-right">
+								<div class="activity-title">实时对抗全新赛季！</div>
+								<div class="activity-introduce">《NBA LIVE》全新5V5实时对抗赛季,你还在等什么~</div>
+							</div>
+						</div>
+						<!-- <div class="line"></div> -->
+					</li>
+					<li class="activity-list" data-title="自由搭配心仪球员~" data-href="https://cn.club.vmall.com/thread-18635514-1-1-5603.html">
+						<div class="activity-content">
+						<div class="activity-left">
+							<img src="./images/act/new3.jpg?v=1532660930021" alt="">
+						</div>
+						<div class="activity-right">
+							<div class="activity-title">自由搭配心仪球员~</div>
+							<div class="activity-introduce">《NBA LIVE》多阵容模式震撼上线</div>
+						</div>
+					</div>
+					<!-- <div class="line"></div> -->
+				</li>
+
+				<li class="activity-list" data-title="你的新年愿望是什么？" data-href="https://cn.club.vmall.com/thread-18635134-1-1.html">
+					<div class="activity-content" style="border:none;padding:0;">
+						<div class="activity-left">
+							<img src="./images/act/new4.jpg?v=1532660930021" alt="">
+						</div>
+						<div class="activity-right">
+							<div class="activity-title">你的新年愿望是什么？</div>
+							<div class="activity-introduce">《NBALIVE》分享新年愿望，赢得各类好礼</div>
+						</div>
+					</div>
+					<!-- <div class="line"></div> -->
+				</li>
+				</ul>
+			</div>
+			<!-- 论坛专区 -->
+			<div class="act-forum"><a href="https://cn.club.vmall.com/forum-3135-1.html">论坛专区</a></div>
+		</div>
+	
+
+		<div class="js_share">
+			<img src="./images/common/share.png?v=1508210403083" alt="">
+		</div>
+
+		<!-- 悬浮安装 -->
+		<div class="module-app app-content" style="display:none;">
+			<div class="app-icon">
+				<img src="./images/logo.png?v=1508210403083" alt="">
+			</div>
+			<div class="app-detail">
+				<div class="app-title inaline"></div>
+				<div class="app-group inaline"></div>
+			</div>
+			<div class="app-install">
+				<a href="javascript:void(0)" class="btn-txt">安装</a>
+			</div>
+		</div>
+	</div>
+	<div class="mongolia">
+		<div class="yst">
+			<img src="./images/common/youshang.png?v=1508210403083" alt="">
+		</div>
+	</div>
+	<!--站长工具统计代码-->
+</body>
+<!--<script src="./js/config.js" ></script>-->
+<script type="text/javascript">
+	//todo 根据页面appId设置pageId
+	var pageId = pageId || "Y37";
+	var imgUrl = "./images/logo.png"; //微信二次分享图
+	/***********统计代码************/
+	//全局对象
+	var _paq = _paq || [];
+	//设置上报URL：以下为测试URL；商用URL为:https://metrics1.data.hicloud.com:6447/webv1
+	_paq.push(['setTrackerUrl', 'https://metrics-drcn.dt.hicloud.com:6447/webv1']);
+	//设置网站域名ID，如：www.honor.cn
+	_paq.push(['setSiteId', 'game.vmall.com']);
+
+	//加载采集JS
+	var _doc = document.getElementsByTagName('head')[0];
+	var js = document.createElement('script');
+	js.setAttribute('type', 'text/javascript');
+	//采集JS的URL：以下为测试URL；商用URL为:https://metrics1.data.hicloud.com:6447/hianalytics.js
+	js.setAttribute('src', 'https://metrics-drcn.dt.hicloud.com:6447/hianalytics.js'/*tpa=http://res.vmallres.com/bi/hianalytics.js*/);
+	_doc.appendChild(js);
+	//上报流量来源，’12345’需要从URL参数或cookie中获取sid\cid
+	_paq.push(['setCustomVariable', 1, 'sid', pageId, 'page']);
+	_paq.push(['setCustomVariable', 2, 'cid', pageId, 'page']);
+	//跟踪页面
+	_paq.push(['trackPageView']);
+	/***********统计代码************/
+	/*orientation*/
+	//installStatus 0代表未安装；1代表安装中；2代表已安装
+	var campaignId = getQueryString("campaignId");
+	var dataConfig = {
+		order: 54,
+		campaignId: campaignId || 11974,
+		id: "C100336133",
+		appTitle: "NBA LIVE",
+		appGroup: "5V5真操控篮球手游",
+		shareContent: "分享语",
+		// forum: "https://cn.club.vmall.com/thread-17451944-1-1.html",
+		// prePage: "https://game.vmall.com/appdl-uomp-cn/campaignpreview/eaef9af2-7f6a-42a2-9ad2-b20d61707d33/index.html",
+		// prePrePage: "https://game.vmall.com/appdl-uomp-cn/campaignpreview/5c12695c-3f1a-4bca-a2f3-449dfc1d6e01/index.html",
+		//        自动数据
+		activityData: {},
+		token: getQueryString("token"),
+		iv: getQueryString("iv"),
+		installStatus: 0,
+		isInstalling: false, //用来打点
+		isHuawei: false,
+		isWeiXinOrWeiBo: false
+	}
+	var app = new App({ campaignId: dataConfig.campaignId });
+	if (app.newDownload) {
+		app.refreshApp = function (appStatus) {
+			var dom = ".btn-bluetxt,.btn-txt";
+			$(dom).html(appStatus.btnStatus.text);
+			if (appStatus.btnStatus.text == "安装") {
+				dataConfig.isInstalling = true;
+			} else {
+				dataConfig.isInstalling = false;
+			}
+			if (appStatus.status == 5 || appStatus.status == 6 || appStatus.status == 7 || appStatus.status == 8 || appStatus.status == 10 || appStatus.status == 11) {
+				$(".btn-txt").addClass("btn-txta");
+				$(".btn-bluetxt").addClass("btn-bluetxta");
+				if (appStatus.progress) {
+					$(".btn-txt").css({ "background": "linear-gradient(90deg,rgba(0, 125, 255, 0.2) " + appStatus.progress + "%,transparent 0%)" });
+					$(".btn-bluetxt").css({ "background": "linear-gradient(90deg,rgba(0, 125, 255, 0.2) " + appStatus.progress + "%,transparent 0%)", "color": "#007BFF" });
+				}
+			} else {
+				$(".btn-txt").removeClass("btn-txta").css({ "background": "#F7F7F7" });
+				$(".btn-bluetxt").removeClass("btn-bluetxta").css({ "background": "#007DFF", "color": "#fff" });
+			}
+			if (appStatus.btnStatus.disable) {
+				$(dom).addClass("disabled");
+			} else {
+				$(dom).removeClass("disabled");
+			}
+		};
+	}
+
+	/*客户端状态监听*/
+
+	/*install*/
+	function init() {
+		scrolls();
+		environment();
+		downloadHide();
+		initData();
+		dataHref();
+	}
+	function environment() {
+		if (window.HiSpaceObject) {
+			dataConfig.isHuawei = true;
+		}
+		var ua = window.navigator.userAgent.toLowerCase();
+		//微信端判断
+		if ((/MicroMessenger/i.test(ua)) || (/WeiBo/i.test(ua))) {
+			dataConfig.isWeiXinOrWeiBo = true;
+		}
+	}
+	function initData() {
+		var that = this;
+		// $("title").text("游风尚 第" + dataConfig.order + "期");
+		$(".app-title").text(dataConfig.appTitle);
+		$(".app-group").text(dataConfig.appGroup);
+		// $(".preRe>div").text("第" + (dataConfig.order - 1) + "期");
+		// $(".prePreRe>div").text("第" + (dataConfig.order - 2) + "期");
+		if (!dataConfig.isWeiXinOrWeiBo && !dataConfig.isHuawei) {
+			$(".js_share").hide();
+		}
+		var campaignIdStr = campaignId ? "isBiPoint=" : ("isBiPoint=&campaignId=" + dataConfig.campaignId);
+		var search = window.location.search;
+		var addParams = "";
+		if (search && dataConfig.token && dataConfig.iv) {
+			addParams = search.replace("userId", "deviceId") + "&" + campaignIdStr;
+		} else {
+			addParams = "?campaignId=" + dataConfig.campaignId + "&isBiPoint=";
+		}
+		var url = window.location.origin + "/uowap/campaign/detail" + addParams;
+		$.ajax({
+			url: url,
+			type: "GET",
+			//            data:{campaignId:dataConfig.campaignId,isBiPoint:""},
+			success: function (datas) {
+				var aData = (typeof datas == "string" ? JSON.parse(datas) : datas).campaignDetail.appList;
+				if (app.newDownload) {
+					app.appList = aData;
+				}
+				$.each(aData, function (index, item) {
+					if (dataConfig.id == item.appId) {
+						dataConfig.activityData = item;
+						$(".app-icon img,.wxs").attr("src", item.logo);
+						$(".app-title").text(item.name);
+						if (dataConfig.isHuawei) {
+							if (app.newDownload) {
+								var appStatus = app.changeAppStatus(item);
+							} else {
+								var isInstalled = that.install(item.pkgName);
+								if (isInstalled) {
+									dataConfig.installStatus = 2;
+									$(".btn-bluetxt,.btn-txt").html("打开");
+								}
+							}
+						}
+
+					}
+
+				});
+
+			}
+		})
+
+	}
+
+	function install(pkgName) {
+		return window.HiSpaceObject.isInstalled(pkgName);
+	}
+	$(".app-install a").click(function (e) {
+		if (dataConfig.isHuawei) {
+			var isInstalled = window.HiSpaceObject.isInstalled(dataConfig.activityData.pkgName);
+			if (!isInstalled) {
+				if (dataConfig.isInstalling) {
+					_paq.push(['trackLink', dataConfig.appTitle + "-install", 'link', pageId]);
+				}
+			} else {
+				_paq.push(['trackLink', dataConfig.appTitle + "-open", 'link', pageId]);
+
+			}
+			if (app.newDownload) {
+				var appStatus = app.changeAppStatus(dataConfig.activityData);
+				appStatus.btnStatus.triggerFun(dataConfig.activityData);
+			} else {
+				if (dataConfig.installStatus == 1) {
+					_paq.push(['trackLink', dataConfig.appTitle + "-app", 'link', pageId]);
+					var packageName = new Object();
+					packageName.appDetailId = "app|" + dataConfig.id + "____" + dataConfig.campaignId;
+					window.HiSpaceObject.toDetailPage(JSON.stringify(packageName));
+					return false;
+				}
+				if (dataConfig.installStatus == 2) {
+					_paq.push(['trackLink', dataConfig.appTitle + "-open", 'link', pageId]);
+					window.HiSpaceObject.launchApp(dataConfig.activityData.pkgName, null, null);
+					return false;
+				} else if (!dataConfig.activityData.isPay) {
+					_paq.push(['trackLink', dataConfig.appTitle + "-install", 'link', pageId]);
+					var dInfo = {};
+					dInfo.url = dataConfig.activityData.url + '&source=uoms_activity&subsource=' + dataConfig.campaignId || '';
+					dInfo.extendName = 'invalid';
+					dInfo.name = dataConfig.activityData.name || '';
+					dInfo.packageName = dataConfig.activityData.pkgName || '';
+					dInfo.callerName = 'invalid';
+					dInfo.size = dataConfig.activityData.size || '';
+					dInfo.iconUrl = dataConfig.activityData.logo || '';
+					dInfo.version = dataConfig.activityData.version || '';
+					dInfo.appId = dataConfig.activityData.appId || '';
+					dInfo.md5 = dataConfig.activityData.md5 || '';
+
+					//  __vm.$log('gameItem JSON.stringify(dInfo) : ' + (0, _stringify2.default)(dInfo));
+					window.HiSpaceObject.startDownload(JSON.stringify(dInfo));
+					$(".btn-bluetxt,.btn-txt").html("安装中");
+					dataConfig.installStatus = 1;
+					window.checkInstalled();
+					return false;
+				} else {
+					// _paq.push(['trackLink', dataConfig.appTitle + "-app", 'link', pageId]);
+					var packageName = new Object();
+					packageName.appDetailId = "app|" + dataConfig.id + "____" + dataConfig.campaignId;
+					window.HiSpaceObject.toDetailPage(JSON.stringify(packageName));
+				}
+			}
+		} else {
+			_paq.push(['trackLink', dataConfig.appTitle + "-other", 'link', pageId]);
+			//_czc.push(["_trackEvent",category,"其他",label]);
+			window.location.href = "http://a.vmall.com/app/" + dataConfig.id;
+		}
+
+
+	}, false);
+
+
+	$(".app-icon,.app-title").click(function (e) {
+		if (dataConfig.isHuawei) {
+			_paq.push(['trackLink', dataConfig.appTitle + "-app", 'link', pageId]);
+			var packageName = new Object();
+			packageName.appDetailId = "app|" + dataConfig.id + "____" + dataConfig.campaignId;
+			window.HiSpaceObject.toDetailPage(JSON.stringify(packageName));
+		} else {
+			_paq.push(['trackLink', dataConfig.appTitle + "-other", 'link', pageId]);
+			//_czc.push(["_trackEvent",category,"其他",label]);
+			window.location.href = "http://a.vmall.com/app/" + dataConfig.id;
+		}
+	});
+
+	function checkInstalled() {
+		var that = this;
+		if (this.install(dataConfig.activityData.pkgName)) {
+			$(".btn-bluetxt,.btn-txt").html("打开");
+			dataConfig.installStatus = 2;
+		} else {
+			setTimeout(function () { that.checkInstalled() }, 1000);
+		}
+
+	}
+
+	//视频控制
+	$(".video-wrap").click(function (e) {
+		var video = $(this).children(".video-content, .video-content2").children()[0];
+		var playIcon = $(this).children(".play-icon");
+		$(video).attr("controls", "");
+		/*videos.each(function(index,item){
+		 if(!item.paused){item.pause();}
+		 });*/
+		if (video.paused) {
+			video.play();
+			playIcon.hide();
+		} else {
+			video.pause();
+		};
+	});
+
+	function downloadHide() {
+		var ua = navigator.userAgent;
+		if ((/Chrome/g.test(ua))) {
+			var list = ua.split(" ");
+			for (var i = 0, j = list.length; i < j; i++) {
+				if ((/Chrome/g.test(list[i]))) {
+					var chromeVersion = list[i].split("/")[1];
+					if (parseFloat(chromeVersion) >= 54) {
+						$("video").addClass("downloadHide");
+						break;
+					}
+				}
+			}
+
+		}
+	}
+
+	window.addEventListener("orientationchange", function () {
+		orientationChangeFun();
+	}, false);
+	function orientationChangeFun() {
+		window.setTimeout(function (e) {
+			var transverse = window.innerWidth > window.innerHeight;
+			var video = $(".module-video video");
+			video.css("height", window.innerWidth * 9 / 16 + "px");
+			// if (transverse) {
+			// 	video.css("height", window.innerWidth * 9 / 16 + "px");
+			// }
+		}, 200);		// 手机旋转有一定延迟
+	}
+
+	function dataHref() {
+		var that=this;
+		$("*[data-href]").on("click",function(e){
+			var locationHref,href=$(this).data("href");
+			if(that.isHuawei&&(/order/.test(href))){
+				var serviceType=that._getQueryString("serviceType");
+				var encodeHref=encodeURIComponent(href);
+				if(serviceType==5){
+						locationHref='higame://openapp?openStr={"openId":"37","params":[{"name":"url","type":"String","value":"'+encodeHref+'"}]}&thirdId=4010002';
+				}else{
+						locationHref='hiapp://com.huawei.appmarket?activityName=activityUri|webview.activity&params={"params":[{"name":"url","type":"String","value":"'+encodeHref+'"},{"name":"uri","type":"String","value":"external_webview"}]}&channelId=';
+				}
+			}else{
+				locationHref=href;
+			}
+			// if(/order/.test(href)){
+			//     //localStorage.setItem("quadata",JSON.stringify({"refresh":true}));
+			//
+			//     //
+			// }
+			// var category=$(this).parent().data("category")||$(this).data("category");
+			_paq.push(['trackLink',$(this).data("title"), 'link',pageId]);
+			window.location.href= locationHref;
+			return false;
+		});
+	}
+
+	//  分享
+	$(".forum").on("click", function (e) {
+		_paq.push(['trackLink', 'discuss', 'link', pageId]);
+		window.location.href = dataConfig.forum;
+	});
+	$(".js_share").on("click", function () {
+		if (dataConfig.isHuawei) {
+			_paq.push(['trackLink', 'share-H', 'link', pageId]);
+			//_czc.push(["_trackEvent","分享","客户端"]);
+			// var title = $(this).data("title");
+			// var content = $(this).data("content");
+			var hwJson = new Object();
+			hwJson.shareMethod = "Content"; //此处不变
+			hwJson.title = "游风尚 第" + dataConfig.order + "期";
+			hwJson.content = dataConfig.shareContent;
+			hwJson.pictureUrl = dataConfig.activityData.logo;
+			hwJson.shareUrl = window.location.origin + window.location.pathname;
+			// hwJson.shareUrl = window.location.href;
+			window.HiSpaceObject.share(JSON.stringify(hwJson));
+		} else {
+			_paq.push(['trackLink', 'share-O', 'link', pageId]);
+			showTip("images/common/youshang.png");
+		}
+	});
+	function showTip(src) {
+		$(".yst img").attr('src', src);
+		$(".mongolia").show().off("click").on("click", function () {
+			$(this).hide();
+		});
+	}
+	function getQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null) {
+			return unescape(r[2]);
+		}
+		return null;
+	}
+	//    更多
+	// $(".more").on("click", function (e) {
+	// 	_paq.push(['trackLink', 'more', 'link', pageId]);
+	// 	window.location.href = "https://game.vmall.com/appdl-uomp-cn/greycampaignpreview/af46bdfa-eb05-4de6-a69f-8d77ee1dc502/index.html";
+	// });
+	// $(".preRe").on("click", function (e) {
+	// 	_paq.push(['trackLink', 'preRe', 'link', pageId]);
+	// 	window.location.href = dataConfig.prePage;
+	// });
+	// $(".prePreRe").on("click", function (e) {
+	// 	_paq.push(['trackLink', 'prePreRe', 'link', pageId]);
+	// 	window.location.href = dataConfig.prePrePage;
+	// });
+	
+	//    效果控制
+	$(window).on("scroll", scrolls);
+	function scrolls() {
+		var top = $(window).scrollTop();
+		if (top > ($(".module-video").height() + $(".module-app-top").height())) {
+			$(".module-app").removeClass("fadeOutDown").addClass("animated fadeInUp").show();
+		} else {
+			$(".module-app").removeClass("fadeInUp").addClass("animated fadeOutDown");
+			setTimeout(function () { if ($(".module-app").hasClass("fadeOutDown")) { $(".module-app").hide() } }, 500);
+		}
+	}
+
+	init();
+
+
+</script>
+
+
+</html>

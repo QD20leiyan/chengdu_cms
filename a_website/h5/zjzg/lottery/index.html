@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>装甲战歌</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+</head>
+
+<body>
+	<div class="i_main">
+		<!--kv-->
+		<div class="con1">
+			<div class="logo1">
+				<img src="images/lt_logo.png"/>
+			</div>
+			<a href="" class="down_btn"><img src="images/lt_btn.png" alt=""></a>
+		</div>
+		<!-- 第二部分 -->
+		<div class="display_box">
+			<img src="images/lt_display.png" alt="">
+		</div>
+		<!--第三部分-->
+		<div class="lottery">
+			<div class="chengg"></div>
+			<div class="l_login">
+				<!--登录前-->
+				<p class="co_before">欢迎您，请<span class="co_loginbtn">[登录]</span></p>
+				<!--登录后-->
+				<p class="co_after hidden">欢迎您,<span class="user_phone"></span><span class="logout">[注销]</span></p>
+			</div>
+			<div class="lottery_box">
+				<div class="lottery_out_box">
+					<div class="lottery_inner_box">
+						<div class="wheelcanvas"></div>
+						<div class="pointer"></div>
+						<!--<div class="pointer_txt"></div>-->
+					</div>
+				</div>
+				<div class="lottery_num">当前剩余<span class="count"></span>次</div>
+			</div>
+			<div class="btn_box">
+				<a href="javascript:;" class="address_btn"><img src="images/lt_btn3.png" alt=""></a>
+				<a href="javascript:;" class="check_ward"><img src="images/lt_btn4.png" alt=""></a>
+			</div>
+			<div class="rule_box">
+				<ul>
+					<li><i>1</i><span>活动期间，使用手机号登陆本界面即可获得1次抽奖机会，下载并成功安游戏后可额外获得1次抽奖机会，每个手机号号最多获得2次抽奖机会。</span></li>
+					<li><i>2</i><span>抽中实物奖励的玩家需在上方填写地址和联系方式以便发放奖品。</span></li>
+					<li><i>3</i><span>活动时间：2019年3月20日-2019年3月22日</span></li>
+					<li><i>4</i><span>活动最终解释权归《巅峰坦克》官方所有。</span></li>
+				</ul>
+			</div>
+		</div>
+		<!--第三部分-->
+		<div class="ward_slider">
+			<div class="five_banner">
+            	<ul class="swiper-wrapper">
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="images/lt_slimg2.png" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="images/lt_slimg.png" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="images/lt_slimg.png" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="images/lt_slimg2.png" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="images/lt_slimg.png" alt="" /></a>
+                	</li>
+                </ul>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination01"></div>
+		</div>
+	</div>
+	<!--登录弹框-->
+	<div class="co_tips co_tips_login hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<div class="co_input">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="输入您的手机号码" oninput="if(value.length>11)value=value.slice(0,11)"/>
+						<p class="co_error">手机号码错误</p>
+					</div>
+					<div class="co_input">
+						<input type="text"  class="captcha" placeholder="验证码"/>
+						<span class="co_captcha"><img src="http://tk.demo.yingxiong.com/site/captcha.html?v=5c7e32d08794a" alt=""/></span>
+						<p class="co_error">验证码错误</p>
+					</div>
+					<div class="co_input">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="短信验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+						<p class="co_error">验证码错误</p>
+					</div>
+				</div>
+			</div>
+			<div class="co_tips_loginbtn"></div>
+		</div>
+	</div>
+	<!--奖品弹框1-->
+	<div class="co_tips co_tips_ward hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<p class="tips_name">恭喜您获得<span></span></p>
+					<div class="has_code">
+					<p class="tips_code"><span class="code_num" id="code_num"></span><i class="code_copy copy" data-clipboard-text="">复制</i></p>
+					</div>
+					<div class="no_code">
+						<p  class="tips_code">快去填写收货地址吧</p>
+					</div>
+					<div class="gift_img">
+						<img src="images/lt_gf1.png" alt="" data-id="4" class="img">
+						<img src="images/lt_gf2.png" alt="" data-id="3" class="img2">
+						<img src="images/lt_gf3.png" alt="" data-id="2" class="img3">
+						<img src="images/lt_gf4.png" alt="" data-id="1" class="img4">
+						<img src="images/lt_gf5.png" alt="" data-id="0" class="img5">
+						<img src="images/lt_gf6.png" alt="" data-id="7" class="img6">
+						<img src="images/lt_gf7.png" alt="" data-id="6" class="img7">
+						<img src="images/lt_gf8.png" alt="" data-id="5" class="img8">
+					</div>
+				</div>
+			</div>
+			<div class="co_tips_surebtn"></div>
+		</div>
+	</div>
+	<!--中奖记录弹框-->
+	<div class="co_tips co_tips_record hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<p class="table_title">
+						<span>奖品名称</span>
+						<span>礼包码</span>
+						<span></span>
+					</p>
+					<div class="table_list">
+						<p class="table_info">
+							<span>《马戏之王》电影票</span>
+							<span class="table_code">KDF45G0</span>
+							<span class="copy" data-clipboard-text="KDF45G0">复制</span>
+						</p>
+						<p class="table_info">
+							<span>《马戏之王》电影票</span>
+							<span class="table_code">KDF45G1</span>
+							<span class="copy" data-clipboard-text="KDF45G1">复制</span>
+						</p>
+						<p class="table_info">
+							<span>《马戏之王》电影票</span>
+							<span class="table_code">KDF45G2</span>
+							<span class="copy" data-clipboard-text="KDF45G2">复制</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="co_tips_surebtn"></div>
+		</div>
+	</div>
+	<!--下载弹框-->
+	<div class="co_tips co_tips_down hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<p class="tips_txt">点击<a href="http://downurl.yingxiong.com/url/tk_wapgw.html">立即下载</a>按钮立即下载游戏</p>
+				</div>
+			</div>
+			<div class="co_tips_down"><a href="http://downurl.yingxiong.com/url/tk_wapgw.html"></a></div>
+		</div>
+	</div>
+	<!-- 收货地址 -->
+	<div class="co_tips co_tips_address hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="add_inp div">
+			    	<p><input type="number" placeholder="手机号码" class="name_input" value="" class="term_btn" oninput="if(value.length>11)value=value.slice(0,11)" ></p>
+    				<p><input type="number" placeholder="邮编" class="qq_num" oninput="if(value.length>6)value=value.slice(0,6)"></p>
+    				<p><input type="text" placeholder="收货人姓名" class="qq_num" ></p>
+    				<div class="textarea">
+    					<textarea type="text" placeholder="详细地址..." class="address"></textarea>
+    				</div>
+			</div>
+    		<div class="co_tips_surebtn"></div>
+		</div>
+	</div>
+	<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+	<script src="js/swiper-3.4.2.min.js" type="text/javascript"></script>
+	<script src="js/awardRotate.js" type="text/javascript"></script>
+	<script src="js/clipboard.min.js" type="text/javascript"></script>
+    <!-- <script src="js/index.js" type="text/javascript"></script> -->
+	<script>
+		var mySwiper01 = new Swiper(".five_banner", {
+			effect: "coverflow",
+			autoplay:4000,
+			speed: 1500,
+			prevButton:'.swiper-button-prev',
+        	nextButton:'.swiper-button-next',
+			pagination: '.swiper-pagination01',
+			centeredSlides: !0,
+			slidesPerView: 3,
+			loop: !0,
+			observer: !0,
+			observeParents: !0,
+			slideToClickedSlide: !0,
+			simulateTouch : false,
+			paginationClickable: true,
+        	autoplayDisableOnInteraction : false,
+			coverflow: {
+				rotate: 0,
+				stretch: -130,
+				depth: 600,
+				modifier: 1,
+				slideShadows: true
+			},
+		});
+		//弹框关闭
+		$(".co_tips_close,.co_tips_surebtn").click(function(){
+			if($(this).hasClass("add_dizhi")){
+				$(".co_tips").addClass("hidden");
+				$(".co_tips.co_tips_address").removeClass("hidden");
+		    	$('.co_tips input').val("");
+		    	$(".co_error").removeClass("co_err_show");
+			}else{
+				$(".co_tips").addClass("hidden");
+		    	$('.co_tips input').val("");
+		    	$(".co_error").removeClass("co_err_show");
+			} 
+		});
+		var prize1={
+			'0':{name:"雨燕*3天"},
+			'1':{name:"4阶材料包*5"},
+			'2':{name:"虎王坦克模型"},
+			'3':{name:"mate20"},
+			'4':{name:"99式原型(永久)"},
+			'5':{name:"黄金*20"},
+			'6':{name:"主题卫衣"},
+			'7':{name:"悍马*3天"}
+		}
+		//抽奖
+		var rotateTimeOut = function (){
+			$('.wheelcanvas').rotate({
+				angle:0,
+				animateTo:2182.5,
+				duration:8000,
+				callback:function (){
+					alert('网络超时，请检查您的网络设置！');
+				}
+			});
+		};
+		var rotateconf={
+			bRotate:false,
+			gifts:["雨燕*3天","4阶材料包*5","虎王坦克模型","mate20","99式原型(永久)","黄金*20","主题卫衣","悍马*3天"]
+		}
+		//旋转转盘 item:奖品位置; txt：提示语,code是礼包码;
+		var rotateFn = function (item){
+			var angles = item * (360 /8);
+			console.log(angles);
+			$('.wheelcanvas').stopRotate();
+			$('.wheelcanvas').rotate({
+				angle:0,
+				animateTo:angles+1800,
+				duration:8000,
+				callback:function (){
+					if(item==2||item==3||item==6){
+						$(".co_tips.co_tips_ward .co_form div").removeClass("active");
+						$(".co_tips.co_tips_ward .co_form .no_code").addClass("active");
+						$(".co_tips.co_tips_ward .co_form .gift_img").addClass("active");
+						$(".co_tips.co_tips_ward .co_tips_surebtn").addClass("add_dizhi")
+						$(".co_tips_ward").removeClass("hidden");
+						console.log("实物");
+					}else{
+						//中奖弹窗显示
+						$(".co_tips.co_tips_ward .co_form div").removeClass("active");
+						$(".co_tips.co_tips_ward .co_form .has_code").addClass("active")
+						$(".co_tips.co_tips_ward .co_tips_surebtn").removeClass("add_dizhi")
+						$(".co_tips_ward").removeClass("hidden");
+						console.log("礼包码");
+					}
+					rotateconf.bRotate = !rotateconf.bRotate;
+				}
+			});
+		};
+		var clipboard=new Clipboard('.copy');
+clipboard.on('success', function(e) {
+    console.log(e);
+    alert("已复制");
+});
+		$('.pointer').click(function (){
+			if($(".count").text()>0){
+				if(rotateconf.bRotate) return;
+				rotateconf.bRotate = !rotateconf.bRotate;
+				rotateTimeOut();
+				//模拟ajax
+				setTimeout(function(){
+				    //获取随机数模拟抽奖结果(奖品个数范围内)
+				    var item =7;
+				    rotateFn(item, rotateconf.gifts[item],"ABDE23JGGEI");
+				     var img_name="."+prize1[item].classname;
+							$(".co_tips_ward .tips_name span").text(prize1[item].name);
+							var img_show="img[data-id="+item+"]";
+							$(".co_tips.co_tips_ward .co_for .gift_img img").removeClass("active");
+							$(".co_tips.co_tips_ward .co_form>div.gift_img").find($(img_show)).addClass("active");
+				},1000);
+				
+			}else{
+				$(".co_tips.co_tips_no .tips_txt").text("抽奖次数没有了哦！");
+				$(".co_tips_no").removeClass("hidden");
+			}
+		});
+	</script>
+</body>
+
+</html>
