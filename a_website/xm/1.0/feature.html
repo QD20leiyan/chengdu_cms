@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./common/js/jquery-1.11.2.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+	<div class="f_wrap">
+		
+
+		<div id="menu" class="menu">
+			<div class="link">
+		        <a class="menu_home" href="index.html" title="官方首页"><span></span><i></i></a>
+		        <a class="menu_feature  on" href="javascript:void(0)" title="游戏特色"><span></span><i></i></a>
+		        <a class="menu_bbs" href="javascript:void(0)" title="玩家社区"><span></span><i></i></a>
+		    </div>
+			<div id="attention" class="attention">
+		       	<a class="menu_follow" title="关注我们"><img src="./images/menu_follow.png" alt="关注我们"></a>
+		        <a class="wx-icon" href="javascript:;">
+		        	<img src="./images/wx.jpg" alt="微信二维码">
+		        </a>
+		    </div> 
+		</div>
+		<div class="f_tchapter">
+			<a class="logo" href="/"></a>
+           
+                <div id="f_nav" class="f_nav">
+                    <p class="tit"></p>
+                    <a class="nav1 current" href="javascript:;"><p class="b-txt">收集换装</p><p class="s-txt">服饰收集高颜值手游</p></a>
+                    <a class="nav2" href="javascript:;"><p class="b-txt">恋爱养成</p><p class="s-txt">异次元恋爱新玩法</p></a>
+                    <a class="nav3" href="javascript:;"><p class="b-txt">日系动漫</p><p class="s-txt">二次元日系插画风</p></a>
+                </div>
+                <div id="f_con" class="f_con">
+                    <div class="item item1 current">
+                        <div class="per1"></div>
+                        <div class="per2"></div>
+                    </div>
+                    <div class="item item2">
+                        <div class="per1"></div>
+                        <div class="per2"></div>
+                    </div>
+                    <div class="item item3">
+                        <div class="per1"></div>
+                        <div class="per2"></div>
+                    </div>
+                </div>
+        </div>
+		<div class="footer">
+			<p>版权所有：天津卓越晨星科技有限公司</p>
+			<p>经营许可证编号：粤ICP备09179912号-3 Rights Reserved©</p>
+			<p>津网文（2015）1739-018 号</p>
+			<p>公司地址：天津生态城动漫中路126号动漫大厦第【8】层办公室【821】 联系方式：4009393333</p>
+		</div>
+	</div>
+</body>
+</html>
+
+
+<script>
+var Feature={
+        switchTo:function(){
+            $("#f_nav a").on("click",function(){
+                var i=$("#f_nav a").index($(this));
+                $(this).addClass("current").siblings().removeClass("current"),$("#f_con .item").eq(i).addClass("current").siblings().removeClass("current"),
+                setTimeout(function(){$("#f_con .item").eq(i).addClass("ani").siblings().removeClass("ani")},200)
+            })},
+        init:function(){this.switchTo()}
+    };
+    $(function(){
+        Feature.init(),setTimeout(function(){$("#f_con .current").addClass("ani");$(".f_wrap").addClass("ani")},200)
+    });
+
+
+
+</script>
+
+<script>
+
+</script>

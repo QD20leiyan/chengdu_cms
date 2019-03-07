@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>landingPage</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link href="../common/css/common.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="../common/css/swiper.3.1.7.min.css">
+	<link href="./css/css.css" rel="stylesheet"/>
+</head>
+<body>
+	<header class="landing_h">
+		<a href="javascript:;" class="landing_logo"><img src="./images/landing_logo.png" alt=""></a>
+		<a href="javascript:;" class="landing_load" target="_blank"></a>
+	</header>
+	<section class="landing_page1"></section>
+	<section class="landing_page2"></section>
+	<section class="landing_page3"></section>
+	<section class="landing_page4">
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide">
+		        	<a href="javascript:;"><img src="./images/landing_lb_img.jpg" alt="" ></a>					
+		        </div>
+		        <div class="swiper-slide">
+		        	<a href="javascript:;"><img src="./images/landing_lb_img.jpg" alt="" ></a>		     
+		        </div>
+		        <div class="swiper-slide">
+		        	<a href="javascript:;"><img src="./images/landing_lb_img.jpg" alt="" ></a>		        
+		        </div>
+		        <div class="swiper-slide">
+		        	<a href="javascript:;"><img src="./images/landing_lb_img.jpg" alt="" ></a>			        
+		        </div>	
+		        <div class="swiper-slide">
+		        	<a href="javascript:;"><img src="./images/landing_lb_img.jpg" alt="" ></a>			        
+		        </div>	        				       
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <div class="swiper-pagination">
+		    	<span></span>
+		    	<span></span>
+		    	<span></span>
+		    	<span></span>
+		    	<span></span>
+		    </div>					    
+		    <!-- 如果需要导航按钮 -->
+		    <!-- <div class="swiper-button-prev"></div>
+		    <div class="swiper-button-next"></div>		 -->			    
+		    <!-- 如果需要滚动条 -->
+		    <!--  <div class="swiper-scrollbar"></div> -->
+		</div>
+	</section>
+	<script src="../common/js/jquery-1.11.2.min.js"></script>
+	<script src="./js/jquery.fittext.js"></script>
+	<script src="../common/js/swiper.3.1.7.min.js"></script>
+	<script>
+		$('html').fitText(2);
+		var mySwiper = new Swiper ('.swiper-container', {  
+		    loop: true,
+		    // autoplay: 5000,
+		    // // 如果需要分页器
+		    pagination: '.swiper-pagination',    
+			speed:500,
+			paginationClickable :true
+		    // // 如果需要前进后退按钮
+		    // // 如果需要滚动条
+		    // scrollbar: '.swiper-scrollbar',
+	 	 });
+		function is_weixin() { 
+		    var ua = window.navigator.userAgent.toLowerCase(); 
+		    if (ua.match(/MicroMessenger/i) == 'micromessenger') { 
+		        $(".landing_load").click(function(){
+		        	$(".landing_load").attr("href","weixin.html");
+		        }) 
+		    } else { 
+
+		    } 
+		}
+		is_weixin();
+	</script>
+</body>
+</html>

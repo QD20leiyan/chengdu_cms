@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>像素求生</title>
+    <link rel="stylesheet" href="css/wapReset.css">
+    <link rel="stylesheet" href="css/wapIndex.css">
+</head>
+<body>
+<section class="container">
+    <section class="topNav">
+        <img class="logo" src="images/logo1.png">
+        <div>
+            <h1>像素求生</h1>
+            <p>Q版像素生存手游</p>
+        </div>
+        <a href="javascript:" class="down_btn">
+            <img class="downBtn" src="images/downBtn.png" >
+        </a>
+
+        <div class="nav-content1">
+            <a href="" class="js_wap_down down_load"></a>
+            <a href="http://l.taptap.com/Jkfb77ty" class="tap"></a>
+            <a href="http://www.3839.com/a/86208.htm" class="hy"></a>
+        </div>
+    </section>
+    <img class="game-name" src="images/gameName.png">
+    <section class="play-box">
+        <img class="play-icon" src="images/playIcon.png">
+        <img src="images/iconImg1.png">
+    </section>
+    <section class="down-box">
+        <a href="javascript:">
+            <img src="images/down_ios.png">
+        </a>
+        <a href="javascript:">
+            <img src="images/down_az.png">
+        </a>
+    </section>
+    <section class="about-us">
+        <h1>关注我们</h1>
+        <div class="ewm">
+            <img class="all-center" src="images/ewm.png" alt="">
+        </div>
+        <h2>
+            长按二维码关注疯狂像素人 领取礼包
+        </h2>
+        <p>微信公众号:<span>xsqx189</span></p>
+        <ul>
+            <li>
+                <img src="images/tbIcon.png">
+                <p>官方贴吧</p>
+            </li>
+            <li>
+                <img src="images/wbIcon.png">
+                <p>官方微博</p>
+            </li>
+            <li class="no-margin">
+                <img src="images/qqIcon.png">
+                <p>123456789</p>
+            </li>
+        </ul>
+        <h3>客服电话：4009393333</h3>
+        <h3>像素求生官方玩家群：310193441</h3>
+    </section>
+</section>
+</body>
+<script type="text/javascript" src="public/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="public/jquery.fittext.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('html').fitText(2);
+        //tap
+        var clicknum = 1;
+        $(".topNav .down_btn").click(function() {
+            if(clicknum % 2 !== 0) {
+                $(this).siblings(".nav-content1").slideDown();
+            } else {
+                $(this).siblings(".nav-content1").slideUp();
+            }
+            clicknum++;
+        });
+    });
+</script>
+</html>

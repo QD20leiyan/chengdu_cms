@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>像素求生</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/move.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="container">
+    <div class="swipe-box">
+        <div class="mo-container">
+            <div class="mo-swipe">
+                <div class="mo-item">
+                    <img src="images/bimg1.png">
+                </div>
+                <div class="mo-item">
+                    <img src="images/bimg2.png">
+                </div>
+                <div class="mo-item">
+                    <img src="images/bimg3.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <img class="logo" src="images/logo2.png">
+        <div class="playBox">
+            <div class="pb_1">
+                <img src="images/play_bimg.png">
+                <img class="play_icon all_center" src="images/play_icon.png">
+            </div>
+            <div class="pb_2">
+                <img src="images/ewm_box.png">
+                <img class="ewm_img" src="images/ewm1.png">
+                <label class="ewm-line"></label>
+            </div>
+        </div>
+        <div class="down">
+            <a class="down_ios" href="javascript:">
+                <img src="images/down_ios.png">
+            </a>
+            <a class="down_az" href="javascript:">
+                <img src="images/down_az.png">
+            </a>
+            <a href="//www.taptap.com/app/54996" target="_blank">
+            	<img src="images/tap.png">
+       		</a>
+       		<a href="http://www.3839.com/a/86208.htm" target="_blank">
+       			<img src="images/haowan.png" alt="" />
+       		</a>
+        </div>
+        <div class="fc">
+            <img src="images/xf.png">
+            <img class="ewm_img" src="images/ewm1.png">
+            <p class="wb_inf">
+                微博:XXXXXXX
+            </p>
+            <p class="qq_inf">
+                QQ群:XXXXXXX
+            </p>
+            <p class="tb_inf">
+                贴吧:XXXXXXX
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="public/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/move.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var ewm_line = $(".ewm-line");
+
+        function init(){
+            //开始轮播
+//          var myMove = new move();
+//          myMove.init({
+//              ele: $(".mo-container"),
+//              loop: true,
+//              loopTime: 4000,
+//              auto: true
+//          });
+            startEwmLine();
+        }
+        //二维码扫描动画
+        function startEwmLine(){
+            var name = ewm_line.attr("name");
+            var myTop = 0;
+            if(name){
+                myTop = "20%";
+                ewm_line.attr("name","");
+            }else {
+                myTop = "90%";
+                ewm_line.attr("name","up");
+            }
+            ewm_line.animate({
+                top: myTop
+            },2000,function(){
+                startEwmLine();
+            })
+        }
+
+        init();
+    });
+</script>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>抢个星球当领主</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/swiper-3.4.0.min.css" />
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+	</head>
+
+	<body>
+		<!-- <script type="text/javascript" src="http://cdnstatic.yingxiong.com/head/js/topbar.js"></script> -->
+		<div class="kv">
+		    <video src="video/video1.mp4" autoplay="autoplay" id="video1"  loop="loop"></video>
+		    <div class="logo ani bounceInDown"><img src="images/logo.png" alt=""></div>
+
+				<div class="r_float">
+					<a href="javascript:;" class="c_wx"><img src="http://cdnimg02.yingxiong.com/M00/0B/66/ChpCl1sYlfqEUeplAAAAAP_izYw569.jpg" alt=""></a>
+					<a href="javascript:;" class="c_wb"></a>
+					<a href="javascript:;" class="c_bd"></a>
+					<a href="javascript:;" class="c_qq"></a>
+				</div>
+			<div class="wrap">
+				<div class="play">
+					<img src="images/paly1.png" alt="" class="big_img" />
+					<img src="images/play2.png" alt="" class="s_img" />
+				</div>
+				<div class="down_box">
+					<a href="" class="down_ios stat_pc_ios js_down_ios" target="_blank"><img src="images/ios.png" class="btn_bg"><img src="images/ios_am.png" alt="" class="ico"></a>
+					<a href="" class="down_az stat_pc_android js_down_andriod" target="_blank"><img src="images/android.png" class="btn_bg"><img src="images/and1.png" alt="" class="ico"></a>
+					<a href="" class="down_tap stat_pc_tap js_down_tap" target="_blank"><img src="images/taptap.png" class="btn_bg"><img src="images/tap.png" alt="" class="ico"></a>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+		    <div class="ufo"><img src="images/ufo.png" alt=""></div>
+			<div class="wrap">
+				<p class="">宇宙深处，传来一束电波……</p>
+				<div class="bottom_con">
+					<div class="bottom_banner">
+						<ul class="swiper-wrapper">
+							<li class="swiper-slide">
+								<a href=""><img src="images/1.png" alt="" /></a>
+							</li>
+							<li class="swiper-slide">
+								<a href=""><img src="images/1.png" alt="" /></a>
+							</li>
+							<li class="swiper-slide">
+								<a href=""><img src="images/1.png" alt="" /></a>
+							</li>
+						</ul>
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 预约弹窗 -->
+		<div class="co_tips order-to hidden">
+			<div class="tips_center">
+				<i class="tips_close"><img src="images/close.png"></i>
+				<div class="co_form">
+					<div class="inp-box">
+						<div class="inp">
+							<input type="tel" placeholder="手机号码" class="co_username">
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="inp inp1">
+							<input type="text" class="captcha" placeholder="验证码">
+							<div class="get-code co_captcha">点击刷新</div>
+							<p class="co_error">手机号码错误</p>
+						</div>
+						<div class="inp inp1">
+							<input type="number" placeholder="手机验证码" class="co_codenum1">
+							<div class="get-code co_codebtn1">获取验证码</div>
+							<p class="co_error">手机号码错误</p>
+						</div>
+					</div>
+				</div>
+				<div class="co_tipsbtn co_tips_loginbtn stat_cover_yy_pc_success">
+					<img src="images/ljyy.png">
+				</div>
+			</div>
+		</div>
+	    <!-- 提示弹窗 -->
+	    <div class="co_tips forecast-suc hidden">
+	        <div class="tips_center">
+				<i class="tips_close"><img src="images/close.png"></i>
+				<div class="co_form">
+					<div class="inp-box">
+						<p class="tips_info">恭喜您投票成功！</p>
+					</div>
+				</div>
+				<div class="co_tipsbtn co_surebtn">
+					<img src="images/sure.png">
+				</div>
+			</div>
+		</div>
+		<!-- <script type="text/javascript" src="//cdnstatic.yingxiong.com/footer/js/footer_new.js"></script> -->
+	</body>
+	<script type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var mySwiper = new Swiper('.bottom_banner', {
+				loop: true,
+				autoplay:3000,
+                autoplayDisableOnInteraction : false,
+				effect: 'coverflow',
+				pagination: '.swiper-pagination',
+				 paginationClickable: true,
+				slidesPerView: 3,
+				centeredSlides: true,
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				coverflow: {
+					rotate: 30,
+					stretch: -50,
+					depth: 600,
+					modifier: 1,
+					slideShadows: true,
+				},
+				observer: true,
+				observeParents: true,
+			});
+			$(".n_title li").on("click", function() {
+				var index = $(this).index();
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".con_news ul").eq(index).addClass("active").siblings().removeClass("active");
+			})
+			$(window).scroll(function(){
+				var $t = $(this).scrollTop();
+				if($t > 350){
+					$(".main .wrap p").stop().fadeIn();
+					$(".main .wrap p").addClass("animated");
+					$(".main .wrap p").addClass("fadeInDown");
+				}
+			});
+			window.onload = function (){
+				var video = document.getElementById('video1');
+				
+			};
+		})
+	</script>
+
+</html>
