@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+	<link rel="stylesheet" href="css/animate.min.css" />
+	<link rel="stylesheet" href="css/care.css" />
+	<script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+	</script>
+</head>
+<body>
+<div class="i_main">
+	<div class="list">
+		<p class="top_img">
+			<img src="images/ca_logo.png" class="logo1">
+		</p>
+		<div class="news_vi_box">
+			<section class="video">
+				<div class="tab_box">
+					<a href="" class="go_list go_list1"></a>
+					<p class="qm_title">视频中心</p>
+					<div class="tab_main">
+						<div class="video_infor">
+							<ul class="video-list">
+								<li>
+						 			 <span class="js_video_play" data-url="">
+										<i></i>
+										<img src="images/ca_banner.png">
+						  			</span>
+								</li>
+								<li>
+						 			 <span class="js_video_play" data-url="">
+										<i></i>
+										<img src="images/ca_banner.png">
+						  			</span>
+								</li>
+								<li>
+						 			 <span class="js_video_play" data-url="">
+										<i></i>
+										<img src="images/ca_banner.png">
+						  			</span>
+								</li>
+								<li>
+						 			 <span class="js_video_play" data-url="">
+										<i></i>
+										<img src="images/ca_banner.png">
+						  			</span>
+								</li>
+							</ul>
+							<div class="dropload-down">
+								<div class="dropload-noData">上滑加载更多...</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/swiper-3.4.2.min.js"></script>
+<!--<script type="text/javascript" src="js/care.js"></script>-->
+</html>

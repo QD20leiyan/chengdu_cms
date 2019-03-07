@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>手机预约</title>
+	<link rel="stylesheet" href="css/styleWeChat.css">
+	<script src="js/all.js"></script>
+</head>
+<body>
+<div class="hengshuping"><p>推荐使用竖屏浏览哦~</p></div>
+<div class="yzr-WC">
+	<a class="yzr-home" href="http://y.yingxiong.com/m/"></a>
+	<div class="note-mes">
+    	<input type="tel" placeholder="请输入手机号码" value="" name="iphone">
+    	<a href="javascript:;" title="提交信息"></a>
+    </div>
+</div>
+
+
+	<script>
+		$(function(){
+		    var yzhWChat = {
+				Alert:function(p){
+					$(".yzr-WC").append('<div class="note-mask"><div class="note-Tooltip"><i></i><p>'+p+'</p></div></div>');
+				}
+			}
+            $(".note-mes a").click(function(){
+			  if($(".note-mask").length>0){}else{
+			   yzhWChat.Alert("恭喜您已预约成功，下次测试开启时，我们会通过短信形式告知您，请您留意查收");
+			  }
+
+            });
+			$(".yzr-WC").on("click",".note-mask i",function(){
+				$(".note-mask").remove()
+			});
+		});
+		window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+	    function hengshuping(){
+			var e=$(".hengshuping");
+			return 0==window.orientation||180==window.orientation?(e.hide(),!1):90==window.orientation||-90==window.orientation?(e.show(),!1):void 0
+		}
+		hengshuping();
+	</script>
+
+<!-- 		<div style="display:none;">
+		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257354602'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257354602' type='text/javascript'%3E%3C/script%3E"));</script>
+		</div> -->
+</body>
+</html>

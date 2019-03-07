@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" href="css/active0125.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+
+	<body>
+		<header class="header">
+			<a href="#" class="logo" target="_blank">
+		        <img src="images/l_icon.png" alt="">
+		    </a>
+		    <div class="h_text">
+		        <p class="h_p01">巅峰坦克:装甲战歌</p>
+		        <p class="h_p02">巅峰级立体战争手游</p>
+		    </div>
+			<a href="javascript:;" class="index_enter"></a>
+		</header>
+		<div class="detail_kv">
+			<div class="wrap">
+				<div class="slogan"><a href="javascript:;" class="video"></a><img src="images/act_slogan.png" alt="" class="ani zoomIn animated"></div>
+				<a href="javascript:;" class="down_btn"></a>
+				<img src="images/to_down.png" alt="" class="to_down">
+			</div>
+		</div>
+		<div class="rule_con active">
+			<p class="login login_no">[HI,<span>请登录</span>]</p>
+			<p class="login login_su">[HI,<span>17345702194</span><a href="javascript:;" class="zhuxiao">注销</a>]</p>
+				<div class="part1">
+					<div class="part1_box1">
+						<img src="images/act_box.png" alt="">
+						<a href="javascript:;" class="ljlq_btn"><img src="images/act_gain.png" alt=""></a>
+					</div>
+					<div class="part1_box2">
+						<img src="images/act_box.png" alt="">
+						<a href="javascript:;" class="look_rule"><img src="images/act_look.png" alt=""></a>
+					</div>
+				</div>
+		</div>
+		<div class="weap_con">
+			<div class="part2">
+				<a href="javascript:;" class="lb_rend"></a>
+				<ul>
+					<li class="li1"><img src="images/act_gift1.png" alt=""><p>第 1 天</p></li>
+					<li class="li2"><img src="images/act_gift2.png" alt=""><p>第 2 天</p></li>
+					<li class="li3"><img src="images/act_gift3.png" alt=""><p>第 3 天</p></li>
+					<li class="li4"><img src="images/act_gift4.png" alt=""><p>第 4 天</p></li>
+					<li class="li5"><img src="images/act_gift5.png" alt=""><p>第 5 天</p></li>
+					<li class="li6"><img src="images/act_gift6.png" alt=""><p>第 6 天</p></li>
+					<li class="li7"><img src="images/act_gift7.png" alt=""><p>第 7 天</p></li>
+					<li class="li8"><img src="images/act_gift8.png" alt=""><p>第 8 天</p></li>
+				</ul>
+			</div>
+			<img src="images/act_air.png" alt="" class="act_air">
+		</div>
+		<!-- //弹窗 -->
+        <!-- 弹窗1：补给箱 -->
+		<div class="tips buji active">
+			<div class="buji_con">
+			    <img src="images/act_bjx3.png" alt="">
+				<a href="javascript:;" class="bjlq_btn"></a>
+				<i class="close"></i>
+			</div>
+		</div>
+        <!-- 弹窗2：登陆 -->
+        <div class="tips login">
+			<div class="c_login">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="c_body">
+					<div class="s_put">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" placeholder="请输入手机号" class="c_phone" />
+					</div>
+					<div class="s_put">
+						<input type="text" placeholder="请输入图形验证码" class="c_tyzm" />
+						<div class="captcha co_captcha">
+							<!--<img src="images/kv.jpg" alt="" />-->
+							<p>点击刷新</p>
+						</div>
+					</div>
+					<div class="s_put">
+						<input type="text" placeholder="请输入验证码" class="c_yzm" />
+						<input type="button" value="获取验证码" class="g_code" />
+					</div>
+				</div>
+				<div class="sure co_tips_btn1"><img src="images/act_btn1.png" alt=""></div>
+			</div>
+		</div>
+        <!-- 弹窗3：签到礼包码 -->
+        <div class="tips gift_tc qd_gift">
+			<div class="gift_body">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="gift_con">
+					<div class="gift_code" id="qiandao_gift">ASDASDasd</div>
+					<p>立即领取您的第<span>1</span>天签到礼包</p>
+					<a href="javascript:;"  class="copy sure"><img src="images/act_btn4.png" alt=""></a>
+					<p class="info">*礼包将于2月31日过期，请您领取后尽快使用</p>
+				</div>
+				<div class="sure"></div>
+			</div>
+		</div>
+        <!-- 弹窗4：礼包纪录 -->
+        <div class="tips check">
+			<div class="c_check">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="check_body">
+					<div class="top_tit">
+						<span>奖品名称</span>
+						<span>礼包码</span>
+						<span>操作</span>
+					</div>
+					<div class="huadong">
+							<ul>
+								<li><span><i>官方春节普发礼包</i><br>黄金*20<br>钞票*20000<br>钢材*10<br>助溶剂*10</span><span id="tc1_copyText">ASOIDJIO</span><a id="tc1_copyBtn" data-clipboard-action="copy" data-clipboard-target="#tc1_copyText" class="copy">[ 复制 ]</a></li>
+								<li>
+									<span><i>第1天签到礼包</i><br>黄金*10<br>钞票*10000<br>合金材料*5<br>转向机组件*5</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第2天签到礼包</i><br>载具2阶材料随机包*1<br>2阶武器材料随机包*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第3天签到礼包</i><br>黄金宝箱*1<br>基础科研核心*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第4天签到礼包</i><br>限时1天豹1*1<br>轻型装甲钢*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第5天签到礼包</i><br>载具3阶材料随机包*1<br>3阶武器材料随机包*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第6天签到礼包</i><br>银质纪念币*1<br>改良信号发射器*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第7天签到礼包</i><br>高级金币宝箱*1<br>基础炸药图纸*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+								<li>
+									<span><i>第8天签到礼包</i><br>载具4阶材料随机包*1<br>4阶武器材料随机包*1</span>
+									<span>ASOIDJIO</span>
+									<a href="javascript:;" class="copy">[ 复制 ]</a>
+								</li>
+							</ul>
+					</div>
+				</div>
+				<div class="sure"></div>
+				</div>
+		</div>
+		<div class="rule tips">
+			<div class="rule_con2">
+				<i class="close close_rule"></i>
+				<p>1、2月4日－2月11日期间，每日登陆官网点击签到即可领取对应礼包</p>
+				<p>2、礼包将于2月31日过期，请您领取后尽快使用 </p>
+				<div class="sure"><img src="images/act_btn2.png" alt=""></div>
+			</div>
+		</div>
+		<!-- 弹窗5：新春礼包码 -->
+        <div class="tips gift_tc xc_gift">
+			<div class="gift_body gift_body2">
+				<i class="close"></i>
+				<div class="chengg"></div>
+				<div class="gift_con">
+					<div class="gift_code" id="newyear_gift">ASDASDasd</div>
+					<p>立即领取您的新春礼包</p>
+					<a href="javascript:;"  class="copy sure"><img src="images/act_btn4.png" alt=""></a>
+					<p class="info">*礼包将于2月31日过期，请您领取后尽快使用</p>
+				</div>
+				<div class="sure"></div>
+			</div>
+		</div>
+	</body>
+	<!-- <script type="text/javascript" src="js/active0125.js"></script> -->
+	<script>
+		$(".close").click(function(){
+			$(".tips").removeClass("active");
+		});
+		var base = {
+		    isLogin: false,
+		    id: 0,
+		    date_time:''
+		};
+		 $(".bjlq_btn").click(function(){
+      	if(base.isLogin){
+      		// init();
+	        var code_new=$("#newyear_gift").html();
+      		if(code_new !=""){
+      			$(".tips").removeClass("active");
+	            $(".tips.xc_gift").addClass("active");
+      		}else{
+      			alert("礼包码已经领取完了~");
+      		}
+      	}else{
+      		$(".tips").removeClass("active");
+      		$(".tips.login").addClass("active");
+      	}
+    })
+		//登录请求
+	$(".co_tips_btn1").click(function(){
+	    var phone = $(".c_body .c_phone").val();
+	    var t_yzm = $(".c_body .c_tyzm").val();
+	    var co_codenum1 = $(".c_body .c_yzm").val();
+	    if(phone == "" || phone == undefined) {
+	        alert("手机号不能为空");
+	        return;
+	    }
+	    if(phone.length != 11) {
+	        alert("手机号不正确");
+	        return;
+	    }
+	    if(co_codenum1 == "" || co_codenum1 == undefined) {
+	        alert("短信验证码不能为空");
+	        return;
+	    }
+	    // $.ajax({
+	    //     'url':loginurl,
+	    //     'data':{"phone":phone,'yzm':co_codenum1,"cms_csrf":srf },
+	    //     'type':'POST',
+	    //     'dataType':'Json',
+	    //     success:function(data){
+	    //         if(data.status==0){
+	            	base.isLogin = true;
+	                $('.rule_con .login_su span').text(data.data.phone);
+	                $('.rule_con').addClass("active");
+	                alert("登陆成功~");
+	                $(".tips").removeClass("active");
+	                $("#newyear_gift").html(data.data.gift_newyear);
+	                if(data.data.is_new == 1){
+	                	if(data.data.gift_newyear != ""){
+	                		$(".tips").removeClass("active");
+	                	    $(".tips.xc_gift").addClass("active");
+	                	    console.log(1);
+	                	}else{
+	                		$(".tips").removeClass("active");
+	                		console.log(2);
+	                	}
+	                }else{
+	                	$(".tips").removeClass("active");
+	                }
+	                sessionStorage.setItem('user', JSON.stringify(data));
+                	var userJsonStr = sessionStorage.getItem('user');
+                        userEntity = JSON.parse(userJsonStr);
+                        init();
+	    //         }else{
+	    //             alert(data.msg);
+	    //             load_captcha();
+	    //         }
+	    //     }
+	    // });
+	});
+	</script>
+</html>

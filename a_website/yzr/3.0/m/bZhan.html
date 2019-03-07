@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bZhan</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="format-detection" content="telephone=no,email=no,adress=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link rel="stylesheet" href="../common/css/swiper-3.3.1.min.css"> 
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="../common/js/jquery-1.11.2.min.js"></script>
+	<script src="../common/js/swiper-3.3.1.jquery.min.js"></script>
+	<script src="./js/jquery.fittext.js"></script>
+</head>
+<body>
+	<div class="bZhanAll">
+		<header>
+			<a href="javascript:;" class="order">
+				<p>已有<span>3486733</span>人预约</p>
+			</a>
+		</header>
+		<section class="video_bz">
+			<div class="video_img">
+				<img src="./images/bz_video.jpg" alt="">
+				<i class="video_i"></i>
+			</div>
+		</section>
+		<section class="game"></section>
+		<section class="special">
+			<div class="swiper-container">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide">
+			        	
+			        	<img src="./images/bZhan_img01.jpg" alt="">
+			        	
+			        </div>
+			        <div class="swiper-slide">
+						
+						<img src="./images/bZhan_img02.jpg" alt="">
+			        	
+			        </div>
+			        <div class="swiper-slide">
+			       		
+			        	<img src="./images/bZhan_img03.jpg" alt="">
+			        	
+			        </div>
+			         <div class="swiper-slide">
+			       		
+			        	<img src="./images/bZhan_img04.jpg" alt="">
+			        	
+			        </div>
+			        <div class="swiper-slide">
+			       		
+			        	<img src="./images/bZhan_img05.jpg" alt="">
+			        	
+			        </div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			    
+			    <!-- 如果需要导航按钮 -->
+			    <!-- <div class="swiper-button-prev"></div> -->
+			    <!-- <div class="swiper-button-next"></div> -->   
+			    <!-- 如果需要滚动条 -->
+			    <div class="swiper-scrollbar"></div>
+			</div>
+		</section>
+		<!--视频区域 start-->
+			
+	</div>
+	<script>
+		$("html").fitText(2);
+		var mySwiper = new Swiper('.swiper-container',{
+			 freeMode : true,
+			 slidesPerView: 2.5,
+			 spaceBetween: 20,
+			 direction: 'horizontal',
+			 loop: true,
+		   // autoplay: 5000,
+		    // // 如果需要分页器
+		    pagination: '.swiper-pagination',    
+			//speed:500,
+		    // // 如果需要前进后退按钮
+		     // nextButton: '.swiper-button-next',
+		     // prevButton: '.swiper-button-prev', 
+		    // // 如果需要滚动条
+		    // scrollbar: '.swiper-scrollbar',
+		});
+		 	//视频
+    	$(".video_i").click(function(){
+    		$("#video_mask").show();
+		});
+		$("#close,#video_mask").click(function(){
+		    $("#video_mask").hide();
+			setTimeout(function(){$(window.frames['iframe_btn'].document).find("video")[0].pause()},100);
+		});
+		$("#player5").click(function(e){
+			e.stopPropagation();
+		});
+	</script>
+</body>
+</html>

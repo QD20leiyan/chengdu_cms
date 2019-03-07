@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index1.css" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<!--header-->
+<header class="header">
+    <a href="#" class="logo" target="_blank">
+        <img src="images/l_icon.png" alt="">
+    </a>
+    <div class="h_text">
+        <p class="h_p01">巅峰坦克:装甲战歌</p>
+        <p class="h_p02">巅峰级立体战争手游</p>
+    </div>
+    <div class="header_a">
+        <!-- <a href="javascript:;" class="down_btn"></a>
+        <a href="javascript:;" class="order"></a> -->
+        <a href="javascript:;" class="order active"></a>
+        <span class="type"></span>
+    </div>
+    <!--<div class="nav-content2">
+                <a href="javascript:;" class="down_load js_wap_down"></a>
+                <a href="http://l.taptap.com/IdI4vVaD" class="tap"></a>
+            </div>-->
+    <div class="nav-content">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="/m/index" class="item-anchor">首页</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="item-anchor">新闻资讯</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:yx_showTips('敬请期待！');" class="item-anchor">客服</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:yx_showTips('敬请期待！');" class="item-anchor">论坛</a>
+            </li>
+            <li class="nav-item">
+                <a href="" class="item-anchor">有奖投稿</a>
+            </li>
+        </ul>
+    </div>
+    
+</header>
+<!--内容-->
+<div class="i_main">
+    <!--第一部分-->
+    <div class="top">
+        <div class="top_con">
+            <div class="logo"><img src="images/l_logo.png" alt="" /></div>
+            
+                <img src="images/act_enter.png" alt="">
+            <div class="play js_video_play" data-url="{$video.url}"><a href=""><img src="images/play.png" alt=""></a></div>
+            <!--<div class="slogan"><img src="images/slogan.png" alt="" /></div>-->
+            <!--<div class="plane"><img src="images/plane.png" alt="" /></div>-->
+            <!-- <div class="btn">
+                <a href="javascript:;" class="yue_btn"></a> -->
+                <!-- <p class="y_person">12,254,548</p> -->
+                <!-- <img src="../images/hongbao.png" alt="" class="hongbao" />
+            </div> -->
+            <!--<div class="hzf">
+                <img src="images/hzf.png" alt="">
+            </div>-->
+            <a href="http://downurl.yingxiong.com/ios/tk_wapgw.html" class="order2 stat_event_cover_down js_wap_down active"></a>
+        </div>
+    </div>
+    <div class="part_two">
+        <!--第二部分-->
+        <div class="banner_news">
+            <div class="banner">
+                <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#"><img class="images" src="images/banner-1.png" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#"><img class="images" src="images/banner-1.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+
+            <div class="news_box">
+                <p class="title"><img src="images/l_news_tit.png" alt=""/></p>
+                <div class="hd">
+                    <ul>
+                        <li class="on">
+                            <a>最新</a>
+                        </li>
+                        <li>
+                            <a>资讯</a>
+                        </li>
+                        <li>
+                            <a>公告</a>
+                        </li>
+                        <li>
+                            <a>活动</a>
+                        </li>
+                        <li>
+                            <a>攻略</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul class="news_info">
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+
+                        <a href="" class="more"></a>
+                    </ul>
+                    <ul class="news_info hidden">
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                    <ul class="news_info hidden">
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                    <ul class="news_info hidden">
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                    <ul class="news_info hidden">
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#"><i class="small_ti">[最新]</i>这是一个比川普还奇葩的奖</a><span>03-30</span>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!--第三部分-->
+        <div class="equip">
+            <p class="title"><img src="images/l_zb_tit.png" alt=""/></p>
+            <div class="type swiper-pagination swiper-pagination2">
+                <span class="active swiper-pagination-bullet">坦克</span>
+                <span class="swiper-pagination-bullet">直升机</span>
+                <span class="swiper-pagination-bullet">装甲车</span>
+            </div>
+            <div class="equip_img swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/l_equip1.png" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/l_equip2.png" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/l_equip3.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 特色轮播 -->
+        <div class="five">
+            <div class="wrap">
+                <div class="chengg"></div>
+                <img src="images/lable.png" alt="" class="label" />
+                <div class="five_banner">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <a href="javascript:;"><img src="images/11.png" alt="" /></a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="javascript:;"><img src="images/11.png" alt="" /></a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="javascript:;"><img src="images/11.png" alt="" /></a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="javascript:;"><img src="images/11.png" alt="" /></a>
+                        </li>
+                        <li class="swiper-slide">
+                            <a href="javascript:;"><img src="images/11.png" alt="" /></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination01"></div>
+                <img src="images/airplane.png" alt="" class="airplay2">
+            </div>
+        </div>
+        <!--第四部分-->
+        <div class="video">
+            <p class="title"><img src="images/l_vi_tit.png" alt=""/></p>
+            <div class="type">
+                <span class="active"><a href="javascript:;">最新视频</a></span>
+                <span><a href="javascript:;">教学视频</a></span>
+                <span><a href="javascript:;">大神推荐</a></span>
+                <span><a href="javascript:;">趣味集锦</a></span>
+                <span><a href="javascript:;">精彩赛事</a></span>
+            </div>
+            <div class="tab_main">
+                <div class="video_infor ">
+                    <ul class="video-list">
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【10月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【10月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【10月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【10月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                </div>
+                <div class="video_infor hidden">
+                    <ul class="video-list">
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【11月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【11月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【11月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【11月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                </div>
+                <div class="video_infor hidden">
+                    <ul class="video-list">
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【12月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【12月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【12月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【12月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                </div>
+                <div class="video_infor hidden">
+                    <ul class="video-list">
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【1月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【1月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【1月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【1月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                </div>
+                <div class="video_infor hidden">
+                    <ul class="video-list">
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【2月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【2月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【2月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <li>
+                            <span>
+							<i class="js_video_play"></i>
+							<img src="//cdnimg02.yingxiong.com/M00/02/BD/rB8wE1nnADOEDjQAAAAAAD3OM78895.png" alt="">
+						  </span>
+                            <p class="summary">【2月】梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频梦想车队视频</p>
+                        </li>
+                        <a href="" class="more"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relate_us">
+        <img src="images/focus.png" alt="" class="focus">
+        <div class="relate_list">
+            <ul>
+                <li>
+                    <img src="images/qq2.png" alt="">
+                    <p><img src="images/haha.png">官方QQ群1</p>
+                </li>
+                <li>
+                    <img src="images/qq2.png" alt="">
+                    <p><img src="images/haha.png">官方QQ群1</p>
+                </li>
+                <li>
+                    <img src="images/qq2.png" alt="">
+                    <p><img src="images/weixin.png">官方QQ群1</p>
+                </li>
+            </ul>
+            <div class="qudao">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 有奖征集入口 -->
+        <a href="javascript:;" target="_blank" class="yj_cl"></a>
+
+<!--视频弹框-->
+<div class="cd-m-floor cd-image-float-floor">
+    <a href="javascript:;" class="cd-float-image">
+        <img class="J_floatImage" src="images/yl_tips.png">
+        <video class="video" src="http://video.yingxiong.com/hd/4d14a497e72140318b6dd825ace17633.mp4" id="video1" autoplay="autoplay" preload="load" loop="loop" playsinline="true" webkit-playsinline="true" x-webkit-airplay="allow" airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portrait"></video>
+        <i class="vi_zz"> <i class="vi_play"></i></i>
+        <img class="cd-float-close" src="images/yl_close.png">
+    </a>
+</div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper-3.4.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/index1.js"></script>
+<script>
+    $(function(){
+        var swiper01 = new Swiper('.swiper-container1', {
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+
+        var swiper02 = new Swiper(".swiper-container2", {
+            pagination: '.swiper-pagination2',
+            paginationClickable: true,
+            observer: true,
+            observeParents: true,
+            paginationBulletRender: function(swiper, index, className) {
+                var font = new Array();
+                $(".swiper-pagination2>span").each(function() {
+                    font.push($(this).text());
+                });
+//				return '<span class="' + className + '" '+(index==3?'style="pointer-events: none;opacity:.5;"':'')+'>' + font[index] + '</span>';
+                return '<span class="' + className + '">' + font[index] + '</span>';
+            },
+            slideToClickedSlide: true
+        });
+        var mySwiper03 = new Swiper(".five_banner", {
+        effect: "coverflow",
+        // autoplay:4000,
+        speed: 1300,
+        prevButton:'.swiper-button-prev',
+        nextButton:'.swiper-button-next',
+        pagination: '.swiper-pagination01',
+        centeredSlides: !0,
+        slidesPerView: 3,
+        loop: !0,
+        observer: !0,
+        observeParents: !0,
+        slideToClickedSlide: !0,
+        simulateTouch : false,
+        paginationClickable: true,
+        autoplayDisableOnInteraction : false,
+        coverflow: {
+            rotate: 0,
+            stretch: -10,
+            depth: 600,
+            modifier: 1,
+            slideShadows: true
+        },
+    });
+         // 设备类型判断
+function change(){
+  var u = navigator.userAgent,
+      app = navigator.appVersion;
+  var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+  var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+  var url = window.location.href;
+  var  url_id=window.location.href.split('cover')[1];
+  console.log(url_id);
+  if(isIOS) {
+    $(".header_a a").removeClass("active");
+    $(".header_a a.down_btn").addClass("active");
+  }
+  if(isAndroid) {
+     $(".header_a a").removeClass("active");
+    $(".header_a a.order").addClass("active");
+  }
+}
+//二级菜单下拉框
+    var clickNumber = 1;
+    $(".header_a .order").click(function() {
+        if(clickNumber % 2 !== 0) {
+            $(this).parent().siblings(".nav-content2").slideDown();
+        } else {
+            $(this).parent().siblings(".nav-content2").slideUp();
+        }
+        clickNumber++;
+    });
+change();
+    });
+
+
+    $(".cd-m-floor.cd-image-float-floor").addClass("cd-float-show");
+    $(".cd-m-floor .cd-float-close").click(function(){
+        $(".cd-m-floor.cd-image-float-floor").removeClass("cd-float-show");
+    });
+
+    var  myVid1=document.getElementById("video1");
+    $(".cd-m-floor .vi_zz").click(function(){
+        myVid1.play();
+        $(this).addClass("hidden");
+    });
+</script>
+</html>

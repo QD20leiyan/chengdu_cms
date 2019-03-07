@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no">
+	<title>维护秩序，还是推翻重来？</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/swiper.3.1.7.min.css">
+</head>
+<body>
+	<div id="loading" class="loading">
+	  	<div class="loadbox">
+	    <div class="loadlogo"></div>
+	    <div class="loadbg"></div>
+	  	</div>
+		<div class="brand-logo">logo</div>
+	</div>
+	<div class="wrap">
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		    	<div class="swiper-slide page page-1">
+		        	<img src="images/per-zuo.png" alt="" class="per-zuo">
+					<img src="images/per-you.png" alt="" class="per-you">
+					<img src="images/logo.png" alt="" class="logo">
+					<div class="video"></div>
+					<div class="font-text"></div>
+					<div class="down"></div>
+					<span class="djs-btn"></span>
+		        </div>
+		    	<div class="swiper-slide page page-2">
+		    		<div class="cover">
+		    			<h1></h1>
+		    			<p class="white p1">欲知详情</p>
+		    			<p class="white p2">关注“影之刃系列”官方微信号</p>
+		    			<img src="../common/images/tack-ewm.jpg" alt="" class="ewm">
+		    			<p class="red p3">微信搜索“影之刃系列”或</p>
+		    			<p class="red p4">保存图片在微信中扫一扫</p>
+		    			<p class="red p5">即可关注“影之刃系列”微信公众号</p>
+		    			<div class="fot-text"></div>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+	</div>
+	<div id="mask"></div>
+    <div id="video_tck">
+		<div id="player5">
+			<div id="close"></div>
+			<video controls="controls" class="vid_sp">
+				<source src="images/v.mp4" type="video/mp4">
+			</video>
+		</div>
+	</div>
+	<div class="tack2" style="display:none;">
+		<div class="t2-iphone">
+			<i class="t2-close"></i>
+			<form action="">
+				<label for="iphone">手机号码：</label>
+				<input type="text">
+				<label for="shebei">设备信息：</label>
+				<ul class="formul">
+					<li><span class="t2-on"><i></i><em>苹果系统</em></span></li>
+					<li><span><i></i><em>安卓系统</em></span></li>
+					<li><span><i></i><em>其他系统</em></span></li>
+				</ul>
+			</form>
+			<span class="btn"></span>
+		</div>
+	</div>
+	<div class="tack3" style="display:none;">
+		<div class="t3">
+			<i class="t3-close"></i>
+			<h3>提示：</h3>
+			<p>您已成功预约，首次测试开启前，我们将通过短信告知您的预约结果。</p>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script src="js/swiper.3.1.7.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('html').fitText(2);
+		$(".page-1").addClass("animate1");
+		var mySwiper = new Swiper ('.swiper-container', {
+		    direction: 'vertical',
+		    loop: false,
+		    // allowSwipeToPrev : false//禁止向上滑动
+		    onSlideChangeEnd: function(swiper){
+		    	if(mySwiper.activeIndex ==0){
+		    		
+		    	}else if(mySwiper.activeIndex ==1){
+		    		
+		    	}
+		    }
+		});
+		$(".video").click(function(){
+			$("#mask").show();
+			$("#video_tck").show();
+	    })
+	    $("#close").click(function(){
+	        $("#mask").hide();
+	        $("#video_tck").hide();
+	    })
+	    $(".djs-btn").click(function(){
+	        $(".tack2").show();
+	    })
+	    $(".t2-close").click(function(){
+	        $(".tack2").hide();
+	    })
+	    $(".btn").click(function(){
+	        $(".tack2").hide();
+	        $(".tack3").show();
+	    })
+	    $(".t3-close").click(function(){
+	        $(".tack3").hide();
+	    })
+	    function ready(){
+	    	$(".per-you").animate({
+				top : "0",
+				left : "0"
+			},1000,function(){
+				$(".per-zuo").animate({
+					top : "0",
+					left : "0"
+				},1000,function(){
+					$(".logo").animate({
+						opacity : "1"
+					},2000)
+					$(".video").animate({
+						opacity : "1"
+					},2000)
+					$(".font-text").animate({
+						opacity : "1"
+					},500,function(){
+						$(".djs").animate({
+							opacity : "1"
+						},500)
+					})
+				})
+			})
+	    }
+		
+
+		function print(con,text,time){
+			var s = text;
+			var con = $(con);
+			var index = 0;
+			var length = s.length;
+			var tId = null;
+			function start(){
+			  con.text('');
+			  tId=setInterval(function(){
+			    con.append(s.charAt(index));
+			    if(index++ === length){
+			    clearInterval(tId);
+			    index = 0;
+			    }
+			  },time);
+			};
+			start();
+		}
+
+	    // TAB
+	    $(".formul li").click(function(){
+	    var index=$(this).index();
+	    $(this).find("span").addClass("t2-on").end().siblings().find("span").removeClass("t2-on");
+	    })
+	    $('#loading').animate({'opacity':0},1000,function(){
+			$(this).remove();
+			ready();
+		});
+	})
+	</script>
+	<div style="display:none;">
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?2a74919162d7b0eeb77b590c7211dcf5";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257381000'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1257381000' type='text/javascript'%3E%3C/script%3E"));</script>
+	</div>
+</body>
+</html>

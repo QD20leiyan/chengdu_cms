@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>adviser</title>
+	<link rel="stylesheet" href="./common/css/common.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="./common/js/jquery-1.11.2.min.js"></script>
+</head>
+<body>
+	<div class="adviserAll">
+		<div class="fixed">
+				<div class="pic" id="nav">
+					<a href="file:///E:/product/yzr/2.0/index.html" >
+						<img src="./images/pic1.png" alt="">
+						<p >官网首页</p>
+					</a>
+					<a href="#" class="on1">
+						<img src="./images/pic2.png" alt="">
+						<p>游戏资讯</p>
+					</a>
+					<a href="#" id="hero">
+						<img src="./images/pic3.png" alt="">
+						<p>英雄介绍</p>
+					</a>
+					<a href="specialDetail.html" >
+						<img src="./images/pic4.png" alt="">
+						<p>游戏特色</p>
+					</a>
+					<a href="#" id="videoCenter">
+						<img src="./images/pic5.png" alt="">
+						<p>视频中心</p>
+					</a>
+					<a href="http://bbs.yingxiong.com/index.php?fid=8">
+						<img src="./images/pic6.png" alt="">
+						<p>游戏论坛</p>
+					</a>
+				</div>
+				<div class="link">
+					<a href="#" id="weixin">
+						<img src="./images/weixin.png" alt="">
+					</a>
+					<a href="http://www.weibo.com/p/1006065644570075/home?from=page_100606&mod=TAB&is_all=1#place ">
+						<img src="./images/weibo.png" alt="">
+					</a>
+					<a href="http://tieba.baidu.com/f?kw=%D3%B0%D6%AE%C8%D02&fr=ala0&tpl=5 ">
+						<img src="./images/tieba.png" alt="">
+					</a>
+					<img src="./images/erweima.png" alt="" id="erweima">
+				</div>
+			</div>
+			<div class="fixed1">
+				<img src="./images/erweima.png" alt="" class="er">
+				<a href="#" class="phone"><img src="./images/ios.png" alt=""></a>
+				<a href="#" class="phone"><img src="./images/anzhuo.png" alt="">	</a>
+				<a href="http://l.taptap.com/123/J1zbxRdn" class="phone"><img src="./images/Tap.png" width="143" height="60" alt="">	</a>
+			</div>
+		<div class="top"></div>
+		<div class="center"></div>
+		<div class="bottom"></div>
+	</div>
+	<div class="footerAll">
+		<div class="footer">
+			<img src="./images/logo.png" alt="" class="img1">
+			<ul class="text">
+				<li>文网游备字〔2016〕Ｍ-CSG 0339 号</li>
+				<li>版权所有：北京卓越晨星科技有限公司 联系方式：010-50948585</li>
+				<li>COPYRIGHT©2015 – 2015 . ALL RIGHTS RESERVED. 京ICP备15026730号-2</li>
+				<li>
+					<a href="#" class="a1">
+						<img src="./images/img1.png" alt="">
+					</a>
+					<a href="#" class="a2">
+						<img src="./images/img2.png" alt="">
+					</a>
+					《网络文化经营许可证》京网文[2015]0629-259号
+				</li>
+			</ul>
+		</div>	
+	</div>
+	<script>
+		$('#weixin').mouseover(function(){
+			$('#erweima').show();
+		})
+		$('#weixin').mouseout(function(){
+			$('#erweima').hide();
+		})
+		$(".fixed").css("right",($(window).width()-1200)/2+"px");
+		if($(window).width()>1400){
+			$(".fixed1").css("left",($(window).width()-1400)/2+"px");
+		}else{
+			$(".fixed1").css("left","10px");
+		}
+		$('#videoCenter').click(function(){
+			alert("敬请期待")
+			})
+		$('#hero').click(function(){
+			alert("敬请期待")
+		})
+		$('#nav a').mouseover(function(){
+			var index=$(this).index();
+			console.log(index)
+			$('#nav a').eq(index).addClass('on1');
+			$('#nav a').eq(index).siblings().removeClass('on1');
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{$seo_title}</title>
+    <meta name="keywords" content="{$seo_key}" />
+    <meta name="description" content="{$seo_desc}" />
+    <link rel="shortcut icon" href="{$global.icon_img}?{$smarty.const.VERSION}">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="css/public.css" />
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<!--header-->
+<header class="header">
+    <a href="#" class="logo" target="_blank">
+        <img src="images/logo.png" alt="">
+    </a>
+    <div class="header_a">
+        <span class="type"></span>
+    </div>
+    <div class="nav-content">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="javascript:;" class="item-anchor">首页</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="item-anchor">社会影响</a>
+                <ul class="dropdown-menu ">
+                    <li><a href="javascript:;">重要事件时间表</a></li>
+                    <li><a href="javascript:;">公益图集</a></li>
+                    <li><a href="javascript:;">公益视频</a></li>
+                    <li><a href="javascript:;">公益资讯</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="item-anchor">慈善项目</a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="item-anchor">信息公开</a>
+                <ul class="dropdown-menu ">
+                    <li><a href="javascript:;">基本信息</a></li>
+                    <li><a href="javascript:;">善款收支</a></li>
+                    <li><a href="javascript:;">年度工作报告</a></li>
+                    <li><a href="javascript:;">审计报告</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:;" class="item-anchor">关于我们</a>
+                <ul class="dropdown-menu ">
+                    <li><a href="javascript:;">基金会介绍</a></li>
+                    <li><a href="javascript:;">组织架构</a></li>
+                    <li><a href="javascript:;">规章制度</a></li>
+                    <li><a href="javascript:;">联系我们</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<!--内容-->
+<div class="i_main ">
+    <!--第一部分-->
+    <div class="top">
+        <div class="banner">
+            <div class="swiper-container swiper-container1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#" ><img src="images/banner.jpg" alt=""/></a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#" ><img src="images/banner.jpg" alt=""/></a>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination1"></div>
+            </div>
+        </div>
+    </div>
+    <!--第二部分-->
+    <div class="banner_news">
+        <div class="news_box">
+            <div class="title">公益资讯</div>
+            <div class="bd">
+                <ul class="news_info">
+                    <li>
+                        <a target="_blank" href="#">《极无双》3月31日版本更新停机维护公告</a><span>03-31</span>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">谁成为了谁的风景？谁又成全了谁的梦？</a><span>03-31</span>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">这是一个比川普还奇葩的奖</a><span>03-30</span>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">这是一个比川普还奇葩的奖</a><span>03-30</span>
+                    </li>
+                    <li>
+                        <a target="_blank" href="#">这是一个比川普还奇葩的奖</a><span>03-30</span>
+                    </li>
+                </ul>
+            </div>
+            <a href="" class="more"></a>
+        </div>
+        <div class="banner">
+            <div class="title">图片新闻</div>
+            <div class="swiper-container swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#"><img class="images" src="images/banner1.jpg" alt=""></a>
+                        <p class="info"><span>中国弱势儿童群体中，2013 年孤儿人数已达到 57.4 万</span></p>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="#"><img class="images" src="images/banner1.jpg" alt=""></a>
+                        <p class="info"><span>中国弱势儿童群体中，2013 年孤儿人数已达到 57.4 万</span></p>
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination2"></div>
+            </div>
+        </div>
+    </div>
+    <!--第三部分-->
+    <div class="img_box">
+        <div class="title">公益图集</div>
+        <a href="" class="more"></a>
+        <div class="img_list">
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+            </div>
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+            </div>
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+            </div>
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+            </div>
+        </div>
+    </div>
+    <!--第四部分-->
+    <div class="video_box">
+        <div class="title">公益视频</div>
+        <a href="" class="more"></a>
+        <div class="img_list">
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+                <i class="play"></i>
+            </div>
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+                <i class="play"></i>
+            </div>
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+                <i class="play"></i>
+            </div>
+            <div class="img_li">
+                <span><img src="images/banner3.jpg" alt=""/></span>
+                <p>标题标题标题标题标题标...</p>
+                <i class="play"></i>
+            </div>
+        </div>
+    </div>
+    <!--第五部分-->
+    <div class="addr">
+        <div class="title">联系我们</div>
+        <div class="link-li-box link-li-box1">
+            <span class="link-li-box-img"><i></i></span>
+            <div class="link-li-info">
+                <h3 class="link-li-h3">地址</h3>
+                <p class="link-li-p">深圳市罗湖区文锦南路森威大厦雍景园19楼1911</p>
+            </div>
+        </div>
+        <div class="link-li-box link-li-box2">
+            <span class="link-li-box-img"><i></i></span>
+            <div class="link-li-info">
+                <h3 class="link-li-h3">电话</h3>
+                <p class="link-li-p">028-1234 5678</p>
+            </div>
+        </div>
+        <div class="link-li-box link-li-box3">
+            <span class="link-li-box-img"><i></i></span>
+            <div class="link-li-info">
+                <h3 class="link-li-h3">邮箱</h3>
+                <p class="link-li-p">2892325207@qq.com</p>
+
+            </div>
+        </div>
+    </div>
+    <!--第六部分-->
+    <div class="webturn">
+        <a class="gn_info">
+            <div>
+                <span class="round"><img src="images/icon6.png" alt=""/></span>
+                <h3>关于我们</h3>
+            </div>
+        </a>
+        <a class="gn_info">
+            <div>
+                <span class="round"><img src="images/icon7.png" alt=""/></span>
+                <h3>信息公开</h3>
+            </div>
+        </a>
+        <a class="gn_info">
+            <div>
+                <span class="round"><img src="images/icon8.png" alt=""/></span>
+                <h3>慈善项目</h3>
+            </div>
+        </a>
+        <a class="gn_info">
+            <div>
+                <span class="round"><img src="images/icon9.png" alt=""/></span>
+                <h3>社会影响</h3>
+            </div>
+        </a>
+    </div>
+    <!--footer-->
+    <div class="footer_bottom">
+        <div class="footer_info">
+            <p>地址：深圳市罗湖区文锦南路森威大厦雍景园19楼1911</p>
+            <p>邮箱：2892325207@qq.com</p>
+            <p>电话：028-123 456789</p>
+            <p>备案/许可证编号：粤ICP备18116724号</p>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper-3.4.2.min.js" type="text/javascript"></script>
+ <script type="text/javascript" src="js/index.js"></script>
+<script>
+    $(function(){
+        //kv大图初始化
+        var swiper01 = new Swiper('.swiper-container1', {
+            effect : 'fade',
+            fadeEffect: {
+                crossFade: true,
+            },
+            pagination: '.swiper-pagination1',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+//			autoplay:2000,
+            loop:true
+        });
+        var swiper02 = new Swiper('.swiper-container2', {
+            pagination: '.swiper-pagination2',
+            slidesPerView: 1,
+            paginationClickable: true,
+            autoplayDisableOnInteraction : false,
+            autoplay:2000,
+            loop:true
+        });
+    });
+</script>
+</html>
