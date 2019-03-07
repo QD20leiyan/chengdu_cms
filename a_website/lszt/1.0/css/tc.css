@@ -1,0 +1,356 @@
+/*弹窗*/
+
+.login {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, .8);
+	left: 0;
+	top: 0;
+	z-index: 107;
+	display: none;
+}
+
+.login .c_login {
+	width: 959px;
+	height: 554px;
+	background: url(../images/tc.png) no-repeat center;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	top: 45%;
+	transform: translate(0, -45%);
+	-webkit-transform: translate(0, -45%);
+}
+
+.close {
+	display: block;
+	width: 65px;
+	height: 65px;
+	background: url(../images/close_bg.png) no-repeat center;
+	position: absolute;
+	top: 0;
+	right: 48px;
+	cursor: pointer;
+}
+.close img{
+	display: block;
+	width:33px;
+	height:32px;
+	margin:16px auto 0;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+}
+.close:hover img{
+	transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+}
+
+.login .c_login .login_body {
+	width: 878px;
+	position: relative;
+	overflow: hidden;
+	margin: 75px auto 0;
+}
+
+.login_title {
+	width:879px;
+	height:59px;
+	margin:0 auto 43px;
+	overflow: hidden;
+}
+
+.login .c_login .s_put {
+	width: 310px;
+	height: 48px;
+	background:#fff;
+	margin: 20px auto 0;
+	position:relative;
+}
+
+.login .c_login .s_put input {
+	width:275px;
+	height: 48px;
+	border:none;
+	font-size: 14px;
+	color: #522f06;
+	line-height: 48px;
+	float:left;
+}
+.login .c_login .s_put img{
+	display: block;
+	width:15px;
+	height:16px;
+	float:left;
+	margin:16px 10px 0 10px;
+}
+.login .c_login .s_put input.t_yzm {
+	border-right: none;
+	width: 167px;
+	float: left;
+}
+
+.login .c_login .s_put .captcha {
+	width: 106px;
+	height: 46px;
+	border: 1px solid #e5e5e5;
+	float: left;
+	cursor: pointer;
+}
+
+.login .c_login .s_put .captcha p {
+	font-size: 20px;
+	color: #F15F03;
+	background-color: #fff;
+	text-align: center;
+	line-height: 40px;
+}
+
+.login .c_login .s_put .captcha img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	margin:0;
+}
+
+.login .c_login .s_put input.yzm {
+	width: 167px;
+	float: left;
+}
+
+.login .c_login .s_put input.g_code {
+	width: 108px;
+	height: 48px;
+	background-color: #ddb864;
+	float: right;
+	font-size: 14px;
+	color: #131313;
+	line-height: 48px;
+	text-indent: 0;
+	text-align: center;
+	cursor: pointer;
+}
+
+.login .c_login .dl {
+	display: block;
+	width: 225px;
+	height: 53px;
+	margin: 45px auto 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+.login .c_login.active .login_title img:nth-child(1){
+	display: none;
+}
+.login .c_login.active .dl img:nth-child(1){
+	display: none;
+}
+/*.login .c_login .dl.active img:nth-child(1) {
+	display: none;
+}*/
+.login .c_login .s_put .wrong{
+	position:absolute;
+	right:-136px;
+	top:16px;
+	font-style: normal;
+	display: none;
+}
+.login .c_login .s_put .wrong img{
+	display: block;
+	width:14px;
+	height:14px;
+	float:left;
+	margin:0;
+}
+.login .c_login .s_put .wrong span{
+	display: block;
+	float:left;
+	font-size:12px;
+	color:#ec1212;
+	line-height:14px;
+	margin-left:5px;
+}
+.login .c_login .dl:hover {
+	opacity: .9;
+}
+
+.select {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, .8);
+	left: 0;
+	top: 0;
+	z-index: 107;
+	display: none;
+}
+
+.select .c_select {
+	width: 552px;
+	height: 300px;
+	background: url(../images/tc.png) no-repeat center;
+	background-size: 100% 100%;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	top: 45%;
+	transform: translate(0, -45%);
+	-webkit-transform: translate(0, -45%);
+}
+
+.select .c_select .select_body {
+	width: 340px;
+	position: relative;
+	overflow: hidden;
+	margin: 20px auto 0;
+}
+
+.select .c_select .select_body .s_title {
+	font-size: 20px;
+	color: #26211f;
+	line-height: 40px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.select .c_select .select_body .s_title.f_title {
+	margin-top: 50px;
+}
+
+.select .c_select .select_body .select_title {
+	font-size: 25px;
+	color: #522e03;
+	text-align: center;
+	font-weight: bold;
+	margin: 16px 0 39px 0;
+}
+
+.select .c_select .type_ul {
+	width: 100%;
+	height: 24px;
+	overflow: hidden;
+	position: relative;
+	margin-top: 25px;
+}
+
+.select .c_select .type_ul li {
+	float: left;
+	cursor: pointer;
+	margin-left: 60px;
+}
+
+.select .c_select .type_ul li:nth-child(2) {
+	margin-left: 80px;
+}
+
+.select .c_select .type_ul li span {
+	display: block;
+	font-size: 22px;
+	color: #542c06;
+	float: left;
+	line-height: 24px;
+}
+
+.select .c_select .type_ul li.active i img:nth-child(1) {
+	display: none;
+}
+
+.select .c_select .type_ul li i {
+	display: block;
+	width: 24px;
+	height: 24px;
+	float: left;
+	overflow: hidden;
+	margin-right: 8px;
+}
+
+.select .c_select .select_body .l_yy {
+	display: block;
+	width: 225px;
+	height: 53px;
+	margin: 50px auto 0;
+	cursor: pointer;
+}
+
+.select .c_select .select_body .l_yy:hover {
+	opacity: .9;
+}
+
+.success {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .8);
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 107;
+	display: none;
+}
+
+.success .c_success {
+	width: 959px;
+	height: 554px;
+	background: url(../images/tc.png) no-repeat center;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	top: 45%;
+	transform: translate(0, -45%);
+	-webkit-transform: translate(0, -45%);
+}
+
+.success .c_success .success_body {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	margin:74px auto 0;
+}
+
+.success .c_success .success_body .success_title {
+	margin:0 auto 0;
+}
+
+.success .c_success .success_body .y_code {
+	width:572px;
+	height:53px;
+	background-color:#fff;
+	border-radius: 5px;
+	font-size: 22px;
+	color: #131313;
+	line-height: 53px;
+	text-align: center;
+	margin: 60px auto 0;
+}
+.success .c_success .success_body .y_code span{
+	color:#a4a4a4;
+}
+.success .c_success .success_body .success_tip{
+	font-size:14px;
+	color:#b4a495;
+	line-height:20px;
+	margin:20px 0 0 200px;
+}
+.success .c_success .success_body .fuzhi,.success .c_success .success_body .fuzhi2{
+	display: block;
+	width: 225px;
+	height: 53px;
+	margin: 23px auto 0;
+	cursor: pointer;
+}
+.success .c_success .success_body .fuzhi2 img{
+	width:100%;
+	height:100%;
+	display: block;
+}
+.success .c_success .success_body h4{
+	position: relative;
+    margin-top: 43px;
+    font-size: 18.57px;
+    color: #da1b08;
+    text-align: center;
+    font-weight: 400;
+    width: 100%;
+}
+.success .c_success .success_body .fuzhi:hover {
+	opacity: .9;
+}

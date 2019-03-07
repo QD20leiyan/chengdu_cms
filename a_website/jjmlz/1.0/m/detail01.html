@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>详情</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="./css/common.css" />
+	<link rel="stylesheet" href="./css/index.css" />
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+</head>
+<body>
+    <div class="d_body">
+	<div class="header_pr">
+		<div class="hd_bg"></div>
+		<div class="hd_content">
+			<div class="hd_con1"><a href="index.html"><img src="./images/img/pic_01.png"></a></div>
+			<div class="hd_con2"><p>九剑魔龙传</p><p>无双仙侠扛鼎之作</p></div>
+			<div class="hd_con3"><div class="hd_loadBtn">提前下载</div></div>
+		</div>
+	</div>
+	<div class="d_top_H"></div>
+	<div class="d_title">
+		《全名枪战》携手斗鱼TV，圆你手机枪战梦
+	</div>
+	<div class="d_t_int">
+		《全民枪战》 官网 时间 2015-12-10 00:00:00
+	</div>
+	<div class="d_t_content">
+		<p>《全民枪战2.0》重燃激情岁月，无尽的生化怪物向人类阵营发起总攻，赶快与战友携手，共同坚守人类的最后一片净土，为了终极荣耀而战。在游戏内你可以自由跳跃射击，体验最真实的极致3D游戏世界!随时随地开战，体验移动战场美妙感觉，成就掌上枪王不是梦！</p>
+		<p>《全民枪战》携手斗鱼TV正式启动主播招募计划，只要你有一颗热爱《全民枪战》的心，就可以报名参加。参与更有千元大礼、精品礼包码、独家炫酷周边奖励等你来拿！赶快加入《全民枪战》，开启你的英雄之路吧！</p>
+	</div>
+	<div class="d_t_net">斗鱼手游专区：http://www.douyutv.com/directory/game/phone</div>
+	<div class="d_t_active">活动时间：2015年12月10号-2016年1月7号</div>
+	<div class="d_t_active">
+		<p>报名方式：</p>
+		<p>1、在活动期间加入【全民枪战斗鱼主播群】：372919304（点此加群“http://jq.qq.com/?_wv=1027&k=ar3aJ5”）；</p>
+		<p>2、填写报名资料，将资料发送给官方工作人员；</p>
+		<p>3、入群请务必带上本人直播间号。</p>
+	</div>
+	<div class="d_t_active d_t_pdb">
+		<p>招募要求：</p>
+		<p>1、热爱全民枪战并且对游戏十分了解；</p>
+		<p>2、游戏内排行榜大神；</p>
+		<p>3、喜欢直播，并且能长期稳定直播全民枪战；</p>
+		<p>4、美女手游主播；</p>
+		<p>5、自high狂魔，超级话痨。</p>
+	</div>
+	<div class="d_t_return return_list">返回列表</div>
+	<div class="d_t_return return_index">返回首页</div>
+	<div class="d_t_black"></div>
+        </div>
+    <footer id="Hero-bar"><div class="f_t"><ul><li><a href="http://kf.yingxiong.com/Mobile/checkOption?Gid=100">客服中心</a></li><li><a href="http://bbs.yingxiong.com/index/gameBbsLogin?id=12" id="community">游戏社区</a></li></ul><div class="tel"><a href="tel:4009393333"><i></i>400-939-3333</a></div></div><p class="f_txt">COPY RIGHT   @2015-2016  ALL RIGHTS RESERVED</p><p class="f_link"><a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 </a>&nbsp;<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/gameNetTag/4028c08b573b3c8901573c1ba4e908b3">[2015]0629-259号</a></p></footer>
+	<script>
+		$(".return_list").on("click",function(e){
+			e.stopPropagation();
+			location.href="dataList.html";
+		});
+		$(".return_index").on("click",function(e){
+			e.stopPropagation();
+			location.href="index.html";
+		});
+	</script>
+	<script type="text/javascript" src="http://dev.static.yingxiong.com/footer/js/footer.js"></script>
+</body>
+</html>

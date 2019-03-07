@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="./css/common.css" />
+	<link rel="stylesheet" href="./css/index.css" />
+	<link rel="stylesheet" href="./css/dropload.css" />
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script>
+		(function (doc, win) {
+		  var docEl = doc.documentElement,
+		    // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+		      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		      recalc = function () {
+		        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+		        var clientWidth = docEl.clientWidth;
+		        if (!clientWidth) return;
+		        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+		      };
+		 
+		  recalc();
+		  //判断是否支持监听事件 ，不支持则停止
+		  if (!doc.addEventListener) return;
+		  //注册翻转事件
+		  win.addEventListener(resizeEvt, recalc, false);
+		 
+		})(document, window);
+	</script>
+</head>
+<body>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<div class="header_pr">
+		<div class="hd_bg"></div>
+		<div class="hd_content">
+			<div class="hd_con1"><a href="index.html"><img src="./images/img/pic_01.png"></a></div>
+			<div class="hd_con2"><p>九剑魔龙传</p><p>无双仙侠扛鼎之作</p></div>
+			<div class="hd_con3"><div class="hd_loadBtn">提前下载</div></div>
+		</div>
+	</div>
+	<div class="main_images">
+		<div class="main_gb1"><img class="main_gb1_img" src="./images/img/pic_10.png"></div>
+		<!-- <img src="./images/img/pic_05.png" class="chuantou"> -->
+		<img src="./images/img/pic_06.png" class="main_play i-video">
+		<img src="./images/img/pic_24.png" class="main_flower">
+		<!-- <img src="./images/img/pic_25.png" class="main_flower0 main_flower">
+		<img src="./images/img/pic_26.png" class="main_flower1 main_flower">
+		<img src="./images/img/pic_27.png" class="main_flower2 main_flower">
+		<img src="./images/img/pic_28.png" class="main_flower3 main_flower">
+		<img src="./images/img/pic_29.png" class="main_flower4 main_flower"> -->
+		<!-- <img src="./images/img/pic_07.png" class="main_orange">-->
+		<div class="top_H"></div>
+		<div class="main_news">新闻资讯</div>
+
+		<div class="news_navs">
+			<div class="news_nav">
+				<div><li class="liActive" data="0">最新</li></div>
+				<div><li data="1">新闻</li></div>
+				<div><li data="2">公告</li></div>
+				<div><li data="3">攻略</li></div>
+			</div>
+		</div>
+		<div class="news_lists">
+			<div class="news_list">
+				<!-- <li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略挑战刀轮海厅全攻略挑战刀<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/02</span></li>
+				<li>[媒体]52PK：挑战刀轮海厅全攻略<span>05/03</span></li> -->
+			</div>
+			<div class="news_list" style="display:none">
+			</div>
+			<div class="news_list" style="display:none">
+			</div>
+		</div>
+		
+	</div>
+    <!-- 弹框 -->
+            <div id="mask"></div>
+            <div id="video_tck">
+                <div id="player5">
+                    <div id="close"></div>
+                    <video></video>
+                </div>
+            </div>
+	<footer id="Hero-bar"><div class="f_t"><ul><li><a href="http://kf.yingxiong.com/Mobile/checkOption?Gid=100">客服中心</a></li><li><a href="http://bbs.yingxiong.com/index/gameBbsLogin?id=12" id="community">游戏社区</a></li></ul><div class="tel"><a href="tel:4009393333"><i></i>400-939-3333</a></div></div><p class="f_txt">COPY RIGHT   @2015-2016  ALL RIGHTS RESERVED</p><p class="f_link"><a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 </a>&nbsp;<a href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/gameNetTag/4028c08b573b3c8901573c1ba4e908b3">[2015]0629-259号</a></p></footer>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="./js/dropload.min.js"></script>
+	<script>
+	$(function(){
+		//初始化
+//		init(0);
+		function init(num){
+			$.ajax({
+                type: 'POST',
+                url: 'json/init.json',
+                data:"data="+num,
+                dataType: 'json',
+                success: function(data){
+                	console.log(data);
+                	var dataList = data.lists;
+                	console.log(dataList);
+                	var result = "";
+                	$.each(dataList, function(index, element){
+                		result += '<li><p>'+element.title+'</p><span>'+element.date+'</span></li>';
+                	});
+                	//$('.news_list').eq(num).append(result);
+                	$('.news_list').append(result);
+                	offLists()
+                	toLists()
+                	dropload.resetload();
+                }
+            });    
+		}
+
+
+
+
+		//下拉加载
+	    var itemIndex = 0;
+	    var tab1LoadEnd = false;
+	    var tab2LoadEnd = false;
+	    var tab3LoadEnd = false;
+	    // tab
+	    $('.news_nav li').on('click', function(){
+	        var $this = $(this);
+	        itemIndex = $this.attr("data");
+	        $this.addClass('liActive').parent("div").siblings("div").find('li').removeClass('liActive');
+	        //console.log($this.addClass('liActive').parent("div"));
+	       
+	        $('.news_list').eq(itemIndex).show().siblings('.news_list').hide();
+
+	        // 如果选中菜单一
+	        if(itemIndex == '0'){
+	            // 如果数据没有加载完
+	            if(!tab1LoadEnd){
+	                // 解锁
+	                dropload.unlock();
+	                dropload.noData(false);
+	            }else{
+	                // 锁定
+	                dropload.lock('down');
+	                dropload.noData();
+	            }
+	        // 如果选中菜单二
+	        }else if(itemIndex == '1'){
+	            if(!tab2LoadEnd){
+	                // 解锁
+	                dropload.unlock();
+	                dropload.noData(false);
+	            }else{
+	                // 锁定
+	                dropload.lock('down');
+	                dropload.noData();
+	            }
+	        }else if(itemIndex == '2'){
+	        	if(!tab3LoadEnd){
+	                // 解锁
+	                dropload.unlock();
+	                dropload.noData(false);
+	            }else{
+	                // 锁定
+	                dropload.lock('down');
+	                dropload.noData();
+	            }
+	        }
+	        // 重置
+	        dropload.resetload();
+	    });
+
+	    var counter = 0;
+	    // 每页展示4个
+	    var num = 4;
+	    var pageStart = 0,pageEnd = 0;
+
+	    // dropload
+	    var dropload = $('.news_lists').dropload({
+	        scrollArea : window,
+	        loadDownFn : function(me){
+	            // 加载菜单一的数据
+	            if(itemIndex == '0'){
+	                $.ajax({
+	                    type: 'GET',
+	                    url: 'json/more.json',
+	                    dataType: 'json',
+	                    success: function(data){
+	                        var result = '';
+	                        console.log(data)
+	                        counter++;
+	                        pageEnd = num * counter;
+	                        pageStart = pageEnd - num;
+
+	                        if(pageStart <= data.lists.length){
+	                            for(var i = pageStart; i < pageEnd; i++){
+	                                result += '<li><p>'+data.lists[i].title+'</p><span>'+data.lists[i].date+'</span></li>';
+	                                if((i + 1) >= data.lists.length){
+	                                    // 数据加载完
+	                                    tab1LoadEnd = true;
+	                                    // 锁定
+	                                    me.lock();
+	                                    // 无数据
+	                                    me.noData();
+	                                    break;
+	                                }
+	                            }
+	                            // 为了测试，延迟1秒加载
+	                            setTimeout(function(){
+	                                $('.news_list').eq(itemIndex).append(result);
+	                                offLists()
+	                                toLists()
+	                                // 每次数据加载完，必须重置
+	                                me.resetload();
+	                            },1000);
+	                        }
+	                    },
+	                    error: function(xhr, type){
+	                        alert('Ajax error!');
+	                        // 即使加载出错，也得重置
+	                        me.resetload();
+	                    }
+	                });
+	            // 加载菜单二的数据
+	            }else if(itemIndex == '1'){
+	                $.ajax({
+	                    type: 'GET',
+	                    url: 'json/update.json',
+	                    dataType: 'json',
+	                    success: function(data){
+	                    	console.log(data)
+	                        var result = '';
+	                        for(var i = 0; i < data.lists.length; i++){
+	                           result += '<li><p>'+data.lists[i].title+'</p><span>'+data.lists[i].date+'</span></li>';
+	                        }
+	                        // 为了测试，延迟1秒加载
+	                        setTimeout(function(){
+	                            $('.news_list').eq(itemIndex).append(result);
+	                            offLists();
+	                            toLists();
+	                            // 每次数据加载完，必须重置
+	                            me.resetload();
+	                            tab2LoadEnd = true;
+	                        },1000);
+	                    },
+	                    error: function(xhr, type){
+	                        alert('Ajax error!');
+	                        // 即使加载出错，也得重置
+	                        me.resetload();
+	                    }
+	                });
+				// 加载菜单三的数据
+	            }else if(itemIndex == '2'){
+	            	$.ajax({
+	                    type: 'GET',
+	                    url: 'json/update2.json',
+	                    dataType: 'json',
+	                    success: function(data){
+	                    	console.log(data)
+	                        var result = '';
+	                        for(var i = 0; i < data.lists.length; i++){
+	                            result += '<li><p>'+data.lists[i].title+'</p><span>'+data.lists[i].date+'</span></li>';
+	                        }
+	                        // 为了测试，延迟1秒加载
+	                        setTimeout(function(){
+	                            $('.news_list').eq(itemIndex).append(result);
+	                            offLists()
+	                            toLists()
+	                            // 每次数据加载完，必须重置
+	                            me.resetload();
+	                            tab3LoadEnd = true;
+	                        },1000);
+	                    },
+	                    error: function(xhr, type){
+	                        alert('Ajax error!');
+	                        // 即使加载出错，也得重置
+	                        me.resetload();
+	                    }
+	                });
+	            }
+	        }
+	    });
+	});
+	
+	function toLists(){
+		$(".news_lists").on("click", function(e){
+			e.stopPropagation();
+			location.href="detail01.html";
+		})
+	}
+	function offLists(){
+		$(".news_lists").off();
+	}
+	</script>
+	<script type="text/javascript" src="http://dev.static.yingxiong.com/footer/js/footer.js"></script>
+    <script src="../js/public.js"></script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>街頭籃球</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <link href="css/animate.min.css" rel="stylesheet" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <!--<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />-->
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize= clientWidth>docEl.clientHeight ? 16*(clientWidth / 320) +"px" : 16*(docEl.clientHeight / 320)+"px";
+                    };
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded',recalc,false);
+            win.addEventListener('resize',recalc,false);
+            win.addEventListener('load',recalc,false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap" data-url="http://localhost:8081/jtlq/h5/znqd/">
+    <!--登录页面-->
+    <section class="login">
+        <div class="icon"></div>
+        <div class="logo"></div>
+        <div class="userinfo">
+            <div class="before animated bounceInDown">
+                <div class="input">
+                    <span class="user_name"><input type="text" placeholder="請輸入角色名稱" class="username"/></span>
+                </div>
+                <div class="sign_list">
+                    <h1><span class="service" data-id="">請選擇您的伺服器</span><label></label></h1>
+                    <div>
+                        <div class="li_scroll">
+                            <ul>
+                                <li><span data-id="1">熱血街頭</span></li>
+                                <li><span data-id="2">嘻哈禁區</span></li>
+                                <li><span data-id="3">自由之翼</span></li>
+                                <li><span data-id="4">夢想領域</span></li>
+                                <li><span data-id="5">上帝之手</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn">
+                    <a class="inter"></a>
+                </div>
+            </div>
+        </div>
+        <div class="adorn">
+            <span class="shake1 shake"></span>
+            <span class="shake2 shake"></span>
+            <span class="f1 scale"></span>
+            <span class="f2 scale"></span>
+            <span class="f3 scale"></span>
+            <span class="f4 scale"></span>
+            <span class="s1 xuanzhuan"></span>
+            <span class="s2 xuanzhuan"></span>
+            <span class="s3 xuanzhuan"></span>
+            <span class="x1 xuanzhuan"></span>
+            <span class="x2 xuanzhuan"></span>
+            <span class="x3 xuanzhuan"></span>
+            <span class="x4 xuanzhuan"></span>
+            <span class="x5 xuanzhuan"></span>
+            <span class="y1 scale"></span>
+            <span class="y2 scale"></span>
+            <span class="b1 jump"></span>
+        </div>
+    </section>
+    <!--分类页面-->
+    <section class="swiper-container swiper-container1 type_page">
+        <section class="swiper-wrapper">
+            <!--全服页面-->
+            <section class="swiper-slide qfpg">
+                <div class="userhead">
+                    <img src="images/lg_img/105.png" alt=""/>
+                </div>
+                <div class="type_btn">
+                    <span>
+                         <i class="btn1 active"></i>
+                         <i class="c_btn1"></i>
+                    </span>
+                    <span>
+                         <i class="btn2"></i>
+                         <i class="c_btn2"></i>
+                    </span>
+                    <span>
+                        <i class="btn3"></i>
+                         <i  class="c_btn3"></i>
+                    </span>
+                </div>
+                <div class="content">
+                    <div class="le">
+                        <div class="data_box">
+                            <p class="title">開服至今累計遊戲場次</p>
+                            <p class="data"><i class="red q_count1">125,767,356</i>場</p>
+                            <p class="info"><i>平均每秒都有30位玩家在台灣與你一起戰鬥</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">開服至今累計贈送鑽石</p>
+                            <p class="data"><i class="red q_count2">2756,339,122</i>顆</p>
+                            <p class="info"><i>相當於已經送出63982台價值35900元的iPhone X</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">購買最多的時裝</p>
+                            <p class="data"><i class="red font">幽靈口罩</i></p>
+                            <p class="info"><i>大家都想做球場魅影呢</i></p>
+                        </div>
+                    </div>
+                    <div class="rg">
+                        <div class="data_box">
+                            <p class="title">MVP獲得最多的球員</p>
+                            <p class="data">
+                                <i class="img"><img src="images/q_head.png" alt=""/></i>
+                                <span class="q_data"><i class="q_name">大金刚</i><i class="red q_count3">5,712,813</i>次</span>
+                            </p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">勝率最高球員</p>
+                            <p class="data">
+                                <i class="img"><img src="images/q_head1.png" alt=""/></i>
+                                <span class="q_data"><i class="q_name">櫻夏樹</i> <i class="red q_count4">61</i>%</span>
+                            </p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">勝率最低球員</p>
+                            <p class="data">
+                                <i class="img"><img src="images/q_head2.png" alt=""/></i>
+                                <span class="q_data"><i class="q_name">里維斯</i> <i class="red q_count5">46</i>%</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="down"></div>
+                <div class="guide1"><img src="images/q_guide.png" alt=""/></div>
+            </section>
+            <!--个人页面-->
+            <section class="swiper-slide grpg">
+                <div class="userhead">
+                    <img src="images/lg_img/105.png" alt=""/>
+                </div>
+                <div class="type_btn">
+                    <span>
+                         <i class="btn1"></i>
+                         <i class="c_btn1"></i>
+                    </span>
+                    <span>
+                         <i class="btn2 active"></i>
+                         <i class="c_btn2"></i>
+                    </span>
+                    <span>
+                        <i class="btn3"></i>
+                         <i  class="c_btn3"></i>
+                    </span>
+                </div>
+                <div class="content">
+                    <div class="swiper-container swiper-container2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide swiper-slide1">
+                                <div class="le">
+                                    <div class="data_box">
+                                        <p class="title">第一次進入街頭籃球</p>
+                                        <p class="data"><i class="red year">2016</i>年<i class="red month">10</i>月<i class="red day">30</i>日</p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">我的球齡</p>
+                                        <p class="data"><i class="red days">382</i>天</p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">總計遊戲場數</p>
+                                        <p class="data"><i class="red fightnum">2968</i>場</p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">評價</p>
+                                        <p class="data"><i class="red font assess1">開服元老</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-slide2 ">
+                                <div class="le">
+                                    <div class="data_box">
+                                        <p class="title">我的最高段位 <img src="images/dw_img/黃金.png" alt="" class="lad_img"/><i class="red lad_name">黄金三</i></p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">累積獲得MVP</p>
+                                        <p class="data"><i class="red mvp">46</i>次</p>
+                                    </div>
+                                    <div class="more_data">
+                                        <div class="data_box">
+                                            <p class="title">累積得分</p>
+                                            <p class="data"><i class="red point">972</i></p>
+                                        </div>
+                                        <div class="data_box">
+                                            <p class="title">累積籃板</p>
+                                            <p class="data"><i class="red rebound">265</i></p>
+                                        </div>
+                                        <div class="data_box">
+                                            <p class="title">累積助攻</p>
+                                            <p class="data"><i class="red assists">265</i></p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="more_data">
+                                        <div class="data_box">
+                                            <p class="title">累積抄截</p>
+                                            <p class="data"><i class="red steal">72</i></p>
+                                        </div>
+                                        <div class="data_box">
+                                            <p class="title">累積火鍋</p>
+                                            <p class="data"><i class="red block">70</i></p>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">評價</p>
+                                        <p class="data"><i class="red font assess2_key">努力爬坑</i></p>
+                                        <p class="title assess2_value">尋找隊友努力出坑</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-slide3">
+                                <div class="le">
+                                    <div class="data_box">
+                                        <p class="title">擁有球員</p>
+                                        <p class="data"><i class="red playernum">46</i>位</p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">擁有時裝</p>
+                                        <p class="data"><i class="red equipnum">382</i>件</p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">最擅長的球員</p>
+                                        <p class="data"><span class="baller"><img src="images/sc_img/105.png" alt=""/></span></p>
+                                    </div>
+                                    <div class="data_box">
+                                        <p class="title">評價</p>
+                                        <p class="data"><i class="red font assess3_key">豪氣沖天</i></p>
+                                        <p class="title assess3_value">Sorry，有錢真的可以為所欲為</p>
+                                    </div>
+                                </div>
+                                <div class="peo peo1 ani" swiper-animate-effect="bounceInRight">
+                                    <img src="images/peo_img/105.png" alt=""/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="down"></div>
+            </section>
+            <!--分享页面-->
+            <section class="swiper-slide sharepg">
+                <div class="userhead">
+                    <img src="images/lg_img/105.png" alt=""/>
+                </div>
+                <div class="type_btn">
+                    <span>
+                         <i class="btn1"></i>
+                         <i class="c_btn1"></i>
+                    </span>
+                    <span>
+                         <i class="btn2"></i>
+                         <i class="c_btn2"></i>
+                    </span>
+                    <span>
+                        <i class="btn3 active"></i>
+                         <i  class="c_btn3"></i>
+                    </span>
+                </div>
+                <div class="content">
+                    <div class="le">
+                        <div class="data_box">
+                            <p class="title">我是 街頭籃球MVP</p>
+                            <p class="data"><i class="red name">歡樂時光</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">我在</p>
+                            <p class="data"><i class="red qf_id">G1區 街球地带</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">最高段位</p>
+                            <p class="data"><img src="images/dw_img/黃金.png" alt="" class="lad_img"/><i class="red lad_name">黄金三</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">評價</p>
+                            <p class="data"><i class="red font assess4">籃球代言人</i></p>
+                        </div>
+                    </div>
+                    <div class="sharebtn"><img src="images/s_btn.png" alt=""/></div>
+                    <div class="canvas_box">
+                        <canvas id="myCanvas" width="123" height="123"></canvas>
+                        <span>得分</span>
+                        <span>助攻</span>
+                        <span>籃板</span>
+                        <span>火鍋</span>
+                        <span>抄截</span>
+                    </div>
+                    <div class="peo peo2 ani " swiper-animate-effect="bounceInRight">
+                        <img src="images/peo_img/105.png" alt=""/>
+                    </div>
+                </div>
+                <div class="guide2"><img src="images/s_guide.png" alt=""/></div>
+            </section>
+        </section>
+    </section>
+</div>
+<!--横竖屏-->
+<div id="orientLayer" class="mod-orient-layer">
+    <div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用横屏浏览</div>
+    </div>
+</div>
+<div id=loading10 style="display:none;position:fixed;left:0;top:0;z-index:999;background:rgba(0,0,0,0.8);width:100%;height:100%" class="js_load">
+    <div style="width: 100px;height: 56px;position: absolute;left: 50%;top: 50%;margin: -28px -50px">
+        <img src=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAtFBMVEUAAABRUVFcXFxSUlJmZmZXV1daWlpoaGhoaGhTU1NVVVVfX19RUVFRUVFSUlJhYWFcXFxgYGBoaGhRUVFRUVFRUVFRUVFWVlZZWVllZWVRUVFRUVFRUVFnZ2doaGhiYmJnZ2dnZ2dfX19TU1NoaGhRUVFlZWVnZ2doaGhnZ2deXl5TU1NeXl5oaGhcXFxmZmZcXFxmZmZoaGhcXFxgYGBgYGBTU1NcXFxkZGRTU1NTU1NcXFyYMzJiAAAAO3RSTlMATQIHzBUJ5pmABbNHLBgO+7CFQjw6IBwSNjYoJGxaQsGyg3ZGMTCed2RgYEvcvbq6l5OLfnhuaFZQPzZr7SMAAAGBSURBVDjLrZLZeoIwFITnJBIIRRBEQHHfuu97ef/36omtNbFc9KL/Rfw+Z8gMh4P/5Oqx5FPkkdeue73mjn9iog1aSXpNj5+ticZo56RpXoEBEdtEtx9b0npxzudF09wAEZEEukS5ZZj7fiZQmQxF1AfGRFRYhsz3/VPFGb04jKiLkohPC2EcC+UtZ4CshOCYkYDDhB3rH3+fcqOH0nK8XXcO85GxQFiOiGIww+x8mLDduVNuiPZF5h1mMXEzazIMFJjTzo6tO3dWi+8Kaja5n3duKzgoCYdSwSU8+iM5ukBGFA3qWHyrV8s0HcKmoh35rs8yPWGmsOGvSUwE5sLI6XPi6IJTvPHG2w0qTZ9mCcJtYjWISrugNK3Pggx7Yvq1VmISBA+hKBR3qmWYmzE7s50GQTBEpFdSEY0gRkcbMWN9DbxoXUmWQn4Ls1kHzoKAX1NpvRJma03DIre3dptNOXGs9SUrJqOdD6352q+MVt61rgGTIdFKsbo0iupy+t/5BKEdFl7VnfvBAAAAAElFTkSuQmCC alt="" style="width:36px;height:36px;-webkit-animation:dialogLoading 1s linear infinite;animation:dialogLoading 1s linear infinite;display: block;margin: 0 auto;margin-bottom: 2px">
+        <p style="width: 100%;height: 20px;text-align: center;font-size: 15px;color: #000;line-height: 20px;color: #fff">正在加载...</p>
+    </div>
+</div>
+<div class="tips hidden">
+    <div class="erro_tips">
+        <img src="images/l_close.png" alt="" class="l_close">
+        <div class="info">
+            <p>角色信息未能獲取</p>
+            <p>請使用正確的賬號密碼或聯繫客服中心</p>
+            <p>streetballtw@herogame.com.tw</p>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/swiper.animate.min.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>-->
+<script src="js/index.js"></script>
+<script type="text/javascript">
+    $(function() {
+        //滑动页面
+        var mySwiper1 = new Swiper('.swiper-container1', {
+            direction: 'vertical',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onTouchStart: function(swiper,even){
+                if(swiper.activeIndex==0){
+                    $(".guide1").addClass("hidden");
+                }else if(swiper.activeIndex==2){
+                    $(".guide2").addClass("hidden");
+                }
+            },
+            onSlideChangeEnd: function (swiper) {
+                if(swiper.activeIndex==1&&mySwiper2.isBeginning){
+                    $(".grpg .content").addClass("content-1");
+//                  数字第一次有动效，添加class名称nf（not first）表示已经有过动效;
+                    $('.year:not(.nf)').animateNumber({number:$(".year").html()}).addClass("nf");
+                    $('.month:not(.nf)').animateNumber({number:$(".month").html()}).addClass("nf");
+                    $('.day:not(.nf)').animateNumber({number:$(".day").html()}).addClass("nf");
+                    $('.days:not(.nf)').animateNumber({number:$(".days").html()}).addClass("nf");
+                    $('.fightnum:not(.nf)').animateNumber({number:$(".fightnum").html()}).addClass("nf");
+                }
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+        });
+        var mySwiper2 = new Swiper('.swiper-container2', {
+            direction: 'vertical',
+            mousewheelControl: false,
+            observer: true,
+            observeParents: true,
+            noSwiping: true,
+            nested: true,
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function (swiper) {
+                if(swiper.isBeginning){
+                    $(".grpg .content").addClass("content-1");
+                }else{
+                    $(".grpg .content").removeClass("content-1");
+                }
+                if(swiper.activeIndex==1){
+                    $('.point:not(.nf)').animateNumber({number:$(".point").html()}).addClass("nf");
+                    $('.rebound:not(.nf)').animateNumber({number:$(".rebound").html()}).addClass("nf");
+                    $('.assists:not(.nf)').animateNumber({number:$(".assists").html()}).addClass("nf");
+                    $('.steal:not(.nf)').animateNumber({number:$(".steal").html()}).addClass("nf");
+                    $('.block:not(.nf)').animateNumber({number:$(".block").html()}).addClass("nf");
+                    $('.mvp:not(.nf)').animateNumber({number:$(".mvp").html()}).addClass("nf");
+                }
+                if(swiper.activeIndex==2){
+                    $('.playernum:not(.nf)').animateNumber({number:$(".playernum").html()}).addClass("nf");
+                    $('.equipnum:not(.nf)').animateNumber({number:$(".equipnum").html()}).addClass("nf");
+                }
+            },
+            onTransitionEnd: function (swiper) {
+                swiperAnimate(swiper);
+            }
+
+        });
+
+        //分类切换
+        $(".type_btn span").click(function(){
+            mySwiper1.slideTo($(this).index());
+            if($(this).index()==1){
+                mySwiper2.slideTo(0);
+            }
+        });
+    });
+</script>
+<script>
+    (function (win,doc){
+        if (!win.addEventListener) return;
+        function screenOrientation(){
+            setTimeout(function(){
+                //        横屏
+                var body=doc.getElementsByTagName('body')[0];
+                var cw=win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth,
+                        ch=win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight;
+                if(win.orientation){
+                    if(window.orientation == 0 || window.orientation == 180) {
+                        body.style.marginLeft=(cw-ch)/2+"px";
+                        body.style.marginTop=(ch-cw)/2+"px";
+                        body.style.width=ch+"px";
+                        body.style.height=cw+"px";
+                    }else {
+                        body.style.width=cw+"px";
+                        body.style.height=ch+"px";
+                        body.style.marginLeft="0px";
+                        body.style.marginTop="0px";
+                    }
+                }else{
+                    if(cw>ch){
+                        body.style.width=cw+"px";
+                        body.style.height=ch+"px";
+                        body.style.marginLeft="0px";
+                        body.style.marginTop="0px";
+                    }else{
+                        body.style.marginLeft=(cw-ch)/2+"px";
+                        body.style.marginTop=(ch-cw)/2+"px";
+                        body.style.width=ch+"px";
+                        body.style.height=cw+"px";
+                    }
+                }
+            },200);
+        };
+        screenOrientation();
+        doc.addEventListener('DOMContentLoaded',screenOrientation,false);
+        win.addEventListener('resize',screenOrientation,false);
+        win.addEventListener('load',screenOrientation,false);
+    })(window,document);
+</script>
+</body>
+</html>

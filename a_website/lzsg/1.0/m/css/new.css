@@ -1,0 +1,185 @@
+@keyframes scales{0%{transform: scale(1); }50% {transform: scale(1.1);}100% {transform: scale(1);}}
+@-webkit-keyframes scales{0%{-webkit-transform: scale(1);}50% {-webkit-transform: scale(1.1);}100% {-webkit-transform: scale(1);}}
+@-moz-keyframes scales{0%{-webkit-transform: scale(1);}50% {-webkit-transform: scale(1.1);}100% {-webkit-transform: scale(1);}}
+@-o-keyframes scales{0%{-webkit-transform: scale(1);}50% {-webkit-transform: scale(1.1);}100% {-webkit-transform: scale(1);}}
+@-ms-keyframes scales{0%{-webkit-transform: scale(1);}50% {-webkit-transform: scale(1.1);}100% {-webkit-transform: scale(1);}}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.kv {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url(../images/wap_02.jpg) no-repeat;
+    background-size:100% 100%;
+    overflow: hidden;
+}
+.kv .fire{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../images/fire.png) no-repeat;
+    background-size:100% 100%;
+    overflow: hidden;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top:0;
+    animation: fly 2s infinite alternate;
+    -webkit-animation: fly 2s infinite alternate;
+}
+.kv .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+}
+.kv .group {
+    position: relative;
+    height: 9.5rem;
+    width: 12.09375rem;
+    top: 25%;
+    margin: 0 auto;
+}
+.kv .play {
+    float: left;
+    position: relative;
+    height: 9.5rem;
+    width: 12.09375rem;
+    background: url(../images/play.png) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+.kv .play .video {
+    position: absolute;
+    left: 3.71875rem;
+    bottom: 2.6875rem;
+    height: 4.15625rem;
+    width: 4.15625rem;
+    background: url(../images/video.png) no-repeat;
+    background-size: 100% 100%;
+    -webkit-animation: scales 2.5s linear infinite;
+    -moz-animation: scales 2.5s linear infinite;
+    -ms-animation: scales 2.5s linear infinite;
+    animation: scales 2.5s linear infinite;
+}
+.kv .slogan{
+    width:100%;
+    display: block;
+    position: relative;
+    top:18%;
+    margin:0 auto;
+    -webkit-animation: zoomIn 1s ease-in-out;
+    -moz-animation: zoomIn 1s ease-in-out;
+    -o-animation: zoomIn 1s ease-in-out;
+    animation: zoomIn 1s ease-in-out;
+}
+.kv .logo{
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 8.125rem;
+    -webkit-animation: zoomIn 1s ease-in-out;
+    -moz-animation: zoomIn 1s ease-in-out;
+    -o-animation: zoomIn 1s ease-in-out;
+    animation: zoomIn 1s ease-in-out;
+}
+@-webkit-keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+/*.download{
+    width: 9.875rem;
+    height: 3.21875rem;
+    display: block;
+    position: relative;
+    top:43%;
+    margin: 0 auto;
+}
+.download img{
+    width:9.875rem;
+}*/
+.kv .download_box {
+  width:90%;
+  height:3.125rem;
+  position:absolute;
+  left:50%;
+  margin-left:-45%;
+  bottom:2rem;
+}
+.kv .download_box a.download{
+  float: left;
+  height: 3.125rem;
+  width: 8.4375rem;
+  background-image: url("../images/gf.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.kv .download_box a.tap{
+  float: right;
+  height: 3.125rem;
+  width: 8.4375rem;
+  background-image: url("../images/tap_2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.kv .download_box .ios {
+  height: 88px;
+  width: 215px;
+  background-image: url("../images/ios.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.kv .download_box .android {
+  height: 88px;
+  width: 215px;
+  margin-top: 12px;
+  background-image: url("../images/android.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+@keyframes fly {
+    0% {
+        transform: translate3d(0.5rem, 0.5rem, 0.5rem);
+    }
+    100% {
+        transform: translate3d(-0.5rem, -0.5rem, -0.5rem);
+    }
+}
+@-webkit-keyframes fly {
+    0% {
+        transform: translate3d(0.5rem, 0.5rem, 0.5rem);
+    }
+    100% {
+        transform: translate3d(-0.5rem, -0.5rem, -0.5rem);
+    }
+}

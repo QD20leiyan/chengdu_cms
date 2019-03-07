@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>街頭籃球</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <link href="css/swiper.min.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+            // 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        //clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+                    };
+
+            recalc();
+            //判断是否支持监听事件 ，不支持则停止
+            if (!doc.addEventListener) return;
+            //注册翻转事件
+            win.addEventListener(resizeEvt, recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap" data-url="http://localhost:8081/jtlq/h5/znqd/">
+    <!--分类页面-->
+    <section class="swiper-container swiper-container1 type_page">
+        <section class="swiper-wrapper">
+            <!--分享页面-->
+            <section class="swiper-slide sharepg">
+                <div class="userhead">
+                    <img src="images/lg_img/105.png" alt=""/>
+                </div>
+                <div class="content">
+                    <div class="le">
+                        <div class="data_box">
+                            <p class="title">我是 街頭籃球MVP</p>
+                            <p class="data"><i class="red name">歡樂時光</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">我在</p>
+                            <p class="data"><i class="red qf_id">G1區 街球地带</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">最高段位</p>
+                            <p class="data"><img src="images/dw_img/黃金.png" alt="" class="lad_img"/><i class="red lad_name">黄金三</i></p>
+                        </div>
+                        <div class="data_box">
+                            <p class="title">評價</p>
+                            <p class="data"><i class="red font assess4">籃球代言人</i></p>
+                        </div>
+                    </div>
+                    <div class="canvas_box">
+                        <canvas id="myCanvas" width="123" height="123"></canvas>
+                        <span>得分</span>
+                        <span>助攻</span>
+                        <span>籃板</span>
+                        <span>火鍋</span>
+                        <span>抄截</span>
+                    </div>
+                    <div class="peo peo2 ani " swiper-animate-effect="bounceInRight">
+                        <img src="images/peo_img/105.png" alt=""/>
+                    </div>
+                </div>
+                <div class="s_logo">
+                    <img src="images/s_logo.png" alt=""/>
+                </div>
+                <div class="download"><img src="images/download.png" alt=""/></div>
+            </section>
+        </section>
+    </section>
+</div>
+
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+		<meta name="format-detection" content="telephone=no,email=no,adress=no">
+		<title></title>
+		<link rel="stylesheet" href="css/public.css" />
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="box">
+			<a class="wap_down" href="http://cdn.yingxiong.com/mlz/mlz-wapgw-P32889A-0405.apk" style="display: block;">
+				<img class="code" src="img/code.png" title="" alt="" />
+			</a>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script src="js/index.js"></script>
+	<script type="text/javascript">
+		//拉取下载链接
+		$(function() {
+			var basepath = '/';
+			if((/iphone|android|mobile/i.test(navigator.userAgent.toLowerCase()))) { //移动端
+				//给页面下载链接赋值
+				if((/iphone|ipad/i.test(navigator.userAgent.toLowerCase()))) {
+					$(".wap_down").attr('href', 'javascript:alert("敬请期待!");');
+				} else {
+					$(".wap_down").attr('href', "http://cdn.yingxiong.com/mlz/mlz-wapgw-P32889A-0405.apk");
+				}
+			} else { //PC端
+				//给页面下载链接赋值
+				if(result.android == 1) { $(".down_andriod").attr('href', result.android_url_out); } else { $(".down_andriod").attr('href', 'javascript:alert("敬请期待!");'); }
+				if(result.ios == 1) { $(".down_ios").attr('href', result.ios_url_out); } else { $(".down_ios").attr('href', 'javascript:alert("敬请期待!");'); }
+				if(result.ios_special == 1) { $(".down_ios_special").attr('href', result.ios_special_url_out); } else { $(".down_ios_special").attr('href', 'javascript:alert("敬请期待!");'); }
+				$(".down_andriod_img").attr('src', result.android_img_out); //安卓二维码
+				$(".down_ios_img").attr('src', result.ios_img_out); //ios二维码
+				$(".down_ios_special_img").attr('src', result.ios_special_img_out); //越狱二维码
+				$(".jump_img").attr('src', result.jump_img_out); //自动判断IOS的和安卓的（二维码）
+				$(".jump2_img").attr('src', result.jump_img2_out); //自动判断越狱的和安卓的（二维码）
+			}
+		})
+	</script>
+
+</html>
