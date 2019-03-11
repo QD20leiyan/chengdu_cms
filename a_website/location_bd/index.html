@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>末日测试-创造与魔法</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no">
+		<link href="css/animate.min.css" rel="stylesheet" />
+		<link href="css/swiper.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<style type="text/css">
+       /* body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}*/
+        #allmap{width: 84%;height: 75%;top: 3rem;left: 1.2rem;}
+        .anchorBL{
+        	display: none;
+        }
+        .BMap_bubble_title a{
+        	display: none;
+        }
+        .BMap_bubble_title{
+        	font-size: 0.825rem;
+        }
+        /*p{margin-left:5px; font-size:14px;}*/
+        </style>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=OOtxWKM6q7NyWVce3H4Nug3vlcPIj0cL"></script>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 16 * (clientWidth / 320) + 'px';
+					};
+
+				recalc();
+				//判断是否支持监听事件 ，不支持则停止
+				if(!doc.addEventListener) return;
+				//注册翻转事件
+				win.addEventListener(resizeEvt, recalc, false);
+			})(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide swiper1 hidden">
+					<img src="images/peo2.png" alt="" class="s_peo ani" />
+					<img src="images/title.png" alt="" class="title" />
+					<img src="images/bottom_peo.png" alt="" class="bottom_peo">
+					<div class="content_box">
+            			<p><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码"/></p>
+            			<p class="last tp_yzm"><input type="text"  class="co_codenum1 code1" placeholder="验证码"/><span class="co_codebtn co_codebtn2"><i>点击刷新</i><img src="" alt="" class="co_captcha"></span></p>
+            			<p class="last"><input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1 code2" placeholder="验证码"/><span class="co_codebtn co_codebtn1">发送</span></p>
+            			<p><input type="text" placeholder="请输入昵称" class="act_name"  value="" ></p>
+            			<a href="javascript:;" class="btn_add"><img src="images/btn.png"></a>
+					</div>
+				</div>	
+				<div class="swiper-slide swiper2">
+					<div class="btn_box1">
+						<a href="javascript:;" class="btn_find"><img src="images/btn_yy.png" alt=""></a>
+						<a href="javascript:;" class="btn_gz"></a>
+					</div>
+					<div class="slogan"><img src="images/slogan.png" alt=""></div>
+					<div class="map_box">
+					<p><i></i><span id="address"></span></p>
+					<div id="allmap"></div>
+					</div>
+					<a href="javascript:;" class="my_term_btn"></a>
+					<div class="btn_box2">
+						<a href="javascript:;" class="btn_xz"><img src="images/peo3.png" alt=""></a>
+						<a href="javascript:;" class="btn_jl"></a>
+					</div>
+				</div>
+				<div class="swiper-slide swiper3 hidden">
+				    <div class="btn_box1">
+						<a href="javascript:;" class="btn_find"><img src="images/btn_yy.png" alt=""></a>
+						<a href="javascript:;" class="btn_gz"></a>
+						<a href="javascript:;" class="return1"><返回</a>
+					</div>
+					<div class="term_box">
+					    <div class="changan"></div>
+						<p class="dy_info">我是<span>新疆省克拉玛依市买买提穆斯林第三中学</span>的</p>
+						<p class="dy_term">帕赛兰帕赛兰帕探险队</p>
+						<p class="dy_send">探险队队长!</p>
+					</div>
+					<a href="javascript:;" class="btn_tc btn_ljcj">立即创建</a>
+					<div class="btn_box2">
+						<a href="javascript:;" class="btn_xz"><img src="images/peo3.png" alt=""></a>
+						<a href="javascript:;" class="btn_jl"></a>
+					</div>
+				</div>
+				<div class="swiper-slide swiper4 hidden">
+				    <div class="send_box1">
+				    	<div class="btn_box1">
+							<a href="javascript:;" class="btn_find"><img src="images/btn_yy.png" alt=""></a>
+							<a href="javascript:;" class="btn_gz"></a>
+							<a href="javascript:;" class="return1"><返回</a>
+						</div>
+						<div class="my_term">帕赛兰帕赛兰帕探险队</div>
+						<div class="rq_send">
+							<div class="rq_send_board">
+								<p class="rq_send1">
+									<span class="send1">122</span>
+									<span class="send2">111</span>
+									<span class="send3">111</span>
+								</p>
+								<p class="rq_num">
+									<span class="send1 active"></span>
+									<span class="send2"></span>
+									<span class="send3"></span>
+									<span class="send4"></span>
+								</p>
+							</div>
+						</div>
+				    </div>
+				    <div class="send_box2">
+				    	<div class="cy_namelist">
+                            <img src="images/tl.png" alt="" class="tl_img">
+                            <a href="javascript:;" class="look_all">全部成员</a>
+                            <div class="cy_name">
+                            	<ul>
+                            		<li>霸气十足小伙1</li>
+                            		<li>霸气十足小伙2</li>
+                            		<li>霸气十足小伙4</li>
+                            		<li>霸气十十足小</li>
+                            		<li>霸气十足十足小</li>
+                            		<li>霸气十足</li>
+                            		<li>霸气十足小伙</li>
+                            		<li>霸气十足小伙十足小伙</li>
+                            		<li>霸气十</li>
+                            		<li>霸气十足</li><li>霸气十足小伙</li>
+                            		<li>霸气十足小伙十足小伙</li>
+                            		<li>霸气十</li>
+                            		<li>霸气十足</li>
+                            	</ul>
+                            </div>
+				    	</div>
+                        <div class="btn_box">
+                            <a href="javascript:;" class="kd_btn kd_btn1">扩大队伍</a>
+                            <p class="is_nocp">
+                            <a href="javascript:;" class="kd_btn kd_btn2">扩大队伍</a>
+                            <a href="javascript:;" class="me_btn">我也要当队长!</a></p>
+                            <a href="javascript:;" class="bdpm_btn">本地排名</a>
+                        </div>
+                        <div class="btn_box2">
+						<a href="javascript:;" class="btn_xz"><img src="images/peo3.png" alt=""></a>
+						<a href="javascript:;" class="btn_jl"></a>
+					</div>
+				    </div>
+				</div>
+				<div class="swiper-slide swiper5 hidden">
+				    <div class="send_box1">
+				    	<div class="btn_box1">
+							<a href="javascript:;" class="btn_return"></a>
+							<a href="javascript:;" class="btn_gz"></a>
+						</div>
+						<div class="my_term">帕赛兰帕赛兰帕探险队</div>
+						<div class="rq_send">
+							<div class="rq_send_board">
+								<p class="rq_send1 rq_send_box">
+									<span class="send1">122</span>
+									<span class="send2">/共<i>1688</i></span>
+								</p>
+								<p class="rq_send2 rq_send_box">
+									<span class="send1">122</span>
+									<span class="send2">/共<i>1688</i></span>
+								</p>
+								<p class="rq_send3 rq_send_box">
+									<span class="send1">122</span>
+									<span class="send2">/共<i>1688</i></span>
+								</p>
+							</div>
+						</div>
+				    </div>
+				    <div class="send_box2">
+				    	<div class="cy_namelist">
+                            <img src="images/tl0.png" alt="" class="tl_img">
+                            <ul class="sel_box2">
+                            	<li class="active">本校人气榜</li>
+                            	<li>本市人气榜</li>
+                            	<li>本省人气榜</li>
+                            </ul>
+                            <ul class="sel_box3 sel_box3_x active">
+                            	<li><i>1</i>火速霹雳战队</li>
+                            	<li><i>2</i>魔朝霸族</li>
+                            	<li><i>3</i>大湿战队</li>
+                            	<li><i>4</i>smile家族</li>
+                            	<li><i>5</i>上帝神圣幻影</li>
+                            	<li><i>6</i>火速霹雳战队</li>
+                            	<li><i>7</i>大湿战队</li>
+                            	<li><i>8</i>魔朝霸族</li>
+                            	<li><i>9</i>smile家族</li>
+                            	<li><i>10</i>火速霹雳战队</li>
+                            </ul>
+                            <ul class="sel_box3 sel_box3_s">
+                            	<li><i>1</i>火速霹雳战队</li>
+                            	<li><i>2</i>魔朝霸族</li>
+                            	<li><i>3</i>大湿战队</li>
+                            	<li><i>4</i>smile家族</li>
+                            	<li><i>5</i>上帝神圣幻影</li>
+                            </ul>
+                            <ul class="sel_box3 sel_box3_sh">
+                            	<li><i>1</i>火速霹雳战队</li>
+                            	<li><i>2</i>魔朝霸族</li>
+                            	<li><i>3</i>大湿战队</li>
+                            </ul>
+				    	</div>
+                        <div class="btn_box">
+                            <a href="javascript:;" class="kd_btn kd_btn1">扩大队伍</a>
+                            <p class="is_nocp">
+                            <a href="javascript:;" class="kd_btn kd_btn2">扩大队伍</a>
+                            <a href="javascript:;" class="me_btn">我也要当队长!</a></p>
+                        </div>
+				    </div>
+                    <div class="btn_box2">
+						<a href="javascript:;" class="btn_xz"><img src="images/peo3.png" alt=""></a>
+						<a href="javascript:;" class="btn_jl"></a>
+					</div>
+				</div>
+				<div class="swiper-slide swiper6 hidden">
+				    <div class="bg_img"></div>
+					<div class="btn_box1">
+						<a href="javascript:;" class="btn_return"></a>
+					</div>
+					<div class="info_text">
+						<p class="p1">亲爱的探险家，欢迎参与《创造与魔法》校园联盟活动。本次活动包含多重奖励，爱拼才会赢，创魔你最欧！</p>
+						<h5 class="tl1">活动时间</h5>
+						<p class="p2">1月1日至2月20日00:00 <br>探险队/锦鲤活动奖励可领取时间：3月20日24：00前 <br>活动奖励必须登陆H5领取，建议收藏H5</p>
+						<h5 class="tl2">活动内容</h5>
+						<p class="p3"><span class="ru_tl">【登陆就有奖】</span> <br>凡在1月1日至2月20日00：00期间，首次登陆H5并定位的探险家，即送：<br> 棒棒糖法杖*1、皮革*10、牛筋*10</p>
+						<p>一个手机号限领一次，每个账号只可兑换1次。<br>请妥善保管您的兑换码，如若丢失不予补发。</p>
+						<p><span class="ru_tl">【礼包码兑换规则】</span><br>在活动页面中复制兑换码，下载并打开《创造与魔法》游戏，进入游戏界面：点击功能菜单-设置，在设置界面中输入兑换码，点击“兑换礼包”即可，游戏内同类奖品，每个账号只可兑换一次。</p>
+						<p><span class="ru_tl">【校园联盟-创魔探险队】</span><br>召唤前后桌，一起拿福利！<br>凡在1月1日至2月20日00：00期间，登陆H5定位，并注册或加入探险队，即有机会获得奖励！</p>
+						<p><span class="ru_tl">【队伍越大，队长越富】</span><br>探险家所注册的队伍，人气如超过5/10/50/100，队长即获得对应奖励！<br>探险队人气5-9：金枪鱼饭团50、烤牛排50<br>探险队人气10-49：金鱼昊昊30天体验卡*1、红莲10、蓝莲10<br>探险队人气50-99：假面面具30天体验卡*1、青萝衣套装*1<br>探险队人气100以上：海豚乐乐30天体验卡*1、海角鹦鸟30天体验卡*1、喜气洋洋套装*1</p>
+						<h5 class="tl2">队长须知</h5>
+						<p>1.  定位后，一人只可创建1个探险队，且无法解散与改名。<br>2.  一人就是1人气，探险家可加入不同探险队，但最多只能加入5个探险队。每天只可加入一个新探险队。无论是队长还是队员，每个探险家，每天最多拉20个队友。<br>3.  奖励将以礼包码的形式，登陆手机号，在H5内弹窗展示（当队伍达到一定数目，活动页弹窗或有延时，请过一会再进入），如若丢失不予补发。同内容奖励，每个账号只可兑换1次。<br>4.  队长可作为队员可加入其他探险队，但最多只能加入，同地区4个其他探险队，且每天只可加入一个新探险队。<br>5.  人气数据截止时间：2月20号00：00，H5内奖励领取时间：1月1日至3月20日00：00前，逾期登陆活动页，将不能领取礼包码。<br>6.  如有恶意刷票行为，后台监测将直接取消奖励资格。</p>
+						<p><span class="ru_tl">【明星团队，全队有奖】</span><br>截至2月20日00：00，本校人气第一/本市人气第一/本省人气前三的探险队——全队成员，都将获得校园明星奖！</p>
+						<p>本校第一名，全队将获得：<br>棒棒糖*20、大鸡排*20</p>
+						<p>本市第一名，全队将获得：<br>黑曜石*20、魔晶*20</p>
+						<p>本省前三名，全队将获得：<br>省第一队：独角兽7天体验卡*1、精灵鱼*20、红莲*10、蓝莲*10<br>省第二队：黑天鹅布料*5、精炼煤*30<br>省第三队：蒸汽石*20、帝王蟹*20、染发剂红*1、染发剂蓝*1</p>
+						<p>排名の规则：<br>1.	活动页面内将每天刷新，展示本校/本市/本省的探险队人气排名，最终排名以2月20日00：00数据为准。无论是队长还是队员，每个探险家，每天最多拉20个队友。<br>2.  如出现并列情况，以时间优先，先到达最高人气的队伍获得奖励。<br>3.  	获奖团队，全队成员均可获得以上奖励。2月20号00：00后，登陆活动页，即可查看最终排名。<br> 4.	奖励将以礼包码的形式，登陆手机号，在H5内弹窗展示，如若丢失不予补发。同内容奖励，一个手机号限领一次，每个账号只可兑换1次。<br>5.	 特殊情况：<br>如本校探险队伍≤5支，将取消本校第一名奖励；<br>如本市探险队伍≤10支，将取消本市第一名奖励；<br>如本省探险队伍≤30支，将取消本省前三名奖励；<br>如有恶意刷票行为，后台监测将直接取消全队奖励资格。<br>6.	明星队奖励，将在2月20日00：00后，三个工作日内，以活动页弹窗形式发送，3日内发送奖励，请注意查收。</p>
+						<p><span class="ru_tl">【创魔锦鲤，幸运一年】</span><br>活动页将在2月5日00：00时，在所有登陆过活动页的探险家中，抽取1人，获得“新年锦鲤”称号！<br>这只“新年锦鲤”，将获得2019年推出的，所有全新服装！</p>
+						<h5 class="tl2">锦鲤须知</h5>
+						<p>1.	2月5号00：00后，登陆活动页，登陆手机号，即可查看锦鲤花落谁家。<br>2.	“新年锦鲤”活动为确保公平公正，堵上小创君的女朋友和抖音小编抖抖的一年份奶茶。<br>3.	这只锦鲤，请在中奖弹窗中填写正确的手机号及QQ，确保新年加班的工作人员可以联系到你哦。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--弹窗-->
+		<!-- 提示1：学校未被发现 -->
+		<div class="tc tc_box1">
+			<div class="c_tc c_tc1">
+			    <div class="tl_board"><img src="images/tl1.png" alt=""><h1>提示</h1></div>
+				<i class="close"></i>
+				<div class="tc_info">
+					<p class="school_name">成都第三中学</p>
+					<p class="info_text">你的学校尚未被探险家发现，快来做第一个吃螃蟹的人吧！ </p>
+				</div>
+				<a href="javascript:;" class="btn_tc btn_tc_jl">建立自己的探险队</a>
+			</div>
+		</div>
+		<!-- 提示2：选择探险队 -->
+		<div class="tc tc_box2">
+			<div class="c_tc c_tc2">
+			    <div class="tl_board"><img src="images/tl2.png" alt=""><h1>提示</h1></div>
+				<i class="close"></i>
+				<div class="tc_info">
+					<p class="school_name">成都第三中学</p>
+					<p class="info_text">你的学校已经有如下探险队，是否选择加入？</p>
+					<div class="sel_box">
+						<ul>
+							<li><p>飞翔的荷兰人</p><i></i></li>
+							<li><p>百慕大1队</p><i></i></li>
+							<li class="active"><p>我的世界有ni</p><i></i></li>
+							<li><p>巨人岛</p><i></i></li>
+							<li><p>飞翔的荷兰人</p><i></i></li>
+							<li><p>百慕大1队</p><i></i></li>
+							<li><p>我的世界有ni</p><i></i></li>
+							<li><p>巨人岛</p><i></i></li>
+						</ul>
+					</div>
+				</div>
+				<a href="javascript:;" class="btn_tc btn_tc_jl">确认加入</a>
+				<a href="javascript:;" class="btn_tc2 btn_tc_nojl">不！我要建立自己的探险队</a>
+			</div>
+		</div>
+		<!-- 提示0：我的队伍 -->
+		<div class="tc tc_box0">
+			<div class="c_tc c_tc0">
+			     <div class="tl_board"><img src="images/tl2.png" alt=""><h1>我的队伍</h1></div>
+				<i class="close"></i>
+				<div class="tc_info">
+					<p class="info_text">已加入的队伍如下:</p>
+					<div class="sel_box">
+						<ul>
+							<li><p><span class="term_zw">[队长]</span><span class="term_txt">飞翔的荷兰人</span></p><i></i></li>
+							<li><p><span class="term_zw">[队长1]</span><span class="term_txt">飞翔的荷兰人0</span></p><i></i></li>
+							<li><p><span class="term_zw">[队长2]</span><span class="term_txt">飞翔的荷兰人1</span></p><i></i></li>
+							<li><p><span class="term_zw">[队长3]</span><span class="term_txt">飞翔的荷兰人3</span></p><i></i></li>
+							<li><p><span class="term_zw">[队长4]</span><span class="term_txt">飞翔的荷兰人2</span></p><i></i></li>
+						</ul>
+					</div>
+				</div>
+				<a href="javascript:;" class="btn_tc btn_tc_jl">确认加入</a>
+				<a href="javascript:;" class="btn_tc2 btn_tc_nojl">不！我要建立自己的探险队</a>
+			</div>
+		</div>
+		<!-- 提示3：探险队地域不符 -->
+		<div class="tc tc_box3">
+			<div class="c_tc c_tc3">
+			    <div class="tl_board"><img src="images/tl4.png" alt=""><h1>提示</h1></div>
+				<i class="close"></i>
+				<div class="tc_info">
+					<p class="info_text"><span class="school_name">成都第三中学<i>百慕大</i></span>探险队因与你地域不符，不可加入~不要灰心，还有这些探险队等着你！</p>
+					<div class="sel_box">
+						<ul>
+							<li><p>飞翔的荷兰人</p><i></i></li>
+							<li><p>百慕大1队</p><i></i></li>
+							<li class="active"><p>我的世界有ni</p><i></i></li>
+							<li><p>巨人岛</p><i></i></li>
+							<li><p>飞翔的荷兰人</p><i></i></li>
+							<li><p>百慕大1队</p><i></i></li>
+							<li><p>我的世界有ni</p><i></i></li>
+							<li><p>巨人岛</p><i></i></li>
+						</ul>
+					</div>
+				</div>
+				<a href="javascript:;" class="btn_tc btn_tc_jl">确认加入</a>
+				<a href="javascript:;" class="btn_tc2 btn_tc_nojl">不！我要建立自己的探险队</a>
+			</div>
+		</div>
+		<!-- 提示4：新年锦鲤 -->
+		<div class="tc tc_box4">
+			<div class="c_tc c_tc4">
+			    <div class="tl_board"><img src="images/tl4.png" alt=""><h1>新年锦鲤</h1></div>
+				<i class="close"></i>
+				<div class="tc_info">
+					<p class="info_text">《创造与魔法》将在2月5日00：00时在之前所有登陆过活动页的探险家中抽取1人获得“新年锦鲤”称号！</p>
+					<a href="javascript:;" class="info_url">这只“新年锦鲤”将获得2019年推出的，所有全新服装！</a>
+					<p class="info_text">记得收藏活动页，大年夜记得来看哦~</p>
+				</div>	
+				<a href="javascript:;" class="btn_tc btn_tc_sure">确认</a>
+			</div>
+		</div>
+		<!-- 提示5：登录有奖 -->
+		<div class="tc tc_box5">
+			<div class="c_tc c_tc5">
+			    <div class="tl_board"><img src="images/tl5.png" alt=""><h1>登录有奖</h1></div>
+				<i class="close close_code"></i>
+				<div class="tc_info">
+					<p class="info_text">登陆就有奖！恭喜获得<span>物品名称123</span></p>
+					<p class="gift_code">礼包码<span>rfgeryesdfsdfdsfrtyrety</span><a href="javascript:;">复制</a></p>
+					<p class="text_dec">记得分享到QQ群和微信，让更多伙伴看见，他们一定会给你点赞的！<br><span>一定要收藏H5</span> <br>	2月5日，来看创魔锦鲤是不是你！ <br>	2月20日后,查看我的小队明星奖！</p>
+				</div>	
+				<a href="javascript:;" class="btn_tc btn_tc_sure">确认</a>
+			</div>
+		</div>
+		<!-- 提示6：登录有奖 -->
+		<div class="tc tc_box6">
+			<div class="c_tc c_tc6 ">
+			    <div class="tl_board"><img src="images/tl6.png" alt=""><h1>校园联盟-创魔探险队</h1></div>
+				<i class="close close_code"></i>
+				<div class="tc_info">
+					<p class="info_text"><span class="captain">xxx</span>队长/亲爱的<span class="captain">XXX</span>: <br>&nbsp;&nbsp;&nbsp;&nbsp;恭喜！<span class="result">XXXXXtX（获奖原因，比如：你的探险队人数超过了100人！宇宙最6！/</span>你所在的队伍XXX获得本市第一名!）,奖励<span class="gift_name">物品名称123</span></p>
+					<p class="gift_code">礼包码<span>rfgeryesdfsdfdsfrtyrety</span><a href="javascript:;">复制</a></p>
+					<p class="text_dec">记得分享到QQ群和微信，让更多伙伴看见，他们一定会给你点赞的！<br><span>一定要收藏H5</span> <br>	2月5日，来看创魔锦鲤是不是你！ <br>	2月20日后,查看我的小队明星奖！</p>
+				</div>	
+			</div>
+		</div>
+		<!-- 提示7：登录有奖 -->
+		<div class="tc tc_box7">
+			<div class="c_tc c_tc7">
+			    <div class="tl_board"><img src="images/tl7.png" alt=""><h1>创魔锦鲤！</h1></div>
+				<i class="close close_code"></i>
+				<div class="tc_info">
+					<p class="info_text">亲爱的<span class="captain">XXX</span>: <br>&nbsp;&nbsp;&nbsp;&nbsp; 恭喜你成为2019年度创魔锦鲤！！！欧气MAX！有！没！有！<br>	请填写如下信息，2月20日后，将有专人与你联系</p>
+					<div class="user_addinfo">
+						<p class="qf_and"><input type="text" class="co_username" placeholder="请输入您的名字"/></p>
+                        <p class="qf_and">
+                            <input type="text" class="co_qufu" placeholder="请输入区服"/>
+                        </p>
+                        <p class="qf_and"><input type="text" class="co_hallid" placeholder="大厅ID" /></p>
+                        <div class="qf_and2">
+                        	<p class="qf_and"><input type="text" class="co_tel" placeholder="手机" /></p>
+                        	<p class="qf_and"><input type="text" class="co_qq" placeholder="QQ" /></p>
+                        </div>
+                        <div class="qf_and2">
+                        	<p class="qf_and"><input type="text" class="co_weixin" placeholder="微信" /></p>
+                        	<p class="qf_and"><input type="text" class="co_jjtel" placeholder="紧急联系手机" /></p>
+                        </div>
+					</div>
+				</div>
+				<a href="javascript:;" class="btn_tc btn_tc_jlgift">确认</a>	
+			</div>
+		</div>
+		<div class="tc tc_box8">
+			<div class="c_tc c_tc8">
+			    <div class="tl_board"><img src="images/tl2.png" alt=""><h1>提示</h1></div>
+				<i class="close"></i>
+				<div class="tc_info">
+					<div class="g_price">
+                    <div class="price_div">
+                        <span>奖励名称</span>
+                        <span>礼包码</span>
+                    </div>
+                    <div class="g_price2">
+                    <ul class="price_ul"><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li><li><span class="name_txt align-center-vertical">强化点*50000</span><span class="name_code align-center-vertical" id="page_gold_code21">E03WL3LZTHNV</span><a href="javascript:;" id="tc2_copy_btn21" data-clipboard-action="copy" data-clipboard-target="#page_gold_code21" class="copy21">复制</a></li></ul>
+                    </div>
+                </div>
+				</div>
+				<a href="javascript:;" class="btn_tc btn_tc_sure">确认</a>
+			</div>
+		</div>
+		<!-- 分享 -->
+		<div class="share_bg hidden"></div>
+		<!--微信分享提示-->
+		<!--横竖屏-->
+		<div id="orientLayer" class="mod-orient-layer">
+			<div class="mod-orient-layer__content"> <i class="icon mod-orient-layer__icon-orient"></i>
+				<div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+			</div>
+		</div>
+
+		<script src="js/swiper.min.js"></script>
+		<script src="js/swiper.animate.min.js"></script>
+		<!-- <script src="js/index.js"></script> -->
+		<script type="text/javascript">
+		 var lbs_uid=""//选择学校的uid
+        var selxx_name=""//选择学校的名字
+        var sc_city=""//选择学校城市
+        var sc_province=""//选择学校的省份
+        var sc_lat=""//选择学校的经度
+        var sc_lng=""//选择学校的维度
+		     // 请求学校列表
+        function sel_shool(lbs_uid,selxx_name,sc_city,sc_province,sc_lat,sc_lng){
+            // $.ajax({
+            //     'url':sel_xxterm,
+            //     'data':{'lbs_uid':lbs_uid},
+            //     'type':'POST',
+            //     'dataType':'Json',
+            //     success:function(data){
+            //         if(data.code==0){
+            //             if(data.msg != ""){
+            //                 // 有探险队
+            //                 $(".tc_box2 .sel_box ul").html();
+            //                 $(".tc_box2 .school_name").html(selxx_name);
+            //                 $(".tc").removeClass("active");
+            //                 $(".tc_box2").addClass("active");
+            //             }else{
+            //                  //没有探险队
+            //                 $(".tc_box1 .school_name").html(selxx_name);
+            //                 $(".tc").removeClass("active");
+            //                 $(".tc_box1").addClass("active");
+            //             }
+            //         }else{
+                        
+            //         }
+            //     }
+            // });
+            console.log(lbs_uid);
+            console.log(selxx_name);
+            console.log(sc_city);
+            console.log(sc_province);
+            console.log(sc_lat);
+            console.log(sc_lng);
+        }
+		function is_wx() {
+		var ua = navigator.userAgent.toLowerCase();
+		return ua.match(/MicroMessenger/i) == 'micromessenger';
+		}
+		//是否QQ
+		function is_qq() {
+		var ua = navigator.userAgent.toLowerCase();
+		return !!ua.match(/mqqbrowser|qzone|qqbrowser/i);
+		}
+        $(function(){
+   //      	if(is_wx()){
+   //      		alert("wx");
+			// }else if(is_qq()){
+			// 	alert("qq");
+			
+			// }else{
+			//     alert("other");
+			// }
+		   function local(){
+                var map = new BMap.Map("allmap");
+                var point = new BMap.Point();
+                var mPoint2 = "";
+                var lng2="";
+                var lat2="";
+                var local="";
+                var circle="";
+                var marker2="";
+                 //设置点的新图标
+                var myIcon = new BMap.Icon("images/school.png",new BMap.Size(23,23),{    
+                    // 指定定位位置。   
+                    // 当标注显示在地图上时，其所指向的地理位置距离图标左上    
+                    // 角各偏移10像素和25像素。您可以看到在本例中该位置即是   
+                    // 图标中央下端的尖角位置。    
+                    anchor: new BMap.Size(16,17.5),    
+                    // 设置图片偏移。   
+                    // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您   
+                    // 需要指定大图的偏移位置，此做法与css sprites技术类似。    
+                    imageOffset: new BMap.Size(0,0)   // 设置图片偏移    
+                });
+                // map.centerAndZoom(point,12);
+                var geolocation = new BMap.Geolocation();
+                geolocation.getCurrentPosition(function(r){
+                    if(this.getStatus() == BMAP_STATUS_SUCCESS){
+                        var mk = new BMap.Marker(r.point);
+                        map.addOverlay(mk);
+                        map.panTo(r.point);
+                        lng2=r.point.lng;
+                        my_lng=r.point.lng;
+                        lat2=r.point.lat;
+                        my_lat=r.point.lat;
+                        console.log('您的位置：'+r.point.lng+','+r.point.lat);
+                        mPoint2= new BMap.Point(lng2,lat2);
+                        circle = new BMap.Circle(mPoint2,5000,{fillColor:"#000", strokeWeight: 1 ,fillOpacity: 0.2, strokeOpacity: 0.2,icon:myIcon});
+                        map.addOverlay(circle);
+                        map.centerAndZoom(mPoint2,12);
+                        var options = {
+                            onSearchComplete: function(results){
+                                if (local.getStatus() == BMAP_STATUS_SUCCESS){
+                                    // 判断状态是否正确
+                                    var s = [];
+                                    var ad = [];
+                                    var ad2 = [];
+                                    for (var i = 0; i < results.getCurrentNumPois(); i ++){
+                                        s.push(results.getPoi(i).title + "," + results.getPoi(i).address);
+                                        ad.push(Number(results.getPoi(i).point.lng)+ "," +Number(results.getPoi(i).point.lat)+ "," + results.getPoi(i).title+ "," + results.getPoi(i).uid + "," + results.getPoi(i).province+ "," + results.getPoi(i).city);
+                                        var pt = new BMap.Point(results.getPoi(i).point.lng,results.getPoi(i).point.lat );
+                                        
+                                        // school_lid.push(results.getPoi(i).uid);
+                                        for(var j=0;j<ad.length;j++){
+                                            var yourString=ad[j];
+                                            var result=yourString.split(",");
+                                            for(var k=0;k<result.length;k++){
+                                              // console.log(result[k]);
+                                            }
+                                        }
+                                        ad2.push(result);
+                                        var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+                                        map.addOverlay(marker2);  
+                                        // map.centerAndZoom(pt, 12);
+                                        //跳动的动画
+                                    }
+                                    var opts = {
+                                            width :100,     // 信息窗口宽度
+                                            height:95,     // 信息窗口高度
+                                            title :"", // 信息窗口标题
+                                            enableMessage:true,//设置允许信息窗发送短息
+                                            message:"",
+                                    }
+                                    for(var i=0;i<ad2.length;i++){
+                                        var marker3 = new BMap.Marker(new BMap.Point(Number(ad2[i][0]),Number(ad2[i][1])),{icon:myIcon});  // 创建标注
+                                          var sc_uid=String(ad2[i][3]);//uid
+                                        var sc_name=String(ad2[i][2]);//学校名字
+                                        var sc_city=String(ad2[i][5]);//学校城市
+                                        var sc_province=String(ad2[i][4]);//学校省份
+                                        var sc_lat=String(ad2[i][0]);//学校经度
+                                        var sc_lng=String(ad2[i][1]);//学校纬度
+                                        var content = ad2[i][2]+"<a href='javascript:;' onclick='sel_shool(\""+sc_uid +"\",\""+sc_name+"\",\""+sc_city+"\",\""+sc_province+"\",\""+sc_lat+"\",\""+sc_lng+"\")' class='sel_this' data-id='"+ ad2[i][3] +"' data-name='"+ ad2[i][2]+ "'></a>";
+                                        map.addOverlay(marker3);               // 将标注添加到地图中
+                                        addClickHandler(content,marker3);
+                                    }
+                                    function addClickHandler(content,marker){
+                                        marker3.addEventListener("click",function(e){
+                                            openInfo(content,e)}
+                                        );
+                                    }
+                                    function openInfo(content,e){
+                                        var p = e.target;
+                                        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+                                        var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+                                        map.openInfoWindow(infoWindow,point); //开启信息窗口
+                                    }
+                                        map.addOverlay(marker3); 
+                                }
+                            },
+                        };
+                        local =  new BMap.LocalSearch(map,options);  
+                        local.searchNearby('学校',mPoint2,5000);
+                        var myGeo = new BMap.Geocoder();      
+                        // 根据坐标得到地址描述    
+                        myGeo.getLocation(mPoint2, function(result){      
+                            if (result){      
+                            $("#address").html(result.address);      
+                            }      
+                        });
+    
+                    }
+                    else {
+                        alert('failed'+this.getStatus());
+                    }        
+                },{enableHighAccuracy: true});
+            }
+            local();
+        });
+            $("body .swiper2").on("click",".map_box .sel_this",function(){
+                alert(1);
+            })
+		    // 弹窗关闭按钮
+			$(".close").click(function(){
+                $(this).parent().parent().hide();
+			});
+			//选择加入的探险队
+			$(".c_tc .sel_box ul li").click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+			});
+			//选择排名榜
+			$(".swiper5 .send_box2 .sel_box2 li").click(function(){
+                $(this).addClass("active").siblings().removeClass("active");
+                var index=$(this).index();
+                $(".swiper5 .send_box2 .sel_box3").eq(index).addClass("active").siblings().removeClass("active");
+			});
+			//排名前三名
+			$(".swiper4 .send_box2 .cy_namelist .cy_name ul li:lt(3)").addClass("active");
+			//查看全部成员
+			$(".look_all").click(function(){
+				$(".swiper4 .send_box2 .cy_namelist .cy_name ul li").addClass("active");
+				$(".swiper4 .send_box2 .cy_namelist .cy_name").css("height","auto");
+				$(".swiper4 .send_box2 .cy_namelist").css("height","auto");
+			})
+			// 活动规则
+			$(".btn_gz").click(function(){
+				$(".swiper-slide").addClass("hidden");
+                $(this).parents(".swiper-slide").addClass("on");
+				$(".swiper-slide.swiper6").removeClass("hidden");
+			})
+			// 活动规则返回按钮
+			$(".swiper6 .btn_return").click(function(){
+				$(".swiper-slide").addClass("hidden");
+				$(".swiper-slide.swiper6").addClass("hidden");
+				$(".swiper-slide.on").removeClass("hidden");
+			})
+			//登录按钮
+			$(".swiper1 .btn_add").click(function(){
+                 
+			})
+			$(".btn_add").click(function(){
+				$(".act_name").attr("readOnly","true");
+				$(".act_name").attr("value","似懂非懂");
+			})
+			//我的队伍
+
+            $(".swiper4 .return1").click(function(){
+                $(".tc").removeClass("active");
+                $(".swiper4").addClass("hidden");
+                $(".swiper2").removeClass("hidden");
+            })
+            // $(".kd_btn1").css("display","block");
+            // $(".swiper4 .send_box2 .btn_box .is_nocp").hide();
+		</script>
+      
+	</body>
+</html>
