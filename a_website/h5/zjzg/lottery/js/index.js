@@ -1,25 +1,31 @@
 h5_data=$(".h5_data").html();
-$(".inter_btn,.down_btn").click(function(){//下载埋点
-    // HLog.event('tk_luck_downbtn');
+$(".down_btn").click(function(){//下载埋点
+    HLog.event('tk_luck_downbtn');
 });
 var srf = $('meta[name="csrf-token"]').attr('content');
-var login_url='/ca/back/get-user-info.html?h5data='+h5_data;//判断用户是否登录
-var login_url1='/ca/back/login.html?h5data='+h5_data;//登录
+var login_url='/tk/luck/get-user-info.html?h5data='+h5_data;//判断用户是否登录
+var login_url1='/tk/luck/login.html?h5data='+h5_data;//登录
 var verify_url='/commonMethod/ajax-yuyue-verify.html?h5data='+h5_data;//登录发送验证码
-var lottery_url='/ca/back/lottery.html?h5data='+h5_data;//抽奖
-var out_url='/ca/back/logout.html?h5data='+h5_data;//注销登录
+var lottery_url='/tk/luck/lottery.html?h5data='+h5_data;//抽奖
+var out_url='/tk/luck/logout.html?h5data='+h5_data;//注销登录
+var address_url='/tk/luck/save-address.html?h5data='+h5_data;//地址信息提交
+var dzgain_url='/tk/luck/get-address.html?h5data='+h5_data;//地址信息获取
+var down_lotteryNum='/tk/luck/downloadlog.html?h5data='+h5_data;//下载按钮判断抽奖次数
 var baseurl="";
+var total_ltnum="";//总的抽奖次数
+var sy_ltnum="";//剩余抽奖奖次数
 var is_list=false;
 var is_shiwu=false;
+var is_xztc=false;//下载弹窗
 var prize1={
-        '0':{name:"雨燕*3天"},
-        '1':{name:"4阶材料包*5"},
-        '2':{name:"虎王坦克模型"},
-        '3':{name:"mate20"},
-        '4':{name:"99式原型(永久)"},
-        '5':{name:"黄金*20"},
-        '6':{name:"主题卫衣"},
-        '7':{name:"悍马*3天"}
+        '525':{name:"雨燕*3天"},
+        '527':{name:"4阶材料包*5"},
+        '520':{name:"虎王坦克模型"},
+        '522':{name:"mate20"},
+        '523':{name:"99式原型(永久)"},
+        '526':{name:"黄金*200"},
+        '521':{name:"主题卫衣"},
+        '524':{name:"悍马*3天"}
     }
 //手机类型判断
 var u = navigator.userAgent,
@@ -89,11 +95,22 @@ function is_login(){
         'dataType':'Json',
         success:function(data){
             if(data.code==0){
+                $(".down_btn").addClass("down_game");
+                total_ltnum=data.data.total_num;
+                console.log(total_ltnum);
+                if(total_ltnum==1){
+                    is_xztc=true;
+                }else{
+                    is_xztc=false;
+                }
+                console.log(is_xztc);
+                sy_ltnum=data.data.residue_num
                 $(".co_before").addClass("hidden");
                 $(".co_after").removeClass("hidden");
                 $('.count').text(data.data.residue_num);
                 //$('.count_all').text(data.data.total_num);
                 $('.user_phone').text(data.data.phone);
+                $('.tel_input').val(data.data.phone);
                 var length= Object.keys(data.data.gift_log).length;
                 if(length>0){
                     is_list=true;
@@ -110,6 +127,45 @@ function is_login(){
                 }
             }else{}
         }
+    });
+}
+//获取地址信息
+function getAddress(){
+     $.ajax({
+        'url':dzgain_url,
+        'data':{},
+        'type':'GET',
+        'dataType':'Json',
+        success:function(data){
+            if(data.code==0){
+                $('.co_tips_address .tel_input').val($(".user_phone").text());
+                $('.co_tips_address .yb_num').val(data.data.address_code);
+                $('.co_tips_address .name_input').val(data.data.address_username);
+                $('.co_tips_address .tail_address').text(data.data.address);
+                $(".co_tips_address").removeClass("hidden");
+            }else{
+                $(".co_tips_address").removeClass("hidden");
+            }
+        }
+    });
+}
+// 下载按钮增加抽奖次数
+function add_chance(){
+    $.ajax({
+            'url':down_lotteryNum,
+            'data':{},
+            'type':'POST',
+            'dataType':'Json',
+            success:function(data){
+                if(data.code==0){
+                    $('.count').text(data.data.residue_num);
+                }else{
+                    alert(data.msg);
+                }
+            },
+            error:function(){
+                alert("请求出错了哦~");
+            }
     });
 }
 //登录请求
@@ -135,12 +191,14 @@ function get_login(){
         success:function(data){
             if(data.code==0){
                 alert("登陆成功");
+                $(".down_btn").addClass("down_game");
                 $(".co_tips_login").addClass("hidden");
                 $(".co_before").addClass("hidden");
                 $(".co_after").removeClass("hidden");
                 $('.count').text(data.data.residue_num);
                 //$('.count_all').text(data.data.total_num);
                 $('.user_phone').text(data.data.phone);
+                $('.tel_input').val(data.data.phone);
                 var length= Object.keys(data.data.gift_log).length;
                 if(length>0){
                     is_list=true;
@@ -174,17 +232,17 @@ $(".co_tips_close,.co_tips_surebtn").click(function(){
     if($(this).hasClass("add_dizhi")){
         $(".co_tips").addClass("hidden");
         $(".co_tips.co_tips_address").removeClass("hidden");
-        $('.co_tips input').val("");
+        $('.co_tips.co_tips_login input').val("");
         $(".co_error").removeClass("co_err_show");
     }else{
         $(".co_tips").addClass("hidden");
-        $('.co_tips input').val("");
+        $('.co_tips.co_tips_login input').val("");
         $(".co_error").removeClass("co_err_show");
     } 
 });
 //登录弹框显示
 $(".co_loginbtn").click(function(){
-    // HLog.event('tk_luck_loginbtn');
+    HLog.event('tk_luck_loginbtn');
     $(".co_tips_login").removeClass("hidden");
 });
 //登录获取验证码
@@ -202,7 +260,7 @@ $(".co_codebtn1").click(function(){
         showErr(1, "验证码不能为空哦");
         return;
     }hideErr(1);
-    $.post(verify_url,{ 'type': "ios", "phone":my_phone,"captcha":captcha, "smsContent":"您正在进行《巅峰坦克》抽奖活动登录","cms_csrf":srf },function(data){
+    $.post(verify_url,{ 'type': "ios", "phone":my_phone,"captcha":captcha, "smsContent":"您正在进行《巅峰坦克》活动登录","cms_csrf":srf },function(data){
         if(data.status == 0){
             $(".co_codebtn1").css("pointer-events","none");
             page_djs($(".co_codebtn1"),function(){
@@ -217,10 +275,11 @@ $(".co_codebtn1").click(function(){
 //点击登陆
 $(".co_tips_loginbtn").click(function(){
     get_login();
-    // HLog.event('tk_luck_surebtn');
+    HLog.event('tk_luck_surebtn');
 });
 //中奖纪录弹框显示
 $(".check_ward").click(function(){
+    HLog.event('tk_luck_giftlist');
     if($(".co_after.hidden").length>0){
         $(".co_tips_login").removeClass("hidden");
     }else{
@@ -233,18 +292,16 @@ $(".check_ward").click(function(){
 });
 //填写地址
 $(".address_btn").click(function(){
+    HLog.event('tk_luck_address');
     if($(".co_after.hidden").length>0){
         $(".co_tips_login").removeClass("hidden");
     }else{
-        if(is_shiwu==true){
-            $(".co_tips_address").removeClass("hidden");
-        }else{
-            alert("您还没有抽中实物哦~");
-        }
+        getAddress();
     }
 });
 //注销登录
 $(".logout").click(function(){
+    HLog.event('tk_luck_zhuxiao');
     $.ajax({
         'url':out_url,
         'data':{},
@@ -254,24 +311,62 @@ $(".logout").click(function(){
             if(data.code==0){
                 alert("注销成功");
                 $(".co_before").removeClass("hidden");
+                $(".down_btn").removeClass("down_game");
                 $(".co_after").addClass("hidden");
                 $('.count').text("0");
-                //$('.count_all').text("0");
                 $('.user_phone').text("");
                 is_list=false;
                 $('.table_list').empty();
                 $(".co_codebtn1").html("获取验证码");
-                $(".co_codebtn1").css("pointer-events","auto");
-                if(djs_timer){
-                    clearInterval(djs_timer);
-                }
+                $(".co_codebtn1").css("pointer-events","auto");         
             }else{
                 alert(data.msg);
             }
         }
     });
 });
-
+// 地址信息提交
+$(".co_tips_address .co_tips_ressbtn").click(function(){
+    var delivery_name = $(".name_input").val();
+    var delivery_postcode = $(".yb_num").val();
+    var delivery_phone = $(".tel_input").val();
+    var delivery_address = $(".tail_address").val();
+    
+    if(delivery_phone == "" || delivery_phone == undefined) {
+        alert("手机号不能为空");
+        return;
+    }
+    if(delivery_phone.length != 11) {
+        alert("手机号有误");
+        return;
+    }
+    if(delivery_postcode == "" || delivery_postcode == undefined) {
+        alert("邮编不能为空");
+        return;
+    }
+    if(delivery_name == "" || delivery_name == undefined) {
+        alert("姓名不能为空");
+        return;
+    }
+    if(delivery_address == "" || delivery_address == undefined) {
+        alert("地址不能为空");
+        return;
+    }
+    $.post(address_url,{
+        "address_username": delivery_name,
+        "address_code": delivery_postcode,
+        "address_phone": delivery_phone,
+        "address": delivery_address,
+        "cms_csrf":srf 
+    }, function(data) {
+        if(data.code == 0) {
+            alert("地址信息提交成功！");
+            $(".co_tips.co_tips_address").addClass("hidden");
+        }else{
+            alert(data.msg);
+        }
+    }, "json");
+})
 //复制
 var clipboard=new Clipboard('.copy');
 clipboard.on('success', function(e) {
@@ -285,13 +380,13 @@ var rotateTimeOut = function (){
         animateTo:2182.5,
         duration:8000,
         callback:function (){
-            alert('网络超时，请检查您的网络设置！');
+            alert('请求出错了哦~');
         }
     });
 };
 var rotateconf={
     bRotate:false,
-    gifts:["雨燕*3天","4阶材料包*5","虎王坦克模型","mate20","99式原型(永久)","黄金*20","主题卫衣","悍马*3天"]
+    gifts:["雨燕*3天","4阶材料包*5","虎王坦克模型","mate20","99式原型(永久)","黄金*200","主题卫衣","悍马*3天"]
 }
 //旋转转盘 item:奖品位置; txt：提示语,code是礼包码;
 var rotateFn = function (item){
@@ -323,7 +418,7 @@ var rotateFn = function (item){
     });
 };
 $('.pointer').click(function (){
-    // HLog.event('tk_luck_lotterybtn');
+    HLog.event('tk_luck_lotterybtn');
     //抽奖前先判断是否登录
     if($(".co_after.hidden").length>0){
         //登录之前
@@ -342,7 +437,7 @@ $('.pointer').click(function (){
                     // $(".co_tips_ward .tips_name span").text(prize1[item].name);
                     // var img_show="img[data-id="+item+"]";
                     // $(".co_tips.co_tips_ward .co_form>div.gift_img").find($(img_show)).addClass("active");
-//				},1000);
+//				},1000);         
             $.ajax({
                 'url':lottery_url,
                 'data':{},
@@ -351,6 +446,13 @@ $('.pointer').click(function (){
                 success:function(data){
                     if(data.code==0){
                         var now_count=$('.count').text();
+                        total_ltnum=data.data.user_info.total_num;
+                        console.log(total_ltnum);
+                        if(total_ltnum==1){
+                            is_xztc=true;
+                        }else{
+                            is_xztc=false;
+                        }
                         $('.count').text(now_count-1);
                         var id=data.data.gift_id;
                         var img_show="img[data-id="+id+"]";
@@ -360,25 +462,24 @@ $('.pointer').click(function (){
                         $(".co_tips.co_tips_ward .co_form>div.gift_img").find($(img_show)).addClass("active");
                         $(".co_tips_ward .tips_code .code_copy").attr("data-clipboard-text",data.data.code);
                         var item="";
-                        if(data.data.gift_id==458){//雨燕*3天
+                        if(data.data.gift_id==525){//雨燕*3天
                             item=0;
-                        }else if(data.data.gift_id==453){//4阶材料包*5
+                        }else if(data.data.gift_id==527){//4阶材料包*5
                             item=1;
-                        }else if(data.data.gift_id==454){//虎王坦克模型
+                        }else if(data.data.gift_id==520){//虎王坦克模型
                             item=2;
-                        }else if(data.data.gift_id==455){//mate20
+                        }else if(data.data.gift_id==522){//mate20
                             item=3;
-                        }else if(data.data.gift_id==456){//99式原型(永久)
+                        }else if(data.data.gift_id==523){//99式原型(永久)
                             item=4;
-                        }else if(data.data.gift_id==457){//黄金*20
+                        }else if(data.data.gift_id==526){//黄金*200
                             item=5;
-                        }else if(data.data.gift_id==0){//主题卫衣
+                        }else if(data.data.gift_id==521){//主题卫衣
                             item=6;
-                        }else if(data.data.gift_id==0){//悍马*3天
+                        }else if(data.data.gift_id==524){//悍马*3天
                             item=7;
                         }
                         rotateFn(item);
-
                         if(data.data.gift_id!==0){
                             var result1 = '';
                             result1 += "<p class='table_info'><span>"+prize1[id].name+"</span><span class='table_code'>"+data.data.code+"</span><span class='copy' data-clipboard-text='"+data.data.code+"'>复制</span></p>";
@@ -396,17 +497,23 @@ $('.pointer').click(function (){
                     rotateconf.bRotate = !rotateconf.bRotate;
                     $('.wheelcanvas').stopRotate();
                     rotateFn(1);
-                    alert("网络超时，请检查您的网络设置！");
+                    alert("请求出错了哦~");
                 }
             });
         }else{
-            alert("抽奖次数没有了哦！");
+            if(is_xztc==true){
+                $(".co_tips_down").removeClass("hidden");
+            }else{
+                alert("抽奖次数没有了哦！");
+            }
         }
     }
 
-
 });
-
+$("body").on("click",".down_game",function(){
+    HLog.event('tk_luck_downbtn');
+    add_chance();
+})
 
 
 

@@ -35,7 +35,7 @@
 			<div class="logo1">
 				<img src="images/lt_logo.png"/>
 			</div>
-			<a href="" class="down_btn"><img src="images/lt_btn.png" alt=""></a>
+			<a href="javascript:;" class="down_btn" target="_blank"><img src="images/lt_btn.png" alt=""></a>
 		</div>
 		<!-- 第二部分 -->
 		<div class="display_box">
@@ -197,18 +197,18 @@
 		</div>
 	</div>
 	<!-- 收货地址 -->
-	<div class="co_tips co_tips_address hidden">
+	<div class="co_tips co_tips_address">
 		<div class="co_con">
 			<a href="javascript:;" class="co_tips_close"></a>
 			<div class="add_inp div">
-			    	<p><input type="number" placeholder="手机号码" class="name_input" value="" class="term_btn" oninput="if(value.length>11)value=value.slice(0,11)" ></p>
-    				<p><input type="number" placeholder="邮编" class="qq_num" oninput="if(value.length>6)value=value.slice(0,6)"></p>
-    				<p><input type="text" placeholder="收货人姓名" class="qq_num" ></p>
+			    	<p><input type="number" placeholder="手机号码" class="tel_input" value="" class="term_btn" oninput="if(value.length>11)value=value.slice(0,11)" ></p>
+    				<p><input type="number" placeholder="邮编" class="yb_num" oninput="if(value.length>6)value=value.slice(0,6)"></p>
+    				<p><input type="text" placeholder="收货人姓名" class="name_input" ></p>
     				<div class="textarea">
-    					<textarea type="text" placeholder="详细地址..." class="address"></textarea>
+    					<textarea type="text" placeholder="详细地址..." class="address tail_address"></textarea>
     				</div>
 			</div>
-    		<div class="co_tips_surebtn"></div>
+    		<a class="co_tips_ressbtn" href="javascript:;"></a>
 		</div>
 	</div>
 	<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
@@ -217,6 +217,35 @@
 	<script src="js/clipboard.min.js" type="text/javascript"></script>
     <!-- <script src="js/index.js" type="text/javascript"></script> -->
 	<script>
+		$(".co_tips_address .co_tips_ressbtn").click(function(){
+			var delivery_name = $(".name_input").val();
+    var delivery_postcode = $(".yb_num").val();
+    var delivery_phone = $(".tel_input").val();
+    var delivery_address = $(".tail_address").val();
+     // 下载获取抽奖次数
+
+    
+    if(delivery_name == "" || delivery_name == undefined) {
+        alert("姓名不能为空");
+        return;
+    }
+    if(delivery_postcode == "" || delivery_postcode == undefined) {
+        alert("邮编不能为空");
+        return;
+    }
+    if(delivery_phone == "" || delivery_phone == undefined) {
+        alert("手机号不能为空");
+        return;
+    }
+    if(delivery_phone.length != 11) {
+        alert("手机号有误");
+        return;
+    }
+    if(delivery_address == "" || delivery_address == undefined) {
+        alert("地址不能为空");
+        return;
+    }
+		});
 		var mySwiper01 = new Swiper(".five_banner", {
 			effect: "coverflow",
 			autoplay:4000,
@@ -255,14 +284,14 @@
 			} 
 		});
 		var prize1={
-			'0':{name:"雨燕*3天"},
-			'1':{name:"4阶材料包*5"},
-			'2':{name:"虎王坦克模型"},
-			'3':{name:"mate20"},
-			'4':{name:"99式原型(永久)"},
-			'5':{name:"黄金*20"},
-			'6':{name:"主题卫衣"},
-			'7':{name:"悍马*3天"}
+			'525':{name:"雨燕*3天"},
+       		'527':{name:"4阶材料包*5"},
+       		'520':{name:"虎王坦克模型"},
+       		'522':{name:"mate20"},
+       		'523':{name:"99式原型(永久)"},
+       		'526':{name:"黄金*20"},
+       		'521':{name:"主题卫衣"},
+       		'524':{name:"悍马*3天"}
 		}
 		//抽奖
 		var rotateTimeOut = function (){
@@ -314,6 +343,7 @@ clipboard.on('success', function(e) {
     alert("已复制");
 });
 		$('.pointer').click(function (){
+			$(".down_btn").addClass("down_game");
 			if($(".count").text()>0){
 				if(rotateconf.bRotate) return;
 				rotateconf.bRotate = !rotateconf.bRotate;
@@ -335,6 +365,10 @@ clipboard.on('success', function(e) {
 				$(".co_tips_no").removeClass("hidden");
 			}
 		});
+		$(".i_main").on("click",".down_game",function(){
+       alert(1);
+        
+    })
 	</script>
 </body>
 
