@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>装甲战歌</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/css/swiper-3.4.2.min.css?{$smarty.const.VERSION}" />
+	<link rel="stylesheet" href="http://cdnstatic.yingxiong.com/footer/css/style.css">
+	<link rel="stylesheet" href="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/css/index.css?{$smarty.const.VERSION}" />
+	<script src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/js/jquery-1.11.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+	<script>
+		(function (doc, win) {
+			var docEl = doc.documentElement,
+			// 手机旋转事件,大部分手机浏览器都支持 onorientationchange 如果不支持，可以使用原始的 resize
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function () {
+						//clientWidth: 获取对象可见内容的宽度，不包括滚动条，不包括边框
+						var clientWidth = docEl.clientWidth;
+						if (!clientWidth) return;
+						docEl.style.fontSize = 16*(clientWidth / 320) + 'px';
+					};
+
+			recalc();
+			//判断是否支持监听事件 ，不支持则停止
+			if (!doc.addEventListener) return;
+			//注册翻转事件
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);
+	</script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?f183afb4e7ff5b06386ab52608aecea5";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	{csrf}
+</head>
+
+<body>
+	<div class="i_main" data-icon="{$share_icon}" data-title="{$share_title}" data-desc="{$share_desc}">
+		<div class="h5_wx" style="display: none;">{$is_warrant}</div>
+            <div class="h5_data" style="display: none;">{$h5data}</div>
+		<!--kv-->
+		<div class="con1">
+			<div class="logo1">
+				<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_logo.png?{$smarty.const.VERSION}"/>
+			</div>
+			<a href="http://downurl.yingxiong.com/url/tk_wapgw.html" class="down_btn" target="_blank"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_btn.png?{$smarty.const.VERSION}" alt=""></a>
+		</div>
+		<!-- 第二部分 -->
+		<div class="display_box">
+			<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_display.png?{$smarty.const.VERSION}" alt="">
+		</div>
+		<!--第三部分-->
+		<div class="lottery">
+			<div class="chengg"></div>
+			<div class="l_login">
+				<!--登录前-->
+				<p class="co_before">欢迎您，请<span class="co_loginbtn">[登录]</span></p>
+				<!--登录后-->
+				<p class="co_after hidden">欢迎您,<span class="user_phone"></span><span class="logout">[注销]</span></p>
+			</div>
+			<div class="lottery_box">
+				<div class="lottery_out_box">
+					<div class="lottery_inner_box">
+						<div class="wheelcanvas"></div>
+						<div class="pointer"></div>
+						<!--<div class="pointer_txt"></div>-->
+					</div>
+				</div>
+				<div class="lottery_num">当前剩余<span class="count">0</span>次</div>
+			</div>
+			<div class="btn_box">
+				<a href="javascript:;" class="address_btn"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_btn3.png?{$smarty.const.VERSION}" alt=""></a>
+				<a href="javascript:;" class="check_ward"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_btn4.png?{$smarty.const.VERSION}" alt=""></a>
+			</div>
+			<div class="rule_box">
+				<ul>
+					<li><i>1</i><span>活动期间，使用手机号登陆本界面即可获得1次抽奖机会，下载并成功安游戏后可额外获得1次抽奖机会，每个手机号最多获得2次抽奖机会。</span></li>
+					<li><i>2</i><span>抽中实物奖励的玩家需在上方填写地址和联系方式以便发放奖品。</span></li>
+					<li><i>3</i><span>活动时间：2019年3月20日-2019年3月22日</span></li>
+					<li><i>4</i><span>活动最终解释权归《巅峰坦克》官方所有。</span></li>
+				</ul>
+			</div>
+		</div>
+		<!--第三部分-->
+		<div class="ward_slider">
+			<div class="five_banner">
+            	<ul class="swiper-wrapper">
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/11.png?{$smarty.const.VERSION}" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/22.png?{$smarty.const.VERSION}" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/33.png?{$smarty.const.VERSION}" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/44.png?{$smarty.const.VERSION}" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/55.png?{$smarty.const.VERSION}" alt="" /></a>
+                	</li>
+                	<li class="swiper-slide">
+                	    <a href="javascript:;"><img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/66.png?{$smarty.const.VERSION}" alt="" /></a>
+                	</li>
+                </ul>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination01"></div>
+		</div>
+	</div>
+	<!--登录弹框-->
+	<div class="co_tips co_tips_login hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<div class="co_input">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_username" placeholder="请输入手机号码" oninput="if(value.length>11)value=value.slice(0,11)"/>
+						<p class="co_error">手机号码错误</p>
+					</div>
+					<div class="co_input hidden tp_yzm">
+						<input type="text"  class="captcha" placeholder="请输入验证码"/>
+						<span class="co_captcha"><img src="" alt=""/></span>
+						<p class="co_error">验证码错误</p>
+					</div>
+					<div class="co_input">
+						<input type="number" onKeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))" class="co_codenum1" placeholder="请输入验证码"/><span class="co_codebtn co_codebtn1">获取验证码</span>
+						<p class="co_error">验证码错误</p>
+					</div>
+				</div>
+			</div>
+			<div class="co_tips_loginbtn"></div>
+		</div>
+	</div>
+	<!--奖品弹框1-->
+	<div class="co_tips co_tips_ward hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<p class="tips_name">恭喜您获得<span></span></p>
+					<div class="has_code">
+					<p class="tips_code"><span class="code_num" id="code_num"></span><i class="code_copy copy" data-clipboard-text="">复制</i></p>
+					</div>
+					<div class="no_code">
+						<p  class="tips_code">快去填写收货地址吧</p>
+					</div>
+					<div class="gift_img">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf1.png?{$smarty.const.VERSION}" alt="" data-id="523" class="img">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf2.png?{$smarty.const.VERSION}" alt="" data-id="522" class="img2">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf3.png?{$smarty.const.VERSION}" alt="" data-id="520" class="img3">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf4.png?{$smarty.const.VERSION}" alt="" data-id="527" class="img4">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf5.png?{$smarty.const.VERSION}" alt="" data-id="525" class="img5">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf6.png?{$smarty.const.VERSION}" alt="" data-id="524" class="img6">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf7.png?{$smarty.const.VERSION}" alt="" data-id="521" class="img7">
+						<img src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/images/lt_gf8.png?{$smarty.const.VERSION}" alt="" data-id="526" class="img8">
+					</div>
+				</div>
+			</div>
+			<div class="co_tips_surebtn"></div>
+		</div>
+	</div>
+	<!--中奖记录弹框-->
+	<div class="co_tips co_tips_record hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<p class="table_title">
+						<span>奖品名称</span>
+						<span>礼包码</span>
+						<span></span>
+					</p>
+					<div class="table_list">
+					</div>
+				</div>
+			</div>
+			<div class="co_tips_surebtn"></div>
+		</div>
+	</div>
+	<!--下载弹框-->
+	<div class="co_tips co_tips_down hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="div">
+				<div class="co_form">
+					<p class="tips_txt">点击<a href="http://downurl.yingxiong.com/url/tk_wapgw.html" class="down_game" target="_blank">立即下载</a>按钮立即下载游戏</p>
+				</div>
+			</div>
+			<div class="co_tips_down"><a href="http://downurl.yingxiong.com/url/tk_wapgw.html" class="down_game" target="_blank"></a></div>
+		</div>
+	</div>
+	<!-- 收货地址 -->
+	<div class="co_tips co_tips_address hidden">
+		<div class="co_con">
+			<a href="javascript:;" class="co_tips_close"></a>
+			<div class="add_inp div">
+			    	<p><input type="number" placeholder="手机号码" class="tel_input" value="" class="term_btn" oninput="if(value.length>11)value=value.slice(0,11)" ></p>
+    				<p><input type="number" placeholder="邮编" class="yb_num" oninput="if(value.length>6)value=value.slice(0,6)"></p>
+    				<p><input type="text" placeholder="收货人姓名" class="name_input" ></p>
+    				<div class="textarea">
+    					<textarea type="text" placeholder="详细地址..." class="address tail_address"></textarea>
+    				</div>
+			</div>
+    		<a class="co_tips_ressbtn" href="javascript:;"></a>
+		</div>
+	</div>
+	<footer id="Hero-bar"><div class="f_t"><ul><li style="visibility: hidden;"><a href="javascript:alert('敬请期待!')" id="kefu">客服中心</a></li><li style="visibility: hidden;"><a href="javascript:alert('敬请期待!')" id="community">游戏社区</a></li></ul></div><p class="f_txt">版权所有：北京卓越晨星科技有限公司</p><p class="f_txt">京ICP备15026730号-2</p><p class="f_txt">COPY RIGHT   @2015-2019  ALL RIGHTS RESERVED</p><p class="f_txt" style="margin-bottom:10px;">联系方式：010-50948585</p><p class="f_link"><a href="//sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/4f6d0e4a76ec4ec1baa5b91e75404393">《网络文化经营许可证》 京网文[2015]0629-259号</a></p></footer>
+	<script src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/js/swiper-3.4.2.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/js/awardRotate.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+	<script src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/js/clipboard.min.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+    <script src="{$smarty.const.STATIC_DOMAIN}zjzg/lottery/js/index.js?{$smarty.const.VERSION}" type="text/javascript"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js?{$smarty.const.VERSION}"></script>
+    <script>
+    	 document.write('<script src="http://game.yingxiong.com/common/h5wx/h5wxjs.php?url=' +encodeURIComponent(location.href)+'"><\/script>');
+		</script>
+	<script>
+	$(function() {
+		var mySwiper01 = new Swiper(".five_banner", {
+			effect: "coverflow",
+			autoplay:4000,
+			speed: 1500,
+			prevButton:'.swiper-button-prev',
+        	nextButton:'.swiper-button-next',
+			pagination: '.swiper-pagination01',
+			centeredSlides: !0,
+			slidesPerView: 3,
+			loop: !0,
+			observer: !0,
+			observeParents: !0,
+			slideToClickedSlide: !0,
+			simulateTouch : false,
+			paginationClickable: true,
+        	autoplayDisableOnInteraction : false,
+			coverflow: {
+				rotate: 0,
+				stretch: -130,
+				depth: 600,
+				modifier: 1,
+				slideShadows: true
+			},
+		});
+		
+        var  h5_wx=$(".h5_wx").html();
+        var  h5_data=$(".h5_data").html();
+        var share_icon=$(".i_main").attr("data-icon");
+        var share_title=$(".i_main").attr("data-title");
+        var share_desc=$(".i_main").attr("data-desc");
+        var share = {
+            imgUrl      : "http:"+share_icon,
+            shareTitle  : share_title,
+            descContent : share_desc,
+            lineLink    : 'http://h5.yingxiong.com/index/tk/luck.html'
+        };
+        wx.config({
+            debug     : false,
+            appId     : wx_conf.appId,
+            timestamp : wx_conf.timestamp,
+            nonceStr  : wx_conf.nonceStr,
+            signature : wx_conf.signature,
+            jsApiList : [
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'chooseImage',
+                'previewImage',
+                'uploadImage',
+                'downloadImage'
+            ]
+        });
+        wx.ready(function(){
+            wx.onMenuShareAppMessage({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+            wx.onMenuShareTimeline({
+                title   : share.shareTitle,
+                desc    : share.descContent,
+                link    : share.lineLink,
+                imgUrl  : share.imgUrl,
+                success : function() {
+
+                }
+            });
+
+            wx.onMenuShareQQ({
+                title: share.shareTitle,
+                desc: share.descContent,
+                link: share.lineLink,
+                imgUrl: share.imgUrl,
+                success : function() {
+
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
+        });
+	</script>
+</body>
+
+</html>
